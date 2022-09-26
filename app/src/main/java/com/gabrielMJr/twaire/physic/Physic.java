@@ -4,6 +4,9 @@ import com.gabrielMJr.twaire.tools.Tools;
 
 public class Physic{
   
+  private static final String creatorName = "Gabriel MJr";
+  private static final String version = "1.0.2";
+  
   public static void main(String[] args) {
     return;
   }
@@ -15,3 +18,11 @@ public class Physic{
     return tools.normalize(list);
   }
 }
+
+  public String getCreatorName() {
+    return this.creatorName;
+  }
+
+  public String getVersion() {
+    return this.version;
+  }
