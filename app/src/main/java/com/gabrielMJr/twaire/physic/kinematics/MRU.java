@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic;
+ package com.gabrielMJr.twaire.physic;
 
 import com.gabrielMJr.twaire.physic.MRUIF;
 import com.gabrielMJr.twaire.physic.Physic;
@@ -6,8 +6,8 @@ import com.gabrielMJr.twaire.physic.Physic;
 public class MRU implements MRUIF {
 
   private static final Physic physic = new Physic();
-  public static final int getResult = 1;
-  public static final int getStep = 2;
+  public static final int GET_RESULT = 1;
+  public static final int GET_STEP = 2;
 
   /* Deslocamento */
   // Primeira fórmula do deslocamento. ∆S = S_final - S_inicial
@@ -24,17 +24,21 @@ public class MRU implements MRUIF {
 
   // Terceira fórmula de deslocamento: ∆S = (final_time - initial_time) x media_speed
   @Override
-  public String tVDisplacement(double initial_time, double final_time, double media_speed, int resultOrStep) {
+  public String tVDisplacement(
+    double initial_time,
+    double final_time,
+    double media_speed,
+    int resultOrStep) {
     double step1 = final_time - initial_time;
     double step2 = step1 * media_speed;
     String res = "";
     String signal;
     
     
-      if (resultOrStep == getResult) {
+      if (resultOrStep == GET_RESULT) {
           return String.valueOf(step2);
           
-      } else if (resultOrStep == getStep) {
+      } else if (resultOrStep == GET_STEP) {
 	      if (initial_time < 0) {
 		  	signal = "";
 	      } else {
@@ -68,10 +72,11 @@ public class MRU implements MRUIF {
   	      return res;
   	      
   	  } else {
-  	    return "Erro 404: third parameter not found";
+  	    return "Erro 404: fourth parameter not found";
   	  
 	} 
   }
+  
   
 
   // Deslocamento initial: S_inicial = S_final - ∆S
@@ -88,15 +93,20 @@ public class MRU implements MRUIF {
 
   // Lei do espaço: S = S_inicial + speed * ∆t
   @Override
-  public String spaceLaw(double initial_displacement, double speed, double variation_time, int stepOrResult) {
+  public String spaceLaw(
+    double initial_displacement,
+    double speed,
+    double variation_time,
+    int stepOrResult) 
+    {
     double step1 = speed * variation_time;
     double step2 = step1 + initial_displacement;
     String res = "";
     
-       if  (stepOrResult == getResult) {
+       if  (stepOrResult == GET_RESULT) {
          return String.valueOf(step2);
          
-       } else if (stepOrResult == getStep) {
+       } else if (stepOrResult == GET_STEP) {
            res =
              "S = "
              + physic.expNormalizer(initial_displacement)
@@ -121,7 +131,7 @@ public class MRU implements MRUIF {
         return res;
         
       } else {
-        return "Erro 404: third parameter not found";
+        return "Erro 404: fourth parameter not found";
       }
     }
     
@@ -152,10 +162,10 @@ public class MRU implements MRUIF {
     String signal1;
     String signal2;
     
-    if (resultOrStep == getResult) {
+    if (resultOrStep == GET_RESULT) {
       return String.valueOf (step3);
        
-    } else if (resultOrStep == getStep) {
+    } else if (resultOrStep == GET_STEP) {
 
       if (initial_displacement < 0) {
         signal1 = " ";
@@ -175,23 +185,31 @@ public class MRU implements MRUIF {
               + "m"
               + signal1
               + physic.expNormalizer(initial_displacement)
-              + "m) / ("
+              + "m) ÷ ("
               + physic.expNormalizer(final_time)
               + "s"
               + signal2
               + physic.expNormalizer(initial_time)
               + "s)";
 
-      res += "v = " + physic.expNormalizer(step1) + "m / " + physic.expNormalizer(step2) + "s";
+      res +=
+            "\n"
+            + "v = "
+            + physic.expNormalizer(step1) 
+            + "m ÷ " 
+            + physic.expNormalizer(step2) 
+            + "s";
 
-      res += "v = " + physic.expNormalizer(step3) + "m/s";
-      
-      res += String.valueOf(step3);
+      res +=
+           "\n" 
+           + "v = " 
+           + physic.expNormalizer(step3) 
+           + "m/s";
 
       return res;
     
     } else {
-      return "Erro 404: third parameter not found";
+      return "Erro 404: fifth parameter not found";
     }
   } 
 
@@ -208,19 +226,23 @@ public class MRU implements MRUIF {
     return physic.expNormalizer(variation_displacement / speed);
   }
 
-  // Segunda fórmula de variação do tempo: ∆t = (final_displacement - initial_displacement) / speed
+  // Terceira fórmula de variação do tempo: ∆t = (final_displacement - initial_displacement) / speed
   @Override
-  public String tVTime(double initial_displacement, double final_displacement, double speed, int resultOrStep) {
+  public String tVTime(
+    double initial_displacement,
+    double final_displacement,
+    double speed,
+    int resultOrStep) {
   
     double step1 = final_displacement - initial_displacement;
     double step2 = step1 / speed;
     String res = "";
     String signal;
     
-    if (resultOrStep == getResult) {
+    if (resultOrStep == GET_RESULT) {
       return String.valueOf (step2);
        
-    } else if (resultOrStep == getStep) {
+    } else if (resultOrStep == GET_STEP) {
     
       if (initial_displacement < 0) {
         signal = " ";
@@ -234,19 +256,26 @@ public class MRU implements MRUIF {
             + "m"
             + signal
             + physic.expNormalizer(initial_displacement)
-            + "m) / ("
+            + "m) ÷ ("
             + physic.expNormalizer(speed)
             + "m/s)";
 
-      res += "∆t = " + physic.expNormalizer(step1) + "m / (" + physic.expNormalizer(speed) + "m/s)";
+      res += "\n"
+          + "∆t = "
+          + physic.expNormalizer(step1) 
+          + "m ÷ (" 
+          + physic.expNormalizer(speed) 
+          + "m/s)";
 
-      res += "∆t = " + physic.expNormalizer(step2) + "s";
-
-      res += String.valueOf(step2);
+      res += "\n"
+          + "∆t = " 
+          + physic.expNormalizer(step2) 
+          + "s";
+ 
       return res;
       
     } else {
-      return "Erro 404: third parameter not found";
+      return "Erro 404: fourth parameter not found";
     }
   }
 
