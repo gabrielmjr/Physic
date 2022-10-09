@@ -119,26 +119,23 @@ public class FluidFlow implements FluidFlowIF{
                        + Physic.expNormalizer(fluidFlow) 
                        + "m³/s" +  " ÷ [3.14 × (" 
                        +  Physic.expNormalizer(raio) 
-                       + "m)²]";
-      
-         result += "\nv = "
-                + Physic.expNormalizer(fluidFlow) 
-                + "m³/s" 
-                + " ÷ (3.14 × " 
-                + stp1 
-                + "m²)";
-      
-         result += "\nv = " 
-                + "(" 
-                + Physic.expNormalizer(fluidFlow) 
-                + "m³/s) ÷ " 
-                + "(" 
-                + Physic.expNormalizer(stp2) 
-                + "m²)";
-      
-         result += "\nv = " 
-                + Physic.expNormalizer(stp3) 
-                + "m/s";
+                       + "m)²]"
+                       + "\nv = "
+                       + Physic.expNormalizer(fluidFlow) 
+                       + "m³/s" 
+                       + " ÷ (3.14 × " 
+                       + stp1 
+                       + "m²)"
+                       + "\nv = " 
+                       + "(" 
+                       + Physic.expNormalizer(fluidFlow) 
+                       + "m³/s) ÷ " 
+                       + "(" 
+                       + Physic.expNormalizer(stp2) 
+                       + "m²)"
+                       + "\nv = " 
+                       + Physic.expNormalizer(stp3) 
+                       + "m/s";
       
          return result;    
         
@@ -177,21 +174,18 @@ public class FluidFlow implements FluidFlowIF{
                     + Physic.expNormalizer(fluidFlow) 
                     + "m³/s ÷ (3.14 × " 
                     + Physic.expNormalizer(velocidade) 
-                    + "m/s)]";
-      
-      result += "\nr = √[(" 
-             + Physic.expNormalizer(fluidFlow) 
-             + "m³/s) ÷ (" 
-             + Physic.expNormalizer(stp1) 
-             + "m/s)]";
-      
-      result += "\nr = √(" 
-             + Physic.expNormalizer(stp2) 
-             + "m²)";
-      
-      result += "\nr = " 
-             + Physic.expNormalizer(stp3) 
-             + "m";
+                    + "m/s)]"
+                    + "\nr = √[(" 
+                    + Physic.expNormalizer(fluidFlow) 
+                    + "m³/s) ÷ (" 
+                    + Physic.expNormalizer(stp1) 
+                    + "m/s)]"
+                    + "\nr = √(" 
+                    + Physic.expNormalizer(stp2) 
+                    + "m²)"
+                    + "\nr = " 
+                    + Physic.expNormalizer(stp3) 
+                    + "m";
       
       return result;
       

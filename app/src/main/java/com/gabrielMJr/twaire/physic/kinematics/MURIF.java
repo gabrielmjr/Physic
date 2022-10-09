@@ -22,4 +22,10 @@ public interface MURIF {
     public abstract String sVTime (double initial_speed, double final_speed, double acceleration, int stepOrResult);
     
     public abstract String initialTime (double final_time, double delta_speed, double acceleration, int stepOrResult);
+    
+    public abstract String finalTime (double initial_time, double delta_speed, double acceleration , int stepOrResult);
+    
+    public abstract String totalDisplacement (double initial_displacement, double initial_speed, double delta_time, double acceleration, int stepOrResult);
+    
+    public abstract String initialDisplacement (double initial_speed, double delta_time, double acceleration, double displacement, int stepOrResult);
 }

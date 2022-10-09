@@ -34,15 +34,13 @@ public class MUR implements MURIF {
            + physic.expNormalizer(finalTime)
            + " s - "
            + physic.expNormalizer(initialTime)
-           + "s)";
-           
-       res += "\na = ("
+           + "s)"
+           + "\na = ("
            + physic.expNormalizer(deltaSpeed)
            + "m/s) ÷ ("
            + physic.expNormalizer(step1)
-           + "s)";
-       
-       res += "\n"
+           + "s)"
+           + "\n"
            + "a = "
            + physic.expNormalizer(step2)
            + "m/s²";
@@ -80,17 +78,15 @@ public class MUR implements MURIF {
                + physic.expNormalizer(initial_speed)
                + "m/s) ÷ ("
                + physic.expNormalizer(variation_time)
-               + "s)";
-               
-      res += "\na = ("
-           + physic.expNormalizer(step1)
-           + "m/s) ÷ "
-           + physic.expNormalizer(variation_time)
-           + "s";
-           
-      res += "\na = "
-          + physic.expNormalizer(step2)
-          +"m/s²";
+               + "s)"
+               + "\na = ("
+               + physic.expNormalizer(step1)
+               + "m/s) ÷ "
+               + physic.expNormalizer(variation_time)
+               + "s"
+               + "\na = "
+               + physic.expNormalizer(step2)
+               +"m/s²";
       
       return res;
       
@@ -131,15 +127,13 @@ public class MUR implements MURIF {
             + physic.expNormalizer(final_time)
             + "s - "
             + physic.expNormalizer(initial_time)
-            + "s)";
-            
-        res += "\na = ("
+            + "s)"
+            + "\na = ("
             + physic.expNormalizer(step1)
             + "m/s) ÷ "
             + physic.expNormalizer(step2)
-            + "s";
-            
-        res += "\na = "
+            + "s"
+            + "\na = "
             + physic.expNormalizer(step3)
             + "m/s²";
             
@@ -182,15 +176,13 @@ public class MUR implements MURIF {
               + physic.expNormalizer(initial_time)
               + "s) × ("
               + physic.expNormalizer(acceleration)
-              + "m/s²)";
-              
-          res += "\n∆v = "
+              + "m/s²)"
+              + "\n∆v = "
               + physic.expNormalizer(step1)
               + "s × ("
               + physic.expNormalizer(acceleration)
-              + "m/s²)";
-              
-          res += "\n∆v = "
+              + "m/s²)"
+              + "\n∆v = "
               + physic.expNormalizer(step2)
               + "m/s";
               
@@ -227,15 +219,13 @@ public class MUR implements MURIF {
               + physic.expNormalizer(delta_time)
               + "s × "
               + physic.expNormalizer(acceleration)
-              + "m/s²";
-              
-          res += "\nvi = "
+              + "m/s²"
+              + "\nvi = "
               + physic.expNormalizer(final_speed)
               + "m/s - "
               + physic.expNormalizer(step1)
-              + "m/s";
-              
-          res += "\nvi = "
+              + "m/s"
+              +"\nvi = "
               + physic.expNormalizer(step2)
               + "m/s";
               
@@ -265,21 +255,19 @@ public class MUR implements MURIF {
          
          if (stepOrResult == GET_STEP) {
            res = "vf = "
-               + delta_time
+               + physic.expNormalizer (delta_time)
                + "s × "
-               + acceleration 
+               + physic.expNormalizer (acceleration)
                + "m/s² + "
-               + initial_speed
-               + "m/s";
-               
-           res += "\nvf = "
-               + step1 
+               + physic.expNormalizer (initial_speed)
+               + "m/s"
+               + "\nvf = "
+               + physic.expNormalizer (step1)
                + "m/s + "
-               + initial_speed
-               + "m/s";
-               
-           res += "\nvf = "
-               + step2
+               + physic.expNormalizer (initial_speed)
+               + "m/s"
+               + "\nvf = "
+               + physic.expNormalizer (step2)
                + "m/s";
                
            return res;             
@@ -317,21 +305,19 @@ public class MUR implements MURIF {
           
           if (stepOrResult == GET_STEP) {
             res = "∆t = ("
-                + final_speed
+                + physic.expNormalizer (final_speed)
                 + "m/s - "
-                + initial_speed
+                + physic.expNormalizer (initial_speed)
                 + "m/s) ÷ "
-                + acceleration 
-                + "m/s²";
-                
-            res += "\n∆t = "
-                + step1
+                + physic.expNormalizer (acceleration)
+                + "m/s²"
+                + "\n∆t = "
+                + physic.expNormalizer (step1)
                 + "m/s ÷ "
-                + acceleration 
-                + "m/s²";
-                
-            res += "\n∆t = "
-                + step2
+                + physic.expNormalizer (acceleration)
+                + "m/s²"
+                + "\n∆t = "
+                + physic.expNormalizer (step2)
                 + "s";
                 
             return res;
@@ -359,21 +345,19 @@ public class MUR implements MURIF {
             
             if (stepOrResult == GET_STEP) {
               res = "ti = "
-                  + final_time
+                  + physic.expNormalizer (final_time)
                   + "s - "
-                  + delta_speed
+                  + physic.expNormalizer (delta_speed)
                   + "m/s ÷ "
-                  + acceleration 
-                  + "m/s²";
-                  
-              res += "\nti = "
-                  + final_time
+                  + physic.expNormalizer (acceleration)
+                  + "m/s²"
+                  + "\nti = "
+                  + physic.expNormalizer (final_time)
                   + "s - "
-                  + step1
-                  + "s";
-                  
-              res += "\nti = "
-                  + step2
+                  + physic.expNormalizer (step1)
+                  + "s"
+                  + "\nti = "
+                  + physic.expNormalizer (step2)
                   + "s";
                   
               return res;
@@ -385,4 +369,189 @@ public class MUR implements MURIF {
               return "Error: fourth parameter not found.";
             }
           }
+          
+          
+          // Final time: tf = (∆v / a) + ti
+          @Override
+          public String finalTime (
+            double initial_time, 
+            double delta_speed, 
+            double acceleration, 
+            int stepOrResult)
+           {
+            double step1 = delta_speed / acceleration;
+            double step2 = step1 + initial_time;
+            String res;
+            
+            if (stepOrResult == GET_STEP) {
+              
+              res = "tf = "
+                  + physic.expNormalizer (initial_time)
+                  + "s + ("
+                  + physic.expNormalizer (delta_speed)
+                  + "m/s ÷ "
+                  + physic.expNormalizer (acceleration)
+                  + "m/s²)"
+                  + "\ntf = "
+                  + physic.expNormalizer (initial_time)
+                  + "s + "
+                  + step1
+                  + "s"
+                  +"\ntf = "
+                  + step2
+                  + "s";
+                  
+              return res;
+              
+            } else if (stepOrResult == GET_RESULT) {
+               
+              return physic.expNormalizer (step2);
+               
+            } else {
+              return "Error: fourth parameter not found.";
+            }
+          }
+          
+          
+          
+          // Displacement 
+          // total Displacement: S = si + vi * ∆t + (a * ∆t²) /2
+          @Override
+          public String totalDisplacement (
+            double initial_displacement,
+            double initial_speed,
+            double delta_time,
+            double acceleration,
+            int stepOrResult) 
+            {
+              double step1 = initial_speed * delta_time;
+              double step11 = Math.pow(delta_time, 2);
+              double step2 = initial_displacement + step1;
+              double step22 = acceleration * step11;
+              double step3 = step22 / 2;
+              double step4 = step2 + step3;
+              String res;
+              
+              if (stepOrResult == GET_STEP) {
+                
+                res = "S = "
+                    + physic.expNormalizer (initial_displacement)
+                    + "m + "
+                    + physic.expNormalizer(initial_speed) 
+                    + "m/s × "
+                    + physic.expNormalizer (delta_time) 
+                    + "s + ["
+                    + physic.expNormalizer(acceleration)
+                    + "m/s² × ("
+                    + physic.expNormalizer (delta_time) 
+                    + "s)²] ÷ 2"
+                    + "\nS = "
+                    + physic.expNormalizer(initial_displacement)
+                    + "m + "
+                    + physic.expNormalizer (step1)
+                    + "m + ("
+                    + physic.expNormalizer (acceleration)
+                    + "m/s² × "
+                    + physic.expNormalizer (step11)
+                    + "s²) ÷ 2"
+                    + "\nS = "
+                    + physic.expNormalizer (step2)
+                    + "m + ("
+                    + physic.expNormalizer (step22)
+                    + " ÷ 2) (m×s²)/s²"
+                    + "\nS = "
+                    + physic.expNormalizer (step2)
+                    + "m + "
+                    + physic.expNormalizer (step3)
+                    + "m"
+                    + "\nS = "
+                    + physic.expNormalizer (step4)
+                    + "m"
+                    ;
+                
+                return res;
+                
+              } else if (stepOrResult == GET_RESULT) {
+               
+                return physic.expNormalizer (step4);
+                
+              } else {
+                return "Error: fifth parameter not found.";
+              }
+            }
+            
+            
+            // Initial displacement: Si = S - [(vi * ∆t) + (a * ∆t²) / 2]
+            public String initialDisplacement (
+              double initial_speed, 
+              double delta_time, 
+              double acceleration, 
+              double displacement, 
+              int stepOrResult)
+              {
+                double step1 = initial_speed * delta_time;
+                double step11 = Math.pow (delta_time, 2);
+                double step2 = acceleration * step11;
+                double step3 = step2 / 2;
+                double step4 = step1 + step3;
+                double step5 = displacement - step4;
+                String res;
+                
+                if (stepOrResult == GET_STEP) {
+                
+                  res = "Si = "
+                      + displacement
+                      + "m - [("
+                      + initial_speed 
+                      + "m/s × "
+                      + delta_time
+                      + "s) + ["
+                      + acceleration 
+                      + "m/s² × ("
+                      + delta_time
+                      + "s)²] ÷ 2]"
+                      + "\nSi = "
+                      + displacement 
+                      + "m - ["
+                      + step1
+                      + "m + ("
+                      + acceleration
+                      + "m/s² × "
+                      + step11
+                      + "s²) ÷ 2]"
+                      + "\nSi = "
+                      + displacement
+                      + "m - ["
+                      + step1
+                      + "m + ("
+                      + step2
+                      + " ÷ 2)m]"
+                      + "\nSi = "
+                      + displacement 
+                      + "m - ("
+                      + step1
+                      + "m + "
+                      + step3
+                      + "m)"
+                      + "\nSi = "
+                      + displacement 
+                      + "m - "
+                      + step4
+                      + "m \nSi = "
+                      + step5
+                      + "m";
+                      
+                    return res;
+                  
+                } else if (stepOrResult == GET_RESULT) {
+                  
+                  return physic.expNormalizer(step5);
+                  
+                } else {
+                
+                  return "Error: fifth parameter not found.";
+                }
+                
+              }
+            
 }

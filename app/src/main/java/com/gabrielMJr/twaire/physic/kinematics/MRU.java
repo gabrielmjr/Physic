@@ -53,18 +53,14 @@ public class MRU implements MRUIF {
          	       + physic.expNormalizer(initial_time)
         	        + "s ) x ("
          	       + physic.expNormalizer(media_speed)
-              	  + "m/s)";
-
-	      res +=
-     	     "\n"
+              	  + "m/s)"
+     	           + "\n"
        	         + "∆S = "
         	        + physic.expNormalizer(step1)
         	        + "s x ("
               	  + physic.expNormalizer(media_speed)
-          	      + "m/s)";
-
-  	    res += 
-    	      "\n"
+          	      + "m/s)"
+             	   + "\n"
        	         + "∆S = "
           	      + physic.expNormalizer(step2) +
            	     "m";
@@ -114,19 +110,17 @@ public class MRU implements MRUIF {
              + physic.expNormalizer(speed)
              + "m/s x "
              + physic.expNormalizer(variation_time)
-             + "s";
-
-        res += "\n"
-            + "S = "
-            + physic.expNormalizer(initial_displacement)
-            + "m + "
-            + physic.expNormalizer(step1)
-            + "m";
-
-        res += "\n"
-            + "S = " 
-            + physic.expNormalizer(step2) 
-            + "m";
+             + "s"
+             + "\n"
+             + "S = "
+             + physic.expNormalizer(initial_displacement)
+             + "m + "
+             + physic.expNormalizer(step1)
+             + "m"
+             + "\n"
+             + "S = " 
+             + physic.expNormalizer(step2) 
+             + "m";
 
         return res;
         
@@ -190,21 +184,17 @@ public class MRU implements MRUIF {
               + "s"
               + signal2
               + physic.expNormalizer(initial_time)
-              + "s)";
-
-      res +=
-            "\n"
-            + "v = "
-            + physic.expNormalizer(step1) 
-            + "m ÷ " 
-            + physic.expNormalizer(step2) 
-            + "s";
-
-      res +=
-           "\n" 
-           + "v = " 
-           + physic.expNormalizer(step3) 
-           + "m/s";
+              + "s)"
+              + "\n"
+              + "v = "
+              + physic.expNormalizer(step1) 
+              + "m ÷ " 
+              + physic.expNormalizer(step2) 
+              + "s"
+              + "\n"
+              + "v = " 
+              + physic.expNormalizer(step3) 
+              + "m/s";
 
       return res;
     
@@ -258,19 +248,17 @@ public class MRU implements MRUIF {
             + physic.expNormalizer(initial_displacement)
             + "m) ÷ ("
             + physic.expNormalizer(speed)
-            + "m/s)";
-
-      res += "\n"
-          + "∆t = "
-          + physic.expNormalizer(step1) 
-          + "m ÷ (" 
-          + physic.expNormalizer(speed) 
-          + "m/s)";
-
-      res += "\n"
-          + "∆t = " 
-          + physic.expNormalizer(step2) 
-          + "s";
+            + "m/s)"
+            + "\n"
+            + "∆t = "
+            + physic.expNormalizer(step1) 
+            + "m ÷ (" 
+            + physic.expNormalizer(speed) 
+            + "m/s)"
+            + "\n"
+            + "∆t = " 
+            + physic.expNormalizer(step2) 
+            + "s";
  
       return res;
       
