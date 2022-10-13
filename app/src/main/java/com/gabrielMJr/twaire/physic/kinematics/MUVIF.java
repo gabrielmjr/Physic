@@ -1,6 +1,6 @@
 package com.gabrielMJr.twaire.physic;
 
-public interface MURIF {
+public interface MUVIF {
     public abstract String fAcceleration (double deltaSpeed, double deltaTime);
     
     public abstract String sAcceleration (double deltaSpeed, double initialTime, double finalTime, int stepOrResult);

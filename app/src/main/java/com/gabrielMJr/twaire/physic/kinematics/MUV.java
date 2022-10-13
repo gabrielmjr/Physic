@@ -1,13 +1,12 @@
 package com.gabrielMJr.twaire.physic;
 
-import com.gabrielMJr.twaire.physic.MURIF;
+import com.gabrielMJr.twaire.physic.MUVIF;
 import com.gabrielMJr.twaire.physic.Physic;
 
-public class MUR implements MURIF {
+public class MUV implements MUVIF {
 
-  public static final int GET_RESULT = 1;
-  public static final int GET_STEP = 2;
   private static final Physic physic = new Physic();
+
 
   // MUR, primeira fórmula de aceleração: a = delta_speed / delta_time
   @Override
@@ -27,7 +26,7 @@ public class MUR implements MURIF {
     double step2 = deltaSpeed / step1;
     String res = "a = (";
 
-    if (stepOrResult == GET_STEP) {
+    if (stepOrResult == physic.GET_STEP) {
     
       res += physic.expNormalizer(deltaSpeed)
            + "m/s) ÷ ("
@@ -47,11 +46,11 @@ public class MUR implements MURIF {
            
        return res;
        
-    } else if (stepOrResult == GET_RESULT) {
+    } else if (stepOrResult == physic.GET_RESULT) {
       return physic.expNormalizer((deltaSpeed) / (finalTime - initialTime));
       
     } else {
-      return "Error: fourth parameter not found.";
+      return "Error 404: fourth parameter not found.";
     }
   }
   
@@ -71,7 +70,7 @@ public class MUR implements MURIF {
     String res; 
     
     // If the user want the steps, return the steps
-    if (stepOrResult == GET_STEP) {
+    if (stepOrResult == physic.GET_STEP) {
       res = "a = ("
                + physic.expNormalizer(final_speed)
                + "m/s - "
@@ -91,11 +90,11 @@ public class MUR implements MURIF {
       return res;
       
     // Else if equals to get result, return result
-    } else if (stepOrResult == GET_RESULT) {
+    } else if (stepOrResult == physic.GET_RESULT) {
       return String.valueOf (step2);
       
     } else {
-      return "Error: fourth parameter not found.";
+      return "Error 404: fourth parameter not found.";
     }
   }
   
@@ -118,7 +117,7 @@ public class MUR implements MURIF {
       String res;
       
       // if stepOrResult.equals (getStep)
-      if (stepOrResult == GET_STEP) {
+      if (stepOrResult == physic.GET_STEP) {
         res = "a = ("
             + physic.expNormalizer(final_speed)
             + "m/s - "
@@ -139,11 +138,11 @@ public class MUR implements MURIF {
             
         return res;
         
-      } else if (stepOrResult == GET_RESULT) {
+      } else if (stepOrResult == physic.GET_RESULT) {
         return physic.expNormalizer(step3);
         
       } else {
-        return "Error: fifth parameter not found.";
+        return "Error 404: fifth parameter not found.";
       }
     }
     
@@ -169,7 +168,7 @@ public class MUR implements MURIF {
         double step2 = step1 * acceleration;
         String res;
         
-        if (stepOrResult == GET_STEP) {
+        if (stepOrResult == physic.GET_STEP) {
           res = "∆v = ("
               + physic.expNormalizer(final_time)
               + "s - "
@@ -189,11 +188,11 @@ public class MUR implements MURIF {
               
           return res;
           
-        } else if (stepOrResult == GET_RESULT) {
+        } else if (stepOrResult == physic.GET_RESULT) {
           return physic.expNormalizer (step2);
           
         } else {
-          return "Error: fourth parameter not found.";
+          return "Error 404: fourth parameter not found.";
         }
       }
     
@@ -212,7 +211,7 @@ public class MUR implements MURIF {
         double step2 = final_speed - step1;
         String res;
         
-        if (stepOrResult == GET_STEP) {
+        if (stepOrResult == physic.GET_STEP) {
           res = "vi = "
               + physic.expNormalizer(final_speed)
               + "m/s - "
@@ -231,11 +230,11 @@ public class MUR implements MURIF {
               
           return res;
           
-        } else if (stepOrResult == GET_RESULT) {
+        } else if (stepOrResult == physic.GET_RESULT) {
           return physic.expNormalizer (step2);
           
         } else {
-          return "Error: fourth parameter not found.";
+          return "Error 404: fourth parameter not found.";
         }
       }
       
@@ -253,7 +252,7 @@ public class MUR implements MURIF {
          double step2 = step1 + initial_speed;
          String res;
          
-         if (stepOrResult == GET_STEP) {
+         if (stepOrResult == physic.GET_STEP) {
            res = "vf = "
                + physic.expNormalizer (delta_time)
                + "s × "
@@ -272,11 +271,11 @@ public class MUR implements MURIF {
                
            return res;             
            
-         } else if (stepOrResult == GET_RESULT) {
+         } else if (stepOrResult == physic.GET_RESULT) {
            return physic.expNormalizer (step2);
            
          } else {
-           return "Error: fourth parameter not found.";
+           return "Error 404: fourth parameter not found.";
          }
       }
       
@@ -303,7 +302,7 @@ public class MUR implements MURIF {
           double step2 = step1 / acceleration;
           String res;
           
-          if (stepOrResult == GET_STEP) {
+          if (stepOrResult == physic.GET_STEP) {
             res = "∆t = ("
                 + physic.expNormalizer (final_speed)
                 + "m/s - "
@@ -322,11 +321,11 @@ public class MUR implements MURIF {
                 
             return res;
             
-          } else if (stepOrResult == GET_RESULT) {
+          } else if (stepOrResult == physic.GET_RESULT) {
             return physic.expNormalizer (step2);
             
           } else {
-            return "Error: fourth parameter not found.";
+            return "Error 404: fourth parameter not found.";
           }
         }
         
@@ -343,7 +342,7 @@ public class MUR implements MURIF {
             double step2 = final_time - step1;
             String res;
             
-            if (stepOrResult == GET_STEP) {
+            if (stepOrResult == physic.GET_STEP) {
               res = "ti = "
                   + physic.expNormalizer (final_time)
                   + "s - "
@@ -362,11 +361,11 @@ public class MUR implements MURIF {
                   
               return res;
                
-            } else if (stepOrResult == GET_RESULT) {
+            } else if (stepOrResult == physic.GET_RESULT) {
               return physic.expNormalizer (step2);
               
             } else {
-              return "Error: fourth parameter not found.";
+              return "Error 404: fourth parameter not found.";
             }
           }
           
@@ -383,7 +382,7 @@ public class MUR implements MURIF {
             double step2 = step1 + initial_time;
             String res;
             
-            if (stepOrResult == GET_STEP) {
+            if (stepOrResult == physic.GET_STEP) {
               
               res = "tf = "
                   + physic.expNormalizer (initial_time)
@@ -403,12 +402,12 @@ public class MUR implements MURIF {
                   
               return res;
               
-            } else if (stepOrResult == GET_RESULT) {
+            } else if (stepOrResult == physic.GET_RESULT) {
                
               return physic.expNormalizer (step2);
                
             } else {
-              return "Error: fourth parameter not found.";
+              return "Error 404: fourth parameter not found.";
             }
           }
           
@@ -432,7 +431,7 @@ public class MUR implements MURIF {
               double step4 = step2 + step3;
               String res;
               
-              if (stepOrResult == GET_STEP) {
+              if (stepOrResult == physic.GET_STEP) {
                 
                 res = "S = "
                     + physic.expNormalizer (initial_displacement)
@@ -471,12 +470,12 @@ public class MUR implements MURIF {
                 
                 return res;
                 
-              } else if (stepOrResult == GET_RESULT) {
+              } else if (stepOrResult == physic.GET_RESULT) {
                
                 return physic.expNormalizer (step4);
                 
               } else {
-                return "Error: fifth parameter not found.";
+                return "Error 404: fifth parameter not found.";
               }
             }
             
@@ -497,7 +496,7 @@ public class MUR implements MURIF {
                 double step5 = displacement - step4;
                 String res;
                 
-                if (stepOrResult == GET_STEP) {
+                if (stepOrResult == physic.GET_STEP) {
                 
                   res = "Si = "
                       + displacement
@@ -543,13 +542,13 @@ public class MUR implements MURIF {
                       
                     return res;
                   
-                } else if (stepOrResult == GET_RESULT) {
+                } else if (stepOrResult == physic.GET_RESULT) {
                   
                   return physic.expNormalizer(step5);
                   
                 } else {
                 
-                  return "Error: fifth parameter not found.";
+                  return "Error 404: fifth parameter not found.";
                 }
                 
               }
