@@ -9,7 +9,6 @@ public class Distance implements DistanceIF{
 
   // Those constants were used to tell to the program the unit that must use to calculate something
   // Also used to tell the unit from the variables as parameter
-  // The  didtance units String start with 0
   
   public final String KILOMETER = "0.001";
   public final String HECTOMETER = "0.01";
@@ -22,72 +21,72 @@ public class Distance implements DistanceIF{
   
   // Convert from another units to kilometer
   @Override
-  public String toKilometer (
+  public double toKilometer (
     double value,
     String value_unit)  
     {
       double res = (value * Double.valueOf(KILOMETER)) /
       Double.valueOf (value_unit);
-      return  String.valueOf(res);
+      return res;
     }
     
   // Convert from another units to hectometer
   @Override
-  public String toHectometer (
+  public double toHectometer (
     double value,
     String value_unit)
     {
       double res = (value * Double.valueOf (HECTOMETER)) / Double.valueOf (value_unit);
-      return String.valueOf (res);
+      return res;
     }
     
       // Convert from another units to decameter
   @Override
-  public String toDecameter (
+  public double toDecameter (
     double value,
     String value_unit)
     {
       double res = (value * Double.valueOf (DECAMETER)) / Double.valueOf (value_unit);
-      return String.valueOf (res);
+      return res;
     }
     
       // Convert from another units to meter
   @Override
-  public String toMeter (
+  public double toMeter (
     double value,
     String value_unit)
     {
       double res = (value * Double.valueOf (METER)) / Double.valueOf (value_unit);
-      return String.valueOf (res);
+      return res;
     }
     
       // Convert from another units to decimeter
   @Override
-  public String toDecimeter (
+  public double toDecimeter (
     double value,
     String value_unit)
     {
       double res = (value * Double.valueOf (DECIMETER)) / Double.valueOf (value_unit);
-      return String.valueOf (res);
+      return res;
     }
     
       // Convert from another units to centimeter
   @Override
-  public String toCentimeter (
+  public double toCentimeter (
     double value,
     String value_unit)
     {
       double res = (value * Double.valueOf (CENTIMETER)) / Double.valueOf (value_unit);
-      return String.valueOf (res);
+      return res;
     }
     
       // Comvert from another units to hectometer
   @Override
-  public String toMilimeter (
+  public double toMilimeter (
     double value,
     String value_unit)
     {
       double res = (value * Double.valueOf (MILIMETER)) / Double.valueOf (value_unit);
-      return String.valueOf (res);
+      return res;
     }
 }

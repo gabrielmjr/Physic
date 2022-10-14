@@ -1,17 +1,17 @@
 package com.gabrielMJr.twaire.physic;
 
 public interface DistanceIF {
-  public abstract String toKilometer(double value, String value_unit);
+  public abstract double toKilometer(double value, String value_unit);
 
-  public abstract String toHectometer(double value, String value_unit);
+  public abstract double toHectometer(double value, String value_unit);
   
-  public abstract String toDecameter(double value, String value_unit);
+  public abstract double toDecameter(double value, String value_unit);
   
-  public abstract String toMeter(double value, String value_unit);
+  public abstract double toMeter(double value, String value_unit);
   
-  public abstract String toDecimeter(double value, String value_unit);
+  public abstract double toDecimeter(double value, String value_unit);
   
-  public abstract String toCentimeter(double value, String value_unit);
+  public abstract double toCentimeter(double value, String value_unit);
   
-  public abstract String toMilimeter(double value, String value_unit);
+  public abstract double toMilimeter(double value, String value_unit);
 }
