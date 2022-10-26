@@ -2,8 +2,10 @@ package com.gabrielMJr.twaire.physic;
 
 import com.gabrielMJr.twaire.physic.Physic;
 import com.gabrielMJr.twaire.physic.DistanceIF;
+import com.gabrielMJr.twaire.physic.units.Units;
 
-public class Distance implements DistanceIF{
+//public class Distance implements DistanceIF{
+public class Distance implements Units{
 
   Physic physic = new Physic();
 
@@ -18,9 +20,18 @@ public class Distance implements DistanceIF{
   public final String CENTIMETER = "100";
   public final String MILIMETER = "1000";
   
+    // Symbols of those constants
+  public final String KILOMETER_SYMBOL = "km";
+  public final String HECTOMETER_SYMBOL = "hm";
+  public final String DECAMETER_SYMBOL = "dam";
+  public final String METER_SYMBOL = "m";
+  public final String DECIMETER_SYMBOL = "dm";
+  public final String CENTIMETER_SYMBOL = "cm";
+  public final String MILIMETER_SYMBOL= "mm";
+  
   
   // Convert from another units to kilometer
-  @Override
+  /*@Override
   public double toKilometer (
     double value,
     String value_unit)  
@@ -88,5 +99,5 @@ public class Distance implements DistanceIF{
     {
       double res = (value * Double.valueOf (MILIMETER)) / Double.valueOf (value_unit);
       return res;
-    }
+    }*/
 }

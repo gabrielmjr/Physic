@@ -11,7 +11,7 @@ public class MUV implements MUVIF {
   // MUR, primeira fórmula de aceleração: a = delta_speed / delta_time
   @Override
   public String fAcceleration(double deltaSpeed, double deltaTime) {
-    return physic.expNormalizer(deltaSpeed / deltaTime);
+    return String.valueOf(deltaSpeed / deltaTime);
   }
 
   // Segunda fórmula de aceleração: a = (deltaSpeed) / (finalTime - initialTime)
@@ -28,26 +28,26 @@ public class MUV implements MUVIF {
 
     if (stepOrResult == physic.GET_STEP) {
     
-      res += physic.expNormalizer(deltaSpeed)
+      res += deltaSpeed
            + "m/s) ÷ ("
-           + physic.expNormalizer(finalTime)
+           + finalTime
            + " s - "
-           + physic.expNormalizer(initialTime)
+           + initialTime
            + "s)"
            + "\na = ("
-           + physic.expNormalizer(deltaSpeed)
+           + deltaSpeed
            + "m/s) ÷ ("
-           + physic.expNormalizer(step1)
+           + step1
            + "s)"
            + "\n"
            + "a = "
-           + physic.expNormalizer(step2)
+           + step2
            + "m/s²";
            
        return res;
        
     } else if (stepOrResult == physic.GET_RESULT) {
-      return physic.expNormalizer((deltaSpeed) / (finalTime - initialTime));
+      return String.valueOf((deltaSpeed) / (finalTime - initialTime));
       
     } else {
       return "Error 404: fourth parameter not found.";
@@ -72,19 +72,19 @@ public class MUV implements MUVIF {
     // If the user want the steps, return the steps
     if (stepOrResult == physic.GET_STEP) {
       res = "a = ("
-               + physic.expNormalizer(final_speed)
+               + final_speed
                + "m/s - "
-               + physic.expNormalizer(initial_speed)
+               + initial_speed
                + "m/s) ÷ ("
-               + physic.expNormalizer(variation_time)
+               + variation_time
                + "s)"
                + "\na = ("
-               + physic.expNormalizer(step1)
+               + step1
                + "m/s) ÷ "
-               + physic.expNormalizer(variation_time)
+               + variation_time
                + "s"
                + "\na = "
-               + physic.expNormalizer(step2)
+               + step2
                +"m/s²";
       
       return res;
@@ -119,27 +119,27 @@ public class MUV implements MUVIF {
       // if stepOrResult.equals (getStep)
       if (stepOrResult == physic.GET_STEP) {
         res = "a = ("
-            + physic.expNormalizer(final_speed)
+            + final_speed
             + "m/s - "
-            + physic.expNormalizer(initial_speed)
+            + initial_speed
             + "m/s) ÷ ("
-            + physic.expNormalizer(final_time)
+            + final_time
             + "s - "
-            + physic.expNormalizer(initial_time)
+            + initial_time
             + "s)"
             + "\na = ("
-            + physic.expNormalizer(step1)
+            + step1
             + "m/s) ÷ "
-            + physic.expNormalizer(step2)
+            + step2
             + "s"
             + "\na = "
-            + physic.expNormalizer(step3)
+            + step3
             + "m/s²";
             
         return res;
         
       } else if (stepOrResult == physic.GET_RESULT) {
-        return physic.expNormalizer(step3);
+        return String.valueOf(step3);
         
       } else {
         return "Error 404: fifth parameter not found.";
@@ -152,7 +152,7 @@ public class MUV implements MUVIF {
     // First speed's formula: ∆v = ∆t * a
     @Override
     public String fVSpeed (double delta_time, double acceleration) {
-      return physic.expNormalizer(delta_time * acceleration);
+      return String.valueOf(delta_time * acceleration);
     }
     
     
@@ -170,26 +170,26 @@ public class MUV implements MUVIF {
         
         if (stepOrResult == physic.GET_STEP) {
           res = "∆v = ("
-              + physic.expNormalizer(final_time)
+              + final_time
               + "s - "
-              + physic.expNormalizer(initial_time)
+              + initial_time
               + "s) × ("
-              + physic.expNormalizer(acceleration)
+              + acceleration
               + "m/s²)"
               + "\n∆v = "
-              + physic.expNormalizer(step1)
+              + step1
               + "s × ("
-              + physic.expNormalizer(acceleration)
+              + acceleration
               + "m/s²)"
               + "\n∆v = "
-              + physic.expNormalizer(step2)
+              + step2
               + "m/s";
               
               
           return res;
           
         } else if (stepOrResult == physic.GET_RESULT) {
-          return physic.expNormalizer (step2);
+          return String.valueOf(step2);
           
         } else {
           return "Error 404: fourth parameter not found.";
@@ -213,25 +213,25 @@ public class MUV implements MUVIF {
         
         if (stepOrResult == physic.GET_STEP) {
           res = "vi = "
-              + physic.expNormalizer(final_speed)
+              + final_speed
               + "m/s - "
-              + physic.expNormalizer(delta_time)
+              + delta_time
               + "s × "
-              + physic.expNormalizer(acceleration)
+              + acceleration
               + "m/s²"
               + "\nvi = "
-              + physic.expNormalizer(final_speed)
+              + final_speed
               + "m/s - "
-              + physic.expNormalizer(step1)
+              + step1
               + "m/s"
               +"\nvi = "
-              + physic.expNormalizer(step2)
+              + step2
               + "m/s";
               
           return res;
           
         } else if (stepOrResult == physic.GET_RESULT) {
-          return physic.expNormalizer (step2);
+          return String.valueOf(step2);
           
         } else {
           return "Error 404: fourth parameter not found.";
@@ -254,25 +254,25 @@ public class MUV implements MUVIF {
          
          if (stepOrResult == physic.GET_STEP) {
            res = "vf = "
-               + physic.expNormalizer (delta_time)
+               + delta_time
                + "s × "
-               + physic.expNormalizer (acceleration)
+               + acceleration
                + "m/s² + "
-               + physic.expNormalizer (initial_speed)
+               + initial_speed
                + "m/s"
                + "\nvf = "
-               + physic.expNormalizer (step1)
+               + step1
                + "m/s + "
-               + physic.expNormalizer (initial_speed)
+               + initial_speed
                + "m/s"
                + "\nvf = "
-               + physic.expNormalizer (step2)
+               + step2
                + "m/s";
                
            return res;             
            
          } else if (stepOrResult == physic.GET_RESULT) {
-           return physic.expNormalizer (step2);
+           return String.valueOf(step2);
            
          } else {
            return "Error 404: fourth parameter not found.";
@@ -285,7 +285,7 @@ public class MUV implements MUVIF {
       @Override
       public String fVTime (double delta_speed, double acceleration) 
       {
-        return physic.expNormalizer(delta_speed / acceleration);
+        return String.valueOf(delta_speed / acceleration);
       }
       
       
@@ -304,25 +304,25 @@ public class MUV implements MUVIF {
           
           if (stepOrResult == physic.GET_STEP) {
             res = "∆t = ("
-                + physic.expNormalizer (final_speed)
+                + final_speed
                 + "m/s - "
-                + physic.expNormalizer (initial_speed)
+                + initial_speed
                 + "m/s) ÷ "
-                + physic.expNormalizer (acceleration)
+                + acceleration
                 + "m/s²"
                 + "\n∆t = "
-                + physic.expNormalizer (step1)
+                + step1
                 + "m/s ÷ "
-                + physic.expNormalizer (acceleration)
+                + acceleration
                 + "m/s²"
                 + "\n∆t = "
-                + physic.expNormalizer (step2)
+                + step2
                 + "s";
                 
             return res;
             
           } else if (stepOrResult == physic.GET_RESULT) {
-            return physic.expNormalizer (step2);
+            return String.valueOf(step2);
             
           } else {
             return "Error 404: fourth parameter not found.";
@@ -344,25 +344,25 @@ public class MUV implements MUVIF {
             
             if (stepOrResult == physic.GET_STEP) {
               res = "ti = "
-                  + physic.expNormalizer (final_time)
+                  + final_time
                   + "s - "
-                  + physic.expNormalizer (delta_speed)
+                  + delta_speed
                   + "m/s ÷ "
-                  + physic.expNormalizer (acceleration)
+                  + acceleration
                   + "m/s²"
                   + "\nti = "
-                  + physic.expNormalizer (final_time)
+                  + final_time
                   + "s - "
-                  + physic.expNormalizer (step1)
+                  + step1
                   + "s"
                   + "\nti = "
-                  + physic.expNormalizer (step2)
+                  + step2
                   + "s";
                   
               return res;
                
             } else if (stepOrResult == physic.GET_RESULT) {
-              return physic.expNormalizer (step2);
+              return String.valueOf(step2);
               
             } else {
               return "Error 404: fourth parameter not found.";
@@ -385,14 +385,14 @@ public class MUV implements MUVIF {
             if (stepOrResult == physic.GET_STEP) {
               
               res = "tf = "
-                  + physic.expNormalizer (initial_time)
+                  + initial_time
                   + "s + ("
-                  + physic.expNormalizer (delta_speed)
+                  + delta_speed
                   + "m/s ÷ "
-                  + physic.expNormalizer (acceleration)
+                  + acceleration
                   + "m/s²)"
                   + "\ntf = "
-                  + physic.expNormalizer (initial_time)
+                  + initial_time
                   + "s + "
                   + step1
                   + "s"
@@ -403,8 +403,8 @@ public class MUV implements MUVIF {
               return res;
               
             } else if (stepOrResult == physic.GET_RESULT) {
-               
-              return physic.expNormalizer (step2);
+              
+              return String.valueOf(step2);
                
             } else {
               return "Error 404: fourth parameter not found.";
@@ -434,37 +434,37 @@ public class MUV implements MUVIF {
               if (stepOrResult == physic.GET_STEP) {
                 
                 res = "S = "
-                    + physic.expNormalizer (initial_displacement)
+                    + initial_displacement
                     + "m + "
-                    + physic.expNormalizer(initial_speed) 
+                    + initial_speed
                     + "m/s × "
-                    + physic.expNormalizer (delta_time) 
+                    + delta_time
                     + "s + ["
-                    + physic.expNormalizer(acceleration)
+                    + acceleration
                     + "m/s² × ("
-                    + physic.expNormalizer (delta_time) 
+                    + delta_time
                     + "s)²] ÷ 2"
                     + "\nS = "
-                    + physic.expNormalizer(initial_displacement)
+                    + initial_displacement
                     + "m + "
-                    + physic.expNormalizer (step1)
+                    + step1
                     + "m + ("
-                    + physic.expNormalizer (acceleration)
+                    + acceleration
                     + "m/s² × "
-                    + physic.expNormalizer (step11)
+                    + step11
                     + "s²) ÷ 2"
                     + "\nS = "
-                    + physic.expNormalizer (step2)
+                    + step2
                     + "m + ("
-                    + physic.expNormalizer (step22)
+                    + step22
                     + " ÷ 2) (m×s²)/s²"
                     + "\nS = "
-                    + physic.expNormalizer (step2)
+                    + step2
                     + "m + "
-                    + physic.expNormalizer (step3)
+                    + step3
                     + "m"
                     + "\nS = "
-                    + physic.expNormalizer (step4)
+                    + step4
                     + "m"
                     ;
                 
@@ -472,7 +472,7 @@ public class MUV implements MUVIF {
                 
               } else if (stepOrResult == physic.GET_RESULT) {
                
-                return physic.expNormalizer (step4);
+                return String.valueOf(step4);
                 
               } else {
                 return "Error 404: fifth parameter not found.";
@@ -544,7 +544,7 @@ public class MUV implements MUVIF {
                   
                 } else if (stepOrResult == physic.GET_RESULT) {
                   
-                  return physic.expNormalizer(step5);
+                  return String.valueOf(step5);
                   
                 } else {
                 

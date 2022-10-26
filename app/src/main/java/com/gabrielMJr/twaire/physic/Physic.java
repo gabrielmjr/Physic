@@ -1,7 +1,5 @@
 package com.gabrielMJr.twaire.physic;
 
-import com.gabrielMJr.twaire.tools.Tools;
-
 public class Physic{
 
   private static final String version = "1.0.4-Beta_2";
@@ -15,13 +13,6 @@ public class Physic{
     return;
   }
   
-  // Atalho para normalizar expoente
-  protected String expNormalizer(double value) {
-    Tools tools = new Tools();
-    Long[] list = tools.expNormalizer(value);
-    return tools.normalize(list);
-  }
-  
   public String getVersion () {
     return version;
   }
@@ -29,4 +20,6 @@ public class Physic{
   public String getCreator () {
     return creator;
   }
+  
+
 }

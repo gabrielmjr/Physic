@@ -1,7 +1,6 @@
 package com.gabrielMJr.twaire.physic;
 
 import com.gabrielMJr.twaire.physic.FluidFlowIF;
-import com.gabrielMJr.twaire.physic.Physic;
 
 public class FluidFlow implements FluidFlowIF{
 
@@ -10,19 +9,17 @@ public class FluidFlow implements FluidFlowIF{
   // Primeira fórmula de Vazão: Q = V/∆t
   @Override
   public String fFluidFlow(double volume, double time) {
-    return physic.expNormalizer(volume / time);
+    return String.valueOf(volume / time);
   }
     
     
     // Segunda fórmila de Vazão: Q = A * v
-    @Override
     public String sFluidFlow(double area, double velocidade) {
-      return physic.expNormalizer(area * velocidade);
+      return String.valueOf(area * velocidade);
     }
     
     
     // Terceira fórmula de Vazão: Q = π * r² * v
-    @Override
     public String tFluidFlow(
       double raio, 
       double velocidade,
@@ -36,32 +33,32 @@ public class FluidFlow implements FluidFlowIF{
       // retornar somente resultado
       if (resultOrStep == physic.GET_RESULT) { 
         
-        return physic.expNormalizer(stp3);
+        return String.valueOf(stp3);
         
       // Retornar resultado e passos
       } else if (resultOrStep == physic.GET_STEP) {
        
         String result = "Q = 3.14 × ("
-                      + physic.expNormalizer(raio) 
+                      + raio
                       + "m)² × " 
-                      + physic.expNormalizer(velocidade) 
+                      + velocidade
                       + "m/s";
       
         result += "\nQ = " 
                + "3.14 × " 
-               + physic.expNormalizer(stp1) 
+               + stp1
                + "m² × " 
-               + physic.expNormalizer(velocidade) 
+               + velocidade 
                + "m/s";
       
         result += "\nQ = " 
-               + physic.expNormalizer(stp2) 
+               + stp2
                + "m² × " 
-               + physic.expNormalizer(velocidade) 
+               + velocidade 
                + "m/s";
       
         result += "\nQ = " 
-               + physic.expNormalizer(stp3) 
+               + stp3
                + "m³/s";
        
         return result;
@@ -74,28 +71,24 @@ public class FluidFlow implements FluidFlowIF{
     
     
     // Tempo: ∆t = V/Q
-    @Override
     public String time(double volume, double fluidFlow) {
-      return physic.expNormalizer(volume / fluidFlow);
+      return String.valueOf(volume / fluidFlow);
     }
     
     
     // Volume: V = ∆t * Q
-    @Override
     public String volume(double tempo, double fluidFlow) {
-      return physic.expNormalizer(tempo * fluidFlow);
+      return String.valueOf(tempo * fluidFlow);
     }
 
     
     // Primeira fórmula de velocidade: v = Q / A
-    @Override
     public String fSpeed(double fluidFlow, double area) {
-      return physic.expNormalizer(fluidFlow / area);
+      return String.valueOf(fluidFlow / area);
     }
     
     
     // Segunda fórmula de velocidade: v = Q / (π * r²)]
-    @Override
     public String sSpeed(
       double fluidFlow, 
       double raio, 
@@ -108,31 +101,31 @@ public class FluidFlow implements FluidFlowIF{
       // Retornar somente resultado:
       if (resultOrStep == physic.GET_RESULT) {
     
-        return physic.expNormalizer(stp3);
+        return String.valueOf(stp3);
       
       // Retornar passos e resultado
       } else if (resultOrStep == physic.GET_STEP) {
         
          String result = "v = " 
-                       + physic.expNormalizer(fluidFlow) 
+                       + String.valueOf(fluidFlow) 
                        + "m³/s" +  " ÷ [3.14 × (" 
-                       +  physic.expNormalizer(raio) 
+                       + String.valueOf(raio) 
                        + "m)²]"
                        + "\nv = "
-                       + physic.expNormalizer(fluidFlow) 
+                       + String.valueOf(fluidFlow) 
                        + "m³/s" 
                        + " ÷ (3.14 × " 
                        + stp1 
                        + "m²)"
                        + "\nv = " 
                        + "(" 
-                       + physic.expNormalizer(fluidFlow) 
-                       + "m³/s) ÷ " 
+                       + fluidFlow
+                       + "m³/s) ÷ "
                        + "(" 
-                       + physic.expNormalizer(stp2) 
+                       + stp2
                        + "m²)"
                        + "\nv = " 
-                       + physic.expNormalizer(stp3) 
+                       + stp3
                        + "m/s";
       
          return result;    
@@ -145,14 +138,12 @@ public class FluidFlow implements FluidFlowIF{
    
    
     // Area: A = Q / v
-    @Override
     public String area(double fluidFlow, double velocidade) {
-      return physic.expNormalizer(fluidFlow / velocidade);
+      return String.valueOf(fluidFlow / velocidade);
     }
     
     
     // Raio: r = √[Q / (π * v)]
-    @Override
     public String ray(
       double fluidFlow, 
       double velocidade, 
@@ -164,25 +155,25 @@ public class FluidFlow implements FluidFlowIF{
       
       if (resultOrStep == physic.GET_RESULT) {
         
-        return physic.expNormalizer(stp3);
+        return String.valueOf(stp3);
         
       } else if (resultOrStep == physic.GET_STEP) {
     
       String result = "r = √[" 
-                    + physic.expNormalizer(fluidFlow) 
+                    + fluidFlow
                     + "m³/s ÷ (3.14 × " 
-                    + physic.expNormalizer(velocidade) 
+                    + velocidade
                     + "m/s)]"
                     + "\nr = √[(" 
-                    + physic.expNormalizer(fluidFlow) 
+                    + fluidFlow 
                     + "m³/s) ÷ (" 
-                    + physic.expNormalizer(stp1) 
+                    + stp1 
                     + "m/s)]"
                     + "\nr = √(" 
-                    + physic.expNormalizer(stp2) 
+                    + stp2 
                     + "m²)"
                     + "\nr = " 
-                    + physic.expNormalizer(stp3) 
+                    + stp3 
                     + "m";
       
       return result;
