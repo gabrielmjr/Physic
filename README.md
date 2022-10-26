@@ -3,7 +3,7 @@ Cálculos físicos no Java
 
 **Info**
 
-**Versão atual do código:** 1.0.3-Beta_3
+**Versão atual do código:** 1.0.4-Beta_3
 
 **Pacote:** com.gabrielMJr.twaire.physic
 
