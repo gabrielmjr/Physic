@@ -2,7 +2,6 @@ package com.gabrielMjr.twaire.physic;
 
 import com.gabrielMJr.twaire.physic.VolumeIF;
 
-
 public class Volume implements VolumeIF{
   
     // Those constants were used to tell to the program the unit that must use to calculate something

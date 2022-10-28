@@ -1,10 +1,8 @@
 package com.gabrielMJr.twaire.physic;
 
 import com.gabrielMJr.twaire.physic.AreaIF;
-import com.gabrielMJr.twaire.physic.units.Units;
 
-//public class Area implements AreaIF {
-public class Area implements Units {
+public class Area implements AreaIF {
 
   // Those constants were used to tell to the program the unit that must use to calculate something
   // Also used to tell the unit from the variables as parameter

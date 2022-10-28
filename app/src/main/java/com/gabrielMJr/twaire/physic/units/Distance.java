@@ -2,10 +2,8 @@ package com.gabrielMJr.twaire.physic;
 
 import com.gabrielMJr.twaire.physic.Physic;
 import com.gabrielMJr.twaire.physic.DistanceIF;
-import com.gabrielMJr.twaire.physic.units.Units;
 
-//public class Distance implements DistanceIF{
-public class Distance implements Units{
+public class Distance implements DistanceIF{
 
   Physic physic = new Physic();
 
