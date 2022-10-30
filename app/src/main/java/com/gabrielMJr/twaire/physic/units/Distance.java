@@ -29,7 +29,7 @@ public class Distance implements DistanceIF{
   
   
   // Convert from another units to kilometer
-  /*@Override
+  @Override
   public double toKilometer (
     double value,
     String value_unit)  
@@ -89,7 +89,7 @@ public class Distance implements DistanceIF{
       return res;
     }
     
-      // Comvert from another units to hectometer
+      // Convert from another units to hectometer
   @Override
   public double toMilimeter (
     double value,
@@ -97,5 +97,5 @@ public class Distance implements DistanceIF{
     {
       double res = (value * Double.valueOf (MILIMETER)) / Double.valueOf (value_unit);
       return res;
-    }*/
+    }
 }

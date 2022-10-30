@@ -7,8 +7,7 @@ public interface FluidFlowIF {
     public abstract String sFluidFlow(double area, double velocidade);
     public abstract String sFluidFlow(double area, String area_unit, double velocidade, String velocidade_unit, String unit_of_result);
     
-    public abstract String tFluidFlow(double raio, double velocidade, int resultOrStep);
-    
+    public abstract String tFluidFlow(double raio, double velocidade, int resultOrStep);  
     public abstract String tFluidFlow(double raio, String raio_unit, double velocidade, String velocidade_unit, String unit_of_result, int resultOrStep);
     
     public abstract String time(double volume, double fluidFlow);

@@ -27,7 +27,7 @@ public class Area implements AreaIF {
   
   
   // From another to kilometer
-  /*@Override
+  @Override
   public double toSquareKilometer(double value, String value_unit) {
     return ((value * Double.valueOf(SQUARE_KILOMETER)) / Double.valueOf(value_unit));
   }
@@ -66,5 +66,5 @@ public class Area implements AreaIF {
   @Override
   public double toSquareMilimeter(double value, String value_unit) {
     return ((value * Double.valueOf(SQUARE_MILIMETER)) / Double.valueOf(value_unit));
-  }*/
+  }
 }
