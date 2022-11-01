@@ -1,158 +1,213 @@
-package com.gabrielMJr.twaire.physic;
+package com.gabrielMJr.twaire.physic.muv;
 
 import com.gabrielMJr.twaire.physic.MUVIF;
 import com.gabrielMJr.twaire.physic.Physic;
 
+import com.gabrielMJr.twaire.physic.muv.Acceleration1;
+import com.gabrielMJr.twaire.physic.muv.Acceleration2;
+import com.gabrielMJr.twaire.physic.muv.Acceleration3;
+import com.gabrielMJr.twaire.physic.muv.Acceleration4;
+import com.gabrielMJr.twaire.physic.muv.Speed1;
+
+
 public class MUV implements MUVIF {
 
-  private static final Physic physic = new Physic();
+  private static Physic physic;
+  
+  private static Acceleration1 acceleration1;
+  private static Acceleration2 acceleration2;
+  private static Acceleration3 acceleration3;
+  private static Acceleration4 acceleration4;
+  private static Speed1 speed1;
+  
+  public MUV()
+  {
+    physic = new Physic();
+    
+    acceleration1 = new Acceleration1();
+    acceleration2 = new Acceleration2();
+    acceleration3 = new Acceleration3();
+    acceleration4 = new Acceleration4();
+    speed1 = new Speed1();
+  }
 
 
   // MUR, primeira fórmula de aceleração: a = delta_speed / delta_time
   @Override
-  public String fAcceleration(double deltaSpeed, double deltaTime) {
-    return String.valueOf(deltaSpeed / deltaTime);
+  public String acceleration1(
+  double deltaSpeed, 
+  double deltaTime)
+   {
+  
+    return acceleration1.acceleration(
+    deltaSpeed,
+    deltaTime);
+  }
+  
+  @Override
+  public String acceleration1(
+  double deltaSpeed, 
+  String deltaSpeed_unit,
+  double deltaTime,
+  String deltaTime_unit,
+  String unit_of_result)
+   {
+  
+    return acceleration1.acceleration(
+    deltaSpeed,
+    deltaSpeed_unit,
+    deltaTime,
+    deltaTime_unit,
+    unit_of_result);
   }
 
   // Segunda fórmula de aceleração: a = (deltaSpeed) / (finalTime - initialTime)
   @Override
-  public String sAcceleration(
-       double deltaSpeed,
-       double initialTime,
-       double finalTime,
-       int stepOrResult) {
-       
-    double step1 = finalTime - initialTime;
-    double step2 = deltaSpeed / step1;
-    String res = "a = (";
-
-    if (stepOrResult == physic.GET_STEP) {
+  public String acceleration2(
+  double deltaSpeed,
+  double initialTime,
+  double finalTime,
+  int resultOrStep)
+  {
     
-      res += deltaSpeed
-           + "m/s) ÷ ("
-           + finalTime
-           + " s - "
-           + initialTime
-           + "s)"
-           + "\na = ("
-           + deltaSpeed
-           + "m/s) ÷ ("
-           + step1
-           + "s)"
-           + "\n"
-           + "a = "
-           + step2
-           + "m/s²";
-           
-       return res;
-       
-    } else if (stepOrResult == physic.GET_RESULT) {
-      return String.valueOf((deltaSpeed) / (finalTime - initialTime));
-      
-    } else {
-      return "Error 404: fourth parameter not found.";
-    }
+    return acceleration2.acceleration(
+    deltaSpeed,
+    initialTime,
+    finalTime,
+    resultOrStep);
   }
   
+  @Override
+  public String acceleration2(
+  double deltaSpeed,
+  String deltaSpeed_unit,
+  double initialTime,
+  String initialTime_unit,
+  double finalTime,
+  String finalTime_unit,
+  String unit_of_result,
+  int resultOrStep)
+  {
+    
+    return acceleration2.acceleration(
+    deltaSpeed,
+    initialTime,
+    finalTime,
+    resultOrStep);
+  }
   
   // Third formula of acceleration, when: a = (vf - vi) / variation_time
   @Override
-  public String tAcceleration (
+  public String acceleration3 (
       double initial_speed,
       double final_speed, 
       double variation_time,
-      int stepOrResult
-  ) {
-    
-    // Attributes 
-    double step1 = final_speed - initial_speed;
-    double step2 = step1 / variation_time;
-    String res; 
-    
-    // If the user want the steps, return the steps
-    if (stepOrResult == physic.GET_STEP) {
-      res = "a = ("
-               + final_speed
-               + "m/s - "
-               + initial_speed
-               + "m/s) ÷ ("
-               + variation_time
-               + "s)"
-               + "\na = ("
-               + step1
-               + "m/s) ÷ "
-               + variation_time
-               + "s"
-               + "\na = "
-               + step2
-               +"m/s²";
-      
-      return res;
-      
-    // Else if equals to get result, return result
-    } else if (stepOrResult == physic.GET_RESULT) {
-      return String.valueOf (step2);
-      
-    } else {
-      return "Error 404: fourth parameter not found.";
-    }
-  }
+      int stepOrResult)
+      {
+        
+        return acceleration3.acceleration(
+        initial_speed,
+        final_speed,
+        variation_time,
+        stepOrResult);
+      }
   
+  @Override 
+  public String acceleration3 (
+  double initial_speed, 
+  String initial_speed_unit, 
+  double final_speed, 
+  String final_speed_unit, 
+  double variation_time, 
+  String variation_time_unit, 
+  String unit_of_result, 
+  int stepOrResult)
+  {
+    
+    return acceleration3.acceleration(
+    initial_speed,
+    initial_speed_unit,
+    final_speed,
+    final_speed_unit,
+    variation_time, 
+    variation_time_unit,
+    unit_of_result,
+    stepOrResult);
+  }
+ 
   
   // Forth acceleration formula when:
   // a = (final_speed - initial_speed) ÷ (final_time - initial_time)
   @Override
-  public String foAcceleration (
+  public String acceleration4 (
     double initial_speed,
     double final_speed,
     double initial_time,
     double final_time,
     int stepOrResult)
     {
-      
-      // Attributes 
-      double step1 = final_speed - initial_speed;
-      double step2 = final_time - initial_time;
-      double step3 = step1 / step2;
-      String res;
-      
-      // if stepOrResult.equals (getStep)
-      if (stepOrResult == physic.GET_STEP) {
-        res = "a = ("
-            + final_speed
-            + "m/s - "
-            + initial_speed
-            + "m/s) ÷ ("
-            + final_time
-            + "s - "
-            + initial_time
-            + "s)"
-            + "\na = ("
-            + step1
-            + "m/s) ÷ "
-            + step2
-            + "s"
-            + "\na = "
-            + step3
-            + "m/s²";
-            
-        return res;
-        
-      } else if (stepOrResult == physic.GET_RESULT) {
-        return String.valueOf(step3);
-        
-      } else {
-        return "Error 404: fifth parameter not found.";
-      }
+    
+      return acceleration4.acceleration(
+      initial_speed,
+      final_speed,
+      initial_time,
+      final_time,
+      stepOrResult);
     }
     
-    
+    @Override
+    public String acceleration4 (
+    double initial_speed, 
+    String initial_speed_unit, 
+    double final_speed, 
+    String final_speed_unit, 
+    double initial_time, 
+    String initial_time_unit, 
+    double final_time, 
+    String final_time_unit,
+    String unit_of_result, 
+    int stepOrResult)
+    {
+      
+      return acceleration4.acceleration(
+      initial_speed,
+      initial_speed_unit,
+      final_speed,
+      final_speed_unit,
+      initial_time,
+      initial_time_unit,
+      final_time,
+      final_time_unit,
+      unit_of_result,
+      stepOrResult);
+    }
     
     // Speed
     // First speed's formula: ∆v = ∆t * a
     @Override
-    public String fVSpeed (double delta_time, double acceleration) {
-      return String.valueOf(delta_time * acceleration);
+    public String speed1 (
+    double delta_time, 
+    double acceleration) {
+    
+      return speed1.speed(
+      delta_time,
+      acceleration);
+    }
+    
+    @Override
+    public String speed1 (
+    double delta_time,
+    String delta_time_unit,
+    double acceleration,
+    String acceleration_unit,
+    String unit_of_result) {
+    
+      return speed1.speed(
+      delta_time,
+      delta_time_unit,
+      acceleration,
+      acceleration_unit,
+      unit_of_result);
     }
     
     

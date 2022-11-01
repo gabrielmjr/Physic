@@ -2,8 +2,7 @@ package com.gabrielMJr.twaire.physic.fluidflow;
 
 import com.gabrielMJr.twaire.physic.Physic;
 
-
-class Speed2 {
+final class Speed2 {
 
   private static Physic physic;
   
@@ -12,14 +11,14 @@ class Speed2 {
     physic = new Physic();
   }
   
-  protected String sSpeed(
-      double fluidFlow, 
+  protected String speed(
+      double flowRate, 
       double raio, 
       int resultOrStep)
       {
-        Double stp1 = Math.pow(raio, 2);
+      Double stp1 = Math.pow(raio, 2);
       Double stp2 = stp1 * 3.14;
-      Double stp3 = fluidFlow / stp2;
+      Double stp3 = flowRate / stp2;
     
       // Retornar somente resultado:
       if (resultOrStep == physic.GET_RESULT) {
@@ -30,19 +29,19 @@ class Speed2 {
       } else if (resultOrStep == physic.GET_STEP) {
         
          String result = "v = " 
-                       + String.valueOf(fluidFlow) 
+                       + flowRate
                        + "m³/s" +  " ÷ [3.14 × (" 
-                       + String.valueOf(raio) 
+                       + raio
                        + "m)²]"
                        + "\nv = "
-                       + String.valueOf(fluidFlow) 
+                       + flowRate
                        + "m³/s" 
                        + " ÷ (3.14 × " 
                        + stp1 
                        + "m²)"
                        + "\nv = " 
                        + "(" 
-                       + fluidFlow
+                       + flowRate
                        + "m³/s) ÷ "
                        + "(" 
                        + stp2
@@ -58,4 +57,16 @@ class Speed2 {
         return "Erro 404: third parameter not found";
       }
     }
+    
+    protected String speed(
+      double flowRate, 
+      String flowRate_unit,
+      double raio, 
+      String raio_unit,
+      String unit_of_result,
+      int resultOrStep)
+      {
+        
+        return null;
+      }
 }

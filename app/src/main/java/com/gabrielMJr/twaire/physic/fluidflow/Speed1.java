@@ -1,9 +1,19 @@
 package com.gabrielMJr.twaire.physic.fluidflow;
 
-class Speed1 {
+final class Speed1 {
   
-  protected String fSpeed(double fluidFlow, double area)
+  protected String speed(double flowRate, double area)
   {
-    return String.valueOf(fluidFlow / area);
+    return String.valueOf(flowRate / area);
+  }
+  
+  protected String speed(
+  double flowRate,
+  String flowRate_unit,
+  double area,
+  String area_unit,
+  String unit_of_result)
+  {
+    return null;
   }
 }

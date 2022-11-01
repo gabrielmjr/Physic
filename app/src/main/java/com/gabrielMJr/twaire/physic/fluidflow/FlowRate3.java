@@ -3,7 +3,7 @@ package com.gabrielMJr.twaire.physic.fluidflow;
 import com.gabrielMJr.twaire.physic.Physic;
 
 
-class FlowRate3 {
+final class FlowRate3 {
 
   private static Physic physic;
   
@@ -12,7 +12,7 @@ class FlowRate3 {
     physic = new Physic();
   }
 
-  protected String tFluidFlow(
+  protected String flowRate(
       double raio, 
       double velocidade,
       int resultOrStep)
@@ -60,4 +60,15 @@ class FlowRate3 {
         return "Erro 404: third parameter not found";
       }
     }
+    
+    protected String flowRate(
+      double raio,
+      String raio_unit,
+      double velocidade,
+      String velocidade_unit,
+      String unit_of_result,
+      int resultOrStep)
+      {
+        return null;
+      }
 }
