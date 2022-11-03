@@ -2,13 +2,13 @@ package com.gabrielMJr.twaire.physic.muv;
 
 import com.gabrielMJr.twaire.physic.MUVIF;
 import com.gabrielMJr.twaire.physic.Physic;
-
 import com.gabrielMJr.twaire.physic.muv.Acceleration1;
 import com.gabrielMJr.twaire.physic.muv.Acceleration2;
 import com.gabrielMJr.twaire.physic.muv.Acceleration3;
 import com.gabrielMJr.twaire.physic.muv.Acceleration4;
 import com.gabrielMJr.twaire.physic.muv.Speed1;
-
+import com.gabrielMJr.twaire.physic.muv.Speed2;
+import com.gabrielMJr.twaire.physic.muv.InitialSpeed;
 
 public class MUV implements MUVIF {
 
@@ -19,6 +19,8 @@ public class MUV implements MUVIF {
   private static Acceleration3 acceleration3;
   private static Acceleration4 acceleration4;
   private static Speed1 speed1;
+  private static Speed2 speed2;
+  private static InitialSpeed initialSpeed;
   
   public MUV()
   {
@@ -29,6 +31,8 @@ public class MUV implements MUVIF {
     acceleration3 = new Acceleration3();
     acceleration4 = new Acceleration4();
     speed1 = new Speed1();
+    speed2 = new Speed2();
+    initialSpeed = new InitialSpeed ();
   }
 
 
@@ -213,42 +217,41 @@ public class MUV implements MUVIF {
     
     // Second speed's formula: ∆v = (tf - ti) * acceleration
     @Override
-    public String sVSpeed (
+    public String speed2 (
       double initial_time,
       double final_time, 
       double acceleration,
       int stepOrResult)
       {
-        double step1 = final_time - initial_time;
-        double step2 = step1 * acceleration;
-        String res;
-        
-        if (stepOrResult == physic.GET_STEP) {
-          res = "∆v = ("
-              + final_time
-              + "s - "
-              + initial_time
-              + "s) × ("
-              + acceleration
-              + "m/s²)"
-              + "\n∆v = "
-              + step1
-              + "s × ("
-              + acceleration
-              + "m/s²)"
-              + "\n∆v = "
-              + step2
-              + "m/s";
-              
-              
-          return res;
-          
-        } else if (stepOrResult == physic.GET_RESULT) {
-          return String.valueOf(step2);
-          
-        } else {
-          return "Error 404: fourth parameter not found.";
-        }
+      
+        return speed2.speed(
+        initial_time,
+        final_time,
+        acceleration,
+        stepOrResult);
+      }
+      
+    @Override
+    public String speed2 (
+      double initial_time,
+      String initial_time_unit,
+      double final_time, 
+      String final_time_unit,
+      double acceleration,
+      String acceleration_unit,
+      String unit_of_result,
+      int stepOrResult)
+      {
+      
+        return speed2.speed(
+        initial_time,
+        initial_time_unit,
+        final_time,
+        final_time_unit,
+        acceleration,
+        acceleration_unit,
+        unit_of_result,
+        stepOrResult);
       }
     
       
@@ -262,36 +265,35 @@ public class MUV implements MUVIF {
       int stepOrResult) 
       {
         
-        double step1 = delta_time * acceleration;
-        double step2 = final_speed - step1;
-        String res;
-        
-        if (stepOrResult == physic.GET_STEP) {
-          res = "vi = "
-              + final_speed
-              + "m/s - "
-              + delta_time
-              + "s × "
-              + acceleration
-              + "m/s²"
-              + "\nvi = "
-              + final_speed
-              + "m/s - "
-              + step1
-              + "m/s"
-              +"\nvi = "
-              + step2
-              + "m/s";
-              
-          return res;
-          
-        } else if (stepOrResult == physic.GET_RESULT) {
-          return String.valueOf(step2);
-          
-        } else {
-          return "Error 404: fourth parameter not found.";
-        }
+        return initialSpeed.speed(
+        final_speed,
+        delta_time,
+        acceleration,
+        stepOrResult);
       }
+      
+    @Override
+    public String initialSpeed (
+    double final_speed, 
+    String final_speed_unit,
+    double delta_time, 
+    String delta_time_unit,
+    double acceleration, 
+    String acceleration_unit,
+    String unit_of_result,
+    int stepOrResult)
+    {
+      
+      return initialSpeed.speed(
+      final_speed,
+      final_speed_unit,
+      delta_time,
+      delta_time_unit,
+      acceleration,
+      acceleration_unit,
+      unit_of_result,
+      stepOrResult);
+    }
       
       
       // Final speed: vf = ∆t * a + vi
