@@ -2,14 +2,7 @@ package com.gabrielMJr.twaire.physic.muv;
 
 import com.gabrielMJr.twaire.physic.Physic;
 
-final class InitialSpeed {
-
-  private static Physic physic;
-  
-  protected InitialSpeed()
-  {
-    physic = new Physic();
-  }
+final class Speed3 {
 
   protected String speed (
       double final_speed,
@@ -22,7 +15,7 @@ final class InitialSpeed {
         double step2 = final_speed - step1;
         String res;
         
-        if (stepOrResult == physic.GET_STEP) {
+        if (stepOrResult == Physic.GET_STEP) {
           res = "vi = "
               + final_speed
               + "m/s - "
@@ -41,7 +34,7 @@ final class InitialSpeed {
               
           return res;
           
-        } else if (stepOrResult == physic.GET_RESULT) {
+        } else if (stepOrResult == Physic.GET_RESULT) {
           return String.valueOf(step2);
           
         } else {

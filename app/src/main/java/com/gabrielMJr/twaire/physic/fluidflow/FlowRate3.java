@@ -2,15 +2,8 @@ package com.gabrielMJr.twaire.physic.fluidflow;
 
 import com.gabrielMJr.twaire.physic.Physic;
 
-
 final class FlowRate3 {
 
-  private static Physic physic;
-  
-  protected FlowRate3()
-  {
-    physic = new Physic();
-  }
 
   protected String flowRate(
       double raio, 
@@ -23,12 +16,12 @@ final class FlowRate3 {
     
     
         // retornar somente resultado
-        if (resultOrStep == physic.GET_RESULT) { 
+        if (resultOrStep == Physic.GET_RESULT) { 
         
           return String.valueOf(stp3);
         
       // Retornar resultado e passos
-      } else if (resultOrStep == physic.GET_STEP) {
+      } else if (resultOrStep == Physic.GET_STEP) {
        
         String result = "Q = 3.14 × ("
                       + raio

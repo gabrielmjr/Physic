@@ -5,8 +5,6 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 public class MRU implements MRUIF {
 
-  private static final Physic physic = new Physic();
-
   /* Deslocamento */
   // Primeira fórmula do deslocamento. ∆S = S_final - S_inicial
   @Override
@@ -33,10 +31,10 @@ public class MRU implements MRUIF {
     String signal;
     
     
-      if (resultOrStep == physic.GET_RESULT) {
+      if (resultOrStep == Physic.GET_RESULT) {
           return String.valueOf(step2);
           
-      } else if (resultOrStep == physic.GET_STEP) {
+      } else if (resultOrStep == Physic.GET_STEP) {
 	      if (initial_time < 0) {
 		  	signal = "";
 	      } else {
@@ -97,10 +95,10 @@ public class MRU implements MRUIF {
     double step2 = step1 + initial_displacement;
     String res = "";
     
-       if  (stepOrResult == physic.GET_RESULT) {
+       if  (stepOrResult == Physic.GET_RESULT) {
          return String.valueOf(step2);
          
-       } else if (stepOrResult == physic.GET_STEP) {
+       } else if (stepOrResult == Physic.GET_STEP) {
            res =
              "S = "
              + initial_displacement
@@ -154,10 +152,10 @@ public class MRU implements MRUIF {
     String signal1;
     String signal2;
     
-    if (resultOrStep == physic.GET_RESULT) {
+    if (resultOrStep == Physic.GET_RESULT) {
       return String.valueOf (step3);
        
-    } else if (resultOrStep == physic.GET_STEP) {
+    } else if (resultOrStep == Physic.GET_STEP) {
 
       if (initial_displacement < 0) {
         signal1 = " ";
@@ -227,10 +225,10 @@ public class MRU implements MRUIF {
     String res = "";
     String signal;
     
-    if (resultOrStep == physic.GET_RESULT) {
+    if (resultOrStep == Physic.GET_RESULT) {
       return String.valueOf (step2);
        
-    } else if (resultOrStep == physic.GET_STEP) {
+    } else if (resultOrStep == Physic.GET_STEP) {
     
       if (initial_displacement < 0) {
         signal = " ";

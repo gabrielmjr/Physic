@@ -4,13 +4,6 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Acceleration2 {
 
-  private static Physic physic;
-
-  protected Acceleration2()
-  {
-    physic = new Physic();
-  }
-
   protected String acceleration(
        double deltaSpeed,
        double initialTime,
@@ -21,7 +14,7 @@ final class Acceleration2 {
     double step2 = deltaSpeed / step1;
     String res = "a = (";
 
-    if (stepOrResult == physic.GET_STEP) {
+    if (stepOrResult == Physic.GET_STEP) {
     
       res += deltaSpeed
            + "m/s) ÷ ("
@@ -41,7 +34,7 @@ final class Acceleration2 {
            
        return res;
        
-    } else if (stepOrResult == physic.GET_RESULT) {
+    } else if (stepOrResult == Physic.GET_RESULT) {
       return String.valueOf((deltaSpeed) / (finalTime - initialTime));
       
     } else {

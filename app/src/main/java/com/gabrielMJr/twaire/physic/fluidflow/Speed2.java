@@ -4,13 +4,6 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Speed2 {
 
-  private static Physic physic;
-  
-  protected Speed2()
-  {
-    physic = new Physic();
-  }
-  
   protected String speed(
       double flowRate, 
       double raio, 
@@ -21,12 +14,12 @@ final class Speed2 {
       Double stp3 = flowRate / stp2;
     
       // Retornar somente resultado:
-      if (resultOrStep == physic.GET_RESULT) {
+      if (resultOrStep == Physic.GET_RESULT) {
     
         return String.valueOf(stp3);
       
       // Retornar passos e resultado
-      } else if (resultOrStep == physic.GET_STEP) {
+      } else if (resultOrStep == Physic.GET_STEP) {
         
          String result = "v = " 
                        + flowRate

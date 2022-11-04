@@ -3,13 +3,6 @@ package com.gabrielMJr.twaire.physic.muv;
 import com.gabrielMJr.twaire.physic.Physic;
 
 final class Speed2 {
-
-  private static Physic physic;
-
-  protected Speed2()
-  {
-    physic = new Physic();
-  }
   
   protected String speed (
       double initial_time,
@@ -21,7 +14,7 @@ final class Speed2 {
         double step2 = step1 * acceleration;
         String res;
         
-        if (stepOrResult == physic.GET_STEP) {
+        if (stepOrResult == Physic.GET_STEP) {
           res = "∆v = ("
               + final_time
               + "s - "
@@ -41,7 +34,7 @@ final class Speed2 {
               
           return res;
           
-        } else if (stepOrResult == physic.GET_RESULT) {
+        } else if (stepOrResult == Physic.GET_RESULT) {
           return String.valueOf(step2);
           
         } else {

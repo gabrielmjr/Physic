@@ -4,13 +4,6 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Ray {
 
-  private static Physic physic;
-  
-  protected Ray()
-  {
-    physic = new Physic();
-  }
-  
   protected String ray(
       double flowRate, 
       double velocidade, 
@@ -20,11 +13,11 @@ final class Ray {
         Double stp2 = flowRate / stp1;
         Double stp3 = Math.sqrt(stp2);
        
-        if (resultOrStep == physic.GET_RESULT) {
+        if (resultOrStep == Physic.GET_RESULT) {
         
           return String.valueOf(stp3);
         
-        } else if (resultOrStep == physic.GET_STEP) {
+        } else if (resultOrStep == Physic.GET_STEP) {
     
         String result = "r = √[" 
                       + flowRate

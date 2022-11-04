@@ -4,13 +4,6 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Acceleration3 {
 
-  private static Physic physic;
-
-  protected Acceleration3 ()
-  {
-    physic = new Physic();
-  }
-
   protected String acceleration (
       double initial_speed,
       double final_speed, 
@@ -24,7 +17,7 @@ final class Acceleration3 {
     String res; 
     
     // If the user want the steps, return the steps
-    if (stepOrResult == physic.GET_STEP) {
+    if (stepOrResult == Physic.GET_STEP) {
       res = "a = ("
                + final_speed
                + "m/s - "
@@ -44,7 +37,7 @@ final class Acceleration3 {
       return res;
       
     // Else if equals to get result, return result
-    } else if (stepOrResult == physic.GET_RESULT) {
+    } else if (stepOrResult == Physic.GET_RESULT) {
       return String.valueOf (step2);
       
     } else {
