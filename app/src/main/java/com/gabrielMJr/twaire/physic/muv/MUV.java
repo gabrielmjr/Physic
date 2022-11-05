@@ -12,6 +12,8 @@ import com.gabrielMJr.twaire.physic.muv.Speed3;
 import com.gabrielMJr.twaire.physic.muv.Speed4;
 import com.gabrielMJr.twaire.physic.muv.Time1;
 import com.gabrielMJr.twaire.physic.muv.Time2;
+import com.gabrielMJr.twaire.physic.muv.Time3;
+
 
 public class MUV implements MUVIF {
 
@@ -27,6 +29,7 @@ public class MUV implements MUVIF {
   private static Speed4 speed4;
   private static Time1 time1;
   private static Time2 time2;
+  private static Time3 time3;
   
   public MUV()
   {
@@ -42,6 +45,7 @@ public class MUV implements MUVIF {
     speed4 = new Speed4();
     time1 = new Time1();
     time2 = new Time2();
+    time3 = new Time3();
   }
 
 
@@ -424,36 +428,36 @@ public class MUV implements MUVIF {
           double acceleration,
           int stepOrResult)
           {
-            double step1 = delta_speed / acceleration;
-            double step2 = final_time - step1;
-            String res;
             
-            if (stepOrResult == physic.GET_STEP) {
-              res = "ti = "
-                  + final_time
-                  + "s - "
-                  + delta_speed
-                  + "m/s ÷ "
-                  + acceleration
-                  + "m/s²"
-                  + "\nti = "
-                  + final_time
-                  + "s - "
-                  + step1
-                  + "s"
-                  + "\nti = "
-                  + step2
-                  + "s";
-                  
-              return res;
-               
-            } else if (stepOrResult == physic.GET_RESULT) {
-              return String.valueOf(step2);
-              
-            } else {
-              return "Error 404: fourth parameter not found.";
-            }
+            return time3.time(
+            final_time,
+            delta_speed,
+            acceleration,
+            stepOrResult);
           }
+          
+    @Override
+    public String time3 (
+    double final_time,
+    String final_time_unit,
+    double delta_speed, 
+    String delta_speed_unit,
+    double acceleration, 
+    String acceleration_unit,
+    String unit_of_result,
+    int stepOrResult)
+    
+    {
+      return time3.time(
+      final_time,
+      final_time_unit,
+      delta_speed,
+      delta_speed_unit,
+      acceleration,
+      acceleration_unit,
+      unit_of_result,
+      stepOrResult);
+    }
           
           
           // Final time: tf = (∆v / a) + ti

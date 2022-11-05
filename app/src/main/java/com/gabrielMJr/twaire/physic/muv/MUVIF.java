@@ -164,6 +164,16 @@ public interface MUVIF {
     double acceleration, 
     int stepOrResult);
     
+    public abstract String time3 (
+    double final_time, 
+    String final_time_unit,
+    double delta_speed, 
+    String delta_speed_unit,
+    double acceleration, 
+    String acceleration_unit,
+    String unit_of_result,
+    int stepOrResult);
+    
     
     public abstract String time4 (
     double initial_time, 
