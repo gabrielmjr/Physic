@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic;
+package com.gabrielMJr.twaire.physic.units;
 
 public interface VolumeIF {
   public abstract double toCubeKilometer(double value, String value_unit);

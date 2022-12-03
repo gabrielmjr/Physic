@@ -1,28 +1,28 @@
-package com.gabrielMJr.twaire.physic;
+package com.gabrielMJr.twaire.physic.units;
 
-import com.gabrielMJr.twaire.physic.AreaIF;
+import com.gabrielMJr.twaire.physic.units.AreaIF;
 
 public class Area implements AreaIF {
 
   // Those constants were used to tell to the program the unit that must use to calculate something
   // Also used to tell the unit from the variables as parameter
 
-  public final String SQUARE_KILOMETER = "0.000001";
-  public final String SQUARE_HECTOMETER = "0.0001";
-  public final String SQUARE_DECAMETER = ".01";
-  public final String SQUARE_METER = "1";
-  public final String SQUARE_DECIMETER = "100";
-  public final String SQUARE_CENTIMETER = "10000";
-  public final String SQUARE_MILIMETER = "100000";
+  public static final String SQUARE_KILOMETER = "0.000001";
+  public static final String SQUARE_HECTOMETER = "0.0001";
+  public static final String SQUARE_DECAMETER = ".01";
+  public static final String SQUARE_METER = "1";
+  public static final String SQUARE_DECIMETER = "100";
+  public static final String SQUARE_CENTIMETER = "10000";
+  public static final String SQUARE_MILIMETER = "100000";
 
   // Symbols of those constants
-  public final String SQUARE_KILOMETER_SYMBOL = "km²";
-  public final String SQUARE_HECTOMETER_SYMBOL = "hm²";
-  public final String SQUARE_DECAMETER_SYMBOL = "dam²";
-  public final String SQUARE_METER_SYMBOL = "m³";
-  public final String SQUARE_DECIMETER_SYMBOL = "dm²";
-  public final String SQUARE_CENTIMETER_SYMBOL = "cm²";
-  public final String SQUARE_MILIMETER_SYMBOL = "mm²";
+  public static final String SQUARE_KILOMETER_SYMBOL = "km²";
+  public static final String SQUARE_HECTOMETER_SYMBOL = "hm²";
+  public static final String SQUARE_DECAMETER_SYMBOL = "dam²";
+  public static final String SQUARE_METER_SYMBOL = "m³";
+  public static final String SQUARE_DECIMETER_SYMBOL = "dm²";
+  public static final String SQUARE_CENTIMETER_SYMBOL = "cm²";
+  public static final String SQUARE_MILIMETER_SYMBOL = "mm²";
   
   
   

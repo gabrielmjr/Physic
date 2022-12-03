@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic;
+package com.gabrielMJr.twaire.physic.units;
 
 public interface DistanceIF {
   public abstract double toKilometer(double value, String value_unit);

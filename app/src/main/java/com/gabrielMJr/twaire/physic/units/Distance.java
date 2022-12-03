@@ -1,7 +1,7 @@
-package com.gabrielMJr.twaire.physic;
+package com.gabrielMJr.twaire.physic.units;
 
 import com.gabrielMJr.twaire.physic.Physic;
-import com.gabrielMJr.twaire.physic.DistanceIF;
+import com.gabrielMJr.twaire.physic.units.DistanceIF;
 
 public class Distance implements DistanceIF{
 

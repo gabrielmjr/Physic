@@ -1,6 +1,6 @@
-package com.gabrielMjr.twaire.physic;
+package com.gabrielMjr.twaire.physic.units;
 
-import com.gabrielMJr.twaire.physic.VolumeIF;
+import com.gabrielMJr.twaire.physic.units.VolumeIF;
 
 public class Volume implements VolumeIF{
   
