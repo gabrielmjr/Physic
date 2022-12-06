@@ -63,7 +63,7 @@ public class FluidFlow implements FluidFlowIF{
   }
     
     
-    // Segunda fórmila de Vazão: Q = A * v
+    // Segunda fórmula de Vazão: Q = A * v
     @Override
     public String flowRate2(
     double area, 
