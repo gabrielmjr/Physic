@@ -108,7 +108,7 @@
               <manifest>
                 <addClasspath>true</addClasspath>
                 <classpathPrefix>lib/</classpathPrefix>
-                <mainClass>com.gabrielMJr.tools.Tools</mainClass>
+                <mainClass>com.gabrielMJr.physic.${project.scm.tag}</mainClass>
               </manifest>
             </archive>
           </configuration>

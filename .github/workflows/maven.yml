@@ -10,7 +10,7 @@ name: Java CI
 
 on:
   push:
-    branches: [ "master", "implementing_junit_testing"  ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
