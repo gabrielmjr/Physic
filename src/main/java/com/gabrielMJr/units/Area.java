@@ -19,7 +19,7 @@ public class Area implements AreaIF {
   public static final String SQUARE_KILOMETER_SYMBOL = "km²";
   public static final String SQUARE_HECTOMETER_SYMBOL = "hm²";
   public static final String SQUARE_DECAMETER_SYMBOL = "dam²";
-  public static final String SQUARE_METER_SYMBOL = "m³";
+  public static final String SQUARE_METER_SYMBOL = "m²";
   public static final String SQUARE_DECIMETER_SYMBOL = "dm²";
   public static final String SQUARE_CENTIMETER_SYMBOL = "cm²";
   public static final String SQUARE_MILIMETER_SYMBOL = "mm²";

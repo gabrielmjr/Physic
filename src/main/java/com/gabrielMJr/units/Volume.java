@@ -4,7 +4,7 @@ import com.gabrielMJr.physic.units.VolumeIF;
 
 public class Volume implements VolumeIF{
   
-    // Those constants were used to tell to the program the unit that must use to calculate something
+  // Those constants were used to tell to the program the unit that must use to calculate something
   // Also used to tell the unit from the variables as parameter
   
   public final String CUBE_KILOMETER = "0.000000001";
