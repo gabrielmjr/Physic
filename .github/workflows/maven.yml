@@ -25,8 +25,15 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'temurin'
-        cache: maven
+        distribution: 'temurin
+        
+    - uses: actions/cache@v1
+    - name: Maven cache
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles( '**/pom.xml' )
+        restore-keys: |
+                  ${{ runner.os }}-maven-
 
     # Build the project
     - name: Build with Maven
