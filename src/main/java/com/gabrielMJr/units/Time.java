@@ -41,5 +41,3 @@ public class Time implements TimeIF
     return ((value * Double.valueOf(WEEK)) / Double.valueOf(unit));
   }
 }
-
-}
