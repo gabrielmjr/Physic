@@ -13,7 +13,7 @@ public class Area implements AreaIF {
   public static final String SQUARE_METER = "1";
   public static final String SQUARE_DECIMETER = "100";
   public static final String SQUARE_CENTIMETER = "10000";
-  public static final String SQUARE_MILIMETER = "100000";
+  public static final String SQUARE_MILLIMETER = "1000000";
 
   // Symbols of those constants
   public static final String SQUARE_KILOMETER_SYMBOL = "km²";
@@ -22,7 +22,7 @@ public class Area implements AreaIF {
   public static final String SQUARE_METER_SYMBOL = "m²";
   public static final String SQUARE_DECIMETER_SYMBOL = "dm²";
   public static final String SQUARE_CENTIMETER_SYMBOL = "cm²";
-  public static final String SQUARE_MILIMETER_SYMBOL = "mm²";
+  public static final String SQUARE_MILLIMETER_SYMBOL = "mm²";
   
   
   
@@ -62,9 +62,9 @@ public class Area implements AreaIF {
     return ((value * Double.valueOf(SQUARE_CENTIMETER)) / Double.valueOf(value_unit));
   }
 
-  // From another to milimeter
+  // From another to millimeter
   @Override
-  public double toSquareMilimeter(double value, String value_unit) {
-    return ((value * Double.valueOf(SQUARE_MILIMETER)) / Double.valueOf(value_unit));
+  public double toSquareMillimeter(double value, String value_unit) {
+    return ((value * Double.valueOf(SQUARE_MILLIMETER)) / Double.valueOf(value_unit));
   }
 }
