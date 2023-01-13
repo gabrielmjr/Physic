@@ -214,4 +214,45 @@ public class AreaTest
     
     assertEquals(millimeter_result, area.toSquareDecimeter(millimeter_value, Area.SQUARE_MILLIMETER));
   }
+  
+  
+  // Test converter from another units to square centimeter
+  @Test 
+  public void toSquareCentimeterTest()
+  {
+    // Values to be tested
+    double kilometer_value = 374.0;
+    double hectometer_value = 826.0;
+    double decameter_value = 628.0;
+    double meter_value = 726.0;
+    double decimeter_value = 688.0;
+    double centimeter_value = 786.0;
+    double millimeter_value = 518.0;
+    
+    
+    // Results
+    double kilometer_result = 3740000000000.0;
+    double hectometer_result = 82600000000.0;
+    double decameter_result = 628000000.0;
+    double meter_result = 7260000.0;
+    double decimeter_result = 68800.0;
+    double centimeter_result = 786.0;
+    double millimeter_result = 5.18;
+    
+    
+    // Testing
+    assertEquals(kilometer_result, area.toSquareCentimeter(kilometer_value, Area.SQUARE_KILOMETER));
+    
+    assertEquals(hectometer_result, area.toSquareCentimeter(hectometer_value, Area.SQUARE_HECTOMETER));
+    
+    assertEquals(decameter_result, area.toSquareCentimeter(decameter_value, Area.SQUARE_DECAMETER));
+    
+    assertEquals(meter_result, area.toSquareCentimeter(meter_value, Area.SQUARE_METER));
+    
+    assertEquals(decimeter_result, area.toSquareCentimeter(decimeter_value, Area.SQUARE_DECIMETER));
+    
+    assertEquals(centimeter_result, area.toSquareCentimeter(centimeter_value, Area.SQUARE_CENTIMETER));
+    
+    assertEquals(millimeter_result, area.toSquareCentimeter(millimeter_value, Area.SQUARE_MILLIMETER));
+  }
 }
