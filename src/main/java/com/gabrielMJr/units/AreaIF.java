@@ -13,6 +13,6 @@ public interface AreaIF {
   
   public abstract double toSquareCentimeter(double value, String value_unit);
   
-  public abstract double toSquareMilimeter(double value, String value_unit);
+  public abstract double toSquareMillimeter(double value, String value_unit);
 }
 
