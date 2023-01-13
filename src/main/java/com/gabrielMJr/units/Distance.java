@@ -91,7 +91,7 @@ public class Distance implements DistanceIF{
     
       // Convert from another units to hectometer
   @Override
-  public double toMilimeter (
+  public double toMillimeter (
     double value,
     String value_unit)
     {

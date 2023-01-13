@@ -13,5 +13,5 @@ public interface DistanceIF {
   
   public abstract double toCentimeter(double value, String value_unit);
   
-  public abstract double toMilimeter(double value, String value_unit);
+  public abstract double toMillimeter(double value, String value_unit);
 }
