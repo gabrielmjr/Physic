@@ -10,22 +10,22 @@ public class Distance implements DistanceIF{
   // Those constants were used to tell to the program the unit that must use to calculate something
   // Also used to tell the unit from the variables as parameter
   
-  public final String KILOMETER = "0.001";
-  public final String HECTOMETER = "0.01";
-  public final String DECAMETER = "0.1";
-  public final String METER = "1";
-  public final String DECIMETER = "10";
-  public final String CENTIMETER = "100";
-  public final String MILIMETER = "1000";
+  public static final String KILOMETER = "0.001";
+  public static final String HECTOMETER = "0.01";
+  public static final String DECAMETER = "0.1";
+  public static final String METER = "1";
+  public static final String DECIMETER = "10";
+  public static final String CENTIMETER = "100";
+  public static final String MILLIMETER = "1000";
   
     // Symbols of those constants
-  public final String KILOMETER_SYMBOL = "km";
-  public final String HECTOMETER_SYMBOL = "hm";
-  public final String DECAMETER_SYMBOL = "dam";
-  public final String METER_SYMBOL = "m";
-  public final String DECIMETER_SYMBOL = "dm";
-  public final String CENTIMETER_SYMBOL = "cm";
-  public final String MILIMETER_SYMBOL= "mm";
+  public static final String KILOMETER_SYMBOL = "km";
+  public static final String HECTOMETER_SYMBOL = "hm";
+  public static final String DECAMETER_SYMBOL = "dam";
+  public static final String METER_SYMBOL = "m";
+  public static final String DECIMETER_SYMBOL = "dm";
+  public static final String CENTIMETER_SYMBOL = "cm";
+  public static final String MILLIMETER_SYMBOL= "mm";
   
   
   // Convert from another units to kilometer
@@ -95,7 +95,7 @@ public class Distance implements DistanceIF{
     double value,
     String value_unit)
     {
-      double res = (value * Double.valueOf (MILIMETER)) / Double.valueOf (value_unit);
+      double res = (value * Double.valueOf (MILLIMETER)) / Double.valueOf (value_unit);
       return res;
     }
 }
