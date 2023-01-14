@@ -52,4 +52,42 @@ public class DistanceTest
     
     assertEquals(millimeter_result, distance.toKilometer(millimeter_value, Distance.MILLIMETER));
   }
+  
+  
+  // Test converter from another units to  hectometer
+  @Test 
+  public void toHectometerTest()
+  {
+    // Values to be tested 
+    double kilometer_value = 374.0;
+    double hectometer_value = 826.0;
+    double decameter_value = 628.0;
+    double meter_value = 726.0;
+    double decimeter_value = 688.0;
+    double centimeter_value = 786.0;
+    double millimeter_value = 518.0;
+    
+    // Results
+    double kilometer_result = 3740.0;
+    double hectometer_result = 826.0;
+    double decameter_result = 62.8;
+    double meter_result = 7.26;
+    double decimeter_result = 0.688;
+    double centimeter_result = 0.0786;
+    double millimeter_result = 0.00518;
+    
+     assertEquals(kilometer_result, distance.toHectometer(kilometer_value, distance.KILOMETER));
+    
+    assertEquals(hectometer_result, distance.toHectometer(hectometer_value, distance.HECTOMETER));
+    
+    assertEquals(decameter_result, distance.toHectometer(decameter_value, distance.DECAMETER));
+    
+    assertEquals(meter_result, distance.toHectometer(meter_value, distance.METER));
+    
+    assertEquals(decimeter_result, distance.toHectometer(decimeter_value, distance.DECIMETER));
+    
+    assertEquals(centimeter_result, distance.toHectometer(centimeter_value, distance.CENTIMETER));
+    
+    assertEquals(millimeter_result, distance.toHectometer(millimeter_value, Distance.MILLIMETER));
+  }
 }
