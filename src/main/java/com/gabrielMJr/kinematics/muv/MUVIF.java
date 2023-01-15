@@ -1,4 +1,4 @@
-package com.gabrielMJr.physic.kinematic.muv; 
+package com.gabrielMJr.physic.kinematics.muv; 
 
 public interface MUVIF {
     public abstract String acceleration1 (
