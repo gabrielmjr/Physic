@@ -1,5 +1,5 @@
-package com.gabrielMJr.physic.fluidflow;
-
+package com.gabrielMJr.physic.hydrodynamics.fluidflow;
+ 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static com.gabrielMJr.physic.Physic.GET_RESULT;
