@@ -1,5 +1,5 @@
 package com.gabrielMJr.physic.kinematics.mru;
-
+ 
 import com.gabrielMJr.physic.Physic;
 
 final class Speed2 {

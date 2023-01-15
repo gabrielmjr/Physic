@@ -1,5 +1,5 @@
-package com.gabrielMJr.physic.mru;
-
+package com.gabrielMJr.physic.kinematics.mru;
+ 
 final class Displacement2 {
   // Displacementv ∆S = ∆t × media_speed
   protected String displacement (

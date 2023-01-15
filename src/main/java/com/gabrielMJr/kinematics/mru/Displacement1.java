@@ -1,4 +1,4 @@
-package com.gabrielMJr.physic.kinrmatics.mru;
+package com.gabrielMJr.physic.kinematics.mru;
 
 final class Displacement1 {
   // Displacement: ∆S = sf - si

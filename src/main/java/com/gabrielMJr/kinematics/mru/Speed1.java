@@ -1,5 +1,5 @@
-package com.gabrielMJr.physic.kinematic.mru;
-
+package com.gabrielMJr.physic.kinematics.mru;
+ 
 final class Speed1 {
   
   // Speed_law:v = ∆S / ∆T

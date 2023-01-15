@@ -1,5 +1,5 @@
-package com.gabrielMJr.physic.kinematic.mru;
-
+package com.gabrielMJr.physic.kinematics.mru;
+ 
 public class MRU implements MRUIF {
 
   private Displacement1 displacement1;

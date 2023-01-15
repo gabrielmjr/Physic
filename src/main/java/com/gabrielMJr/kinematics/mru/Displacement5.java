@@ -1,5 +1,5 @@
-package com.gabrielMJr.physic.kinrmatics.mru;
-
+package com.gabrielMJr.physic.kinematics.mru;
+ 
 final class Displacement5 {
   // Final displacement: Sf = Si + ∆S
   protected String displacement(

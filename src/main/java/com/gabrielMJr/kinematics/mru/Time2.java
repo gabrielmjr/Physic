@@ -1,5 +1,5 @@
 package com.gabrielMJr.physic.kinematics.mru;
-
+ 
 final class Time2 {
   
   // ∆t = ∆S / media speed
