@@ -1,5 +1,5 @@
-package com.gabrielMJr.physic.muv;
-
+package com.gabrielMJr.physic.kinematics.muv;
+ 
 final class Acceleration1 {
   protected String acceleration(
   double deltaSpeed, 

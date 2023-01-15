@@ -1,24 +1,4 @@
-package com.gabrielMJr.physic.muv;
-
-import com.gabrielMJr.physic.MUVIF;
-
-import com.gabrielMJr.physic.muv.Acceleration1;
-import com.gabrielMJr.physic.muv.Acceleration2;
-import com.gabrielMJr.physic.muv.Acceleration3;
-import com.gabrielMJr.physic.muv.Acceleration4;
-
-import com.gabrielMJr.physic.muv.Speed1;
-import com.gabrielMJr.physic.muv.Speed2;
-import com.gabrielMJr.physic.muv.Speed3;
-import com.gabrielMJr.physic.muv.Speed4;
-
-import com.gabrielMJr.physic.muv.Time1;
-import com.gabrielMJr.physic.muv.Time2;
-import com.gabrielMJr.physic.muv.Time3;
-import com.gabrielMJr.physic.muv.Time4;
-
-import com.gabrielMJr.physic.muv.Displacement1;
-import com.gabrielMJr.physic.muv.Displacement2;
+package com.gabrielMJr.physic.kinematics.muv;
 
 public class MUV implements MUVIF {
   

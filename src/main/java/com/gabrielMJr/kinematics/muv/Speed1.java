@@ -1,4 +1,5 @@
-package com.gabrielMJr.physic.muv;
+package com.gabrielMJr.physic.kinematics
+.muv;
 
 final class Speed1 {
 

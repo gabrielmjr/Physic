@@ -1,4 +1,4 @@
-package com.gabrielMJr.physic.muv;
+package com.gabrielMJr.physic.kinematics.muv;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
