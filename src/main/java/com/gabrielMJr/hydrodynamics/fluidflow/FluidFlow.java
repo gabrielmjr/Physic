@@ -1,5 +1,7 @@
 package com.gabrielMJr.physic.hydrodynamics.fluidflow;
 
+import com.gabrielMJr.physic.hydrodynamics.fluidflow.FluidFlowIF;
+
 public class FluidFlow implements FluidFlowIF
 {
   // This class object variable
