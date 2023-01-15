@@ -1,4 +1,4 @@
-package com.gabrielMJr.physic;
+package com.gabrielMJr.physic.hydrodynamics.fluidflow;
 
 public interface FluidFlowIF {
     public abstract String flowRate1(double volume, double time);
