@@ -2,7 +2,14 @@ package com.gabrielMJr.physic.kinematics.muv;
 
 import com.gabrielMJr.physic.Physic;
 
-final class Time4 {
+final class Time4 
+{
+  
+  // This object variable
+  private static Time4 instance; 
+  
+   // Private constructor to avoid new classe's incence
+  private Time4(){}
   
   protected String time (
     double initial_time, 
@@ -57,5 +64,17 @@ final class Time4 {
     {
       
       return null;
+    }
+    
+    
+    // Get class instance object
+    public static Time4 getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Time4();
+      }
+      
+      return instance;
     }
 }

@@ -16,7 +16,7 @@ public class Displacement1Test
     public Displacement1Test()
     {
         // Initialize the variable
-        muv = new MUV();
+        muv = MUV.getInstance();
     }
     
     

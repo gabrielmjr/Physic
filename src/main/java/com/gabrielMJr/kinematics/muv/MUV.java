@@ -1,6 +1,8 @@
 package com.gabrielMJr.physic.kinematics.muv;
 
-public class MUV implements MUVIF {
+public class MUV implements MUVIF 
+{
+  private static MUV instance;
   
   private Acceleration1 acceleration1;
   private Acceleration2 acceleration2;
@@ -22,23 +24,23 @@ public class MUV implements MUVIF {
   
   public MUV()
   {
-    acceleration1 = new Acceleration1();
-    acceleration2 = new Acceleration2();
-    acceleration3 = new Acceleration3();
-    acceleration4 = new Acceleration4();
+    acceleration1 = Acceleration1.getInstance();
+    acceleration2 = Acceleration2.getInstance();
+    acceleration3 = Acceleration3.getInstance();
+    acceleration4 = Acceleration4.getInstance();
     
-    speed1 = new Speed1();
-    speed2 = new Speed2();
-    speed3 = new Speed3 ();
-    speed4 = new Speed4();
+    speed1 = Speed1.getInstance();
+    speed2 = Speed2.getInstance();
+    speed3 = Speed3.getInstance();
+    speed4 = Speed4.getInstance();
     
-    time1 = new Time1();
-    time2 = new Time2();
-    time3 = new Time3();
-    time4 = new Time4();
+    time1 = Time1.getInstance();
+    time2 = Time2.getInstance();
+    time3 = Time3.getInstance();
+    time4 = Time4.getInstance();
     
-    displacement1 = new Displacement1();
-    displacement2 = new Displacement2();
+    displacement1 = Displacement1.getInstance();
+    displacement2 = Displacement2.getInstance();
   }
 
 
@@ -583,5 +585,16 @@ public class MUV implements MUVIF {
         unit_of_result,
         stepOrResult);
     }
-            
+    
+    
+    // Get class instance object
+    protected static MUV getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new MUV();
+      }
+      
+      return instance;
+    }
 }

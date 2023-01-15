@@ -2,8 +2,14 @@ package com.gabrielMJr.physic.kinematics.muv;
 
 import com.gabrielMJr.physic.Physic;
 
-final class Displacement2 {
-
+final class Displacement2
+{
+  // This object variable
+  private static Displacement2 instance;
+  
+   // Private constructor to avoid new classe's incence
+  private Displacement2(){}
+  
   protected String displacement (
     double initial_speed, 
     double delta_time, 
@@ -91,5 +97,17 @@ final class Displacement2 {
     int stepOrResult)
     {
       return null;
+    }
+    
+    
+    // Get class instance object
+    public static Displacement2 getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Displacement2();
+      }
+      
+      return instance;
     }
 }

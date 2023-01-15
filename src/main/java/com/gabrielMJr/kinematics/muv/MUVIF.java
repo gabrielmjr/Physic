@@ -1,6 +1,7 @@
 package com.gabrielMJr.physic.kinematics.muv; 
 
-public interface MUVIF {
+public interface MUVIF
+{
     public abstract String acceleration1 (
         double deltaSpeed, 
         double deltaTime);

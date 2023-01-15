@@ -1,7 +1,13 @@
 package com.gabrielMJr.physic.kinematics
 .muv;
 
-final class Speed1 {
+final class Speed1
+{
+  // This object variable
+  private static Speed1 instance; 
+  
+   // Private constructor to avoid new classe's incence
+  private Speed1(){}
 
     protected String speed (
     double delta_time, 
@@ -20,5 +26,17 @@ final class Speed1 {
     {
     
       return null;
+    }
+    
+    
+    // Get class instance object
+    public static Speed1 getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Speed1();
+      }
+      
+      return instance;
     }
 }

@@ -16,7 +16,7 @@ public class Speed2Test
     public Speed2Test()
     {
         // Initialize the variable
-        muv = new MUV();
+        muv = MUV.getInstance();
     }
     
     

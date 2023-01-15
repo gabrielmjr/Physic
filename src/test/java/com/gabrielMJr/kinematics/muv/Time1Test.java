@@ -15,7 +15,7 @@ public class Time1Test
     public Time1Test()
     {
         // Initialize the variable
-        muv = new MUV();
+        muv = MUV.getInstance();
     }
     
     

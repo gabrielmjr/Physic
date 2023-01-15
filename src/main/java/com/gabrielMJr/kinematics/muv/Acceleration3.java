@@ -2,8 +2,14 @@ package com.gabrielMJr.physic.kinematics.muv;
 
 import com.gabrielMJr.physic.Physic;
 
-final class Acceleration3 {
-
+final class Acceleration3
+{
+  // This object variable
+  private static Acceleration3 instance; 
+  
+   // Private constructor to avoid new classe's incence
+  private Acceleration3(){}
+  
   protected String acceleration (
       double initial_speed,
       double final_speed, 
@@ -58,4 +64,16 @@ final class Acceleration3 {
   
     return null;
   }
+  
+  
+  // Get class instance object
+    public static Acceleration3 getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Acceleration3();
+      }
+      
+      return instance;
+    }
 }

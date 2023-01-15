@@ -16,7 +16,7 @@ public class Acceleration4Test
     public Acceleration4Test()
     {
         // Initialize the variable
-        muv = new MUV();
+        muv = MUV.getInstance();
     }
     
     
