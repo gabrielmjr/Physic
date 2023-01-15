@@ -10,12 +10,9 @@ name: Java CI
 
 on:
   push:
-<<<<<<< HEAD
     branches: [ "master", "refactore_directories", "jUnit_testing_for_units_converters", "implementation_of_singleton_pattern" ]
   pull_request:
     branches: [ "master", "refactore_directories", "jUnit_testing_for_units_converters", "implementation_of_singleton_pattern" ]
-=======
->>>>>>> cff9d237899df8b3567a5bf1867b3dca04808273
 
 jobs:
   build:
