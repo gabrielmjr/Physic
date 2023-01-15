@@ -43,7 +43,7 @@ public class TimeTest
   }
   
   
-  // Test conversor from another units to second
+  // Test conversor from another units to minute
   @Test
   public void toMinuteTest()
   {
@@ -67,6 +67,60 @@ public class TimeTest
     assertEquals(hour_result, time.toMinute(hour_value, Time.HOUR));
     
     assertEquals(week_result, time.toMinute(week_value, Time.WEEK));
+  }
+  
+  
+  // Test conversor from another units to hour
+  @Test
+  public void toHourTest()
+  {
+    // Values to be testes
+    double second_value = 60.0;
+    double minute_value = 60.0;
+    double hour_value = 24.0;
+    double week_value = 1.0;
+    
+    // Result Values
+    Double second_result = 0.016666666666666666;
+    Double minute_result = 1.0;
+    Double hour_result = 24.0;
+    Double week_result = 168.0;
+    
+    // Testing
+    assertEquals(second_result, time.toHour(second_value, Time.SECOND));
+    
+    assertEquals(minute_result, time.toHour(minute_value, Time.MINUTE));
+    
+    assertEquals(hour_result, time.toHour(hour_value, Time.HOUR));
+    
+    assertEquals(week_result, time.toHour(week_value, Time.WEEK));
+  }
+  
+  
+  // Test conversor from another units to week
+  @Test
+  public void toWeekTest()
+  {
+    // Values to be testes
+    double second_value = 60.0;
+    double minute_value = 60.0;
+    double hour_value = 24.0;
+    double week_value = 1.0;
+    
+    // Result Values
+    Double second_result = 9.92063492063492E-05;
+    Double minute_result = 0.005952380952380952;
+    Double hour_result = 0.14285714285714285;
+    Double week_result = 1.0;
+    
+    // Testing
+    assertEquals(second_result, time.toWeek(second_value, Time.SECOND));
+    
+    assertEquals(minute_result, time.toWeek(minute_value, Time.MINUTE));
+    
+    assertEquals(hour_result, time.toWeek(hour_value, Time.HOUR));
+    
+    assertEquals(week_result, time.toWeek(week_value, Time.WEEK));
   }
   
 }
