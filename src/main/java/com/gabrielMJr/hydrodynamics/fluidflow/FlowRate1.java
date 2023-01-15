@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.gabrielMJr.physic.hydrodynamics.fluidflow;
+=======
+package com.gabrielMJr.physic.fluidflow;
+>>>>>>> 5666430d7121ccd775d4ee7ec7195ad6932b9e9b
 
 final class FlowRate1
 {
