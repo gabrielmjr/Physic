@@ -2,7 +2,13 @@ package com.gabrielMJr.physic.fluidflow;
 
 import com.gabrielMJr.physic.Physic;
 
-final class Speed2 {
+final class Speed2 
+{
+  // Tgis class object variable
+  private static Speed2 instance;
+  
+  // Private constructor to avoid new class's instance
+  private Speed2(){}
 
   protected String speed(
       double flowRate, 
@@ -62,4 +68,15 @@ final class Speed2 {
         
         return null;
       }
+      
+      // Get class instance object
+    public static Speed2 getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Speed2();
+      }
+      
+      return instance;
+    }
 }

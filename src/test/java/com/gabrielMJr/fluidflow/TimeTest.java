@@ -14,7 +14,7 @@ public class TimeTest
     // Constructor
     public TimeTest()
     {
-        fluidFlow = new FluidFlow();
+        fluidFlow = FluidFlow.getInstance();
     }
     
     

@@ -3,6 +3,11 @@ package com.gabrielMJr.physic.fluidflow;
 import com.gabrielMJr.physic.Physic;
 
 final class Ray {
+  // this class object variable
+  private static Ray instance;
+  
+  // Private constructor to avoid new class instance
+  private Ray(){}
 
   protected String ray(
       double flowRate, 
@@ -44,4 +49,15 @@ final class Ray {
         
         }
       }
+      
+      // Get class instance object
+    public static Ray getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Ray();
+      }
+      
+      return instance;
+    }
 }

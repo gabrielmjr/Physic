@@ -14,7 +14,7 @@ public class VolumeTest
     // Constructor
     public VolumeTest()
     {
-        fluidFlow = new FluidFlow();
+        fluidFlow = FluidFlow.getInstance();
     }
     
     

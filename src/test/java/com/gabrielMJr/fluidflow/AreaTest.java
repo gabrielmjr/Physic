@@ -15,7 +15,7 @@ public class AreaTest
     public AreaTest()
     {
         // Initialize the variable
-        fluidFlow = new FluidFlow();
+        fluidFlow = FluidFlow.getInstance();
     }
     
     @Test

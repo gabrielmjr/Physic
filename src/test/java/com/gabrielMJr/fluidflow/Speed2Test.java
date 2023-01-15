@@ -15,7 +15,7 @@ public class Speed2Test
     // Constructor
     public Speed2Test()
     {
-        fluidFlow = new FluidFlow();
+        fluidFlow = FluidFlow.getInstance();
     }
     
     

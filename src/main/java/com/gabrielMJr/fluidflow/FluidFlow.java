@@ -13,9 +13,11 @@ import com.gabrielMJr.physic.fluidflow.Time;
 import com.gabrielMJr.physic.fluidflow.Volume;
 
 
-public class FluidFlow implements FluidFlowIF{
-
- 
+public class FluidFlow implements FluidFlowIF
+{
+  // This class object variable
+  private static FluidFlow instance;
+  
   private static Area area;
   private static FlowRate1 flowRate1;
   private static FlowRate2 flowRate2;
@@ -26,17 +28,18 @@ public class FluidFlow implements FluidFlowIF{
   private static Time time;
   private static Volume volume;
   
-  public FluidFlow()
+  // Private constructor to avoid mew class's instance
+  private FluidFlow()
   {
-    area = new Area();
-    flowRate1 = new FlowRate1();
-    flowRate2 = new FlowRate2();
-    flowRate3 = new FlowRate3();
-    ray = new Ray();
-    speed1 = new Speed1();
-    speed2 = new Speed2();
-    time = new Time();
-    volume = new Volume();
+    area = Area.getInstance();
+    flowRate1 = FlowRate1.getInstance();
+    flowRate2 = FlowRate2.getInstance();
+    flowRate3 = FlowRate3.getInstance();
+    ray = Ray.getInstance();
+    speed1 = Speed1.getInstance();
+    speed2 = Speed2.getInstance();
+    time = Time.getInstance();
+    volume = Volume.getInstance();
   }
   
 
@@ -293,5 +296,15 @@ public class FluidFlow implements FluidFlowIF{
         velocidade,
         resultOrStep);
     }
-
+    
+// Get class instance object
+    public static FluidFlow getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new FluidFlow();
+      }
+      
+      return instance;
+    }
 }

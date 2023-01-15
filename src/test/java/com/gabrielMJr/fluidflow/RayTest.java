@@ -15,7 +15,7 @@ public class RayTest
     // Constructor
     public RayTest()
     {
-        fluidFlow = new FluidFlow();
+        fluidFlow = FluidFlow.getInstance();
     }
     
     

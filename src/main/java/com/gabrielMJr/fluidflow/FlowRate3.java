@@ -2,8 +2,13 @@ package com.gabrielMJr.physic.fluidflow;
 
 import com.gabrielMJr.physic.Physic;
 
-final class FlowRate3 {
-
+final class FlowRate3
+{
+  // This class variable
+  private static FlowRate3 instance;
+  
+  // Private constructor to avoid new instance
+  private FlowRate3(){}
 
   protected String flowRate(
       double raio, 
@@ -64,4 +69,15 @@ final class FlowRate3 {
       {
         return null;
       }
+      
+      // Get class instance object
+    public static FlowRate3 getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new FlowRate3();
+      }
+      
+      return instance;
+    }
 }
