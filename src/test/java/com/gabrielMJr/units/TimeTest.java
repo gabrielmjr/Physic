@@ -42,4 +42,31 @@ public class TimeTest
     assertEquals(week_result, time.toSecond(week_value, Time.WEEK));
   }
   
+  
+  // Test conversor from another units to second
+  @Test
+  public void toMinuteTest()
+  {
+    // Values to be testes
+    double second_value = 60.0;
+    double minute_value = 60.0;
+    double hour_value = 24.0;
+    double week_value = 1.0;
+    
+    // Result Values
+    Double second_result = 1.0;
+    Double minute_result = 60.0;
+    Double hour_result = 1440.0;
+    Double week_result = 10080.0;
+    
+    // Testing
+    assertEquals(second_result, time.toMinute(second_value, Time.SECOND));
+    
+    assertEquals(minute_result, time.toMinute(minute_value, Time.MINUTE));
+    
+    assertEquals(hour_result, time.toMinute(hour_value, Time.HOUR));
+    
+    assertEquals(week_result, time.toMinute(week_value, Time.WEEK));
+  }
+  
 }
