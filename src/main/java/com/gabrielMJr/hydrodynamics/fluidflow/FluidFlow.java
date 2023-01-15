@@ -1,18 +1,5 @@
 package com.gabrielMJr.physic.hydrodynamics.fluidflow;
 
-import com.gabrielMJr.physic.FluidFlowIF;
-
-import com.gabrielMJr.physic.fluidflow.Area;
-import com.gabrielMJr.physic.fluidflow.FlowRate1;
-import com.gabrielMJr.physic.fluidflow.FlowRate2;
-import com.gabrielMJr.physic.fluidflow.FlowRate3;
-import com.gabrielMJr.physic.fluidflow.Ray;
-import com.gabrielMJr.physic.fluidflow.Speed1;
-import com.gabrielMJr.physic.fluidflow.Speed2;
-import com.gabrielMJr.physic.fluidflow.Time;
-import com.gabrielMJr.physic.fluidflow.Volume;
-
-
 public class FluidFlow implements FluidFlowIF
 {
   // This class object variable
