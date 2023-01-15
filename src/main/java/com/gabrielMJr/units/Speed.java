@@ -5,6 +5,8 @@ import com.gabrielMJr.physic.units.Time;
 
 public class Speed implements SpeedIF
 {
+  // This object variable
+  private static Speed instance; 
 
   private final Distance distance = new Distance();
   private final Time time = new Time();
@@ -275,5 +277,17 @@ public class Speed implements SpeedIF
     Double new_distance = distance.toMillimeter(value, units[0]);
     Double new_time = time.toHour(1.0, units[1]);
     return new_distance / new_time;
+  }
+  
+  
+  // Get class instance object
+  protected static Speed getInstance()
+  {
+    if(instance == null)
+    {
+      instance = new Speed();
+    }
+    
+    return instance;
   }
 }
