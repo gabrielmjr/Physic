@@ -1,4 +1,4 @@
-package com.gabrielMJr.physic.kinematics.kinematics.ru;
+package com.gabrielMJr.physic.kinematics.kinematics.mru;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
