@@ -10,9 +10,9 @@ name: Java CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "implementation_of_singleton_pattern", "jUnit_testing_for_units_converters", "refactore_directories" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "implementation_of_singleton_pattern", "jUnit_testing_for_units_converters", "refactore_directories" ]
 
 jobs:
   build:
