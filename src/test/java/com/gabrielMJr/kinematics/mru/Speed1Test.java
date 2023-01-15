@@ -1,18 +1,18 @@
-package com.gabrielMJr.physic.mru;
+package com.gabrielMJr.physic.kinematics.mru;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
- This class tests the mru >> displacement2.class
+ This class tests the mru >> speed1.class
 */
-public class Displacement2Test
+public class Speed1Test
 {
     // MRU object
     private MRU mru;
     
     // Constructor
-    public Displacement2Test()
+    public Speed1Test()
     {
         // Initialize the variable
         mru = new MRU();
@@ -20,19 +20,19 @@ public class Displacement2Test
     
     
     /*
-     This method tests Displaceent2 class
+     This method tests Speed1 class
     */
     @Test
-    public void displacement2Test()
+    public void speed1Test()
     {
         // The value to be tested:
-        Double deltaTime = 3.0;
-        Double deltaSpeed = 4.0;
+        Double deltaDisplacement = 8.0;
+        Double deltaTime = 5.0;
         
         // The result need to ne:
-        String result = "12.0";
+        String result = "1.6";
         
         // Testing
-        assertEquals(result, mru.displacement2(deltaTime, deltaSpeed));
+        assertEquals(result, mru.speed1(deltaDisplacement, deltaTime));
     }
 }

@@ -1,4 +1,4 @@
-package com.gabrielMJr.physic;
+package com.gabrielMJr.physic.kinematics.mru;
 
 public interface MRUIF {
     // Displacement1/delta_displacement:

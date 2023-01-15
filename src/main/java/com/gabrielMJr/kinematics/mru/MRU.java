@@ -1,22 +1,4 @@
-package com.gabrielMJr.physic.mru;
-
-import com.gabrielMJr.physic.MRUIF;
-
-import com.gabrielMJr.physic.mru.Displacement1;
-import com.gabrielMJr.physic.mru.Displacement2;
-import com.gabrielMJr.physic.mru.Displacement3;
-import com.gabrielMJr.physic.mru.Displacement4;
-import com.gabrielMJr.physic.mru.Displacement5;
-import com.gabrielMJr.physic.mru.Displacement6;
-
-import com.gabrielMJr.physic.mru.Speed1;
-import com.gabrielMJr.physic.mru.Speed2;
-
-import com.gabrielMJr.physic.mru.Time1;
-import com.gabrielMJr.physic.mru.Time2;
-import com.gabrielMJr.physic.mru.Time3;
-import com.gabrielMJr.physic.mru.Time4;
-import com.gabrielMJr.physic.mru.Time5;
+package com.gabrielMJr.physic.kinematic.mru;
 
 public class MRU implements MRUIF {
 

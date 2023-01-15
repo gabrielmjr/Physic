@@ -1,4 +1,4 @@
-package com.gabrielMJr.physic.mru;
+package com.gabrielMJr.physic.kinematics.mru;
 
 import com.gabrielMJr.physic.Physic;
 
