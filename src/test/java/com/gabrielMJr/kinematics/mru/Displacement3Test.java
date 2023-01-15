@@ -16,7 +16,7 @@ public class Displacement3Test
     public Displacement3Test()
     {
         // Initialize the variable
-        mru = new MRU();
+        mru = MRU.getInstance();
     }
     
     

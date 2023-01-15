@@ -1,6 +1,9 @@
 package com.gabrielMJr.physic.kinematics.mru;
  
-public class MRU implements MRUIF {
+public class MRU implements MRUIF 
+{
+  // This object variable
+  private static MRU instance; 
 
   private Displacement1 displacement1;
   private Displacement2 displacement2;
@@ -20,21 +23,21 @@ public class MRU implements MRUIF {
   
   public MRU()
   {
-    displacement1 = new Displacement1();
-    displacement2 = new Displacement2();
-    displacement3 = new Displacement3();
-    displacement4 = new Displacement4();
-    displacement5 = new Displacement5();
-    displacement6 = new Displacement6();
+    displacement1 = Displacement1.getInstance();
+    displacement2 = Displacement2.getInstance();
+    displacement3 = Displacement3.getInstance();
+    displacement4 = Displacement4.getInstance();
+    displacement5 = Displacement5.getInstance();
+    displacement6 = Displacement6.getInstance();
     
-    speed1 = new Speed1();
-    speed2 = new Speed2();
+    speed1 = Speed1.getInstance();
+    speed2 = Speed2.getInstance();
     
-    time1 = new Time1();
-    time2 = new Time2();
-    time3 = new Time3();
-    time4 = new Time4();
-    time5 = new Time5();
+    time1 = Time1.getInstance();
+    time2 = Time2.getInstance();
+    time3 = Time3.getInstance();
+    time4 = Time4.getInstance();
+    time5 = Time5.getInstance();
   }
 
   /* Displacement */
@@ -439,4 +442,15 @@ public class MRU implements MRUIF {
       variation_time_unit,
       unit_of_result);
   }
+  
+  // Get class instance object
+    protected static MRU getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new MRU();
+      }
+      
+      return instance;
+    }
 }

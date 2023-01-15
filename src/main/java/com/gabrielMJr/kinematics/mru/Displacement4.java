@@ -1,7 +1,13 @@
 package com.gabrielMJr.physic.kinematics.mru;
  
-final class Displacement4 {
-
+final class Displacement4
+{
+  // This object variable
+  private static Displacement4 instance; 
+  
+   // Private constructor to avoid new classe's incence
+  private Displacement4(){}
+  
   // Initial displacement: Si = Sf - ∆S
   protected String displacement(
     double variation_displacement,
@@ -19,4 +25,16 @@ final class Displacement4 {
   {
     return null;
   }
+  
+  
+  // Get class instance object
+    public static Displacement4 getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Displacement4();
+      }
+      
+      return instance;
+    }
 }

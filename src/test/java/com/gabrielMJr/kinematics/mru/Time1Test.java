@@ -15,7 +15,7 @@ public class Time1Test
     public Time1Test()
     {
         // Initialize the variable
-        mru = new MRU();
+        mru = MRU.getInstance();
     }
     
     

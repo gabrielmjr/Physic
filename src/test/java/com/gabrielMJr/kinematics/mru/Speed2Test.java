@@ -16,7 +16,7 @@ public class Speed2Test
     public Speed2Test()
     {
         // Initialize the variable
-        mru = new MRU();
+        mru = MRU.getInstance();
     }
     
     

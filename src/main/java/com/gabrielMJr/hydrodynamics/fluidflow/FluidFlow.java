@@ -4,9 +4,7 @@ import com.gabrielMJr.physic.hydrodynamics.fluidflow.FluidFlowIF;
 
 public class FluidFlow implements FluidFlowIF
 {
-  // This class object variable
   private static FluidFlow instance;
-  
   private static Area area;
   private static FlowRate1 flowRate1;
   private static FlowRate2 flowRate2;
@@ -17,8 +15,8 @@ public class FluidFlow implements FluidFlowIF
   private static Time time;
   private static Volume volume;
   
-  // Private constructor to avoid mew class's instance
-  private FluidFlow()
+  // Constructor
+  public FluidFlow()
   {
     area = Area.getInstance();
     flowRate1 = FlowRate1.getInstance();
@@ -287,7 +285,7 @@ public class FluidFlow implements FluidFlowIF
     }
     
 // Get class instance object
-    public static FluidFlow getInstance()
+    protected static FluidFlow getInstance()
     {
       if(instance == null)
       {

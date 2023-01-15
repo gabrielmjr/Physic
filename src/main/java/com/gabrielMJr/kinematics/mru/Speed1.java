@@ -1,6 +1,12 @@
 package com.gabrielMJr.physic.kinematics.mru;
  
-final class Speed1 {
+final class Speed1
+{
+  // This object variable
+  private static Speed1 instance;
+  
+   // Private constructor to avoid new classe's incence
+  private Speed1(){}
   
   // Speed_law:v = ∆S / ∆T
   protected String speed1(
@@ -19,4 +25,15 @@ final class Speed1 {
   {
     return null;
   }
+  
+  // Get class instance object
+    public static Speed1 getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Speed1();
+      }
+      
+      return instance;
+    }
 }

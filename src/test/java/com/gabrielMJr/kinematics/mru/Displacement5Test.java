@@ -15,7 +15,7 @@ public class Displacement5Test
     public Displacement5Test()
     {
         // Initialize the variable
-        mru = new MRU();
+        mru = MRU.getInstance();
     }
     
     

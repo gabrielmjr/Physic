@@ -2,8 +2,14 @@ package com.gabrielMJr.physic.kinematics.mru;
  
 import com.gabrielMJr.physic.Physic;
 
-final class Displacement3 {
-
+final class Displacement3
+{
+  // This object variable
+  private static Displacement3 instance; 
+  
+   // Private constructor to avoid new classe's incence
+  private Displacement3(){}
+ 
   // Displacement: ∆S = (tf - ti) × media_speed
   protected String displacement(
     double initial_time,
@@ -71,4 +77,16 @@ final class Displacement3 {
   {
     return null;
   }
+  
+  
+  // Get class instance object
+    public static Displacement3 getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Displacement3();
+      }
+      
+      return instance;
+    }
 }

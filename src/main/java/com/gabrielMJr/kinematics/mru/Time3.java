@@ -2,8 +2,14 @@ package com.gabrielMJr.physic.kinematics.mru;
  
 import com.gabrielMJr.physic.Physic;
 
-final class Time3 {
-
+final class Time3 
+{
+  // This object variable
+  private static Time3 instance; 
+  
+   // Private constructor to avoid new classe's incence
+  private Time3(){}
+  
   // ∆t = (Sf - Si) / v
   protected String time(
     double initial_displacement,
@@ -74,4 +80,16 @@ final class Time3 {
   {
     return null;
   }
+  
+  
+  // Get class instance object
+    public static Time3 getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Time3();
+      }
+      
+      return instance;
+    }
 }
