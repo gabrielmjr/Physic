@@ -2,7 +2,10 @@ package com.gabrielMJr.physic.units;
 
 import com.gabrielMJr.physic.units.AreaIF;
 
-public class Area implements AreaIF {
+public class Area implements AreaIF 
+{
+  // This object variable
+  private static Area instance; 
 
   // Those constants were used to tell to the program the unit that must use to calculate something
   // Also used to tell the unit from the variables as parameter
@@ -67,4 +70,16 @@ public class Area implements AreaIF {
   public double toSquareMillimeter(double value, String value_unit) {
     return ((value * Double.valueOf(SQUARE_MILLIMETER)) / Double.valueOf(value_unit));
   }
+  
+  
+  // Get class instance object
+    protected static Area getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Area();
+      }
+      
+      return instance;
+    }
 }

@@ -12,7 +12,7 @@ public class TimeTest
   public TimeTest()
   {
     // Initialize the variable
-    time = new Time();
+    time = Time.getInstance();
   }
   
   

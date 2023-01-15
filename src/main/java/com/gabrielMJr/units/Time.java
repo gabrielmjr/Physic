@@ -2,6 +2,9 @@ package com.gabrielMJr.physic.units;
 
 public class Time implements TimeIF
 {
+  // This object variable
+  private static Time instance;
+  
   // Those constants were used to tell to the program the unit that must use to calculate something
   // Also used to tell the unit from the variables as parameter
   public static final String SECOND = "1";
@@ -40,4 +43,16 @@ public class Time implements TimeIF
   {
     return ((value * Double.valueOf(WEEK)) / Double.valueOf(unit));
   }
+  
+  
+  // Get class instance object
+    protected static Time getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Time();
+      }
+      
+      return instance;
+    }
 }

@@ -2,7 +2,10 @@ package com.gabrielMjr.physic.units;
 
 import com.gabrielMJr.physic.units.VolumeIF;
 
-public class Volume implements VolumeIF{
+public class Volume implements VolumeIF
+{
+  // This object variable
+  private static Volume instance; 
   
   // Those constants were used to tell to the program the unit that must use to calculate something
   // Also used to tell the unit from the variables as parameter
@@ -63,5 +66,17 @@ public class Volume implements VolumeIF{
     double value,
     String value_unit) {
       return ((value * Double.valueOf (CUBE_MILIMETER)) / Double.valueOf (value_unit));
+    }
+    
+    
+    // Get class instance object
+    protected static Volume getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Volume();
+      }
+      
+      return instance;
     }
 }

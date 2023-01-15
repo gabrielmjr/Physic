@@ -12,7 +12,7 @@ public class DistanceTest
   public DistanceTest()
   {
     // initialize the variable
-    distance = new Distance();
+    distance = Distance.getInstance();
   }
   
   // Test converter from another units to  kilometer
