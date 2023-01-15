@@ -24,12 +24,14 @@ public class TimeTest
     double second_value = 60.0;
     double minute_value = 60.0;
     double hour_value = 24.0;
+    double day_value = 7.0;
     double week_value = 1.0;
     
     // Result Values
     Double second_result = 60.0;
     Double minute_result = 3600.0;
     Double hour_result = 86400.0;
+    Double day_result = 604800.0;
     Double week_result = 604800.0;
     
     // Testing
@@ -51,12 +53,14 @@ public class TimeTest
     double second_value = 60.0;
     double minute_value = 60.0;
     double hour_value = 24.0;
+    double day_value = 1.0;
     double week_value = 1.0;
     
     // Result Values
     Double second_result = 1.0;
     Double minute_result = 60.0;
     Double hour_result = 1440.0;
+    Double day_result = 10080.0;
     Double week_result = 10080.0;
     
     // Testing
@@ -78,12 +82,14 @@ public class TimeTest
     double second_value = 60.0;
     double minute_value = 60.0;
     double hour_value = 24.0;
+    double day_value = 1.0;
     double week_value = 1.0;
     
     // Result Values
     Double second_result = 0.016666666666666666;
     Double minute_result = 1.0;
     Double hour_result = 24.0;
+    Double day_result = 168.0; 
     Double week_result = 168.0;
     
     // Testing
@@ -105,12 +111,14 @@ public class TimeTest
     double second_value = 60.0;
     double minute_value = 60.0;
     double hour_value = 24.0;
+    double day_value = 1.0;
     double week_value = 1.0;
     
     // Result Values
     Double second_result = 9.92063492063492E-05;
     Double minute_result = 0.005952380952380952;
     Double hour_result = 0.14285714285714285;
+    Double day_result = 1.0;
     Double week_result = 1.0;
     
     // Testing
