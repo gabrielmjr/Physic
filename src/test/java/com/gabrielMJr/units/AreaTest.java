@@ -12,7 +12,7 @@ public class AreaTest
   public AreaTest()
   {
     // Initialize the variable
-    area = new Area();
+    area = Area.getInstance();
   }
   
   // Test converter from another units to square kilometer

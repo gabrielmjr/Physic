@@ -3,8 +3,11 @@ package com.gabrielMJr.physic.units;
 import com.gabrielMJr.physic.Physic;
 import com.gabrielMJr.physic.units.DistanceIF;
 
-public class Distance implements DistanceIF{
-
+public class Distance implements DistanceIF
+{
+  // This object variable
+  private static Distance instance; 
+  
   Physic physic = new Physic();
 
   // Those constants were used to tell to the program the unit that must use to calculate something
@@ -97,5 +100,17 @@ public class Distance implements DistanceIF{
     {
       double res = (value * Double.valueOf (MILLIMETER)) / Double.valueOf (value_unit);
       return res;
+    }
+    
+    
+    // Get class instance object
+    protected static Distance getInstance()
+    {
+      if(instance == null)
+      {
+        instance = new Distance();
+      }
+      
+      return instance;
     }
 }
