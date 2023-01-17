@@ -273,18 +273,18 @@ public class VolumeTest
     Double cube_millimeter_result = 1.0;
     
     // Testing
-    assertEquals(cube_kilometer_result, volume.toCubeCentimeter(cube_kilometer_value, Volume.CUBE_KILOMETER));
+    assertEquals(cube_kilometer_result, volume.toCubeMillimeter(cube_kilometer_value, Volume.CUBE_KILOMETER));
     
-    assertEquals(cube_hectometer_result, volume.toCubeCentimeter(cube_hectometer_value, Volume.CUBE_HECTOMETER));
+    assertEquals(cube_hectometer_result, volume.toCubeMillimeter(cube_hectometer_value, Volume.CUBE_HECTOMETER));
     
-    assertEquals(cube_decameter_result, volume.toCubeCentimeter(cube_decameter_value, Volume.CUBE_DECAMETER));
+    assertEquals(cube_decameter_result, volume.toCubeMillimeter(cube_decameter_value, Volume.CUBE_DECAMETER));
     
-    assertEquals(cube_meter_result, volume.toCubeCentimeter(cube_meter_value, Volume.CUBE_METER));
+    assertEquals(cube_meter_result, volume.toCubeMillimeter(cube_meter_value, Volume.CUBE_METER));
     
-    assertEquals(cube_decimeter_result, volume.toCubeCentimeter(cube_decimeter_value, Volume.CUBE_DECIMETER));
+    assertEquals(cube_decimeter_result, volume.toCubeMillimeter(cube_decimeter_value, Volume.CUBE_DECIMETER));
     
-    assertEquals(cube_centimeter_result, volume.toCubeCentimeter(cube_centimeter_value, Volume.CUBE_CENTIMETER));
+    assertEquals(cube_centimeter_result, volume.toCubeMillimeter(cube_centimeter_value, Volume.CUBE_CENTIMETER));
     
-    assertEquals(cube_millimeter_result, volume.toCubeCentimeter(cube_millimeter_value, Volume.CUBE_MILLIMETER));
+    assertEquals(cube_millimeter_result, volume.toCubeMillimeter(cube_millimeter_value, Volume.CUBE_MILLIMETER));
   }
 }
