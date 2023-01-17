@@ -248,4 +248,43 @@ public class VolumeTest
     
     assertEquals(cube_millimeter_result, volume.toCubeCentimeter(cube_millimeter_value, Volume.CUBE_MILLIMETER));
   }
+  
+  
+   // Test conversor from another units to meter 
+  @Test
+  public void toCubeMillimeterTest()
+  {
+    // Values to be testes
+    double cube_kilometer_value = 1.0;
+    double cube_hectometer_value = 1.0;
+    double cube_decameter_value = 1.0;
+    double cube_meter_value = 1.0;
+    double cube_decimeter_value = 1.0;
+    double cube_centimeter_value = 1.0;
+    double cube_millimeter_value = 1.0;
+    
+    // Result Values
+    Double cube_kilometer_result = 1000000000000000000.0;
+    Double cube_hectometer_result = 1000000000000000.0;
+    Double cube_decameter_result = 1000000000000.0;
+    Double cube_meter_result = 1000000000.0;
+    Double cube_decimeter_result = 1000000.0;
+    Double cube_centimeter_result = 1000.0;
+    Double cube_millimeter_result = 1.0;
+    
+    // Testing
+    assertEquals(cube_kilometer_result, volume.toCubeCentimeter(cube_kilometer_value, Volume.CUBE_KILOMETER));
+    
+    assertEquals(cube_hectometer_result, volume.toCubeCentimeter(cube_hectometer_value, Volume.CUBE_HECTOMETER));
+    
+    assertEquals(cube_decameter_result, volume.toCubeCentimeter(cube_decameter_value, Volume.CUBE_DECAMETER));
+    
+    assertEquals(cube_meter_result, volume.toCubeCentimeter(cube_meter_value, Volume.CUBE_METER));
+    
+    assertEquals(cube_decimeter_result, volume.toCubeCentimeter(cube_decimeter_value, Volume.CUBE_DECIMETER));
+    
+    assertEquals(cube_centimeter_result, volume.toCubeCentimeter(cube_centimeter_value, Volume.CUBE_CENTIMETER));
+    
+    assertEquals(cube_millimeter_result, volume.toCubeCentimeter(cube_millimeter_value, Volume.CUBE_MILLIMETER));
+  }
 }
