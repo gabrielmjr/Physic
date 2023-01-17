@@ -1,7 +1,7 @@
 package com.gabrielMJr.physic.units;
 
 import org.junit.jupiter.api.Test;
-import static org.junir.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VolumeTest
 {
@@ -35,7 +35,7 @@ public class VolumeTest
     Double cube_decameter_result = 0.000001;
     Double cube_meter_result = 0.000000001;
     Double cube_decimeter_result = 0.000000000001;
-    Double cube_centimeter_result = 0.0000000000000001;
+    Double cube_centimeter_result = 0.000000000000001;
     Double cube_millimeter_result = 0.000000000000000001;
     
     // Testing
@@ -49,9 +49,9 @@ public class VolumeTest
     
     assertEquals(cube_decimeter_result, volume.toCubeKilometer(cube_decimeter_value, Volume.CUBE_DECIMETER));
     
-    assertEquls(cube_centimeter_result, volume.ToCubeKilometer(cube_centimeter_value, Volume.CUBE_CENTIMETER));
+    assertEquals(cube_centimeter_result, volume.toCubeKilometer(cube_centimeter_value, Volume.CUBE_CENTIMETER));
     
-    assertEquls(cube_millimeter_result, volume.ToCubeKilometer(cube_millimeter_value, Volume.CUBE_MILLIMETER));
+    assertEquals(cube_millimeter_result, volume.toCubeKilometer(cube_millimeter_value, Volume.CUBE_MILLIMETER));
     
   }
 }
