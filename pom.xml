@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.gabrielMJr</groupId>
+  <groupId>com.gabrielMJr.twaire.physic</groupId>
   <artifactId>physic</artifactId>
   <version>1.0.4-BETA_2</version>
   <name>${project.artifactId}</name>
@@ -108,7 +108,7 @@
               <manifest>
                 <addClasspath>true</addClasspath>
                 <classpathPrefix>lib/</classpathPrefix>
-                <mainClass>com.gabrielMJr.physic.${project.scm.tag}</mainClass>
+                <mainClass>${project.groupId}.${project.scm.tag}</mainClass>
               </manifest>
             </archive>
           </configuration>
