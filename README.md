@@ -8,14 +8,17 @@
 **Latest release:** [1.0.3-Release](https://github.com/gabrielmjr/Physic/releases/tag/v1.0.3)
 
 
-**Package:** com.gabrielMJr.twaire.physic
+**Package:** 
+
+    com.gabrielMJr.twaire.physic
 
 **Maven dependency injection:**
-`<dependency>
-    <groupId>com.gabrielMJr.twaire</groupId>
-    <artifactId>physic</artifactId>
-    <version>[PREFERED VERSION]</version>
-</dependency>`
+
+    <dependency>
+        <groupId>com.gabrielMJr.twaire</groupId>
+        <artifactId>physic</artifactId>
+        <version>[PREFERED VERSION]</version>
+    </dependency>
 
 
 **Used programming language:** Java
@@ -34,7 +37,10 @@
 <h4>Main class</h4>
 
 Name: **Physic**
-Class path: `com.gabrielMJr.twaire.physic.Physic`
+Class path: 
+
+    com.gabrielMJr.twaire.physic.Physic
+
 
 <h4>Constants</h4>
 
