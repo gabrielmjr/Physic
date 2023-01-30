@@ -40,6 +40,34 @@ public class Speed implements SpeedIF
   public static final String CENTIMETER_PER_HOUR = "100/0.0002777777777777778";
   public static final String MILLIMETER_PER_HOUR = "1000/0.0002777777777777778";
   
+  // Symbols 
+  public static final String KILOMETER_PER_SECOND_SYMBOL = "km/s";
+  public static final String HECTOMETER_PER_SECOND_SYMBOL = "hm/s";
+  public static final String DECAMETER_PER_SECOND_SYMBOL = "dam/s";
+  public static final String METER_PER_SECOND_SYMBOL = "m/s";
+  public static final String DECIMETER_PER_SECOND_SYMBOL = "dm/s";
+  public static final String CENTIMETER_PER_SECOND_SYMBOL = "cm/s";
+  public static final String MILLIMETER_PER_SECOND_SYMBOL = "mm/s";
+  
+  // Distance per minute
+  public static final String KILOMETER_PER_MINUTE_SYMBOL = "km/min";
+  public static final String HECTOMETER_PER_MINUTE_SYMBOL = "hm/min";
+  public static final String DECAMETER_PER_MINUTE_SYMBOL = "dam/min";
+  public static final String METER_PER_MINUTE_SYMBOL = "m/min";
+  public static final String DECIMETER_PER_MINUTE_SYMBOL = "dm/min";
+  public static final String CENTIMETER_PER_MINUTE_SYMBOL = "cm/min";
+  public static final String MILLIMETER_PER_MINUTE_SYMBOL = "mm/min";
+  
+  // Distance per hour
+  public static final String KILOMETER_PER_HOUR_SYMBOL = "hm/h";
+  public static final String HECTOMETER_PER_HOUR_SYMBOL = "hm/h";
+  public static final String DECAMETER_PER_HOUR_SYMBOL = "dam/h";
+  public static final String METER_PER_HOUR_SYMBOL = "m/h";
+  public static final String DECIMETER_PER_HOUR_SYMBOL = "dm/h";
+  public static final String CENTIMETER_PER_HOUR_SYMBOL = "cm/h";
+  public static final String MILLIMETER_PER_HOUR_SYMBOL = "mm/h";
+  
+  
   // Converter
   // From anothers to second
   // From anothers to kilometer
