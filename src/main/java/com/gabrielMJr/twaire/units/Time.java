@@ -13,6 +13,14 @@ public class Time implements TimeIF
   public static final String DAY = "1.1574074074074073E-05";
   public static final String WEEK = "1.6534391534391535E-06";
   
+  public static final String SECOND_SYMBOL = "s";
+  public static final String MINUTE_SYMBOL = "min";
+  public static final String HOUR_SYMBOL = "h";
+  public static final String DAY_SYMBOL = "d";
+  public static final String WEEK_IN_MONTH_SYMBOL = "W";
+  public static final String WEEK_IN_YEAR_SYMBOL = "w";
+  
+  
   // From another to kilometer
   @Override
   public Double toSecond(double value, String unit)
