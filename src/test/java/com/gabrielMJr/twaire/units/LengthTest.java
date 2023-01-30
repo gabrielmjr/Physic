@@ -3,16 +3,16 @@ package com.gabrielMJr.twaire.physic.units;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DistanceTest
+public class LengthTest
 {
   // Distance object
-  private Distance distance;
+  private Length length;
   
   // Constructir
-  public DistanceTest()
+  public LengthTest()
   {
     // initialize the variable
-    distance = Distance.getInstance();
+    length = Length.getInstance();
   }
   
   // Test conversor from another units to  kilometer
@@ -38,19 +38,19 @@ public class DistanceTest
     double millimeter_result = 0.000518;
   
   // Testing
-    assertEquals(kilometer_result, distance.toKilometer(kilometer_value, distance.KILOMETER));
+    assertEquals(kilometer_result, length.toKilometer(kilometer_value, Length.KILOMETER));
     
-    assertEquals(hectometer_result, distance.toKilometer(hectometer_value, distance.HECTOMETER));
+    assertEquals(hectometer_result, length.toKilometer(hectometer_value, Length.HECTOMETER));
     
-    assertEquals(decameter_result, distance.toKilometer(decameter_value, distance.DECAMETER));
+    assertEquals(decameter_result, length.toKilometer(decameter_value, Length.DECAMETER));
     
-    assertEquals(meter_result, distance.toKilometer(meter_value, distance.METER));
+    assertEquals(meter_result, length.toKilometer(meter_value, Length.METER));
     
-    assertEquals(decimeter_result, distance.toKilometer(decimeter_value, distance.DECIMETER));
+    assertEquals(decimeter_result, length.toKilometer(decimeter_value, Length.DECIMETER));
     
-    assertEquals(centimeter_result, distance.toKilometer(centimeter_value, distance.CENTIMETER));
+    assertEquals(centimeter_result, length.toKilometer(centimeter_value, Length.CENTIMETER));
     
-    assertEquals(millimeter_result, distance.toKilometer(millimeter_value, Distance.MILLIMETER));
+    assertEquals(millimeter_result, length.toKilometer(millimeter_value, Length.MILLIMETER));
   }
   
   
@@ -76,19 +76,19 @@ public class DistanceTest
     double centimeter_result = 0.0786;
     double millimeter_result = 0.00518;
     
-     assertEquals(kilometer_result, distance.toHectometer(kilometer_value, distance.KILOMETER));
+     assertEquals(kilometer_result, length.toHectometer(kilometer_value, Length.KILOMETER));
     
-    assertEquals(hectometer_result, distance.toHectometer(hectometer_value, distance.HECTOMETER));
+    assertEquals(hectometer_result, length.toHectometer(hectometer_value, Length.HECTOMETER));
     
-    assertEquals(decameter_result, distance.toHectometer(decameter_value, distance.DECAMETER));
+    assertEquals(decameter_result, length.toHectometer(decameter_value, Length.DECAMETER));
     
-    assertEquals(meter_result, distance.toHectometer(meter_value, distance.METER));
+    assertEquals(meter_result, length.toHectometer(meter_value, Length.METER));
     
-    assertEquals(decimeter_result, distance.toHectometer(decimeter_value, distance.DECIMETER));
+    assertEquals(decimeter_result, length.toHectometer(decimeter_value, Length.DECIMETER));
     
-    assertEquals(centimeter_result, distance.toHectometer(centimeter_value, distance.CENTIMETER));
+    assertEquals(centimeter_result, length.toHectometer(centimeter_value, Length.CENTIMETER));
     
-    assertEquals(millimeter_result, distance.toHectometer(millimeter_value, Distance.MILLIMETER));
+    assertEquals(millimeter_result, length.toHectometer(millimeter_value, Length.MILLIMETER));
   }
   
   
@@ -114,19 +114,19 @@ public class DistanceTest
     double centimeter_result = 0.786;
     double millimeter_result = 0.051800000000000006;
     
-     assertEquals(kilometer_result, distance.toDecameter(kilometer_value, distance.KILOMETER));
+     assertEquals(kilometer_result, length.toDecameter(kilometer_value, Length.KILOMETER));
     
-    assertEquals(hectometer_result, distance.toDecameter(hectometer_value, distance.HECTOMETER));
+    assertEquals(hectometer_result, length.toDecameter(hectometer_value, Length.HECTOMETER));
     
-    assertEquals(decameter_result, distance.toDecameter(decameter_value, distance.DECAMETER));
+    assertEquals(decameter_result, length.toDecameter(decameter_value, Length.DECAMETER));
     
-    assertEquals(meter_result, distance.toDecameter(meter_value, distance.METER));
+    assertEquals(meter_result, length.toDecameter(meter_value, Length.METER));
     
-    assertEquals(decimeter_result, distance.toDecameter(decimeter_value, distance.DECIMETER));
+    assertEquals(decimeter_result, length.toDecameter(decimeter_value, Length.DECIMETER));
     
-    assertEquals(centimeter_result, distance.toDecameter(centimeter_value, distance.CENTIMETER));
+    assertEquals(centimeter_result, length.toDecameter(centimeter_value, Length.CENTIMETER));
     
-    assertEquals(millimeter_result, distance.toDecameter(millimeter_value, Distance.MILLIMETER));
+    assertEquals(millimeter_result, length.toDecameter(millimeter_value, Length.MILLIMETER));
   }
   
   
@@ -152,19 +152,19 @@ public class DistanceTest
     double centimeter_result = 7.86;
     double millimeter_result = 0.518;
     
-     assertEquals(kilometer_result, distance.toMeter(kilometer_value, distance.KILOMETER));
+     assertEquals(kilometer_result, length.toMeter(kilometer_value, Length.KILOMETER));
     
-    assertEquals(hectometer_result, distance.toMeter(hectometer_value, distance.HECTOMETER));
+    assertEquals(hectometer_result, length.toMeter(hectometer_value, Length.HECTOMETER));
     
-    assertEquals(decameter_result, distance.toMeter(decameter_value, distance.DECAMETER));
+    assertEquals(decameter_result, length.toMeter(decameter_value, Length.DECAMETER));
     
-    assertEquals(meter_result, distance.toMeter(meter_value, distance.METER));
+    assertEquals(meter_result, length.toMeter(meter_value, Length.METER));
     
-    assertEquals(decimeter_result, distance.toMeter(decimeter_value, distance.DECIMETER));
+    assertEquals(decimeter_result, length.toMeter(decimeter_value, Length.DECIMETER));
     
-    assertEquals(centimeter_result, distance.toMeter(centimeter_value, distance.CENTIMETER));
+    assertEquals(centimeter_result, length.toMeter(centimeter_value, Length.CENTIMETER));
     
-    assertEquals(millimeter_result, distance.toMeter(millimeter_value, Distance.MILLIMETER));
+    assertEquals(millimeter_result, length.toMeter(millimeter_value, Length.MILLIMETER));
   }
   
   
@@ -190,19 +190,19 @@ public class DistanceTest
     double centimeter_result = 78.6;
     double millimeter_result = 5.18;
     
-     assertEquals(kilometer_result, distance.toDecimeter(kilometer_value, distance.KILOMETER));
+     assertEquals(kilometer_result, length.toDecimeter(kilometer_value, Length.KILOMETER));
     
-    assertEquals(hectometer_result, distance.toDecimeter(hectometer_value, distance.HECTOMETER));
+    assertEquals(hectometer_result, length.toDecimeter(hectometer_value, Length.HECTOMETER));
     
-    assertEquals(decameter_result, distance.toDecimeter(decameter_value, distance.DECAMETER));
+    assertEquals(decameter_result, length.toDecimeter(decameter_value, Length.DECAMETER));
     
-    assertEquals(meter_result, distance.toDecimeter(meter_value, distance.METER));
+    assertEquals(meter_result, length.toDecimeter(meter_value, Length.METER));
     
-    assertEquals(decimeter_result, distance.toDecimeter(decimeter_value, distance.DECIMETER));
+    assertEquals(decimeter_result, length.toDecimeter(decimeter_value, Length.DECIMETER));
     
-    assertEquals(centimeter_result, distance.toDecimeter(centimeter_value, distance.CENTIMETER));
+    assertEquals(centimeter_result, length.toDecimeter(centimeter_value, Length.CENTIMETER));
     
-    assertEquals(millimeter_result, distance.toDecimeter(millimeter_value, Distance.MILLIMETER));
+    assertEquals(millimeter_result, length.toDecimeter(millimeter_value, Length.MILLIMETER));
   }
   
   
@@ -228,19 +228,19 @@ public class DistanceTest
     double centimeter_result = 786.0;
     double millimeter_result = 51.8;
     
-     assertEquals(kilometer_result, distance.toCentimeter(kilometer_value, distance.KILOMETER));
+     assertEquals(kilometer_result, length.toCentimeter(kilometer_value, Length.KILOMETER));
     
-    assertEquals(hectometer_result, distance.toCentimeter(hectometer_value, distance.HECTOMETER));
+    assertEquals(hectometer_result, length.toCentimeter(hectometer_value, Length.HECTOMETER));
     
-    assertEquals(decameter_result, distance.toCentimeter(decameter_value, distance.DECAMETER));
+    assertEquals(decameter_result, length.toCentimeter(decameter_value, Length.DECAMETER));
     
-    assertEquals(meter_result, distance.toCentimeter(meter_value, distance.METER));
+    assertEquals(meter_result, length.toCentimeter(meter_value, Length.METER));
     
-    assertEquals(decimeter_result, distance.toCentimeter(decimeter_value, distance.DECIMETER));
+    assertEquals(decimeter_result, length.toCentimeter(decimeter_value, Length.DECIMETER));
     
-    assertEquals(centimeter_result, distance.toCentimeter(centimeter_value, distance.CENTIMETER));
+    assertEquals(centimeter_result, length.toCentimeter(centimeter_value, Length.CENTIMETER));
     
-    assertEquals(millimeter_result, distance.toCentimeter(millimeter_value, Distance.MILLIMETER));
+    assertEquals(millimeter_result, length.toCentimeter(millimeter_value, Length.MILLIMETER));
   }
   
   
@@ -266,18 +266,18 @@ public class DistanceTest
     double centimeter_result = 7860.0;
     double millimeter_result = 518.0;
     
-     assertEquals(kilometer_result, distance.toMillimeter(kilometer_value, distance.KILOMETER));
+     assertEquals(kilometer_result, length.toMillimeter(kilometer_value, Length.KILOMETER));
     
-    assertEquals(hectometer_result, distance.toMillimeter(hectometer_value, distance.HECTOMETER));
+    assertEquals(hectometer_result, length.toMillimeter(hectometer_value, Length.HECTOMETER));
     
-    assertEquals(decameter_result, distance.toMillimeter(decameter_value, distance.DECAMETER));
+    assertEquals(decameter_result, length.toMillimeter(decameter_value, Length.DECAMETER));
     
-    assertEquals(meter_result, distance.toMillimeter(meter_value, distance.METER));
+    assertEquals(meter_result, length.toMillimeter(meter_value, Length.METER));
     
-    assertEquals(decimeter_result, distance.toMillimeter(decimeter_value, distance.DECIMETER));
+    assertEquals(decimeter_result, length.toMillimeter(decimeter_value, Length.DECIMETER));
     
-    assertEquals(centimeter_result, distance.toMillimeter(centimeter_value, distance.CENTIMETER));
+    assertEquals(centimeter_result, length.toMillimeter(centimeter_value, Length.CENTIMETER));
     
-    assertEquals(millimeter_result, distance.toMillimeter(millimeter_value, Distance.MILLIMETER));
+    assertEquals(millimeter_result, length.toMillimeter(millimeter_value, Length.MILLIMETER));
   }
 }

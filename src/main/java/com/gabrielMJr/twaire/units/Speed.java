@@ -1,19 +1,17 @@
 package com.gabrielMJr.twaire.physic.units;
 
-import com.gabrielMJr.twaire.physic.units.Distance;
-import com.gabrielMJr.twaire.physic.units.Time;
 
 public class Speed implements SpeedIF
 {
   // This object variable
   private static Speed instance; 
 
-  private final Distance distance = new Distance();
+  private final Length length = new Length();
   private final Time time = new Time();
 
   // Those constants were used to tell to the program the unit that must use to calculate something
   // Also used to tell the unit from the variables as parameter
-  // For distance per second
+  // For length per second
   public static final String KILOMETER_PER_SECOND = "0.001/1";
   public static final String HECTOMETER_PER_SECOND = "0.01/1";
   public static final String DECAMETER_PER_SECOND = "0.1/1";
@@ -22,7 +20,7 @@ public class Speed implements SpeedIF
   public static final String CENTIMETER_PER_SECOND = "100/1";
   public static final String MILLIMETER_PER_SECOND = "1000/1";
   
-  // Distance per minute
+  // length per minute
   public static final String KILOMETER_PER_MINUTE = "0.001/0.016666666666666666";
   public static final String HECTOMETER_PER_MINUTE = "0.01/0.016666666666666666";
   public static final String DECAMETER_PER_MINUTE = "0.1/0.016666666666666666";
@@ -31,7 +29,7 @@ public class Speed implements SpeedIF
   public static final String CENTIMETER_PER_MINUTE = "100/0.016666666666666666";
   public static final String MILLIMETER_PER_MINUTE = "1000/0.016666666666666666";
   
-  // Distance per hour
+  // length per hour
   public static final String KILOMETER_PER_HOUR = "0.001/0.0002777777777777778";
   public static final String HECTOMETER_PER_HOUR = "0.01/0.0002777777777777778";
   public static final String DECAMETER_PER_HOUR = "0.1/0.0002777777777777778";
@@ -49,7 +47,7 @@ public class Speed implements SpeedIF
   public static final String CENTIMETER_PER_SECOND_SYMBOL = "cm/s";
   public static final String MILLIMETER_PER_SECOND_SYMBOL = "mm/s";
   
-  // Distance per minute
+  // length per minute
   public static final String KILOMETER_PER_MINUTE_SYMBOL = "km/min";
   public static final String HECTOMETER_PER_MINUTE_SYMBOL = "hm/min";
   public static final String DECAMETER_PER_MINUTE_SYMBOL = "dam/min";
@@ -58,7 +56,7 @@ public class Speed implements SpeedIF
   public static final String CENTIMETER_PER_MINUTE_SYMBOL = "cm/min";
   public static final String MILLIMETER_PER_MINUTE_SYMBOL = "mm/min";
   
-  // Distance per hour
+  // length per hour
   public static final String KILOMETER_PER_HOUR_SYMBOL = "hm/h";
   public static final String HECTOMETER_PER_HOUR_SYMBOL = "hm/h";
   public static final String DECAMETER_PER_HOUR_SYMBOL = "dam/h";
@@ -76,9 +74,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toKilometer(value, units[0]);
+    Double new_length = length.toKilometer(value, units[0]);
     Double new_time = time.toSecond(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to hectometer
@@ -87,9 +85,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toHectometer(value, units[0]);
+    Double new_length = length.toHectometer(value, units[0]);
     Double new_time = time.toSecond(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to decameter
@@ -98,9 +96,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toDecameter(value, units[0]);
+    Double new_length = length.toDecameter(value, units[0]);
     Double new_time = time.toSecond(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to meter
@@ -109,9 +107,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toMeter(value, units[0]);
+    Double new_length = length.toMeter(value, units[0]);
     Double new_time = time.toSecond(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to decimeter
@@ -120,9 +118,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toDecimeter(value, units[0]);
+    Double new_length = length.toDecimeter(value, units[0]);
     Double new_time = time.toSecond(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to centimeter
@@ -131,9 +129,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toCentimeter(value, units[0]);
+    Double new_length = length.toCentimeter(value, units[0]);
     Double new_time = time.toSecond(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to millimeter
@@ -142,9 +140,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toMillimeter(value, units[0]);
+    Double new_length = length.toMillimeter(value, units[0]);
     Double new_time = time.toSecond(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   
@@ -156,9 +154,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toKilometer(value, units[0]);
+    Double new_length = length.toKilometer(value, units[0]);
     Double new_time = time.toMinute(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to hectometer
@@ -167,9 +165,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toHectometer(value, units[0]);
+    Double new_length = length.toHectometer(value, units[0]);
     Double new_time = time.toMinute(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to decameter
@@ -178,9 +176,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toDecameter(value, units[0]);
+    Double new_length = length.toDecameter(value, units[0]);
     Double new_time = time.toMinute(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to meter
@@ -189,9 +187,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toMeter(value, units[0]);
+    Double new_length = length.toMeter(value, units[0]);
     Double new_time = time.toMinute(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to decimeter
@@ -200,9 +198,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toDecimeter(value, units[0]);
+    Double new_length = length.toDecimeter(value, units[0]);
     Double new_time = time.toMinute(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to centimeter
@@ -211,9 +209,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toCentimeter(value, units[0]);
+    Double new_length = length.toCentimeter(value, units[0]);
     Double new_time = time.toMinute(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to millimeter
@@ -222,9 +220,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toMillimeter(value, units[0]);
+    Double new_length = length.toMillimeter(value, units[0]);
     Double new_time = time.toMinute(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   
@@ -236,9 +234,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toKilometer(value, units[0]);
+    Double new_length = length.toKilometer(value, units[0]);
     Double new_time = time.toHour(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to hectometer
@@ -247,9 +245,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toHectometer(value, units[0]);
+    Double new_length = length.toHectometer(value, units[0]);
     Double new_time = time.toHour(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to decameter
@@ -258,9 +256,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toDecameter(value, units[0]);
+    Double new_length = length.toDecameter(value, units[0]);
     Double new_time = time.toHour(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to meter
@@ -269,9 +267,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toMeter(value, units[0]);
+    Double new_length = length.toMeter(value, units[0]);
     Double new_time = time.toHour(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to decimeter
@@ -280,9 +278,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toDecimeter(value, units[0]);
+    Double new_length = length.toDecimeter(value, units[0]);
     Double new_time = time.toHour(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to centimeter
@@ -291,9 +289,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toCentimeter(value, units[0]);
+    Double new_length = length.toCentimeter(value, units[0]);
     Double new_time = time.toHour(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   // From anothers to millimeter
@@ -302,9 +300,9 @@ public class Speed implements SpeedIF
   {
     String[] units = unit.split("/");
     
-    Double new_distance = distance.toMillimeter(value, units[0]);
+    Double new_length = length.toMillimeter(value, units[0]);
     Double new_time = time.toHour(1.0, units[1]);
-    return new_distance / new_time;
+    return new_length / new_time;
   }
   
   

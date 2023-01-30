@@ -1,12 +1,12 @@
 package com.gabrielMJr.twaire.physic.units;
 
 import com.gabrielMJr.twaire.physic.Physic;
-import com.gabrielMJr.twaire.physic.units.DistanceIF;
+import com.gabrielMJr.twaire.physic.units.LengthIF;
 
-public class Distance implements DistanceIF
+public class Length implements LengthIF
 {
   // This object variable
-  private static Distance instance; 
+  private static Length instance; 
   
   Physic physic = new Physic();
 
@@ -104,11 +104,11 @@ public class Distance implements DistanceIF
     
     
     // Get class instance object
-    protected static Distance getInstance()
+    protected static Length getInstance()
     {
       if(instance == null)
       {
-        instance = new Distance();
+        instance = new Length();
       }
       
       return instance;

@@ -1,6 +1,6 @@
 package com.gabrielMJr.twaire.physic.units;
 
-public interface DistanceIF {
+public interface LengthIF {
   public abstract double toKilometer(double value, String value_unit);
 
   public abstract double toHectometer(double value, String value_unit);
