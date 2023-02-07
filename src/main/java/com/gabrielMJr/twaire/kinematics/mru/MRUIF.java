@@ -115,6 +115,23 @@ public interface MRUIF {
         String final_time_unit,
         String unit_of_result,
         int stepOrResult);
+        
+    // Speed3/speed_law:
+    public abstract String speed3(
+        double initial_displacement,
+        double final_displacement,
+        double delta_time,
+        int stepOrResult);
+      
+    public abstract String speed3(
+        double initial_displacement,
+        String initial_displacement_unit,
+        double final_displacement,
+        String final_displacement_unit,
+        double delta_time,
+        String delta_time_unit,
+        String unit_of_result,
+        int stepOrResult);
 
     // Time1/delta_time
     public abstract String time1(

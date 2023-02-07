@@ -14,6 +14,7 @@ public class MRU implements MRUIF
   
   private Speed1 speed1;
   private Speed2 speed2;
+  private Speed3 speed3;
   
   private Time1 time1;
   private Time2 time2;
@@ -32,6 +33,7 @@ public class MRU implements MRUIF
     
     speed1 = Speed1.getInstance();
     speed2 = Speed2.getInstance();
+    speed3 = Speed3.getInstance();
     
     time1 = Time1.getInstance();
     time2 = Time2.getInstance();
@@ -268,9 +270,9 @@ public class MRU implements MRUIF
       initial_time,
       final_time,
       resultOrStep);
-  } 
+  }
   
-  @Override
+    @Override
   public String speed2(
     double initial_displacement,
     String initial_displacement_unit,
@@ -292,6 +294,44 @@ public class MRU implements MRUIF
       initial_time_unit,
       final_time,
       final_time_unit,
+      unit_of_result,
+      resultOrStep);
+  }
+  
+  /* Displacement3/speed_law:
+   * v = (final_displacement - initial_displacement) / delta_time */
+  @Override
+  public String speed3(
+    double initial_displacement,
+    double final_displacement,
+    double delta_time,
+    int resultOrStep) 
+  {
+    return speed3.speed(
+      initial_displacement,
+      final_displacement,
+      delta_time,
+      resultOrStep);
+  } 
+  
+  @Override
+  public String speed3(
+    double initial_displacement,
+    String initial_displacement_unit,
+    double final_displacement,
+    String final_displacement_unit,
+    double delta_time,
+    String delta_time_unit,
+    String unit_of_result,
+    int resultOrStep) 
+  {
+    return speed3.speed(
+      initial_displacement,
+      initial_displacement_unit,
+      final_displacement,
+      final_displacement_unit,
+      delta_time,
+      delta_time_unit,
       unit_of_result,
       resultOrStep);
   }
