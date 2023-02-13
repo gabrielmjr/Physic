@@ -27,11 +27,11 @@ public class Speed3Test
     public void speed3Test()
     {
         // The value to be tested:
-        Double initialDisplacement = 2.5;
-        Double finalDisplacement = 5.5;
+        double initialDisplacement = 2.5;
+        double finalDisplacement = 5.5;
         double delta_time = 6.0;
         
-        // The result need to ne:
+        // The result need to be:
         String result = "0.5";
         
         // Testing

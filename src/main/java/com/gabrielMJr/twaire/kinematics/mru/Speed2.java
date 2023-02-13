@@ -29,11 +29,9 @@ final class Speed2
     if (resultOrStep == Physic.GET_RESULT) 
     {
       return String.valueOf (step3);
-       
     }
     else if (resultOrStep == Physic.GET_STEP) 
     {
-
       if (initial_displacement < 0) 
       {
         signal1 = " ";
@@ -71,7 +69,6 @@ final class Speed2
           + "m/s";
 
     return res;
-    
     }
      else 
     {
@@ -79,7 +76,7 @@ final class Speed2
     }
   }
   
-  protected  String speed(
+  protected String speed(
     double initial_displacement,
     String initial_displacement_unit,
     double final_displacement,
