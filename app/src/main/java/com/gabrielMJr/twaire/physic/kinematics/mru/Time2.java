@@ -8,20 +8,20 @@ final class Time2
    // Private constructor to avoid new classe's incence
   private Time2(){}
   
-  // ∆t = ∆S / media speed
+  // ∆t = ∆S / media velocity
   protected  String time(
-    double variation_displacement, 
-    double speed) 
+    double deltaDisplacement, 
+    double velocity) 
   {
-    return String.valueOf(variation_displacement / speed);
+    return String.valueOf(deltaDisplacement / velocity);
   }
   
   protected  String time(
-    double variation_displacement, 
-    String variation_displacement_unit,
-    double speed,
-    String speed_unit,
-    String unit_of_result) 
+    double deltaDisplacement, 
+    String deltaDisplacementUnit,
+    double velocity,
+    String velocityUnit,
+    String unitOfResult) 
   {
     return null;
   }

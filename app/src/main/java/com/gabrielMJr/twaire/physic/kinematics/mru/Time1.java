@@ -10,18 +10,18 @@ final class Time1
   
   // ∆t = tf - ti
   protected String time(
-    double initial_time,
-    double final_time)
+    double initialTime,
+    double finalTime)
   {
-    return String.valueOf(final_time - initial_time);
+    return String.valueOf(finalTime - initialTime);
   }
   
   protected String time(
-    double initial_time,
-    String initial_time_unit,
-    double final_time,
-    String final_time_unit,
-    String unit_of_result)
+    double initialTime,
+    String initialTimeUnit,
+    double finalTime,
+    String finalTimeUnit,
+    String unitOfResult)
   {
     return null;
   }

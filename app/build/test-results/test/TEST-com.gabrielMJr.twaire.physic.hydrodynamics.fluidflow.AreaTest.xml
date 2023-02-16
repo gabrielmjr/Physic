@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow.AreaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:59:16" hostname="localhost" time="0.195">
+<testsuite name="com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow.AreaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T15:06:32" hostname="localhost" time="0.017">
   <properties/>
-  <testcase name="areaTest()" classname="com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow.AreaTest" time="0.195"/>
+  <testcase name="areaTest()" classname="com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow.AreaTest" time="0.017"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,217 +1,217 @@
 package com.gabrielMJr.twaire.physic.kinematics.mru;
  
 public interface MRUIF {
-    // Displacement1/delta_displacement:
+    // Displacement1/deltaDisplacement:
     public abstract String displacement1(
-        double initial_displacement, 
-        double final_displacement);
+        double initialDisplacement, 
+        double finalDisplacement);
         
     public abstract String displacement1(
-        double initial_displacement,
-        String initial_displacement_unit, 
-        double final_displacement,
-        String final_displacement_unit,
-        String unit_of_result);
+        double initialDisplacement,
+        String initialDisplacementUnit, 
+        double finalDisplacement,
+        String finalDisplacementUnit,
+        String unitOfResult);
 
-    // Displacement2/delta_displacement:
+    // Displacement2/deltaDisplacement:
     public abstract String displacement2(
-        double time_variation,
-        double media_speed);
+        double deltaTime,
+        double deltaSpeed);
         
     public abstract String displacement2(
-        double time_variation,
-        String time_variation_unit,
-        double media_speed,
-        String media_speed_unit,
-        String unit_of_result);
+        double deltaTime,
+        String deltaTimeUnit,
+        double deltaSpeed,
+        String deltaSpeedUnit,
+        String unitOfResult);
         
-    // Displacement3/delta_displacement:
+    // Displacement3/deltaDisplacement:
     public abstract String displacement3(
         double intial_time, 
-        double final_time, 
-        double media_speed, 
+        double finalTime, 
+        double deltaSpeed, 
         int resultOrStep);
         
     public abstract String displacement3(
-        double initial_time, 
-        String initial_time_unit,
-        double final_time, 
-        String final_time_unit,
-        double media_speed,
-        String media_speed_unit, 
+        double initialTime, 
+        String initialTimeUnit,
+        double finalTime, 
+        String finalTimeUnit,
+        double deltaSpeed,
+        String deltaSpeedUnit, 
         String unit_pf_result,
         int resultOrStep);
 
-    // Displacement4/initial_displacement
+    // Displacement4/initialDisplacement
     public abstract String displacement4(
-        double variation_displacement, 
-        double final_displacement);
+        double deltaDisplacement, 
+        double finalDisplacement);
      
     public abstract String displacement4(
-        double variation_displacement, 
-        String variation_displacement_unit,
-        double final_displacement,
-        String final_displacement_unit,
-        String unit_of_result);
+        double deltaDisplacement, 
+        String deltaDisplacementUnit,
+        double finalDisplacement,
+        String finalDisplacementUnit,
+        String unitOfResult);
 
-    // Displacement5/final_displacement:
+    // Displacement5/finalDisplacement:
     public abstract String displacement5(
-        double initial_displacement, 
-        double variation_displacement);
+        double initialDisplacement, 
+        double deltaDisplacement);
         
     public abstract String displacement5(
-        double initial_displacement, 
-        String initial_displacement_unit,
-        double variation_displacement,
-        String variation_displacement_unit,
-        String unit_of_result);
+        double initialDisplacement, 
+        String initialDisplacementUnit,
+        double deltaDisplacement,
+        String deltaDisplacementUnit,
+        String unitOfResult);
 
     // Displacement6/displacement_law:
     public abstract String displacement6(
-        double initial_displacement, 
-        double speed, 
-        double variation_time, 
+        double initialDisplacement, 
+        double velocity, 
+        double deltaTime, 
         int resultOrStep);
         
     public abstract String displacement6(
-        double initial_displacement, 
-        String initial_displacement_unit,
-        double speed, 
-        String speed_unit,
-        double variation_time, 
-        String variation_time_unit,
-        String unit_of_result,
+        double initialDisplacement, 
+        String initialDisplacementUnit,
+        double velocity, 
+        String velocityUnit,
+        double deltaTime, 
+        String deltaTimeUnit,
+        String unitOfResult,
         int resultOrStep);
     
 
     // Speed1/speed_law:
     public abstract String speed1(
         double variaion_displacement,
-        double variation_time);
+        double deltaTime);
         
    public abstract String speed1(
         double variaion_displacement,
-        String variation_displacement_unit,
-        double variation_time,
-        String variation_time_unit,
-        String unit_of_result);
+        String deltaDisplacementUnit,
+        double deltaTime,
+        String deltaTimeUnit,
+        String unitOfResult);
 
     // Speed2/speed_law:
     public abstract String speed2(
-        double initial_displacement,
-        double final_displacement,
-        double initial_time,
-        double final_time,
+        double initialDisplacement,
+        double finalDisplacement,
+        double initialTime,
+        double finalTime,
         int stepOrResult);
       
     public abstract String speed2(
-        double initial_displacement,
-        String initial_displacement_unit,
-        double final_displacement,
-        String final_displacement_unit,
-        double initial_time,
-        String initial_time_unit,
-        double final_time,
-        String final_time_unit,
-        String unit_of_result,
+        double initialDisplacement,
+        String initialDisplacementUnit,
+        double finalDisplacement,
+        String finalDisplacementUnit,
+        double initialTime,
+        String initialTimeUnit,
+        double finalTime,
+        String finalTimeUnit,
+        String unitOfResult,
         int stepOrResult);
         
     // Speed3/speed_law:
     public abstract String speed3(
-        double initial_displacement,
-        double final_displacement,
-        double delta_time,
+        double initialDisplacement,
+        double finalDisplacement,
+        double deltaTime,
         int stepOrResult);
       
     public abstract String speed3(
-        double initial_displacement,
-        String initial_displacement_unit,
-        double final_displacement,
-        String final_displacement_unit,
-        double delta_time,
-        String delta_time_unit,
-        String unit_of_result,
+        double initialDisplacement,
+        String initialDisplacementUnit,
+        double finalDisplacement,
+        String finalDisplacementUnit,
+        double deltaTime,
+        String deltaTimeUnit,
+        String unitOfResult,
         int stepOrResult);
         
     // Speed4/speed_law:
     public abstract String speed4(
-        double delta_displacement,
-        double iniitial_time,
-        double final_time,
+        double deltaDisplacement,
+        double initialTime,
+        double finalTime,
         int stepOrResult);
       
     public abstract String speed4(
-        double delta_displacement,
-        String delta_displacement_unit,
-        double initial_time,
-        String initial_time_unit,
-        double final_time,
-        String final_time_unit,
-        String unit_of_result,
+        double deltaDisplacement,
+        String deltaDisplacementUnit,
+        double initialTime,
+        String initialTimeUnit,
+        double finalTime,
+        String finalTimeUnit,
+        String unitOfResult,
         int stepOrResult);
 
-    // Time1/delta_time
+    // Time1/deltaTime
     public abstract String time1(
-        double initial_time, 
-        double final_time);
+        double initialTime, 
+        double finalTime);
         
     public abstract String time1(
-        double initial_time, 
-        String initial_time_unit,
-        double final_time,
-        String final_time_unit,
-        String unit_of_time);
+        double initialTime, 
+        String initialTimeUnit,
+        double finalTime,
+        String finalTimeUnit,
+        String unitOfResult);
  
-    // Time2/delta_time:
+    // Time2/deltaTime:
     public abstract String time2(
-        double variation_displacement, 
-        double speed);
+        double deltaDisplacement, 
+        double velocity);
         
     public abstract String time2(
-        double variation_displacement,
-        String variation_displacement_unit, 
-        double speed,
-        String speed_unit,
-        String unit_of_result);
+        double deltaDisplacement,
+        String deltaDisplacementUnit, 
+        double velocity,
+        String velocityUnit,
+        String unitOfResult);
 
-    // Time3/delta_time:
+    // Time3/deltaTime:
     public abstract String time3(
-        double initial_displacement, 
-        double final_displacement, 
-        double speed, 
+        double initialDisplacement, 
+        double finalDisplacement, 
+        double velocity, 
         int stepOrResult);
         
     public abstract String time3(
-        double initial_displacement, 
-        String initial_displacement_unit,
-        double final_displacement,
-        String final_displacement_unit, 
-        double speed,
-        String speed_unit,
-        String unit_of_result, 
+        double initialDisplacement, 
+        String initialDisplacementUnit,
+        double finalDisplacement,
+        String finalDisplacementUnit, 
+        double velocity,
+        String velocityUnit,
+        String unitOfResult, 
         int stepOrResult);
        
-    // Time4/initial_time: ti = tf - ∆t
+    // Time4/initialTime: ti = tf - ∆t
     public abstract String time4(
-        double variation_time, 
-        double initial_time);
+        double deltaTime, 
+        double initialTime);
         
     public abstract String time4(
-        double variation_time, 
-        String variation_time_unit,
-        double initial_time,
-        String initial_time_unit,
-        String unit_of_result);
+        double deltaTime, 
+        String deltaTimeUnit,
+        double initialTime,
+        String initialTimeUnit,
+        String unitOfResult);
 
-    // Time5/final_time: tf = ti + ∆t
+    // Time5/finalTime: tf = ti + ∆t
     public abstract String time5(
-        double initial_time, 
-        double variation_time);
+        double initialTime, 
+        double deltaTime);
         
     public abstract String time5(
-        double initial_time, 
-        String initial_time_unit,
-        double variation_time,
-        String variation_time_unit,
-        String unit_of_result);
+        double initialTime, 
+        String initialTimeUnit,
+        double deltaTime,
+        String deltaTimeUnit,
+        String unitOfResult);
 }

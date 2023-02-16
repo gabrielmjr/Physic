@@ -48,182 +48,182 @@ public class MRU implements MRUIF
   // Displacement1/delta_displacement: ∆S = Sf - Si
   @Override
   public String displacement1(
-    double initial_displacement, 
-    double final_displacement) 
+    double initialDisplacement, 
+    double finalDisplacement) 
   {
     return displacement1.displacement(
-      initial_displacement,
-      final_displacement);
+      initialDisplacement,
+      finalDisplacement);
   }
   
   @Override
   public String displacement1(
-    double initial_displacement,
-    String initial_displacement_unit, 
-    double final_displacement,
-    String final_displacement_unit,
-    String unit_of_result)
+    double initialDisplacement,
+    String initialDisplacementUnit, 
+    double finalDisplacement,
+    String finalDisplacementUnit,
+    String unitOfResult)
   {
       return displacement1.displacement(
-        initial_displacement,
-        initial_displacement_unit,
-        final_displacement,
-        final_displacement_unit,
-        unit_of_result);
+        initialDisplacement,
+        initialDisplacementUnit,
+        finalDisplacement,
+        finalDisplacementUnit,
+        unitOfResult);
   }
   
   // Displacement2/delta_displacement: ∆S = ∆t x speed_média
   @Override
   public String displacement2(
-    double variation_time, 
-    double media_speed)
+    double deltaTime, 
+    double deltaSpeed)
   {
     return displacement2.displacement(
-      variation_time,
-      media_speed);
+      deltaTime,
+      deltaSpeed);
   }
   
   @Override
   public String displacement2(
-    double variation_time,
-    String variation_time_unit, 
-    double media_speed,
-    String media_speed_unit,
-    String unit_of_result)
+    double deltaTime,
+    String deltaTimeUnit, 
+    double deltaSpeed,
+    String deltaSpeedUnit,
+    String unitOfResult)
   {
     return displacement2.displacement(
-      variation_time,
-      variation_time_unit,
-      media_speed,
-      media_speed_unit,
-      unit_of_result);
+      deltaTime,
+      deltaSpeedUnit,
+      deltaSpeed,
+      deltaSpeedUnit,
+      unitOfResult);
   }
   
-  // Displacement3/delta_displacement: ∆S = (final_time - initial_time) x media_speed
+  // Displacement3/delta_displacement: ∆S = (finalTime - initialTime) x media_speed
   @Override
   public String displacement3(
-    double initial_time,
-    double final_time,
-    double media_speed,
+    double initialTime,
+    double finalTime,
+    double deltaSpeed,
     int resultOrStep)
   {
     return displacement3.displacement(
-      initial_time,
-      final_time,
-      media_speed,
+      initialTime,
+      finalTime,
+      deltaSpeed,
       resultOrStep);
   }
   
    @Override
   public String displacement3(
-    double initial_time,
-    String initial_time_unit,
-    double final_time,
-    String final_time_unit,
-    double media_speed,
-    String media_speed_unit,
-    String unit_of_result,
+    double initialTime,
+    String initialTimeUnit,
+    double finalTime,
+    String finalTimeUnit,
+    double deltaSpeed,
+    String deltaSpeedUnit,
+    String unitOfResult,
     int resultOrStep)
   {
     return displacement3.displacement(
-      initial_time,
-      initial_time_unit,
-      final_time,
-      final_time_unit,
-      media_speed,
-      media_speed_unit,
-      unit_of_result,
+      initialTime,
+      initialTimeUnit,
+      finalTime,
+      finalTimeUnit,
+      deltaSpeed,
+      deltaSpeedUnit,
+      unitOfResult,
       resultOrStep);
   }
 
-  // Displacement4/initial_displacement: S_inicial = S_final - ∆S
+  // Displacement4/initialDisplacement: S_inicial = S_final - ∆S
   @Override
   public String displacement4(
-    double variation_displacement,
-    double final_displacement) 
+    double deltaDisplacement,
+    double finalDisplacement) 
   {
     return displacement4.displacement(
-      variation_displacement,
-      final_displacement);
+      deltaDisplacement,
+      finalDisplacement);
   }
   
   @Override
   public String displacement4(
-    double variation_displacement,
-    String variation_displacement_unit,
-    double final_displacement,
-    String final_displacement_unit,
-    String unit_of_result) 
+    double deltaDisplacement,
+    String deltaDisplacementUnit,
+    double finalDisplacement,
+    String finalDisplacementUnit,
+    String unitOfResult) 
   {
     return displacement4.displacement(
-      variation_displacement,
-      variation_displacement_unit,
-      final_displacement,
-      final_displacement_unit,
-      unit_of_result);
+      deltaDisplacement,
+      deltaDisplacementUnit,
+      finalDisplacement,
+      finalDisplacementUnit,
+      unitOfResult);
   }
 
-  // Displacement5/final_displacement: S_final = S_inicial + ∆S
+  // Displacement5/finalDisplacement: S_final = S_inicial + ∆S
   @Override
   public String displacement5(
-    double initial_displacement, 
-    double variation_displacement)
+    double initialDisplacement, 
+    double deltaDisplacement)
   {
     return displacement5.displacement(
-      initial_displacement,
-      variation_displacement);
+      initialDisplacement,
+      deltaDisplacement);
   }
   
   @Override
   public String displacement5(
-    double initial_displacement, 
-    String initial_displacement_unit,
-    double variation_displacement,
-    String variation_displacement_unit,
-    String unit_of_result)
+    double initialDisplacement, 
+    String initialDisplacementUnit,
+    double deltaDisplacement,
+    String deltaDisplacementUnit,
+    String unitOfResult)
   {
     return displacement5.displacement(
-      initial_displacement,
-      initial_displacement_unit,
-      variation_displacement,
-      variation_displacement_unit,
-      unit_of_result);
+      initialDisplacement,
+      initialDisplacementUnit,
+      deltaDisplacement,
+      deltaDisplacementUnit,
+      unitOfResult);
   }
 
-  // Displacement6/displacement_law: S = S_inicial + speed * ∆t
+  // Displacement6/displacement_law: S = S_inicial + velocity * ∆t
   @Override
   public String displacement6(
-    double initial_displacement,
-    double speed,
-    double variation_time,
+    double initialDisplacement,
+    double velocity,
+    double deltaTime,
     int stepOrResult) 
   {
     return displacement6.displacement(
-      initial_displacement,
-      speed,
-      variation_time,
+      initialDisplacement,
+      velocity,
+      deltaTime,
       stepOrResult);
   }
     
   @Override
   public String displacement6(
-    double initial_displacement,
-    String initial_displacement_unit,
-    double speed,
-    String speed_unit,
-    double variation_time,
-    String variation_time_unit,
-    String unit_of_result,
+    double initialDisplacement,
+    String initialDisplacementUnit,
+    double velocity,
+    String velocityUnit,
+    double deltaTime,
+    String deltaTimeUnit,
+    String unitOfResult,
     int stepOrResult) 
   {
     return displacement6.displacement(
-      initial_displacement,
-      initial_displacement_unit,
-      speed,
-      speed_unit,
-      variation_time,
-      variation_time_unit,
-      unit_of_result,
+      initialDisplacement,
+      initialDisplacementUnit,
+      velocity,
+      velocityUnit,
+      deltaTime,
+      deltaTimeUnit,
+      unitOfResult,
       stepOrResult);
   }
 
@@ -232,126 +232,126 @@ public class MRU implements MRUIF
    * Nota: On MRU, media speed and speed law uses the same formula */
   @Override
   public String speed1(
-    double variation_displacement,
-    double variation_time)
+    double deltaDisplacement,
+    double deltaTime)
   {
     return speed1.speed1(
-      variation_displacement,
-      variation_time);
+      deltaDisplacement,
+      deltaTime);
   }
   
   @Override
   public String speed1(
-    double variation_displacement,
-    String variation_displacement_unit,
-    double variation_time,
-    String variation_time_unit,
-    String unit_of_result)
+    double deltaDisplacement,
+    String deltaDisplacementUnit,
+    double deltaTime,
+    String deltaTimeUnit,
+    String unitOfResult)
   {
     return speed1.speed1(
-      variation_displacement,
-      variation_displacement_unit,
-      variation_time,
-      variation_time_unit,
-      unit_of_result);
+      deltaDisplacement,
+      deltaDisplacementUnit,
+      deltaTime,
+      deltaTimeUnit,
+      unitOfResult);
   }
 
   /* Displacement2/speed_law:
-   * v = (final_displacement - initial_displacement) / (final_time - initial_time) */
+   * v = (finalDisplacement - initialDisplacement) / (finalTime - initialTime) */
   @Override
   public String speed2(
-    double initial_displacement,
-    double final_displacement,
-    double initial_time,
-    double final_time,
+    double initialDisplacement,
+    double finalDisplacement,
+    double initialTime,
+    double finalTime,
     int resultOrStep) 
   {
     return  speed2.speed(
-      initial_displacement,
-      final_displacement,
-      initial_time,
-      final_time,
+      initialDisplacement,
+      finalDisplacement,
+      initialTime,
+      finalTime,
       resultOrStep);
   }
   
     @Override
   public String speed2(
-    double initial_displacement,
-    String initial_displacement_unit,
-    double final_displacement,
-    String final_displacement_unit,
-    double initial_time,
-    String initial_time_unit,
-    double final_time,
-    String final_time_unit,
-    String unit_of_result,
+    double initialDisplacement,
+    String initialDisplacementUnit,
+    double finalDisplacement,
+    String finalDisplacementUnit,
+    double initialTime,
+    String initialTimeUnit,
+    double finalTime,
+    String finalTimeUnit,
+    String unitOfResult,
     int resultOrStep) 
   {
     return speed2.speed(
-      initial_displacement,
-      initial_displacement_unit,
-      final_displacement,
-      final_displacement_unit,
-      initial_time,
-      initial_time_unit,
-      final_time,
-      final_time_unit,
-      unit_of_result,
+      initialDisplacement,
+      initialDisplacementUnit,
+      finalDisplacement,
+      finalDisplacementUnit,
+      initialTime,
+      initialTimeUnit,
+      finalTime,
+      finalTimeUnit,
+      unitOfResult,
       resultOrStep);
   }
   
   /* Displacement3/speed_law:
-   * v = (final_displacement - initial_displacement) / delta_time */
+   * v = (finalDisplacement - initialDisplacement) / deltaTime */
   @Override
   public String speed3(
-    double initial_displacement,
-    double final_displacement,
-    double delta_time,
+    double initialDisplacement,
+    double finalDisplacement,
+    double deltaTime,
     int resultOrStep) 
   {
     return speed3.speed(
-      initial_displacement,
-      final_displacement,
-      delta_time,
+      initialDisplacement,
+      finalDisplacement,
+      deltaTime,
       resultOrStep);
   } 
   
   @Override
   public String speed3(
-    double initial_displacement,
-    String initial_displacement_unit,
-    double final_displacement,
-    String final_displacement_unit,
-    double delta_time,
-    String delta_time_unit,
-    String unit_of_result,
+    double initialDisplacement,
+    String initialDisplacementUnit,
+    double finalDisplacement,
+    String finalDisplacementUnit,
+    double deltaTime,
+    String deltaTimeUnit,
+    String unitOfResult,
     int resultOrStep) 
   {
     return speed3.speed(
-      initial_displacement,
-      initial_displacement_unit,
-      final_displacement,
-      final_displacement_unit,
-      delta_time,
-      delta_time_unit,
-      unit_of_result,
+      initialDisplacement,
+      initialDisplacementUnit,
+      finalDisplacement,
+      finalDisplacementUnit,
+      deltaTime,
+      deltaTimeUnit,
+      unitOfResult,
       resultOrStep);
   }
  
   
   /* Speed4/speed_law:
-   * v = (delta_displacement / (final_time - initial_time) */
+   * v = (delta_displacement / (finalTime - initialTime) */
   @Override
   public String speed4(
     double delta_displacement,
-    double initial_time,
-    double final_time,
+    double initialTime,
+    double finalTime,
     int resultOrStep) 
   {
     return speed4.speed(
       delta_displacement,
-      initial_time,
-      final_time,
+      initialTime,
+      finalTime,
       resultOrStep);
   } 
   
@@ -359,169 +359,169 @@ public class MRU implements MRUIF
   public String speed4(
     double delta_displacement,
     String delta_displacement_unit,
-    double initial_time,
-    String initial_time_unit,
-    double final_time,
-    String final_time_unit,
-    String unit_of_result,
+    double initialTime,
+    String initialTimeUnit,
+    double finalTime,
+    String finalTimeUnit,
+    String unitOfResult,
     int resultOrStep) 
   {
     return speed4.speed(
       delta_displacement,
       delta_displacement_unit,
-      initial_time,
-      initial_time_unit,
-      final_time,
-      final_time_unit,
-      unit_of_result,
+      initialTime,
+      initialTimeUnit,
+      finalTime,
+      finalTimeUnit,
+      unitOfResult,
       resultOrStep);
   }
 
   /* Tempo */
-  // Delta time: ∆t = final_time - initial_time
+  // Delta time: ∆t = finalTime - initialTime
   @Override
   public String time1(
-    double initial_time,
-    double final_time)
+    double initialTime,
+    double finalTime)
   {
     return time1.time(
-      initial_time,
-      final_time);
+      initialTime,
+      finalTime);
   }
   
   @Override
   public String time1(
-    double initial_time,
-    String initial_time_unit,
-    double final_time,
-    String final_time_unit,
-    String unit_of_result)
+    double initialTime,
+    String initialTimeUnit,
+    double finalTime,
+    String finalTimeUnit,
+    String unitOfResult)
   {
     return time1.time(
-      initial_time,
-      initial_time_unit,
-      final_time,
-      final_time_unit,
-      unit_of_result);
+      initialTime,
+      initialTimeUnit,
+      finalTime,
+      finalTimeUnit,
+      unitOfResult);
   }
 
   // Delta time: ∆t = ∆S / speed_média
   @Override
   public String time2(
-    double variation_displacement, 
+    double deltaDisplacement, 
     double speed) 
   {
     return time2.time(
-      variation_displacement,
+      deltaDisplacement,
       speed);
   }
   
   public String time2(
-    double variation_displacement, 
-    String variation_displacement_unit,
-    double speed,
-    String speed_unit,
-    String unit_of_result)
+    double deltaDisplacement, 
+    String deltaDisplacementUnit,
+    double velocity,
+    String velocityUnit,
+    String unitOfResult)
   {
     return time2.time(
-      variation_displacement,
-      variation_displacement_unit,
-      speed,
-      speed_unit,
-      unit_of_result);
+      deltaDisplacement,
+      deltaDisplacementUnit,
+      velocity,
+      velocityUnit,
+      unitOfResult);
   }
 
-  // Delta time: ∆t = (final_displacement - initial_displacement) / speed
+  // Delta time: ∆t = (finalDisplacement - initialDisplacement) / speed
   @Override
   public String time3(
-    double initial_displacement,
-    double final_displacement,
-    double speed,
+    double initialDisplacement,
+    double finalDisplacement,
+    double velocity,
     int resultOrStep)
   {
     return time3.time(
-      initial_displacement,
-      final_displacement,
-      speed,
+      initialDisplacement,
+      finalDisplacement,
+      velocity,
       resultOrStep);
   }
   
    @Override
   public String time3(
-    double initial_displacement,
-    String initial_displacement_unit,
-    double final_displacement,
-    String final_displacement_unit,
-    double speed,
-    String speed_unit,
-    String unit_of_result,
+    double initialDisplacement,
+    String initialDisplacementUnit,
+    double finalDisplacement,
+    String finalDisplacementUnit,
+    double velocity,
+    String velocityUnit,
+    String unitOfResult,
     int resultOrStep)
   {
     return time3.time(
-      initial_displacement,
-      initial_displacement_unit,
-      final_displacement,
-      final_displacement_unit,
-      speed,
-      speed_unit,
-      unit_of_result,
+      initialDisplacement,
+      initialDisplacementUnit,
+      finalDisplacement,
+      finalDisplacementUnit,
+      velocity,
+      velocityUnit,
+      unitOfResult,
       resultOrStep);
   }
   
   
 
-  // Initial time: initial_time = final_time - ∆t
+  // Initial time: initialTime = finalTime - ∆t
   @Override
   public String time4(
-    double variation_time, 
-    double final_time) 
+    double deltaTime, 
+    double finalTime) 
   {
     return time4.time(
-      variation_time,
-      final_time);
+      deltaTime,
+      finalTime);
   }
   
   @Override
   public String time4(
-    double variation_time, 
-    String variation_time_unit,
-    double final_time,
-    String final_time_unit,
-    String unit_of_result) 
+    double deltaTime, 
+    String deltaTimeUnit,
+    double finalTime,
+    String finalTimeUnit,
+    String unitOfResult) 
   {
     return time4.time(
-      variation_time,
-      variation_time_unit,
-      final_time,
-      final_time_unit,
-      unit_of_result);
+      deltaTime,
+      deltaTimeUnit,
+      finalTime,
+      finalTimeUnit,
+      unitOfResult);
   }
   
-  // Tempo final; final_time = tempo_inicia + ∆t
+  // Tempo final; finalTime = tempo_inicia + ∆t
   @Override
   public String time5(
-    double initial_time, 
-    double variation_time) 
+    double initialTime, 
+    double deltaTime) 
   {
     return time5.time(
-      initial_time,
-      variation_time);
+      initialTime,
+      deltaTime);
   }
   
   @Override
   public String time5(
-    double initial_time,
-    String initial_time_unit, 
-    double variation_time,
-    String variation_time_unit,
-    String unit_of_result) 
+    double initialTime,
+    String initialTimeUnit, 
+    double deltaTime,
+    String deltaTimeUnit,
+    String unitOfResult) 
   {
     return time5.time(
-      initial_time,
-      initial_time_unit,
-      variation_time,
-      variation_time_unit,
-      unit_of_result);
+      initialTime,
+      initialTimeUnit,
+      deltaTime,
+      deltaTimeUnit,
+      unitOfResult);
   }
   
   // Get class instance object

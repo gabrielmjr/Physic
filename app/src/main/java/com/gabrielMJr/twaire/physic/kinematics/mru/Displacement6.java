@@ -12,13 +12,13 @@ final class Displacement6
   
   // Displacement law: 
   protected String displacement(
-    double initial_displacement,
-    double speed,
-    double variation_time,
+    double initialDisplacement,
+    double velocity,
+    double deltaTime,
     int stepOrResult) 
   {
-    double step1 = speed * variation_time;
-    double step2 = step1 + initial_displacement;
+    double step1 = velocity * deltaTime;
+    double step2 = step1 + initialDisplacement;
     String res = "";
     
     if  (stepOrResult == Physic.GET_RESULT) {
@@ -28,15 +28,15 @@ final class Displacement6
     else if (stepOrResult == Physic.GET_STEP) 
     {
       res = "S = "
-          + initial_displacement
+          + initialDisplacement
           + "m + "
-          + speed
+          + velocity
           + "m/s x "
-          + variation_time
+          + deltaTime
           + "s"
           + "\n"
           + "S = "
-          + initial_displacement
+          + initialDisplacement
           + "m + "
           + step1
           + "m"
@@ -55,13 +55,13 @@ final class Displacement6
   }
   
   protected String displacement(
-    double initial_displacement,
-    String initial_displacement_unit,
-    double speed,
-    String speed_unit,
-    double variation_time,
-    String variation_time_unit,
-    String unit_of_result,
+    double initialDisplacement,
+    String initialDisplacementUnit,
+    double velocity,
+    String velocityUnit,
+    double deltaTime,
+    String deltaTimeUnit,
+    String unitOfRest,
     int stepOrResult) 
   {
     return null;

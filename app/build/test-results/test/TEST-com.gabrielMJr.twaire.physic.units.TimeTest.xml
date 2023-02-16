@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.units.TimeTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:59:18" hostname="localhost" time="0.045">
+<testsuite name="com.gabrielMJr.twaire.physic.units.TimeTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-02-16T15:06:33" hostname="localhost" time="0.049">
   <properties/>
-  <testcase name="toSecondTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.006"/>
+  <testcase name="toSecondTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.007"/>
   <testcase name="toWeekTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.007"/>
   <testcase name="toHourTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.006"/>
   <testcase name="toMinuteTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.006"/>

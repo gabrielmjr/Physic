@@ -10,18 +10,18 @@ final class Time4
   
   // ti = tf + ∆t
   protected String time(
-    double variation_time, 
-    double final_time) 
+    double deltaTime, 
+    double finalTime) 
   {
-    return String.valueOf(final_time - variation_time);
+    return String.valueOf(finalTime - deltaTime);
   }
   
   protected String time(
-    double variation_time, 
-    String variation_time_unit,
-    double final_time,
-    String final_time_unit,
-    String unit_of_result) 
+    double deltaTime, 
+    String deltaTimeUnit,
+    double finalTime,
+    String finalTimeUnit,
+    String unitOfResult) 
   {
     return null;
   }

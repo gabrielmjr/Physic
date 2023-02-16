@@ -10,19 +10,19 @@ final class Displacement1
   
   // Displacement: ∆S = sf - si
   protected String displacement (
-    double initial_displacement, 
-    double final_displacement)
+    double initialDisplacement, 
+    double finalDisplacement)
   {
       return String.valueOf(
-        final_displacement - initial_displacement);
+        finalDisplacement - initialDisplacement);
   }
   
   protected String displacement(
-    double initial_displacement,
-    String initial_displacement_unit,
-    double final_displacement,
-    String final_displacement_unit,
-    String unit_of_result)
+    double initialDisplacement,
+    String initialDisplacementUnit,
+    double finalDisplacement,
+    String finaldisplacementUnit,
+    String unitOfResult)
   {
     return null;
   }
