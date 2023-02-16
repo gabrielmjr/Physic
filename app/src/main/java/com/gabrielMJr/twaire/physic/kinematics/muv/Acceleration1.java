@@ -18,10 +18,10 @@ final class Acceleration1
   
   protected String acceleration(
   double deltaSpeed, 
-  String deltaSpeed_unit,
+  String deltaSpeedUnit,
   double deltaTime,
-  String deltaTime_unit,
-  String unit_of_result)
+  String deltaTimeUnit,
+  String unitOfResult)
   {
   
     return null;

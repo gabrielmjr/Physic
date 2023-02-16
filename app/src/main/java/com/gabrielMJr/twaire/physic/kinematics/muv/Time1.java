@@ -9,19 +9,19 @@ final class Time1
   private Time1(){}
   
   protected String time (
-    double delta_speed, 
+    double deltaSpeed, 
     double acceleration)
     {
       
-      return String.valueOf(delta_speed / acceleration);
+      return String.valueOf(deltaSpeed / acceleration);
     }
    
     protected String time (
-    double delta_speed,
-    String delta_speed_unit, 
+    double deltaSpeed,
+    String deltaSpeedUnit, 
     double acceleration,
-    String acceleration_unit,
-    String unit_of_result)
+    String accelerationUnit,
+    String unitOfResult)
     {
       
       return null;

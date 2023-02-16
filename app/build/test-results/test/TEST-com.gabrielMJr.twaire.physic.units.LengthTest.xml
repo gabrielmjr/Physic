@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.units.LengthTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-02-16T15:06:33" hostname="localhost" time="0.119">
+<testsuite name="com.gabrielMJr.twaire.physic.units.LengthTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-02-16T16:55:02" hostname="localhost" time="0.122">
   <properties/>
-  <testcase name="toDecimeterTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.011"/>
-  <testcase name="toMeterTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.008"/>
-  <testcase name="toHectometerTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.009"/>
-  <testcase name="toDecameterTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.012"/>
-  <testcase name="toMillimterTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.01"/>
-  <testcase name="toCentimeterTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.006"/>
-  <testcase name="toKilometerTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.006"/>
+  <testcase name="toDecimeterTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.008"/>
+  <testcase name="toMeterTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.006"/>
+  <testcase name="toHectometerTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.008"/>
+  <testcase name="toDecameterTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.01"/>
+  <testcase name="toMillimterTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.009"/>
+  <testcase name="toCentimeterTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.007"/>
+  <testcase name="toKilometerTest()" classname="com.gabrielMJr.twaire.physic.units.LengthTest" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

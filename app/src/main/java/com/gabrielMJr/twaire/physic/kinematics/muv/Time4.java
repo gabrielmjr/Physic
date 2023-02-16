@@ -12,27 +12,27 @@ final class Time4
   private Time4(){}
   
   protected String time (
-    double initial_time, 
-    double delta_speed, 
+    double initialTime, 
+    double deltaSpeed, 
     double acceleration, 
     int stepOrResult)
     {
       
-      double step1 = delta_speed / acceleration;
-            double step2 = step1 + initial_time;
+      double step1 = deltaSpeed / acceleration;
+            double step2 = step1 + initialTime;
             String res;
             
             if (stepOrResult == Physic.GET_STEP) {
               
               res = "tf = "
-                  + initial_time
+                  + initialTime
                   + "s + ("
-                  + delta_speed
+                  + deltaSpeed
                   + "m/s ÷ "
                   + acceleration
                   + "m/s²)"
                   + "\ntf = "
-                  + initial_time
+                  + initialTime
                   + "s + "
                   + step1
                   + "s"
@@ -53,13 +53,13 @@ final class Time4
     
   
   protected  String time (
-    double initial_time, 
-    String initial_time_unit,
-    double delta_speed, 
-    String delta_speed_unit,
+    double initialTime, 
+    String initialTimeUnit,
+    double deltaSpeed, 
+    String deltaSpeedUnit,
     double acceleration,
-    String acceleration_unit,
-    String unit_of_result,
+    String accelerationUnit,
+    String unitOfResult,
     int stepOrResult)
     {
       

@@ -11,30 +11,30 @@ final class Acceleration3
   private Acceleration3(){}
   
   protected String acceleration (
-      double initial_speed,
-      double final_speed, 
-      double variation_time,
+      double initialVelocity,
+      double finalVelocity, 
+      double deltaTime,
       int stepOrResult)
       {
     
     // Attributes 
-    double step1 = final_speed - initial_speed;
-    double step2 = step1 / variation_time;
+    double step1 = finalVelocity - initialVelocity;
+    double step2 = step1 / deltaTime;
     String res; 
     
     // If the user want the steps, return the steps
     if (stepOrResult == Physic.GET_STEP) {
       res = "a = ("
-               + final_speed
+               + finalVelocity
                + "m/s - "
-               + initial_speed
+               + initialVelocity
                + "m/s) ÷ ("
-               + variation_time
+               + deltaTime
                + "s)"
                + "\na = ("
                + step1
                + "m/s) ÷ "
-               + variation_time
+               + deltaTime
                + "s"
                + "\na = "
                + step2
@@ -52,11 +52,11 @@ final class Acceleration3
   }
   
   public String acceleration (
-  double initial_speed, 
+  double initialVelocity, 
   String initial_speed_unit, 
-  double final_speed, 
+  double finalVelocity, 
   String final_speed_unit, 
-  double variation_time, 
+  double deltaTime, 
   String variation_time_unit, 
   String unit_of_result, 
   int stepOrResult)

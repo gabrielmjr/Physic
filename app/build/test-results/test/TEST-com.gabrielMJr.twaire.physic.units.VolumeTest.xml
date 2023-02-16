@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.units.VolumeTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-02-16T15:06:33" hostname="localhost" time="0.079">
+<testsuite name="com.gabrielMJr.twaire.physic.units.VolumeTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-02-16T16:55:02" hostname="localhost" time="0.098">
   <properties/>
-  <testcase name="toCubeKilometerTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.005"/>
-  <testcase name="toCubeHectometerTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.005"/>
+  <testcase name="toCubeKilometerTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.008"/>
+  <testcase name="toCubeHectometerTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.006"/>
   <testcase name="toCubeMillimeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.006"/>
-  <testcase name="toCubeDecimeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.006"/>
+  <testcase name="toCubeDecimeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.008"/>
   <testcase name="toCubeCentimeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.006"/>
   <testcase name="toCubeMeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.006"/>
-  <testcase name="toCubeDecameterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.006"/>
+  <testcase name="toCubeDecameterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

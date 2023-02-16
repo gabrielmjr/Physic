@@ -11,25 +11,25 @@ final class Time3
   private Time3(){}
   
   protected String time (
-          double final_time,
-          double delta_speed,
+          double finalTime,
+          double deltaSpeed,
           double acceleration,
           int stepOrResult)
           {
-            double step1 = delta_speed / acceleration;
-            double step2 = final_time - step1;
+            double step1 = deltaSpeed / acceleration;
+            double step2 = finalTime - step1;
             String res;
             
             if (stepOrResult == Physic.GET_STEP) {
               res = "ti = "
-                  + final_time
+                  + finalTime
                   + "s - "
-                  + delta_speed
+                  + deltaSpeed
                   + "m/s ÷ "
                   + acceleration
                   + "m/s²"
                   + "\nti = "
-                  + final_time
+                  + finalTime
                   + "s - "
                   + step1
                   + "s"
@@ -48,13 +48,13 @@ final class Time3
           }
 
     public String time (
-    double final_time,
-    String final_time_unit,
-    double delta_speed, 
-    String delta_speed_unit,
+    double finalTime,
+    String finalTimeUnit,
+    double deltaSpeed, 
+    String deltaSpeedUnit,
     double acceleration, 
-    String acceleration_unit,
-    String unit_of_result,
+    String accelerationUnit,
+    String unitOfResult,
     int stepOrResult)
     
     {
