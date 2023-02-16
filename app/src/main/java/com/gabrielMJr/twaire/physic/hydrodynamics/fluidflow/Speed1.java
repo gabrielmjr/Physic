@@ -14,10 +14,10 @@ final class Speed1 {
   
   protected String speed(
   double flowRate,
-  String flowRate_unit,
+  String flowRateUnit,
   double area,
-  String area_unit,
-  String unit_of_result)
+  String areaUnit,
+  String unitOfResult)
   {
     return null;
   }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.units.VolumeTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-02-16T11:26:27" hostname="localhost" time="0.267">
+<testsuite name="com.gabrielMJr.twaire.physic.units.VolumeTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:47:16" hostname="localhost" time="0.086">
   <properties/>
-  <testcase name="toCubeKilometerTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.015"/>
-  <testcase name="toCubeHectometerTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.012"/>
-  <testcase name="toCubeMillimeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.019"/>
-  <testcase name="toCubeDecimeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.037"/>
-  <testcase name="toCubeCentimeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.006"/>
-  <testcase name="toCubeMeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.015"/>
-  <testcase name="toCubeDecameterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.011"/>
+  <testcase name="toCubeKilometerTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.006"/>
+  <testcase name="toCubeHectometerTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.007"/>
+  <testcase name="toCubeMillimeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.006"/>
+  <testcase name="toCubeDecimeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.005"/>
+  <testcase name="toCubeCentimeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.007"/>
+  <testcase name="toCubeMeterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.007"/>
+  <testcase name="toCubeDecameterTest()" classname="com.gabrielMJr.twaire.physic.units.VolumeTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

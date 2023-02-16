@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.kinematics.muv.Speed4Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T11:26:25" hostname="localhost" time="0.018">
+<testsuite name="com.gabrielMJr.twaire.physic.kinematics.muv.Speed4Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:47:15" hostname="localhost" time="0.005">
   <properties/>
-  <testcase name="speed4Test()" classname="com.gabrielMJr.twaire.physic.kinematics.muv.Speed4Test" time="0.018"/>
+  <testcase name="speed4Test()" classname="com.gabrielMJr.twaire.physic.kinematics.muv.Speed4Test" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

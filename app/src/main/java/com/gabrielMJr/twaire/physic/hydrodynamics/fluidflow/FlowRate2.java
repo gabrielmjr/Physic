@@ -8,16 +8,16 @@ final class FlowRate2 {
   // Private constructor to avoid problems
   private FlowRate2(){}
   
-  protected String flowRate(double area, double velocidade) {
-      return String.valueOf(area * velocidade);
+  protected String flowRate(double area, double velocity) {
+      return String.valueOf(area * velocity);
   }
   
   protected String flowRate(
     double area,
     String area_unit,
-    double velocidade,
-    String velocidade_unit, 
-    String unit_of_result)
+    double velocity,
+    String velocityUnit, 
+    String unitOfResult)
     {
       return null;
     }

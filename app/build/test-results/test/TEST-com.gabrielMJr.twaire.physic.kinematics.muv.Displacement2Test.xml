@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.kinematics.muv.Displacement2Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T11:26:25" hostname="localhost" time="0.009">
+<testsuite name="com.gabrielMJr.twaire.physic.kinematics.muv.Displacement2Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:47:15" hostname="localhost" time="0.007">
   <properties/>
-  <testcase name="displacement2Test()" classname="com.gabrielMJr.twaire.physic.kinematics.muv.Displacement2Test" time="0.009"/>
+  <testcase name="displacement2Test()" classname="com.gabrielMJr.twaire.physic.kinematics.muv.Displacement2Test" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

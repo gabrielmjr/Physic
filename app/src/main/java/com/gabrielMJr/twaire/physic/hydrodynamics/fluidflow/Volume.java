@@ -8,12 +8,12 @@ final class Volume
   // Private constructor to avoid new class's instance
   private Volume(){}
 
-  protected String volume(double tempo, double flowRate)
+  protected String volume(double time, double flowRate)
   {
-    return String.valueOf(tempo * flowRate);
+    return String.valueOf(time * flowRate);
   }
   
-  protected String volume(double tempo, String tempo_unit, double flowRate, String flowRate_unit, String unit_of_result)
+  protected String volume(double time, String timeUnit, double flowRate, String flowRateUnit, String unitOfResult)
   {
     return null;
   }

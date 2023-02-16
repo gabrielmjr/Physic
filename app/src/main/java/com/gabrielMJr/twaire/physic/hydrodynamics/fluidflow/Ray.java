@@ -11,34 +11,34 @@ final class Ray {
 
   protected String ray(
       double flowRate, 
-      double velocidade, 
+      double velocity, 
       int resultOrStep)
       {
-        Double stp1 = 3.14 * velocidade;
-        Double stp2 = flowRate / stp1;
-        Double stp3 = Math.sqrt(stp2);
+        Double step1 = 3.14 * velocity;
+        Double step2 = flowRate / step1;
+        Double step3 = Math.sqrt(step2);
        
         if (resultOrStep == Physic.GET_RESULT) {
         
-          return String.valueOf(stp3);
+          return String.valueOf(step3);
         
         } else if (resultOrStep == Physic.GET_STEP) {
     
         String result = "r = √[" 
                       + flowRate
                       + "m³/s ÷ (3.14 × " 
-                      + velocidade
+                      + velocity
                       + "m/s)]"
                       + "\nr = √[(" 
                       + flowRate 
                       + "m³/s) ÷ (" 
-                      + stp1 
+                      + step1 
                       + "m/s)]"
                       + "\nr = √(" 
-                      + stp2 
+                      + step2 
                       + "m²)"
                       + "\nr = " 
-                      + stp3 
+                      + step3 
                       + "m";
       
         return result;

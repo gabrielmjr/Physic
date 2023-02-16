@@ -12,7 +12,7 @@ final class FlowRate1
     return String.valueOf(volume / time);
   }
   
-  protected String flowRate(double volume, String volume_unit, double time, String time_unit, String unit_of_result) {
+  protected String flowRate(double volume, String volumeUnit, double time, String timeUnit, String unitOfResult) {
     return null;
   }
   
