@@ -22,50 +22,50 @@ public class Volume implements VolumeIF
   @Override
   public Double toCubeKilometer (
     double value,
-    String value_unit) {
-      return ((value * Double.valueOf (CUBE_KILOMETER)) / Double.valueOf (value_unit));
+    String unit) {
+      return ((value * Double.valueOf (CUBE_KILOMETER)) / Double.valueOf (unit));
     }
       
   @Override
   public Double toCubeHectometer (
     double value,
-    String value_unit) {
-      return ((value * Double.valueOf (CUBE_HECTOMETER)) / Double.valueOf (value_unit));
+    String unit) {
+      return ((value * Double.valueOf (CUBE_HECTOMETER)) / Double.valueOf (unit));
     }
     
   @Override
   public Double toCubeDecameter (
     double value,
-    String value_unit) {
-      return ((value * Double.valueOf (CUBE_DECAMETER)) / Double.valueOf (value_unit));
+    String unit) {
+      return ((value * Double.valueOf (CUBE_DECAMETER)) / Double.valueOf (unit));
     }
     
   @Override
   public Double toCubeMeter (
     double value,
-    String value_unit) {
-      return ((value * Double.valueOf (CUBE_METER)) / Double.valueOf (value_unit));
+    String unit) {
+      return ((value * Double.valueOf (CUBE_METER)) / Double.valueOf (unit));
     }
     
   @Override
   public Double toCubeDecimeter (
     double value,
-    String value_unit) {
-      return ((value * Double.valueOf (CUBE_DECIMETER)) / Double.valueOf (value_unit));
+    String unit) {
+      return ((value * Double.valueOf (CUBE_DECIMETER)) / Double.valueOf (unit));
     }
     
   @Override
   public Double toCubeCentimeter (
     double value,
-    String value_unit) {
-      return ((value * Double.valueOf (CUBE_CENTIMETER)) / Double.valueOf (value_unit));
+    String unit) {
+      return ((value * Double.valueOf (CUBE_CENTIMETER)) / Double.valueOf (unit));
     }
     
   @Override
   public Double toCubeMillimeter (
     double value,
-    String value_unit) {
-      return ((value * Double.valueOf (CUBE_MILLIMETER)) / Double.valueOf (value_unit));
+    String unit) {
+      return ((value * Double.valueOf (CUBE_MILLIMETER)) / Double.valueOf (unit));
     }
     
     

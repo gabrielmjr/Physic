@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.kinematics.mru.Time2Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:47:15" hostname="localhost" time="0.008">
+<testsuite name="com.gabrielMJr.twaire.physic.kinematics.mru.Time2Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:59:17" hostname="localhost" time="0.012">
   <properties/>
-  <testcase name="time2Test()" classname="com.gabrielMJr.twaire.physic.kinematics.mru.Time2Test" time="0.008"/>
+  <testcase name="time2Test()" classname="com.gabrielMJr.twaire.physic.kinematics.mru.Time2Test" time="0.012"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

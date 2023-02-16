@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.units.TimeTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:47:16" hostname="localhost" time="0.057">
+<testsuite name="com.gabrielMJr.twaire.physic.units.TimeTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:59:18" hostname="localhost" time="0.045">
   <properties/>
-  <testcase name="toSecondTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.009"/>
+  <testcase name="toSecondTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.006"/>
   <testcase name="toWeekTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.007"/>
-  <testcase name="toHourTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.007"/>
-  <testcase name="toMinuteTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.008"/>
+  <testcase name="toHourTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.006"/>
+  <testcase name="toMinuteTest()" classname="com.gabrielMJr.twaire.physic.units.TimeTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

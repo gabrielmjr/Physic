@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.units.AreaTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:47:15" hostname="localhost" time="0.14">
+<testsuite name="com.gabrielMJr.twaire.physic.units.AreaTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:59:18" hostname="localhost" time="0.083">
   <properties/>
-  <testcase name="toSquareCentimeterTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.008"/>
-  <testcase name="toSquareKilometerTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.01"/>
-  <testcase name="toSquareDecimeterTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.013"/>
-  <testcase name="toSquareMeterTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.011"/>
-  <testcase name="toSquareDecameterTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.012"/>
-  <testcase name="toSquareHectometerTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.007"/>
-  <testcase name="toSquareMillimeterTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.013"/>
+  <testcase name="toSquareCentimeterTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.006"/>
+  <testcase name="toSquareKilometerTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.006"/>
+  <testcase name="toSquareDecimeterTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.006"/>
+  <testcase name="toSquareMeterTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.006"/>
+  <testcase name="toSquareDecameterTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.005"/>
+  <testcase name="toSquareHectometerTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.006"/>
+  <testcase name="toSquareMillimeterTest()" classname="com.gabrielMJr.twaire.physic.units.AreaTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
