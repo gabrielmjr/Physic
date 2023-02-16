@@ -1,0 +1,33 @@
+plugins {
+    id 'application'
+}
+
+version = '1.0.4-BETA_3'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:31.1-jre'
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter('5.9.1')
+        }
+    }
+}
+
+application {
+    mainClass = 'com.gabrielMJr.twaire.physic.Physic'
+}
+
+jar {
+  manifest {
+    attributes (
+      'Main-Class':application.mainClass
+      )
+  }
+}

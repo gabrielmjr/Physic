@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gabrielMJr.twaire.physic.kinematics.muv.Acceleration1Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T11:26:24" hostname="localhost" time="0.053">
+  <properties/>
+  <testcase name="acceleration1Test()" classname="com.gabrielMJr.twaire.physic.kinematics.muv.Acceleration1Test" time="0.053"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

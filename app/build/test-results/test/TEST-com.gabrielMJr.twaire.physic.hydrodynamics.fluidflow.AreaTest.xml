@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow.AreaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T11:26:13" hostname="localhost" time="2.257">
+  <properties/>
+  <testcase name="areaTest()" classname="com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow.AreaTest" time="2.257"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
