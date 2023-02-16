@@ -31,44 +31,44 @@ public class Area implements AreaIF
   
   // From another to kilometer
   @Override
-  public double toSquareKilometer(double value, String value_unit) {
-    return ((value * Double.valueOf(SQUARE_KILOMETER)) / Double.valueOf(value_unit));
+  public double toSquareKilometer(double value, String unit) {
+    return ((value * Double.valueOf(SQUARE_KILOMETER)) / Double.valueOf(unit));
   }
 
   // From another to hectometer
   @Override
-  public double toSquareHectometer(double value, String value_unit) {
-    return ((value * Double.valueOf(SQUARE_HECTOMETER)) / Double.valueOf(value_unit));
+  public double toSquareHectometer(double value, String unit) {
+    return ((value * Double.valueOf(SQUARE_HECTOMETER)) / Double.valueOf(unit));
   }
 
   // From another to decameter
   @Override
-  public double toSquareDecameter(double value, String value_unit) {
-    return ((value * Double.valueOf(SQUARE_DECAMETER)) / Double.valueOf(value_unit));
+  public double toSquareDecameter(double value, String unit) {
+    return ((value * Double.valueOf(SQUARE_DECAMETER)) / Double.valueOf(unit));
   }
 
   // From another to meter
   @Override
-  public double toSquareMeter(double value, String value_unit) {
-    return ((value * Double.valueOf(SQUARE_METER)) / Double.valueOf(value_unit));
+  public double toSquareMeter(double value, String unit) {
+    return ((value * Double.valueOf(SQUARE_METER)) / Double.valueOf(unit));
   }
 
   // From another to decimeter
   @Override
-  public double toSquareDecimeter(double value, String value_unit) {
-    return ((value * Double.valueOf(SQUARE_DECIMETER)) / Double.valueOf(value_unit));
+  public double toSquareDecimeter(double value, String unit) {
+    return ((value * Double.valueOf(SQUARE_DECIMETER)) / Double.valueOf(unit));
   }
 
   // From another to centimeter
   @Override
-  public double toSquareCentimeter(double value, String value_unit) {
-    return ((value * Double.valueOf(SQUARE_CENTIMETER)) / Double.valueOf(value_unit));
+  public double toSquareCentimeter(double value, String unit) {
+    return ((value * Double.valueOf(SQUARE_CENTIMETER)) / Double.valueOf(unit));
   }
 
   // From another to millimeter
   @Override
-  public double toSquareMillimeter(double value, String value_unit) {
-    return ((value * Double.valueOf(SQUARE_MILLIMETER)) / Double.valueOf(value_unit));
+  public double toSquareMillimeter(double value, String unit) {
+    return ((value * Double.valueOf(SQUARE_MILLIMETER)) / Double.valueOf(unit));
   }
   
   

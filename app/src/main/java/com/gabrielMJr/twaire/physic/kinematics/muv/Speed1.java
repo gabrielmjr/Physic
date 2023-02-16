@@ -10,19 +10,19 @@ final class Speed1
   private Speed1(){}
 
     protected String speed (
-    double delta_time, 
+    double deltaTime, 
     double acceleration)
     {
     
-      return String.valueOf(delta_time * acceleration);
+      return String.valueOf(deltaTime * acceleration);
     }
 
     public String speed (
-    double delta_time,
-    String delta_time_unit,
+    double deltaTime,
+    String deltaTimeUnit,
     double acceleration,
-    String acceleration_unit,
-    String unit_of_result) 
+    String accelerationUnit,
+    String unitOfResult) 
     {
     
       return null;

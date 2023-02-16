@@ -11,44 +11,44 @@ final class FlowRate3
   private FlowRate3(){}
 
   protected String flowRate(
-      double raio, 
-      double velocidade,
+      double ray, 
+      double velocity,
       int resultOrStep)
       {
-        double stp1 = Math.pow(raio, 2);
-        double stp2 = 3.14 * stp1;
-        double stp3 = stp2 * velocidade;
+        double step1 = Math.pow(ray, 2);
+        double step2 = 3.14 * step1;
+        double step3 = step2 * velocity;
     
     
         // retornar somente resultado
         if (resultOrStep == Physic.GET_RESULT) { 
         
-          return String.valueOf(stp3);
+          return String.valueOf(step3);
         
       // Retornar resultado e passos
       } else if (resultOrStep == Physic.GET_STEP) {
        
         String result = "Q = 3.14 × ("
-                      + raio
+                      + ray
                       + "m)² × " 
-                      + velocidade
+                      + velocity
                       + "m/s";
       
         result += "\nQ = " 
                + "3.14 × " 
-               + stp1
+               + step1
                + "m² × " 
-               + velocidade 
+               + velocity 
                + "m/s";
       
         result += "\nQ = " 
-               + stp2
+               + step2
                + "m² × " 
-               + velocidade 
+               + velocity 
                + "m/s";
       
         result += "\nQ = " 
-               + stp3
+               + step3
                + "m³/s";
        
         return result;
@@ -60,11 +60,11 @@ final class FlowRate3
     }
     
     protected String flowRate(
-      double raio,
-      String raio_unit,
-      double velocidade,
-      String velocidade_unit,
-      String unit_of_result,
+      double ray,
+      String rayUnit,
+      double velocity,
+      String velocityUnit,
+      String unitOfResult,
       int resultOrStep)
       {
         return null;

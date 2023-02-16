@@ -11,27 +11,27 @@ final class Speed4
   private Speed4(){}
 
   protected String speed(
-      double initial_speed, 
-      double delta_time, 
+      double initialSpeed, 
+      double deltaTime, 
       double acceleration, 
       int stepOrResult) {
         
-        double step1 = delta_time * acceleration;
-         double step2 = step1 + initial_speed;
+        double step1 = deltaTime * acceleration;
+         double step2 = step1 + initialSpeed;
          String res;
          
          if (stepOrResult == Physic.GET_STEP) {
            res = "vf = "
-               + delta_time
+               + deltaTime
                + "s × "
                + acceleration
                + "m/s² + "
-               + initial_speed
+               + initialSpeed
                + "m/s"
                + "\nvf = "
                + step1
                + "m/s + "
-               + initial_speed
+               + initialSpeed
                + "m/s"
                + "\nvf = "
                + step2
@@ -48,13 +48,13 @@ final class Speed4
       }
       
     protected String speed (
-    double initial_speed, 
-    String initial_speed_unit,
-    double delta_time, 
-    String delta_time_unit,
+    double initialSpeed, 
+    String initialSpeedUnit,
+    double deltaTime, 
+    String deltaTimeUnit,
     double acceleration, 
-    String acceleration_unit,
-    String unit_of_result,
+    String accelerationUnit,
+    String unitOfResult,
     int stepOrResult)
     {
       

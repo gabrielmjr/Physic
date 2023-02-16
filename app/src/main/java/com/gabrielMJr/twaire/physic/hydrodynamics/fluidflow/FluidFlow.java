@@ -39,17 +39,17 @@ public class FluidFlow implements FluidFlowIF
   @Override
   public String flowRate1(
   double volume, 
-  String volume_unit, 
+  String volumeUnit, 
   double time, 
-  String time_unit, 
-  String unit_of_result) {
+  String timeUnit, 
+  String unitOfResult) {
   
     return flowRate1.flowRate(
     volume, 
-    volume_unit, 
+    volumeUnit, 
     time, 
-    time_unit, 
-    unit_of_result);
+    timeUnit, 
+    unitOfResult);
   }
     
     
@@ -57,59 +57,59 @@ public class FluidFlow implements FluidFlowIF
     @Override
     public String flowRate2(
     double area, 
-    double velocidade)
+    double velocity)
     {
     
-      return flowRate2.flowRate(area, velocidade);
+      return flowRate2.flowRate(area, velocity);
     }
     
     @Override
     public String flowRate2(
     double area, 
-    String area_unit, 
-    double velocidade, 
-    String velocidade_unit, 
-    String unit_of_result)
+    String areaUnit, 
+    double velocity, 
+    String velocityUnit, 
+    String unitOfResult)
     {
     
       return flowRate2.flowRate(
       area, 
-      area_unit, 
-      velocidade, 
-      velocidade_unit, 
-      unit_of_result);
+      areaUnit, 
+      velocity, 
+      velocityUnit, 
+      unitOfResult);
     }
     
     // Terceira fórmula de Vazão: Q = π * r² * v
     @Override
     public String flowRate3(
-      double raio, 
-      double velocidade,
+      double ray, 
+      double velocity,
       int resultOrStep) 
       {
       
         return flowRate3.flowRate(
-        raio, 
-        velocidade, 
+        ray, 
+        velocity, 
         resultOrStep);
     }
     
     @Override
     public String flowRate3(
-      double raio, 
-      String raio_unit,
-      double velocidade,
-      String velocidade_unit,
-      String unit_of_result,
+      double ray, 
+      String rayUnit,
+      double velocity,
+      String velocityUnit,
+      String unitOfResult,
       int resultOrStep)
       {
       
         return flowRate3.flowRate(
-        raio,
-        raio_unit,
-        velocidade,
-        velocidade_unit,
-        unit_of_result,
+        ray,
+        rayUnit,
+        velocity,
+        velocityUnit,
+        unitOfResult,
         resultOrStep);
     }
     
@@ -117,52 +117,58 @@ public class FluidFlow implements FluidFlowIF
     // Tempo: ∆t = V/ Q
     @Override
     public String time(
-    double volume, 
-    double flowRate) {
-    
+      double volume, 
+      double flowRate) {
+ 
       return time.time(
       volume, 
       flowRate);
     }
     
     @Override
-    public String time(double volume, String volume_unit, double flowRate, String flowRate_unit, String unit_of_result) {
+    public String time(
+      double volume, 
+      String volumeUnit,
+      double flowRate,
+      String flowRateUnit, 
+      String unitOfResult) {
+        
       return time.time(
       volume,
-      volume_unit,
+      volumeUnit,
       flowRate,
-      flowRate_unit,
-      unit_of_result);
+      flowRateUnit,
+      unitOfResult);
     }
     
     
     // Volume: V = ∆t * Q
     @Override
     public String volume(
-    double tempo, 
+    double time, 
     double flowRate) 
     {
     
       return volume.volume(
-      tempo, 
+      time, 
       flowRate);
     }
     
     @Override
     public String volume(
-    double tempo, 
-    String tempo_unit, 
+    double time, 
+    String timeUnit, 
     double flowRate, 
-    String flowRate_unit, 
-    String unit_of_result)
+    String flowRateUnit, 
+    String unitOfResult)
     {
     
       return volume.volume(
-      tempo,
-      tempo_unit,
+      time,
+      timeUnit,
       flowRate,
-      flowRate_unit,
-      unit_of_result);
+      flowRateUnit,
+      unitOfResult);
     }
 
     
@@ -181,17 +187,17 @@ public class FluidFlow implements FluidFlowIF
     @Override
     public String speed1(
     double flowRate, 
-    String flowRate_unit,
+    String flowRateUnit,
     double area, 
-    String area_unit, 
-    String unit_of_result) {
+    String areaUnit, 
+    String unitOfResult) {
     
       return speed1.speed(
       flowRate,
-      flowRate_unit,
+      flowRateUnit,
       area,
-      area_unit,
-      unit_of_result);
+      areaUnit,
+      unitOfResult);
     }
     
     
@@ -199,30 +205,30 @@ public class FluidFlow implements FluidFlowIF
     @Override
     public String speed2(
       double flowRate, 
-      double raio, 
+      double ray, 
       int resultOrStep) {
       
         return speed2.speed(
         flowRate, 
-        raio, 
+        ray, 
         resultOrStep);
     }
  
     @Override
     public String speed2(
       double flowRate,
-      String flowRate_unit, 
-      double raio, 
-      String raio_unit,
-      String unit_of_result,
+      String flowRateUnit, 
+      double ray, 
+      String raioUnit,
+      String unitOfResult,
       int resultOrStep) {
       
         return speed2.speed(
         flowRate,
-        flowRate_unit,
-        raio,
-        raio_unit,
-        unit_of_result,
+        flowRateUnit,
+        ray,
+        raioUnit,
+        unitOfResult,
         resultOrStep);
     }
    
@@ -231,28 +237,28 @@ public class FluidFlow implements FluidFlowIF
     @Override
     public String area(
     double flowRate, 
-    double velocidade) 
+    double velocity) 
     {
     
       return area.area(flowRate, 
-      velocidade);
+      velocity);
     }
     
     @Override
     public String area(
     double flowRate, 
-    String flowRate_unit, 
-    double velocidade, 
-    String velocidade_unit,
-    String unit_of_result)
+    String flowRateUnit, 
+    double velocity, 
+    String velocityUnit,
+    String unitOfResult)
     {
     
       return area.area(
         flowRate,
-        flowRate_unit, 
-        velocidade,
-        velocidade_unit,
-        unit_of_result);
+        flowRateUnit, 
+        velocity,
+        velocityUnit,
+        unitOfResult);
     }
     
     
@@ -260,27 +266,27 @@ public class FluidFlow implements FluidFlowIF
     @Override
     public String ray(
       double flowRate, 
-      double velocidade, 
+      double velocity, 
       int resultOrStep) {
       
         return ray.ray(
         flowRate, 
-        velocidade,
+        velocity,
         resultOrStep);
     }
     
     @Override
     public String ray(
       double flowRate,
-      String flowRate_unit, 
-      double velocidade, 
-      String velocidade_unit,
-      String unit_of_result,
+      String flowRateUnit, 
+      double velocity, 
+      String velocityUnit,
+      String unitOfResult,
       int resultOrStep) {
       
         return ray.ray(
         flowRate, 
-        velocidade,
+        velocity,
         resultOrStep);
     }
     

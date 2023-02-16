@@ -8,10 +8,10 @@ public interface MUVIF
     
     public abstract String acceleration1 (
         double deltaSpeed, 
-        String deltaSpeed_unit, 
+        String deltaSpeedUnit, 
         double deltaTime, 
-        String deltaTime_unit, 
-        String unit_of_result);
+        String deltaTimeUnit, 
+        String unitOfResult);
       
     
     public abstract String acceleration2 (
@@ -22,213 +22,213 @@ public interface MUVIF
     
     public abstract String acceleration2 (
         double deltaSpeed, 
-        String deltaSpeed_unit, 
+        String deltaSpeedUnit, 
         double initialTime, 
-        String initial_time_unit, 
+        String initialTimeUnit, 
         double finalTime, 
-        String finalTime_unit, 
-        String unit_of_result, 
+        String finalTimeUnit, 
+        String unitOfResult, 
         int stepOrResult);
     
     public abstract String acceleration3 (
-        double initial_speed, 
-        double final_speed, 
-        double variation_time, 
+        double initialSpeed, 
+        double finalSpeed, 
+        double variationTime, 
         int stepOrResult);
     
     public abstract String acceleration3 (
-        double initial_speed, 
-        String initial_speed_unit, 
-        double final_speed, 
-        String final_speed_unit, 
-        double variation_time, 
-        String variation_time_unit, 
-        String unit_of_result, 
+        double initialSpeed, 
+        String initialSpeedUnit, 
+        double finalSpeed, 
+        String finalSpeedUnit, 
+        double variationTime, 
+        String variationTimeUnit, 
+        String unitOfResult, 
         int stepOrResult);
        
     
     public abstract String acceleration4 (
-        double nitial_speed, 
-        double final_speed, 
-        double initial_time, 
-        double final_time, 
+        double nitialSpeed, 
+        double finalSpeed, 
+        double initialTime, 
+        double finalTime, 
         int steoOrResult);
     
     public abstract String acceleration4 (
-        double initial_speed, 
-        String initial_speed_unit, 
-        double final_speed, 
-        String final_speed_unit, 
-        double initial_time, 
-        String initial_time_unit, 
-        double final_time, 
-        String final_time_unit, 
-        String unit_of_result, 
+        double initialSpeed, 
+        String initialSpeedUnit, 
+        double finalSpeed, 
+        String finalSpeedUnit, 
+        double initialTime, 
+        String initialTimeUnit, 
+        double finalTime, 
+        String finalTimeUnit, 
+        String unitOfResult, 
         int stepOrResult);
     
     
     public abstract String speed1 (
-        double delta_time, 
+        double deltaTime, 
         double acceleration);
     
     public abstract String speed1 (
-        double delta_time, 
-        String delta_speed_unit, 
+        double deltaTime, 
+        String deltaSpeedUnit, 
         double acceleration, 
-        String acceleration_unit, 
-        String unit_of_result);
+        String accelerationUnit, 
+        String unitOfResult);
     
     
     public abstract String speed2 (
-        double initial_time, 
-        double final_time, 
+        double initialTime, 
+        double finalTime, 
         double acceleration, 
         int stepOrResult);
     
     public abstract String speed2 (
-        double initial_time,
-        String initial_time_unit,
-        double final_time, 
-        String final_time_unit,
+        double initialTime,
+        String initialTimeUnit,
+        double finalTime, 
+        String finalTimeUnit,
         double acceleration,
-        String acceleration_unit,
-        String unit_of_result,
+        String accelerationUnit,
+        String unitOfResult,
         int stepOrResult);
     
     
     public abstract String speed3 (
-        double final_speed, 
-        double delta_time, 
+        double finalSpeed, 
+        double deltaTime, 
         double acceleration, 
         int stepOrResult);
     
     public abstract String speed3 (
-        double final_speed, 
-        String final_speed_unit,
-        double delta_time, 
-        String delta_time_unit,
+        double finalSpeed, 
+        String finalSpeedUnit,
+        double deltaTime, 
+        String deltaTimeUnit,
         double acceleration, 
-        String acceleration_unit,
-        String unit_of_result,
+        String accelerationUnit,
+        String unitOfResult,
         int stepOrResult);
     
     
     public abstract String speed4 (
-        double initial_speed, 
-        double delta_time, 
+        double initialSpeed, 
+        double deltaTime, 
         double acceleration, 
         int stepOrResult);
     
     public abstract String speed4 (
-        double initial_speed, 
-        String initial_speed_unit,
-        double delta_time, 
-        String delta_time_unit,
+        double initialSpeed, 
+        String initialSpeedUnit,
+        double deltaTime, 
+        String deltaTimeUnit,
         double acceleration, 
-        String acceleration_unit,
-        String unit_of_result,
+        String accelerationUnit,
+        String unitOfResult,
         int stepOrResult);
     
     
     public abstract String time1 (
-        double delta_speed, 
+        double deltaSpeed, 
         double acceleration);
     
     public abstract String time1 (
-        double delta_speed,
-        String delta_speed_unit, 
+        double deltaSpeed,
+        String deltaSpeedUnit, 
         double acceleration,
-        String acceleration_unit,
-        String unit_of_result);
+        String accelerationUnit,
+        String unitOfResult);
     
     
     public abstract String time2 (
-        double initial_speed, 
-        double final_speed, 
+        double initialSpeed, 
+        double finalSpeed, 
         double acceleration, 
         int stepOrResult);
     
     public abstract String time2 (
-        double initial_speed, 
-        String initial_speed_unit,
-        double final_speed, 
-        String final_speed_unit,
+        double initialSpeed, 
+        String initialSpeedUnit,
+        double finalSpeed, 
+        String finalSpeedUnit,
         double acceleration,
-        String acceleration_unit,
-        String unit_of_result,
+        String accelerationUnit,
+        String unitOfResult,
         int stepOrResult);
     
     
     public abstract String time3 (
-        double final_time, 
-        double delta_speed, 
+        double finalTime, 
+        double deltaSpeed, 
         double acceleration, 
         int stepOrResult);
     
     public abstract String time3 (
-        double final_time, 
-        String final_time_unit,
-        double delta_speed, 
-        String delta_speed_unit,
+        double finalTime, 
+        String finalTimeUnit,
+        double deltaSpeed, 
+        String deltaSpeedUnit,
         double acceleration, 
-        String acceleration_unit,
-        String unit_of_result,
+        String accelerationUnit,
+        String unitOfResult,
         int stepOrResult);
     
     
     public abstract String time4 (
-        double initial_time, 
-        double delta_speed, 
+        double initialTime, 
+        double deltaSpeed, 
         double acceleration, 
         int stepOrResult);
     
     public abstract String time4 (
-        double initial_time, 
-        String initial_time_unit,
-        double delta_speed, 
-        String delta_speed_unit,
+        double initialTime, 
+        String initialTimeUnit,
+        double deltaSpeed, 
+        String deltaSpeedUnit,
         double acceleration,
-        String acceleration_unit,
-        String unit_of_result,
+        String accelerationUnit,
+        String unitOfResult,
         int stepOrResult);
     
     
     public abstract String displacement1 (
-        double initial_displacement, 
-        double initial_speed, 
-        double delta_time, 
+        double initialDisplacement, 
+        double initialSpeed, 
+        double deltaTime, 
         double acceleration, 
         int stepOrResult);
     
     public abstract String displacement1 (
-        double initial_displacement, 
-        String initial_displacement_unit,
-        double initial_speed, 
-        String initial_speed_unit,
-        double delta_time, 
-        String delta_time_unit,
+        double initialDisplacement, 
+        String initialDisplacementUnit,
+        double initialSpeed, 
+        String initialSpeedUnit,
+        double deltaTime, 
+        String deltaTimeUnit,
         double acceleration, 
-        String acceleration_unit,
-        String unit_of_result,
+        String accelerationUnit,
+        String unitOfResult,
         int stepOrResult);
     
     
     public abstract String displacement2 (
-        double initial_speed, 
-        double delta_time, 
+        double initialSpeed, 
+        double deltaTime, 
         double acceleration, 
         double displacement,
         int stepOrResult);
         
     public abstract String displacement2 (
-        double initial_speed, 
-        String initial_speed_unit,
-        double delta_time, 
-        String delta_time_unit,
+        double initialSpeed, 
+        String initialSpeedUnit,
+        double deltaTime, 
+        String deltaTimeUnit,
         double acceleration, 
-        String acceleration_unit,
+        String accelerationUnit,
         double displacement,
-        String displacement_unit,
-        String unit_of_result,
+        String displacementUnit,
+        String unitOfResult,
         int stepOrResult);
 }

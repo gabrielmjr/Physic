@@ -35,10 +35,10 @@ public class Length implements LengthIF
   @Override
   public double toKilometer (
     double value,
-    String value_unit)  
+    String unit)  
     {
       double res = (value * Double.valueOf(KILOMETER)) /
-      Double.valueOf (value_unit);
+      Double.valueOf (unit);
       return res;
     }
     
@@ -46,9 +46,9 @@ public class Length implements LengthIF
   @Override
   public double toHectometer (
     double value,
-    String value_unit)
+    String unit)
     {
-      double res = (value * Double.valueOf (HECTOMETER)) / Double.valueOf (value_unit);
+      double res = (value * Double.valueOf (HECTOMETER)) / Double.valueOf (unit);
       return res;
     }
     
@@ -56,9 +56,9 @@ public class Length implements LengthIF
   @Override
   public double toDecameter (
     double value,
-    String value_unit)
+    String unit)
     {
-      double res = (value * Double.valueOf (DECAMETER)) / Double.valueOf (value_unit);
+      double res = (value * Double.valueOf (DECAMETER)) / Double.valueOf (unit);
       return res;
     }
     
@@ -66,9 +66,9 @@ public class Length implements LengthIF
   @Override
   public double toMeter (
     double value,
-    String value_unit)
+    String unit)
     {
-      double res = (value * Double.valueOf (METER)) / Double.valueOf (value_unit);
+      double res = (value * Double.valueOf (METER)) / Double.valueOf (unit);
       return res;
     }
     
@@ -76,9 +76,9 @@ public class Length implements LengthIF
   @Override
   public double toDecimeter (
     double value,
-    String value_unit)
+    String unit)
     {
-      double res = (value * Double.valueOf (DECIMETER)) / Double.valueOf (value_unit);
+      double res = (value * Double.valueOf (DECIMETER)) / Double.valueOf (unit);
       return res;
     }
     
@@ -86,9 +86,9 @@ public class Length implements LengthIF
   @Override
   public double toCentimeter (
     double value,
-    String value_unit)
+    String unit)
     {
-      double res = (value * Double.valueOf (CENTIMETER)) / Double.valueOf (value_unit);
+      double res = (value * Double.valueOf (CENTIMETER)) / Double.valueOf (unit);
       return res;
     }
     
@@ -96,9 +96,9 @@ public class Length implements LengthIF
   @Override
   public double toMillimeter (
     double value,
-    String value_unit)
+    String unit)
     {
-      double res = (value * Double.valueOf (MILLIMETER)) / Double.valueOf (value_unit);
+      double res = (value * Double.valueOf (MILLIMETER)) / Double.valueOf (unit);
       return res;
     }
     

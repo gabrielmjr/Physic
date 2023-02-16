@@ -11,21 +11,21 @@ final class Time2
   private Time2(){}
 
   protected String time(
-      double initial_speed, 
-      double final_speed, 
+      double initialVelocity, 
+      double finalVelocity, 
       double acceleration, 
       int stepOrResult) 
       {
         
-          double step1 = final_speed - initial_speed;
+          double step1 = finalVelocity - initialVelocity;
           double step2 = step1 / acceleration;
           String res;
           
           if (stepOrResult == Physic.GET_STEP) {
             res = "∆t = ("
-                + final_speed
+                + finalVelocity
                 + "m/s - "
-                + initial_speed
+                + initialVelocity
                 + "m/s) ÷ "
                 + acceleration
                 + "m/s²"
@@ -49,13 +49,13 @@ final class Time2
       }
 
   protected String time(
-      double initial_speed,
-      String initial_speed_unit,
-      double final_speed,
-      String final_speed_unit,
+      double initialVelocity,
+      String initialVelocityUnit,
+      double finalVelocity,
+      String finalVelocityUnit,
       double acceleration,
-      String acceleration_unit,
-      String unit_of_result,
+      String accelerationUnit,
+      String unitOfResult,
       int stepOrResult) {
 
     return null;

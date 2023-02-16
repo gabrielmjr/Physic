@@ -12,14 +12,14 @@ final class Speed2
   
   // v = (Sf - Si) ÷ (tf - ti)
   protected  String speed(
-    double initial_displacement,
-    double final_displacement,
-    double initial_time,
-    double final_time,
+    double initialDisplacement,
+    double finalDisplacement,
+    double initialTime,
+    double finalTime,
     int resultOrStep)
   {
-    double step1 = final_displacement - initial_displacement;
-    double step2 = final_time - initial_time;
+    double step1 = finalDisplacement - initialDisplacement;
+    double step2 = finalTime - initialTime;
     double step3 = step1 / step2;
     String res = "";
 
@@ -32,14 +32,14 @@ final class Speed2
     }
     else if (resultOrStep == Physic.GET_STEP) 
     {
-      if (initial_displacement < 0) 
+      if (initialDisplacement < 0) 
       {
         signal1 = " ";
       } else {
         signal1 = " - ";
       }
 
-      if (initial_time < 0)
+      if (initialTime < 0)
       {
         signal2 = " ";
       } else {
@@ -47,15 +47,15 @@ final class Speed2
       }
   
       res = "v = ("
-          + final_displacement
+          + finalDisplacement
           + "m"
           + signal1
-          + initial_displacement
+          + initialDisplacement
           + "m) ÷ ("
-          + final_time
+          + finalTime
           + "s"
           + signal2
-          + initial_time
+          + initialTime
           + "s)"
           + "\n"
           + "v = "
@@ -77,15 +77,15 @@ final class Speed2
   }
   
   protected String speed(
-    double initial_displacement,
-    String initial_displacement_unit,
-    double final_displacement,
-    String final_displacement_unit,
-    double initial_time,
-    String initial_time_unit,
-    double final_time,
-    String final_time_unit,
-    String unit_of_result,
+    double initialDisplacement,
+    String initialDisplacementUnit,
+    double finalDisplacement,
+    String finalDisplacementUnit,
+    double initialTime,
+    String initialTimeUnit,
+    double finalTime,
+    String finalTimeUnit,
+    String unitOfResult,
     int resultOrStep)
   {
     return null;

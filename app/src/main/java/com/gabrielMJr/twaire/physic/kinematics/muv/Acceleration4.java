@@ -11,29 +11,29 @@ final class Acceleration4
   private Acceleration4(){}
   
   protected String acceleration (
-    double initial_speed,
-    double final_speed,
-    double initial_time,
-    double final_time,
+    double initialVelocity,
+    double finalVelocity,
+    double initialTime,
+    double finalTime,
     int stepOrResult)
     {
       
       // Attributes 
-      double step1 = final_speed - initial_speed;
-      double step2 = final_time - initial_time;
+      double step1 = finalVelocity - initialVelocity;
+      double step2 = finalTime - initialTime;
       double step3 = step1 / step2;
       String res;
       
       // if stepOrResult.equals (getStep)
       if (stepOrResult == Physic.GET_STEP) {
         res = "a = ("
-            + final_speed
+            + finalVelocity
             + "m/s - "
-            + initial_speed
+            + initialVelocity
             + "m/s) ÷ ("
-            + final_time
+            + finalTime
             + "s - "
-            + initial_time
+            + initialTime
             + "s)"
             + "\na = ("
             + step1
@@ -55,15 +55,15 @@ final class Acceleration4
     }
     
     protected String acceleration (
-    double initial_speed, 
-    String initial_speed_unit, 
-    double final_speed, 
-    String final_speed_unit, 
-    double initial_time, 
-    String initial_time_unit, 
-    double final_time, 
-    String final_time_unit,
-    String unit_of_result, 
+    double initialVelocity, 
+    String initialVelocityUnit, 
+    double finalVelocity, 
+    String finalVelocityUnit, 
+    double initialTime, 
+    String initialTimeUnit, 
+    double finalTime, 
+    String finalTimeUnit,
+    String unitOfResult, 
     int stepOrResult)
     {
     

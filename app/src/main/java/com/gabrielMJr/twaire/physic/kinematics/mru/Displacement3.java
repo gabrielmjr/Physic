@@ -12,13 +12,13 @@ final class Displacement3
  
   // Displacement: ∆S = (tf - ti) × media_speed
   protected String displacement(
-    double initial_time,
-    double final_time,
-    double media_speed,
+    double initialTime,
+    double finalTime,
+    double deltaSpeed,
     int resultOrStep)
   {
-    double step1 = final_time - initial_time;
-    double step2 = step1 * media_speed;
+    double step1 = finalTime - initialTime;
+    double step2 = step1 * deltaSpeed;
     String res = "";
     String signal;
     
@@ -29,7 +29,7 @@ final class Displacement3
     else if (resultOrStep == Physic.GET_STEP) 
     {
     
-      if (initial_time < 0)
+      if (initialTime < 0)
       {
         signal = "";
 	  }
@@ -39,18 +39,18 @@ final class Displacement3
 	  }
 	  
 	  res = "∆S = ("
-      	+ final_time
+      	+ finalTime
           + "s "
           + signal
-          + initial_time
+          + initialTime
           + "s ) x ("
-          + media_speed
+          + deltaSpeed
           + "m/s)"
      	 + "\n"
           + "∆S = "
           + step1
           + "s x ("
-          + media_speed
+          + deltaSpeed
           + "m/s)"
           + "\n"
           + "∆S = "
@@ -66,13 +66,13 @@ final class Displacement3
   }
   
   protected String displacement (
-    double initial_time,
-    String initial_time_unit,
-    double final_time,
-    String final_time_unit,
-    double media_speed,
-    String media_speed_unit,
-    String unit_of_result,
+    double initialTime,
+    String initialTimeUnit,
+    double finalTime,
+    String finalTimeUnit,
+    double deltaSpeed,
+    String mediaSpeedUnit,
+    String unitOfResult,
     int resultOrStep)
   {
     return null;

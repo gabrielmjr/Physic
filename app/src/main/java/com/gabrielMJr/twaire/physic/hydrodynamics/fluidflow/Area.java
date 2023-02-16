@@ -8,17 +8,17 @@ final class Area {
   // Private vonstructor to avoid new instance
   private Area(){}
 
-  protected String area(double flowRate, double velocidade)
+  protected String area(double flowRate, double velocity)
   {
-    return String.valueOf(flowRate / velocidade);
+    return String.valueOf(flowRate / velocity);
   }
   
   protected String area(
     double flowRate,
-    String flowRate_unit,
-    double velocidade,
-    String velocidade_unit,
-    String unit_of_result)
+    String flowRateUnit,
+    double velocity,
+    String velocityUnit,
+    String unitOfResult)
     {
       return null;
     }

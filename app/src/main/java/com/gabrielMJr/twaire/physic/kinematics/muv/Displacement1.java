@@ -11,16 +11,16 @@ final class Displacement1
   private Displacement1(){}
   
   protected  String displacement (
-    double initial_displacement, 
-    double initial_speed, 
-    double delta_time, 
+    double initialDisplacement, 
+    double initialVelocity, 
+    double deltaTime, 
     double acceleration, 
     int stepOrResult)
     {
       
-      double step1 = initial_speed * delta_time;
-      double step11 = Math.pow(delta_time, 2);
-      double step2 = initial_displacement + step1;
+      double step1 = initialVelocity * deltaTime;
+      double step11 = Math.pow(deltaTime, 2);
+      double step2 = initialDisplacement + step1;
       double step22 = acceleration * step11;
       double step3 = step22 / 2;
       double step4 = step2 + step3;
@@ -28,18 +28,18 @@ final class Displacement1
               
       if (stepOrResult == Physic.GET_STEP) {             
         res = "S = "
-            + initial_displacement
+            + initialDisplacement
             + "m + "
-            + initial_speed
+            + initialVelocity
             + "m/s × "
-            + delta_time
+            + deltaTime
             + "s + ["
             + acceleration
             + "m/s² × ("
-            + delta_time
+            + deltaTime
             + "s)²] ÷ 2"
             + "\nS = "
-            + initial_displacement
+            + initialDisplacement
             + "m + "
             + step1
             + "m + ("
@@ -77,15 +77,15 @@ final class Displacement1
    }
     
   protected String displacement (
-    double initial_displacement,
-    String initial_displacement_unit,
-    double initial_speed,
-    String initial_speed_unit,
-    double delta_time,
-    String delta_time_unit,
+    double initialDisplacement,
+    String initialDisplacementUnit,
+    double initialVelocity,
+    String initialVelocityUnit,
+    double deltaTime,
+    String deltaTimeUnit,
     double acceleration,
-    String acceleration_unit,
-    String unit_of_result,
+    String accelerationUnit,
+    String unitOfResult,
     int stepOrResult) 
     {
       return null;

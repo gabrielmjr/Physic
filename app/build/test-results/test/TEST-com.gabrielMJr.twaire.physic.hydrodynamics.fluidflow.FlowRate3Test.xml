@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow.FlowRate3Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T11:26:17" hostname="localhost" time="0.112">
+<testsuite name="com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow.FlowRate3Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-16T16:55:01" hostname="localhost" time="0.011">
   <properties/>
-  <testcase name="flowRate3Test()" classname="com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow.FlowRate3Test" time="0.112"/>
+  <testcase name="flowRate3Test()" classname="com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow.FlowRate3Test" time="0.011"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

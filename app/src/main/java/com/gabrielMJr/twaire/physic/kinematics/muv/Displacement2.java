@@ -11,14 +11,14 @@ final class Displacement2
   private Displacement2(){}
   
   protected String displacement (
-    double initial_speed, 
-    double delta_time, 
+    double initialVelocity, 
+    double deltaTime, 
     double acceleration, 
     double displacement, 
     int stepOrResult)
     {
-      double step1 = initial_speed * delta_time;
-      double step11 = Math.pow (delta_time, 2);
+      double step1 = initialVelocity * deltaTime;
+      double step11 = Math.pow (deltaTime, 2);
       double step2 = acceleration * step11;
       double step3 = step2 / 2;
       double step4 = step1 + step3;
@@ -30,13 +30,13 @@ final class Displacement2
         res = "Si = "
             + displacement
             + "m - [("
-            + initial_speed 
+            + initialVelocity 
             + "m/s × "
-            + delta_time
+            + deltaTime
             + "s) + ["
             + acceleration 
             + "m/s² × ("
-            + delta_time
+            + deltaTime
             + "s)²] ÷ 2]"
             + "\nSi = "
             + displacement 
@@ -85,15 +85,15 @@ final class Displacement2
   }
   
   protected String displacement (
-    double initial_speed, 
-    String initial_speed_unit,
-    double delta_time, 
-    String delta_time_unit,
+    double initialVelocity, 
+    String initialVelocityUnit,
+    double deltaTime, 
+    String deltaTimeUnit,
     double acceleration, 
-    String acceleration_unit,
+    String accelerationUnit,
     double displacement, 
-    String displacement_unit,
-    String unit_of_result,
+    String displacementUnit,
+    String unitOfResult,
     int stepOrResult)
     {
       return null;

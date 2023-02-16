@@ -12,13 +12,13 @@ final class Time3
   
   // ∆t = (Sf - Si) / v
   protected String time(
-    double initial_displacement,
-    double final_displacement,
-    double speed,
+    double initialDisplacement,
+    double finalDisplacement,
+    double velocity,
     int resultOrStep)
   {
-    double step1 = final_displacement - initial_displacement;
-    double step2 = step1 / speed;
+    double step1 = finalDisplacement - initialDisplacement;
+    double step2 = step1 / velocity;
     String res = "";
     String signal;
     
@@ -30,7 +30,7 @@ final class Time3
     else if (resultOrStep == Physic.GET_STEP) 
     {
     
-      if (initial_displacement < 0) 
+      if (initialDisplacement < 0) 
       {
         signal = " ";
       } 
@@ -41,18 +41,18 @@ final class Time3
 
       res =
           "∆t = ("
-            + String.valueOf(final_displacement)
+            + String.valueOf(finalDisplacement)
             + "m"
             + signal
-            + String.valueOf(initial_displacement)
+            + String.valueOf(initialDisplacement)
             + "m) ÷ ("
-            + String.valueOf(speed)
+            + String.valueOf(velocity)
             + "m/s)"
             + "\n"
             + "∆t = "
             + String.valueOf(step1) 
             + "m ÷ (" 
-            + String.valueOf(speed) 
+            + String.valueOf(velocity) 
             + "m/s)"
             + "\n"
             + "∆t = " 
@@ -69,13 +69,13 @@ final class Time3
    }
   
   protected String time(
-    double initial_displacement,
-    String initial_displacement_unit,
-    double final_displacement,
-    String final_displacement_unit,
-    double speed,
-    String speed_unit,
-    String unit_of_result,
+    double initialDisplacement,
+    String initialDisplacementUnit,
+    double finalDisplacement,
+    String finalDisplacementUnit,
+    double velocity,
+    String velocityUnit,
+    String unifOfResult,
     int resultOrStep)
   {
     return null;

@@ -1,9 +1,9 @@
 name: Java CI
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "refactore_variables_names"]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "refactore_variables_names" ]
 permissions:
   contents: read
 jobs:
