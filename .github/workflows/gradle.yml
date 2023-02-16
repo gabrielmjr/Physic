@@ -4,15 +4,11 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
 permissions:
   contents: read
-  
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -21,8 +17,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: 'gradle'
-     
     - name: Build with gradle
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-      with:
-        arguments: build
+      uses: gradle/gradle-build-action@v2
+      run: ./gradlew build
+      
