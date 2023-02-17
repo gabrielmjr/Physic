@@ -27,14 +27,14 @@ public class Acceleration3Test
     public void acceleration3Test()
     {
         // The value to be tested:
-        Double initialSpeed = 3.0;
-        Double finalSpeed = 9.0;
+        Double initialVelocity = 3.0;
+        Double finalVelocity = 9.0;
         Double deltaTime = 8.0;
         
         // The result need to ne:
         String result = "0.75";
         
         // Testing
-        assertEquals(result, muv.acceleration3(initialSpeed, finalSpeed, deltaTime, GET_RESULT));
+        assertEquals(result, muv.acceleration3(initialVelocity, finalVelocity, deltaTime, GET_RESULT));
     }
 }

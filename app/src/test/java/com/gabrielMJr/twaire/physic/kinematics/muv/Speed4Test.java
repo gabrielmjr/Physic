@@ -29,12 +29,12 @@ public class Speed4Test
         // The value to be tested:
         Double deltaTime = 8.0;
         Double acceleration = 3.0;
-        Double initialSpeed = 10.0;
+        Double initialVelocity = 10.0;
         
         // The result need to ne:
         String result = "34.0";
         
         // Testing
-        assertEquals(result, muv.speed4(initialSpeed, deltaTime, acceleration, GET_RESULT));
+        assertEquals(result, muv.speed4(initialVelocity, deltaTime, acceleration, GET_RESULT));
     }
 }

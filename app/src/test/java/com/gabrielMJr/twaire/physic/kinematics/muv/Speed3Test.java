@@ -27,7 +27,7 @@ public class Speed3Test
     public void speed3Test()
     {
         // The value to be tested:
-        Double finalSpeed = 36.0;
+        Double finalVelocity = 36.0;
         Double deltaTime = 3.0;
         Double acceleration = 9.0;
         
@@ -35,6 +35,6 @@ public class Speed3Test
         String result = "9.0";
         
         // Testing
-        assertEquals(result, muv.speed3(finalSpeed, deltaTime, acceleration, GET_RESULT));
+        assertEquals(result, muv.speed3(finalVelocity, deltaTime, acceleration, GET_RESULT));
     }
 }

@@ -27,14 +27,14 @@ public class Time2Test
     public void time2Test()
     {
         // The value to be tested:
-        Double initialSpeed = 3.0;
-        Double finalSpeed = 9.0;
+        Double initialVelocity = 3.0;
+        Double finalVelocity = 9.0;
         Double acceleration = 8.0;
         
         // The result need to ne:
         String result = "0.75";
         
         // Testing
-        assertEquals(result, muv.time2(initialSpeed, finalSpeed, acceleration, GET_RESULT));
+        assertEquals(result, muv.time2(initialVelocity, finalVelocity, acceleration, GET_RESULT));
     }
 }

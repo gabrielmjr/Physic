@@ -23,12 +23,12 @@ public class AreaTest
     {
         // The value to be tested:
         Double flowrate = 5.6;
-        Double speed = 4.0;
+        Double velocity = 4.0;
         
         // The result need to ne:
         String result = "1.4";
         
         // Testing
-        assertEquals(result, fluidFlow.area(flowrate, speed));
+        assertEquals(result, fluidFlow.area(flowrate, velocity));
     }
 }
