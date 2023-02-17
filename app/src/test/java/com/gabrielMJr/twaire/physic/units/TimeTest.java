@@ -21,27 +21,27 @@ public class TimeTest
   public void toSecondTest()
   {
     // Values to be testes
-    double second_value = 60.0;
-    double minute_value = 60.0;
-    double hour_value = 24.0;
-    double day_value = 7.0;
-    double week_value = 1.0;
+    double secondValue = 60.0;
+    double minuteValue = 60.0;
+    double hourValue = 24.0;
+    double dayValue = 7.0;
+    double weekValue = 1.0;
     
     // Result Values
-    Double second_result = 60.0;
-    Double minute_result = 3600.0;
-    Double hour_result = 86400.0;
-    Double day_result = 604800.0;
-    Double week_result = 604800.0;
+    Double secondResult = 60.0;
+    Double minuteResult = 3600.0;
+    Double hourResult = 86400.0;
+    Double dayResult = 604800.0;
+    Double weekResult = 604800.0;
     
     // Testing
-    assertEquals(second_result, time.toSecond(second_value, Time.SECOND));
+    assertEquals(secondResult, time.toSecond(secondValue, Time.SECOND));
     
-    assertEquals(minute_result, time.toSecond(minute_value, Time.MINUTE));
+    assertEquals(minuteResult, time.toSecond(minuteValue, Time.MINUTE));
     
-    assertEquals(hour_result, time.toSecond(hour_value, Time.HOUR));
+    assertEquals(hourResult, time.toSecond(hourValue, Time.HOUR));
     
-    assertEquals(week_result, time.toSecond(week_value, Time.WEEK));
+    assertEquals(weekResult, time.toSecond(weekValue, Time.WEEK));
   }
   
   
@@ -50,27 +50,27 @@ public class TimeTest
   public void toMinuteTest()
   {
     // Values to be testes
-    double second_value = 60.0;
-    double minute_value = 60.0;
-    double hour_value = 24.0;
-    double day_value = 1.0;
-    double week_value = 1.0;
+    double secondValue = 60.0;
+    double minuteValue = 60.0;
+    double hourValue = 24.0;
+    double dayValue = 1.0;
+    double weekValue = 1.0;
     
     // Result Values
-    Double second_result = 1.0;
-    Double minute_result = 60.0;
-    Double hour_result = 1440.0;
-    Double day_result = 10080.0;
-    Double week_result = 10080.0;
+    Double secondResult = 1.0;
+    Double minuteResult = 60.0;
+    Double hourResult = 1440.0;
+    Double dayResult = 10080.0;
+    Double weekResult = 10080.0;
     
     // Testing
-    assertEquals(second_result, time.toMinute(second_value, Time.SECOND));
+    assertEquals(secondResult, time.toMinute(secondValue, Time.SECOND));
     
-    assertEquals(minute_result, time.toMinute(minute_value, Time.MINUTE));
+    assertEquals(minuteResult, time.toMinute(minuteValue, Time.MINUTE));
     
-    assertEquals(hour_result, time.toMinute(hour_value, Time.HOUR));
+    assertEquals(hourResult, time.toMinute(hourValue, Time.HOUR));
     
-    assertEquals(week_result, time.toMinute(week_value, Time.WEEK));
+    assertEquals(weekResult, time.toMinute(weekValue, Time.WEEK));
   }
   
   
@@ -79,27 +79,27 @@ public class TimeTest
   public void toHourTest()
   {
     // Values to be testes
-    double second_value = 60.0;
-    double minute_value = 60.0;
-    double hour_value = 24.0;
-    double day_value = 1.0;
-    double week_value = 1.0;
+    double secondValue = 60.0;
+    double minuteValue = 60.0;
+    double hourValue = 24.0;
+    double dayValue = 1.0;
+    double weekValue = 1.0;
     
     // Result Values
-    Double second_result = 0.016666666666666666;
-    Double minute_result = 1.0;
-    Double hour_result = 24.0;
-    Double day_result = 168.0; 
-    Double week_result = 168.0;
+    Double secondResult = 0.016666666666666666;
+    Double minuteResult = 1.0;
+    Double hourResult = 24.0;
+    Double dayResult = 168.0; 
+    Double weekResult = 168.0;
     
     // Testing
-    assertEquals(second_result, time.toHour(second_value, Time.SECOND));
+    assertEquals(secondResult, time.toHour(secondValue, Time.SECOND));
     
-    assertEquals(minute_result, time.toHour(minute_value, Time.MINUTE));
+    assertEquals(minuteResult, time.toHour(minuteValue, Time.MINUTE));
     
-    assertEquals(hour_result, time.toHour(hour_value, Time.HOUR));
+    assertEquals(hourResult, time.toHour(hourValue, Time.HOUR));
     
-    assertEquals(week_result, time.toHour(week_value, Time.WEEK));
+    assertEquals(weekResult, time.toHour(weekValue, Time.WEEK));
   }
   
   
@@ -108,27 +108,27 @@ public class TimeTest
   public void toWeekTest()
   {
     // Values to be testes
-    double second_value = 60.0;
-    double minute_value = 60.0;
-    double hour_value = 24.0;
-    double day_value = 1.0;
-    double week_value = 1.0;
+    double secondValue = 60.0;
+    double minuteValue = 60.0;
+    double hourValue = 24.0;
+    double dayValue = 1.0;
+    double weekValue = 1.0;
     
     // Result Values
-    Double second_result = 9.92063492063492E-05;
-    Double minute_result = 0.005952380952380952;
-    Double hour_result = 0.14285714285714285;
-    Double day_result = 1.0;
-    Double week_result = 1.0;
+    Double secondResult = 9.92063492063492E-05;
+    Double minuteResult = 0.005952380952380952;
+    Double hourResult = 0.14285714285714285;
+    Double dayResult = 1.0;
+    Double weekResult = 1.0;
     
     // Testing
-    assertEquals(second_result, time.toWeek(second_value, Time.SECOND));
+    assertEquals(secondResult, time.toWeek(secondValue, Time.SECOND));
     
-    assertEquals(minute_result, time.toWeek(minute_value, Time.MINUTE));
+    assertEquals(minuteResult, time.toWeek(minuteValue, Time.MINUTE));
     
-    assertEquals(hour_result, time.toWeek(hour_value, Time.HOUR));
+    assertEquals(hourResult, time.toWeek(hourValue, Time.HOUR));
     
-    assertEquals(week_result, time.toWeek(week_value, Time.WEEK));
+    assertEquals(weekResult, time.toWeek(weekValue, Time.WEEK));
   }
   
 }
