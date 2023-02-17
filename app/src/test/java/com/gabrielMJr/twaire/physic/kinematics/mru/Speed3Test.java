@@ -29,12 +29,12 @@ public class Speed3Test
         // The value to be tested:
         double initialDisplacement = 2.5;
         double finalDisplacement = 5.5;
-        double delta_time = 6.0;
+        double deltaTime = 6.0;
         
         // The result need to be:
         String result = "0.5";
         
         // Testing
-        assertEquals(result, mru.speed3(initialDisplacement, finalDisplacement, delta_time, GET_RESULT));
+        assertEquals(result, mru.speed3(initialDisplacement, finalDisplacement, deltaTime, GET_RESULT));
     }
 }

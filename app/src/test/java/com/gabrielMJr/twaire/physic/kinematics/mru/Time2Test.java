@@ -27,12 +27,12 @@ public class Time2Test
     {
         // The value to be tested:
         Double deltaDisplacement = 9.6;
-        Double speed = 5.0;
+        Double velocity = 5.0;
         
         // The result need to ne:
         String result = "1.92";
         
         // Testing
-        assertEquals(result, mru.time2(deltaDisplacement, speed));
+        assertEquals(result, mru.time2(deltaDisplacement, velocity));
     }
 }

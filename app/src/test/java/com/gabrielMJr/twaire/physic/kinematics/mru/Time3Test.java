@@ -29,12 +29,12 @@ public class Time3Test
         // The value to be tested:
         Double initialDisplacement = 3.5;
         Double finalDisplacement = 5.5;
-        Double speed = 8.0;
+        Double velocity = 8.0;
         
         // The result need to ne:
         String result = "0.25";
         
         // Testing
-        assertEquals(result, mru.time3(initialDisplacement, finalDisplacement, speed, GET_RESULT));
+        assertEquals(result, mru.time3(initialDisplacement, finalDisplacement, velocity, GET_RESULT));
     }
 }

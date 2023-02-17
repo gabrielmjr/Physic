@@ -28,13 +28,13 @@ public class Displacement6Test
     {
         // The value to be tested:
         Double initialDisplacement = 3.5;
-        Double speed = 5.5;
+        Double velocity = 5.5;
         Double deltaTime = 9.0;
         
         // The result need to ne:
         String result = "53.0";
         
         // Testing
-        assertEquals(result, mru.displacement6(initialDisplacement, speed, deltaTime, GET_RESULT));
+        assertEquals(result, mru.displacement6(initialDisplacement, velocity, deltaTime, GET_RESULT));
     }
 }
