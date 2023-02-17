@@ -26,13 +26,13 @@ public class FlowRate2Test
     {
         // Values to be tested
         Double area = 13.5;
-        Double speed = 3.0; // seconds
+        Double velocity = 3.0; // seconds
         
         // Result need to be 
         String result = "40.5";
         
         // Testing
-        assertEquals(result, fluidFlow.flowRate2(area, speed));
+        assertEquals(result, fluidFlow.flowRate2(area, velocity));
     }
     
     

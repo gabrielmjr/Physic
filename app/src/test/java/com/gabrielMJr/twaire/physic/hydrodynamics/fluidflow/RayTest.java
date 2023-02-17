@@ -27,13 +27,13 @@ public class RayTest
     {
         // Values to be tested
         Double flowRate = 8.4;
-        Double speed = 7.0;
+        Double velocity = 7.0;
         
         // Result need to be 
         String result = "0.6181954424739327";
         
         // Testing
-        assertEquals(result, fluidFlow.ray(flowRate, speed, GET_RESULT));
+        assertEquals(result, fluidFlow.ray(flowRate, velocity, GET_RESULT));
     }
     
     

@@ -27,13 +27,13 @@ public class FlowRate3Test
     {
         // Values to be tested
         Double ray = 8.4;
-        Double speed = 4.0;
+        Double velocity = 4.0;
         
         // Result need to be 
         String result = "886.2336";
         
         // Testing
-        assertEquals(result, fluidFlow.flowRate3(ray, speed, GET_RESULT));
+        assertEquals(result, fluidFlow.flowRate3(ray, velocity, GET_RESULT));
     }
     
     
