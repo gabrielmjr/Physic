@@ -28,7 +28,7 @@ public class Displacement1Test
     {
         // The value to be tested:
         Double initialDisplacement = 3.0;
-        Double initialSpeed = 6.0;
+        Double initialVelocity = 6.0;
         Double deltaTime = 2.0;
         Double acceleration= 3.0;
         
@@ -36,6 +36,6 @@ public class Displacement1Test
         String result = "21.0";
         
         // Testing
-        assertEquals(result, muv.displacement1(initialDisplacement, initialSpeed, deltaTime, acceleration, GET_RESULT));
+        assertEquals(result, muv.displacement1(initialDisplacement, initialVelocity, deltaTime, acceleration, GET_RESULT));
     }
 }

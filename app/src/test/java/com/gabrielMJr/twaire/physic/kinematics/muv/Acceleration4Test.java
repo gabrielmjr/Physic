@@ -27,8 +27,8 @@ public class Acceleration4Test
     public void acceleration4Test()
     {
         // The value to be tested:
-        Double initialSpeed = 3.0;
-        Double finalSpeed = 9.0;
+        Double initialVelocity = 3.0;
+        Double finalVelocity = 9.0;
         Double initialTime = 8.0;
         Double finalTime = 18.0;
         
@@ -36,6 +36,6 @@ public class Acceleration4Test
         String result = "0.6";
         
         // Testing
-        assertEquals(result, muv.acceleration4(initialSpeed, finalSpeed, initialTime, finalTime, GET_RESULT));
+        assertEquals(result, muv.acceleration4(initialVelocity, finalVelocity, initialTime, finalTime, GET_RESULT));
     }
 }
