@@ -33,7 +33,7 @@ public class Length implements LengthIF
   
   // Convert from another units to kilometer
   @Override
-  public double toKilometer (
+  public Double toKilometer (
     double value,
     String unit)  
     {
@@ -44,7 +44,7 @@ public class Length implements LengthIF
     
   // Convert from another units to hectometer
   @Override
-  public double toHectometer (
+  public Double toHectometer (
     double value,
     String unit)
     {
@@ -54,7 +54,7 @@ public class Length implements LengthIF
     
       // Convert from another units to decameter
   @Override
-  public double toDecameter (
+  public Double toDecameter (
     double value,
     String unit)
     {
@@ -64,7 +64,7 @@ public class Length implements LengthIF
     
       // Convert from another units to meter
   @Override
-  public double toMeter (
+  public Double toMeter (
     double value,
     String unit)
     {
@@ -74,7 +74,7 @@ public class Length implements LengthIF
     
       // Convert from another units to decimeter
   @Override
-  public double toDecimeter (
+  public Double toDecimeter (
     double value,
     String unit)
     {
@@ -84,7 +84,7 @@ public class Length implements LengthIF
     
       // Convert from another units to centimeter
   @Override
-  public double toCentimeter (
+  public Double toCentimeter (
     double value,
     String unit)
     {
@@ -94,7 +94,7 @@ public class Length implements LengthIF
     
       // Convert from another units to hectometer
   @Override
-  public double toMillimeter (
+  public Double toMillimeter (
     double value,
     String unit)
     {
