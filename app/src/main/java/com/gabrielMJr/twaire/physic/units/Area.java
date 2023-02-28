@@ -1,5 +1,7 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+
 import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER;
@@ -35,47 +37,60 @@ public class Area implements AreaIF
 	public static final String SQUARE_DECIMETER_SYMBOL = DECIMETER_SYMBOL + "²";
 	public static final String SQUARE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "²";
 	public static final String SQUARE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "²";
-
 	@Override
-	public Double toSquareKilometer(double value, String unit)
+	public BigDecimal toSquareKilometer(double value, String unit)
 	{
-		return ((value * Double.valueOf(SQUARE_KILOMETER)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(SQUARE_KILOMETER)))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toSquareHectometer(double value, String unit)
+	public BigDecimal toSquareHectometer(double value, String unit)
 	{
-		return ((value * Double.valueOf(SQUARE_HECTOMETER)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_HECTOMETER))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toSquareDecameter(double value, String unit)
+	public BigDecimal toSquareDecameter(double value, String unit)
 	{
-		return ((value * Double.valueOf(SQUARE_DECAMETER)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_DECAMETER))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toSquareMeter(double value, String unit)
+	public BigDecimal toSquareMeter(double value, String unit)
 	{
-		return ((value * Double.valueOf(SQUARE_METER)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_METER))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toSquareDecimeter(double value, String unit)
+	public BigDecimal toSquareDecimeter(double value, String unit)
 	{
-		return ((value * Double.valueOf(SQUARE_DECIMETER)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_DECIMETER))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toSquareCentimeter(double value, String unit)
+	public BigDecimal toSquareCentimeter(double value, String unit)
 	{
-		return ((value * Double.valueOf(SQUARE_CENTIMETER)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_CENTIMETER))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toSquareMillimeter(double value, String unit)
+	public BigDecimal toSquareMillimeter(double value, String unit)
 	{
-		return ((value * Double.valueOf(SQUARE_MILLIMETER)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_MILLIMETER))).divide(bigUnit);
 	}
 	
     protected static Area getInstance()

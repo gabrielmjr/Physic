@@ -1,13 +1,15 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+
 public interface AreaIF
 {
-	public abstract Double toSquareKilometer(double value, String unit);
-	public abstract Double toSquareHectometer(double value, String unit);
-	public abstract Double toSquareDecameter(double value, String unit);
-	public abstract Double toSquareMeter(double value, String unit);
-	public abstract Double toSquareDecimeter(double value, String unit);
-	public abstract Double toSquareCentimeter(double value, String unit);
-	public abstract Double toSquareMillimeter(double value, String unit);
+	public abstract BigDecimal toSquareKilometer(double value, String unit);
+	public abstract BigDecimal toSquareHectometer(double value, String unit);
+	public abstract BigDecimal toSquareDecameter(double value, String unit);
+	public abstract BigDecimal toSquareMeter(double value, String unit);
+	public abstract BigDecimal toSquareDecimeter(double value, String unit);
+	public abstract BigDecimal toSquareCentimeter(double value, String unit);
+	public abstract BigDecimal toSquareMillimeter(double value, String unit);
 }
 
