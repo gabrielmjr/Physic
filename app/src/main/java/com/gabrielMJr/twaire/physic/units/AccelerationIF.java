@@ -1,6 +1,6 @@
 package com.gabrielMJr.twaire.physic.units;
 
-public interface AccelerationIF
+public interface AccelerationIF 
 {
     public abstract Double toKilometerSquarePerSecond(double value, String unit);
 	public abstract Double toHectometerSquarePerSecond(double value, String unit);

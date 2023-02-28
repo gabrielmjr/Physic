@@ -2,12 +2,12 @@ package com.gabrielMJr.twaire.physic.units;
 
 public class Length implements LengthIF
 {
-	private static Length instance; 
+	private static Length instance;
 
 	public static final String KILOMETER = "0.001";
 	public static final String HECTOMETER = "0.01";
 	public static final String DECAMETER = "0.1";
-	public static final String METER = "1";
+	public static final String METER = "1.0";
 	public static final String DECIMETER = "10";
 	public static final String CENTIMETER = "100";
 	public static final String MILLIMETER = "1000";
@@ -74,7 +74,7 @@ public class Length implements LengthIF
 		String unit)
     {
 		return (value * Double.valueOf(MILLIMETER)) / Double.valueOf(unit);
-    }
+	}
 
     protected static Length getInstance()
     {

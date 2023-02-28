@@ -41,8 +41,7 @@ public interface FluidFlowIF
     public abstract String time(
         double volume, String volumeUnit, 
         double flowRate, String flowRateUnit,
-        String unitOfResult,
-        int resultOrStep);
+        String unitOfResult);
     
     
     public abstract String volume(
@@ -52,8 +51,7 @@ public interface FluidFlowIF
     public abstract String volume(
       double time, String timeUnit,
       double flowRate, String flowRateUnit,
-      String unitOfResult,
-      int resultOrStep);
+      String unitOfResult);
     
     
     public abstract String speed1(
@@ -63,8 +61,7 @@ public interface FluidFlowIF
     public abstract String speed1(
       double flowRate, String flowRateUnit, 
       double area, String areaUnit, 
-      String unitOfResult,
-      int resultOrStep);
+      String unitOfResult);
     
     
     public abstract String speed2(

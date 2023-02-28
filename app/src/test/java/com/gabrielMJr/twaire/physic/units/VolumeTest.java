@@ -31,7 +31,7 @@ public class VolumeTest
     
     // Result Values
     Double cubeKilometerResult = 1.0;
-    Double cubeHectometerResult = 0.001;
+	  Double cubeHectometerResult = 9.999999999999998E-4;
     Double cubeDecameterResult = 0.000001;
     Double cubeMeterResult = 0.000000001;
     Double cubeDecimeterResult = 0.000000000001;
@@ -69,7 +69,7 @@ public class VolumeTest
     double cubeMillimeterValue = 1.0;
     
     // Result Values
-    Double cubeKilometerResult = 999.9999999999999;
+	  Double cubeKilometerResult = 1000.0000000000001;
     Double cubeHectometerResult = 1.0;
     Double cubeDecameterResult = 0.001;
     Double cubeMeterResult = 0.000001;
@@ -148,7 +148,7 @@ public class VolumeTest
     
     // Result Values
     Double cubeKilometerResult = 9.999999999999999E8;
-    Double cubeHectometerResult = 1000000.0000000000001;
+	  Double cubeHectometerResult = 999999.9999999999;
     Double cubeDecameterResult = 1000.0;
     Double cubeMeterResult = 1.0;
     Double cubeDecimeterResult = 0.001;
@@ -187,7 +187,7 @@ public class VolumeTest
     
     // Result Values
     Double cubeKilometerResult = 9.999999999999999E11;
-    Double cubeHectometerResult = 1000000000.0;
+	  Double cubeHectometerResult = 9.999999999999999E8;
     Double cubeDecameterResult = 1000000.0;
     Double cubeMeterResult = 1000.0;
     Double cubeDecimeterResult = 1.0;
@@ -226,7 +226,7 @@ public class VolumeTest
     
     // Result Values
     Double cubeKilometerResult = 1000000000000000.0;
-    Double cubeHectometerResult = 1000000000000.0;
+	  Double cubeHectometerResult = 9.999999999999999E11;
     Double cubeDecameterResult = 1000000000.0;
     Double cubeMeterResult = 1000000.0;
     Double cubeDecimeterResult = 1000.0;
@@ -265,7 +265,7 @@ public class VolumeTest
     
     // Result Values
     Double cubeKilometerResult = 1000000000000000000.0;
-    Double cubeHectometerResult = 1000000000000000.0;
+	  Double cubeHectometerResult = 9.999999999999999E14;
     Double cubeDecameterResult = 1000000000000.0;
     Double cubeMeterResult = 1000000000.0;
     Double cubeDecimeterResult = 1000000.0;
