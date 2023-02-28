@@ -1,5 +1,7 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+
 public class Time implements TimeIF
 {
 	private static Time instance;
@@ -10,11 +12,11 @@ public class Time implements TimeIF
 	public static final String DAY = "1.1574074074074073E-05";
 	public static final String WEEK = "1.6534391534391535E-06";
 	
-	public static final String SECOND_SQUARED = String.valueOf(Math.pow(Double.valueOf(SECOND), 2));
-	public static final String MINUTE_SQUARED = String.valueOf(Math.pow(Double.valueOf(MINUTE), 2));
-	public static final String HOUR_SQUARED = String.valueOf(Math.pow(Double.valueOf(HOUR), 2));
-	public static final String DAY_SQUARED = String.valueOf(Math.pow(Double.valueOf(DAY), 2));
-	public static final String WEEK_SQUARED = String.valueOf(Math.pow(Double.valueOf(WEEK), 2));
+	public static final String SQUARE_SECOND = String.valueOf(Math.pow(Double.valueOf(SECOND), 2));
+	public static final String SQUARE_MINUTE = String.valueOf(Math.pow(Double.valueOf(MINUTE), 2));
+	public static final String SQUARE_HOUR = String.valueOf(Math.pow(Double.valueOf(HOUR), 2));
+	public static final String SQUARE_DAY = String.valueOf(Math.pow(Double.valueOf(DAY), 2));
+	public static final String SQUARE_WEEK = String.valueOf(Math.pow(Double.valueOf(WEEK), 2));
 
 	public static final String SECOND_SYMBOL = "s";
 	public static final String MINUTE_SYMBOL = "min";
@@ -23,69 +25,89 @@ public class Time implements TimeIF
 	public static final String WEEK_IN_MONTH_SYMBOL = "W";
 	public static final String WEEK_IN_YEAR_SYMBOL = "w";
 	
-	public static final String SECOND_SQUARED_SYMBOL = SECOND_SYMBOL + "²";
-	public static final String MINUTE_SQUARED_SYMBOL = MINUTE_SYMBOL + "2";
-	public static final String HOUR_SQUARED_SYMBOL = HOUR_SYMBOL + "²";
-	public static final String DAY_SQUARED_SYMBOL = DAY_SYMBOL + "²";
+	public static final String SQUARE_SECOND_SYMBOL = SECOND_SYMBOL + "²";
+	public static final String SQUARE_MINUTE_SYMBOL = MINUTE_SYMBOL + "2";
+	public static final String SQUARE_HOUR_SYMBOL = HOUR_SYMBOL + "²";
+	public static final String SQUARE_DAY_SYMBOL = DAY_SYMBOL + "²";
 	
 	@Override
-	public Double toSecond(double value, String unit)
+	public BigDecimal toSecond(double value, String unit)
 	{
-		return ((value * Double.valueOf(SECOND)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SECOND))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toMinute(double value, String unit)
+	public BigDecimal toMinute(double value, String unit)
 	{
-		return ((value * Double.valueOf(MINUTE)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(MINUTE))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toHour(double value, String unit)
+	public BigDecimal toHour(double value, String unit)
 	{
-		return ((value * Double.valueOf(HOUR)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(HOUR))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toDay(double value, String unit)
+	public BigDecimal toDay(double value, String unit)
 	{
-		return ((value * Double.valueOf(DAY)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(DAY))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toWeek(double value, String unit)
+	public BigDecimal toWeek(double value, String unit)
 	{
-		return ((value * Double.valueOf(WEEK)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(WEEK))).divide(bigUnit);
 	}
 	
 	@Override
-	public Double toSecondSquared(double value, String unit)
+	public BigDecimal toSquareSecond(double value, String unit)
 	{
-		return ((value * Double.valueOf(SECOND_SQUARED)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_SECOND))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toMinuteSquared(double value, String unit)
+	public BigDecimal toSquareMinute(double value, String unit)
 	{
-		return ((value * Double.valueOf(MINUTE_SQUARED)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_MINUTE))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toHourSquared(double value, String unit)
+	public BigDecimal toSquareHour(double value, String unit)
 	{
-		return ((value * Double.valueOf(HOUR_SQUARED)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_HOUR))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toDaySquared(double value, String unit)
+	public BigDecimal toSquareDay(double value, String unit)
 	{
-		return ((value * Double.valueOf(DAY_SQUARED)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_DAY))).divide(bigUnit);
 	}
 
 	@Override
-	public Double toWeekSquared(double value, String unit)
+	public BigDecimal toSquareWeek(double value, String unit)
 	{
-		return ((value * Double.valueOf(WEEK_SQUARED)) / Double.valueOf(unit));
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(new BigDecimal(SQUARE_WEEK))).divide(bigUnit);
 	}
 
     protected static Time getInstance()
