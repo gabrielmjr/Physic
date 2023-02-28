@@ -1,5 +1,7 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+
 import static com.gabrielMJr.twaire.physic.units.Time.SECOND_SQUARED;
 import static com.gabrielMJr.twaire.physic.units.Time.MINUTE_SQUARED;
 import static com.gabrielMJr.twaire.physic.units.Time.HOUR_SQUARED;
@@ -83,43 +85,43 @@ public class Acceleration implements AccelerationIF
 
 
 	@Override
-	public Double toKilometerSquarePerSecond(double value, String unit)
+	public BigDecimal toKilometerSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toHectometerSquarePerSecond(double value, String unit)
+	public BigDecimal toHectometerSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toDecameterSquarePerSecond(double value, String unit)
+	public BigDecimal toDecameterSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toMeterSquarePerSecond(double value, String unit)
+	public BigDecimal toMeterSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toDecimeterSquarePerSecond(double value, String unit)
+	public BigDecimal toDecimeterSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toCentimeterSquarePerSecond(double value, String unit)
+	public BigDecimal toCentimeterSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toMillimeterSquarePerSecond(double value, String unit)
+	public BigDecimal toMillimeterSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
