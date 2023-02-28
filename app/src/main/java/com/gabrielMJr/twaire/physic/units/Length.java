@@ -1,5 +1,7 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+
 public class Length implements LengthIF
 {
 	private static Length instance;
@@ -11,7 +13,7 @@ public class Length implements LengthIF
 	public static final String DECIMETER = "10";
 	public static final String CENTIMETER = "100";
 	public static final String MILLIMETER = "1000";
-
+	
 	public static final String KILOMETER_SYMBOL = "km";
 	public static final String HECTOMETER_SYMBOL = "hm";
 	public static final String DECAMETER_SYMBOL = "dam";
@@ -21,59 +23,73 @@ public class Length implements LengthIF
 	public static final String MILLIMETER_SYMBOL= "mm";
 	
 	@Override
-	public Double toKilometer(
+	public BigDecimal toKilometer(
 		double value,
 		String unit)  
     {
-		return (value * Double.valueOf(KILOMETER)) / Double.valueOf(unit);
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(KILOMETER)))).divide(bigUnit);
     }
 	
 	@Override
-	public Double toHectometer(
+	public BigDecimal toHectometer(
 		double value,
 		String unit)
     {
-		return (value * Double.valueOf(HECTOMETER)) / Double.valueOf(unit);
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(HECTOMETER)))).divide(bigUnit);
     }
 
 	@Override
-	public Double toDecameter(
+	public BigDecimal toDecameter(
 		double value,
 		String unit)
     {
-		return (value * Double.valueOf(DECAMETER)) / Double.valueOf(unit);
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(DECAMETER)))).divide(bigUnit);
     }
 
 	@Override
-	public Double toMeter(
+	public BigDecimal toMeter(
 		double value,
 		String unit)
     {
-		return (value * Double.valueOf(METER)) / Double.valueOf(unit);
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(METER)))).divide(bigUnit);
     }
 
 	@Override
-	public Double toDecimeter(
+	public BigDecimal toDecimeter(
 		double value,
 		String unit)
     {
-		return (value * Double.valueOf(DECIMETER)) / Double.valueOf(unit);
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(DECIMETER)))).divide(bigUnit);
     }
 	
 	@Override
-	public Double toCentimeter(
+	public BigDecimal toCentimeter(
 		double value,
 		String unit)
     {
-		return (value * Double.valueOf(CENTIMETER)) / Double.valueOf(unit);
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(CENTIMETER)))).divide(bigUnit);
     }
 
 	@Override
-	public Double toMillimeter(
+	public BigDecimal toMillimeter(
 		double value,
 		String unit)
     {
-		return (value * Double.valueOf(MILLIMETER)) / Double.valueOf(unit);
+		BigDecimal bigValue = BigDecimal.valueOf(value);
+		BigDecimal bigUnit = new BigDecimal(unit);
+		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(MILLIMETER)))).divide(bigUnit);
 	}
 
     protected static Length getInstance()
