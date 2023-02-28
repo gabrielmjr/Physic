@@ -37,6 +37,7 @@ public class Area implements AreaIF
 	public static final String SQUARE_DECIMETER_SYMBOL = DECIMETER_SYMBOL + "²";
 	public static final String SQUARE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "²";
 	public static final String SQUARE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "²";
+	
 	@Override
 	public BigDecimal toSquareKilometer(double value, String unit)
 	{

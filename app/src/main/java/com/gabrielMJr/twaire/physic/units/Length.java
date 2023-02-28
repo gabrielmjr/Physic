@@ -6,13 +6,24 @@ public class Length implements LengthIF
 {
 	private static Length instance;
 
-	public static final String KILOMETER = "0.001";
-	public static final String HECTOMETER = "0.01";
-	public static final String DECAMETER = "0.1";
-	public static final String METER = "1.0";
-	public static final String DECIMETER = "10";
-	public static final String CENTIMETER = "100";
-	public static final String MILLIMETER = "1000";
+	public static final int KILOMETER = 0;
+	public static final int HECTOMETER = 1;
+	public static final int DECAMETER = 2;
+	public static final int METER = 3;
+	public static final int DECIMETER = 4;
+	public static final int CENTIMETER = 5;
+	public static final int MILLIMETER = 6;
+	
+	protected static final BigDecimal[] LENGTH_SCALES = new BigDecimal[]
+	{
+		BigDecimal.valueOf(0.001),
+		BigDecimal.valueOf(0.01),
+		BigDecimal.valueOf(0.1),
+		BigDecimal.valueOf(1.0),
+		BigDecimal.valueOf(10),
+		BigDecimal.valueOf(100),
+		BigDecimal.valueOf(1000)
+	};
 	
 	public static final String KILOMETER_SYMBOL = "km";
 	public static final String HECTOMETER_SYMBOL = "hm";
@@ -23,73 +34,59 @@ public class Length implements LengthIF
 	public static final String MILLIMETER_SYMBOL= "mm";
 	
 	@Override
-	public BigDecimal toKilometer(
-		double value,
-		String unit)  
+	public BigDecimal toKilometer(double value, int unit)  
     {
-		BigDecimal bigValue = BigDecimal.valueOf(value);
-		BigDecimal bigUnit = new BigDecimal(unit);
-		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(KILOMETER)))).divide(bigUnit);
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[0]).divide(LENGTH_SCALES[unit]);
+		return null;
     }
 	
 	@Override
-	public BigDecimal toHectometer(
-		double value,
-		String unit)
+	public BigDecimal toHectometer(double value, int unit)
     {
-		BigDecimal bigValue = BigDecimal.valueOf(value);
-		BigDecimal bigUnit = new BigDecimal(unit);
-		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(HECTOMETER)))).divide(bigUnit);
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[1]).divide(LENGTH_SCALES[unit]);
+		return null;
     }
 
 	@Override
-	public BigDecimal toDecameter(
-		double value,
-		String unit)
+	public BigDecimal toDecameter(double value, int unit)
     {
-		BigDecimal bigValue = BigDecimal.valueOf(value);
-		BigDecimal bigUnit = new BigDecimal(unit);
-		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(DECAMETER)))).divide(bigUnit);
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[2]).divide(LENGTH_SCALES[unit]);
+		return null;
     }
 
 	@Override
-	public BigDecimal toMeter(
-		double value,
-		String unit)
+	public BigDecimal toMeter(double value, int unit)
     {
-		BigDecimal bigValue = BigDecimal.valueOf(value);
-		BigDecimal bigUnit = new BigDecimal(unit);
-		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(METER)))).divide(bigUnit);
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[3]).divide(LENGTH_SCALES[unit]);
+		return null;
     }
 
 	@Override
-	public BigDecimal toDecimeter(
-		double value,
-		String unit)
+	public BigDecimal toDecimeter(double value, int unit)
     {
-		BigDecimal bigValue = BigDecimal.valueOf(value);
-		BigDecimal bigUnit = new BigDecimal(unit);
-		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(DECIMETER)))).divide(bigUnit);
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[4]).divide(LENGTH_SCALES[unit]);
+		return null;
     }
 	
 	@Override
-	public BigDecimal toCentimeter(
-		double value,
-		String unit)
+	public BigDecimal toCentimeter(double value, int unit)
     {
-		BigDecimal bigValue = BigDecimal.valueOf(value);
-		BigDecimal bigUnit = new BigDecimal(unit);
-		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(CENTIMETER)))).divide(bigUnit);
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[5]).divide(LENGTH_SCALES[unit]);
+		return null;
     }
 
 	@Override
-	public BigDecimal toMillimeter(
-		double value,
-		String unit)
+	public BigDecimal toMillimeter(double value, int unit)
     {
-		BigDecimal bigValue = BigDecimal.valueOf(value);
-		BigDecimal bigUnit = new BigDecimal(unit);
-		return (bigValue.multiply(BigDecimal.valueOf(Double.valueOf(MILLIMETER)))).divide(bigUnit);
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[6]).divide(LENGTH_SCALES[unit]);
+		return null;
 	}
 
     protected static Length getInstance()
