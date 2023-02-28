@@ -1,5 +1,7 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+
 import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER;
@@ -86,276 +88,276 @@ public class Speed implements SpeedIF
 	}
 	
 	@Override
-	public Double toKilometerPerSecond(double value, String unit)
+	public BigDecimal toKilometerPerSecond(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toKilometer(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toKilometer(value, units[0]);
+		BigDecimal newTime = time.toSecond(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toHectometerPerSecond(double value, String unit)
+	public BigDecimal toHectometerPerSecond(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toHectometer(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toHectometer(value, units[0]);
+		BigDecimal newTime = time.toSecond(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toDecameterPerSecond(double value, String unit)
+	public BigDecimal toDecameterPerSecond(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLenght = length.toDecameter(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLenght / newTime;
+		BigDecimal newLenght = length.toDecameter(value, units[0]);
+		BigDecimal newTime = time.toSecond(1.0, units[1]);
+		return newLenght.divide(newTime);
 	}
 
 	@Override
-	public Double toMeterPerSecond(double value, String unit)
+	public BigDecimal toMeterPerSecond(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toMeter(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toMeter(value, units[0]);
+		BigDecimal newTime = time.toSecond(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toDecimeterPerSecond(double value, String unit)
+	public BigDecimal toDecimeterPerSecond(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toDecimeter(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toDecimeter(value, units[0]);
+		BigDecimal newTime = time.toSecond(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toCentimeterPerSecond(double value, String unit)
+	public BigDecimal toCentimeterPerSecond(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toCentimeter(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toCentimeter(value, units[0]);
+		BigDecimal newTime = time.toSecond(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toMillimeterPerSecond(double value, String unit)
+	public BigDecimal toMillimeterPerSecond(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toMillimeter(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toMillimeter(value, units[0]);
+		BigDecimal newTime = time.toSecond(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toKilometerPerMinute(double value, String unit)
+	public BigDecimal toKilometerPerMinute(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toKilometer(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toKilometer(value, units[0]);
+		BigDecimal newTime = time.toMinute(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 	
 	@Override
-	public Double toHectometerPerMinute(double value, String unit)
+	public BigDecimal toHectometerPerMinute(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toHectometer(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toHectometer(value, units[0]);
+		BigDecimal newTime = time.toMinute(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toDecameterPerMinute(double value, String unit)
+	public BigDecimal toDecameterPerMinute(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toDecameter(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toDecameter(value, units[0]);
+		BigDecimal newTime = time.toMinute(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toMeterPerMinute(double value, String unit)
+	public BigDecimal toMeterPerMinute(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toMeter(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toMeter(value, units[0]);
+		BigDecimal newTime = time.toMinute(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toDecimeterPerMinute(double value, String unit)
+	public BigDecimal toDecimeterPerMinute(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toDecimeter(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toDecimeter(value, units[0]);
+		BigDecimal newTime = time.toMinute(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toCentimeterPerMinute(double value, String unit)
+	public BigDecimal toCentimeterPerMinute(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toCentimeter(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toCentimeter(value, units[0]);
+		BigDecimal newTime = time.toMinute(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toMillimeterPerMinute(double value, String unit)
+	public BigDecimal toMillimeterPerMinute(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toMillimeter(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toMillimeter(value, units[0]);
+		BigDecimal newTime = time.toMinute(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 	
 	@Override
-	public Double toKilometerPerHour(double value, String unit)
+	public BigDecimal toKilometerPerHour(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toKilometer(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toKilometer(value, units[0]);
+		BigDecimal newTime = time.toHour(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 	
 	@Override
-	public Double toHectometerPerHour(double value, String unit)
+	public BigDecimal toHectometerPerHour(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toHectometer(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toHectometer(value, units[0]);
+		BigDecimal newTime = time.toHour(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 	
 	@Override
-	public Double toDecameterPerHour(double value, String unit)
+	public BigDecimal toDecameterPerHour(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toDecameter(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toDecameter(value, units[0]);
+		BigDecimal newTime = time.toHour(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toMeterPerHour(double value, String unit)
+	public BigDecimal toMeterPerHour(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toMeter(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toMeter(value, units[0]);
+		BigDecimal newTime = time.toHour(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toDecimeterPerHour(double value, String unit)
+	public BigDecimal toDecimeterPerHour(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toDecimeter(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toDecimeter(value, units[0]);
+		BigDecimal newTime = time.toHour(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toCentimeterPerHour(double value, String unit)
+	public BigDecimal toCentimeterPerHour(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toCentimeter(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toCentimeter(value, units[0]);
+		BigDecimal newTime = time.toHour(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	@Override
-	public Double toMillimeterPerHour(double value, String unit)
+	public BigDecimal toMillimeterPerHour(double value, String unit)
 	{
 		/*
 		 * [0] = length
 		 * [1] = time
 		 */
 		String[] units = unit.split("/");
-		Double newLength = length.toMillimeter(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		BigDecimal newLength = length.toMillimeter(value, units[0]);
+		BigDecimal newTime = time.toHour(1.0, units[1]);
+		return newLength.divide(newTime);
 	}
 
 	protected static Speed getInstance()
