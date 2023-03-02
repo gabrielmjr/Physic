@@ -12,6 +12,12 @@ public class Time implements TimeIF
 	public static final int DAY = 24;
 	public static final int WEEK = 25;
 	
+	public static final int SQUARE_SECOND = 26;
+	public static final int SQUARE_MINUTE = 27;
+	public static final int SQUARE_HOUR = 28;
+	public static final int SQUARE_DAY = 29;
+	public static final int SQUARE_WEEK = 30;
+	
 	protected static final BigDecimal[] TIME_SCALES = new BigDecimal[]
 	{
 		BigDecimal.valueOf(1.0),
@@ -21,12 +27,15 @@ public class Time implements TimeIF
 		BigDecimal.valueOf(1.6534391534391535E-06)
 	};
 	
-	public static final String SQUARE_SECOND = String.valueOf(Math.pow(Double.valueOf(SECOND), 2));
-	public static final String SQUARE_MINUTE = String.valueOf(Math.pow(Double.valueOf(MINUTE), 2));
-	public static final String SQUARE_HOUR = String.valueOf(Math.pow(Double.valueOf(HOUR), 2));
-	public static final String SQUARE_DAY = String.valueOf(Math.pow(Double.valueOf(DAY), 2));
-	public static final String SQUARE_WEEK = String.valueOf(Math.pow(Double.valueOf(WEEK), 2));
-
+	protected static final BigDecimal[] SQUARE_TIME = new BigDecimal[]
+	{
+		TIME_SCALES[SECOND].pow(2),
+		TIME_SCALES[MINUTE].pow(2),
+		TIME_SCALES[HOUR].pow(2),
+		TIME_SCALES[DAY].pow(2),
+	    TIME_SCALES[WEEK].pow(2)
+	};
+	
 	public static final String SECOND_SYMBOL = "s";
 	public static final String MINUTE_SYMBOL = "min";
 	public static final String HOUR_SYMBOL = "h";
@@ -82,40 +91,40 @@ public class Time implements TimeIF
 	@Override
 	public BigDecimal toSquareSecond(double value, int unit)
 	{
-		if (unit >= 21 && unit <= 25)
-			return BigDecimal.valueOf(value).multiply(TIME_SCALES[0]).divide(TIME_SCALES[unit - 21]);
+		if (unit >= 26 && unit <= 30)
+			return BigDecimal.valueOf(value).multiply(TIME_SCALES[0]).divide(TIME_SCALES[unit - 26]);
 		return null;
 	}
 
 	@Override
 	public BigDecimal toSquareMinute(double value, int unit)
 	{
-		if (unit >= 21 && unit <= 25)
-			return BigDecimal.valueOf(value).multiply(TIME_SCALES[0]).divide(TIME_SCALES[unit - 21]);
+		if (unit >= 26 && unit <= 30)
+			return BigDecimal.valueOf(value).multiply(TIME_SCALES[0]).divide(TIME_SCALES[unit - 26]);
 		return null;
 	}
 
 	@Override
 	public BigDecimal toSquareHour(double value, int unit)
 	{
-		if (unit >= 21 && unit <= 25)
-			return BigDecimal.valueOf(value).multiply(TIME_SCALES[0]).divide(TIME_SCALES[unit - 21]);
+		if (unit >= 26 && unit <= 30)
+			return BigDecimal.valueOf(value).multiply(TIME_SCALES[0]).divide(TIME_SCALES[unit - 26]);
 		return null;
 	}
 
 	@Override
 	public BigDecimal toSquareDay(double value, int unit)
 	{
-		if (unit >= 21 && unit <= 25)
-			return BigDecimal.valueOf(value).multiply(TIME_SCALES[0]).divide(TIME_SCALES[unit - 21]);
+		if (unit >= 26 && unit <= 30)
+			return BigDecimal.valueOf(value).multiply(TIME_SCALES[0]).divide(TIME_SCALES[unit - 26]);
 		return null;
 	}
 
 	@Override
 	public BigDecimal toSquareWeek(double value, int unit)
 	{
-		if (unit >= 21 && unit <= 25)
-			return BigDecimal.valueOf(value).multiply(TIME_SCALES[0]).divide(TIME_SCALES[unit - 21]);
+		if (unit >= 26 && unit <= 30)
+			return BigDecimal.valueOf(value).multiply(TIME_SCALES[0]).divide(TIME_SCALES[unit - 26]);
 		return null;
 	}
 
