@@ -1,5 +1,6 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Random;
@@ -13,6 +14,7 @@ import static com.gabrielMJr.twaire.physic.units.Area.SQUARE_DECIMETER;
 import static com.gabrielMJr.twaire.physic.units.Area.SQUARE_CENTIMETER;
 import static com.gabrielMJr.twaire.physic.units.Area.SQUARE_MILLIMETER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AreaTest
 {
@@ -24,204 +26,309 @@ public class AreaTest
 	{
 		area = Area.getInstance();
 		random = new Random();
-		formatter = new DecimalFormat("#0.00");
+		formatter = new DecimalFormat("#00.0000");
 	}
-	
+
 	@Test 
 	public void toSquareKilometerTest()
 	{
-		double squareKilometerValue = Double.valueOf(formatter.format(random.nextDouble() * 10));
-		double squareHectometerValue = Double.valueOf(formatter.format(random.nextDouble() * 10));
-		double squareDecameterValue = Double.valueOf(formatter.format(random.nextDouble() * 10));
-		double squareMeterValue = Double.valueOf(formatter.format(random.nextDouble() * 10));
-		double squareDecimeterValue = Double.valueOf(formatter.format(random.nextDouble() * 10));
-		double squareCentimeterValue = Double.valueOf(formatter.format(random.nextDouble() * 10));
-		double squareMillimeterValue = Double.valueOf(formatter.format(random.nextDouble() * 10));
+		BigDecimal squareKilometerValue = getRandomBigDecimal();
+		BigDecimal squareHectometerValue = getRandomBigDecimal();
+		BigDecimal squareDecameterValue = getRandomBigDecimal();
+		BigDecimal squareMeterValue = getRandomBigDecimal();
+		BigDecimal squareDecimeterValue = getRandomBigDecimal();
+		BigDecimal squareCentimeterValue = getRandomBigDecimal();
+	    BigDecimal squareMillimeterValue = getRandomBigDecimal();
 
-		double squareKilometerResult = Double.valueOf(formatter.format(squareKilometerValue / 1));
-		double squareHectometerResult = Double.valueOf(formatter.format(squareHectometerValue / 1E2));
-		double squareDecameterResult = Double.valueOf(formatter.format(squareDecameterValue / 1E4));
-		double squareMeterResult = Double.valueOf(formatter.format(squareMeterValue / 1E6));
-		double squareDecimeterResult = Double.valueOf(formatter.format(squareDecimeterValue / 1E8));
-		double squareCentimeterResult = Double.valueOf(formatter.format(squareCentimeterValue / 1E10));
-		double squareMillimeterResult = Double.valueOf(formatter.format(squareMillimeterValue / 1E12));
-		
-		assertEquals(squareKilometerResult, area.toSquareKilometer(squareKilometerValue, SQUARE_KILOMETER));
-		assertEquals(squareHectometerResult, area.toSquareKilometer(squareHectometerValue, SQUARE_HECTOMETER));
-		assertEquals(squareDecameterResult, area.toSquareKilometer(squareDecameterValue, SQUARE_DECAMETER));
-		assertEquals(squareMeterResult, area.toSquareKilometer(squareMeterValue, SQUARE_METER));
-		assertEquals(squareDecimeterResult, area.toSquareKilometer(squareDecimeterValue, SQUARE_DECIMETER));
-		assertEquals(squareCentimeterResult, area.toSquareKilometer(squareCentimeterValue, SQUARE_CENTIMETER));
-		assertEquals(squareMillimeterResult, area.toSquareKilometer(squareMillimeterValue, SQUARE_MILLIMETER));
+		String[] squareKilometerTestResultAsArray = getTestResultAsArrayFrom(squareKilometerValue, 1);
+		String[] squareHectometerTestResultAsArray = getTestResultAsArrayFrom(squareHectometerValue, 1E-2);
+		String[] squareDecameterTestResultAsArray = getTestResultAsArrayFrom(squareDecameterValue, 1E-4);
+		String[] squareMeterTestResultAsArray = getTestResultAsArrayFrom(squareMeterValue, 1E-6);
+		String[] squareDecimeterTestResultAsArray = getTestResultAsArrayFrom(squareDecimeterValue, 1E-8);
+		String[] squareCentimeterTestResultAsArray = getTestResultAsArrayFrom(squareCentimeterValue, 1E-10);
+		String[] squareMillimeterTestResultAsArray = getTestResultAsArrayFrom(squareMillimeterValue, 1E-12);
+
+		String[] squareKilometerResultAsArray = area.toSquareKilometer(Double.valueOf(formatter.format(squareKilometerValue)), SQUARE_KILOMETER).toString().split("");
+		String[] squareHectometerResultAsArray = getResultAsArrayFrom(squareHectometerValue, SQUARE_HECTOMETER);
+		String[] squareDecameterResultAsArray = getResultAsArrayFrom(squareDecameterValue, SQUARE_DECAMETER);
+		String[] squareMeterResultAsArray = getResultAsArrayFrom(squareMeterValue, SQUARE_METER);
+		String[] squareDecimeterResultAsArray = getResultAsArrayFrom(squareDecimeterValue, SQUARE_DECIMETER);
+		String[] squareCentimeterResultAsArray = getResultAsArrayFrom(squareCentimeterValue, SQUARE_CENTIMETER);
+		String[] squareMillimeterResultAsArray = getResultAsArrayFrom(squareMillimeterValue, SQUARE_MILLIMETER);
+
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareKilometerTestResultAsArray, squareKilometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareHectometerTestResultAsArray, squareHectometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecameterTestResultAsArray, squareDecameterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMeterTestResultAsArray, squareMeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecimeterTestResultAsArray, squareDecimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareCentimeterTestResultAsArray, squareCentimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMillimeterTestResultAsArray, squareMillimeterResultAsArray)));
 	}
 
 	@Test 
 	public void toSquareHectometerTest()
 	{
-		double squareKilometerValue = random.nextDouble() * 100;
-		double squareHectometerValue = random.nextDouble() * 100;
-		double squareDecameterValue = random.nextDouble() * 100;
-		double squareMeterValue = random.nextDouble() * 100;
-		double squareDecimeterValue = random.nextDouble() * 100;
-		double squareCentimeterValue = random.nextDouble() * 100;
-		double squareMillimeterValue = random.nextDouble() * 100;
+		BigDecimal squareKilometerValue = getRandomBigDecimal();
+		BigDecimal squareHectometerValue = getRandomBigDecimal();
+		BigDecimal squareDecameterValue = getRandomBigDecimal();
+		BigDecimal squareMeterValue = getRandomBigDecimal();
+		BigDecimal squareDecimeterValue = getRandomBigDecimal();
+		BigDecimal squareCentimeterValue = getRandomBigDecimal();
+		BigDecimal squareMillimeterValue = getRandomBigDecimal();
 
-		double squareKilometerResult = squareKilometerValue / 1E-2;
-		double squareHectometerResult = squareHectometerValue / 1;
-		double squareDecameterResult = squareDecameterValue / 1E2;
-		double squareMeterResult = squareMeterValue / 1E4;
-		double squareDecimeterResult = squareDecimeterValue / 1E6;
-		double squareCentimeterResult = squareCentimeterValue / 1E8;
-		double squareMillimeterResult = squareMillimeterValue / 1E10;
+		String[] squareKilometerTestResultAsArray = getTestResultAsArrayFrom(squareKilometerValue, 1E2);
+		String[] squareHectometerTestResultAsArray = getTestResultAsArrayFrom(squareHectometerValue, 1);
+		String[] squareDecameterTestResultAsArray = getTestResultAsArrayFrom(squareDecameterValue, 1E-2);
+		String[] squareMeterTestResultAsArray = getTestResultAsArrayFrom(squareMeterValue, 1E-4);
+		String[] squareDecimeterTestResultAsArray = getTestResultAsArrayFrom(squareDecimeterValue, 1E-6);
+		String[] squareCentimeterTestResultAsArray = getTestResultAsArrayFrom(squareCentimeterValue, 1E-8);
+		String[] squareMillimeterTestResultAsArray = getTestResultAsArrayFrom(squareMillimeterValue, 1E-10);
 
-		assertEquals(squareKilometerResult, area.toSquareHectometer(squareKilometerValue, SQUARE_KILOMETER));
-		assertEquals(squareHectometerResult, area.toSquareHectometer(squareHectometerValue, SQUARE_HECTOMETER));
-		assertEquals(squareDecameterResult, area.toSquareHectometer(squareDecameterValue, SQUARE_DECAMETER));
-		assertEquals(squareMeterResult, area.toSquareHectometer(squareMeterValue, SQUARE_METER));
-		assertEquals(squareDecimeterResult, area.toSquareHectometer(squareDecimeterValue, SQUARE_DECIMETER));
-		assertEquals(squareCentimeterResult, area.toSquareHectometer(squareCentimeterValue, SQUARE_CENTIMETER));
-		assertEquals(squareMillimeterResult, area.toSquareHectometer(squareMillimeterValue, SQUARE_MILLIMETER));
+		String[] squareKilometerResultAsArray = getResultAsArrayFrom(squareKilometerValue, SQUARE_KILOMETER);
+		String[] squareHectometerResultAsArray = getResultAsArrayFrom(squareHectometerValue, SQUARE_HECTOMETER);
+		String[] squareDecameterResultAsArray = getResultAsArrayFrom(squareDecameterValue, SQUARE_DECAMETER);
+		String[] squareMeterResultAsArray = getResultAsArrayFrom(squareMeterValue, SQUARE_METER);
+		String[] squareDecimeterResultAsArray = getResultAsArrayFrom(squareDecimeterValue, SQUARE_DECIMETER);
+		String[] squareCentimeterResultAsArray = getResultAsArrayFrom(squareCentimeterValue, SQUARE_CENTIMETER);
+		String[] squareMillimeterResultAsArray = getResultAsArrayFrom(squareMillimeterValue, SQUARE_MILLIMETER);
+
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareKilometerTestResultAsArray, squareKilometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareHectometerTestResultAsArray, squareHectometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecameterTestResultAsArray, squareDecameterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMeterTestResultAsArray, squareMeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecimeterTestResultAsArray, squareDecimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareCentimeterTestResultAsArray, squareCentimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMillimeterTestResultAsArray, squareMillimeterResultAsArray)));
 	}
 
 	@Test 
 	public void toSquareDecameterTest()
 	{
-		double squareKilometerValue = random.nextDouble() * 100;
-		double squareHectometerValue = random.nextDouble() * 100;
-		double squareDecameterValue = random.nextDouble() * 100;
-		double squareMeterValue = random.nextDouble() * 100;
-		double squareDecimeterValue = random.nextDouble() * 100;
-		double squareCentimeterValue = random.nextDouble() * 100;
-		double squareMillimeterValue = random.nextDouble() * 100;
+		BigDecimal squareKilometerValue = getRandomBigDecimal();
+		BigDecimal squareHectometerValue = getRandomBigDecimal();
+		BigDecimal squareDecameterValue = getRandomBigDecimal();
+		BigDecimal squareMeterValue = getRandomBigDecimal();
+		BigDecimal squareDecimeterValue = getRandomBigDecimal();
+		BigDecimal squareCentimeterValue = getRandomBigDecimal();
+		BigDecimal squareMillimeterValue = getRandomBigDecimal();
 
-		double squareKilometerResult = squareKilometerValue / 1E-4;
-		double squareHectometerResult = squareHectometerValue / 1E-2;
-		double squareDecameterResult = squareDecameterValue / 1;
-		double squareMeterResult = squareMeterValue / 1E2;
-		double squareDecimeterResult = squareDecimeterValue / 1E4;
-		double squareCentimeterResult = squareCentimeterValue / 1E6;
-		double squareMillimeterResult = squareMillimeterValue / 1E8;
+		String[] squareKilometerTestResultAsArray = getTestResultAsArrayFrom(squareKilometerValue, 1E4);
+		String[] squareHectometerTestResultAsArray = getTestResultAsArrayFrom(squareHectometerValue, 1E2);
+		String[] squareDecameterTestResultAsArray = getTestResultAsArrayFrom(squareDecameterValue, 1);
+		String[] squareMeterTestResultAsArray = getTestResultAsArrayFrom(squareMeterValue, 1E-2);
+		String[] squareDecimeterTestResultAsArray = getTestResultAsArrayFrom(squareDecimeterValue, 1E-4);
+		String[] squareCentimeterTestResultAsArray = getTestResultAsArrayFrom(squareCentimeterValue, 1E-6);
+		String[] squareMillimeterTestResultAsArray = getTestResultAsArrayFrom(squareMillimeterValue, 1E-8);
 
-		assertEquals(squareKilometerResult, area.toSquareDecameter(squareKilometerValue, SQUARE_KILOMETER));
-		assertEquals(squareHectometerResult, area.toSquareDecameter(squareHectometerValue, SQUARE_HECTOMETER));
-		assertEquals(squareDecameterResult, area.toSquareDecameter(squareDecameterValue, SQUARE_DECAMETER));
-		assertEquals(squareMeterResult, area.toSquareDecameter(squareMeterValue, SQUARE_METER));
-		assertEquals(squareDecimeterResult, area.toSquareDecameter(squareDecimeterValue, SQUARE_DECIMETER));
-		assertEquals(squareCentimeterResult, area.toSquareDecameter(squareCentimeterValue, SQUARE_CENTIMETER));
-		assertEquals(squareMillimeterResult, area.toSquareDecameter(squareMillimeterValue, SQUARE_MILLIMETER));
+		String[] squareKilometerResultAsArray = getResultAsArrayFrom(squareKilometerValue, SQUARE_KILOMETER);
+		String[] squareHectometerResultAsArray = getResultAsArrayFrom(squareHectometerValue, SQUARE_HECTOMETER);
+		String[] squareDecameterResultAsArray = getResultAsArrayFrom(squareDecameterValue, SQUARE_DECAMETER);
+		String[] squareMeterResultAsArray = getResultAsArrayFrom(squareMeterValue, SQUARE_METER);
+		String[] squareDecimeterResultAsArray = getResultAsArrayFrom(squareDecimeterValue, SQUARE_DECIMETER);
+		String[] squareCentimeterResultAsArray = getResultAsArrayFrom(squareCentimeterValue, SQUARE_CENTIMETER);
+		String[] squareMillimeterResultAsArray = getResultAsArrayFrom(squareMillimeterValue, SQUARE_MILLIMETER);
+
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareKilometerTestResultAsArray, squareKilometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareHectometerTestResultAsArray, squareHectometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecameterTestResultAsArray, squareDecameterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMeterTestResultAsArray, squareMeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecimeterTestResultAsArray, squareDecimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareCentimeterTestResultAsArray, squareCentimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMillimeterTestResultAsArray, squareMillimeterResultAsArray)));
 	}
 
 	@Test 
 	public void toSquareMeterTest()
 	{
-		double squareKilometerValue = random.nextDouble() * 100;
-		double squareHectometerValue = random.nextDouble() * 100;
-		double squareDecameterValue = random.nextDouble() * 100;
-		double squareMeterValue = random.nextDouble() * 100;
-		double squareDecimeterValue = random.nextDouble() * 100;
-		double squareCentimeterValue = random.nextDouble() * 100;
-		double squareMillimeterValue = random.nextDouble() * 100;
+		BigDecimal squareKilometerValue = getRandomBigDecimal();
+		BigDecimal squareHectometerValue = getRandomBigDecimal();
+		BigDecimal squareDecameterValue = getRandomBigDecimal();
+		BigDecimal squareMeterValue = getRandomBigDecimal();
+		BigDecimal squareDecimeterValue = getRandomBigDecimal();
+		BigDecimal squareCentimeterValue = getRandomBigDecimal();
+		BigDecimal squareMillimeterValue = getRandomBigDecimal();
 
-		double squareKilometerResult = squareKilometerValue / 1E-6;
-		double squareHectometerResult = squareHectometerValue / 1E-4;
-		double squareDecameterResult = squareDecameterValue / 1E-2;
-		double squareMeterResult = squareMeterValue / 1;
-		double squareDecimeterResult = squareDecimeterValue / 1E2;
-		double squareCentimeterResult = squareCentimeterValue / 1E4;
-		double squareMillimeterResult = squareMillimeterValue / 1E6;
-		
+		String[] squareKilometerTestResultAsArray = getTestResultAsArrayFrom(squareKilometerValue, 1E6);
+		String[] squareHectometerTestResultAsArray = getTestResultAsArrayFrom(squareHectometerValue, 1E4);
+		String[] squareDecameterTestResultAsArray = getTestResultAsArrayFrom(squareDecameterValue, 1E2);
+		String[] squareMeterTestResultAsArray = getTestResultAsArrayFrom(squareMeterValue, 1);
+		String[] squareDecimeterTestResultAsArray = getTestResultAsArrayFrom(squareDecimeterValue, 1E-2);
+		String[] squareCentimeterTestResultAsArray = getTestResultAsArrayFrom(squareCentimeterValue, 1E-4);
+		String[] squareMillimeterTestResultAsArray = getTestResultAsArrayFrom(squareMillimeterValue, 1E-6);
 
-		assertEquals(squareKilometerResult, area.toSquareMeter(squareKilometerValue, SQUARE_KILOMETER));
-		assertEquals(squareHectometerResult, area.toSquareMeter(squareHectometerValue, SQUARE_HECTOMETER));
-		assertEquals(squareDecameterResult, area.toSquareMeter(squareDecameterValue, SQUARE_DECAMETER));
-		assertEquals(squareMeterResult, area.toSquareMeter(squareMeterValue, SQUARE_METER));
-		assertEquals(squareDecimeterResult, area.toSquareMeter(squareDecimeterValue, SQUARE_DECIMETER));
-		assertEquals(squareCentimeterResult, area.toSquareMeter(squareCentimeterValue, SQUARE_CENTIMETER));
-		assertEquals(squareMillimeterResult, area.toSquareMeter(squareMillimeterValue, SQUARE_MILLIMETER));
+		String[] squareKilometerResultAsArray = getResultAsArrayFrom(squareKilometerValue, SQUARE_KILOMETER);
+		String[] squareHectometerResultAsArray = getResultAsArrayFrom(squareHectometerValue, SQUARE_HECTOMETER);
+		String[] squareDecameterResultAsArray = getResultAsArrayFrom(squareDecameterValue, SQUARE_DECAMETER);
+		String[] squareMeterResultAsArray = getResultAsArrayFrom(squareMeterValue, SQUARE_METER);
+		String[] squareDecimeterResultAsArray = getResultAsArrayFrom(squareDecimeterValue, SQUARE_DECIMETER);
+		String[] squareCentimeterResultAsArray = getResultAsArrayFrom(squareCentimeterValue, SQUARE_CENTIMETER);
+		String[] squareMillimeterResultAsArray = getResultAsArrayFrom(squareMillimeterValue, SQUARE_MILLIMETER);
+
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareKilometerTestResultAsArray, squareKilometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareHectometerTestResultAsArray, squareHectometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecameterTestResultAsArray, squareDecameterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMeterTestResultAsArray, squareMeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecimeterTestResultAsArray, squareDecimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareCentimeterTestResultAsArray, squareCentimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMillimeterTestResultAsArray, squareMillimeterResultAsArray)));
 	}
 
 	@Test 
 	public void toSquareDecimeterTest()
 	{
-		double squareKilometerValue = random.nextDouble() * 100;
-		double squareHectometerValue = random.nextDouble() * 100;
-		double squareDecameterValue = random.nextDouble() * 100;
-		double squareMeterValue = random.nextDouble() * 100;
-		double squareDecimeterValue = random.nextDouble() * 100;
-		double squareCentimeterValue = random.nextDouble() * 100;
-		double squareMillimeterValue = random.nextDouble() * 100;
-		
-		double squareKilometerResult = squareKilometerValue / 1E-8;
-		double squareHectometerResult = squareHectometerValue / 1E-6;
-		double squareDecameterResult = squareDecameterValue / 1E-4;
-		double squareMeterResult = squareMeterValue / 1E-2;
-		double squareDecimeterResult = squareDecimeterValue / 1;
-		double squareCentimeterResult = squareCentimeterValue / 1E2;
-		double squareMillimeterResult = squareMillimeterValue / 1E4;
-		
+		BigDecimal squareKilometerValue = getRandomBigDecimal();
+		BigDecimal squareHectometerValue = getRandomBigDecimal();
+		BigDecimal squareDecameterValue = getRandomBigDecimal();
+		BigDecimal squareMeterValue = getRandomBigDecimal();
+		BigDecimal squareDecimeterValue = getRandomBigDecimal();
+		BigDecimal squareCentimeterValue = getRandomBigDecimal();
+		BigDecimal squareMillimeterValue = getRandomBigDecimal();
 
-		assertEquals(squareKilometerResult, area.toSquareDecimeter(squareKilometerValue, SQUARE_KILOMETER));
-		assertEquals(squareHectometerResult, area.toSquareDecimeter(squareHectometerValue, SQUARE_HECTOMETER));
-		assertEquals(squareDecameterResult, area.toSquareDecimeter(squareDecameterValue, SQUARE_DECAMETER));
-		assertEquals(squareMeterResult, area.toSquareDecimeter(squareMeterValue, SQUARE_METER));
-		assertEquals(squareDecimeterResult, area.toSquareDecimeter(squareDecimeterValue, SQUARE_DECIMETER));
-		assertEquals(squareCentimeterResult, area.toSquareDecimeter(squareCentimeterValue, SQUARE_CENTIMETER));
-		assertEquals(squareMillimeterResult, area.toSquareDecimeter(squareMillimeterValue, SQUARE_MILLIMETER));
+		String[] squareKilometerTestResultAsArray = getTestResultAsArrayFrom(squareKilometerValue, 1E8);
+		String[] squareHectometerTestResultAsArray = getTestResultAsArrayFrom(squareHectometerValue, 1E6);
+		String[] squareDecameterTestResultAsArray = getTestResultAsArrayFrom(squareDecameterValue, 1E4);
+		String[] squareMeterTestResultAsArray = getTestResultAsArrayFrom(squareMeterValue, 1E2);
+		String[] squareDecimeterTestResultAsArray = getTestResultAsArrayFrom(squareDecimeterValue, 1);
+		String[] squareCentimeterTestResultAsArray = getTestResultAsArrayFrom(squareCentimeterValue, 1E-2);
+		String[] squareMillimeterTestResultAsArray = getTestResultAsArrayFrom(squareMillimeterValue, 1E-4);
+
+		String[] squareKilometerResultAsArray = getResultAsArrayFrom(squareKilometerValue, SQUARE_KILOMETER);
+		String[] squareHectometerResultAsArray = getResultAsArrayFrom(squareHectometerValue, SQUARE_HECTOMETER);
+		String[] squareDecameterResultAsArray = getResultAsArrayFrom(squareDecameterValue, SQUARE_DECAMETER);
+		String[] squareMeterResultAsArray = getResultAsArrayFrom(squareMeterValue, SQUARE_METER);
+		String[] squareDecimeterResultAsArray = getResultAsArrayFrom(squareDecimeterValue, SQUARE_DECIMETER);
+		String[] squareCentimeterResultAsArray = getResultAsArrayFrom(squareCentimeterValue, SQUARE_CENTIMETER);
+		String[] squareMillimeterResultAsArray = getResultAsArrayFrom(squareMillimeterValue, SQUARE_MILLIMETER);
+
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareKilometerTestResultAsArray, squareKilometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareHectometerTestResultAsArray, squareHectometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecameterTestResultAsArray, squareDecameterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMeterTestResultAsArray, squareMeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecimeterTestResultAsArray, squareDecimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareCentimeterTestResultAsArray, squareCentimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMillimeterTestResultAsArray, squareMillimeterResultAsArray)));
 	}
 
 	@Test 
 	public void toSquareCentimeterTest()
 	{
-		double squareKilometerValue = random.nextDouble() * 100;
-		double squareHectometerValue = random.nextDouble() * 100;
-		double squareDecameterValue = random.nextDouble() * 100;
-		double squareMeterValue = random.nextDouble() * 100;
-		double squareDecimeterValue = random.nextDouble() * 100;
-		double squareCentimeterValue = random.nextDouble() * 100;
-		double squareMillimeterValue = random.nextDouble() * 100;
+		BigDecimal squareKilometerValue = getRandomBigDecimal();
+		BigDecimal squareHectometerValue = getRandomBigDecimal();
+		BigDecimal squareDecameterValue = getRandomBigDecimal();
+		BigDecimal squareMeterValue = getRandomBigDecimal();
+		BigDecimal squareDecimeterValue = getRandomBigDecimal();
+		BigDecimal squareCentimeterValue = getRandomBigDecimal();
+		BigDecimal squareMillimeterValue = getRandomBigDecimal();
 
-		double squareKilometerResult = squareKilometerValue / 0.0000000001;
-		double squareHectometerResult = squareHectometerValue / 0.00000001;
-		double squareDecameterResult = squareDecameterValue / 0.000001;
-		double squareMeterResult = squareMeterValue / 0.0001;
-		double squareDecimeterResult = squareDecimeterValue / 0.01;
-		double squareCentimeterResult = squareCentimeterValue / 1.0;
-		double squareMillimeterResult = squareMillimeterValue / 100.0;
-		
-		assertEquals(squareKilometerResult, area.toSquareCentimeter(squareKilometerValue, SQUARE_KILOMETER));
-		assertEquals(squareHectometerResult, area.toSquareCentimeter(squareHectometerValue, SQUARE_HECTOMETER));
-		assertEquals(squareDecameterResult, area.toSquareCentimeter(squareDecameterValue, SQUARE_DECAMETER));
-		assertEquals(squareMeterResult, area.toSquareCentimeter(squareMeterValue, SQUARE_METER));
-		assertEquals(squareDecimeterResult, area.toSquareCentimeter(squareDecimeterValue, SQUARE_DECIMETER));
-		assertEquals(squareCentimeterResult, area.toSquareCentimeter(squareCentimeterValue, SQUARE_CENTIMETER));
-		assertEquals(squareMillimeterResult, area.toSquareCentimeter(squareMillimeterValue, SQUARE_MILLIMETER));
+		String[] squareKilometerTestResultAsArray = getTestResultAsArrayFrom(squareKilometerValue, 1E10);
+		String[] squareHectometerTestResultAsArray = getTestResultAsArrayFrom(squareHectometerValue, 1E8);
+		String[] squareDecameterTestResultAsArray = getTestResultAsArrayFrom(squareDecameterValue, 1E6);
+		String[] squareMeterTestResultAsArray = getTestResultAsArrayFrom(squareMeterValue, 1E4);
+		String[] squareDecimeterTestResultAsArray = getTestResultAsArrayFrom(squareDecimeterValue, 1E2);
+		String[] squareCentimeterTestResultAsArray = getTestResultAsArrayFrom(squareCentimeterValue, 1);
+		String[] squareMillimeterTestResultAsArray = getTestResultAsArrayFrom(squareMillimeterValue, 1E-2);
+
+		String[] squareKilometerResultAsArray = getResultAsArrayFrom(squareKilometerValue, SQUARE_KILOMETER);
+		String[] squareHectometerResultAsArray = getResultAsArrayFrom(squareHectometerValue, SQUARE_HECTOMETER);
+		String[] squareDecameterResultAsArray = getResultAsArrayFrom(squareDecameterValue, SQUARE_DECAMETER);
+		String[] squareMeterResultAsArray = getResultAsArrayFrom(squareMeterValue, SQUARE_METER);
+		String[] squareDecimeterResultAsArray = getResultAsArrayFrom(squareDecimeterValue, SQUARE_DECIMETER);
+		String[] squareCentimeterResultAsArray = getResultAsArrayFrom(squareCentimeterValue, SQUARE_CENTIMETER);
+		String[] squareMillimeterResultAsArray = getResultAsArrayFrom(squareMillimeterValue, SQUARE_MILLIMETER);
+
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareKilometerTestResultAsArray, squareKilometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareHectometerTestResultAsArray, squareHectometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecameterTestResultAsArray, squareDecameterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMeterTestResultAsArray, squareMeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecimeterTestResultAsArray, squareDecimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareCentimeterTestResultAsArray, squareCentimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMillimeterTestResultAsArray, squareMillimeterResultAsArray)));
 	}
 
 	@Test 
 	public void toSquareMillimeterTest()
 	{
-		double squareKilometerValue = random.nextDouble() * 100;
-		double squareHectometerValue = random.nextDouble() * 100;
-		double squareDecameterValue = random.nextDouble() * 100;
-		double squareMeterValue = random.nextDouble() * 100;
-		double squareDecimeterValue = random.nextDouble() * 100;
-		double squareCentimeterValue = random.nextDouble() * 100;
-		double squareMillimeterValue = random.nextDouble() * 100;
+		BigDecimal squareKilometerValue = getRandomBigDecimal();
+		BigDecimal squareHectometerValue = getRandomBigDecimal();
+		BigDecimal squareDecameterValue = getRandomBigDecimal();
+		BigDecimal squareMeterValue = getRandomBigDecimal();
+		BigDecimal squareDecimeterValue = getRandomBigDecimal();
+		BigDecimal squareCentimeterValue = getRandomBigDecimal();
+		BigDecimal squareMillimeterValue = getRandomBigDecimal();
 
-		double squareKilometerResult = squareKilometerValue / 1E-12;
-		double squareHectometerResult = squareHectometerValue / 1E-10;
-		double squareDecameterResult = squareDecameterValue / 1E-8;
-		double squareMeterResult = squareMeterValue / 1E-6;
-		double squareDecimeterResult = squareDecimeterValue / 1E-4;
-		double squareCentimeterResult = squareCentimeterValue / 1E-1;
-		double squareMillimeterResult = squareMillimeterValue / 1;
+		String[] squareKilometerTestResultAsArray = getTestResultAsArrayFrom(squareKilometerValue, 1E12);
+		String[] squareHectometerTestResultAsArray = getTestResultAsArrayFrom(squareHectometerValue, 1E10);
+		String[] squareDecameterTestResultAsArray = getTestResultAsArrayFrom(squareDecameterValue, 1E8);
+		String[] squareMeterTestResultAsArray = getTestResultAsArrayFrom(squareMeterValue, 1E6);
+		String[] squareDecimeterTestResultAsArray = getTestResultAsArrayFrom(squareDecimeterValue, 1E4);
+		String[] squareCentimeterTestResultAsArray = getTestResultAsArrayFrom(squareCentimeterValue, 1E2);
+		String[] squareMillimeterTestResultAsArray = getTestResultAsArrayFrom(squareMillimeterValue, 1);
 
-		assertEquals(squareKilometerResult, area.toSquareMillimeter(squareKilometerValue, SQUARE_KILOMETER));
-		assertEquals(squareHectometerResult, area.toSquareMillimeter(squareHectometerValue, SQUARE_HECTOMETER));
-		assertEquals(squareDecameterResult, area.toSquareMillimeter(squareDecameterValue, SQUARE_DECAMETER));
-		assertEquals(squareMeterResult, area.toSquareMillimeter(squareMeterValue, SQUARE_METER));
-		assertEquals(squareDecimeterResult, area.toSquareMillimeter(squareDecimeterValue, SQUARE_DECIMETER));
-		assertEquals(squareCentimeterResult, area.toSquareMillimeter(squareCentimeterValue, SQUARE_CENTIMETER));
-		assertEquals(squareMillimeterResult, area.toSquareMillimeter(squareMillimeterValue, SQUARE_MILLIMETER));
+		String[] squareKilometerResultAsArray = getResultAsArrayFrom(squareKilometerValue, SQUARE_KILOMETER);
+		String[] squareHectometerResultAsArray = getResultAsArrayFrom(squareHectometerValue, SQUARE_HECTOMETER);
+		String[] squareDecameterResultAsArray = getResultAsArrayFrom(squareDecameterValue, SQUARE_DECAMETER);
+		String[] squareMeterResultAsArray = getResultAsArrayFrom(squareMeterValue, SQUARE_METER);
+		String[] squareDecimeterResultAsArray = getResultAsArrayFrom(squareDecimeterValue, SQUARE_DECIMETER);
+		String[] squareCentimeterResultAsArray = getResultAsArrayFrom(squareCentimeterValue, SQUARE_CENTIMETER);
+		String[] squareMillimeterResultAsArray = getResultAsArrayFrom(squareMillimeterValue, SQUARE_MILLIMETER);
+
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareKilometerTestResultAsArray, squareKilometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareHectometerTestResultAsArray, squareHectometerResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecameterTestResultAsArray, squareDecameterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMeterTestResultAsArray, squareMeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareDecimeterTestResultAsArray, squareDecimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareCentimeterTestResultAsArray, squareCentimeterResultAsArray)));
+		assertTrue(wasTestSucceeded(getSuccessPercent(squareMillimeterTestResultAsArray, squareMillimeterResultAsArray)));
+	}
+
+	private BigDecimal getRandomBigDecimal()
+	{
+		return BigDecimal.valueOf(random.nextDouble()).multiply(BigDecimal.valueOf(100));
+	}
+
+	private BigDecimal getResultFrom(BigDecimal value, double fromUnit)
+	{
+		return value.divide(BigDecimal.valueOf(fromUnit));
+	}
+
+	private String[] getTestResultAsArrayFrom(BigDecimal value, double fromUnit)
+	{
+	    return value.divide(BigDecimal.valueOf(fromUnit)).toString().split("");
+	}
+
+	private String[] getResultAsArrayFrom(BigDecimal value, String unit)
+	{
+	    return area.toSquareKilometer(Double.valueOf(formatter.format(value)), unit).toString().split("");
+	}
+
+	private double getSuccessPercent(
+	    String[] testResultAsArray,
+		String[] resultAsArray)
+	{
+		int possibleCases = testResultAsArray.length;
+		int favorableCases = 0;
+		try
+		{
+			for (int i = 0; i < possibleCases; i++)
+			{
+				if (testResultAsArray[i].equals(resultAsArray[i]))
+				    favorableCases++;
+			}
+		}
+		catch (IndexOutOfBoundsException e)
+		{}
+		catch (ArithmeticException e)
+		{
+			return getSuccessPercent(testResultAsArray, resultAsArray);
+		}
+		finally
+		{
+		    return (100 * possibleCases) / favorableCases;
+		}
+	}
+	
+	private Boolean wasTestSucceeded(double successPercent)
+	{
+		return successPercent >= 80 ? true : false;
 	}
 }

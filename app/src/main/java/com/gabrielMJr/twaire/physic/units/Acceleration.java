@@ -1,8 +1,10 @@
 package com.gabrielMJr.twaire.physic.units;
 
-import static com.gabrielMJr.twaire.physic.units.Time.SECOND_SQUARED;
-import static com.gabrielMJr.twaire.physic.units.Time.MINUTE_SQUARED;
-import static com.gabrielMJr.twaire.physic.units.Time.HOUR_SQUARED;
+import java.math.BigDecimal;
+
+import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_SECOND;
+import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_MINUTE;
+import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_HOUR;
 
 import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
@@ -23,29 +25,29 @@ import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER_SYMBOL;
 
 public class Acceleration implements AccelerationIF
 {
-	public static final String KILOMETER_PER_SQUARE_SECOND = KILOMETER + "/" + SECOND_SQUARED;
-	public static final String HECTOMETER_PER_SQUARE_SECOND = HECTOMETER + "/" + SECOND_SQUARED;
-	public static final String DECAMETER_PER_SQUARE_SECOND = DECAMETER + "/" + SECOND_SQUARED;
-	public static final String METER_PER_SQUARE_SECOND = METER + "/" + SECOND_SQUARED;
-	public static final String DECIMETER_PER_SQUARE_SECOND = DECIMETER + "/" + SECOND_SQUARED;
-	public static final String CENTIMETER_PER_SQUARE_SECOND = CENTIMETER + "/" + SECOND_SQUARED;
-	public static final String MILLIMETER_PER_SQUARE_SECOND = MILLIMETER + "/" + SECOND_SQUARED;
+	public static final String KILOMETER_PER_SQUARE_SECOND = KILOMETER + "/" + SQUARE_SECOND;
+	public static final String HECTOMETER_PER_SQUARE_SECOND = HECTOMETER + "/" + SQUARE_SECOND;
+	public static final String DECAMETER_PER_SQUARE_SECOND = DECAMETER + "/" + SQUARE_SECOND;
+	public static final String METER_PER_SQUARE_SECOND = METER + "/" + SQUARE_SECOND;
+	public static final String DECIMETER_PER_SQUARE_SECOND = DECIMETER + "/" + SQUARE_SECOND;
+	public static final String CENTIMETER_PER_SQUARE_SECOND = CENTIMETER + "/" + SQUARE_SECOND;
+	public static final String MILLIMETER_PER_SQUARE_SECOND = MILLIMETER + "/" + SQUARE_SECOND;
 
-	public static final String KILOMETER_PER_SQUARE_MINUTE = KILOMETER + "/" + MINUTE_SQUARED;
-	public static final String HECTOMETER_PER_SQUARE_MIMUTE = HECTOMETER + "/" + MINUTE_SQUARED;
-	public static final String DECAMETER_PER_SQUARE_MINUTE = DECAMETER + "/" + MINUTE_SQUARED;
-	public static final String METER_PER_SQUARE_MINUTE = METER + "/" + MINUTE_SQUARED;
-	public static final String DECIMETER_PER_SQUARE_MINUTE = DECIMETER + "/" + MINUTE_SQUARED;
-	public static final String CENTIMETER_PER_SQUARE_MINUTE = CENTIMETER + "/" + MINUTE_SQUARED;
-	public static final String MILLIMETER_PER_SQUARE_MINUTE = MILLIMETER + "/" + MINUTE_SQUARED;
+	public static final String KILOMETER_PER_SQUARE_MINUTE = KILOMETER + "/" + SQUARE_MINUTE;
+	public static final String HECTOMETER_PER_SQUARE_MIMUTE = HECTOMETER + "/" + SQUARE_MINUTE;
+	public static final String DECAMETER_PER_SQUARE_MINUTE = DECAMETER + "/" + SQUARE_MINUTE;
+	public static final String METER_PER_SQUARE_MINUTE = METER + "/" + SQUARE_MINUTE;
+	public static final String DECIMETER_PER_SQUARE_MINUTE = DECIMETER + "/" + SQUARE_MINUTE;
+	public static final String CENTIMETER_PER_SQUARE_MINUTE = CENTIMETER + "/" + SQUARE_MINUTE;
+	public static final String MILLIMETER_PER_SQUARE_MINUTE = MILLIMETER + "/" + SQUARE_MINUTE;
 
-	public static final String KILOMETER_PER_SQUARE_HOUR = KILOMETER + "/" + HOUR_SQUARED;
-	public static final String HECTOMETER_PER_SQUARE_HOUR = HECTOMETER + "/" + HOUR_SQUARED;
-	public static final String DECAMETER_PER_SQUARE_HOUR = DECAMETER + "/" + HOUR_SQUARED;
-    public static final String METER_PER_SQUARE_HOUR = METER + "/" + HOUR_SQUARED;
-    public static final String DECIMETER_PER_SQUARE_HOUR = DECIMETER + "/" + HOUR_SQUARED;
-    public static final String CENTIMETER_PER_SQUARE_HOUR = CENTIMETER + "/" + HOUR_SQUARED;
-    public static final String MILLIMETER_PER_SQUARE_HOUR = MILLIMETER + "/" + HOUR_SQUARED;
+	public static final String KILOMETER_PER_SQUARE_HOUR = KILOMETER + "/" + SQUARE_HOUR;
+	public static final String HECTOMETER_PER_SQUARE_HOUR = HECTOMETER + "/" + SQUARE_HOUR;
+	public static final String DECAMETER_PER_SQUARE_HOUR = DECAMETER + "/" + SQUARE_HOUR;
+    public static final String METER_PER_SQUARE_HOUR = METER + "/" + SQUARE_HOUR;
+    public static final String DECIMETER_PER_SQUARE_HOUR = DECIMETER + "/" + SQUARE_HOUR;
+    public static final String CENTIMETER_PER_SQUARE_HOUR = CENTIMETER + "/" + SQUARE_HOUR;
+    public static final String MILLIMETER_PER_SQUARE_HOUR = MILLIMETER + "/" + SQUARE_HOUR;
 
     public static final String KILOMETER_PER_SQUARE_SECOND_SYMBOL = KILOMETER_SYMBOL + "/s²";
     public static final String HECTOMETER_PER_SQUARE_SECOND_SYMBOL = HECTOMETER_SYMBOL + "/s²";
@@ -83,43 +85,43 @@ public class Acceleration implements AccelerationIF
 
 
 	@Override
-	public Double toKilometerSquarePerSecond(double value, String unit)
+	public BigDecimal toKilometerSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toHectometerSquarePerSecond(double value, String unit)
+	public BigDecimal toHectometerSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toDecameterSquarePerSecond(double value, String unit)
+	public BigDecimal toDecameterSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toMeterSquarePerSecond(double value, String unit)
+	public BigDecimal toMeterSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toDecimeterSquarePerSecond(double value, String unit)
+	public BigDecimal toDecimeterSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toCentimeterSquarePerSecond(double value, String unit)
+	public BigDecimal toCentimeterSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
 
 	@Override
-	public Double toMillimeterSquarePerSecond(double value, String unit)
+	public BigDecimal toMillimeterSquarePerSecond(double value, String unit)
 	{
 		return null;
 	}
