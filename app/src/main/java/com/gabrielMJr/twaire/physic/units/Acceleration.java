@@ -1,15 +1,9 @@
 package com.gabrielMJr.twaire.physic.units;
 
-<<<<<<< Updated upstream
-import static com.gabrielMJr.twaire.physic.units.Time.SECOND_SQUARED;
-import static com.gabrielMJr.twaire.physic.units.Time.MINUTE_SQUARED;
-import static com.gabrielMJr.twaire.physic.units.Time.HOUR_SQUARED;
-=======
 import java.math.BigDecimal;
 
 import static com.gabrielMJr.twaire.physic.units.Length.LENGTH_SCALES;
-import static com.gabrielMJr.twaire.physic.units.Time.TIME_SCALES;
->>>>>>> Stashed changes
+import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_TIME_SCALES;
 
 import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
@@ -19,9 +13,9 @@ import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER;
 
-import static com.gabrielMJr.twaire.physic.units.Time.SECOND;
-import static com.gabrielMJr.twaire.physic.units.Time.MINUTE;
-import static com.gabrielMJr.twaire.physic.units.Time.HOUR;
+import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_SECOND;
+import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_MINUTE;
+import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_HOUR;
 
 import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER_SYMBOL;
 import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER_SYMBOL;
@@ -38,31 +32,6 @@ import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_HOUR_SYMBOL;
 
 public class Acceleration implements AccelerationIF
 {
-<<<<<<< Updated upstream
-	public static final String KILOMETER_PER_SQUARE_SECOND = KILOMETER + "/" + SECOND_SQUARED;
-	public static final String HECTOMETER_PER_SQUARE_SECOND = HECTOMETER + "/" + SECOND_SQUARED;
-	public static final String DECAMETER_PER_SQUARE_SECOND = DECAMETER + "/" + SECOND_SQUARED;
-	public static final String METER_PER_SQUARE_SECOND = METER + "/" + SECOND_SQUARED;
-	public static final String DECIMETER_PER_SQUARE_SECOND = DECIMETER + "/" + SECOND_SQUARED;
-	public static final String CENTIMETER_PER_SQUARE_SECOND = CENTIMETER + "/" + SECOND_SQUARED;
-	public static final String MILLIMETER_PER_SQUARE_SECOND = MILLIMETER + "/" + SECOND_SQUARED;
-
-	public static final String KILOMETER_PER_SQUARE_MINUTE = KILOMETER + "/" + MINUTE_SQUARED;
-	public static final String HECTOMETER_PER_SQUARE_MIMUTE = HECTOMETER + "/" + MINUTE_SQUARED;
-	public static final String DECAMETER_PER_SQUARE_MINUTE = DECAMETER + "/" + MINUTE_SQUARED;
-	public static final String METER_PER_SQUARE_MINUTE = METER + "/" + MINUTE_SQUARED;
-	public static final String DECIMETER_PER_SQUARE_MINUTE = DECIMETER + "/" + MINUTE_SQUARED;
-	public static final String CENTIMETER_PER_SQUARE_MINUTE = CENTIMETER + "/" + MINUTE_SQUARED;
-	public static final String MILLIMETER_PER_SQUARE_MINUTE = MILLIMETER + "/" + MINUTE_SQUARED;
-
-	public static final String KILOMETER_PER_SQUARE_HOUR = KILOMETER + "/" + HOUR_SQUARED;
-	public static final String HECTOMETER_PER_SQUARE_HOUR = HECTOMETER + "/" + HOUR_SQUARED;
-	public static final String DECAMETER_PER_SQUARE_HOUR = DECAMETER + "/" + HOUR_SQUARED;
-    public static final String METER_PER_SQUARE_HOUR = METER + "/" + HOUR_SQUARED;
-    public static final String DECIMETER_PER_SQUARE_HOUR = DECIMETER + "/" + HOUR_SQUARED;
-    public static final String CENTIMETER_PER_SQUARE_HOUR = CENTIMETER + "/" + HOUR_SQUARED;
-    public static final String MILLIMETER_PER_SQUARE_HOUR = MILLIMETER + "/" + HOUR_SQUARED;
-=======
 	public static final int KILOMETER_PER_SQUARE_SECOND = 52;
 	public static final int HECTOMETER_PER_SQUARE_SECOND = 53;
 	public static final int DECAMETER_PER_SQUARE_SECOND = 54;
@@ -89,30 +58,29 @@ public class Acceleration implements AccelerationIF
 	
 	protected final BigDecimal[] ACCELERATION_SCALES = new BigDecimal[]
 	{
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[SECOND].pow(2)),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[SECOND].pow(2)),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[SECOND].pow(2)),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[SECOND].pow(2)),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[SECOND].pow(2)),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[SECOND].pow(2)),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[SECOND].pow(2)),
->>>>>>> Stashed changes
+		LENGTH_SCALES[KILOMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND]),
+		LENGTH_SCALES[HECTOMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND]),
+		LENGTH_SCALES[DECAMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND]),
+		LENGTH_SCALES[METER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND]),
+		LENGTH_SCALES[DECIMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND]),
+		LENGTH_SCALES[CENTIMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND]),
+		LENGTH_SCALES[MILLIMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND]),
 
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[MINUTE].pow(2)),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[MINUTE].pow(2)),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[MINUTE].pow(2)),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[MINUTE].pow(2)),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[MINUTE].pow(2)),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[MINUTE].pow(2)),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[MINUTE].pow(2)),
+		LENGTH_SCALES[KILOMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE]),
+		LENGTH_SCALES[HECTOMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE]),
+		LENGTH_SCALES[DECAMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE]),
+		LENGTH_SCALES[METER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE]),
+		LENGTH_SCALES[DECIMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE]),
+		LENGTH_SCALES[CENTIMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE]),
+		LENGTH_SCALES[MILLIMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE]),
 
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[HOUR].pow(2)),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[HOUR].pow(2)),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[HOUR].pow(2)),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[HOUR].pow(2)),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[HOUR].pow(2)),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[HOUR].pow(2)),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[HOUR].pow(2))
+		LENGTH_SCALES[KILOMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR]),
+		LENGTH_SCALES[HECTOMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR]),
+		LENGTH_SCALES[DECAMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR]),
+		LENGTH_SCALES[METER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR]),
+		LENGTH_SCALES[DECIMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR]),
+		LENGTH_SCALES[CENTIMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR]),
+		LENGTH_SCALES[MILLIMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR])
 	};
 	
 	public static final String KILOMETER_PER_SQUARE_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
@@ -144,86 +112,51 @@ public class Acceleration implements AccelerationIF
 	{}
 
 	@Override
-<<<<<<< Updated upstream
-	public Double toKilometerSquarePerSecond(double value, String unit)
-	{
-=======
 	public BigDecimal toKilometerPerSquareSecond(double value, int unit) {
 	    if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[52]);
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
-<<<<<<< Updated upstream
-	public Double toHectometerSquarePerSecond(double value, String unit)
-	{
-=======
 	public BigDecimal toHectometerPerSquareSecond(double value, int unit) {
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[53]);
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
-<<<<<<< Updated upstream
-	public Double toDecameterSquarePerSecond(double value, String unit)
-	{
-=======
 	public BigDecimal toDecameterPerSquareSecond(double value, int unit) {
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[54]);
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
-<<<<<<< Updated upstream
-	public Double toMeterSquarePerSecond(double value, String unit)
-	{
-=======
 	public BigDecimal toMeterPerSquareSecond(double value, int unit) {
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[55]);
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
-<<<<<<< Updated upstream
-	public Double toDecimeterSquarePerSecond(double value, String unit)
-	{
-=======
 	public BigDecimal toDecimeterPerSquareSecond(double value, int unit) {
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[56]);
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
-<<<<<<< Updated upstream
-	public Double toCentimeterSquarePerSecond(double value, String unit)
-	{
-=======
 	public BigDecimal toCentimeterPerSquareSecond(double value, int unit) {
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[57]);
->>>>>>> Stashed changes
 		return null;
 	}
 
 	@Override
-<<<<<<< Updated upstream
-	public Double toMillimeterSquarePerSecond(double value, String unit)
-	{
-=======
 	public BigDecimal toMillimeterPerSquareSecond(double value, int unit) {
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[58]);
->>>>>>> Stashed changes
 		return null;
 	}
 

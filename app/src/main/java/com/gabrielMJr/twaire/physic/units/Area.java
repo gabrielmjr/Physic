@@ -1,85 +1,116 @@
 package com.gabrielMJr.twaire.physic.units;
 
-import com.gabrielMJr.twaire.physic.units.AreaIF;
+import java.math.BigDecimal;
+
+import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.METER;
+import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER;
+
+import static com.gabrielMJr.twaire.physic.units.Length.LENGTH_SCALES;
+
+import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.METER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER_SYMBOL;
 
 public class Area implements AreaIF 
 {
-  // This object variable
-  private static Area instance; 
+	private static Area instance; 
 
-  // Those constants were used to tell to the program the unit that must use to calculate something
-  // Also used to tell the unit from the variables as parameter
+	public static final int SQUARE_KILOMETER = 7;
+	public static final int SQUARE_HECTOMETER = 8;
+	public static final int SQUARE_DECAMETER = 9;
+	public static final int SQUARE_METER = 10;
+	public static final int SQUARE_DECIMETER = 11;
+	public static final int SQUARE_CENTIMETER = 12;
+	public static final int SQUARE_MILLIMETER = 13;
+	
+	protected static final BigDecimal[] AREA_SCALES = new BigDecimal[]
+	{
+		LENGTH_SCALES[KILOMETER].pow(2),
+		LENGTH_SCALES[HECTOMETER].pow(2),
+		LENGTH_SCALES[DECAMETER].pow(2),
+		LENGTH_SCALES[METER].pow(2),
+		LENGTH_SCALES[DECIMETER].pow(2),
+		LENGTH_SCALES[CENTIMETER].pow(2),
+		LENGTH_SCALES[MILLIMETER].pow(2)
+	};
 
-  public static final String SQUARE_KILOMETER = "0.000001";
-  public static final String SQUARE_HECTOMETER = "0.0001";
-  public static final String SQUARE_DECAMETER = ".01";
-  public static final String SQUARE_METER = "1";
-  public static final String SQUARE_DECIMETER = "100";
-  public static final String SQUARE_CENTIMETER = "10000";
-  public static final String SQUARE_MILLIMETER = "1000000";
+	public static final String SQUARE_KILOMETER_SYMBOL = KILOMETER_SYMBOL + "²";
+	public static final String SQUARE_HECTOMETER_SYMBOL = HECTOMETER_SYMBOL + "²";
+	public static final String SQUARE_DECAMETER_SYMBOL = DECAMETER_SYMBOL +"²";
+	public static final String SQUARE_METER_SYMBOL = METER_SYMBOL + "²";
+	public static final String SQUARE_DECIMETER_SYMBOL = DECIMETER_SYMBOL + "²";
+	public static final String SQUARE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "²";
+	public static final String SQUARE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "²";
+	
+	@Override
+	public BigDecimal toSquareKilometer(double value, int unit)
+	{
+		if (unit >= 7 && unit <= 13)
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[0]).divide(AREA_SCALES[unit - 7]);
+		return null;
+	}
 
-  // Symbols of those constants
-  public static final String SQUARE_KILOMETER_SYMBOL = "km²";
-  public static final String SQUARE_HECTOMETER_SYMBOL = "hm²";
-  public static final String SQUARE_DECAMETER_SYMBOL = "dam²";
-  public static final String SQUARE_METER_SYMBOL = "m²";
-  public static final String SQUARE_DECIMETER_SYMBOL = "dm²";
-  public static final String SQUARE_CENTIMETER_SYMBOL = "cm²";
-  public static final String SQUARE_MILLIMETER_SYMBOL = "mm²";
-  
-  
-  
-  // From another to kilometer
-  @Override
-  public Double toSquareKilometer(double value, String unit) {
-    return ((value * Double.valueOf(SQUARE_KILOMETER)) / Double.valueOf(unit));
-  }
+	@Override
+	public BigDecimal toSquareHectometer(double value, int unit)
+	{
+		if (unit >= 7 && unit <= 13)
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[1]).divide(AREA_SCALES[unit - 7]);
+		return null;
+	}
 
-  // From another to hectometer
-  @Override
-  public Double toSquareHectometer(double value, String unit) {
-    return ((value * Double.valueOf(SQUARE_HECTOMETER)) / Double.valueOf(unit));
-  }
+	@Override
+	public BigDecimal toSquareDecameter(double value, int unit)
+	{
+		if (unit >= 7 && unit <= 13)
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[2]).divide(AREA_SCALES[unit - 7]);
+		return null;
+	}
 
-  // From another to decameter
-  @Override
-  public Double toSquareDecameter(double value, String unit) {
-    return ((value * Double.valueOf(SQUARE_DECAMETER)) / Double.valueOf(unit));
-  }
+	@Override
+	public BigDecimal toSquareMeter(double value, int unit)
+	{
+		if (unit >= 7 && unit <= 13)
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[3]).divide(AREA_SCALES[unit - 7]);
+		return null;
+	}
 
-  // From another to meter
-  @Override
-  public Double toSquareMeter(double value, String unit) {
-    return ((value * Double.valueOf(SQUARE_METER)) / Double.valueOf(unit));
-  }
+	@Override
+	public BigDecimal toSquareDecimeter(double value, int unit)
+	{
+		if (unit >= 7 && unit <= 13)
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[4]).divide(AREA_SCALES[unit - 7]);
+		return null;
+	}
 
-  // From another to decimeter
-  @Override
-  public Double toSquareDecimeter(double value, String unit) {
-    return ((value * Double.valueOf(SQUARE_DECIMETER)) / Double.valueOf(unit));
-  }
+	@Override
+	public BigDecimal toSquareCentimeter(double value, int unit)
+	{
+		if (unit >= 7 && unit <= 13)
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[5]).divide(AREA_SCALES[unit - 7]);
+		return null;
+	}
 
-  // From another to centimeter
-  @Override
-  public Double toSquareCentimeter(double value, String unit) {
-    return ((value * Double.valueOf(SQUARE_CENTIMETER)) / Double.valueOf(unit));
-  }
-
-  // From another to millimeter
-  @Override
-  public Double toSquareMillimeter(double value, String unit) {
-    return ((value * Double.valueOf(SQUARE_MILLIMETER)) / Double.valueOf(unit));
-  }
-  
-  
-  // Get class instance object
+	@Override
+	public BigDecimal toSquareMillimeter(double value, int unit)
+	{
+		if (unit >= 7 && unit <= 13)
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[6]).divide(AREA_SCALES[unit - 7]);
+		return null;
+	}
+	
     protected static Area getInstance()
     {
-      if(instance == null)
-      {
-        instance = new Area();
-      }
-      
-      return instance;
+		if (!(instance instanceof Area))
+			instance = new Area();
+		return instance;
     }
 }

@@ -1,16 +1,9 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+
 public interface AccelerationIF 
 {
-<<<<<<< Updated upstream
-    public abstract Double toKilometerSquarePerSecond(double value, String unit);
-	public abstract Double toHectometerSquarePerSecond(double value, String unit);
-	public abstract Double toDecameterSquarePerSecond(double value, String unit);
-	public abstract Double toMeterSquarePerSecond(double value, String unit);
-	public abstract Double toDecimeterSquarePerSecond(double value, String unit);
-	public abstract Double toCentimeterSquarePerSecond(double value, String unit);
-	public abstract Double toMillimeterSquarePerSecond(double value, String unit);
-=======
     public abstract BigDecimal toKilometerPerSquareSecond(double value, int unit);
 	public abstract BigDecimal toHectometerPerSquareSecond(double value, int unit);
 	public abstract BigDecimal toDecameterPerSquareSecond(double value, int unit);
@@ -34,5 +27,4 @@ public interface AccelerationIF
 	public abstract BigDecimal toDecimeterPerSquareHour(double value, int unit);
 	public abstract BigDecimal toCentimeterPerSquareHour(double value, int unit);
 	public abstract BigDecimal toMillimeterPerSquareHour(double value, int unit);
->>>>>>> Stashed changes
 }
