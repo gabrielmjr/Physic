@@ -1,5 +1,7 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+
 import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER;
@@ -7,6 +9,8 @@ import static com.gabrielMJr.twaire.physic.units.Length.METER;
 import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER;
+
+import static com.gabrielMJr.twaire.physic.units.Length.LENGTH_SCALES;
 
 import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER_SYMBOL;
 import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER_SYMBOL;
@@ -20,54 +24,87 @@ public class Volume implements VolumeIF
 {
 	private static Volume instance; 
 
-	public static final String CUBE_KILOMETER = String.valueOf(Math.pow(Double.valueOf(KILOMETER), 3));
-	public static final String CUBE_HECTOMETER = String.valueOf(Math.pow(Double.valueOf(HECTOMETER), 3));
-	public static final String CUBE_DECAMETER = String.valueOf(Math.pow(Double.valueOf(DECIMETER), 3));
-	public static final String CUBE_METER = String.valueOf(Math.pow(Double.valueOf(METER), 3));
-	public static final String CUBE_DECIMETER = String.valueOf(Math.pow(Double.valueOf(DECIMETER), 3));
-	public static final String CUBE_CENTIMETER = String.valueOf(Math.pow(Double.valueOf(CENTIMETER), 3));
-	public static final String CUBE_MILLIMETER = String.valueOf(Math.pow(Double.valueOf(MILLIMETER), 3));
+	public static final int CUBE_KILOMETER = 14;
+	public static final int CUBE_HECTOMETER = 15;
+	public static final int CUBE_DECAMETER = 16;
+	public static final int CUBE_METER = 17;
+	public static final int CUBE_DECIMETER = 18;
+	public static final int CUBE_CENTIMETER =19;
+	public static final int CUBE_MILLIMETER = 20;
+
+    protected static final BigDecimal[] VOLUME_SCALES = new BigDecimal[]
+	{
+		LENGTH_SCALES[KILOMETER].pow(3),
+		LENGTH_SCALES[HECTOMETER].pow(3),
+		LENGTH_SCALES[DECAMETER].pow(3),
+		LENGTH_SCALES[METER].pow(3),
+		LENGTH_SCALES[DECIMETER].pow(3),
+		LENGTH_SCALES[CENTIMETER].pow(3),
+		LENGTH_SCALES[CENTIMETER].pow(3)
+	};
+	
+	public static final String CUBE_KILOMETER_SYMBOL = KILOMETER_SYMBOL + "³";
+	public static final String CUBE_HECTOMETER_SYMBOL = HECTOMETER_SYMBOL + "³";
+	public static final String CUBE_DECAMETER_SYMBOL = DECAMETER_SYMBOL +"³";
+	public static final String CUBE_METER_SYMBOL = METER_SYMBOL + "³";
+	public static final String CUBE_DECIMETER_SYMBOL = DECIMETER_SYMBOL + "³";
+	public static final String CUBE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "³";
+	public static final String CUBE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "³";
 
 	@Override
-	public Double toCubeKilometer(double value, String unit)
+	public BigDecimal toCubeKilometer(double value, int unit)
 	{
-		return ((value * Double.valueOf(CUBE_KILOMETER)) / Double.valueOf(unit));
+		if (unit >= 14 && unit <= 20)
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[0]).divide(VOLUME_SCALES[unit - 14]);
+		return null;
     }
 
 	@Override
-	public Double toCubeHectometer(double value, String unit)
+	public BigDecimal toCubeHectometer(double value, int unit)
 	{
-		return ((value * Double.valueOf(CUBE_HECTOMETER)) / Double.valueOf(unit));
+		if (unit >= 14 && unit <= 20)
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[0]).divide(VOLUME_SCALES[unit - 14]);
+		return null;
     }
 
 	@Override
-	public Double toCubeDecameter(double value, String unit)
+	public BigDecimal toCubeDecameter(double value, int unit)
 	{
-		return ((value * Double.valueOf(CUBE_DECAMETER)) / Double.valueOf(unit));
+		if (unit >= 14 && unit <= 20)
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[0]).divide(VOLUME_SCALES[unit - 14]);
+		return null;
     }
 
 	@Override
-	public Double toCubeMeter(double value, String unit)
+	public BigDecimal toCubeMeter(double value, int unit)
 	{
-		return ((value * Double.valueOf(CUBE_METER)) / Double.valueOf(unit));
+		if (unit >= 14 && unit <= 20)
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[0]).divide(VOLUME_SCALES[unit - 14]);
+		return null;
     }
 
 	@Override
-	public Double toCubeDecimeter(double value, String unit)
+	public BigDecimal toCubeDecimeter(double value, int unit)
 	{
-		return ((value * Double.valueOf(CUBE_DECIMETER)) / Double.valueOf(unit));
+		if (unit >= 14 && unit <= 20)
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[0]).divide(VOLUME_SCALES[unit - 14]);
+		return null;
     }
 
 	@Override
-	public Double toCubeCentimeter(double value, String unit)
+	public BigDecimal toCubeCentimeter(double value, int unit)
 	{
-		return ((value * Double.valueOf(CUBE_CENTIMETER)) / Double.valueOf(unit));
+		if (unit >= 14 && unit <= 20)
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[0]).divide(VOLUME_SCALES[unit - 14]);
+		return null;
     }
 
 	@Override
-	public Double toCubeMillimeter(double value, String unit)
+	public BigDecimal toCubeMillimeter(double value, int unit)
 	{
-		return ((value * Double.valueOf(CUBE_MILLIMETER)) / Double.valueOf(unit));
+		if (unit >= 14 && unit <= 20)
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[0]).divide(VOLUME_SCALES[unit - 14]);
+		return null;
     }
 
     protected static Volume getInstance()

@@ -1,5 +1,10 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+
+import static com.gabrielMJr.twaire.physic.units.Length.LENGTH_SCALES;
+import static com.gabrielMJr.twaire.physic.units.Time.TIME_SCALES;
+
 import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
 import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER;
@@ -31,30 +36,56 @@ public class Speed implements SpeedIF
 	private final Length length;
 	private final Time time;
 
-	public static final String KILOMETER_PER_SECOND = KILOMETER + "/" + SECOND;
-	public static final String HECTOMETER_PER_SECOND = HECTOMETER + "/" + SECOND;
-	public static final String DECAMETER_PER_SECOND = DECAMETER + "/" + SECOND;
-	public static final String METER_PER_SECOND = METER + "/" + SECOND;
-	public static final String DECIMETER_PER_SECOND = DECIMETER + "/" + SECOND;
-	public static final String CENTIMETER_PER_SECOND = CENTIMETER + "/" + SECOND;
-	public static final String MILLIMETER_PER_SECOND = MILLIMETER + "/" + SECOND;
+	public static final int KILOMETER_PER_SECOND = 31;
+	public static final int HECTOMETER_PER_SECOND = 32;
+	public static final int DECAMETER_PER_SECOND = 33;
+	public static final int METER_PER_SECOND = 34;
+	public static final int DECIMETER_PER_SECOND = 35;
+	public static final int CENTIMETER_PER_SECOND = 36;
+	public static final int MILLIMETER_PER_SECOND = 37;
 
-	public static final String KILOMETER_PER_MINUTE = KILOMETER + "/" + MINUTE;
-	public static final String HECTOMETER_PER_MINUTE = HECTOMETER + "/" + MINUTE;
-	public static final String DECAMETER_PER_MINUTE = DECAMETER + "/" + MINUTE;
-	public static final String METER_PER_MINUTE = METER + "/" + MINUTE;
-	public static final String DECIMETER_PER_MINUTE = DECIMETER + "/" + MINUTE;
-	public static final String CENTIMETER_PER_MINUTE = CENTIMETER + "/" + MINUTE;
-	public static final String MILLIMETER_PER_MINUTE = MILLIMETER + "/" + MINUTE;
+	public static final int KILOMETER_PER_MINUTE = 38;
+	public static final int HECTOMETER_PER_MINUTE = 39;
+	public static final int DECAMETER_PER_MINUTE = 40;
+	public static final int METER_PER_MINUTE = 41;
+	public static final int DECIMETER_PER_MINUTE = 42;
+	public static final int CENTIMETER_PER_MINUTE = 43;
+	public static final int MILLIMETER_PER_MINUTE = 44;
 
-	public static final String KILOMETER_PER_HOUR = KILOMETER + "/" + HOUR;
-	public static final String HECTOMETER_PER_HOUR = HECTOMETER + "/" + HOUR;
-	public static final String DECAMETER_PER_HOUR = DECAMETER + "/" + HOUR;
-	public static final String METER_PER_HOUR = METER + "/" + HOUR;
-	public static final String DECIMETER_PER_HOUR = DECIMETER + "/" + HOUR;
-	public static final String CENTIMETER_PER_HOUR = CENTIMETER + "/" + HOUR;
-	public static final String MILLIMETER_PER_HOUR = MILLIMETER + "/" + HOUR;
+	public static final int KILOMETER_PER_HOUR = 45;
+	public static final int HECTOMETER_PER_HOUR = 46;
+	public static final int DECAMETER_PER_HOUR = 47;
+	public static final int METER_PER_HOUR = 48;
+	public static final int DECIMETER_PER_HOUR = 39;
+	public static final int CENTIMETER_PER_HOUR = 50;
+	public static final int MILLIMETER_PER_HOUR = 51;
 
+	protected final BigDecimal[] SPEED_SCALES = new BigDecimal[]
+	{
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[SECOND]),
+		
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[MINUTE]),
+		
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[HOUR])
+	};
 	public static final String KILOMETER_PER_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SECOND_SYMBOL;
 	public static final String HECTOMETER_PER_SECOND_SYMBOL = HECTOMETER_SYMBOL + "/" + SECOND_SYMBOL;
 	public static final String DECAMETER_PER_SECOND_SYMBOL = DECAMETER_SYMBOL + "/" + SECOND_SYMBOL;
@@ -86,276 +117,171 @@ public class Speed implements SpeedIF
 	}
 	
 	@Override
-	public Double toKilometerPerSecond(double value, String unit)
+	public BigDecimal toKilometerPerSecond(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toKilometer(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[0]);
+		return null;
 	}
 
 	@Override
-	public Double toHectometerPerSecond(double value, String unit)
+	public BigDecimal toHectometerPerSecond(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toHectometer(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+	    if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[1]);
+		return null;
 	}
 
 	@Override
-	public Double toDecameterPerSecond(double value, String unit)
+	public BigDecimal toDecameterPerSecond(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLenght = length.toDecameter(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLenght / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[2]);
+		return null;
 	}
 
 	@Override
-	public Double toMeterPerSecond(double value, String unit)
+	public BigDecimal toMeterPerSecond(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toMeter(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[3]);
+		return null;
 	}
 
 	@Override
-	public Double toDecimeterPerSecond(double value, String unit)
+	public BigDecimal toDecimeterPerSecond(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toDecimeter(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[4]);
+		return null;
 	}
 
 	@Override
-	public Double toCentimeterPerSecond(double value, String unit)
+	public BigDecimal toCentimeterPerSecond(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toCentimeter(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[5]);
+		return null;
 	}
 
 	@Override
-	public Double toMillimeterPerSecond(double value, String unit)
+	public BigDecimal toMillimeterPerSecond(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toMillimeter(value, units[0]);
-		Double newTime = time.toSecond(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[6]);
+		return null;
 	}
 
 	@Override
-	public Double toKilometerPerMinute(double value, String unit)
+	public BigDecimal toKilometerPerMinute(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toKilometer(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[7]);
+		return null;
 	}
 	
 	@Override
-	public Double toHectometerPerMinute(double value, String unit)
+	public BigDecimal toHectometerPerMinute(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toHectometer(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[8]);
+		return null;
 	}
 
 	@Override
-	public Double toDecameterPerMinute(double value, String unit)
+	public BigDecimal toDecameterPerMinute(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toDecameter(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[9]);
+		return null;
 	}
 
 	@Override
-	public Double toMeterPerMinute(double value, String unit)
+	public BigDecimal toMeterPerMinute(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toMeter(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[10]);
+		return null;
 	}
 
 	@Override
-	public Double toDecimeterPerMinute(double value, String unit)
+	public BigDecimal toDecimeterPerMinute(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toDecimeter(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[11]);
+		return null;
 	}
 
 	@Override
-	public Double toCentimeterPerMinute(double value, String unit)
+	public BigDecimal toCentimeterPerMinute(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toCentimeter(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[12]);
+		return null;
 	}
 
 	@Override
-	public Double toMillimeterPerMinute(double value, String unit)
+	public BigDecimal toMillimeterPerMinute(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toMillimeter(value, units[0]);
-		Double newTime = time.toMinute(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[13]);
+		return null;
 	}
 	
 	@Override
-	public Double toKilometerPerHour(double value, String unit)
+	public BigDecimal toKilometerPerHour(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toKilometer(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[14]);
+		return null;
 	}
 	
 	@Override
-	public Double toHectometerPerHour(double value, String unit)
+	public BigDecimal toHectometerPerHour(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toHectometer(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[15]);
+		return null;
 	}
 	
 	@Override
-	public Double toDecameterPerHour(double value, String unit)
+	public BigDecimal toDecameterPerHour(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toDecameter(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[16]);
+		return null;
 	}
 
 	@Override
-	public Double toMeterPerHour(double value, String unit)
+	public BigDecimal toMeterPerHour(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toMeter(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[17]);
+		return null;
 	}
 
 	@Override
-	public Double toDecimeterPerHour(double value, String unit)
+	public BigDecimal toDecimeterPerHour(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toDecimeter(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[18]);
+		return null;
 	}
 
 	@Override
-	public Double toCentimeterPerHour(double value, String unit)
+	public BigDecimal toCentimeterPerHour(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toCentimeter(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[19]);
+		return null;
 	}
 
 	@Override
-	public Double toMillimeterPerHour(double value, String unit)
+	public BigDecimal toMillimeterPerHour(double value, int unit)
 	{
-		/*
-		 * [0] = length
-		 * [1] = time
-		 */
-		String[] units = unit.split("/");
-		Double newLength = length.toMillimeter(value, units[0]);
-		Double newTime = time.toHour(1.0, units[1]);
-		return newLength / newTime;
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit- 31]).divide(SPEED_SCALES[20]);
+		return null;
 	}
 
 	protected static Speed getInstance()
