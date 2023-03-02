@@ -31,15 +31,7 @@ public class Volume implements VolumeIF
 	public static final int CUBE_DECIMETER = 18;
 	public static final int CUBE_CENTIMETER =19;
 	public static final int CUBE_MILLIMETER = 20;
-	
-	/*public static final String CUBE_KILOMETER = String.valueOf(Math.pow(Double.valueOf(KILOMETER), 3));
-	public static final String CUBE_HECTOMETER = String.valueOf(Math.pow(Double.valueOf(HECTOMETER), 3));
-	public static final String CUBE_DECAMETER = String.valueOf(Math.pow(Double.valueOf(DECIMETER), 3));
-	public static final String CUBE_METER = String.valueOf(Math.pow(Double.valueOf(METER), 3));
-	public static final String CUBE_DECIMETER = String.valueOf(Math.pow(Double.valueOf(DECIMETER), 3));
-	public static final String CUBE_CENTIMETER = String.valueOf(Math.pow(Double.valueOf(CENTIMETER), 3));
-	public static final String CUBE_MILLIMETER = String.valueOf(Math.pow(Double.valueOf(MILLIMETER), 3));
-*/
+
     protected static final BigDecimal[] VOLUME_SCALES = new BigDecimal[]
 	{
 		LENGTH_SCALES[KILOMETER].pow(3),
