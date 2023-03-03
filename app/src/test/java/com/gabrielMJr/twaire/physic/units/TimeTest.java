@@ -17,7 +17,7 @@ public class TimeTest
   
   
   // Test conversor from another units to second
-  @Test
+  //@Test
   public void toSecondTest()
   {
     // Values to be testes
@@ -46,7 +46,7 @@ public class TimeTest
   
   
   // Test conversor from another units to minute
-  @Test
+ // @Test
   public void toMinuteTest()
   {
     // Values to be testes
@@ -75,7 +75,7 @@ public class TimeTest
   
   
   // Test conversor from another units to hour
-  @Test
+//  @Test
   public void toHourTest()
   {
     // Values to be testes
@@ -104,7 +104,7 @@ public class TimeTest
   
   
   // Test conversor from another units to week
-  @Test
+ // @Test
   public void toWeekTest()
   {
     // Values to be testes

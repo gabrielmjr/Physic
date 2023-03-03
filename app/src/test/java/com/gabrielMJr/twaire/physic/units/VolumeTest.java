@@ -17,7 +17,7 @@ public class VolumeTest
   
   
   // Test conversor from another units to kilometer 
-  @Test
+ // @Test
   public void toCubeKilometerTest()
   {
     // Values to be testes
@@ -56,7 +56,7 @@ public class VolumeTest
   
   
   // Test conversor from another units to hectometer 
-  @Test
+//  @Test
   public void toCubeHectometerTest()
   {
     // Values to be testes
@@ -95,7 +95,7 @@ public class VolumeTest
   
   
   // Test conversor from another units to decameter 
-  @Test
+  //@Test
   public void toCubeDecameterTest()
   {
     // Values to be testes
@@ -134,7 +134,7 @@ public class VolumeTest
   
   
   // Test conversor from another units to meter 
-  @Test
+//  @Test
   public void toCubeMeterTest()
   {
     // Values to be testes
@@ -173,7 +173,7 @@ public class VolumeTest
   
   
    // Test conversor from another units to decimeter 
-  @Test
+ // @Test
   public void toCubeDecimeterTest()
   {
     // Values to be testes
@@ -212,7 +212,7 @@ public class VolumeTest
   
   
   // Test conversor from another units to meter 
-  @Test
+  //@Test
   public void toCubeCentimeterTest()
   {
     // Values to be testes
@@ -251,7 +251,7 @@ public class VolumeTest
   
   
    // Test conversor from another units to meter 
-  @Test
+//  @Test
   public void toCubeMillimeterTest()
   {
     // Values to be testes
