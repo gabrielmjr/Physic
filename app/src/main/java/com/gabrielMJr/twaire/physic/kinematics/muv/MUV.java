@@ -137,7 +137,6 @@ public class MUV implements MUVIF
 			stepOrResult);
 	}
 
-
 	// Forth acceleration formula when:
 	// a = (finalVelocity - initialVelocity) ÷ (finalTime - initialTime)
 	@Override
@@ -169,7 +168,6 @@ public class MUV implements MUVIF
 		String unitOfResult, 
 		int stepOrResult)
     {
-
 		return acceleration4.acceleration(
 			initialVelocity,
 			initialVelocityUnit,
@@ -186,13 +184,9 @@ public class MUV implements MUVIF
     // Speed
     // First speed's formula: ∆v = ∆t * a
 	@Override
-	public String speed1 (
-		double deltaTime, 
-		double acceleration)
+	public String speed1 (double deltaTime, double acceleration)
 	{
-		return speed1.speed(
-			deltaTime,
-			acceleration);
+		return speed1.speed(deltaTime, acceleration);
     }
 
 	@Override
@@ -324,17 +318,12 @@ public class MUV implements MUVIF
 			stepOrResult);
     }
 
-
 	// Time
 	// First variation of time: ∆t = ∆v / acceleration
 	@Override
-	public String time1 (
-		double deltaVelocity, 
-		double acceleration) 
+	public String time1 (double deltaVelocity, double acceleration) 
     {
-		return time1.time(
-			deltaVelocity,
-			acceleration);
+		return time1.time(deltaVelocity, acceleration);
 	}
 
 	@Override  
@@ -351,7 +340,6 @@ public class MUV implements MUVIF
 			acceleration,
 			accelerationUnit,
 			unitOfResult);
-
     }
 
 	// Second variation of time: ∆t = (vf - vi) / acceleration 
@@ -390,7 +378,6 @@ public class MUV implements MUVIF
 			unitOfResult,
 			stepOrResult);
     }
-
 
 	// Initial time: ti = tf - ∆v / a
 	@Override

@@ -62,7 +62,6 @@ final class Speed2
         return null;
 	}
 
-
 	// Get class instance object
     public static Speed2 getInstance ()
     {

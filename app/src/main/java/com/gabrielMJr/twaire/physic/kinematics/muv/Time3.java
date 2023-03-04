@@ -58,11 +58,9 @@ final class Time3
 		String accelerationUnit,
 		String unitOfResult,
 		int stepOrResult)
-
     {
 		return null;
     }
-
 
     // Get class instance object
     public static Time3 getInstance ()

@@ -49,7 +49,6 @@ final class Time4
 		}
     }
 
-
 	protected  String time (
 		double initialTime, 
 		String initialTimeUnit,
