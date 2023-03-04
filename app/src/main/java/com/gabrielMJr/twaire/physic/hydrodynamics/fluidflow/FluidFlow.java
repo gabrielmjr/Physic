@@ -1,6 +1,7 @@
 package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
-public class FluidFlow implements FluidFlowIF {
+public class FluidFlow implements FluidFlowIF
+{
     private static FluidFlow instance;
     private static Area area;
     private static FlowRate1 flowRate1;
@@ -13,7 +14,8 @@ public class FluidFlow implements FluidFlowIF {
     private static Volume volume;
 
     // Constructor
-    public FluidFlow() {
+    public FluidFlow ()
+	{
         area = Area.getInstance();
         flowRate1 = FlowRate1.getInstance();
         flowRate2 = FlowRate2.getInstance();
@@ -28,17 +30,19 @@ public class FluidFlow implements FluidFlowIF {
 
     // Primeira fórmula de Vazão: Q = V/∆t
     @Override
-    public String flowRate1(double volume, double time) {
+    public String flowRate1 (double volume, double time)
+	{
         return flowRate1.flowRate(volume, time);
     }
 
     @Override
-    public String flowRate1(
+    public String flowRate1 (
 		double volume, 
 		String volumeUnit, 
 		double time, 
 		String timeUnit, 
-		String unitOfResult) {
+		String unitOfResult)
+	{
         return flowRate1.flowRate(
 			volume, 
 			volumeUnit, 
@@ -50,18 +54,20 @@ public class FluidFlow implements FluidFlowIF {
 
     // Segunda fórmula de Vazão: Q = A * v
     @Override
-    public String flowRate2(double area, double velocity) {
+    public String flowRate2 (double area, double velocity)
+	{
         return flowRate2.flowRate(area, velocity);
     }
 
-	
+
     @Override
-    public String flowRate2(
+    public String flowRate2 (
 		double area, 
 		String areaUnit, 
 		double velocity, 
 		String velocityUnit, 
-		String unitOfResult) {
+		String unitOfResult)
+	{
 		return flowRate2.flowRate(
 			area, 
 			areaUnit, 
@@ -72,10 +78,11 @@ public class FluidFlow implements FluidFlowIF {
 
     // Terceira fórmula de Vazão: Q = π * r² * v
     @Override
-    public String flowRate3(
+    public String flowRate3 (
 		double ray, 
 		double velocity,
-		int resultOrStep) {
+		int resultOrStep)
+	{
         return flowRate3.flowRate(
 			ray, 
 			velocity, 
@@ -83,13 +90,14 @@ public class FluidFlow implements FluidFlowIF {
     }
 
     @Override
-    public String flowRate3(
+    public String flowRate3 (
 		double ray, 
 		String rayUnit,
 		double velocity,
 		String velocityUnit,
 		String unitOfResult,
-		int resultOrStep) {
+		int resultOrStep)
+	{
         return flowRate3.flowRate(
 			ray,
 			rayUnit,
@@ -102,17 +110,19 @@ public class FluidFlow implements FluidFlowIF {
 
     // Tempo: ∆t = V/ Q
     @Override
-    public String time(double volume, double flowRate) {
+    public String time (double volume, double flowRate)
+	{
         return time.time(volume, flowRate);
     }
 
     @Override
-    public String time(
+    public String time (
 		double volume, 
 		String volumeUnit,
 		double flowRate,
 		String flowRateUnit, 
-		String unitOfResult) {
+		String unitOfResult)
+	{
         return time.time(
 			volume,
 			volumeUnit,
@@ -124,17 +134,19 @@ public class FluidFlow implements FluidFlowIF {
 
     // Volume: V = ∆t * Q
     @Override
-    public String volume(double time, double flowRate) {
+    public String volume (double time, double flowRate)
+	{
         return volume.volume(time, flowRate);
     }
 
     @Override
-    public String volume(
+    public String volume (
 		double time, 
 		String timeUnit, 
 		double flowRate, 
 		String flowRateUnit, 
-		String unitOfResult) {
+		String unitOfResult)
+	{
         return volume.volume(
 			time,
 			timeUnit,
@@ -146,17 +158,19 @@ public class FluidFlow implements FluidFlowIF {
 
     // Primeira fórmula de velocidade: v = Q / A
     @Override
-    public String speed1(double flowRate,double area) {
+    public String speed1 (double flowRate, double area)
+	{
         return speed1.speed(flowRate, area);
     }
 
     @Override
-    public String speed1(
+    public String speed1 (
 		double flowRate, 
 		String flowRateUnit,
 		double area, 
 		String areaUnit, 
-		String unitOfResult) {
+		String unitOfResult)
+	{
         return speed1.speed(
 			flowRate,
 			flowRateUnit,
@@ -168,10 +182,11 @@ public class FluidFlow implements FluidFlowIF {
 
     // Segunda fórmula de velocidade: v = Q / (π * r²)]
     @Override
-    public String speed2(
+    public String speed2 (
 		double flowRate, 
 		double ray, 
-		int resultOrStep) {
+		int resultOrStep)
+	{
         return speed2.speed(
 			flowRate, 
 			ray, 
@@ -179,13 +194,14 @@ public class FluidFlow implements FluidFlowIF {
     }
 
     @Override
-    public String speed2(
+    public String speed2 (
 		double flowRate,
 		String flowRateUnit, 
 		double ray, 
 		String raioUnit,
 		String unitOfResult,
-		int resultOrStep) {
+		int resultOrStep)
+	{
         return speed2.speed(
 			flowRate,
 			flowRateUnit,
@@ -198,18 +214,20 @@ public class FluidFlow implements FluidFlowIF {
 
     // Area: A = Q / v
     @Override
-    public String area(double flowRate, double velocity) {
+    public String area (double flowRate, double velocity)
+	{
 		return area.area(flowRate, velocity);
     }
 
     @Override
-    public String area(
+    public String area (
 		double flowRate, 
 		String flowRateUnit, 
 		double velocity, 
 		String velocityUnit,
 		String unitOfResult,
-		int resultOrStep) {
+		int resultOrStep)
+	{
         return area.area(
 			flowRate,
 			flowRateUnit, 
@@ -222,10 +240,11 @@ public class FluidFlow implements FluidFlowIF {
 
     // Raio: r = √[Q / (π * v)]
     @Override
-    public String ray(
+    public String ray (
 		double flowRate, 
 		double velocity, 
-		int resultOrStep) {
+		int resultOrStep)
+	{
         return ray.ray(
 			flowRate, 
 			velocity,
@@ -233,13 +252,14 @@ public class FluidFlow implements FluidFlowIF {
     }
 
     @Override
-    public String ray(
+    public String ray (
 		double flowRate,
 		String flowRateUnit, 
 		double velocity, 
 		String velocityUnit,
 		String unitOfResult,
-		int resultOrStep) {
+		int resultOrStep)
+	{
         return ray.ray(
 			flowRate, 
 			velocity,
@@ -247,8 +267,10 @@ public class FluidFlow implements FluidFlowIF {
     }
 
     // Get class instance object
-    protected static FluidFlow getInstance() {
-        if (instance == null) {
+    protected static FluidFlow getInstance ()
+	{
+        if (instance == null)
+		{
             instance = new FluidFlow();
         }
         return instance;
