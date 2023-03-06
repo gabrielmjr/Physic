@@ -55,7 +55,7 @@ public class Area implements AreaIF
 	public BigDecimal toSquareKilometer (double value, int unit)
 	{
 		if (unit >= 7 && unit <= 13)
-			return BigDecimal.valueOf(value).multiply(AREA_SCALES[0]).divide(AREA_SCALES[unit - 7]);
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7]);
 		return null;
 	}
 
@@ -63,7 +63,7 @@ public class Area implements AreaIF
 	public BigDecimal toSquareHectometer (double value, int unit)
 	{
 		if (unit >= 7 && unit <= 13)
-			return BigDecimal.valueOf(value).multiply(AREA_SCALES[1]).divide(AREA_SCALES[unit - 7]);
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7]);
 		return null;
 	}
 
@@ -71,7 +71,7 @@ public class Area implements AreaIF
 	public BigDecimal toSquareDecameter (double value, int unit)
 	{
 		if (unit >= 7 && unit <= 13)
-			return BigDecimal.valueOf(value).multiply(AREA_SCALES[2]).divide(AREA_SCALES[unit - 7]);
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7]);
 		return null;
 	}
 
@@ -79,7 +79,7 @@ public class Area implements AreaIF
 	public BigDecimal toSquareMeter (double value, int unit)
 	{
 		if (unit >= 7 && unit <= 13)
-			return BigDecimal.valueOf(value).multiply(AREA_SCALES[3]).divide(AREA_SCALES[unit - 7]);
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_METER - 7]);
 		return null;
 	}
 
@@ -87,7 +87,7 @@ public class Area implements AreaIF
 	public BigDecimal toSquareDecimeter (double value, int unit)
 	{
 		if (unit >= 7 && unit <= 13)
-			return BigDecimal.valueOf(value).multiply(AREA_SCALES[4]).divide(AREA_SCALES[unit - 7]);
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7]);
 		return null;
 	}
 
@@ -95,7 +95,7 @@ public class Area implements AreaIF
 	public BigDecimal toSquareCentimeter (double value, int unit)
 	{
 		if (unit >= 7 && unit <= 13)
-			return BigDecimal.valueOf(value).multiply(AREA_SCALES[5]).divide(AREA_SCALES[unit - 7]);
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7]);
 		return null;
 	}
 
@@ -103,7 +103,7 @@ public class Area implements AreaIF
 	public BigDecimal toSquareMillimeter (double value, int unit)
 	{
 		if (unit >= 7 && unit <= 13)
-			return BigDecimal.valueOf(value).multiply(AREA_SCALES[6]).divide(AREA_SCALES[unit - 7]);
+			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7]);
 		return null;
 	}
 
