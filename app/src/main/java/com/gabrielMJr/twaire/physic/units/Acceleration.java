@@ -115,7 +115,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toKilometerPerSquareSecond (double value, int unit)
 	{
 	    if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[52]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[KILOMETER_PER_SQUARE_SECOND - 52]);
 		return null;
 	}
 
@@ -123,7 +123,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toHectometerPerSquareSecond (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[53]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_SECOND - 52]);
 		return null;
 	}
 
@@ -131,7 +131,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toDecameterPerSquareSecond (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[54]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECAMETER_PER_SQUARE_SECOND - 52]);
 		return null;
 	}
 
@@ -139,7 +139,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toMeterPerSquareSecond (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[55]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[METER_PER_SQUARE_SECOND - 52]);
 		return null;
 	}
 
@@ -147,7 +147,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toDecimeterPerSquareSecond (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[56]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECIMETER_PER_SQUARE_SECOND - 52]);
 		return null;
 	}
 
@@ -155,7 +155,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toCentimeterPerSquareSecond (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[57]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_SECOND - 52]);
 		return null;
 	}
 
@@ -163,7 +163,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toMillimeterPerSquareSecond (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[58]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_SECOND - 52]);
 		return null;
 	}
 
@@ -171,7 +171,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toKilometerPerSquareMinute (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[59]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[KILOMETER_PER_SQUARE_MINUTE - 52]);
 		return null;
 	}
 
@@ -179,7 +179,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toHectometerPerSquareMinute (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[60]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_MINUTE - 52]);
 		return null;
 	}
 
@@ -187,7 +187,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toDecameterPerSquareMinute (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[61]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECAMETER_PER_SQUARE_MINUTE - 52]);
 		return null;
 	}
 
@@ -195,7 +195,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toMeterPerSquareMinute (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[62]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[METER_PER_SQUARE_MINUTE - 52]);
 		return null;
 	}
 
@@ -203,7 +203,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toDecimeterPerSquareMinute (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[63]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECIMETER_PER_SQUARE_MINUTE - 52]);
 		return null;
 	}
 
@@ -211,7 +211,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toCentimeterPerSquareMinute (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[64]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_MINUTE - 52]);
 		return null;
 	}
 
@@ -219,7 +219,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toMillimeterPerSquareMinute (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[65]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_MINUTE - 52]);
 		return null;
 	}
 
@@ -227,7 +227,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toKilometerPerSquareHour (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[66]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[KILOMETER_PER_SQUARE_HOUR - 52]);
 		return null;
 	}
 
@@ -235,7 +235,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toHectometerPerSquareHour (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[67]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_HOUR - 52]);
 		return null;
 	}
 
@@ -243,7 +243,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toDecameterPerSquareHour (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[68]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECAMETER_PER_SQUARE_HOUR - 52]);
 		return null;
 	}
 
@@ -251,7 +251,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toMeterPerSquareHour (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[69]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[METER_PER_SQUARE_HOUR - 52]);
 		return null;
 	}
 
@@ -259,7 +259,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toDecimeterPerSquareHour (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[70]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECIMETER_PER_SQUARE_HOUR - 52]);
 		return null;
 	}
 
@@ -267,7 +267,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toCentimeterPerSquareHour (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[71]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_HOUR - 52]);
 		return null;
 	}
 
@@ -275,7 +275,7 @@ public class Acceleration implements AccelerationIF
 	public BigDecimal toMillimeterPerSquareHour (double value, int unit)
 	{
 		if (unit >= 52 && unit <= 72)
-			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[72]);
+			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_HOUR - 52]);
 		return null;
 	}
 }

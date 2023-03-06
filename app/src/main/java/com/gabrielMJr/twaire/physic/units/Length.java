@@ -37,7 +37,7 @@ public class Length implements LengthIF
 	public BigDecimal toKilometer (double value, int unit)  
     {
 		if (unit >= 0 && unit <= 6)
-			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[0]).divide(LENGTH_SCALES[unit]);
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER]);
 		return null;
     }
 
@@ -45,7 +45,7 @@ public class Length implements LengthIF
 	public BigDecimal toHectometer (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
-			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[1]).divide(LENGTH_SCALES[unit]);
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER]);
 		return null;
     }
 
@@ -53,7 +53,7 @@ public class Length implements LengthIF
 	public BigDecimal toDecameter (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
-			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[2]).divide(LENGTH_SCALES[unit]);
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER]);
 		return null;
     }
 
@@ -61,7 +61,7 @@ public class Length implements LengthIF
 	public BigDecimal toMeter (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
-			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[3]).divide(LENGTH_SCALES[unit]);
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER]);
 		return null;
     }
 
@@ -69,7 +69,7 @@ public class Length implements LengthIF
 	public BigDecimal toDecimeter (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
-			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[4]).divide(LENGTH_SCALES[unit]);
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER]);
 		return null;
     }
 
@@ -77,7 +77,7 @@ public class Length implements LengthIF
 	public BigDecimal toCentimeter (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
-			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[5]).divide(LENGTH_SCALES[unit]);
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER]);
 		return null;
     }
 
@@ -85,7 +85,7 @@ public class Length implements LengthIF
 	public BigDecimal toMillimeter (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
-			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[6]).divide(LENGTH_SCALES[unit]);
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER]);
 		return null;
 	}
 
