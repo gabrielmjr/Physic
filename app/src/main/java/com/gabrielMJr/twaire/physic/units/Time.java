@@ -52,7 +52,7 @@ public class Time implements TimeIF
 	public BigDecimal toSecond(double value, int unit)
 	{
 		if (unit >= 21 && unit <= 25)
-			return BigDecimal.valueOf(value).multiply(TIME_SCALES[unit - 21]).divide(TIME_SCALES[SECOND - 21]);
+			return BigDecimal.valueOf(value * TIME_SCALES[unit - 21].doubleValue() / TIME_SCALES[SECOND - 21].doubleValue());
 		return null;
 	}
 
@@ -60,7 +60,7 @@ public class Time implements TimeIF
 	public BigDecimal toMinute(double value, int unit)
 	{
 		if (unit >= 21 && unit <= 25)
-			return BigDecimal.valueOf(value).multiply(TIME_SCALES[unit - 21]).divide(TIME_SCALES[MINUTE - 21]);
+			return BigDecimal.valueOf(value * TIME_SCALES[unit - 21].doubleValue() / TIME_SCALES[MINUTE - 21].doubleValue());
 		return null;
 	}
 
@@ -68,7 +68,7 @@ public class Time implements TimeIF
 	public BigDecimal toHour(double value, int unit)
 	{
 		if (unit >= 21 && unit <= 25)
-			return BigDecimal.valueOf(value).multiply(TIME_SCALES[unit - 21]).divide(TIME_SCALES[HOUR - 21]);
+			return BigDecimal.valueOf(value * TIME_SCALES[unit - 21].doubleValue() / TIME_SCALES[HOUR - 21].doubleValue());
 		return null;
 	}
 
@@ -76,7 +76,7 @@ public class Time implements TimeIF
 	public BigDecimal toDay(double value, int unit)
 	{
 		if (unit >= 21 && unit <= 25)
-			return BigDecimal.valueOf(value).multiply(TIME_SCALES[unit - 21]).divide(TIME_SCALES[DAY - 21]);
+			return BigDecimal.valueOf(value * TIME_SCALES[unit - 21].doubleValue() / TIME_SCALES[DAY - 21].doubleValue());
 		return null;
 	}
 
@@ -84,7 +84,7 @@ public class Time implements TimeIF
 	public BigDecimal toWeek(double value, int unit)
 	{
 		if (unit >= 21 && unit <= 25)
-			return BigDecimal.valueOf(value).multiply(TIME_SCALES[unit - 21]).divide(TIME_SCALES[WEEK - 21]);
+			return BigDecimal.valueOf(value * TIME_SCALES[unit - 21].doubleValue() / TIME_SCALES[WEEK - 21].doubleValue());
 		return null;
 	}
 	
@@ -92,7 +92,7 @@ public class Time implements TimeIF
 	public BigDecimal toSquareSecond(double value, int unit)
 	{
 		if (unit >= 26 && unit <= 30)
-			return BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[unit - 26]).divide(SQUARE_TIME_SCALES[SQUARE_SECOND - 26]);
+			return BigDecimal.valueOf(value * SQUARE_TIME_SCALES[unit - 26].doubleValue() / SQUARE_TIME_SCALES[SQUARE_SECOND - 26].doubleValue());
 		return null;
 	}
 
@@ -100,7 +100,7 @@ public class Time implements TimeIF
 	public BigDecimal toSquareMinute(double value, int unit)
 	{
 		if (unit >= 26 && unit <= 30)
-			return BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[unit - 26]).divide(SQUARE_TIME_SCALES[SQUARE_MINUTE - 26]);
+			return BigDecimal.valueOf(value * SQUARE_TIME_SCALES[unit - 26].doubleValue() / SQUARE_TIME_SCALES[SQUARE_MINUTE - 26].doubleValue());
 		return null;
 	}
 
@@ -108,7 +108,7 @@ public class Time implements TimeIF
 	public BigDecimal toSquareHour(double value, int unit)
 	{
 		if (unit >= 26 && unit <= 30)
-			return BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[unit - 26]).divide(SQUARE_TIME_SCALES[SQUARE_HOUR - 26]);
+			return BigDecimal.valueOf(value * SQUARE_TIME_SCALES[unit - 26].doubleValue() / SQUARE_TIME_SCALES[SQUARE_HOUR - 26].doubleValue());
 		return null;
 	}
 
@@ -116,7 +116,7 @@ public class Time implements TimeIF
 	public BigDecimal toSquareDay(double value, int unit)
 	{
 		if (unit >= 26 && unit <= 30)
-			return BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[unit - 26]).divide(SQUARE_TIME_SCALES[SQUARE_DAY - 26]);
+			return BigDecimal.valueOf(value * SQUARE_TIME_SCALES[unit - 26].doubleValue() / SQUARE_TIME_SCALES[SQUARE_DAY - 26].doubleValue());
 		return null;
 	}
 
@@ -124,7 +124,7 @@ public class Time implements TimeIF
 	public BigDecimal toSquareWeek(double value, int unit)
 	{
 		if (unit >= 26 && unit <= 30)
-			return BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[unit - 26]).divide(SQUARE_TIME_SCALES[SQUARE_WEEK - 26]);
+			return BigDecimal.valueOf(value * SQUARE_TIME_SCALES[unit - 26].doubleValue() / SQUARE_TIME_SCALES[SQUARE_SECOND - 26].doubleValue());
 		return null;
 	}
 

@@ -1,8 +1,6 @@
 package com.gabrielMJr.twaire.physic.units;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
@@ -19,13 +17,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TimeTest
 {
-	private final NumberFormat formatter;
 	private final Time time;
 	private final Random random;
 
 	public TimeTest ()
 	{
-		formatter = new DecimalFormat("#00.000");
 		time = Time.getInstance();
 		random = new Random();
 	}
@@ -39,11 +35,11 @@ public class TimeTest
 		double dayValue = getRandomDouble();
 		double weekValue = getRandomDouble();
 
-		BigDecimal secondTestResult = BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[SECOND - 21]);
-		BigDecimal minuteTestResult = BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[SECOND - 21]);
-		BigDecimal hourTestResult = BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[SECOND - 21]);
-		BigDecimal dayTestResult = BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[SECOND - 21]);
-		BigDecimal weekTestResult = BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[SECOND - 21]);
+		BigDecimal secondTestResult = BigDecimal.valueOf(secondValue * TIME_SCALES[SECOND - 21].doubleValue() / TIME_SCALES[SECOND - 21].doubleValue());
+		BigDecimal minuteTestResult = BigDecimal.valueOf(minuteValue * TIME_SCALES[MINUTE - 21].doubleValue() / TIME_SCALES[SECOND - 21].doubleValue());
+		BigDecimal hourTestResult = BigDecimal.valueOf(hourValue * TIME_SCALES[HOUR - 21].doubleValue() / TIME_SCALES[SECOND - 21].doubleValue());
+		BigDecimal dayTestResult = BigDecimal.valueOf(dayValue * TIME_SCALES[DAY - 21].doubleValue() / TIME_SCALES[SECOND - 21].doubleValue());
+		BigDecimal weekTestResult = BigDecimal.valueOf(weekValue * TIME_SCALES[WEEK - 21].doubleValue() / TIME_SCALES[SECOND - 21].doubleValue());
 
 		BigDecimal secondResult = time.toSecond(secondValue, SECOND);
 		BigDecimal minuteResult = time.toSecond(minuteValue, MINUTE);
@@ -67,18 +63,18 @@ public class TimeTest
 		double dayValue = getRandomDouble();
 		double weekValue = getRandomDouble();
 
-		BigDecimal secondTestResult = BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[MINUTE - 21]);
-		BigDecimal minuteTestResult = BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[MINUTE - 21]);
-		BigDecimal hourTestResult = BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[MINUTE - 21]);
-		BigDecimal dayTestResult = BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[MINUTE - 21]);
-		BigDecimal weekTestResult = BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[MINUTE - 21]);
+		BigDecimal secondTestResult = BigDecimal.valueOf(secondValue * TIME_SCALES[SECOND - 21].doubleValue() / TIME_SCALES[MINUTE - 21].doubleValue());
+		BigDecimal minuteTestResult = BigDecimal.valueOf(minuteValue * TIME_SCALES[MINUTE - 21].doubleValue() / TIME_SCALES[MINUTE - 21].doubleValue());
+		BigDecimal hourTestResult = BigDecimal.valueOf(hourValue * TIME_SCALES[HOUR - 21].doubleValue() / TIME_SCALES[MINUTE - 21].doubleValue());
+		BigDecimal dayTestResult = BigDecimal.valueOf(dayValue * TIME_SCALES[DAY - 21].doubleValue() / TIME_SCALES[MINUTE - 21].doubleValue());
+		BigDecimal weekTestResult = BigDecimal.valueOf(weekValue * TIME_SCALES[WEEK - 21].doubleValue() / TIME_SCALES[MINUTE - 21].doubleValue());
 		
 		BigDecimal secondResult = time.toMinute(secondValue, SECOND);
 		BigDecimal minuteResult = time.toMinute(minuteValue, MINUTE);
 		BigDecimal hourResult = time.toMinute(hourValue, HOUR);
 		BigDecimal dayResult = time.toMinute(dayValue, DAY);
 	    BigDecimal weekResult = time.toMinute(weekValue, WEEK);
-
+		
 		assertEquals(secondTestResult, secondResult);
 		assertEquals(minuteTestResult, minuteResult);
 		assertEquals(hourTestResult, hourResult);
@@ -95,18 +91,18 @@ public class TimeTest
 		double dayValue = getRandomDouble();
 		double weekValue = getRandomDouble();
 
-		BigDecimal secondTestResult = BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[HOUR - 21]);
-		BigDecimal minuteTestResult = BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[HOUR - 21]);
-		BigDecimal hourTestResult = BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[HOUR - 21]);
-		BigDecimal dayTestResult = BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[HOUR - 21]);
-		BigDecimal weekTestResult = BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[HOUR - 21]);
+		BigDecimal secondTestResult = BigDecimal.valueOf(secondValue * TIME_SCALES[SECOND - 21].doubleValue() / TIME_SCALES[HOUR - 21].doubleValue());
+		BigDecimal minuteTestResult = BigDecimal.valueOf(minuteValue * TIME_SCALES[MINUTE - 21].doubleValue() / TIME_SCALES[HOUR - 21].doubleValue());
+		BigDecimal hourTestResult = BigDecimal.valueOf(hourValue * TIME_SCALES[HOUR - 21].doubleValue() / TIME_SCALES[HOUR - 21].doubleValue());
+		BigDecimal dayTestResult = BigDecimal.valueOf(dayValue * TIME_SCALES[DAY - 21].doubleValue() / TIME_SCALES[HOUR - 21].doubleValue());
+		BigDecimal weekTestResult = BigDecimal.valueOf(weekValue * TIME_SCALES[WEEK - 21].doubleValue() / TIME_SCALES[HOUR - 21].doubleValue());
 		
 		BigDecimal secondResult = time.toHour(secondValue, SECOND);
 		BigDecimal minuteResult = time.toHour(minuteValue, MINUTE);
 		BigDecimal hourResult = time.toHour(hourValue, HOUR);
 		BigDecimal dayResult = time.toHour(dayValue, DAY);
 	    BigDecimal weekResult = time.toHour(weekValue, WEEK);
-
+		
 		assertEquals(secondTestResult, secondResult);
 		assertEquals(minuteTestResult, minuteResult);
 		assertEquals(hourTestResult, hourResult);
@@ -123,11 +119,11 @@ public class TimeTest
 		double dayValue = getRandomDouble();
 		double weekValue = getRandomDouble();
 
-		BigDecimal secondTestResult = BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[DAY - 21]);
-		BigDecimal minuteTestResult = BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[DAY - 21]);
-		BigDecimal hourTestResult = BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[DAY - 21]);
-		BigDecimal dayTestResult = BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[DAY - 21]);
-		BigDecimal weekTestResult = BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[DAY - 21]);
+		BigDecimal secondTestResult = BigDecimal.valueOf(secondValue * TIME_SCALES[SECOND - 21].doubleValue() / TIME_SCALES[DAY - 21].doubleValue());
+		BigDecimal minuteTestResult = BigDecimal.valueOf(minuteValue * TIME_SCALES[MINUTE - 21].doubleValue() / TIME_SCALES[DAY - 21].doubleValue());
+		BigDecimal hourTestResult = BigDecimal.valueOf(hourValue * TIME_SCALES[HOUR - 21].doubleValue() / TIME_SCALES[DAY - 21].doubleValue());
+		BigDecimal dayTestResult = BigDecimal.valueOf(dayValue * TIME_SCALES[DAY - 21].doubleValue() / TIME_SCALES[DAY - 21].doubleValue());
+		BigDecimal weekTestResult = BigDecimal.valueOf(weekValue * TIME_SCALES[WEEK - 21].doubleValue() / TIME_SCALES[DAY - 21].doubleValue());
 		
 		BigDecimal secondResult = time.toDay(secondValue, SECOND);
 		BigDecimal minuteResult = time.toDay(minuteValue, MINUTE);
@@ -151,11 +147,11 @@ public class TimeTest
 		double dayValue = getRandomDouble();
 		double weekValue = getRandomDouble();
 
-		BigDecimal secondTestResult = BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[WEEK - 21]);
-		BigDecimal minuteTestResult = BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[WEEK - 21]);
-		BigDecimal hourTestResult = BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[WEEK - 21]);
-		BigDecimal dayTestResult = BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[WEEK - 21]);
-		BigDecimal weekTestResult = BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[WEEK - 21]);
+		BigDecimal secondTestResult = BigDecimal.valueOf(secondValue * TIME_SCALES[SECOND - 21].doubleValue() / TIME_SCALES[WEEK - 21].doubleValue());
+		BigDecimal minuteTestResult = BigDecimal.valueOf(minuteValue * TIME_SCALES[MINUTE - 21].doubleValue() / TIME_SCALES[WEEK - 21].doubleValue());
+		BigDecimal hourTestResult = BigDecimal.valueOf(hourValue * TIME_SCALES[HOUR - 21].doubleValue() / TIME_SCALES[WEEK - 21].doubleValue());
+		BigDecimal dayTestResult = BigDecimal.valueOf(dayValue * TIME_SCALES[DAY - 21].doubleValue() / TIME_SCALES[WEEK - 21].doubleValue());
+		BigDecimal weekTestResult = BigDecimal.valueOf(weekValue * TIME_SCALES[WEEK - 21].doubleValue() / TIME_SCALES[WEEK - 21].doubleValue());
 		
 		BigDecimal secondResult = time.toWeek(secondValue, SECOND);
 		BigDecimal minuteResult = time.toWeek(minuteValue, MINUTE);
@@ -172,6 +168,6 @@ public class TimeTest
 
 	private double getRandomDouble ()
 	{
-		return Double.valueOf(formatter.format(random.nextDouble() * 100));
+		return random.nextDouble() * 100;
 	}
 }
