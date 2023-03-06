@@ -13,7 +13,7 @@ public class Length implements LengthIF
 	public static final int DECIMETER = 4;
 	public static final int CENTIMETER = 5;
 	public static final int MILLIMETER = 6;
-	
+
 	protected static final BigDecimal[] LENGTH_SCALES = new BigDecimal[]
 	{
 		BigDecimal.valueOf(0.001),
@@ -24,7 +24,7 @@ public class Length implements LengthIF
 		BigDecimal.valueOf(100),
 		BigDecimal.valueOf(1000)
 	};
-	
+
 	public static final String KILOMETER_SYMBOL = "km";
 	public static final String HECTOMETER_SYMBOL = "hm";
 	public static final String DECAMETER_SYMBOL = "dam";
@@ -32,17 +32,17 @@ public class Length implements LengthIF
 	public static final String DECIMETER_SYMBOL = "dm";
 	public static final String CENTIMETER_SYMBOL = "cm";
 	public static final String MILLIMETER_SYMBOL= "mm";
-	
+
 	@Override
-	public BigDecimal toKilometer(double value, int unit)  
+	public BigDecimal toKilometer (double value, int unit)  
     {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[0]).divide(LENGTH_SCALES[unit]);
 		return null;
     }
-	
+
 	@Override
-	public BigDecimal toHectometer(double value, int unit)
+	public BigDecimal toHectometer (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[1]).divide(LENGTH_SCALES[unit]);
@@ -50,7 +50,7 @@ public class Length implements LengthIF
     }
 
 	@Override
-	public BigDecimal toDecameter(double value, int unit)
+	public BigDecimal toDecameter (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[2]).divide(LENGTH_SCALES[unit]);
@@ -58,7 +58,7 @@ public class Length implements LengthIF
     }
 
 	@Override
-	public BigDecimal toMeter(double value, int unit)
+	public BigDecimal toMeter (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[3]).divide(LENGTH_SCALES[unit]);
@@ -66,15 +66,15 @@ public class Length implements LengthIF
     }
 
 	@Override
-	public BigDecimal toDecimeter(double value, int unit)
+	public BigDecimal toDecimeter (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[4]).divide(LENGTH_SCALES[unit]);
 		return null;
     }
-	
+
 	@Override
-	public BigDecimal toCentimeter(double value, int unit)
+	public BigDecimal toCentimeter (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[5]).divide(LENGTH_SCALES[unit]);
@@ -82,14 +82,14 @@ public class Length implements LengthIF
     }
 
 	@Override
-	public BigDecimal toMillimeter(double value, int unit)
+	public BigDecimal toMillimeter (double value, int unit)
     {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[6]).divide(LENGTH_SCALES[unit]);
 		return null;
 	}
 
-    protected static Length getInstance()
+    protected static Length getInstance ()
     {
 		if (!(instance instanceof Length))
 			instance = new Length();
