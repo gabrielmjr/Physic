@@ -55,7 +55,7 @@ public class Acceleration implements AccelerationIF
 	public static final int DECIMETER_PER_SQUARE_HOUR = 70;
 	public static final int CENTIMETER_PER_SQUARE_HOUR = 71;
 	public static final int MILLIMETER_PER_SQUARE_HOUR = 72;
-	
+
 	protected final BigDecimal[] ACCELERATION_SCALES = new BigDecimal[]
 	{
 		LENGTH_SCALES[KILOMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND]),
@@ -82,7 +82,7 @@ public class Acceleration implements AccelerationIF
 		LENGTH_SCALES[CENTIMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR]),
 		LENGTH_SCALES[MILLIMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR])
 	};
-	
+
 	public static final String KILOMETER_PER_SQUARE_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
 	public static final String HECTOMETER_PER_SQUARE_SECOND_SYMBOL = HECTOMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
 	public static final String DECAMETER_PER_SQUARE_SECOND_SYMBOL = DECAMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
@@ -106,153 +106,174 @@ public class Acceleration implements AccelerationIF
 	public static final String DECIMETER_PER_SQUARE_HOUR_SYMBOL = DECIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
 	public static final String CENTIMETER_PER_SQUARE_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
 	public static final String MILLIMETER_PER_SQUARE_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
-	
 
-	public Acceleration()
+
+	public Acceleration ()
 	{}
 
 	@Override
-	public BigDecimal toKilometerPerSquareSecond(double value, int unit) {
+	public BigDecimal toKilometerPerSquareSecond (double value, int unit)
+	{
 	    if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[52]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toHectometerPerSquareSecond(double value, int unit) {
+	public BigDecimal toHectometerPerSquareSecond (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[53]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecameterPerSquareSecond(double value, int unit) {
+	public BigDecimal toDecameterPerSquareSecond (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[54]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMeterPerSquareSecond(double value, int unit) {
+	public BigDecimal toMeterPerSquareSecond (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[55]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecimeterPerSquareSecond(double value, int unit) {
+	public BigDecimal toDecimeterPerSquareSecond (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[56]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toCentimeterPerSquareSecond(double value, int unit) {
+	public BigDecimal toCentimeterPerSquareSecond (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[57]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMillimeterPerSquareSecond(double value, int unit) {
+	public BigDecimal toMillimeterPerSquareSecond (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[58]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toKilometerPerSquareMinute(double value, int unit) {
+	public BigDecimal toKilometerPerSquareMinute (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[59]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toHectometerPerSquareMinute(double value, int unit) {
+	public BigDecimal toHectometerPerSquareMinute (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[60]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecameterPerSquareMinute(double value, int unit) {
+	public BigDecimal toDecameterPerSquareMinute (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[61]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMeterPerSquareMinute(double value, int unit) {
+	public BigDecimal toMeterPerSquareMinute (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[62]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecimeterPerSquareMinute(double value, int unit) {
+	public BigDecimal toDecimeterPerSquareMinute (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[63]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toCentimeterPerSquareMinute(double value, int unit) {
+	public BigDecimal toCentimeterPerSquareMinute (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[64]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMillimeterPerSquareMinute(double value, int unit) {
+	public BigDecimal toMillimeterPerSquareMinute (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[65]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toKilometerPerSquareHour(double value, int unit) {
+	public BigDecimal toKilometerPerSquareHour (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[66]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toHectometerPerSquareHour(double value, int unit) {
+	public BigDecimal toHectometerPerSquareHour (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[67]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecameterPerSquareHour(double value, int unit) {
+	public BigDecimal toDecameterPerSquareHour (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[68]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMeterPerSquareHour(double value, int unit) {
+	public BigDecimal toMeterPerSquareHour (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[69]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecimeterPerSquareHour(double value, int unit) {
+	public BigDecimal toDecimeterPerSquareHour (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[70]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toCentimeterPerSquareHour(double value, int unit) {
+	public BigDecimal toCentimeterPerSquareHour (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[71]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMillimeterPerSquareHour(double value, int unit) {
+	public BigDecimal toMillimeterPerSquareHour (double value, int unit)
+	{
 		if (unit >= 52 && unit <= 72)
 			return BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit]).divide(ACCELERATION_SCALES[72]);
 		return null;
