@@ -3,40 +3,35 @@ package com.gabrielMJr.twaire.physic.kinematics
 
 final class Speed1
 {
-  // This object variable
-  private static Speed1 instance; 
-  
-   // Private constructor to avoid new classe's incence
-  private Speed1(){}
+	// This object variable
+	private static Speed1 instance; 
 
-    protected String speed (
-    double deltaTime, 
-    double acceleration)
+	// Private constructor to avoid new classe's incence
+	private Speed1 ()
+	{}
+
+    protected String speed (double deltaTime, double acceleration)
     {
-    
-      return String.valueOf(deltaTime * acceleration);
+		return String.valueOf(deltaTime * acceleration);
     }
 
     public String speed (
-    double deltaTime,
-    String deltaTimeUnit,
-    double acceleration,
-    String accelerationUnit,
-    String unitOfResult) 
+		double deltaTime,
+		String deltaTimeUnit,
+		double acceleration,
+		String accelerationUnit,
+		String unitOfResult) 
     {
-    
-      return null;
+		return null;
     }
-    
-    
+
     // Get class instance object
-    public static Speed1 getInstance()
+    public static Speed1 getInstance ()
     {
-      if(instance == null)
-      {
-        instance = new Speed1();
-      }
-      
-      return instance;
+		if (instance == null)
+		{
+			instance = new Speed1();
+		}
+		return instance;
     }
 }

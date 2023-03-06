@@ -1,283 +1,287 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+import java.util.Random;
 import org.junit.jupiter.api.Test;
+
+import static com.gabrielMJr.twaire.physic.units.Length.LENGTH_SCALES;
+
+import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.METER;
+import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LengthTest
 {
-  // Distance object
-  private Length length;
-  
-  // Constructir
-  public LengthTest()
-  {
-    // initialize the variable
-    length = Length.getInstance();
-  }
-  
-  // Test conversor from another units to  kilometer
-  @Test 
-  public void toKilometerTest()
-  {
-    // Values to be tested 
-    double kilometerValue = 374.0;
-    double hectometerValue = 826.0;
-    double decameterValue = 628.0;
-    double meterValue = 726.0;
-    double decimeterValue = 688.0;
-    double centimeterValue = 786.0;
-    double millimeterValue = 518.0;
-    
-    // Results
-    double kilometerResult = 374.0;
-    double hectometerResult = 82.60000000000001;
-    double decameterResult = 6.279999999999999;
-    double meterResult = 0.726;
-    double decimeterResult = 0.0688;
-    double centimeterResult = 0.00786;
-    double millimeterResult = 0.000518;
-  
-  // Testing
-    assertEquals(kilometerResult, length.toKilometer(kilometerValue, Length.KILOMETER));
-    
-    assertEquals(hectometerResult, length.toKilometer(hectometerValue, Length.HECTOMETER));
-    
-    assertEquals(decameterResult, length.toKilometer(decameterValue, Length.DECAMETER));
-    
-    assertEquals(meterResult, length.toKilometer(meterValue, Length.METER));
-    
-    assertEquals(decimeterResult, length.toKilometer(decimeterValue, Length.DECIMETER));
-    
-    assertEquals(centimeterResult, length.toKilometer(centimeterValue, Length.CENTIMETER));
-    
-    assertEquals(millimeterResult, length.toKilometer(millimeterValue, Length.MILLIMETER));
-  }
-  
-  
-  // Test converter from another units to  hectometer
-  @Test 
-  public void toHectometerTest()
-  {
-    // Values to be tested 
-    double kilometerValue = 374.0;
-    double hectometerValue = 826.0;
-    double decameterValue = 628.0;
-    double meterValue = 726.0;
-    double decimeterValue = 688.0;
-    double centimeterValue = 786.0;
-    double millimeterValue = 518.0;
-    
-    // Results
-    double kilometerResult = 3740.0;
-    double hectometerResult = 826.0;
-    double decameterResult = 62.8;
-    double meterResult = 7.26;
-    double decimeterResult = 0.688;
-    double centimeterResult = 0.0786;
-    double millimeterResult = 0.00518;
-    
-     assertEquals(kilometerResult, length.toHectometer(kilometerValue, Length.KILOMETER));
-    
-    assertEquals(hectometerResult, length.toHectometer(hectometerValue, Length.HECTOMETER));
-    
-    assertEquals(decameterResult, length.toHectometer(decameterValue, Length.DECAMETER));
-    
-    assertEquals(meterResult, length.toHectometer(meterValue, Length.METER));
-    
-    assertEquals(decimeterResult, length.toHectometer(decimeterValue, Length.DECIMETER));
-    
-    assertEquals(centimeterResult, length.toHectometer(centimeterValue, Length.CENTIMETER));
-    
-    assertEquals(millimeterResult, length.toHectometer(millimeterValue, Length.MILLIMETER));
-  }
-  
-  
-  // Test converter from another units to  decameter
-  @Test 
-  public void toDecameterTest()
-  {
-    // Values to be tested 
-    double kilometerValue = 374.0;
-    double hectometerValue = 826.0;
-    double decameterValue = 628.0;
-    double meterValue = 726.0;
-    double decimeterValue = 688.0;
-    double centimeterValue = 786.0;
-    double millimeterValue = 518.0;
-    
-    // Results
-    double kilometerResult = 37400.0;
-    double hectometerResult = 8260.0;
-    double decameterResult = 628.0;
-    double meterResult = 72.60000000000001;
-    double decimeterResult = 6.88;
-    double centimeterResult = 0.786;
-    double millimeterResult = 0.051800000000000006;
-    
-     assertEquals(kilometerResult, length.toDecameter(kilometerValue, Length.KILOMETER));
-    
-    assertEquals(hectometerResult, length.toDecameter(hectometerValue, Length.HECTOMETER));
-    
-    assertEquals(decameterResult, length.toDecameter(decameterValue, Length.DECAMETER));
-    
-    assertEquals(meterResult, length.toDecameter(meterValue, Length.METER));
-    
-    assertEquals(decimeterResult, length.toDecameter(decimeterValue, Length.DECIMETER));
-    
-    assertEquals(centimeterResult, length.toDecameter(centimeterValue, Length.CENTIMETER));
-    
-    assertEquals(millimeterResult, length.toDecameter(millimeterValue, Length.MILLIMETER));
-  }
-  
-  
-  // Test converter from another units to  meter
-  @Test 
-  public void toMeterTest()
-  {
-    // Values to be tested 
-    double kilometerValue = 374.0;
-    double hectometerValue = 826.0;
-    double decameterValue = 628.0;
-    double meterValue = 726.0;
-    double decimeterValue = 688.0;
-    double centimeterValue = 786.0;
-    double millimeterValue = 518.0;
-    
-    // Results
-    double kilometerResult = 374000.0;
-    double hectometerResult = 82600.0;
-    double decameterResult = 6280.0;
-    double meterResult = 726.0;
-    double decimeterResult = 68.8;
-    double centimeterResult = 7.86;
-    double millimeterResult = 0.518;
-    
-     assertEquals(kilometerResult, length.toMeter(kilometerValue, Length.KILOMETER));
-    
-    assertEquals(hectometerResult, length.toMeter(hectometerValue, Length.HECTOMETER));
-    
-    assertEquals(decameterResult, length.toMeter(decameterValue, Length.DECAMETER));
-    
-    assertEquals(meterResult, length.toMeter(meterValue, Length.METER));
-    
-    assertEquals(decimeterResult, length.toMeter(decimeterValue, Length.DECIMETER));
-    
-    assertEquals(centimeterResult, length.toMeter(centimeterValue, Length.CENTIMETER));
-    
-    assertEquals(millimeterResult, length.toMeter(millimeterValue, Length.MILLIMETER));
-  }
-  
-  
-  // Test converter from another units to  decimeter
-  @Test 
-  public void toDecimeterTest()
-  {
-    // Values to be tested 
-    double kilometerValue = 374.0;
-    double hectometerValue = 826.0;
-    double decameterValue = 628.0;
-    double meterValue = 726.0;
-    double decimeterValue = 688.0;
-    double centimeterValue = 786.0;
-    double millimeterValue = 518.0;
-    
-    // Results
-    double kilometerResult = 3740000.0;
-    double hectometerResult = 826000.0;
-    double decameterResult = 62800.0;
-    double meterResult = 7260.0;
-    double decimeterResult = 688.0;
-    double centimeterResult = 78.6;
-    double millimeterResult = 5.18;
-    
-     assertEquals(kilometerResult, length.toDecimeter(kilometerValue, Length.KILOMETER));
-    
-    assertEquals(hectometerResult, length.toDecimeter(hectometerValue, Length.HECTOMETER));
-    
-    assertEquals(decameterResult, length.toDecimeter(decameterValue, Length.DECAMETER));
-    
-    assertEquals(meterResult, length.toDecimeter(meterValue, Length.METER));
-    
-    assertEquals(decimeterResult, length.toDecimeter(decimeterValue, Length.DECIMETER));
-    
-    assertEquals(centimeterResult, length.toDecimeter(centimeterValue, Length.CENTIMETER));
-    
-    assertEquals(millimeterResult, length.toDecimeter(millimeterValue, Length.MILLIMETER));
-  }
-  
-  
-  // Test converter from another units to  centimeter
-  @Test 
-  public void toCentimeterTest()
-  {
-    // Values to be tested 
-    double kilometerValue = 374.0;
-    double hectometerValue = 826.0;
-    double decameterValue = 628.0;
-    double meterValue = 726.0;
-    double decimeterValue = 688.0;
-    double centimeterValue = 786.0;
-    double millimeterValue = 518.0;
-    
-    // Results
-    double kilometerResult = 37400000.0;
-    double hectometerResult = 8260000.0;
-    double decameterResult = 628000.0;
-    double meterResult = 72600.0;
-    double decimeterResult = 6880.0;
-    double centimeterResult = 786.0;
-    double millimeterResult = 51.8;
-    
-     assertEquals(kilometerResult, length.toCentimeter(kilometerValue, Length.KILOMETER));
-    
-    assertEquals(hectometerResult, length.toCentimeter(hectometerValue, Length.HECTOMETER));
-    
-    assertEquals(decameterResult, length.toCentimeter(decameterValue, Length.DECAMETER));
-    
-    assertEquals(meterResult, length.toCentimeter(meterValue, Length.METER));
-    
-    assertEquals(decimeterResult, length.toCentimeter(decimeterValue, Length.DECIMETER));
-    
-    assertEquals(centimeterResult, length.toCentimeter(centimeterValue, Length.CENTIMETER));
-    
-    assertEquals(millimeterResult, length.toCentimeter(millimeterValue, Length.MILLIMETER));
-  }
-  
-  
-  // Test converter from another units to  millimeter
-  @Test 
-  public void toMillimterTest()
-  {
-    // Values to be tested 
-    double kilometerValue = 374.0;
-    double hectometerValue = 826.0;
-    double decameterValue = 628.0;
-    double meterValue = 726.0;
-    double decimeterValue = 688.0;
-    double centimeterValue = 786.0;
-    double millimeterValue = 518.0;
-    
-    // Results
-    double kilometerResult = 374000000.0;
-    double hectometerResult = 82600000.0;
-    double decameterResult = 6280000.0;
-    double meterResult = 726000.0;
-    double decimeterResult = 68800.0;
-    double centimeterResult = 7860.0;
-    double millimeterResult = 518.0;
-    
-     assertEquals(kilometerResult, length.toMillimeter(kilometerValue, Length.KILOMETER));
-    
-    assertEquals(hectometerResult, length.toMillimeter(hectometerValue, Length.HECTOMETER));
-    
-    assertEquals(decameterResult, length.toMillimeter(decameterValue, Length.DECAMETER));
-    
-    assertEquals(meterResult, length.toMillimeter(meterValue, Length.METER));
-    
-    assertEquals(decimeterResult, length.toMillimeter(decimeterValue, Length.DECIMETER));
-    
-    assertEquals(centimeterResult, length.toMillimeter(centimeterValue, Length.CENTIMETER));
-    
-    assertEquals(millimeterResult, length.toMillimeter(millimeterValue, Length.MILLIMETER));
-  }
+	private final Length length;
+	private final Random random;
+
+	public LengthTest ()
+	{
+		length = Length.getInstance();
+		random = new Random();
+	}
+
+	@Test 
+	public void toKilometerTest ()
+	{
+		double kilometerValue = getRandomDouble();
+		double hectometerValue = getRandomDouble();
+		double decameterValue = getRandomDouble();
+		double meterValue = getRandomDouble();
+		double decimeterValue = getRandomDouble();
+		double centimeterValue = getRandomDouble();
+	    double millimeterValue = getRandomDouble();
+
+		BigDecimal kilometerTestResult = BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[KILOMETER]);
+		BigDecimal hectometerTestResult = BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[KILOMETER]);
+		BigDecimal decameterTestResult = BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[KILOMETER]);
+		BigDecimal meterTestResult = BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[KILOMETER]);
+		BigDecimal decimeterTestResult = BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[KILOMETER]);
+        BigDecimal centimeterTestResult = BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[KILOMETER]);
+		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[KILOMETER]);
+
+		BigDecimal squareKilometerResult = length.toKilometer(kilometerValue, KILOMETER);
+		BigDecimal squareHectometerResult = length.toKilometer(hectometerValue, HECTOMETER);
+		BigDecimal squareDecameterResult = length.toKilometer(decameterValue, DECAMETER);
+		BigDecimal squareMeterResult = length.toKilometer(meterValue, METER);
+	    BigDecimal squareDecimeterResult = length.toKilometer(decimeterValue, DECIMETER);
+		BigDecimal squareCentimeterResult = length.toKilometer(centimeterValue, CENTIMETER);
+		BigDecimal squareMillimeterResult = length.toKilometer(millimeterValue, MILLIMETER);
+
+		assertEquals(kilometerTestResult, squareKilometerResult);
+		assertEquals(hectometerTestResult, squareHectometerResult);
+		assertEquals(decameterTestResult, squareDecameterResult);
+		assertEquals(meterTestResult, squareMeterResult);
+		assertEquals(decimeterTestResult, squareDecimeterResult);
+		assertEquals(centimeterTestResult, squareCentimeterResult);
+		assertEquals(millimeterTestResult, squareMillimeterResult);
+	}
+
+	@Test 
+	public void toHectometerTest ()
+	{
+		double kilometerValue = getRandomDouble();
+		double hectometerValue = getRandomDouble();
+		double decameterValue = getRandomDouble();
+		double meterValue = getRandomDouble();
+		double decimeterValue = getRandomDouble();
+		double centimeterValue = getRandomDouble();
+		double millimeterValue = getRandomDouble();
+
+		BigDecimal kilometerTestResult = BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[HECTOMETER]);
+		BigDecimal hectometerTestResult = BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[HECTOMETER]);
+		BigDecimal decameterTestResult = BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[HECTOMETER]);
+		BigDecimal meterTestResult = BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[HECTOMETER]);
+		BigDecimal decimeterTestResult = BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[HECTOMETER]);
+        BigDecimal centimeterTestResult = BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[HECTOMETER]);
+		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[HECTOMETER]);
+
+		BigDecimal squareKilometerResult = length.toHectometer(kilometerValue, KILOMETER);
+		BigDecimal squareHectometerResult = length.toHectometer(hectometerValue, HECTOMETER);
+		BigDecimal squareDecameterResult = length.toHectometer(decameterValue, DECAMETER);
+		BigDecimal squareMeterResult = length.toHectometer(meterValue, METER);
+	    BigDecimal squareDecimeterResult = length.toHectometer(decimeterValue, DECIMETER);
+		BigDecimal squareCentimeterResult = length.toHectometer(centimeterValue, CENTIMETER);
+		BigDecimal squareMillimeterResult = length.toHectometer(millimeterValue, MILLIMETER);
+
+		assertEquals(kilometerTestResult, squareKilometerResult);
+		assertEquals(hectometerTestResult, squareHectometerResult);
+		assertEquals(decameterTestResult, squareDecameterResult);
+		assertEquals(meterTestResult, squareMeterResult);
+		assertEquals(decimeterTestResult, squareDecimeterResult);
+		assertEquals(centimeterTestResult, squareCentimeterResult);
+		assertEquals(millimeterTestResult, squareMillimeterResult);
+	}
+
+	@Test 
+	public void toDecameterTest ()
+	{
+		double kilometerValue = getRandomDouble();
+		double hectometerValue = getRandomDouble();
+		double decameterValue = getRandomDouble();
+		double meterValue = getRandomDouble();
+		double decimeterValue = getRandomDouble();
+		double centimeterValue = getRandomDouble();
+		double millimeterValue = getRandomDouble();
+
+		BigDecimal kilometerTestResult = BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[DECAMETER]);
+		BigDecimal hectometerTestResult = BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[DECAMETER]);
+		BigDecimal decameterTestResult = BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[DECAMETER]);
+		BigDecimal meterTestResult = BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[DECAMETER]);
+		BigDecimal decimeterTestResult = BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[DECAMETER]);
+        BigDecimal centimeterTestResult = BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[DECAMETER]);
+		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[DECAMETER]);
+
+		BigDecimal squareKilometerResult = length.toDecameter(kilometerValue, KILOMETER);
+		BigDecimal squareHectometerResult = length.toDecameter(hectometerValue, HECTOMETER);
+		BigDecimal squareDecameterResult = length.toDecameter(decameterValue, DECAMETER);
+		BigDecimal squareMeterResult = length.toDecameter(meterValue, METER);
+	    BigDecimal squareDecimeterResult = length.toDecameter(decimeterValue, DECIMETER);
+		BigDecimal squareCentimeterResult = length.toDecameter(centimeterValue, CENTIMETER);
+		BigDecimal squareMillimeterResult = length.toDecameter(millimeterValue, MILLIMETER);
+
+		assertEquals(kilometerTestResult, squareKilometerResult);
+		assertEquals(hectometerTestResult, squareHectometerResult);
+		assertEquals(decameterTestResult, squareDecameterResult);
+		assertEquals(meterTestResult, squareMeterResult);
+		assertEquals(decimeterTestResult, squareDecimeterResult);
+		assertEquals(centimeterTestResult, squareCentimeterResult);
+		assertEquals(millimeterTestResult, squareMillimeterResult);
+	}
+
+	@Test 
+	public void toMeterTest ()
+	{
+		double kilometerValue = getRandomDouble();
+		double hectometerValue = getRandomDouble();
+		double decameterValue = getRandomDouble();
+		double meterValue = getRandomDouble();
+		double decimeterValue = getRandomDouble();
+		double centimeterValue = getRandomDouble();
+		double millimeterValue = getRandomDouble();
+
+		BigDecimal kilometerTestResult = BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[METER]);
+		BigDecimal hectometerTestResult = BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[METER]);
+		BigDecimal decameterTestResult = BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[METER]);
+		BigDecimal meterTestResult = BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[METER]);
+		BigDecimal decimeterTestResult = BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[METER]);
+        BigDecimal centimeterTestResult = BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[METER]);
+		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[METER]);
+
+		BigDecimal squareKilometerResult = length.toMeter(kilometerValue, KILOMETER);
+		BigDecimal squareHectometerResult = length.toMeter(hectometerValue, HECTOMETER);
+		BigDecimal squareDecameterResult = length.toMeter(decameterValue, DECAMETER);
+		BigDecimal squareMeterResult = length.toMeter(meterValue, METER);
+	    BigDecimal squareDecimeterResult = length.toMeter(decimeterValue, DECIMETER);
+		BigDecimal squareCentimeterResult = length.toMeter(centimeterValue, CENTIMETER);
+		BigDecimal squareMillimeterResult = length.toMeter(millimeterValue, MILLIMETER);
+
+		assertEquals(kilometerTestResult, squareKilometerResult);
+		assertEquals(hectometerTestResult, squareHectometerResult);
+		assertEquals(decameterTestResult, squareDecameterResult);
+		assertEquals(meterTestResult, squareMeterResult);
+		assertEquals(decimeterTestResult, squareDecimeterResult);
+		assertEquals(centimeterTestResult, squareCentimeterResult);
+		assertEquals(millimeterTestResult, squareMillimeterResult);
+	}
+
+	@Test 
+	public void toDecimeterTest ()
+	{
+		double kilometerValue = getRandomDouble();
+		double hectometerValue = getRandomDouble();
+		double decameterValue = getRandomDouble();
+		double meterValue = getRandomDouble();
+		double decimeterValue = getRandomDouble();
+		double centimeterValue = getRandomDouble();
+		double millimeterValue = getRandomDouble();
+
+		BigDecimal kilometerTestResult = BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[DECIMETER]);
+		BigDecimal hectometerTestResult = BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[DECIMETER]);
+		BigDecimal decameterTestResult = BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[DECIMETER]);
+		BigDecimal meterTestResult = BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[DECIMETER]);
+		BigDecimal decimeterTestResult = BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[DECIMETER]);
+        BigDecimal centimeterTestResult = BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[DECIMETER]);
+		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[DECIMETER]);
+
+		BigDecimal squareKilometerResult = length.toDecimeter(kilometerValue, KILOMETER);
+		BigDecimal squareHectometerResult = length.toDecimeter(hectometerValue, HECTOMETER);
+		BigDecimal squareDecameterResult = length.toDecimeter(decameterValue, DECAMETER);
+		BigDecimal squareMeterResult = length.toDecimeter(meterValue, METER);
+	    BigDecimal squareDecimeterResult = length.toDecimeter(decimeterValue, DECIMETER);
+		BigDecimal squareCentimeterResult = length.toDecimeter(centimeterValue, CENTIMETER);
+		BigDecimal squareMillimeterResult = length.toDecimeter(millimeterValue, MILLIMETER);
+
+		assertEquals(kilometerTestResult, squareKilometerResult);
+		assertEquals(hectometerTestResult, squareHectometerResult);
+		assertEquals(decameterTestResult, squareDecameterResult);
+		assertEquals(meterTestResult, squareMeterResult);
+		assertEquals(decimeterTestResult, squareDecimeterResult);
+		assertEquals(centimeterTestResult, squareCentimeterResult);
+		assertEquals(millimeterTestResult, squareMillimeterResult);
+	}
+
+	@Test 
+	public void toCentimeterTest ()
+	{
+		double kilometerValue = getRandomDouble();
+		double hectometerValue = getRandomDouble();
+		double decameterValue = getRandomDouble();
+		double meterValue = getRandomDouble();
+		double decimeterValue = getRandomDouble();
+		double centimeterValue = getRandomDouble();
+		double millimeterValue = getRandomDouble();
+
+		BigDecimal kilometerTestResult = BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[CENTIMETER]);
+		BigDecimal hectometerTestResult = BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[CENTIMETER]);
+		BigDecimal decameterTestResult = BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[CENTIMETER]);
+		BigDecimal meterTestResult = BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[CENTIMETER]);
+		BigDecimal decimeterTestResult = BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[CENTIMETER]);
+        BigDecimal centimeterTestResult = BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[CENTIMETER]);
+		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[CENTIMETER]);
+
+		BigDecimal squareKilometerResult = length.toCentimeter(kilometerValue, KILOMETER);
+		BigDecimal squareHectometerResult = length.toCentimeter(hectometerValue, HECTOMETER);
+		BigDecimal squareDecameterResult = length.toCentimeter(decameterValue, DECAMETER);
+		BigDecimal squareMeterResult = length.toCentimeter(meterValue, METER);
+	    BigDecimal squareDecimeterResult = length.toCentimeter(decimeterValue, DECIMETER);
+		BigDecimal squareCentimeterResult = length.toCentimeter(centimeterValue, CENTIMETER);
+		BigDecimal squareMillimeterResult = length.toCentimeter(millimeterValue, MILLIMETER);
+
+		assertEquals(kilometerTestResult, squareKilometerResult);
+		assertEquals(hectometerTestResult, squareHectometerResult);
+		assertEquals(decameterTestResult, squareDecameterResult);
+		assertEquals(meterTestResult, squareMeterResult);
+		assertEquals(decimeterTestResult, squareDecimeterResult);
+		assertEquals(centimeterTestResult, squareCentimeterResult);
+		assertEquals(millimeterTestResult, squareMillimeterResult);
+	}
+
+	@Test 
+	public void toMillimeterTest ()
+	{
+		double kilometerValue = getRandomDouble();
+		double hectometerValue = getRandomDouble();
+		double decameterValue = getRandomDouble();
+		double meterValue = getRandomDouble();
+		double decimeterValue = getRandomDouble();
+		double centimeterValue = getRandomDouble();
+		double millimeterValue = getRandomDouble();
+
+		BigDecimal kilometerTestResult = BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[MILLIMETER]);
+		BigDecimal hectometerTestResult = BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[MILLIMETER]);
+		BigDecimal decameterTestResult = BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[MILLIMETER]);
+		BigDecimal meterTestResult = BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[MILLIMETER]);
+		BigDecimal decimeterTestResult = BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[MILLIMETER]);
+        BigDecimal centimeterTestResult = BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[MILLIMETER]);
+		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[MILLIMETER]);
+
+		BigDecimal squareKilometerResult = length.toMillimeter(kilometerValue, KILOMETER);
+		BigDecimal squareHectometerResult = length.toMillimeter(hectometerValue, HECTOMETER);
+		BigDecimal squareDecameterResult = length.toMillimeter(decameterValue, DECAMETER);
+		BigDecimal squareMeterResult = length.toMillimeter(meterValue, METER);
+	    BigDecimal squareDecimeterResult = length.toMillimeter(decimeterValue, DECIMETER);
+		BigDecimal squareCentimeterResult = length.toMillimeter(centimeterValue, CENTIMETER);
+		BigDecimal squareMillimeterResult = length.toMillimeter(millimeterValue, MILLIMETER);
+
+		assertEquals(kilometerTestResult, squareKilometerResult);
+		assertEquals(hectometerTestResult, squareHectometerResult);
+		assertEquals(decameterTestResult, squareDecameterResult);
+		assertEquals(meterTestResult, squareMeterResult);
+		assertEquals(decimeterTestResult, squareDecimeterResult);
+		assertEquals(centimeterTestResult, squareCentimeterResult);
+		assertEquals(millimeterTestResult, squareMillimeterResult);
+	}
+
+	private double getRandomDouble ()
+	{
+		return random.nextDouble() * 100;
+	}
 }

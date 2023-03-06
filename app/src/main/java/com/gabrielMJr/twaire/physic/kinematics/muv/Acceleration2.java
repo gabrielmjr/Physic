@@ -4,59 +4,58 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Acceleration2 
 {
-  // This object variable
-  private static Acceleration2 instance; 
-  
-   // Private constructor to avoid new classe's incence
-  private Acceleration2(){}
+	// This object variable
+	private static Acceleration2 instance; 
 
-  protected String acceleration(
-       double deltaSpeed,
-       double initialTime,
-       double finalTime,
-       int stepOrResult) {
-       
-    double step1 = finalTime - initialTime;
-    double step2 = deltaSpeed / step1;
-    String res = "a = (";
+	// Private constructor to avoid new classe's incence
+	private Acceleration2 ()
+	{}
 
-    if (stepOrResult == Physic.GET_STEP) {
-    
-      res += deltaSpeed
-           + "m/s) ÷ ("
-           + finalTime
-           + " s - "
-           + initialTime
-           + "s)"
-           + "\na = ("
-           + deltaSpeed
-           + "m/s) ÷ ("
-           + step1
-           + "s)"
-           + "\n"
-           + "a = "
-           + step2
-           + "m/s²";
-           
-       return res;
-       
-    } else if (stepOrResult == Physic.GET_RESULT) {
-      return String.valueOf((deltaSpeed) / (finalTime - initialTime));
-      
-    } else {
-      return "Error 404: fourth parameter not found.";
-    }
-  }
-  
-  
-  // Get class instance object
-    public static Acceleration2 getInstance()
+	protected String acceleration (
+		double deltaSpeed,
+		double initialTime,
+		double finalTime,
+		int stepOrResult)
+	{
+		double step1 = finalTime - initialTime;
+		double step2 = deltaSpeed / step1;
+		String res = "a = (";
+		if (stepOrResult == Physic.GET_STEP)
+		{
+			res += deltaSpeed
+				+ "m/s) ÷ ("
+				+ finalTime
+				+ " s - "
+				+ initialTime
+				+ "s)"
+				+ "\na = ("
+				+ deltaSpeed
+				+ "m/s) ÷ ("
+				+ step1
+				+ "s)"
+				+ "\n"
+				+ "a = "
+				+ step2
+				+ "m/s²";
+			return res;
+		}
+		else if (stepOrResult == Physic.GET_RESULT)
+		{
+			return String.valueOf((deltaSpeed) / (finalTime - initialTime));
+		}
+		else
+		{
+			return "Error 404: fourth parameter not found.";
+		}
+	}
+
+	// Get class instance object
+    public static Acceleration2 getInstance ()
     {
-      if(instance == null)
-      {
-        instance = new Acceleration2();
-      }
-      
-      return instance;
+		if (instance == null)
+		{
+			instance = new Acceleration2();
+		}
+		return instance;
     }
 }

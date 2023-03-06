@@ -1,116 +1,98 @@
 package com.gabrielMJr.twaire.physic.units;
 
-import com.gabrielMJr.twaire.physic.Physic;
-import com.gabrielMJr.twaire.physic.units.LengthIF;
+import java.math.BigDecimal;
 
 public class Length implements LengthIF
 {
-  // This object variable
-  private static Length instance; 
-  
-  Physic physic = new Physic();
+	private static Length instance;
 
-  // Those constants were used to tell to the program the unit that must use to calculate something
-  // Also used to tell the unit from the variables as parameter
-  
-  public static final String KILOMETER = "0.001";
-  public static final String HECTOMETER = "0.01";
-  public static final String DECAMETER = "0.1";
-  public static final String METER = "1";
-  public static final String DECIMETER = "10";
-  public static final String CENTIMETER = "100";
-  public static final String MILLIMETER = "1000";
-  
-    // Symbols of those constants
-  public static final String KILOMETER_SYMBOL = "km";
-  public static final String HECTOMETER_SYMBOL = "hm";
-  public static final String DECAMETER_SYMBOL = "dam";
-  public static final String METER_SYMBOL = "m";
-  public static final String DECIMETER_SYMBOL = "dm";
-  public static final String CENTIMETER_SYMBOL = "cm";
-  public static final String MILLIMETER_SYMBOL= "mm";
-  
-  
-  // Convert from another units to kilometer
-  @Override
-  public double toKilometer (
-    double value,
-    String unit)  
+	public static final int KILOMETER = 0;
+	public static final int HECTOMETER = 1;
+	public static final int DECAMETER = 2;
+	public static final int METER = 3;
+	public static final int DECIMETER = 4;
+	public static final int CENTIMETER = 5;
+	public static final int MILLIMETER = 6;
+
+	protected static final BigDecimal[] LENGTH_SCALES = new BigDecimal[]
+	{
+		BigDecimal.valueOf(0.001),
+		BigDecimal.valueOf(0.01),
+		BigDecimal.valueOf(0.1),
+		BigDecimal.valueOf(1.0),
+		BigDecimal.valueOf(10),
+		BigDecimal.valueOf(100),
+		BigDecimal.valueOf(1000)
+	};
+
+	public static final String KILOMETER_SYMBOL = "km";
+	public static final String HECTOMETER_SYMBOL = "hm";
+	public static final String DECAMETER_SYMBOL = "dam";
+	public static final String METER_SYMBOL = "m";
+	public static final String DECIMETER_SYMBOL = "dm";
+	public static final String CENTIMETER_SYMBOL = "cm";
+	public static final String MILLIMETER_SYMBOL= "mm";
+
+	@Override
+	public BigDecimal toKilometer (double value, int unit)  
     {
-      double res = (value * Double.valueOf(KILOMETER)) /
-      Double.valueOf (unit);
-      return res;
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER]);
+		return null;
     }
-    
-  // Convert from another units to hectometer
-  @Override
-  public double toHectometer (
-    double value,
-    String unit)
+
+	@Override
+	public BigDecimal toHectometer (double value, int unit)
     {
-      double res = (value * Double.valueOf (HECTOMETER)) / Double.valueOf (unit);
-      return res;
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER]);
+		return null;
     }
-    
-      // Convert from another units to decameter
-  @Override
-  public double toDecameter (
-    double value,
-    String unit)
+
+	@Override
+	public BigDecimal toDecameter (double value, int unit)
     {
-      double res = (value * Double.valueOf (DECAMETER)) / Double.valueOf (unit);
-      return res;
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER]);
+		return null;
     }
-    
-      // Convert from another units to meter
-  @Override
-  public double toMeter (
-    double value,
-    String unit)
+
+	@Override
+	public BigDecimal toMeter (double value, int unit)
     {
-      double res = (value * Double.valueOf (METER)) / Double.valueOf (unit);
-      return res;
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER]);
+		return null;
     }
-    
-      // Convert from another units to decimeter
-  @Override
-  public double toDecimeter (
-    double value,
-    String unit)
+
+	@Override
+	public BigDecimal toDecimeter (double value, int unit)
     {
-      double res = (value * Double.valueOf (DECIMETER)) / Double.valueOf (unit);
-      return res;
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER]);
+		return null;
     }
-    
-      // Convert from another units to centimeter
-  @Override
-  public double toCentimeter (
-    double value,
-    String unit)
+
+	@Override
+	public BigDecimal toCentimeter (double value, int unit)
     {
-      double res = (value * Double.valueOf (CENTIMETER)) / Double.valueOf (unit);
-      return res;
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER]);
+		return null;
     }
-    
-      // Convert from another units to hectometer
-  @Override
-  public double toMillimeter (
-    double value,
-    String unit)
+
+	@Override
+	public BigDecimal toMillimeter (double value, int unit)
     {
-      double res = (value * Double.valueOf (MILLIMETER)) / Double.valueOf (unit);
-      return res;
-    }
-    
-    
-    // Get class instance object
-    protected static Length getInstance()
+		if (unit >= 0 && unit <= 6)
+			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER]);
+		return null;
+	}
+
+    protected static Length getInstance ()
     {
-      if(instance == null)
-      {
-        instance = new Length();
-      }
-      
-      return instance;
+		if (!(instance instanceof Length))
+			instance = new Length();
+		return instance;
     }
 }

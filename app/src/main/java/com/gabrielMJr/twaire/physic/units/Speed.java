@@ -1,319 +1,294 @@
 package com.gabrielMJr.twaire.physic.units;
 
+import java.math.BigDecimal;
+
+import static com.gabrielMJr.twaire.physic.units.Length.LENGTH_SCALES;
+import static com.gabrielMJr.twaire.physic.units.Time.TIME_SCALES;
+
+import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.METER;
+import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER;
+import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER;
+
+import static com.gabrielMJr.twaire.physic.units.Time.SECOND;
+import static com.gabrielMJr.twaire.physic.units.Time.MINUTE;
+import static com.gabrielMJr.twaire.physic.units.Time.HOUR;
+
+import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.METER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER_SYMBOL;
+
+import static com.gabrielMJr.twaire.physic.units.Time.SECOND_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Time.MINUTE_SYMBOL;
+import static com.gabrielMJr.twaire.physic.units.Time.HOUR_SYMBOL;
 
 public class Speed implements SpeedIF
 {
-  // This object variable
-  private static Speed instance; 
+	private static Speed instance; 
 
-  private final Length length = new Length();
-  private final Time time = new Time();
+	private final Length length;
+	private final Time time;
 
-  // Those constants were used to tell to the program the unit that must use to calculate something
-  // Also used to tell the unit from the variables as parameter
-  // For length per second
-  public static final String KILOMETER_PER_SECOND = "0.001/1";
-  public static final String HECTOMETER_PER_SECOND = "0.01/1";
-  public static final String DECAMETER_PER_SECOND = "0.1/1";
-  public static final String METER_PER_SECOND = "1/1";
-  public static final String DECIMETER_PER_SECOND = "10/1";
-  public static final String CENTIMETER_PER_SECOND = "100/1";
-  public static final String MILLIMETER_PER_SECOND = "1000/1";
-  
-  // length per minute
-  public static final String KILOMETER_PER_MINUTE = "0.001/0.016666666666666666";
-  public static final String HECTOMETER_PER_MINUTE = "0.01/0.016666666666666666";
-  public static final String DECAMETER_PER_MINUTE = "0.1/0.016666666666666666";
-  public static final String METER_PER_MINUTE = "1/0.016666666666666666";
-  public static final String DECIMETER_PER_MINUTE = "10/0.016666666666666666";
-  public static final String CENTIMETER_PER_MINUTE = "100/0.016666666666666666";
-  public static final String MILLIMETER_PER_MINUTE = "1000/0.016666666666666666";
-  
-  // length per hour
-  public static final String KILOMETER_PER_HOUR = "0.001/0.0002777777777777778";
-  public static final String HECTOMETER_PER_HOUR = "0.01/0.0002777777777777778";
-  public static final String DECAMETER_PER_HOUR = "0.1/0.0002777777777777778";
-  public static final String METER_PER_HOUR = "1/0.0002777777777777778";
-  public static final String DECIMETER_PER_HOUR = "10/0.0002777777777777778";
-  public static final String CENTIMETER_PER_HOUR = "100/0.0002777777777777778";
-  public static final String MILLIMETER_PER_HOUR = "1000/0.0002777777777777778";
-  
-  // Symbols 
-  public static final String KILOMETER_PER_SECOND_SYMBOL = "km/s";
-  public static final String HECTOMETER_PER_SECOND_SYMBOL = "hm/s";
-  public static final String DECAMETER_PER_SECOND_SYMBOL = "dam/s";
-  public static final String METER_PER_SECOND_SYMBOL = "m/s";
-  public static final String DECIMETER_PER_SECOND_SYMBOL = "dm/s";
-  public static final String CENTIMETER_PER_SECOND_SYMBOL = "cm/s";
-  public static final String MILLIMETER_PER_SECOND_SYMBOL = "mm/s";
-  
-  // length per minute
-  public static final String KILOMETER_PER_MINUTE_SYMBOL = "km/min";
-  public static final String HECTOMETER_PER_MINUTE_SYMBOL = "hm/min";
-  public static final String DECAMETER_PER_MINUTE_SYMBOL = "dam/min";
-  public static final String METER_PER_MINUTE_SYMBOL = "m/min";
-  public static final String DECIMETER_PER_MINUTE_SYMBOL = "dm/min";
-  public static final String CENTIMETER_PER_MINUTE_SYMBOL = "cm/min";
-  public static final String MILLIMETER_PER_MINUTE_SYMBOL = "mm/min";
-  
-  // length per hour
-  public static final String KILOMETER_PER_HOUR_SYMBOL = "hm/h";
-  public static final String HECTOMETER_PER_HOUR_SYMBOL = "hm/h";
-  public static final String DECAMETER_PER_HOUR_SYMBOL = "dam/h";
-  public static final String METER_PER_HOUR_SYMBOL = "m/h";
-  public static final String DECIMETER_PER_HOUR_SYMBOL = "dm/h";
-  public static final String CENTIMETER_PER_HOUR_SYMBOL = "cm/h";
-  public static final String MILLIMETER_PER_HOUR_SYMBOL = "mm/h";
-  
-  
-  // Converter
-  // From anothers to second
-  // From anothers to kilometer
-  @Override
-  public Double toKilometerPerSecond(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toKilometer(value, units[0]);
-    Double new_time = time.toSecond(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to hectometer
-  @Override
-  public Double toHectometerPerSecond(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toHectometer(value, units[0]);
-    Double new_time = time.toSecond(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to decameter
-  @Override
-  public Double toDecameterPerSecond(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toDecameter(value, units[0]);
-    Double new_time = time.toSecond(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to meter
-  @Override
-  public Double toMeterPerSecond(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toMeter(value, units[0]);
-    Double new_time = time.toSecond(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to decimeter
-  @Override
-  public Double toDecimeterPerSecond(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toDecimeter(value, units[0]);
-    Double new_time = time.toSecond(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to centimeter
-  @Override
-  public Double toCentimeterPerSecond(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toCentimeter(value, units[0]);
-    Double new_time = time.toSecond(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to millimeter
-  @Override
-  public Double toMillimeterPerSecond(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toMillimeter(value, units[0]);
-    Double new_time = time.toSecond(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  
-  
-  // From anothers to minute
-  // From anothers to kilometer
-  @Override
-  public Double toKilometerPerMinute(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toKilometer(value, units[0]);
-    Double new_time = time.toMinute(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to hectometer
-  @Override
-  public Double toHectometerPerMinute(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toHectometer(value, units[0]);
-    Double new_time = time.toMinute(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to decameter
-  @Override
-  public Double toDecameterPerMinute(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toDecameter(value, units[0]);
-    Double new_time = time.toMinute(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to meter
-  @Override
-  public Double toMeterPerMinute(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toMeter(value, units[0]);
-    Double new_time = time.toMinute(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to decimeter
-  @Override
-  public Double toDecimeterPerMinute(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toDecimeter(value, units[0]);
-    Double new_time = time.toMinute(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to centimeter
-  @Override
-  public Double toCentimeterPerMinute(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toCentimeter(value, units[0]);
-    Double new_time = time.toMinute(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to millimeter
-  @Override
-  public Double toMillimeterPerMinute(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toMillimeter(value, units[0]);
-    Double new_time = time.toMinute(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  
-  
-  // From anothers to hour
-  // From anothers to kilometer
-  @Override
-  public Double toKilometerPerHour(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toKilometer(value, units[0]);
-    Double new_time = time.toHour(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to hectometer
-  @Override
-  public Double toHectometerPerHour(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toHectometer(value, units[0]);
-    Double new_time = time.toHour(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to decameter
-  @Override
-  public Double toDecameterPerHour(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toDecameter(value, units[0]);
-    Double new_time = time.toHour(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to meter
-  @Override
-  public Double toMeterPerHour(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toMeter(value, units[0]);
-    Double new_time = time.toHour(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to decimeter
-  @Override
-  public Double toDecimeterPerHour(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toDecimeter(value, units[0]);
-    Double new_time = time.toHour(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to centimeter
-  @Override
-  public Double toCentimeterPerHour(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toCentimeter(value, units[0]);
-    Double new_time = time.toHour(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  // From anothers to millimeter
-  @Override
-  public Double toMillimeterPerHour(double value, String unit)
-  {
-    String[] units = unit.split("/");
-    
-    Double new_length = length.toMillimeter(value, units[0]);
-    Double new_time = time.toHour(1.0, units[1]);
-    return new_length / new_time;
-  }
-  
-  
-  // Get class instance object
-  protected static Speed getInstance()
-  {
-    if(instance == null)
-    {
-      instance = new Speed();
-    }
-    
-    return instance;
-  }
+	public static final int KILOMETER_PER_SECOND = 31;
+	public static final int HECTOMETER_PER_SECOND = 32;
+	public static final int DECAMETER_PER_SECOND = 33;
+	public static final int METER_PER_SECOND = 34;
+	public static final int DECIMETER_PER_SECOND = 35;
+	public static final int CENTIMETER_PER_SECOND = 36;
+	public static final int MILLIMETER_PER_SECOND = 37;
+
+	public static final int KILOMETER_PER_MINUTE = 38;
+	public static final int HECTOMETER_PER_MINUTE = 39;
+	public static final int DECAMETER_PER_MINUTE = 40;
+	public static final int METER_PER_MINUTE = 41;
+	public static final int DECIMETER_PER_MINUTE = 42;
+	public static final int CENTIMETER_PER_MINUTE = 43;
+	public static final int MILLIMETER_PER_MINUTE = 44;
+
+	public static final int KILOMETER_PER_HOUR = 45;
+	public static final int HECTOMETER_PER_HOUR = 46;
+	public static final int DECAMETER_PER_HOUR = 47;
+	public static final int METER_PER_HOUR = 48;
+	public static final int DECIMETER_PER_HOUR = 39;
+	public static final int CENTIMETER_PER_HOUR = 50;
+	public static final int MILLIMETER_PER_HOUR = 51;
+
+	protected final BigDecimal[] SPEED_SCALES = new BigDecimal[]
+	{
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[SECOND]),
+
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[MINUTE]),
+
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[HOUR]),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[HOUR])
+	};
+	
+	public static final String KILOMETER_PER_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SECOND_SYMBOL;
+	public static final String HECTOMETER_PER_SECOND_SYMBOL = HECTOMETER_SYMBOL + "/" + SECOND_SYMBOL;
+	public static final String DECAMETER_PER_SECOND_SYMBOL = DECAMETER_SYMBOL + "/" + SECOND_SYMBOL;
+	public static final String METER_PER_SECOND_SYMBOL = METER_SYMBOL + "/" + SECOND_SYMBOL;
+	public static final String DECIMETER_PER_SECOND_SYMBOL = DECIMETER_SYMBOL + "/" + SECOND_SYMBOL;
+	public static final String CENTIMETER_PER_SECOND_SYMBOL = CENTIMETER_SYMBOL + "/" + SECOND_SYMBOL;
+	public static final String MILLIMETER_PER_SECOND_SYMBOL = MILLIMETER_SYMBOL + "/" + SECOND_SYMBOL;
+
+	public static final String KILOMETER_PER_MINUTE_SYMBOL = KILOMETER_SYMBOL + "/" + MINUTE_SYMBOL;
+	public static final String HECTOMETER_PER_MINUTE_SYMBOL = HECTOMETER_SYMBOL + "/" + MINUTE_SYMBOL;
+	public static final String DECAMETER_PER_MINUTE_SYMBOL = DECAMETER_SYMBOL + "/" + MINUTE_SYMBOL;
+	public static final String METER_PER_MINUTE_SYMBOL = METER_SYMBOL + "/" + MINUTE_SYMBOL;
+	public static final String DECIMETER_PER_MINUTE_SYMBOL = DECIMETER_SYMBOL + "/" + MINUTE_SYMBOL;
+	public static final String CENTIMETER_PER_MINUTE_SYMBOL = CENTIMETER_SYMBOL + "/" + MINUTE_SYMBOL;
+	public static final String MILLIMETER_PER_MINUTE_SYMBOL = MILLIMETER_SYMBOL + "/" + MINUTE_SYMBOL;
+
+	public static final String KILOMETER_PER_HOUR_SYMBOL = KILOMETER_SYMBOL + "/" + HOUR_SYMBOL;
+	public static final String HECTOMETER_PER_HOUR_SYMBOL = HECTOMETER_SYMBOL + "/" + HOUR_SYMBOL;
+	public static final String DECAMETER_PER_HOUR_SYMBOL = DECAMETER_SYMBOL + "/" + HOUR_SYMBOL;
+	public static final String METER_PER_HOUR_SYMBOL = METER_SYMBOL + "/" + HOUR_SYMBOL;
+	public static final String DECIMETER_PER_HOUR_SYMBOL = DECIMETER_SYMBOL + "/" + HOUR_SYMBOL;
+	public static final String CENTIMETER_PER_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + HOUR_SYMBOL;
+	public static final String MILLIMETER_PER_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + HOUR_SYMBOL;
+
+	public Speed ()
+	{
+		length = Length.getInstance();
+		time = Time.getInstance();
+	}
+
+	@Override
+	public BigDecimal toKilometerPerSecond (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_SECOND - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toHectometerPerSecond (double value, int unit)
+	{
+	    if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_SECOND - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toDecameterPerSecond (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_SECOND - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toMeterPerSecond (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_SECOND - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toDecimeterPerSecond (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_SECOND - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toCentimeterPerSecond (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_SECOND - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toMillimeterPerSecond (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_SECOND - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toKilometerPerMinute (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_MINUTE - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toHectometerPerMinute (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_MINUTE - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toDecameterPerMinute (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_MINUTE - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toMeterPerMinute (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_MINUTE - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toDecimeterPerMinute (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toCentimeterPerMinute (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_MINUTE - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toMillimeterPerMinute (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_MINUTE - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toKilometerPerHour (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_HOUR - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toHectometerPerHour (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_HOUR - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toDecameterPerHour (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_HOUR - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toMeterPerHour (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_HOUR - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toDecimeterPerHour (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_HOUR - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toCentimeterPerHour (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_HOUR - 31]);
+		return null;
+	}
+
+	@Override
+	public BigDecimal toMillimeterPerHour (double value, int unit)
+	{
+		if (unit >= 31 && unit <= 51)
+			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_HOUR - 31]);
+		return null;
+	}
+
+	protected static Speed getInstance ()
+	{
+		if (!(instance instanceof Speed))
+		    instance = new Speed();
+		return instance;
+	}
 }

@@ -1,17 +1,14 @@
 package com.gabrielMJr.twaire.physic.units;
 
-public interface LengthIF {
-  public abstract double toKilometer(double value, String unit);
+import java.math.BigDecimal;
 
-  public abstract double toHectometer(double value, String unit);
-  
-  public abstract double toDecameter(double value, String unit);
-  
-  public abstract double toMeter(double value, String unit);
-  
-  public abstract double toDecimeter(double value, String unit);
-  
-  public abstract double toCentimeter(double value, String unit);
-  
-  public abstract double toMillimeter(double value, String unit);
+public interface LengthIF
+{
+	public abstract BigDecimal toKilometer(double value, int unit);
+	public abstract BigDecimal toHectometer(double value, int unit);
+	public abstract BigDecimal toDecameter(double value, int unit);
+	public abstract BigDecimal toMeter(double value, int unit);
+	public abstract BigDecimal toDecimeter(double value, int unit);
+	public abstract BigDecimal toCentimeter(double value, int unit);
+	public abstract BigDecimal toMillimeter(double value, int unit);
 }
