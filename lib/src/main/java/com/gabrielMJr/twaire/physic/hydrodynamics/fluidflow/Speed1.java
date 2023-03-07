@@ -2,10 +2,8 @@ package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
 final class Speed1 
 {
-    // This class object variable
     private static Speed1 instance;
   
-    // Private constructor to avoid new class's instnce
     private Speed1(){}
   
     protected String speed(double flowRate, double area)
@@ -20,8 +18,7 @@ final class Speed1
     {
         return null;
     }
-  
-  // Get class instance object
+ 
     public static Speed1 getInstance()
     {
         if(instance == null)

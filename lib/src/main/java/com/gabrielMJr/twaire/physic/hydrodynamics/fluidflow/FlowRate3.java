@@ -4,10 +4,8 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class FlowRate3
 {
-    // This class variable
     private static FlowRate3 instance;
   
-    // Private constructor to avoid new instance
     private FlowRate3(){}
 
     protected String flowRate(
@@ -19,12 +17,10 @@ final class FlowRate3
         double step2 = 3.14 * step1;
         double step3 = step2 * velocity;
   
-        // retornar somente resultado
         if (resultOrStep == Physic.GET_RESULT) 
         { 
             return String.valueOf(step3);
-        
-        // Retornar resultado e passos
+    
         } 
         else if (resultOrStep == Physic.GET_STEP) 
         {
@@ -53,7 +49,6 @@ final class FlowRate3
        
             return result;
         
-        // Terceiro parâmetro desconhecido
         } 
         else
         {
@@ -71,8 +66,7 @@ final class FlowRate3
     {
         return null;
     }
-      
-    // Get class instance object
+     
     public static FlowRate3 getInstance()
     {
         if(instance == null)

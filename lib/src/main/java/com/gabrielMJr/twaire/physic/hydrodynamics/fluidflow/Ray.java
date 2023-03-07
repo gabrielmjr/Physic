@@ -4,10 +4,8 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Ray 
 {
-    // this class object variable
     private static Ray instance;
   
-    // Private constructor to avoid new class instance
     private Ray(){}
 
     protected String ray(
@@ -50,7 +48,6 @@ final class Ray
           }
     }
       
-    // Get class instance object
     public static Ray getInstance()
     {
         if(instance == null)

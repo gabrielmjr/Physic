@@ -2,10 +2,8 @@ package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
 final class Time 
 {
-    // This class object variable
     private static Time instance;
   
-    // Private constructor to avoid new class's instance
     private Time(){}
 
     protected String time(double volume, double flowRate)
@@ -19,7 +17,6 @@ final class Time
         return null;
     }
   
-    // Get class instance object
     public static Time getInstance()
     {
         if(instance == null)

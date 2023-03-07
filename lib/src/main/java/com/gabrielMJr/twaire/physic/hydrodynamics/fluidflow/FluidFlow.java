@@ -13,7 +13,6 @@ public class FluidFlow implements FluidFlowIF
     private static Time time;
     private static Volume volume;
 
-    // Constructor
     public FluidFlow ()
 	{
         area = Area.getInstance();
@@ -28,7 +27,7 @@ public class FluidFlow implements FluidFlowIF
     }
 
 
-    // Primeira fórmula de Vazão: Q = V/∆t
+    // Q = V/∆t
     @Override
     public String flowRate1 (double volume, double time)
 	{
@@ -52,7 +51,7 @@ public class FluidFlow implements FluidFlowIF
     }
 
 
-    // Segunda fórmula de Vazão: Q = A * v
+    // Q = A * v
     @Override
     public String flowRate2 (double area, double velocity)
 	{
@@ -76,7 +75,7 @@ public class FluidFlow implements FluidFlowIF
 			unitOfResult);
     }
 
-    // Terceira fórmula de Vazão: Q = π * r² * v
+    // Q = π * r² * v
     @Override
     public String flowRate3 (
 		double ray, 
@@ -108,7 +107,7 @@ public class FluidFlow implements FluidFlowIF
     }
 
 
-    // Tempo: ∆t = V/ Q
+    // ∆t = V/ Q
     @Override
     public String time (double volume, double flowRate)
 	{
@@ -132,7 +131,7 @@ public class FluidFlow implements FluidFlowIF
     }
 
 
-    // Volume: V = ∆t * Q
+    // V = ∆t * Q
     @Override
     public String volume (double time, double flowRate)
 	{
@@ -156,7 +155,7 @@ public class FluidFlow implements FluidFlowIF
     }
 
 
-    // Primeira fórmula de velocidade: v = Q / A
+    // v = Q / A
     @Override
     public String speed1 (double flowRate, double area)
 	{
@@ -180,7 +179,7 @@ public class FluidFlow implements FluidFlowIF
     }
 
 
-    // Segunda fórmula de velocidade: v = Q / (π * r²)]
+    // v = Q / (π * r²)]
     @Override
     public String speed2 (
 		double flowRate, 
@@ -212,7 +211,7 @@ public class FluidFlow implements FluidFlowIF
     }
 
 
-    // Area: A = Q / v
+    // A = Q / v
     @Override
     public String area (double flowRate, double velocity)
 	{
@@ -238,7 +237,7 @@ public class FluidFlow implements FluidFlowIF
     }
 
 
-    // Raio: r = √[Q / (π * v)]
+    // r = √[Q / (π * v)]
     @Override
     public String ray (
 		double flowRate, 
@@ -266,7 +265,6 @@ public class FluidFlow implements FluidFlowIF
 			resultOrStep);
     }
 
-    // Get class instance object
     protected static FluidFlow getInstance ()
 	{
         if (instance == null)

@@ -4,10 +4,8 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Speed2 
 {
-    // Tgis class object variable
     private static Speed2 instance;
-  
-    // Private constructor to avoid new class's instance
+ 
     private Speed2(){}
 
     protected String speed(
@@ -19,11 +17,9 @@ final class Speed2
         Double step2 = step1 * 3.14;
         Double step3 = flowRate / step2;
     
-        // Retornar somente resultado:
         if (resultOrStep == Physic.GET_RESULT)
         {
             return String.valueOf(step3);
-        // Retornar passos e resultado
         }
         else if (resultOrStep == Physic.GET_STEP)
         {
@@ -51,7 +47,6 @@ final class Speed2
       
             return result;    
         
-        // Terceiro parâmetro não encontrado
         } 
         else
         {
@@ -70,7 +65,6 @@ final class Speed2
         return null;
     }
       
-    // Get class instance object
     public static Speed2 getInstance()
     {
         if(instance == null)
