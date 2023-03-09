@@ -2,7 +2,6 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 
 public interface MRUIF
 {
-    // Displacement1/deltaDisplacement:
     public abstract String displacement1 (
         double initialDisplacement, 
         double finalDisplacement);
@@ -14,7 +13,6 @@ public interface MRUIF
         String finalDisplacementUnit,
         String unitOfResult);
 
-    // Displacement2/deltaDisplacement:
     public abstract String displacement2 (
         double deltaTime,
         double deltaSpeed);
@@ -26,7 +24,6 @@ public interface MRUIF
         String deltaSpeedUnit,
         String unitOfResult);
 
-    // Displacement3/deltaDisplacement:
     public abstract String displacement3 (
         double intial_time, 
         double finalTime, 
@@ -43,7 +40,6 @@ public interface MRUIF
         String unit_pf_result,
         int resultOrStep);
 
-    // Displacement4/initialDisplacement
     public abstract String displacement4 (
         double deltaDisplacement, 
         double finalDisplacement);
@@ -55,7 +51,6 @@ public interface MRUIF
         String finalDisplacementUnit,
         String unitOfResult);
 
-    // Displacement5/finalDisplacement:
     public abstract String displacement5 (
         double initialDisplacement, 
         double deltaDisplacement);
@@ -67,7 +62,6 @@ public interface MRUIF
         String deltaDisplacementUnit,
         String unitOfResult);
 
-    // Displacement6/displacement_law:
     public abstract String displacement6 (
         double initialDisplacement, 
         double velocity, 
@@ -84,7 +78,6 @@ public interface MRUIF
         String unitOfResult,
         int resultOrStep);
 
-    // Speed1/speed_law:
     public abstract String speed1 (
         double variaion_displacement,
         double deltaTime);
@@ -96,7 +89,6 @@ public interface MRUIF
         String deltaTimeUnit,
         String unitOfResult);
 
-    // Speed2/speed_law:
     public abstract String speed2 (
         double initialDisplacement,
         double finalDisplacement,
@@ -116,7 +108,6 @@ public interface MRUIF
         String unitOfResult,
         int stepOrResult);
 
-    // Speed3/speed_law:
     public abstract String speed3 (
         double initialDisplacement,
         double finalDisplacement,
@@ -133,7 +124,6 @@ public interface MRUIF
         String unitOfResult,
         int stepOrResult);
 
-    // Speed4/speed_law:
     public abstract String speed4 (
         double deltaDisplacement,
         double initialTime,
@@ -150,7 +140,6 @@ public interface MRUIF
         String unitOfResult,
         int stepOrResult);
 
-    // Time1/deltaTime
     public abstract String time1 (
         double initialTime, 
         double finalTime);
@@ -162,7 +151,6 @@ public interface MRUIF
         String finalTimeUnit,
         String unitOfResult);
 
-    // Time2/deltaTime:
     public abstract String time2 (
         double deltaDisplacement, 
         double velocity);
@@ -174,7 +162,6 @@ public interface MRUIF
         String velocityUnit,
         String unitOfResult);
 
-    // Time3/deltaTime:
     public abstract String time3 (
         double initialDisplacement, 
         double finalDisplacement, 
@@ -191,7 +178,6 @@ public interface MRUIF
         String unitOfResult, 
         int stepOrResult);
 
-    // Time4/initialTime: ti = tf - ∆t
     public abstract String time4 (
         double deltaTime, 
         double initialTime);
@@ -203,7 +189,6 @@ public interface MRUIF
         String initialTimeUnit,
         String unitOfResult);
 
-    // Time5/finalTime: tf = ti + ∆t
     public abstract String time5 (
         double initialTime, 
         double deltaTime);

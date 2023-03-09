@@ -2,7 +2,6 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 
 public class MRU implements MRUIF 
 {
-	// This object variable
 	private static MRU instance; 
 
 	private Displacement1 displacement1;
@@ -42,10 +41,9 @@ public class MRU implements MRUIF
 		time3 = Time3.getInstance();
 		time4 = Time4.getInstance();
 		time5 = Time5.getInstance();
-	}
-
-	/* Displacement */
-	// Displacement1/delta_displacement: ∆S = Sf - Si
+	} 
+	
+	// ∆S = Sf - Si
 	@Override
 	public String displacement1 (double initialDisplacement, double finalDisplacement) 
 	{
@@ -68,7 +66,7 @@ public class MRU implements MRUIF
 			unitOfResult);
 	}
 
-	// Displacement2/delta_displacement: ∆S = ∆t x speed_média
+	// ∆S = ∆t x speed_média
 	@Override
 	public String displacement2 (double deltaTime, double deltaSpeed)
 	{
@@ -91,7 +89,7 @@ public class MRU implements MRUIF
 			unitOfResult);
 	}
 
-	// Displacement3/delta_displacement: ∆S = (finalTime - initialTime) x media_speed
+	// ∆S = (finalTime - initialTime) x media_speed
 	@Override
 	public String displacement3 (
 		double initialTime,
@@ -128,7 +126,7 @@ public class MRU implements MRUIF
 			resultOrStep);
 	}
 
-	// Displacement4/initialDisplacement: S_inicial = S_final - ∆S
+	// S_inicial = S_final - ∆S
 	@Override
 	public String displacement4 (double deltaDisplacement, double finalDisplacement) 
 	{
@@ -151,7 +149,7 @@ public class MRU implements MRUIF
 			unitOfResult);
 	}
 
-	// Displacement5/finalDisplacement: S_final = S_inicial + ∆S
+	// S_final = S_inicial + ∆S
 	@Override
 	public String displacement5 (double initialDisplacement, double deltaDisplacement)
 	{
@@ -174,7 +172,7 @@ public class MRU implements MRUIF
 			unitOfResult);
 	}
 
-	// Displacement6/displacement_law: S = S_inicial + velocity * ∆t
+	// S = S_inicial + velocity * ∆t
 	@Override
 	public String displacement6 (
 		double initialDisplacement,
@@ -211,9 +209,7 @@ public class MRU implements MRUIF
 			stepOrResult);
 	}
 
-	/* speed */
-	/* Speed1/speed_law: v = ∆S / ∆t
-	 * Nota: On MRU, media speed and speed law uses the same formula */
+	// v = ∆S / ∆t
 	@Override
 	public String speed1 (double deltaDisplacement, double deltaTime)
 	{
@@ -235,9 +231,8 @@ public class MRU implements MRUIF
 			deltaTimeUnit,
 			unitOfResult);
 	}
-
-	/* Displacement2/speed_law:
-	 * v = (finalDisplacement - initialDisplacement) / (finalTime - initialTime) */
+	
+	 // v = (finalDisplacement - initialDisplacement) / (finalTime - initialTime)
 	@Override
 	public String speed2 (
 		double initialDisplacement,
@@ -279,9 +274,8 @@ public class MRU implements MRUIF
 			unitOfResult,
 			resultOrStep);
 	}
-
-	/* Displacement3/speed_law:
-	 * v = (finalDisplacement - initialDisplacement) / deltaTime */
+	
+	// v = (finalDisplacement - initialDisplacement) / deltaTime 
 	@Override
 	public String speed3 (
 		double initialDisplacement,
@@ -318,9 +312,7 @@ public class MRU implements MRUIF
 			resultOrStep);
 	}
 
-
-	/* Speed4/speed_law:
-	 * v = (delta_displacement / (finalTime - initialTime) */
+	// v = (delta_displacement / (finalTime - initialTime)
 	@Override
 	public String speed4 (
 		double delta_displacement,
@@ -357,8 +349,7 @@ public class MRU implements MRUIF
 			resultOrStep);
 	}
 
-	/* Tempo */
-	// Delta time: ∆t = finalTime - initialTime
+	// ∆t = finalTime - initialTime
 	@Override
 	public String time1 (double initialTime, double finalTime)
 	{
@@ -381,7 +372,7 @@ public class MRU implements MRUIF
 			unitOfResult);
 	}
 
-	// Delta time: ∆t = ∆S / speed_média
+	// ∆t = ∆S / speed_média
 	@Override
 	public String time2 (double deltaDisplacement, double speed) 
 	{
@@ -403,7 +394,7 @@ public class MRU implements MRUIF
 			unitOfResult);
 	}
 
-	// Delta time: ∆t = (finalDisplacement - initialDisplacement) / speed
+	// ∆t = (finalDisplacement - initialDisplacement) / speed
 	@Override
 	public String time3 (
 		double initialDisplacement,
@@ -442,7 +433,7 @@ public class MRU implements MRUIF
 
 
 
-	// Initial time: initialTime = finalTime - ∆t
+	// initialTime = finalTime - ∆t
 	@Override
 	public String time4 (double deltaTime, double finalTime) 
 	{
@@ -465,7 +456,7 @@ public class MRU implements MRUIF
 			unitOfResult);
 	}
 
-	// Tempo final; finalTime = tempo_inicia + ∆t
+	// finalTime = tempo_inicia + ∆t
 	@Override
 	public String time5 (double initialTime, double deltaTime) 
 	{
@@ -487,8 +478,7 @@ public class MRU implements MRUIF
 			deltaTimeUnit,
 			unitOfResult);
 	}
-
-	// Get class instance object
+	
     protected static MRU getInstance ()
     {
 		if (instance == null)

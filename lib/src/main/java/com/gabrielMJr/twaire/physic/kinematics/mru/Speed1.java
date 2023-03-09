@@ -2,14 +2,12 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 
 final class Speed1
 {
-	// This object variable
 	private static Speed1 instance;
 
-	// Private constructor to avoid new classe's incence
 	private Speed1 ()
 	{}
 
-	// Speed_law:v = ∆S / ∆T
+	// v = ∆S / ∆T
 	protected String speed1 (double deltaDisplacement,double deltaTime)
 	{
 		return String.valueOf(deltaDisplacement / deltaTime);
@@ -24,8 +22,7 @@ final class Speed1
 	{
 		return null;
 	}
-
-	// Get class instance object
+	
     public static Speed1 getInstance ()
     {
 		if (instance == null)

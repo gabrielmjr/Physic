@@ -2,10 +2,8 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 
 final class Time5 
 {
-	// This object variable
 	private static Time5 instance; 
 
-	// Private constructor to avoid new classe's incence
 	private Time5 ()
 	{}
 
@@ -25,7 +23,6 @@ final class Time5
 		return null;
 	}
 
-	// Get class instance object
     public static Time5 getInstance ()
     {
 		if (instance == null)
