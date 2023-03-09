@@ -2,8 +2,7 @@ package com.gabrielMJr.twaire.physic.units;
 
 import java.math.BigDecimal;
 
-public interface SpeedIF 
-{
+public interface SpeedIF {
 	public abstract BigDecimal toKilometerPerSecond (double value, int unit);
 	public abstract BigDecimal toHectometerPerSecond (double value, int unit);
 	public abstract BigDecimal toDecameterPerSecond (double value, int unit);

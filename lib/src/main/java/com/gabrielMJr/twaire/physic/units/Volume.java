@@ -20,8 +20,7 @@ import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER_SYMBOL;
 import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER_SYMBOL;
 import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER_SYMBOL;
 
-public class Volume implements VolumeIF
-{
+public class Volume implements VolumeIF {
 	private static Volume instance; 
 
 	public static final int CUBE_KILOMETER = 14;
@@ -42,73 +41,65 @@ public class Volume implements VolumeIF
 		LENGTH_SCALES[CENTIMETER].pow(3),
 		LENGTH_SCALES[CENTIMETER].pow(3)
 	};
-	
+
 	public static final String CUBE_KILOMETER_SYMBOL = KILOMETER_SYMBOL + "³";
 	public static final String CUBE_HECTOMETER_SYMBOL = HECTOMETER_SYMBOL + "³";
-	public static final String CUBE_DECAMETER_SYMBOL = DECAMETER_SYMBOL +"³";
+	public static final String CUBE_DECAMETER_SYMBOL = DECAMETER_SYMBOL + "³";
 	public static final String CUBE_METER_SYMBOL = METER_SYMBOL + "³";
 	public static final String CUBE_DECIMETER_SYMBOL = DECIMETER_SYMBOL + "³";
 	public static final String CUBE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "³";
 	public static final String CUBE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "³";
 
 	@Override
-	public BigDecimal toCubeKilometer(double value, int unit)
-	{
+	public BigDecimal toCubeKilometer (double value, int unit) {
 		if (unit >= 14 && unit <= 20)
-			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit -14]).divide(VOLUME_SCALES[CUBE_KILOMETER - 14]);
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_KILOMETER - 14]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toCubeHectometer(double value, int unit)
-	{
+	public BigDecimal toCubeHectometer (double value, int unit) {
 		if (unit >= 14 && unit <= 20)
-			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit -14]).divide(VOLUME_SCALES[CUBE_HECTOMETER - 14]);
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_HECTOMETER - 14]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toCubeDecameter(double value, int unit)
-	{
+	public BigDecimal toCubeDecameter (double value, int unit) {
 		if (unit >= 14 && unit <= 20)
-			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit -14]).divide(VOLUME_SCALES[CUBE_DECAMETER - 14]);
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECAMETER - 14]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toCubeMeter(double value, int unit)
-	{
+	public BigDecimal toCubeMeter (double value, int unit) {
 		if (unit >= 14 && unit <= 20)
-			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit -14]).divide(VOLUME_SCALES[CUBE_METER - 14]);
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_METER - 14]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toCubeDecimeter(double value, int unit)
-	{
+	public BigDecimal toCubeDecimeter (double value, int unit) {
 		if (unit >= 14 && unit <= 20)
-			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit -14]).divide(VOLUME_SCALES[CUBE_DECIMETER - 14]);
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECIMETER - 14]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toCubeCentimeter(double value, int unit)
-	{
+	public BigDecimal toCubeCentimeter (double value, int unit) {
 		if (unit >= 14 && unit <= 20)
-			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit -14]).divide(VOLUME_SCALES[CUBE_CENTIMETER - 14]);
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_CENTIMETER - 14]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toCubeMillimeter(double value, int unit)
-	{
+	public BigDecimal toCubeMillimeter (double value, int unit) {
 		if (unit >= 14 && unit <= 20)
-			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit -14]).divide(VOLUME_SCALES[CUBE_MILLIMETER - 14]);
+			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_MILLIMETER - 14]);
 		return null;
     }
 
-    protected static Volume getInstance()
-    {
+    protected static Volume getInstance () {
 		if (!(instance instanceof Volume))
 			instance = new Volume();
 		return instance;

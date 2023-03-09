@@ -3,31 +3,30 @@ package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 final class Area
 {
     private static Area instance;
-  
-    private Area(){}
 
-    protected String area(double flowRate, double velocity)
+    private Area ()
+	{}
+
+    protected String area (double flowRate, double velocity)
     {
         return String.valueOf(flowRate / velocity);
     }
-  
-    protected String area(
-      double flowRate,
-      String flowRateUnit,
-      double velocity,
-      String velocityUnit,
-      String unitOfResult,
-      int resultOrStep)
+
+    protected String area (
+		double flowRate,
+		String flowRateUnit,
+		double velocity,
+		String velocityUnit,
+		String unitOfResult,
+		int resultOrStep)
     {
         return null;
     }
-    
-    public static Area getInstance()
+
+    public static Area getInstance ()
     {
-        if(instance == null)
-        {
+        if (!(instance instanceof Area))
             instance = new Area();
-        }
         return instance;
     }
 }

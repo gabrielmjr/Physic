@@ -1,16 +1,12 @@
 package com.gabrielMJr.twaire.physic.kinematics.mru;
 
-final class Displacement2
-{
+final class Displacement2 {
 	private static Displacement2 instance; 
 
-	// Private constructor to avoid new classe's incence
-	private Displacement2 ()
-	{}
+	private Displacement2 () {}
 
 	// ∆S = ∆t × media_speed
-	protected String displacement (double variationTime, double mediaSpeed) 
-	{
+	protected String displacement (double variationTime, double mediaSpeed) {
 		return String.valueOf(variationTime * mediaSpeed);
 	}
 
@@ -19,17 +15,13 @@ final class Displacement2
 		String variationTimeUnit,
 		double mediaSpeed,
 		String mediaSpeedUnit,
-		String unitOfResult) 
-	{
+		String unitOfResult) {
 		return null;
 	}
 
-    public static Displacement2 getInstance ()
-    {
-		if (instance == null)
-		{
+    public static Displacement2 getInstance () {
+		if(!(instance instanceof Displacement2))
 			instance = new Displacement2();
-		}
 		return instance;
     }
 }

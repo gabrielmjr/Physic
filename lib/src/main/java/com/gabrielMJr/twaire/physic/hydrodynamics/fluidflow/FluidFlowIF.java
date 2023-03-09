@@ -1,14 +1,14 @@
 package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
-public interface FluidFlowIF
-{
-    public abstract String flowRate1 (double volume, double time);
+public interface FluidFlowIF {
+    public abstract String flowRate1 (
+	    double volume, 
+		double time);
 
     public abstract String flowRate1 (
 		double volume, String volumeUnit,
 		double time, String timeUnit,
 		String unitOfResult);
-
 
     public abstract String flowRate2 (
 		double area,
@@ -18,7 +18,6 @@ public interface FluidFlowIF
 		double area, String areaUnit,
 		double velocity, String velocityUnit, 
 		String unitOfResult);
-
 
     public abstract String flowRate3 (
 		double ray,
@@ -31,7 +30,6 @@ public interface FluidFlowIF
 		String unitOfResult,
 		int resultOrStep);
 
-
     public abstract String time (
 		double volume,
 		double flowRate);
@@ -40,7 +38,6 @@ public interface FluidFlowIF
         double volume, String volumeUnit, 
         double flowRate, String flowRateUnit,
         String unitOfResult);
-
 
     public abstract String volume (
 		double time, 
@@ -51,7 +48,6 @@ public interface FluidFlowIF
 		double flowRate, String flowRateUnit,
 		String unitOfResult);
 
-
     public abstract String speed1 (
 		double flowRate, 
 		double area);
@@ -60,7 +56,6 @@ public interface FluidFlowIF
 		double flowRate, String flowRateUnit, 
 		double area, String areaUnit, 
 		String unitOfResult);
-
 
     public abstract String speed2 (
 		double flowRate,
@@ -73,15 +68,15 @@ public interface FluidFlowIF
 		String unitOfResult,
 		int resultOrStep);
 
-
-    public abstract String area (double flowRate, double velocity);
+    public abstract String area (
+	    double flowRate, 
+		double velocity);
 
     public abstract String area (
 		double fluidFlow, String flowRateUnit, 
 		double velocity, String velocityUnit, 
 		String unitOfResult,
 		int resultOrStep);
-
 
     public abstract String ray (
 		double flowRate,

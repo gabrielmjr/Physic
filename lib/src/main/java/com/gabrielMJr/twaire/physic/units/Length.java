@@ -2,8 +2,7 @@ package com.gabrielMJr.twaire.physic.units;
 
 import java.math.BigDecimal;
 
-public class Length implements LengthIF
-{
+public class Length implements LengthIF {
 	private static Length instance;
 
 	public static final int KILOMETER = 0;
@@ -34,63 +33,55 @@ public class Length implements LengthIF
 	public static final String MILLIMETER_SYMBOL= "mm";
 
 	@Override
-	public BigDecimal toKilometer (double value, int unit)  
-    {
+	public BigDecimal toKilometer (double value, int unit) {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toHectometer (double value, int unit)
-    {
+	public BigDecimal toHectometer (double value, int unit) {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toDecameter (double value, int unit)
-    {
+	public BigDecimal toDecameter (double value, int unit) {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toMeter (double value, int unit)
-    {
+	public BigDecimal toMeter (double value, int unit) {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toDecimeter (double value, int unit)
-    {
+	public BigDecimal toDecimeter (double value, int unit) {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toCentimeter (double value, int unit)
-    {
+	public BigDecimal toCentimeter (double value, int unit) {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER]);
 		return null;
     }
 
 	@Override
-	public BigDecimal toMillimeter (double value, int unit)
-    {
+	public BigDecimal toMillimeter (double value, int unit) {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER]);
 		return null;
 	}
 
-    protected static Length getInstance ()
-    {
+    protected static Length getInstance () {
 		if (!(instance instanceof Length))
 			instance = new Length();
 		return instance;

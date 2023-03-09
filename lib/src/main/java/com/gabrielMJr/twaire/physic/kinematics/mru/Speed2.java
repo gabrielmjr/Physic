@@ -2,12 +2,10 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 
 import com.gabrielMJr.twaire.physic.Physic;
 
-final class Speed2 
-{
+final class Speed2 {
 	private static Speed2 instance; 
 
-	private Speed2 ()
-	{}
+	private Speed2 () {}
 
 	// v = (Sf - Si) ÷ (tf - ti)
 	protected  String speed (
@@ -15,34 +13,24 @@ final class Speed2
 		double finalDisplacement,
 		double initialTime,
 		double finalTime,
-		int resultOrStep)
-	{
+		int resultOrStep) {
 		double step1 = finalDisplacement - initialDisplacement;
 		double step2 = finalTime - initialTime;
 		double step3 = step1 / step2;
 		String res = "";
 		String signal1;
 		String signal2;
-		if (resultOrStep == Physic.GET_RESULT) 
-		{
+		if (resultOrStep == Physic.GET_RESULT) {
 			return String.valueOf(step3);
-		}
-		else if (resultOrStep == Physic.GET_STEP) 
-		{
-			if (initialDisplacement < 0) 
-			{
+		} else if (resultOrStep == Physic.GET_STEP) {
+			if (initialDisplacement < 0) {
 				signal1 = " ";
-			}
-			else
-			{
+			} else {
 				signal1 = " - ";
 			}
-			if (initialTime < 0)
-			{
+			if (initialTime < 0) {
 				signal2 = " ";
-			}
-			else
-			{
+			} else {
 				signal2 = " - ";
 			}
 			res = "v = ("
@@ -66,11 +54,8 @@ final class Speed2
 				+ "v = " 
 				+ step3
 				+ "m/s";
-
 			return res;
-		}
-		else 
-		{
+		} else {
 			return "Erro 404: fifth parameter not found";
 		}
 	}
@@ -85,17 +70,13 @@ final class Speed2
 		double finalTime,
 		String finalTimeUnit,
 		String unitOfResult,
-		int resultOrStep)
-	{
+		int resultOrStep) {
 		return null;
 	}
 
-    public static Speed2 getInstance ()
-    {
-		if (instance == null)
-		{
+    public static Speed2 getInstance () {
+		if(!(instance instanceof Speed2))
 			instance = new Speed2();
-		}
 		return instance;
     }
 }

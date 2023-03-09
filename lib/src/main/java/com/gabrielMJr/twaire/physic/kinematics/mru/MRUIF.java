@@ -1,7 +1,6 @@
 package com.gabrielMJr.twaire.physic.kinematics.mru;
 
-public interface MRUIF
-{
+public interface MRUIF {
     public abstract String displacement1 (
         double initialDisplacement, 
         double finalDisplacement);

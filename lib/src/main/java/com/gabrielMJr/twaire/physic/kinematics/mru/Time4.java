@@ -1,15 +1,12 @@
 package com.gabrielMJr.twaire.physic.kinematics.mru;
 
-final class Time4 
-{
+final class Time4 {
 	private static Time4 instance;
 
-	private Time4 ()
-	{}
+	private Time4 () {}
 
 	// ti = tf + ∆t
-	protected String time (double deltaTime, double finalTime) 
-	{
+	protected String time (double deltaTime, double finalTime) {
 		return String.valueOf(finalTime - deltaTime);
 	}
 
@@ -18,17 +15,13 @@ final class Time4
 		String deltaTimeUnit,
 		double finalTime,
 		String finalTimeUnit,
-		String unitOfResult) 
-	{
+		String unitOfResult) {
 		return null;
 	}
 
-    public static Time4 getInstance ()
-    {
-		if (instance == null)
-		{
+    public static Time4 getInstance () {
+		if(!(instance instanceof Time4))
 			instance = new Time4();
-		}
 		return instance;
     }
 }

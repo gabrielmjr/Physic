@@ -2,29 +2,23 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 
 import com.gabrielMJr.twaire.physic.Physic;
 
-final class Displacement6
-{
+final class Displacement6 {
 	private static Displacement6 instance; 
-	
-	private Displacement6 ()
-	{}
+
+	private Displacement6 () {}
 
 	// S = Si + v * ∆t
 	protected String displacement (
 		double initialDisplacement,
 		double velocity,
 		double deltaTime,
-		int stepOrResult) 
-	{
+		int stepOrResult) {
 		double step1 = velocity * deltaTime;
 		double step2 = step1 + initialDisplacement;
 		String res = "";
-		if  (stepOrResult == Physic.GET_RESULT)
-		{
+		if  (stepOrResult == Physic.GET_RESULT) {
 			return String.valueOf(step2);
-		} 
-		else if (stepOrResult == Physic.GET_STEP) 
-		{
+		} else if (stepOrResult == Physic.GET_STEP) {
 			res = "S = "
 				+ initialDisplacement
 				+ "m + "
@@ -43,9 +37,7 @@ final class Displacement6
 				+ step2
 				+ "m";
 			return res;
-		} 
-		else 
-		{
+		} else {
 			return "Erro 404: fourth parameter not found";
 		}
 	}
@@ -58,17 +50,13 @@ final class Displacement6
 		double deltaTime,
 		String deltaTimeUnit,
 		String unitOfRest,
-		int stepOrResult) 
-	{
+		int stepOrResult) {
 		return null;
 	}
 
-    public static Displacement6 getInstance ()
-    {
-		if (instance == null)
-		{
+    public static Displacement6 getInstance () {
+		if(!(instance instanceof Displacement6))
 			instance = new Displacement6();
-		}
 		return instance;
     }
 }

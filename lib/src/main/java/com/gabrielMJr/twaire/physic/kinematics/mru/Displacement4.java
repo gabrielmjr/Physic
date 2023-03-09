@@ -1,15 +1,12 @@
 package com.gabrielMJr.twaire.physic.kinematics.mru;
 
-final class Displacement4
-{
+final class Displacement4 {
 	private static Displacement4 instance; 
 
-	private Displacement4 ()
-	{}
+	private Displacement4 () {}
 
 	// Si = Sf - ∆S
-	protected String displacement (double variationDisplacement, double finalDisplacement) 
-	{
+	protected String displacement (double variationDisplacement, double finalDisplacement) {
 		return String.valueOf(finalDisplacement - variationDisplacement);
 	}
 
@@ -18,17 +15,13 @@ final class Displacement4
 		String variationDisplacementUnit,
 		double finalDisplacement,
 		String finalDisplacementUnit,
-		String unitOfResult) 
-	{
+		String unitOfResult) {
 		return null;
 	}
 
-    public static Displacement4 getInstance ()
-    {
-		if (instance == null)
-		{
+    public static Displacement4 getInstance () {
+		if(!(instance instanceof Displacement4))
 			instance = new Displacement4();
-		}
 		return instance;
     }
 }

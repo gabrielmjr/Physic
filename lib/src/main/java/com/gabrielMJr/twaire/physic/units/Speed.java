@@ -29,8 +29,7 @@ import static com.gabrielMJr.twaire.physic.units.Time.SECOND_SYMBOL;
 import static com.gabrielMJr.twaire.physic.units.Time.MINUTE_SYMBOL;
 import static com.gabrielMJr.twaire.physic.units.Time.HOUR_SYMBOL;
 
-public class Speed implements SpeedIF
-{
+public class Speed implements SpeedIF {
 	private static Speed instance; 
 
 	private final Length length;
@@ -86,7 +85,7 @@ public class Speed implements SpeedIF
 		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[HOUR]),
 		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[HOUR])
 	};
-	
+
 	public static final String KILOMETER_PER_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SECOND_SYMBOL;
 	public static final String HECTOMETER_PER_SECOND_SYMBOL = HECTOMETER_SYMBOL + "/" + SECOND_SYMBOL;
 	public static final String DECAMETER_PER_SECOND_SYMBOL = DECAMETER_SYMBOL + "/" + SECOND_SYMBOL;
@@ -111,182 +110,159 @@ public class Speed implements SpeedIF
 	public static final String CENTIMETER_PER_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 	public static final String MILLIMETER_PER_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 
-	public Speed ()
-	{
+	public Speed () {
 		length = Length.getInstance();
 		time = Time.getInstance();
 	}
 
 	@Override
-	public BigDecimal toKilometerPerSecond (double value, int unit)
-	{
+	public BigDecimal toKilometerPerSecond (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_SECOND - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toHectometerPerSecond (double value, int unit)
-	{
+	public BigDecimal toHectometerPerSecond (double value, int unit) {
 	    if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_SECOND - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecameterPerSecond (double value, int unit)
-	{
+	public BigDecimal toDecameterPerSecond (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_SECOND - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMeterPerSecond (double value, int unit)
-	{
+	public BigDecimal toMeterPerSecond (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_SECOND - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecimeterPerSecond (double value, int unit)
-	{
+	public BigDecimal toDecimeterPerSecond (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_SECOND - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toCentimeterPerSecond (double value, int unit)
-	{
+	public BigDecimal toCentimeterPerSecond (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_SECOND - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMillimeterPerSecond (double value, int unit)
-	{
+	public BigDecimal toMillimeterPerSecond (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_SECOND - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toKilometerPerMinute (double value, int unit)
-	{
+	public BigDecimal toKilometerPerMinute (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_MINUTE - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toHectometerPerMinute (double value, int unit)
-	{
+	public BigDecimal toHectometerPerMinute (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_MINUTE - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecameterPerMinute (double value, int unit)
-	{
+	public BigDecimal toDecameterPerMinute (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_MINUTE - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMeterPerMinute (double value, int unit)
-	{
+	public BigDecimal toMeterPerMinute (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_MINUTE - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecimeterPerMinute (double value, int unit)
-	{
+	public BigDecimal toDecimeterPerMinute (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toCentimeterPerMinute (double value, int unit)
-	{
+	public BigDecimal toCentimeterPerMinute (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_MINUTE - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMillimeterPerMinute (double value, int unit)
-	{
+	public BigDecimal toMillimeterPerMinute (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_MINUTE - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toKilometerPerHour (double value, int unit)
-	{
+	public BigDecimal toKilometerPerHour (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_HOUR - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toHectometerPerHour (double value, int unit)
-	{
+	public BigDecimal toHectometerPerHour (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_HOUR - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecameterPerHour (double value, int unit)
-	{
+	public BigDecimal toDecameterPerHour (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_HOUR - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMeterPerHour (double value, int unit)
-	{
+	public BigDecimal toMeterPerHour (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_HOUR - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toDecimeterPerHour (double value, int unit)
-	{
+	public BigDecimal toDecimeterPerHour (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_HOUR - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toCentimeterPerHour (double value, int unit)
-	{
+	public BigDecimal toCentimeterPerHour (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_HOUR - 31]);
 		return null;
 	}
 
 	@Override
-	public BigDecimal toMillimeterPerHour (double value, int unit)
-	{
+	public BigDecimal toMillimeterPerHour (double value, int unit) {
 		if (unit >= 31 && unit <= 51)
 			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_HOUR - 31]);
 		return null;
 	}
 
-	protected static Speed getInstance ()
-	{
+	protected static Speed getInstance () {
 		if (!(instance instanceof Speed))
 		    instance = new Speed();
 		return instance;

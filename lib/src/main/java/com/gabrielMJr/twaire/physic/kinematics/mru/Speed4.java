@@ -3,36 +3,27 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 import com.gabrielMJr.twaire.physic.Physic;
 
 
-final class Speed4
-{
+final class Speed4 {
 	private static Speed4 instance; 
 
-	private Speed4 ()
-	{}
+	private Speed4 () {}
 
 	// v = ∆S ÷ (tf - ti)
 	protected String speed
 	(double deltaDisplacement,
      double initialTime,
      double finalTime,
-     int stepOrResult)
-	{
+     int stepOrResult) {
 		double step1 = finalTime - initialTime;
 		double step2 = deltaDisplacement / step1;
 		String res = "";
 		String signal_1;
-		if (stepOrResult == Physic.GET_RESULT)
-		{
+		if (stepOrResult == Physic.GET_RESULT) {
 			return String.valueOf(step2);
-		}
-		else if (stepOrResult == Physic.GET_STEP)
-		{
-			if (initialTime < 0)
-			{
+		} else if (stepOrResult == Physic.GET_STEP) {
+			if (initialTime < 0) {
 				signal_1 = " ";
-			}
-			else
-			{
+			} else {
 				signal_1 = " - ";
 			}
 			res = "v = ("
@@ -54,9 +45,7 @@ final class Speed4
 				+ step2 
 				+ "m/s";
 			return res;
-		}
-		else 
-		{
+		} else {
 			return "Erro 404: third parameter not found";
 		}
 	}
@@ -69,17 +58,13 @@ final class Speed4
 		double finalTime,
 		String finalTimeUnit,
 		String unitOfResult,
-		int stepOrResult)
-	{
+		int stepOrResult) {
 		return null;
 	}
 
-    public static Speed4 getInstance ()
-    {
-		if (instance == null)
-		{
+    public static Speed4 getInstance () {
+		if(!(instance instanceof Speed4))
 			instance = new Speed4();
-		}
 		return instance;
     }
 }

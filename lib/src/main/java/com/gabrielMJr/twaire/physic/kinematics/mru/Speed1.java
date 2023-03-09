@@ -1,15 +1,12 @@
 package com.gabrielMJr.twaire.physic.kinematics.mru;
 
-final class Speed1
-{
+final class Speed1 {
 	private static Speed1 instance;
 
-	private Speed1 ()
-	{}
+	private Speed1 () {}
 
 	// v = ∆S / ∆T
-	protected String speed1 (double deltaDisplacement,double deltaTime)
-	{
+	protected String speed1 (double deltaDisplacement, double deltaTime) {
 		return String.valueOf(deltaDisplacement / deltaTime);
 	}
 
@@ -18,17 +15,13 @@ final class Speed1
 		String deltaDisplacementUnit,
 		double deltaTime,
 		String deltaTimeUnit,
-		String unitOfResult)
-	{
+		String unitOfResult) {
 		return null;
 	}
-	
-    public static Speed1 getInstance ()
-    {
-		if (instance == null)
-		{
+
+    public static Speed1 getInstance () {
+		if(!(instance instanceof Speed1))
 			instance = new Speed1();
-		}
 		return instance;
     }
 }

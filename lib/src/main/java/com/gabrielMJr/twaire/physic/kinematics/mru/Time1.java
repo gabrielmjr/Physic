@@ -1,15 +1,12 @@
 package com.gabrielMJr.twaire.physic.kinematics.mru;
 
-final class Time1
-{
+final class Time1 {
 	private static Time1 instance; 
 
-	private Time1 ()
-	{}
+	private Time1 () {}
 
 	// ∆t = tf - ti
-	protected String time (double initialTime, double finalTime)
-	{
+	protected String time (double initialTime, double finalTime) {
 		return String.valueOf(finalTime - initialTime);
 	}
 
@@ -18,17 +15,13 @@ final class Time1
 		String initialTimeUnit,
 		double finalTime,
 		String finalTimeUnit,
-		String unitOfResult)
-	{
+		String unitOfResult) {
 		return null;
 	}
 
-    public static Time1 getInstance ()
-    {
-		if (instance == null)
-		{
+    public static Time1 getInstance () {
+		if(!(instance instanceof Time1))
 			instance = new Time1();
-		}
 		return instance;
     }
 }
