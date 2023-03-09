@@ -4,13 +4,12 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Acceleration4 
 {
-	// This object variable
 	private static Acceleration4 instance; 
 
-	// Private constructor to avoid new classe's incence
 	private Acceleration4 ()
 	{}
 
+	// a = (vf - vi) / (tf - ti)
 	protected String acceleration (
 		double initialVelocity,
 		double finalVelocity,
@@ -18,12 +17,10 @@ final class Acceleration4
 		double finalTime,
 		int stepOrResult)
     {
-		// Attributes 
 		double step1 = finalVelocity - initialVelocity;
 		double step2 = finalTime - initialTime;
 		double step3 = step1 / step2;
 		String res;
-		// if stepOrResult.equals (getStep)
 		if (stepOrResult == Physic.GET_STEP)
 		{
 			res = "a = ("
@@ -70,7 +67,6 @@ final class Acceleration4
 		return null;
     }
 
-    // Get class instance object
     public static Acceleration4 getInstance ()
     {
 		if (instance == null)

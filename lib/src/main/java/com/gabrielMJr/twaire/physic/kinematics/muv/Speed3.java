@@ -4,10 +4,8 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Speed3 
 {
-	// This object variable
 	private static Speed3 instance; 
-
-	// Private constructor to avoid new classe's incence
+	
 	private Speed3 ()
 	{}
 
@@ -62,7 +60,6 @@ final class Speed3
 		return null;
 	}
 
-	// Get class instance object
     public static Speed3 getInstance ()
     {
 		if (instance == null)

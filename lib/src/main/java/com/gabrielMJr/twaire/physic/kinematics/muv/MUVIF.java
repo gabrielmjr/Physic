@@ -13,7 +13,6 @@ public interface MUVIF
         String deltaTimeUnit, 
         String unitOfResult);
 
-
     public abstract String acceleration2 (
         double deltaSpeed, 
         double initialTime, 
@@ -46,7 +45,6 @@ public interface MUVIF
         String unitOfResult, 
         int stepOrResult);
 
-
     public abstract String acceleration4 (
         double nitialSpeed, 
         double finalSpeed, 
@@ -66,7 +64,6 @@ public interface MUVIF
         String unitOfResult, 
         int stepOrResult);
 
-
     public abstract String speed1 (double deltaTime, double acceleration);
 
     public abstract String speed1 (
@@ -75,7 +72,6 @@ public interface MUVIF
         double acceleration, 
         String accelerationUnit, 
         String unitOfResult);
-
 
     public abstract String speed2 (
         double initialTime, 
@@ -93,7 +89,6 @@ public interface MUVIF
         String unitOfResult,
         int stepOrResult);
 
-
     public abstract String speed3 (
         double finalSpeed, 
         double deltaTime, 
@@ -110,7 +105,6 @@ public interface MUVIF
         String unitOfResult,
         int stepOrResult);
 
-
     public abstract String speed4 (
         double initialSpeed, 
         double deltaTime, 
@@ -126,7 +120,6 @@ public interface MUVIF
         String accelerationUnit,
         String unitOfResult,
         int stepOrResult);
-
 
     public abstract String time1 (double deltaSpeed, double acceleration);
 
@@ -137,7 +130,6 @@ public interface MUVIF
         String accelerationUnit,
         String unitOfResult);
 
-
     public abstract String time2 (
         double initialSpeed, 
         double finalSpeed, 
@@ -153,7 +145,6 @@ public interface MUVIF
         String accelerationUnit,
         String unitOfResult,
         int stepOrResult);
-
 
     public abstract String time3 (
         double finalTime, 
@@ -171,7 +162,6 @@ public interface MUVIF
         String unitOfResult,
         int stepOrResult);
 
-
     public abstract String time4 (
         double initialTime, 
         double deltaSpeed, 
@@ -187,7 +177,6 @@ public interface MUVIF
         String accelerationUnit,
         String unitOfResult,
         int stepOrResult);
-
 
     public abstract String displacement1 (
         double initialDisplacement, 
@@ -207,7 +196,6 @@ public interface MUVIF
         String accelerationUnit,
         String unitOfResult,
         int stepOrResult);
-
 
     public abstract String displacement2 (
         double initialSpeed, 

@@ -44,7 +44,7 @@ public class MUV implements MUVIF
 	}
 
 
-	// MUR, primeira fórmula de aceleração: a = deltaVelocity / deltaTime
+	// a = deltaVelocity / deltaTime
 	@Override
 	public String acceleration1 (double deltaSpeed, double deltaTime)
 	{
@@ -67,7 +67,7 @@ public class MUV implements MUVIF
 			unitOfResult);
 	}
 
-	// Segunda fórmula de aceleração: a = (deltaSpeed) / (finalTime - initialTime)
+	// a = (deltaSpeed) / (finalTime - initialTime)
 	@Override
 	public String acceleration2 (
 		double deltaSpeed,
@@ -100,7 +100,7 @@ public class MUV implements MUVIF
 			resultOrStep);
 	}
 
-	// Third formula of acceleration, when: a = (vf - vi) / variationTime
+	// a = (vf - vi) / variationTime
 	@Override
 	public String acceleration3 (
 		double initialVelocity,
@@ -136,8 +136,7 @@ public class MUV implements MUVIF
 			unitOfResult,
 			stepOrResult);
 	}
-
-	// Forth acceleration formula when:
+	
 	// a = (finalVelocity - initialVelocity) ÷ (finalTime - initialTime)
 	@Override
 	public String acceleration4 (

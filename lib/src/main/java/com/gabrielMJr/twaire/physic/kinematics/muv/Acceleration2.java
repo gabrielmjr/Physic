@@ -4,13 +4,12 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Acceleration2 
 {
-	// This object variable
 	private static Acceleration2 instance; 
 
-	// Private constructor to avoid new classe's incence
 	private Acceleration2 ()
 	{}
 
+	// a = ∆v / (tf - ti)
 	protected String acceleration (
 		double deltaSpeed,
 		double initialTime,
@@ -49,7 +48,6 @@ final class Acceleration2
 		}
 	}
 
-	// Get class instance object
     public static Acceleration2 getInstance ()
     {
 		if (instance == null)

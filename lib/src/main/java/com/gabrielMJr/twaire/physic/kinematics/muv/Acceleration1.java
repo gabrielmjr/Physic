@@ -2,13 +2,12 @@ package com.gabrielMJr.twaire.physic.kinematics.muv;
 
 final class Acceleration1
 {
-	// This object variable
 	private static Acceleration1 instance; 
 
-	// Private constructor to avoid new classe's incence
 	private Acceleration1 ()
 	{}
 
+	// a = ∆v / ∆t
 	protected String acceleration (double deltaSpeed, double deltaTime)
 	{
 		return String.valueOf(deltaSpeed / deltaTime);
@@ -24,7 +23,6 @@ final class Acceleration1
 		return null;
 	}
 
-	// Get class instance object
     public static Acceleration1 getInstance ()
     {
 		if (instance == null)

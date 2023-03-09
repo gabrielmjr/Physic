@@ -4,13 +4,12 @@ import com.gabrielMJr.twaire.physic.Physic;
 
 final class Displacement1 
 {
-	// This object variable
 	private static Displacement1 instance; 
 
-	// Private constructor to avoid new classe's incence
 	private Displacement1 ()
 	{}
 
+	// S = Si + vi * ∆t + (vi * ∆t²) / 2
 	protected  String displacement (
 		double initialDisplacement, 
 		double initialVelocity, 
@@ -88,7 +87,6 @@ final class Displacement1
 		return null;
     }
 
-    // Get class instance object
     public static Displacement1 getInstance ()
     {
 		if (instance == null)
