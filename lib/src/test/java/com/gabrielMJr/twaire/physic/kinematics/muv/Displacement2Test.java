@@ -4,38 +4,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static com.gabrielMJr.twaire.physic.Physic.GET_RESULT;
 
-/*
- This class tests the mru >> Displacement2.class
-*/
-public class Displacement2Test
-{
-    // MRU object
+public class Displacement2Test {
     private MUV muv;
-    
-    // Constructor
-    public Displacement2Test()
-    {
-        // Initialize the variable
+
+    public Displacement2Test () {
         muv = MUV.getInstance();
     }
-    
-    
-    /*
-     This method tests Displacement2 class
-    */
+
     @Test
-    public void displacement2Test()
-    {
-        // The value to be tested:
+    public void displacement2Test () {
         Double initialVelocity = 6.0;
         Double deltaTime = 2.0;
         Double acceleration = 3.0;
         Double displacement = 21.0;
-        
-        // The result need to ne:
         String result = "3.0";
-        
-        // Testing
         assertEquals(result, muv.displacement2(initialVelocity, deltaTime, acceleration, displacement, GET_RESULT));
     }
 }

@@ -4,37 +4,19 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static com.gabrielMJr.twaire.physic.Physic.GET_RESULT;
 
-/*
- This class tests the mru >> Speed2.class
-*/
-public class Speed2Test
-{
-    // MRU object
+public class Speed2Test {
     private MUV muv;
-    
-    // Constructor
-    public Speed2Test()
-    {
-        // Initialize the variable
+
+    public Speed2Test () {
         muv = MUV.getInstance();
     }
-    
-    
-    /*
-     This method tests Acceleration3 class
-    */
+
     @Test
-    public void speed2Test()
-    {
-        // The value to be tested:
+    public void speed2Test () {
         Double initialTime = 4.0;
         Double finalTime = 8.0;
         Double acceleration = 9.0;
-        
-        // The result need to ne:
         String result = "36.0";
-        
-        // Testing
         assertEquals(result, muv.speed2(initialTime, finalTime, acceleration, GET_RESULT));
     }
 }
