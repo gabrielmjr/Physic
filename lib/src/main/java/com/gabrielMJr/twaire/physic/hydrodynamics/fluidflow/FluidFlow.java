@@ -14,7 +14,7 @@ public class FluidFlow implements FluidFlowIF {
 
     public FluidFlow () {
         area = Area.getInstance();
-        flowRate1 = FlowRate1.getInstance();
+
         flowRate2 = FlowRate2.getInstance();
         flowRate3 = FlowRate3.getInstance();
         ray = Ray.getInstance();
@@ -26,18 +26,17 @@ public class FluidFlow implements FluidFlowIF {
 
     // Q = V/∆t
     @Override
-    public String flowRate1 (double volume, double time) {
-        return flowRate1.flowRate(volume, time);
+    public FlowRate1 flowRate1 (double volume, double time) {
+        return FlowRate1.getInstance(volume, time);
     }
 
     @Override
-    public String flowRate1 (
-		double volume, 
-		String volumeUnit, 
-		double time, 
-		String timeUnit, 
-		String unitOfResult) {
-        return flowRate1.flowRate(
+    public FlowRate1 flowRate1 (double volume, 
+								int volumeUnit, 
+								double time, 
+								int timeUnit, 
+								int unitOfResult) {
+        return flowRate1.getInstance(
 			volume, 
 			volumeUnit, 
 			time, 

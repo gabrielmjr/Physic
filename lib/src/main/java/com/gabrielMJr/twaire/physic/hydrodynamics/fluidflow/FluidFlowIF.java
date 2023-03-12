@@ -1,14 +1,16 @@
 package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
 public interface FluidFlowIF {
-    public abstract String flowRate1 (
+    public abstract FlowRate1 flowRate1 (
 	    double volume, 
 		double time);
 
-    public abstract String flowRate1 (
-		double volume, String volumeUnit,
-		double time, String timeUnit,
-		String unitOfResult);
+    public abstract FlowRate1 flowRate1 (
+		double volume,
+		int volumeUnit,
+		double time, 
+		int timeUnit,
+		int unitOfResult);
 
     public abstract String flowRate2 (
 		double area,
