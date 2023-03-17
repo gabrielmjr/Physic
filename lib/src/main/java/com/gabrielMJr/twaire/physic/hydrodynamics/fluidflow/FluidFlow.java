@@ -3,8 +3,6 @@ package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 public class FluidFlow implements FluidFlowIF {
     private static FluidFlow instance;
     private static Area area;
-    private static FlowRate1 flowRate1;
-    private static FlowRate2 flowRate2;
     private static FlowRate3 flowRate3;
     private static Ray ray;
     private static Speed1 speed1;
@@ -14,9 +12,7 @@ public class FluidFlow implements FluidFlowIF {
 
     public FluidFlow () {
         area = Area.getInstance();
-
-        flowRate2 = FlowRate2.getInstance();
-        flowRate3 = FlowRate3.getInstance();
+        flowRate3 = FlowRate3.getInstance();	
         ray = Ray.getInstance();
         speed1 = Speed1.getInstance();
         speed2 = Speed2.getInstance();
@@ -36,7 +32,7 @@ public class FluidFlow implements FluidFlowIF {
 								double time, 
 								int timeUnit, 
 								int unitOfResult) {
-        return flowRate1.getInstance(
+        return FlowRate1.getInstance(
 			volume, 
 			volumeUnit, 
 			time, 
@@ -46,23 +42,22 @@ public class FluidFlow implements FluidFlowIF {
 
     // Q = A * v
     @Override
-    public String flowRate2 (double area, double velocity) {
-        return flowRate2.flowRate(area, velocity);
+    public FlowRate2 flowRate2 (double area, double velocity) {
+        return FlowRate2.getInstance(area, velocity);
     }
 
     @Override
-    public String flowRate2 (
+    public FlowRate2 flowRate2 (
 		double area, 
-		String areaUnit, 
+		int areaUnit, 
 		double velocity, 
-		String velocityUnit, 
-		String unitOfResult) {
-		return flowRate2.flowRate(
-			area, 
-			areaUnit, 
-			velocity, 
-			velocityUnit, 
-			unitOfResult);
+		int velocityUnit, 
+		int unitOfResult) {
+		return FlowRate2.getInstance(area, 
+									 areaUnit, 
+									 velocity, 
+									 velocityUnit, 
+									 unitOfResult);
     }
 
     // Q = π * r² * v

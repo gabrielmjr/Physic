@@ -1,26 +1,124 @@
 package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
+import static com.gabrielMJr.twaire.tools.NumberAnalyst.putParenthesesIfNegative;
+
+// Q = A * v
 final class FlowRate2 {
     private static FlowRate2 instance;
 
+	private double area;
+	private double velocity;
+
+	private int areaUnit;
+	private int velocityUnit;
+	private int unitOfResult;
+
+	private double step1;
+	private boolean hasCustomUnit;
+
     private FlowRate2 () {}
 
-    protected String flowRate (double area, double velocity) {
+    private FlowRate2 setHasCustomUnits (boolean hasCustomUnit) {
+		this.hasCustomUnit = hasCustomUnit;
+		if (hasCustomUnit)
+			calculateWithCustomUnit();
+		else
+			calculateWithoutCustomUnit();
+		return this;
+	}
+
+	private void calculateWithCustomUnit () {}
+
+	private void calculateWithoutCustomUnit () {
+		step1 = area * velocity;
+	}
+
+	public double getResult () {
+		return step1;
+	}
+
+	public String getSteps () {
+		String area;
+		String velocity;
+		if (hasCustomUnit)
+			return null;
+	    else {
+			area = putParenthesesIfNegative(this.area) + "m²";
+			velocity = putParenthesesIfNegative(this.velocity) + "m/s";
+			return "Q = " + area + " × " + velocity
+			    + "\nQ = " + step1 + "m³/s";
+		}
+	}
+
+    protected String flowRate () {
         return String.valueOf(area * velocity);
     }
 
-    protected String flowRate (
-		double area,
-		String area_unit,
-		double velocity,
-		String velocityUnit, 
-		String unitOfResult) {
-        return null;
-    }
+	private FlowRate2 setArea (double area) {
+		this.area = area;
+		return this;
+	}
 
-    public static FlowRate2 getInstance () {
+	public double getArea () {
+		return area;
+	}
+
+	private FlowRate2 setVelocity (double velocity) {
+		this.velocity = velocity;
+		return this;
+	}
+
+	public double getVelocity () {
+		return velocity;
+	}
+
+	private FlowRate2 setAreaUnit (int areaUnit) {
+		this.areaUnit = areaUnit;
+		return this;
+	}
+
+	public int getAreaUnit () {
+		return areaUnit;
+	}
+
+	private FlowRate2 setVelocityUnit (int velocityUnit) {
+		this.velocityUnit = velocityUnit;
+		return this;
+	}
+
+	public int getVelocityUnit () {
+		return velocityUnit;
+	}
+
+	private FlowRate2 setUnitOfResult (int unitOfResult) {
+		this.unitOfResult = unitOfResult;
+		return this;
+	}
+
+	public int getUnitOfResult () {
+		return unitOfResult;
+	}
+
+    public static FlowRate2 getInstance (double area, double velocity) {
         if (!(instance instanceof FlowRate2))
             instance = new FlowRate2();
-        return instance;
+        return instance.setArea(area)
+			.setVelocity(velocity)
+			.setHasCustomUnits(false);
+    }
+
+	public static FlowRate2 getInstance (double area,
+										 int areaUnit,
+										 double velocity,
+										 int velocityUnit, 
+										 int unitOfResult) {
+        if (!(instance instanceof FlowRate2))
+			instance = new FlowRate2();
+	    return instance.setArea(area)
+			.setAreaUnit(areaUnit)
+			.setVelocity(velocity)
+			.setVelocityUnit(velocityUnit)
+			.setUnitOfResult(unitOfResult)
+			.setHasCustomUnits(true);
     }
 }

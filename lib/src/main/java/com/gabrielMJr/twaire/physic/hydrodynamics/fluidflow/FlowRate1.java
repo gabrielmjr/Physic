@@ -8,7 +8,7 @@ final class FlowRate1 {
 
 	private double volume;
 	private double deltaTime;
-	
+
 	private int volumeUnit;
 	private int deltaTimeUnit;
 	private int unitOfResult;
@@ -18,10 +18,11 @@ final class FlowRate1 {
 
     private FlowRate1 () {}
 
-	private FlowRate1 setHasCustomUnit (boolean hasCustomUnit) {
+	private FlowRate1 setHasCustomUnits (boolean hasCustomUnit) {
+		this.hasCustomUnit = hasCustomUnit;
 		if (hasCustomUnit) 
 			calculateWithCustomUnit();
-		 else 
+		else 
 			calculateWithoutCustomUnit();
 		return this;
 	}
@@ -39,9 +40,9 @@ final class FlowRate1 {
 	public String getSteps () {
 		String volume;
 		String deltaTime;
-		if (hasCustomUnit) {
+		if (hasCustomUnit) 
 			return null;
-		} else {
+		else {
 			volume = putParenthesesIfNegative(this.volume) + "m³";
 			deltaTime = putParenthesesIfNegative(this.deltaTime) + "s";
 			return "Q = " + volume + " ÷ " + deltaTime
@@ -66,31 +67,31 @@ final class FlowRate1 {
 	public Double getDeltaTime () {
 		return deltaTime;
 	}
-	
-	private FlowRate1 setVolumeUnit(int volumeUnit) {
+
+	private FlowRate1 setVolumeUnit (int volumeUnit) {
 		this.volumeUnit = volumeUnit;
 		return this;
 	}
-	
-	public int getVolumeUnit() {
+
+	public int getVolumeUnit () {
 		return volumeUnit;
 	}
-	
-	private FlowRate1 setDeltaTimeUnit(int deltaTimeUnit) {
+
+	private FlowRate1 setDeltaTimeUnit (int deltaTimeUnit) {
 		this.deltaTimeUnit = deltaTimeUnit;
 		return this;
 	}
-	
-	public int getDeltaTimeUnit() {
+
+	public int getDeltaTimeUnit () {
 		return deltaTimeUnit;
 	}
-	
-	private FlowRate1 setUnitOfResult(int unitOfResult) {
+
+	private FlowRate1 setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
-	
-	public int getUnitOfResult() {
+
+	public int getUnitOfResult () {
 		return unitOfResult;
 	}
 
@@ -99,7 +100,7 @@ final class FlowRate1 {
             instance = new FlowRate1();
 		return instance.setVolume(volume)
 			.setDeltaTime(time)
-			.setHasCustomUnit(false);
+			.setHasCustomUnits(false);
     }
 
 	public static FlowRate1 getInstance (double volume, 
@@ -110,10 +111,10 @@ final class FlowRate1 {
         if (!(instance instanceof FlowRate1))
             instance = new FlowRate1();
 		return instance.setVolume(volume)
-		.setVolumeUnit(volumeUnit)
+			.setVolumeUnit(volumeUnit)
 			.setDeltaTime(time)
 			.setDeltaTimeUnit(deltaTimeUnit)
 			.setUnitOfResult(unitOfResult)
-			.setHasCustomUnit(true);
+			.setHasCustomUnits(true);
     }
 }
