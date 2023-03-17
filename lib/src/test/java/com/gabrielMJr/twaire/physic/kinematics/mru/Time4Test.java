@@ -14,7 +14,7 @@ public class Time4Test {
     public void time4Test () {
         Double deltaTime = 3.5;
         Double finalTime = 19.5;
-        String result = "16.0;
+        String result = "16.0";
         assertEquals(result, mru.time4(deltaTime, finalTime));
     }
 }
