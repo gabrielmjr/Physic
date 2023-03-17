@@ -1,6 +1,6 @@
 package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
-import static com.gabrielMJr.twaire.physic.Util.normalizeIfNegative;
+import static com.gabrielMJr.twaire.tools.NumberAnalyst.putParenthesesIfNegative;
 
 // Q = V / ∆t
 final class FlowRate1 {
@@ -19,21 +19,20 @@ final class FlowRate1 {
     private FlowRate1 () {}
 
 	private FlowRate1 setHasCustomUnit (boolean hasCustomUnit) {
-		if (hasCustomUnit) {
+		if (hasCustomUnit) 
 			calculateWithCustomUnit();
-		} else {
+		 else 
 			calculateWithoutCustomUnit();
-		}
 		return this;
 	}
 
 	private void calculateWithCustomUnit () {}
 
 	private void calculateWithoutCustomUnit () {
-		step1 = volume * deltaTime;
+		step1 = volume / deltaTime;
 	}
 
-	public double getResult () {
+	public Double getResult () {
 		return step1;
 	}
 
@@ -43,8 +42,8 @@ final class FlowRate1 {
 		if (hasCustomUnit) {
 			return null;
 		} else {
-			volume = normalizeIfNegative(this.volume) + "m³";
-			deltaTime = normalizeIfNegative(this.deltaTime) + "s";
+			volume = putParenthesesIfNegative(this.volume) + "m³";
+			deltaTime = putParenthesesIfNegative(this.deltaTime) + "s";
 			return "Q = " + volume + " ÷ " + deltaTime
 				+ "\nQ = " + step1 + "m³/s";
 		}
