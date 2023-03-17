@@ -1,7 +1,5 @@
 package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
-import static com.gabrielMJr.twaire.tools.NumberAnalyst.putParenthesesIfNegative;
-
 // Q = V / ∆t
 final class FlowRate1 {
     private static FlowRate1 instance;
@@ -38,13 +36,9 @@ final class FlowRate1 {
 	}
 
 	public String getSteps () {
-		String volume;
-		String deltaTime;
 		if (hasCustomUnit) 
 			return null;
 		else {
-			volume = putParenthesesIfNegative(this.volume) + "m³";
-			deltaTime = putParenthesesIfNegative(this.deltaTime) + "s";
 			return "Q = " + volume + " ÷ " + deltaTime
 				+ "\nQ = " + step1 + "m³/s";
 		}

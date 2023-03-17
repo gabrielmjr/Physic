@@ -1,7 +1,5 @@
 package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
-import static com.gabrielMJr.twaire.tools.NumberAnalyst.putParenthesesIfNegative;
-
 // Q = A * v
 final class FlowRate2 {
     private static FlowRate2 instance;
@@ -38,21 +36,13 @@ final class FlowRate2 {
 	}
 
 	public String getSteps () {
-		String area;
-		String velocity;
 		if (hasCustomUnit)
 			return null;
 	    else {
-			area = putParenthesesIfNegative(this.area) + "m²";
-			velocity = putParenthesesIfNegative(this.velocity) + "m/s";
 			return "Q = " + area + " × " + velocity
 			    + "\nQ = " + step1 + "m³/s";
 		}
 	}
-
-    protected String flowRate () {
-        return String.valueOf(area * velocity);
-    }
 
 	private FlowRate2 setArea (double area) {
 		this.area = area;

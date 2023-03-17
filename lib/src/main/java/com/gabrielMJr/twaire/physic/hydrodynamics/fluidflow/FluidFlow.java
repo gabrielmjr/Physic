@@ -3,7 +3,6 @@ package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 public class FluidFlow implements FluidFlowIF {
     private static FluidFlow instance;
     private static Area area;
-    private static FlowRate3 flowRate3;
     private static Ray ray;
     private static Speed1 speed1;
     private static Speed2 speed2;
@@ -12,7 +11,6 @@ public class FluidFlow implements FluidFlowIF {
 
     public FluidFlow () {
         area = Area.getInstance();
-        flowRate3 = FlowRate3.getInstance();	
         ray = Ray.getInstance();
         speed1 = Speed1.getInstance();
         speed2 = Speed2.getInstance();
@@ -62,31 +60,27 @@ public class FluidFlow implements FluidFlowIF {
 
     // Q = π * r² * v
     @Override
-    public String flowRate3 (
+    public FlowRate3 flowRate3 (
 		double ray, 
-		double velocity,
-		int resultOrStep) {
-        return flowRate3.flowRate(
+		double velocity) {
+        return FlowRate3.getInstance(
 			ray, 
-			velocity, 
-			resultOrStep);
+			velocity);
     }
 
     @Override
-    public String flowRate3 (
+    public FlowRate3 flowRate3 (
 		double ray, 
-		String rayUnit,
+		int rayUnit,
 		double velocity,
-		String velocityUnit,
-		String unitOfResult,
-		int resultOrStep) {
-        return flowRate3.flowRate(
+		int velocityUnit,
+		int unitOfResult) {
+        return FlowRate3.getInstance(
 			ray,
 			rayUnit,
 			velocity,
 			velocityUnit,
-			unitOfResult,
-			resultOrStep);
+			unitOfResult);
     }
 
     // ∆t = V/ Q
