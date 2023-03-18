@@ -67,16 +67,16 @@ public interface FluidFlowIF {
 		int areaUnit, 
 		int unitOfResult);
 
-    public abstract String speed2 (
+    public abstract Speed2 speed2 (
 		double flowRate,
-		double ray,
-		int resultOrStep);
+		double ray);
 
-    public abstract String speed2 (
-		double fluidFlow, String flowRateUnit, 
-		double ray, String rayUnit,
-		String unitOfResult,
-		int resultOrStep);
+    public abstract Speed2 speed2 (
+		double fluidFlow,
+		int flowRateUnit, 
+		double ray,
+		int rayUnit,
+		int unitOfResult);
 
     public abstract String area (
 	    double flowRate, 

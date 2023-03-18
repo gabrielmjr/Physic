@@ -4,12 +4,10 @@ public class FluidFlow implements FluidFlowIF {
     private static FluidFlow instance;
     private static Area area;
     private static Ray ray;
-    private static Speed2 speed2;
     
     public FluidFlow () {
         area = Area.getInstance();
         ray = Ray.getInstance();
-        speed2 = Speed2.getInstance();
     }
 	
     // Q = V/∆t
@@ -142,31 +140,27 @@ public class FluidFlow implements FluidFlowIF {
 
     // v = Q / (π * r²)]
     @Override
-    public String speed2 (
+    public Speed2 speed2 (
 		double flowRate, 
-		double ray, 
-		int resultOrStep) {
-        return speed2.speed(
+		double ray) {
+        return Speed2.getInstance(
 			flowRate, 
-			ray, 
-			resultOrStep);
+			ray);
     }
 
     @Override
-    public String speed2 (
+    public Speed2 speed2 (
 		double flowRate,
-		String flowRateUnit, 
+		int flowRateUnit, 
 		double ray, 
-		String raioUnit,
-		String unitOfResult,
-		int resultOrStep) {
-        return speed2.speed(
+		int raioUnit,
+		int unitOfResult) {
+        return Speed2.getInstance(
 			flowRate,
 			flowRateUnit,
 			ray,
 			raioUnit,
-			unitOfResult,
-			resultOrStep);
+			unitOfResult);
     }
 
     // A = Q / v

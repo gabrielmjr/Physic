@@ -1,8 +1,8 @@
 package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static com.gabrielMJr.twaire.physic.Physic.GET_RESULT;
 
 public class Speed2Test {
     private FluidFlow fluidFlow;
@@ -13,9 +13,9 @@ public class Speed2Test {
 
     @Test
     public void speed2Test () {
-        Double flowRate = 8.4;
-        Double ray = 4.6;
-        String result = "0.1264252946913417";
-        assertEquals(result, fluidFlow.speed2(flowRate, ray, GET_RESULT));
+        double flowRate = 8.4;
+        double ray = 4.6;
+        double result = 0.1264252946913417;
+        assertEquals(result, fluidFlow.speed2(flowRate, ray).getResult());
     }
 }
