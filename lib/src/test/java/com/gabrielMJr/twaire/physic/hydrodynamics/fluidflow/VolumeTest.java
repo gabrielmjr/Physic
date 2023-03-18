@@ -12,9 +12,9 @@ public class VolumeTest {
 
     @Test
     public void volumeTest () {
-        Double time = 8.0;
-        Double flowRate = 3.2;
-        String result = "25.6";
-        assertEquals(result, fluidFlow.volume(time, flowRate));
+        double time = 8.0;
+        double flowRate = 3.2;
+        double result = 25.6;
+        assertEquals(result, fluidFlow.volume(time, flowRate).getResult());
     }
 }

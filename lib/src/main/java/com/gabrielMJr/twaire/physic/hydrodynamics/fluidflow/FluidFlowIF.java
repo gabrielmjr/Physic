@@ -45,14 +45,16 @@ public interface FluidFlowIF {
 		int flowRateUnit,
         int unitOfResult);
 
-    public abstract String volume (
+    public abstract Volume volume (
 		double time, 
 		double flowRate);
 
-    public abstract String volume (
-		double time, String timeUnit,
-		double flowRate, String flowRateUnit,
-		String unitOfResult);
+    public abstract Volume volume (
+		double time, 
+		int timeUnit,
+		double flowRate,
+		int flowRateUnit,
+		int unitOfResult);
 
     public abstract String speed1 (
 		double flowRate, 

@@ -93,8 +93,8 @@ final class FlowRate1 {
         if (!(instance instanceof FlowRate1))
             instance = new FlowRate1();
 		return instance.setVolume(volume)
-			.setDeltaTime(time)
-			.setHasCustomUnits(false);
+		    .setDeltaTime(time)
+		    .setHasCustomUnits(false);
     }
 
 	public static FlowRate1 getInstance (double volume, 
@@ -105,10 +105,10 @@ final class FlowRate1 {
         if (!(instance instanceof FlowRate1))
             instance = new FlowRate1();
 		return instance.setVolume(volume)
-			.setVolumeUnit(volumeUnit)
-			.setDeltaTime(time)
-			.setDeltaTimeUnit(deltaTimeUnit)
-			.setUnitOfResult(unitOfResult)
-			.setHasCustomUnits(true);
+		    .setVolumeUnit(volumeUnit)
+		    .setDeltaTime(time)
+		    .setDeltaTimeUnit(deltaTimeUnit)
+		    .setUnitOfResult(unitOfResult)
+		    .setHasCustomUnits(true);
     }
 }

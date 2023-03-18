@@ -93,8 +93,8 @@ final class FlowRate2 {
         if (!(instance instanceof FlowRate2))
             instance = new FlowRate2();
         return instance.setArea(area)
-			.setVelocity(velocity)
-			.setHasCustomUnits(false);
+		    .setVelocity(velocity)
+		    .setHasCustomUnits(false);
     }
 
 	public static FlowRate2 getInstance (double area,
@@ -105,10 +105,10 @@ final class FlowRate2 {
         if (!(instance instanceof FlowRate2))
 			instance = new FlowRate2();
 	    return instance.setArea(area)
-			.setAreaUnit(areaUnit)
-			.setVelocity(velocity)
-			.setVelocityUnit(velocityUnit)
-			.setUnitOfResult(unitOfResult)
-			.setHasCustomUnits(true);
+		    .setAreaUnit(areaUnit)
+		    .setVelocity(velocity)
+		    .setVelocityUnit(velocityUnit)
+		    .setUnitOfResult(unitOfResult)
+		    .setHasCustomUnits(true);
     }
 }

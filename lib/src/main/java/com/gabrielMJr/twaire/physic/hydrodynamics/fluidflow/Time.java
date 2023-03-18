@@ -1,5 +1,6 @@
 package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
+// ∆t = V/ Q
 final class Time {
     private static Time instance;
 
@@ -84,13 +85,12 @@ final class Time {
 		return unitOfResult;
 	}
 
-    public static Time getInstance (double volume,
-									double flowRate) {
+    public static Time getInstance (double volume, double flowRate) {
         if (!(instance instanceof Time))
 			instance = new Time();
         return instance.setVolume(volume)
-			.setFlowRate(flowRate)
-			.setHasCustUnit(false);
+		    .setFlowRate(flowRate)
+		    .setHasCustUnit(false);
     }
 
 	public static Time getInstance (double volume,
@@ -101,10 +101,10 @@ final class Time {
         if (!(instance instanceof Time))
 			instance = new Time();
         return instance.setVolume(volume)
-			.setVolumeUnit(volumeUnit)
-			.setFlowRate(flowRate)
-			.setFlowRateUnit(flowRateUnit)
-			.setUnitOfResult(unitOfResult)
-			.setHasCustUnit(true);
+		    .setVolumeUnit(volumeUnit)
+		    .setFlowRate(flowRate)
+		    .setFlowRateUnit(flowRateUnit)
+		    .setUnitOfResult(unitOfResult)
+		    .setHasCustUnit(true);
     }
 }

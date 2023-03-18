@@ -90,23 +90,13 @@ final class FlowRate3 {
 		return unitOfResult;
 	}
 
-    protected String flowRate (
-		double ray,
-		String rayUnit,
-		double velocity,
-		String velocityUnit,
-		String unitOfResult,
-		int resultOrStep) {
-        return null;
-    }
-
     public static FlowRate3 getInstance (double ray,
 										 double velocity) {
         if (!(instance instanceof FlowRate3))
             instance = new FlowRate3();
         return instance.setRay(ray)
-			.setVelocity(velocity)
-			.setHasCustomUnit(false);
+		    .setVelocity(velocity)
+		    .setHasCustomUnit(false);
     }
 
 	public static FlowRate3 getInstance (double ray,
@@ -117,10 +107,10 @@ final class FlowRate3 {
         if (!(instance instanceof FlowRate3))
             instance = new FlowRate3();
         return instance.setRay(ray)
-			.setRayUnit(rayUnit)
-			.setVelocity(velocity)
-			.setVelocityUnit(velocityUnit)
-			.setUnitOfResult(unitOfResult)
-			.setHasCustomUnit(true);
+		    .setRayUnit(rayUnit)
+		    .setVelocity(velocity)
+		    .setVelocityUnit(velocityUnit)
+		    .setUnitOfResult(unitOfResult)
+		    .setHasCustomUnit(true);
     }
 }
