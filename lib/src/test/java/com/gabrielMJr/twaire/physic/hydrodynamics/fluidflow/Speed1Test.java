@@ -11,9 +11,9 @@ public class Speed1Test {
 
     @Test
     public void speed1Test () {
-        Double flowRate = 8.8;
-        Double area = 4.0;
-        String result = "2.2";
-        assertEquals(result, fluidFlow.speed1(flowRate, area));
+        double flowRate = 8.8;
+        double area = 4.0;
+        double result = 2.2;
+        assertEquals(result, fluidFlow.speed1(flowRate, area).getResult());
     }
 }

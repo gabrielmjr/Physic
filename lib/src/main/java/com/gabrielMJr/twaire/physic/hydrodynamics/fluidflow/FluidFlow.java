@@ -4,13 +4,11 @@ public class FluidFlow implements FluidFlowIF {
     private static FluidFlow instance;
     private static Area area;
     private static Ray ray;
-    private static Speed1 speed1;
     private static Speed2 speed2;
     
     public FluidFlow () {
         area = Area.getInstance();
         ray = Ray.getInstance();
-        speed1 = Speed1.getInstance();
         speed2 = Speed2.getInstance();
     }
 	
@@ -123,18 +121,18 @@ public class FluidFlow implements FluidFlowIF {
 
     // v = Q / A
     @Override
-    public String speed1 (double flowRate, double area) {
-        return speed1.speed(flowRate, area);
+    public Speed1 speed1 (double flowRate, double area) {
+        return Speed1.getInstance(flowRate, area);
     }
 
     @Override
-    public String speed1 (
+    public Speed1 speed1 (
 		double flowRate, 
-		String flowRateUnit,
+		int flowRateUnit,
 		double area, 
-		String areaUnit, 
-		String unitOfResult) {
-        return speed1.speed(
+		int areaUnit, 
+		int unitOfResult) {
+        return Speed1.getInstance(
 			flowRate,
 			flowRateUnit,
 			area,
