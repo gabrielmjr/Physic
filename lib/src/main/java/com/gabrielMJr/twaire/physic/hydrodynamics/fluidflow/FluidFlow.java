@@ -6,7 +6,6 @@ public class FluidFlow implements FluidFlowIF {
     private static Ray ray;
     private static Speed1 speed1;
     private static Speed2 speed2;
-    private static Time time;
     private static Volume volume;
 
     public FluidFlow () {
@@ -14,7 +13,6 @@ public class FluidFlow implements FluidFlowIF {
         ray = Ray.getInstance();
         speed1 = Speed1.getInstance();
         speed2 = Speed2.getInstance();
-        time = Time.getInstance();
         volume = Volume.getInstance();
     }
 
@@ -85,18 +83,18 @@ public class FluidFlow implements FluidFlowIF {
 
     // ∆t = V/ Q
     @Override
-    public String time (double volume, double flowRate) {
-        return time.time(volume, flowRate);
+    public Time time (double volume, double flowRate) {
+        return Time.getInstance(volume, flowRate);
     }
 
     @Override
-    public String time (
+    public Time time (
 		double volume, 
-		String volumeUnit,
+		int volumeUnit,
 		double flowRate,
-		String flowRateUnit, 
-		String unitOfResult) {
-        return time.time(
+		int flowRateUnit, 
+		int unitOfResult) {
+        return Time.getInstance(
 			volume,
 			volumeUnit,
 			flowRate,

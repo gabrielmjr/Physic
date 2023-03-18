@@ -14,7 +14,7 @@ public class TimeTest {
     public void timeTest () {
         Double volume = 9.0;
         Double flowRate = 4.0;
-        String result = "2.25";
-        assertEquals(result, fluidFlow.time(volume, flowRate));
+        double result = 2.25;
+        assertEquals(result, fluidFlow.time(volume, flowRate).getResult());
     }
 }
