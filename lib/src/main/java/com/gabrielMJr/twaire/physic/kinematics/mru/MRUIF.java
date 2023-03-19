@@ -1,16 +1,16 @@
 package com.gabrielMJr.twaire.physic.kinematics.mru;
 
 public interface MRUIF {
-    public abstract String displacement1 (
+    public abstract Displacement1 displacement1 (
         double initialDisplacement, 
         double finalDisplacement);
 
-    public abstract String displacement1 (
+    public abstract Displacement1 displacement1 (
         double initialDisplacement,
-        String initialDisplacementUnit, 
+        int initialDisplacementUnit, 
         double finalDisplacement,
-        String finalDisplacementUnit,
-        String unitOfResult);
+        int finalDisplacementUnit,
+        int unitOfResult);
 
     public abstract String displacement2 (
         double deltaTime,

@@ -3,7 +3,6 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 public class MRU implements MRUIF {
 	private static MRU instance; 
 
-	private Displacement1 displacement1;
 	private Displacement2 displacement2;
 	private Displacement3 displacement3;
 	private Displacement4 displacement4;
@@ -22,7 +21,6 @@ public class MRU implements MRUIF {
 	private Time5 time5;
 
 	public MRU () {
-		displacement1 = Displacement1.getInstance();
 		displacement2 = Displacement2.getInstance();
 		displacement3 = Displacement3.getInstance();
 		displacement4 = Displacement4.getInstance();
@@ -43,23 +41,21 @@ public class MRU implements MRUIF {
 
 	// ∆S = Sf - Si
 	@Override
-	public String displacement1 (double initialDisplacement, double finalDisplacement) {
-		return displacement1.displacement(initialDisplacement, finalDisplacement);
+	public Displacement1 displacement1 (double initialDisplacement, double finalDisplacement) {
+		return Displacement1.getInstance(initialDisplacement, finalDisplacement);
 	}
 
 	@Override
-	public String displacement1 (
-		double initialDisplacement,
-		String initialDisplacementUnit, 
-		double finalDisplacement,
-		String finalDisplacementUnit,
-		String unitOfResult) {
-		return displacement1.displacement(
-			initialDisplacement,
-			initialDisplacementUnit,
-			finalDisplacement,
-			finalDisplacementUnit,
-			unitOfResult);
+	public Displacement1 displacement1 (double initialDisplacement,
+										int initialDisplacementUnit, 
+										double finalDisplacement,
+										int finalDisplacementUnit,
+										int unitOfResult) {
+		return Displacement1.getInstance(initialDisplacement,
+										 initialDisplacementUnit,
+										 finalDisplacement,
+										 finalDisplacementUnit,
+										 unitOfResult);
 	}
 
 	// ∆S = ∆t x speed_média
@@ -446,7 +442,7 @@ public class MRU implements MRUIF {
 	}
 
     protected static MRU getInstance () {
-		if(!(instance instanceof MRU))
+		if (!(instance instanceof MRU))
 			instance = new MRU();
 		return instance;
     }
