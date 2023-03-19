@@ -2,14 +2,12 @@ package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
 public class FluidFlow implements FluidFlowIF {
     private static FluidFlow instance;
-    private static Area area;
     private static Ray ray;
-    
+
     public FluidFlow () {
-        area = Area.getInstance();
         ray = Ray.getInstance();
     }
-	
+
     // Q = V/∆t
     @Override
     public FlowRate1 flowRate1 (double volume, double time) {
@@ -22,12 +20,11 @@ public class FluidFlow implements FluidFlowIF {
 								double time, 
 								int timeUnit, 
 								int unitOfResult) {
-        return FlowRate1.getInstance(
-			volume, 
-			volumeUnit, 
-			time, 
-			timeUnit, 
-			unitOfResult);
+        return FlowRate1.getInstance(volume, 
+									 volumeUnit, 
+									 time, 
+									 timeUnit, 
+									 unitOfResult);
     }
 
     // Q = A * v
@@ -44,7 +41,7 @@ public class FluidFlow implements FluidFlowIF {
 		int velocityUnit, 
 		int unitOfResult) {
 		return FlowRate2.getInstance(area, 
-									 areaUnit, 
+									 areaUnit,
 									 velocity, 
 									 velocityUnit, 
 									 unitOfResult);
@@ -61,18 +58,16 @@ public class FluidFlow implements FluidFlowIF {
     }
 
     @Override
-    public FlowRate3 flowRate3 (
-		double ray, 
-		int rayUnit,
-		double velocity,
-		int velocityUnit,
-		int unitOfResult) {
-        return FlowRate3.getInstance(
-			ray,
-			rayUnit,
-			velocity,
-			velocityUnit,
-			unitOfResult);
+    public FlowRate3 flowRate3 (double ray, 
+								int rayUnit,
+								double velocity,
+								int velocityUnit,
+								int unitOfResult) {
+        return FlowRate3.getInstance(ray,
+									 rayUnit,
+									 velocity,
+									 velocityUnit,
+									 unitOfResult);
     }
 
     // ∆t = V/ Q
@@ -82,18 +77,16 @@ public class FluidFlow implements FluidFlowIF {
     }
 
     @Override
-    public Time time (
-		double volume, 
-		int volumeUnit,
-		double flowRate,
-		int flowRateUnit, 
-		int unitOfResult) {
-        return Time.getInstance(
-			volume,
-			volumeUnit,
-			flowRate,
-			flowRateUnit,
-			unitOfResult);
+    public Time time (double volume, 
+					  int volumeUnit,
+					  double flowRate,
+					  int flowRateUnit, 
+					  int unitOfResult) {
+        return Time.getInstance(volume,
+								volumeUnit,
+								flowRate,
+								flowRateUnit,
+								unitOfResult);
     }
 
     // V = ∆t * Q
@@ -103,18 +96,16 @@ public class FluidFlow implements FluidFlowIF {
     }
 
     @Override
-    public Volume volume (
-		double time, 
-		int timeUnit, 
-		double flowRate, 
-		int flowRateUnit, 
-		int unitOfResult) {
-        return Volume.getInstance(
-			time,
-			timeUnit,
-			flowRate,
-			flowRateUnit,
-			unitOfResult);
+    public Volume volume (double time, 
+						  int timeUnit, 
+						  double flowRate, 
+						  int flowRateUnit, 
+						  int unitOfResult) {
+        return Volume.getInstance(time,
+								  timeUnit,
+								  flowRate,
+								  flowRateUnit,
+								  unitOfResult);
     }
 
     // v = Q / A
@@ -124,66 +115,54 @@ public class FluidFlow implements FluidFlowIF {
     }
 
     @Override
-    public Speed1 speed1 (
-		double flowRate, 
-		int flowRateUnit,
-		double area, 
-		int areaUnit, 
-		int unitOfResult) {
-        return Speed1.getInstance(
-			flowRate,
-			flowRateUnit,
-			area,
-			areaUnit,
-			unitOfResult);
+    public Speed1 speed1 (double flowRate, 
+						  int flowRateUnit,
+						  double area, 
+						  int areaUnit, 
+						  int unitOfResult) {
+        return Speed1.getInstance(flowRate,
+								  flowRateUnit,
+								  area,
+								  areaUnit,
+								  unitOfResult);
     }
 
     // v = Q / (π * r²)]
     @Override
-    public Speed2 speed2 (
-		double flowRate, 
-		double ray) {
-        return Speed2.getInstance(
-			flowRate, 
-			ray);
+    public Speed2 speed2 (double flowRate, double ray) {
+        return Speed2.getInstance(flowRate, ray);
     }
 
     @Override
-    public Speed2 speed2 (
-		double flowRate,
-		int flowRateUnit, 
-		double ray, 
-		int raioUnit,
-		int unitOfResult) {
-        return Speed2.getInstance(
-			flowRate,
-			flowRateUnit,
-			ray,
-			raioUnit,
-			unitOfResult);
+    public Speed2 speed2 (double flowRate,
+						  int flowRateUnit, 
+						  double ray, 
+						  int raioUnit,
+						  int unitOfResult) {
+        return Speed2.getInstance(flowRate,
+								  flowRateUnit,
+								  ray,
+								  raioUnit,
+								  unitOfResult);
     }
 
     // A = Q / v
     @Override
-    public String area (double flowRate, double velocity) {
-		return area.area(flowRate, velocity);
+    public Area area (double flowRate, double velocity) {
+		return Area.getInstance(flowRate, velocity);
     }
 
     @Override
-    public String area (
-		double flowRate, 
-		String flowRateUnit, 
-		double velocity, 
-		String velocityUnit,
-		String unitOfResult,
-		int resultOrStep) {
-        return area.area(
-			flowRate,
-			flowRateUnit, 
-			velocity,
-			velocityUnit,
-			unitOfResult,
-			resultOrStep);
+    public Area area (double flowRate, 
+					  int flowRateUnit, 
+					  double velocity, 
+					  int velocityUnit,
+					  int unitOfResult) {
+        return Area.getInstance(flowRate,
+								flowRateUnit, 
+								velocity,
+								velocityUnit,
+								unitOfResult);
     }
 
     // r = √[Q / (π * v)]

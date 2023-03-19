@@ -12,13 +12,13 @@ final class Time {
 	private int unitOfResult;
 
 	private double step1;
-	private boolean hasCustomUnit;
+	private boolean hasCustomUnits;
 
     private Time () {}
 
-	private Time setHasCustUnit (boolean hasCustomUnit) {
-		this.hasCustomUnit = hasCustomUnit;
-		if (hasCustomUnit)
+	private Time setHasCustUnits (boolean hasCustomUnits) {
+		this.hasCustomUnits = hasCustomUnits;
+		if (hasCustomUnits)
 			calculateWithCustUnit();
 		else
 			calculateWithoutCustomUnit();
@@ -85,15 +85,15 @@ final class Time {
 		return unitOfResult;
 	}
 
-    public static Time getInstance (double volume, double flowRate) {
+    protected static Time getInstance (double volume, double flowRate) {
         if (!(instance instanceof Time))
 			instance = new Time();
         return instance.setVolume(volume)
 		    .setFlowRate(flowRate)
-		    .setHasCustUnit(false);
+		    .setHasCustUnits(false);
     }
 
-	public static Time getInstance (double volume,
+	protected static Time getInstance (double volume,
 									int volumeUnit,
 									double flowRate,
 									int flowRateUnit,
@@ -105,6 +105,6 @@ final class Time {
 		    .setFlowRate(flowRate)
 		    .setFlowRateUnit(flowRateUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustUnit(true);
+		    .setHasCustUnits(true);
     }
 }

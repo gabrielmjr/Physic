@@ -13,13 +13,13 @@ final class FlowRate3 {
 	private double step1;
 	private double step2;
 	private double step3;
-	private boolean hasCustomUnit;
+	private boolean hasCustomUnits;
 
     private FlowRate3 () {}
 
-	private FlowRate3 setHasCustomUnit (boolean hasCustomUnit) {
-		this.hasCustomUnit = hasCustomUnit;
-		if (hasCustomUnit)
+	private FlowRate3 setHasCustomUnits (boolean hasCustomUnits) {
+		this.hasCustomUnits = hasCustomUnits;
+		if (hasCustomUnits)
 			calculateWithCustomUnit();
 		else
 			calculateWithoutCustomUnit();
@@ -40,7 +40,7 @@ final class FlowRate3 {
 	}
 
 	public String getSteps () {
-		if (hasCustomUnit)
+		if (hasCustomUnits)
 			return null;
 		else
 			return "Q = 3.14 × (" + ray + "m)² × " + velocity + "m/s"
@@ -90,16 +90,16 @@ final class FlowRate3 {
 		return unitOfResult;
 	}
 
-    public static FlowRate3 getInstance (double ray,
+    protected static FlowRate3 getInstance (double ray,
 										 double velocity) {
         if (!(instance instanceof FlowRate3))
             instance = new FlowRate3();
         return instance.setRay(ray)
 		    .setVelocity(velocity)
-		    .setHasCustomUnit(false);
+		    .setHasCustomUnits(false);
     }
 
-	public static FlowRate3 getInstance (double ray,
+	protected static FlowRate3 getInstance (double ray,
 										 int rayUnit,
 										 double velocity,
 										 int velocityUnit,
@@ -111,6 +111,6 @@ final class FlowRate3 {
 		    .setVelocity(velocity)
 		    .setVelocityUnit(velocityUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnit(true);
+		    .setHasCustomUnits(true);
     }
 }

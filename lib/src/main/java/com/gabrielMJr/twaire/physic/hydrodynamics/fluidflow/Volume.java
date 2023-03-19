@@ -88,7 +88,7 @@ final class Volume {
 		return unitOfResult;
 	}
 
-    public static Volume getInstance (double deltaTime, double flowRate) {
+    protected static Volume getInstance (double deltaTime, double flowRate) {
         if (!(instance instanceof Volume))
 			instance = new Volume();
 		return instance.setDeltaTime(deltaTime)
@@ -96,7 +96,7 @@ final class Volume {
 		    .setHasCustomUnit(false);
     }
 
-	public static Volume getInstance (double deltaTime,
+	protected static Volume getInstance (double deltaTime,
 									  int deltaTimeUnit,
 									  double flowRate,
 									  int flowRateUnit,

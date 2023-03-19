@@ -12,13 +12,13 @@ final class FlowRate2 {
 	private int unitOfResult;
 
 	private double step1;
-	private boolean hasCustomUnit;
+	private boolean hasCustomUnits;
 
     private FlowRate2 () {}
 
-    private FlowRate2 setHasCustomUnits (boolean hasCustomUnit) {
-		this.hasCustomUnit = hasCustomUnit;
-		if (hasCustomUnit)
+    private FlowRate2 setHasCustomUnits (boolean hasCustomUnits) {
+		this.hasCustomUnits = hasCustomUnits;
+		if (hasCustomUnits)
 			calculateWithCustomUnit();
 		else
 			calculateWithoutCustomUnit();
@@ -36,7 +36,7 @@ final class FlowRate2 {
 	}
 
 	public String getSteps () {
-		if (hasCustomUnit)
+		if (hasCustomUnits)
 			return null;
 	    else {
 			return "Q = " + area + " × " + velocity
@@ -89,7 +89,7 @@ final class FlowRate2 {
 		return unitOfResult;
 	}
 
-    public static FlowRate2 getInstance (double area, double velocity) {
+    protected static FlowRate2 getInstance (double area, double velocity) {
         if (!(instance instanceof FlowRate2))
             instance = new FlowRate2();
         return instance.setArea(area)
@@ -97,7 +97,7 @@ final class FlowRate2 {
 		    .setHasCustomUnits(false);
     }
 
-	public static FlowRate2 getInstance (double area,
+	protected static FlowRate2 getInstance (double area,
 										 int areaUnit,
 										 double velocity,
 										 int velocityUnit, 

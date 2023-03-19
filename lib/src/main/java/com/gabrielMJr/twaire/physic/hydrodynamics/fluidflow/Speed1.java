@@ -12,13 +12,13 @@ final class Speed1 {
 	private int unitOfResult;
 
 	private double step1;
-	private boolean hasCustomUnit;
+	private boolean hasCustomUnits;
 
     private Speed1 () {}
 
-	private Speed1 setHasCustomUnit (boolean hasCustomUnit) {
-		this.hasCustomUnit = hasCustomUnit;
-		if (hasCustomUnit)
+	private Speed1 setHasCustomUnits (boolean hasCustomUnits) {
+		this.hasCustomUnits = hasCustomUnits;
+		if (hasCustomUnits)
 
 			calculateWithCustomUnit();
 		else
@@ -37,7 +37,7 @@ final class Speed1 {
 	}
 
 	public String getSteps () {
-		if (hasCustomUnit)
+		if (hasCustomUnits)
 			return null;
 		return "v = " + flowRate + "m³/s ÷ " + area + "m²"
 			+ "\nv = " + step1 + "m/s";
@@ -88,16 +88,16 @@ final class Speed1 {
 		return unitOfResult;
 	}
 
-    public static Speed1 getInstance (double flowRate, double area) {
+    protected static Speed1 getInstance (double flowRate, double area) {
         if (!(instance instanceof Speed1))
             instance = new Speed1();
 		return instance
 			.setFlowRate(flowRate)
 			.setArea(area)
-			.setHasCustomUnit(false);
+			.setHasCustomUnits(false);
     }
 
-	public static Speed1 getInstance (double flowRate, 
+	protected static Speed1 getInstance (double flowRate, 
 									  int flowRateUnit,
 									  double area,
 									  int areaUnit,
@@ -110,6 +110,6 @@ final class Speed1 {
 		    .setArea(area)
 		    .setAreaUnit(areaUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnit(true);
+		    .setHasCustomUnits(true);
     }
 }

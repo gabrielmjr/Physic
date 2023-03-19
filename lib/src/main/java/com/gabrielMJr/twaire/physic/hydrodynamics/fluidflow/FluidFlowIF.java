@@ -78,15 +78,16 @@ public interface FluidFlowIF {
 		int rayUnit,
 		int unitOfResult);
 
-    public abstract String area (
+    public abstract Area area (
 	    double flowRate, 
 		double velocity);
 
-    public abstract String area (
-		double fluidFlow, String flowRateUnit, 
-		double velocity, String velocityUnit, 
-		String unitOfResult,
-		int resultOrStep);
+    public abstract Area area (
+		double fluidFlow,
+		int flowRateUnit, 
+		double velocity,
+		int velocityUnit, 
+		int unitOfResult);
 
     public abstract String ray (
 		double flowRate,
@@ -94,8 +95,10 @@ public interface FluidFlowIF {
 		int resultOrStep);
 
     public abstract String ray (
-		double flowRate, String flowRateUnit, 
-		double velocity, String velocityUnit, 
+		double flowRate,
+		String flowRateUnit, 
+		double velocity,
+		String velocityUnit, 
 		String unitOfResult,
 		int resultOrStep);
 }

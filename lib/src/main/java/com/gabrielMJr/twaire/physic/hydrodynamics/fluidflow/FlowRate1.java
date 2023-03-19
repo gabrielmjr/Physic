@@ -89,7 +89,7 @@ final class FlowRate1 {
 		return unitOfResult;
 	}
 
-    public static FlowRate1 getInstance (double volume, double time) {
+    protected static FlowRate1 getInstance (double volume, double time) {
         if (!(instance instanceof FlowRate1))
             instance = new FlowRate1();
 		return instance.setVolume(volume)
@@ -97,7 +97,7 @@ final class FlowRate1 {
 		    .setHasCustomUnits(false);
     }
 
-	public static FlowRate1 getInstance (double volume, 
+	protected static FlowRate1 getInstance (double volume, 
 										 int volumeUnit,
 										 double time,
 										 int deltaTimeUnit,
