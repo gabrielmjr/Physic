@@ -2,11 +2,8 @@ package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
 
 public class FluidFlow implements FluidFlowIF {
     private static FluidFlow instance;
-    private static Ray ray;
 
-    public FluidFlow () {
-        ray = Ray.getInstance();
-    }
+    public FluidFlow () {}
 
     // Q = V/∆t
     @Override
@@ -167,28 +164,21 @@ public class FluidFlow implements FluidFlowIF {
 
     // r = √[Q / (π * v)]
     @Override
-    public String ray (
-		double flowRate, 
-		double velocity, 
-		int resultOrStep) {
-        return ray.ray(
-			flowRate, 
-			velocity,
-			resultOrStep);
+    public Ray ray (double flowRate, double velocity) {
+        return Ray.getInstance(flowRate, velocity);
     }
 
     @Override
-    public String ray (
-		double flowRate,
-		String flowRateUnit, 
-		double velocity, 
-		String velocityUnit,
-		String unitOfResult,
-		int resultOrStep) {
-        return ray.ray(
-			flowRate, 
-			velocity,
-			resultOrStep);
+    public Ray ray (double flowRate,
+					int flowRateUnit, 
+					double velocity, 
+					int velocityUnit,
+					int unitOfResult) {
+        return Ray.getInstance(flowRate, 
+							   flowRateUnit,
+							   velocity,
+							   velocityUnit,
+							   unitOfResult);
     }
 
     protected static FluidFlow getInstance () {

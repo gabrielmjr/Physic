@@ -89,16 +89,14 @@ public interface FluidFlowIF {
 		int velocityUnit, 
 		int unitOfResult);
 
-    public abstract String ray (
+    public abstract Ray ray (
 		double flowRate,
-		double velocity,
-		int resultOrStep);
+		double velocity);
 
-    public abstract String ray (
+    public abstract Ray ray (
 		double flowRate,
-		String flowRateUnit, 
+		int flowRateUnit, 
 		double velocity,
-		String velocityUnit, 
-		String unitOfResult,
-		int resultOrStep);
+		int velocityUnit, 
+		int unitOfResult);
 }
