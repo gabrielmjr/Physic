@@ -12,16 +12,16 @@ public interface MRUIF {
         int finalDisplacementUnit,
         int unitOfResult);
 
-    public abstract String displacement2 (
+    public abstract Displacement2 displacement2 (
         double deltaTime,
         double deltaSpeed);
 
-    public abstract String displacement2 (
+    public abstract Displacement2 displacement2 (
         double deltaTime,
-        String deltaTimeUnit,
+        int deltaTimeUnit,
         double deltaSpeed,
-        String deltaSpeedUnit,
-        String unitOfResult);
+        int deltaSpeedUnit,
+        int unitOfResult);
 
     public abstract String displacement3 (
         double intial_time, 

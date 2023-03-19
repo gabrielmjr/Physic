@@ -43,7 +43,7 @@ final class Displacement1 {
 		boolean isInitialDisplacementNegative = this.initialDisplacement < 0;
 		if (hasCustomUnits)
 			return null;
-		else return "∆S = " + finalDisplacement + "m - " + initialDisplacement
+		return "∆S = " + finalDisplacement + "m - " + initialDisplacement
 				+ "\n∆S = " + finalDisplacement + "m " + ((isInitialDisplacementNegative) ? "+ " + (- this.initialDisplacement) : "- " + this.initialDisplacement) + "m"
 				+ "\n∆S = " + step1 + "m";
 	}

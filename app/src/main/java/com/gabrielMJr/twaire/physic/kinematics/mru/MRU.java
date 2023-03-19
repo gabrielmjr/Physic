@@ -3,7 +3,6 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 public class MRU implements MRUIF {
 	private static MRU instance; 
 
-	private Displacement2 displacement2;
 	private Displacement3 displacement3;
 	private Displacement4 displacement4;
 	private Displacement5 displacement5;
@@ -21,7 +20,6 @@ public class MRU implements MRUIF {
 	private Time5 time5;
 
 	public MRU () {
-		displacement2 = Displacement2.getInstance();
 		displacement3 = Displacement3.getInstance();
 		displacement4 = Displacement4.getInstance();
 		displacement5 = Displacement5.getInstance();
@@ -60,23 +58,21 @@ public class MRU implements MRUIF {
 
 	// ∆S = ∆t x speed_média
 	@Override
-	public String displacement2 (double deltaTime, double deltaSpeed) {
-		return displacement2.displacement(deltaTime, deltaSpeed);
+	public Displacement2 displacement2 (double deltaTime, double deltaSpeed) {
+		return Displacement2.getInstance(deltaTime, deltaSpeed);
 	}
 
 	@Override
-	public String displacement2 (
-		double deltaTime,
-		String deltaTimeUnit, 
-		double deltaSpeed,
-		String deltaSpeedUnit,
-		String unitOfResult) {
-		return displacement2.displacement(
-			deltaTime,
-			deltaSpeedUnit,
-			deltaSpeed,
-			deltaSpeedUnit,
-			unitOfResult);
+	public Displacement2 displacement2 (double deltaTime,
+										int deltaTimeUnit, 
+										double deltaSpeed,
+										int deltaSpeedUnit,
+										int unitOfResult) {
+		return Displacement2.getInstance(deltaTime,
+										 deltaSpeedUnit,
+										 deltaSpeed,
+										 deltaSpeedUnit,
+										 unitOfResult);
 	}
 
 	// ∆S = (finalTime - initialTime) x media_speed
