@@ -3,7 +3,6 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 public class MRU implements MRUIF {
 	private static MRU instance; 
 
-	private Displacement3 displacement3;
 	private Displacement4 displacement4;
 	private Displacement5 displacement5;
 	private Displacement6 displacement6;
@@ -20,7 +19,6 @@ public class MRU implements MRUIF {
 	private Time5 time5;
 
 	public MRU () {
-		displacement3 = Displacement3.getInstance();
 		displacement4 = Displacement4.getInstance();
 		displacement5 = Displacement5.getInstance();
 		displacement6 = Displacement6.getInstance();
@@ -77,37 +75,29 @@ public class MRU implements MRUIF {
 
 	// ∆S = (finalTime - initialTime) x media_speed
 	@Override
-	public String displacement3 (
-		double initialTime,
-		double finalTime,
-		double deltaSpeed,
-		int resultOrStep) {
-		return displacement3.displacement(
-			initialTime,
-			finalTime,
-			deltaSpeed,
-			resultOrStep);
+	public Displacement3 displacement3 (double initialTime,
+										double finalTime,
+										double deltaSpeed) {
+		return Displacement3.getInstance(initialTime,
+										 finalTime,
+										 deltaSpeed);
 	}
 
 	@Override
-	public String displacement3 (
-		double initialTime,
-		String initialTimeUnit,
-		double finalTime,
-		String finalTimeUnit,
-		double deltaSpeed,
-		String deltaSpeedUnit,
-		String unitOfResult,
-		int resultOrStep) {
-		return displacement3.displacement(
-			initialTime,
-			initialTimeUnit,
-			finalTime,
-			finalTimeUnit,
-			deltaSpeed,
-			deltaSpeedUnit,
-			unitOfResult,
-			resultOrStep);
+	public Displacement3 displacement3 (double initialTime,
+								 int initialTimeUnit,
+								 double finalTime,
+								 int finalTimeUnit,
+								 double deltaSpeed,
+								 int deltaSpeedUnit,
+								 int unitOfResult) {
+		return Displacement3.getInstance(initialTime,
+										 initialTimeUnit,
+										 finalTime,
+										 finalTimeUnit,
+										 deltaSpeed,
+										 deltaSpeedUnit,
+										 unitOfResult);
 	}
 
 	// S_inicial = S_final - ∆S
