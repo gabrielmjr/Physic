@@ -1,8 +1,8 @@
 package com.gabrielMJr.twaire.physic.kinematics.mru;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static com.gabrielMJr.twaire.physic.Physic.GET_RESULT;
 
 public class Displacement6Test {
     private MRU mru;
@@ -13,10 +13,10 @@ public class Displacement6Test {
 
     @Test
     public void displacement6Test () {
-        Double initialDisplacement = 3.5;
-        Double velocity = 5.5;
-        Double deltaTime = 9.0;
-        String result = "53.0";
-        assertEquals(result, mru.displacement6(initialDisplacement, velocity, deltaTime, GET_RESULT));
+        double initialDisplacement = 3.5;
+        double velocity = 5.5;
+        double deltaTime = 9.0;
+        double result = 53.0;
+        assertEquals(result, mru.displacement6(initialDisplacement, velocity, deltaTime).getResult());
     }
 }

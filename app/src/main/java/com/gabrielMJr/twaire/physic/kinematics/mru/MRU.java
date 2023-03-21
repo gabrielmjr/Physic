@@ -2,8 +2,6 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 
 public class MRU implements MRUIF {
 	private static MRU instance; 
-	
-    private Displacement6 displacement6;
 
 	private Speed1 speed1;
 	private Speed2 speed2;
@@ -17,8 +15,6 @@ public class MRU implements MRUIF {
 	private Time5 time5;
 
 	public MRU () {
-		displacement6 = Displacement6.getInstance();
-
 		speed1 = Speed1.getInstance();
 		speed2 = Speed2.getInstance();
 		speed3 = Speed3.getInstance();
@@ -122,53 +118,43 @@ public class MRU implements MRUIF {
 	}
 
 	@Override
-	public Displacement5 displacement5 (
-		double initialDisplacement, 
-		int initialDisplacementUnit,
-		double deltaDisplacement,
-		int deltaDisplacementUnit,
-		int unitOfResult) {
-		return Displacement5.getInstance(
-			initialDisplacement,
-			initialDisplacementUnit,
-			deltaDisplacement,
-			deltaDisplacementUnit,
-			unitOfResult);
+	public Displacement5 displacement5 (double initialDisplacement, 
+										int initialDisplacementUnit,
+										double deltaDisplacement,
+										int deltaDisplacementUnit,
+										int unitOfResult) {
+		return Displacement5.getInstance(initialDisplacement,
+										 initialDisplacementUnit,
+										 deltaDisplacement,
+										 deltaDisplacementUnit,
+										 unitOfResult);
 	}
 
 	// S = S_inicial + velocity * ∆t
 	@Override
-	public String displacement6 (
-		double initialDisplacement,
-		double velocity,
-		double deltaTime,
-		int stepOrResult) {
-		return displacement6.displacement(
-			initialDisplacement,
-			velocity,
-			deltaTime,
-			stepOrResult);
+	public Displacement6 displacement6 (double initialDisplacement,
+										double velocity,
+										double deltaTime) {
+		return Displacement6.getInstance(initialDisplacement,
+										 velocity,
+										 deltaTime);
 	}
 
 	@Override
-	public String displacement6 (
-		double initialDisplacement,
-		String initialDisplacementUnit,
-		double velocity,
-		String velocityUnit,
-		double deltaTime,
-		String deltaTimeUnit,
-		String unitOfResult,
-		int stepOrResult) {
-		return displacement6.displacement(
-			initialDisplacement,
-			initialDisplacementUnit,
-			velocity,
-			velocityUnit,
-			deltaTime,
-			deltaTimeUnit,
-			unitOfResult,
-			stepOrResult);
+	public Displacement6 displacement6 (double initialDisplacement,
+								 int initialDisplacementUnit,
+								 double velocity,
+								 int velocityUnit,
+								 double deltaTime,
+								 int deltaTimeUnit,
+								 int unitOfResult) {
+		return Displacement6.getInstance(initialDisplacement,
+										 initialDisplacementUnit,
+										 velocity,
+										 velocityUnit,
+										 deltaTime,
+										 deltaTimeUnit,
+										 unitOfResult);
 	}
 
 	// v = ∆S / ∆t
