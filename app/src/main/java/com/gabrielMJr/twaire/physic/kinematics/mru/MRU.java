@@ -2,9 +2,8 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 
 public class MRU implements MRUIF {
 	private static MRU instance; 
-
-	private Displacement5 displacement5;
-	private Displacement6 displacement6;
+	
+    private Displacement6 displacement6;
 
 	private Speed1 speed1;
 	private Speed2 speed2;
@@ -18,7 +17,6 @@ public class MRU implements MRUIF {
 	private Time5 time5;
 
 	public MRU () {
-		displacement5 = Displacement5.getInstance();
 		displacement6 = Displacement6.getInstance();
 
 		speed1 = Speed1.getInstance();
@@ -119,18 +117,18 @@ public class MRU implements MRUIF {
 
 	// S_final = S_inicial + ∆S
 	@Override
-	public String displacement5 (double initialDisplacement, double deltaDisplacement) {
-		return displacement5.displacement(initialDisplacement, deltaDisplacement);
+	public Displacement5 displacement5 (double initialDisplacement, double deltaDisplacement) {
+		return Displacement5.getInstance(initialDisplacement, deltaDisplacement);
 	}
 
 	@Override
-	public String displacement5 (
+	public Displacement5 displacement5 (
 		double initialDisplacement, 
-		String initialDisplacementUnit,
+		int initialDisplacementUnit,
 		double deltaDisplacement,
-		String deltaDisplacementUnit,
-		String unitOfResult) {
-		return displacement5.displacement(
+		int deltaDisplacementUnit,
+		int unitOfResult) {
+		return Displacement5.getInstance(
 			initialDisplacement,
 			initialDisplacementUnit,
 			deltaDisplacement,

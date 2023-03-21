@@ -12,9 +12,9 @@ public class Displacement5Test {
 
     @Test
     public void displacement5Test () {
-        Double initialDisplacement = 3.5;
-        Double deltaDisplacement = 5.5;
-        String result = "9.0";
-        assertEquals(result, mru.displacement5(initialDisplacement, deltaDisplacement));
+        double initialDisplacement = 3.5;
+        double deltaDisplacement = 5.5;
+        double result = 9.0;
+        assertEquals(result, mru.displacement5(initialDisplacement, deltaDisplacement).getResult());
     }
 }
