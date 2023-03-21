@@ -3,7 +3,6 @@ package com.gabrielMJr.twaire.physic.kinematics.mru;
 public class MRU implements MRUIF {
 	private static MRU instance; 
 
-	private Displacement4 displacement4;
 	private Displacement5 displacement5;
 	private Displacement6 displacement6;
 
@@ -19,7 +18,6 @@ public class MRU implements MRUIF {
 	private Time5 time5;
 
 	public MRU () {
-		displacement4 = Displacement4.getInstance();
 		displacement5 = Displacement5.getInstance();
 		displacement6 = Displacement6.getInstance();
 
@@ -85,12 +83,12 @@ public class MRU implements MRUIF {
 
 	@Override
 	public Displacement3 displacement3 (double initialTime,
-								 int initialTimeUnit,
-								 double finalTime,
-								 int finalTimeUnit,
-								 double deltaSpeed,
-								 int deltaSpeedUnit,
-								 int unitOfResult) {
+										int initialTimeUnit,
+										double finalTime,
+										int finalTimeUnit,
+										double deltaSpeed,
+										int deltaSpeedUnit,
+										int unitOfResult) {
 		return Displacement3.getInstance(initialTime,
 										 initialTimeUnit,
 										 finalTime,
@@ -102,23 +100,21 @@ public class MRU implements MRUIF {
 
 	// S_inicial = S_final - ∆S
 	@Override
-	public String displacement4 (double deltaDisplacement, double finalDisplacement) {
-		return displacement4.displacement(deltaDisplacement, finalDisplacement);
+	public Displacement4 displacement4 (double deltaDisplacement, double finalDisplacement) {
+		return Displacement4.getInstance(deltaDisplacement, finalDisplacement);
 	}
 
 	@Override
-	public String displacement4 (
-		double deltaDisplacement,
-		String deltaDisplacementUnit,
-		double finalDisplacement,
-		String finalDisplacementUnit,
-		String unitOfResult) {
-		return displacement4.displacement(
-			deltaDisplacement,
-			deltaDisplacementUnit,
-			finalDisplacement,
-			finalDisplacementUnit,
-			unitOfResult);
+	public Displacement4 displacement4 (double deltaDisplacement,
+										int deltaDisplacementUnit,
+										double finalDisplacement,
+										int finalDisplacementUnit,
+										int unitOfResult) {
+		return Displacement4.getInstance(deltaDisplacement,
+										 deltaDisplacementUnit,
+										 finalDisplacement,
+										 finalDisplacementUnit,
+										 unitOfResult);
 	}
 
 	// S_final = S_inicial + ∆S

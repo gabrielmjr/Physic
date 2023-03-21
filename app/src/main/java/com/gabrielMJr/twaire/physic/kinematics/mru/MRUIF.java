@@ -37,16 +37,16 @@ public interface MRUIF {
         int deltaSpeedUnit, 
         int unitOfResult);
 
-    public abstract String displacement4 (
+    public abstract Displacement4 displacement4 (
         double deltaDisplacement, 
         double finalDisplacement);
 
-    public abstract String displacement4 (
+    public abstract Displacement4 displacement4 (
         double deltaDisplacement, 
-        String deltaDisplacementUnit,
+        int deltaDisplacementUnit,
         double finalDisplacement,
-        String finalDisplacementUnit,
-        String unitOfResult);
+        int finalDisplacementUnit,
+        int unitOfResult);
 
     public abstract String displacement5 (
         double initialDisplacement, 

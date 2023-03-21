@@ -52,8 +52,7 @@ final class Displacement3 {
 					+ "\n∆S = (" + finalTime + "s + " + (- this.initialTime) + "s) × " + deltaSpeed
 					+ "\n∆S = " + step1 + "s × " + deltaSpeed
 					+ "\n∆S 5 " + step2 + "s";
-			else
-				return "∆S = (" + finalTime + "s - " + initialTime + "s) × " + deltaSpeed
+			return "∆S = (" + finalTime + "s - " + initialTime + "s) × " + deltaSpeed
 					+ "\n∆S = " + step1 + "s × " + deltaSpeed
 					+ "\n∆S = " + step2 + "m";
 		}
