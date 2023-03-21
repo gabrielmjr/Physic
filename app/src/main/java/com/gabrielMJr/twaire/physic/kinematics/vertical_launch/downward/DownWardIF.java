@@ -1,19 +1,20 @@
 package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.downward;
 
 public interface DownWardIF {
-    // y = yi + vi * t + (g * t²) / 2
-    public abstract String height (
-        double initialHeight,
-        double initialVelocity,
-        double time,
-        double gravity, 
-        int resultOrStep);
-
-    public abstract String height (
-        double initialHeight, String initialHeightUnit,
-        double initialVelocity, String initialVelocityUnit,
-        double time, String timeUnit,
-        double gravity, String gravityUnit,
-        String unitOfResult,
-        int resultOrStep);
+	public abstract Height height (
+	    double initialHeight,
+		double initialSpeed,
+		double deltaTime,
+		double gravity);
+		
+	public abstract Height height (
+	    double initialHeight,
+		int initialHeightUnit,
+		double initialSpeed,
+		int initialSpeedUnit,
+		double deltaTime,
+		int deltTimeUnit,
+		double gravity,
+		int gravityUnit,
+		int unitOfResult);
 }
