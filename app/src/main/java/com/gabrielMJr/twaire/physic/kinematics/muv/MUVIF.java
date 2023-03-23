@@ -46,7 +46,7 @@ public interface MUVIF
         int stepOrResult);
 
     public abstract String acceleration4 (
-        double nitialSpeed, 
+        double initialSpeed, 
         double finalSpeed, 
         double initialTime, 
         double finalTime, 
