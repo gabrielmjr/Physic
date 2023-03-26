@@ -17,7 +17,6 @@ public class HeightTest {
 		double initialSpeed = 2.0;
 		double deltaTime = 4.0;
 		double gravity = 10.0;
-
 		assertEquals(91.0, downWard.height(initialHeight,
 										   initialSpeed,
 										   deltaTime, 
