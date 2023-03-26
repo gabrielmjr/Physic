@@ -49,7 +49,7 @@ public interface DownWardIF {
         int gravityUnit,
         int unitOfResult);
 
-    public abstract InitialVelocity initialVelocity(
+   /* public abstract InitialVelocity initialVelocity(
         double velocity,
         double gravity,
         double time);
@@ -61,5 +61,5 @@ public interface DownWardIF {
         int gravityUnit,
         double time,
         int timeUnit,
-        int unitOfResult);
+        int unitOfResult);*/
 }

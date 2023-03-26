@@ -95,7 +95,7 @@ public class DownWard implements DownWardIF {
 									unitOfResult);
 	}
 
-    @Override
+   /* @Override
     public InitialVelocity initialVelocity(double velocity,
                                            double gravity,
                                            double time) {
@@ -119,7 +119,7 @@ public class DownWard implements DownWardIF {
                                            time,
                                            timeUnit,
                                            unitOfResult);
-    }
+    }*/
 
 	protected static DownWard getInstance() {
 		if (!(instance instanceof DownWard))
