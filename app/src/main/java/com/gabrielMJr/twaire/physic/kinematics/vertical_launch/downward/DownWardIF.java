@@ -3,15 +3,15 @@ package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.downward;
 public interface DownWardIF {
 	public abstract Height height(
 	    double initialHeight,
-		double initialSpeed,
+		double initialVelocity,
 		double deltaTime,
 		double gravity);
 
 	public abstract Height height(
 	    double initialHeight,
 		int initialHeightUnit,
-		double initialSpeed,
-		int initialSpeedUnit,
+		double initialVelocity,
+		int initialVelocityUnit,
 		double deltaTime,
 		int deltTimeUnit,
 		double gravity,
@@ -20,15 +20,15 @@ public interface DownWardIF {
 
 	public abstract InitialHeight initialHeight(
 		double height,
-		double initialSpeed,
+		double initialVelocity,
 		double deltaTime,
 		double gravity);
 
 	public abstract InitialHeight initialHeight(
 		double height,
 		int heightUnit,
-		double initialSpeed,
-		int initialSpeedUnit,
+		double initialVelocity,
+		int initialVelocityUnit,
 		double deltaTime,
 		int deltaTimeUnit,
 		double gravity,
@@ -61,5 +61,16 @@ public interface DownWardIF {
         int gravityUnit,
         double time,
         int timeUnit,
+        int unitOfResult);
+        
+    public abstract DeltaTime1 deltaTime(
+        double velocity,
+        double gravity);
+        
+    public abstract DeltaTime1 deltaTime(
+        double deltaVelocity,
+        int velocityUnit,
+        double gravity,
+        int gravityUnit,
         int unitOfResult);
 }

@@ -1,17 +1,17 @@
 package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.downward;
 
-public class DownWard implements DownWardIF {  
+public class DownWard implements DownWardIF {
     private static DownWard instance;
 
     public DownWard() {}
 
 	@Override
 	public Height height(double initialHeight,
-                         double initialSpeed,
+                         double initialVelocity,
                          double deltaTime,
                          double gravity) {
 		return Height.getInstance(initialHeight,
-								  initialSpeed,
+								  initialVelocity,
 								  deltaTime,
 								  gravity);
 	}
@@ -19,8 +19,8 @@ public class DownWard implements DownWardIF {
 	@Override
 	public Height height(double initialHeight,
                          int initialHeightUnit,
-                         double initialSpeed, 
-                         int initialSpeedUnit,
+                         double initialVelocity, 
+                         int initialVelocityUnit,
                          double deltaTime,
                          int deltaTimeUnit,
                          double gravity, 
@@ -28,8 +28,8 @@ public class DownWard implements DownWardIF {
                          int unitOfResult) {
 		return Height.getInstance(initialHeight,
 								  initialHeightUnit,
-								  initialSpeed,
-								  initialSpeedUnit,
+								  initialVelocity,
+								  initialVelocityUnit,
 								  deltaTime,
 								  deltaTimeUnit,
 								  gravity,
@@ -39,11 +39,11 @@ public class DownWard implements DownWardIF {
 
 	@Override
 	public InitialHeight initialHeight(double height,
-                                       double initialSpeed,
+                                       double initialVelocity,
                                        double deltaTime,
                                        double gravity) {
 		return InitialHeight.getInstance(height,
-										 initialSpeed,
+										 initialVelocity,
 										 deltaTime,
 										 gravity);
 	}
@@ -51,8 +51,8 @@ public class DownWard implements DownWardIF {
 	@Override
 	public InitialHeight initialHeight(double height,
                                        int heightUnit,
-                                       double initialSpeed,
-                                       int initialSpeedUnit,
+                                       double initialVelocity,
+                                       int initialVelocityUnit,
                                        double deltaTime,
                                        int deltaTimeUnit,
                                        double gravity, 
@@ -60,8 +60,8 @@ public class DownWard implements DownWardIF {
                                        int unitOfResult) {
 		return InitialHeight.getInstance(height,
 										 heightUnit,
-										 initialSpeed,
-										 initialSpeedUnit,
+										 initialVelocity,
+										 initialVelocityUnit,
 										 deltaTime,
 										 deltaTimeUnit,
 										 gravity,
@@ -119,6 +119,24 @@ public class DownWard implements DownWardIF {
                                            deltaTime,
                                            deltaTimeUnit,
                                            unitOfResult);
+    }
+
+    @Override
+    public DeltaTime1 deltaTime(double deltaSpeed, double gravity) {
+        return DeltaTime1.getInstance(deltaSpeed, gravity);
+    }
+
+    @Override
+    public DeltaTime1 deltaTime(double deltaSpeed,
+                                int deltaSpeedUnit, 
+                                double gravity,
+                                int gravityUnit,
+                                int unitOfResult) {
+        return DeltaTime1.getInstance(deltaSpeed,
+                                      deltaSpeedUnit,
+                                      gravity,
+                                      gravityUnit,
+                                      unitOfResult);
     }
 
 	protected static DownWard getInstance() {
