@@ -95,13 +95,13 @@ public class DownWard implements DownWardIF {
 									unitOfResult);
 	}
 
-   /* @Override
+    @Override
     public InitialVelocity initialVelocity(double velocity,
                                            double gravity,
-                                           double time) {
+                                           double deltaTime) {
         return InitialVelocity.getInstance(velocity,
                                            gravity,
-                                           time);
+                                           deltaTime);
     }
 
     @Override
@@ -109,17 +109,17 @@ public class DownWard implements DownWardIF {
                                            int velocityUnit, 
                                            double gravity,
                                            int gravityUnit,
-                                           double time, 
-                                           int timeUnit,
+                                           double deltaTime, 
+                                           int deltaTimeUnit,
                                            int unitOfResult) {
         return InitialVelocity.getInstance(velocity,
                                            velocityUnit,
                                            gravity,
                                            gravityUnit,
-                                           time,
-                                           timeUnit,
+                                           deltaTime,
+                                           deltaTimeUnit,
                                            unitOfResult);
-    }*/
+    }
 
 	protected static DownWard getInstance() {
 		if (!(instance instanceof DownWard))
