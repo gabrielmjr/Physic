@@ -34,4 +34,18 @@ public interface UpWardIF {
         double gravity,
         int gravityUnit,
 		int unitOfResult);
+        
+    public abstract Velocity velocity(
+        double initialVelocity,
+        double gravity,
+        double deltaTime);
+
+    public abstract Velocity velocity(
+        double initialVelocity,
+        int initialVelocityUnit,
+        double deltaTime,
+        int deltaTimeUnit,
+        double gravity,
+        int gravityUnit,
+        int unitOfResult);
 }
