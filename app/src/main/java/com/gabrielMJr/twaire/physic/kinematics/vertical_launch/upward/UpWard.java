@@ -95,6 +95,32 @@ public class UpWard implements UpWardIF {
                                     gravityUnit,
                                     unitOfResult);
 	}
+    
+    @Override
+    public InitialVelocity initialVelocity(double velocity,
+                                           double gravity,
+                                           double deltaTime) {
+        return InitialVelocity.getInstance(velocity,
+                                           gravity,
+                                           deltaTime);
+    }
+
+    @Override
+    public InitialVelocity initialVelocity(double velocity,
+                                           int velocityUnit, 
+                                           double gravity,
+                                           int gravityUnit,
+                                           double deltaTime, 
+                                           int deltaTimeUnit,
+                                           int unitOfResult) {
+        return InitialVelocity.getInstance(velocity,
+                                           velocityUnit,
+                                           gravity,
+                                           gravityUnit,
+                                           deltaTime,
+                                           deltaTimeUnit,
+                                           unitOfResult);
+    }
 	
 	protected static UpWard getInstance() {
 		if (!(instance instanceof UpWard))

@@ -48,4 +48,19 @@ public interface UpWardIF {
         double gravity,
         int gravityUnit,
         int unitOfResult);
+        
+    public abstract InitialVelocity initialVelocity(
+        double velocity,
+        double gravity,
+        double time);
+
+    public abstract InitialVelocity initialVelocity(
+        double velocity,
+        int velocityUnit,
+        double gravity,
+        int gravityUnit,
+        double time,
+        int timeUnit,
+        int unitOfResult);
+    
 }
