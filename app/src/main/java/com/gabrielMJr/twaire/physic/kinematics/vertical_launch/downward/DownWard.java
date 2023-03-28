@@ -1,6 +1,7 @@
 package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.downward;
 
 public class DownWard implements DownWardIF {
+
     private static DownWard instance;
 
     public DownWard() {}
@@ -134,6 +135,32 @@ public class DownWard implements DownWardIF {
                                 int unitOfResult) {
         return DeltaTime1.getInstance(deltaSpeed,
                                       deltaSpeedUnit,
+                                      gravity,
+                                      gravityUnit,
+                                      unitOfResult);
+    }
+
+    @Override
+    public DeltaTime2 deltaTime(double initialVelocity, 
+                                double finalVelocity,
+                                double gravity) {
+        return DeltaTime2.getInstance(initialVelocity,
+                                      finalVelocity,
+                                      gravity);
+    }
+
+    @Override
+    public DeltaTime2 deltaTime(double initialVelocity, 
+                                int initialVelocityUnit, 
+                                double finalVelocity,
+                                int finalVelocityUnit,
+                                double gravity, 
+                                int gravityUnit,
+                                int unitOfResult) {
+        return DeltaTime2.getInstance(initialVelocity,
+                                      initialVelocityUnit,
+                                      finalVelocity,
+                                      finalVelocityUnit,
                                       gravity,
                                       gravityUnit,
                                       unitOfResult);

@@ -62,14 +62,28 @@ public interface DownWardIF {
         double time,
         int timeUnit,
         int unitOfResult);
-        
+
     public abstract DeltaTime1 deltaTime(
         double velocity,
         double gravity);
-        
+
     public abstract DeltaTime1 deltaTime(
         double deltaVelocity,
         int velocityUnit,
+        double gravity,
+        int gravityUnit,
+        int unitOfResult);
+
+    public abstract DeltaTime2 deltaTime(
+        double initialVelocity,
+        double finalVelocity,
+        double gravity);
+
+    public abstract DeltaTime2 deltaTime(
+        double initialVelocity,
+        int initialVelocityUnit,
+        double finalVelocity,
+        int finalVelocityUnit,
         double gravity,
         int gravityUnit,
         int unitOfResult);
