@@ -1,17 +1,18 @@
 package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.downward;
 
-public class DownWard implements DownWardIF {  
+public class DownWard implements DownWardIF {
+
     private static DownWard instance;
 
     public DownWard() {}
 
 	@Override
 	public Height height(double initialHeight,
-                         double initialSpeed,
+                         double initialVelocity,
                          double deltaTime,
                          double gravity) {
 		return Height.getInstance(initialHeight,
-								  initialSpeed,
+								  initialVelocity,
 								  deltaTime,
 								  gravity);
 	}
@@ -19,8 +20,8 @@ public class DownWard implements DownWardIF {
 	@Override
 	public Height height(double initialHeight,
                          int initialHeightUnit,
-                         double initialSpeed, 
-                         int initialSpeedUnit,
+                         double initialVelocity, 
+                         int initialVelocityUnit,
                          double deltaTime,
                          int deltaTimeUnit,
                          double gravity, 
@@ -28,8 +29,8 @@ public class DownWard implements DownWardIF {
                          int unitOfResult) {
 		return Height.getInstance(initialHeight,
 								  initialHeightUnit,
-								  initialSpeed,
-								  initialSpeedUnit,
+								  initialVelocity,
+								  initialVelocityUnit,
 								  deltaTime,
 								  deltaTimeUnit,
 								  gravity,
@@ -39,11 +40,11 @@ public class DownWard implements DownWardIF {
 
 	@Override
 	public InitialHeight initialHeight(double height,
-                                       double initialSpeed,
+                                       double initialVelocity,
                                        double deltaTime,
                                        double gravity) {
 		return InitialHeight.getInstance(height,
-										 initialSpeed,
+										 initialVelocity,
 										 deltaTime,
 										 gravity);
 	}
@@ -51,8 +52,8 @@ public class DownWard implements DownWardIF {
 	@Override
 	public InitialHeight initialHeight(double height,
                                        int heightUnit,
-                                       double initialSpeed,
-                                       int initialSpeedUnit,
+                                       double initialVelocity,
+                                       int initialVelocityUnit,
                                        double deltaTime,
                                        int deltaTimeUnit,
                                        double gravity, 
@@ -60,8 +61,8 @@ public class DownWard implements DownWardIF {
                                        int unitOfResult) {
 		return InitialHeight.getInstance(height,
 										 heightUnit,
-										 initialSpeed,
-										 initialSpeedUnit,
+										 initialVelocity,
+										 initialVelocityUnit,
 										 deltaTime,
 										 deltaTimeUnit,
 										 gravity,
@@ -95,13 +96,13 @@ public class DownWard implements DownWardIF {
 									unitOfResult);
 	}
 
-   /* @Override
+    @Override
     public InitialVelocity initialVelocity(double velocity,
                                            double gravity,
-                                           double time) {
+                                           double deltaTime) {
         return InitialVelocity.getInstance(velocity,
                                            gravity,
-                                           time);
+                                           deltaTime);
     }
 
     @Override
@@ -109,17 +110,61 @@ public class DownWard implements DownWardIF {
                                            int velocityUnit, 
                                            double gravity,
                                            int gravityUnit,
-                                           double time, 
-                                           int timeUnit,
+                                           double deltaTime, 
+                                           int deltaTimeUnit,
                                            int unitOfResult) {
         return InitialVelocity.getInstance(velocity,
                                            velocityUnit,
                                            gravity,
                                            gravityUnit,
-                                           time,
-                                           timeUnit,
+                                           deltaTime,
+                                           deltaTimeUnit,
                                            unitOfResult);
-    }*/
+    }
+
+    @Override
+    public DeltaTime1 deltaTime(double deltaSpeed, double gravity) {
+        return DeltaTime1.getInstance(deltaSpeed, gravity);
+    }
+
+    @Override
+    public DeltaTime1 deltaTime(double deltaSpeed,
+                                int deltaSpeedUnit, 
+                                double gravity,
+                                int gravityUnit,
+                                int unitOfResult) {
+        return DeltaTime1.getInstance(deltaSpeed,
+                                      deltaSpeedUnit,
+                                      gravity,
+                                      gravityUnit,
+                                      unitOfResult);
+    }
+
+    @Override
+    public DeltaTime2 deltaTime(double initialVelocity, 
+                                double finalVelocity,
+                                double gravity) {
+        return DeltaTime2.getInstance(initialVelocity,
+                                      finalVelocity,
+                                      gravity);
+    }
+
+    @Override
+    public DeltaTime2 deltaTime(double initialVelocity, 
+                                int initialVelocityUnit, 
+                                double finalVelocity,
+                                int finalVelocityUnit,
+                                double gravity, 
+                                int gravityUnit,
+                                int unitOfResult) {
+        return DeltaTime2.getInstance(initialVelocity,
+                                      initialVelocityUnit,
+                                      finalVelocity,
+                                      finalVelocityUnit,
+                                      gravity,
+                                      gravityUnit,
+                                      unitOfResult);
+    }
 
 	protected static DownWard getInstance() {
 		if (!(instance instanceof DownWard))

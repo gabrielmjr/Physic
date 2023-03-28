@@ -5,12 +5,12 @@ import static com.gabrielMJr.twaire.tools.NumberAnalyst.putParenthesesIfNegative
 final class Height {
 	private static Height instance;
 	private double initialHeight;
-	private double initialSpeed;
+	private double initialVelocity;
 	private double deltaTime;
 	private double gravity;
 
 	private int initialHeightUnit;
-	private int initialSpeedUnit;
+	private int initialVelocityUnit;
 	private int deltaTimeUnit;
 	private int gravityUnit;
 	private int unitOfResult;
@@ -41,7 +41,7 @@ final class Height {
 		step1 = Math.pow(deltaTime, 2);
 		step2 = gravity * step1;
 		step3 = step2 / 2;
-		step4 = initialSpeed * deltaTime;
+		step4 = initialVelocity * deltaTime;
 		step5 = step4 + step3;
 		step6 = initialHeight + step5;
 	}
@@ -53,10 +53,10 @@ final class Height {
 	public String getSteps () {
 		if (hasCustomUnits)
 			return null;
-		return "y = " + initialHeight + "m + " + initialSpeed + "m/s × " + deltaTime + "s + [" + gravity + "m/s² × (" + deltaTime + "s)² / 2]"
-		    + "\ny = " + initialHeight + "m + " + initialSpeed + "m/s × " + deltaTime + "s + (" + gravity + "m/s² × " + step1 + "s²) / 2"
-			+ "\ny = " + initialHeight + "m + " + initialSpeed + "m/s × " + deltaTime + "s + (" + step2 + "m) / 2"
-			+ "\ny = " + initialHeight + "m + " + initialSpeed + "m/s × " + deltaTime + "s + " + step3 + "m"
+		return "y = " + initialHeight + "m + " + initialVelocity + "m/s × " + deltaTime + "s + [" + gravity + "m/s² × (" + deltaTime + "s)² / 2]"
+		    + "\ny = " + initialHeight + "m + " + initialVelocity + "m/s × " + deltaTime + "s + (" + gravity + "m/s² × " + step1 + "s²) / 2"
+			+ "\ny = " + initialHeight + "m + " + initialVelocity + "m/s × " + deltaTime + "s + (" + step2 + "m) / 2"
+			+ "\ny = " + initialHeight + "m + " + initialVelocity + "m/s × " + deltaTime + "s + " + step3 + "m"
 			+ "\ny = " + initialHeight + "m + " + step4 + "m + " + step3 + "m"
 			+ "\ny = " + initialHeight + "m + " + step5 + "m"
 			+ "\ny = " + step6 + "m";
@@ -71,13 +71,13 @@ final class Height {
 		return initialHeight;
 	}
 
-	private Height setInitialSpeed(double initialSpeed) {
-		this.initialSpeed = initialSpeed;
+	private Height setInitialVelocity(double initialVelocity) {
+		this.initialVelocity = initialVelocity;
 		return this;
 	}
 
-	public double getInitialSpeed() {
-		return initialSpeed;
+	public double getiInitialVelocity() {
+		return initialVelocity;
 	}
 
 	private Height setDeltaTime(double deltaTime) {
@@ -107,13 +107,13 @@ final class Height {
 		return initialHeightUnit;
 	}
 
-	private Height setInitialSpeedUnit(int initialSpeedUnit) {
-		this.initialSpeedUnit = initialSpeedUnit;
+	private Height setInitialVelocityUnit(int initialVelocityUnit) {
+		this.initialVelocityUnit = initialVelocityUnit;
 		return this;
 	}
 
-	public int getInitialSpeedUnit() {
-		return initialSpeedUnit;
+	public int getInitialVelocityUnit() {
+		return initialVelocityUnit;
 	}
 
 	private Height setDeltaTimeUnit(int deltaTimeUnit) {
@@ -144,13 +144,13 @@ final class Height {
 	}
 
 	protected static Height getInstance(double initialHeight, 
-										double initialSpeed, 
+										double initialVelocity, 
 										double deltaTime,
 										double gravity) {
 		if (!(instance instanceof Height))
 			instance = new Height();
 		return instance.setInitialHeight(initialHeight)
-		    .setInitialSpeed(initialSpeed)
+		    .setInitialVelocity(initialVelocity)
 		    .setDeltaTime(deltaTime)
 		    .setGravity(gravity)
 		    .setHasCustomUnits(false);
@@ -158,8 +158,8 @@ final class Height {
 
 	protected static Height getInstance(double initialHeight, 
 										int initialHeightUnit,
-										double initialSpeed,
-										int initialSpeedUnit,
+										double initialVelocity,
+										int initialVelocityUnit,
 										double deltaTime, 
 										int deltaTimeUnit,
 										double gravity,
@@ -169,8 +169,8 @@ final class Height {
 			instance = new Height();
 		return instance.setInitialHeight(initialHeight)
 		    .setInitialHeightUnit(initialHeightUnit)
-		    .setInitialSpeed(initialSpeed)
-		    .setInitialSpeedUnit(initialSpeedUnit)
+		    .setInitialVelocity(initialVelocity)
+		    .setInitialVelocityUnit(initialVelocityUnit)
 		    .setDeltaTime(deltaTime)
 		    .setDeltaTimeUnit(deltaTimeUnit)
 		    .setGravity(gravity)
