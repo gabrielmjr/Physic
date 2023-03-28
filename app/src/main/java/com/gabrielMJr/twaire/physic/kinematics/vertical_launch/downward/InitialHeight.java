@@ -1,6 +1,6 @@
 package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.downward;
 
-// Yi = Y - [vi * ∆t + (g * t²)/2]
+// yi = y - [vi * ∆t + (g * t²)/2]
 final class InitialHeight {
     private static InitialHeight instance;
 	private double height;
@@ -50,11 +50,11 @@ final class InitialHeight {
 	public String getSeps() {
 		if (hasCustomUnits)
 			return null;
-		return "yi = " + height + "m - " + initialVelocity + "m/s × " + deltaTime + "s + [" + gravity + "m/s² × (" + deltaTime + "s)²] ÷ 2"
-			+ "\nyi = " + height + "m - " + initialVelocity + "m/s × " + deltaTime + "s + (" + gravity + "m/s² × " + step1 + "s²) ÷ 2"
-			+ "\nyi = " + height + "m - " + initialVelocity + "m/s × " + deltaTime + "s + " + step2 + "m ÷ 2"
-			+ "\nyi = " + height + "m - " + initialVelocity + "m/s × " + deltaTime + "s + " + step3 + "m"
-			+ "\nyi = " + height + "m - " + step4 + "m + " + step3 + "m"
+		return "yi = " + height + "m - [" + initialVelocity + "m/s × " + deltaTime + "s + " + gravity + "m/s² × (" + deltaTime + "s)² ÷ 2]"
+			+ "\nyi = " + height + "m - (" + initialVelocity + "m/s × " + deltaTime + "s + " + gravity + "m/s² × " + step1 + "s² ÷ 2)"
+			+ "\nyi = " + height + "m - (" + initialVelocity + "m/s × " + deltaTime + "s + " + step2 + "m ÷ 2)"
+			+ "\nyi = " + height + "m - (" + initialVelocity + "m/s × " + deltaTime + "s + " + step3 + "m)"
+			+ "\nyi = " + height + "m - (" + step4 + "m + " + step3 + "m)"
 			+ "\nyi = " + height + "m - " + step5 + "m"
 			+ "\nyi = " + step6 + "m";
 	}

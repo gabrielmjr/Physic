@@ -17,4 +17,21 @@ public interface UpWardIF {
         double gravity,
         int gravityUnit,
 		int unitOfResult);
+        
+    public abstract InitialHeight initialHeight(
+        double height,
+        double initialVelocity,
+        double deltaTime,
+        double gravity);
+
+    public abstract InitialHeight initialHeight(
+        double height,
+        int heightUnit,
+        double initialVelocity,
+        int initialVelocityUnit,
+        double deltaTime,
+        int deltaTimeUnit,
+        double gravity,
+        int gravityUnit,
+		int unitOfResult);
 }

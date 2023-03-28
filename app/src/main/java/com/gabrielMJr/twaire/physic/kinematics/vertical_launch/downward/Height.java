@@ -2,6 +2,7 @@ package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.downward;
 
 import static com.gabrielMJr.twaire.tools.NumberAnalyst.putParenthesesIfNegative;
 
+// y = yi + vi * ∆t + (g * ∆t²) / 2
 final class Height {
 	private static Height instance;
 	private double initialHeight;
