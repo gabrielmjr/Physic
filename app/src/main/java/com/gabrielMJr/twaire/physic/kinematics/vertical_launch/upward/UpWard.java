@@ -139,6 +139,32 @@ public class UpWard implements UpWardIF {
                                       gravityUnit,
                                       unitOfResult);
     }
+    
+    @Override
+    public DeltaTime2 deltaTime(double initialVelocity, 
+                                double finalVelocity,
+                                double gravity) {
+        return DeltaTime2.getInstance(initialVelocity,
+                                      finalVelocity,
+                                      gravity);
+    }
+    
+    @Override
+    public DeltaTime2 deltaTime(double initialVelocity, 
+                                int initialVelocityUnit, 
+                                double finalVelocity,
+                                int finalVelocityUnit,
+                                double gravity, 
+                                int gravityUnit,
+                                int unitOfResult) {
+        return DeltaTime2.getInstance(initialVelocity,
+                                      initialVelocityUnit,
+                                      finalVelocity,
+                                      finalVelocityUnit,
+                                      gravity,
+                                      gravityUnit,
+                                      unitOfResult);
+    }
 	
 	protected static UpWard getInstance() {
 		if (!(instance instanceof UpWard))
