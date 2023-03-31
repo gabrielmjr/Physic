@@ -63,4 +63,14 @@ public interface UpWardIF {
         int timeUnit,
         int unitOfResult);
     
+    public abstract DeltaTime1 deltaTime(
+        double velocity,
+        double gravity);
+
+    public abstract DeltaTime1 deltaTime(
+        double deltaVelocity,
+        int velocityUnit,
+        double gravity,
+        int gravityUnit,
+        int unitOfResult);
 }
