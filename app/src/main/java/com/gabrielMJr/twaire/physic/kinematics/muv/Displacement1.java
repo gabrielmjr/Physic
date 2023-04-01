@@ -1,6 +1,6 @@
-package com.gabrielMJr.twaire.physic.kinematics.muv;
+package com.gabrielmjr.twaire.physic.kinematics.muv;
 
-import com.gabrielMJr.twaire.physic.Physic;
+import com.gabrielmjr.twaire.physic.Physic;
 
 final class Displacement1 
 {

@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
+package com.gabrielmjr.twaire.physic.hydrodynamics.fluidflow;
 
 // v = Q / A
 final class Speed1 {

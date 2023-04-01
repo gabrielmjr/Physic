@@ -1,6 +1,6 @@
-package com.gabrielMJr.twaire.physic.kinematics.mru;
+package com.gabrielmjr.twaire.physic.kinematics.mru;
 
-import static com.gabrielMJr.twaire.tools.NumberAnalyst.putParenthesesIfNegative;
+import static com.gabrielmjr.twaire.tools.NumberAnalyst.putParenthesesIfNegative;
 
 // ∆S = (tf - ti) × deltaSpeed
 final class Displacement3 {

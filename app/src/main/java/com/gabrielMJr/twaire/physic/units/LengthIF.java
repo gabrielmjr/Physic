@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.units;
+package com.gabrielmjr.twaire.physic.units;
 
 import java.math.BigDecimal;
 

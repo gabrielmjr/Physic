@@ -1,18 +1,18 @@
-package com.gabrielMJr.twaire.physic.units;
+package com.gabrielmjr.twaire.physic.units;
 
 import java.math.BigDecimal;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
-import static com.gabrielMJr.twaire.physic.units.Area.AREA_SCALES;
+import static com.gabrielmjr.twaire.physic.units.Area.AREA_SCALES;
 
-import static com.gabrielMJr.twaire.physic.units.Area.SQUARE_KILOMETER;
-import static com.gabrielMJr.twaire.physic.units.Area.SQUARE_HECTOMETER;
-import static com.gabrielMJr.twaire.physic.units.Area.SQUARE_DECAMETER;
-import static com.gabrielMJr.twaire.physic.units.Area.SQUARE_METER;
-import static com.gabrielMJr.twaire.physic.units.Area.SQUARE_DECIMETER;
-import static com.gabrielMJr.twaire.physic.units.Area.SQUARE_CENTIMETER;
-import static com.gabrielMJr.twaire.physic.units.Area.SQUARE_MILLIMETER;
+import static com.gabrielmjr.twaire.physic.units.Area.SQUARE_KILOMETER;
+import static com.gabrielmjr.twaire.physic.units.Area.SQUARE_HECTOMETER;
+import static com.gabrielmjr.twaire.physic.units.Area.SQUARE_DECAMETER;
+import static com.gabrielmjr.twaire.physic.units.Area.SQUARE_METER;
+import static com.gabrielmjr.twaire.physic.units.Area.SQUARE_DECIMETER;
+import static com.gabrielmjr.twaire.physic.units.Area.SQUARE_CENTIMETER;
+import static com.gabrielmjr.twaire.physic.units.Area.SQUARE_MILLIMETER;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

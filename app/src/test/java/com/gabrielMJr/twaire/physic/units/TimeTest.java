@@ -1,16 +1,16 @@
-package com.gabrielMJr.twaire.physic.units;
+package com.gabrielmjr.twaire.physic.units;
 
 import java.math.BigDecimal;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
-import static com.gabrielMJr.twaire.physic.units.Time.TIME_SCALES;
+import static com.gabrielmjr.twaire.physic.units.Time.TIME_SCALES;
 
-import static com.gabrielMJr.twaire.physic.units.Time.SECOND;
-import static com.gabrielMJr.twaire.physic.units.Time.MINUTE;
-import static com.gabrielMJr.twaire.physic.units.Time.HOUR;
-import static com.gabrielMJr.twaire.physic.units.Time.DAY;
-import static com.gabrielMJr.twaire.physic.units.Time.WEEK;
+import static com.gabrielmjr.twaire.physic.units.Time.SECOND;
+import static com.gabrielmjr.twaire.physic.units.Time.MINUTE;
+import static com.gabrielmjr.twaire.physic.units.Time.HOUR;
+import static com.gabrielmjr.twaire.physic.units.Time.DAY;
+import static com.gabrielmjr.twaire.physic.units.Time.WEEK;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

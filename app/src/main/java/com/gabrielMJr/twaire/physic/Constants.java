@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic;
+package com.gabrielmjr.twaire.physic;
 
 
 

@@ -1,6 +1,6 @@
-package com.gabrielMJr.twaire.physic.kinematics.mru;
+package com.gabrielmjr.twaire.physic.kinematics.mru;
 
-import com.gabrielMJr.twaire.physic.Physic;
+import com.gabrielmjr.twaire.physic.Physic;
 
 final class Time3 {
 	private static Time3 instance; 

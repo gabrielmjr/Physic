@@ -1,6 +1,6 @@
-package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.upward;
+package com.gabrielmjr.twaire.physic.kinematics.vertical_launch.upward;
 
-import static com.gabrielMJr.twaire.tools.NumberAnalyst.putParenthesesIfNegative;
+import static com.gabrielmjr.twaire.tools.NumberAnalyst.putParenthesesIfNegative;
 
 // y = yi - vi * ∆t - (g * ∆t²)/2
 final class Height {

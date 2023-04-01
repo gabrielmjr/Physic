@@ -1,33 +1,33 @@
-package com.gabrielMJr.twaire.physic.units;
+package com.gabrielmjr.twaire.physic.units;
 
 import java.math.BigDecimal;
 
-import static com.gabrielMJr.twaire.physic.units.Length.LENGTH_SCALES;
-import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_TIME_SCALES;
+import static com.gabrielmjr.twaire.physic.units.Length.LENGTH_SCALES;
+import static com.gabrielmjr.twaire.physic.units.Time.SQUARE_TIME_SCALES;
 
-import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
-import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
-import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER;
-import static com.gabrielMJr.twaire.physic.units.Length.METER;
-import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER;
-import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER;
-import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.KILOMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.HECTOMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.DECAMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.METER;
+import static com.gabrielmjr.twaire.physic.units.Length.DECIMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.CENTIMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.MILLIMETER;
 
-import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_SECOND;
-import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_MINUTE;
-import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_HOUR;
+import static com.gabrielmjr.twaire.physic.units.Time.SQUARE_SECOND;
+import static com.gabrielmjr.twaire.physic.units.Time.SQUARE_MINUTE;
+import static com.gabrielmjr.twaire.physic.units.Time.SQUARE_HOUR;
 
-import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER_SYMBOL;
-import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER_SYMBOL;
-import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER_SYMBOL;
-import static com.gabrielMJr.twaire.physic.units.Length.METER_SYMBOL;
-import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER_SYMBOL;
-import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER_SYMBOL;
-import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER_SYMBOL;
+import static com.gabrielmjr.twaire.physic.units.Length.KILOMETER_SYMBOL;
+import static com.gabrielmjr.twaire.physic.units.Length.HECTOMETER_SYMBOL;
+import static com.gabrielmjr.twaire.physic.units.Length.DECAMETER_SYMBOL;
+import static com.gabrielmjr.twaire.physic.units.Length.METER_SYMBOL;
+import static com.gabrielmjr.twaire.physic.units.Length.DECIMETER_SYMBOL;
+import static com.gabrielmjr.twaire.physic.units.Length.CENTIMETER_SYMBOL;
+import static com.gabrielmjr.twaire.physic.units.Length.MILLIMETER_SYMBOL;
 
-import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_SECOND_SYMBOL;
-import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_MINUTE_SYMBOL;
-import static com.gabrielMJr.twaire.physic.units.Time.SQUARE_HOUR_SYMBOL;
+import static com.gabrielmjr.twaire.physic.units.Time.SQUARE_SECOND_SYMBOL;
+import static com.gabrielmjr.twaire.physic.units.Time.SQUARE_MINUTE_SYMBOL;
+import static com.gabrielmjr.twaire.physic.units.Time.SQUARE_HOUR_SYMBOL;
 
 public class Acceleration implements AccelerationIF {
 	private static Acceleration instance;

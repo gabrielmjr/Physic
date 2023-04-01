@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
+package com.gabrielmjr.twaire.physic.hydrodynamics.fluidflow;
 
 // Q = A * v
 final class FlowRate2 {

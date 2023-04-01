@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
+package com.gabrielmjr.twaire.physic.hydrodynamics.fluidflow;
 
 // r = √[Q / (π * v)]
 final class Ray {

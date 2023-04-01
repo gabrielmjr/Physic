@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.upward;
+package com.gabrielmjr.twaire.physic.kinematics.vertical_launch.upward;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
+package com.gabrielmjr.twaire.physic.hydrodynamics.fluidflow;
 
 public interface FluidFlowIF {
     public abstract FlowRate1 flowRate1 (

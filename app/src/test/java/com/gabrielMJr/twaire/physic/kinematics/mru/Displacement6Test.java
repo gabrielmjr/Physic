@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.kinematics.mru;
+package com.gabrielmjr.twaire.physic.kinematics.mru;
 
 import org.junit.jupiter.api.Test;
 

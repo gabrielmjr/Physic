@@ -1,18 +1,18 @@
-package com.gabrielMJr.twaire.physic.units;
+package com.gabrielmjr.twaire.physic.units;
 
 import java.math.BigDecimal;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
-import static com.gabrielMJr.twaire.physic.units.Length.LENGTH_SCALES;
+import static com.gabrielmjr.twaire.physic.units.Length.LENGTH_SCALES;
 
-import static com.gabrielMJr.twaire.physic.units.Length.KILOMETER;
-import static com.gabrielMJr.twaire.physic.units.Length.HECTOMETER;
-import static com.gabrielMJr.twaire.physic.units.Length.DECAMETER;
-import static com.gabrielMJr.twaire.physic.units.Length.METER;
-import static com.gabrielMJr.twaire.physic.units.Length.DECIMETER;
-import static com.gabrielMJr.twaire.physic.units.Length.CENTIMETER;
-import static com.gabrielMJr.twaire.physic.units.Length.MILLIMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.KILOMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.HECTOMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.DECAMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.METER;
+import static com.gabrielmjr.twaire.physic.units.Length.DECIMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.CENTIMETER;
+import static com.gabrielmjr.twaire.physic.units.Length.MILLIMETER;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

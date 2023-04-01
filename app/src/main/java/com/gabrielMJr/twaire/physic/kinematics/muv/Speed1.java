@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.kinematics
+package com.gabrielmjr.twaire.physic.kinematics
 .muv;
 
 final class Speed1

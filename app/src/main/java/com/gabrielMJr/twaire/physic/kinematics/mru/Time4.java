@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.kinematics.mru;
+package com.gabrielmjr.twaire.physic.kinematics.mru;
 
 final class Time4 {
 	private static Time4 instance;

@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.kinematics.mru;
+package com.gabrielmjr.twaire.physic.kinematics.mru;
 
 public interface MRUIF {
     public abstract Displacement1 displacement1 (

@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.kinematics.mru;
+package com.gabrielmjr.twaire.physic.kinematics.mru;
 
 // ∆S = ∆t × deltaSpeed
 final class Displacement2 {

@@ -1,8 +1,8 @@
-package com.gabrielMJr.twaire.physic.kinematics.muv;
+package com.gabrielmjr.twaire.physic.kinematics.muv;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static com.gabrielMJr.twaire.physic.Physic.GET_RESULT;
+import static com.gabrielmjr.twaire.physic.Physic.GET_RESULT;
 
 public class Displacement1Test {
     private MUV muv;

@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.downward;
+package com.gabrielmjr.twaire.physic.kinematics.vertical_launch.downward;
 
 // ∆t = (v - vi) / gravity
 final class DeltaTime2 {

@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.kinematics.vertical_launch.upward;
+package com.gabrielmjr.twaire.physic.kinematics.vertical_launch.upward;
 
 // yi = y + [vi * ∆t + (g * t²)/2]
 final class InitialHeight {

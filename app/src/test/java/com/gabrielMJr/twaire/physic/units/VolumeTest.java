@@ -1,18 +1,18 @@
-package com.gabrielMJr.twaire.physic.units;
+package com.gabrielmjr.twaire.physic.units;
 
 import java.math.BigDecimal;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
-import static com.gabrielMJr.twaire.physic.units.Volume.VOLUME_SCALES;
+import static com.gabrielmjr.twaire.physic.units.Volume.VOLUME_SCALES;
 
-import static com.gabrielMJr.twaire.physic.units.Volume.CUBE_KILOMETER;
-import static com.gabrielMJr.twaire.physic.units.Volume.CUBE_HECTOMETER;
-import static com.gabrielMJr.twaire.physic.units.Volume.CUBE_DECAMETER;
-import static com.gabrielMJr.twaire.physic.units.Volume.CUBE_METER;
-import static com.gabrielMJr.twaire.physic.units.Volume.CUBE_DECIMETER;
-import static com.gabrielMJr.twaire.physic.units.Volume.CUBE_CENTIMETER;
-import static com.gabrielMJr.twaire.physic.units.Volume.CUBE_MILLIMETER;
+import static com.gabrielmjr.twaire.physic.units.Volume.CUBE_KILOMETER;
+import static com.gabrielmjr.twaire.physic.units.Volume.CUBE_HECTOMETER;
+import static com.gabrielmjr.twaire.physic.units.Volume.CUBE_DECAMETER;
+import static com.gabrielmjr.twaire.physic.units.Volume.CUBE_METER;
+import static com.gabrielmjr.twaire.physic.units.Volume.CUBE_DECIMETER;
+import static com.gabrielmjr.twaire.physic.units.Volume.CUBE_CENTIMETER;
+import static com.gabrielmjr.twaire.physic.units.Volume.CUBE_MILLIMETER;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

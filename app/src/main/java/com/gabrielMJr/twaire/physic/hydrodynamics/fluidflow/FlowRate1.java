@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.hydrodynamics.fluidflow;
+package com.gabrielmjr.twaire.physic.hydrodynamics.fluidflow;
 
 // Q = V / ∆t
 final class FlowRate1 {
@@ -25,7 +25,8 @@ final class FlowRate1 {
 		return this;
 	}
 
-	private void calculateWithCustomUnit () {}
+	private void calculateWithCustomUnit () {
+    }
 
 	private void calculateWithoutCustomUnit () {
 		step1 = volume / deltaTime;

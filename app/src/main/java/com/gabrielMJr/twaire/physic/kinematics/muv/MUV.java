@@ -1,4 +1,4 @@
-package com.gabrielMJr.twaire.physic.kinematics.muv;
+package com.gabrielmjr.twaire.physic.kinematics.muv;
 
 public class MUV implements MUVIF 
 {
