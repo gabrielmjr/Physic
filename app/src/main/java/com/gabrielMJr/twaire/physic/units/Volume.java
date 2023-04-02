@@ -51,52 +51,52 @@ public class Volume implements VolumeIF {
 	public static final String CUBE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "³";
 
 	@Override
-	public BigDecimal toCubeKilometer (double value, int unit) {
+	public BigDecimal toCubeKilometer (double value, int unit) throws InvalidUnitException {
 		if (unit >= 14 && unit <= 20)
 			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_KILOMETER - 14]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as volume unit.");
     }
 
 	@Override
-	public BigDecimal toCubeHectometer (double value, int unit) {
+	public BigDecimal toCubeHectometer (double value, int unit) throws InvalidUnitException {
 		if (unit >= 14 && unit <= 20)
 			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_HECTOMETER - 14]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as volume unit.");
     }
 
 	@Override
-	public BigDecimal toCubeDecameter (double value, int unit) {
+	public BigDecimal toCubeDecameter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 14 && unit <= 20)
 			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECAMETER - 14]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as volume unit.");
     }
 
 	@Override
-	public BigDecimal toCubeMeter (double value, int unit) {
+	public BigDecimal toCubeMeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 14 && unit <= 20)
 			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_METER - 14]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as volume unit.");
     }
 
 	@Override
-	public BigDecimal toCubeDecimeter (double value, int unit) {
+	public BigDecimal toCubeDecimeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 14 && unit <= 20)
 			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECIMETER - 14]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as volume unit.");
     }
 
 	@Override
-	public BigDecimal toCubeCentimeter (double value, int unit) {
+	public BigDecimal toCubeCentimeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 14 && unit <= 20)
 			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_CENTIMETER - 14]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as volume unit.");
     }
 
 	@Override
-	public BigDecimal toCubeMillimeter (double value, int unit) {
+	public BigDecimal toCubeMillimeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 14 && unit <= 20)
 			return BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_MILLIMETER - 14]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as volume unit.");
     }
 
     protected static Volume getInstance () {
