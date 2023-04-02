@@ -1,7 +1,5 @@
 package com.gabrielmjr.twaire.physic;
 
-
-
 public class Constants
 {
     public static final Double ROUNDED_GRAVITY_IN_EARTH = 10.0;

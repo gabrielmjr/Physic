@@ -4,8 +4,13 @@ import java.math.BigDecimal;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
+import static com.gabrielmjr.twaire.physic.units.toKilometer;
+import static com.gabrielmjr.twaire.physic.units.toHectometer;
+import static com.gabrielmjr.twaire.physic.units.toDecameter;
+import static com.gabrielmjr.twaire.physic.units.toMeter;
+import static com.gabrielmjr.twaire.physic.units.toDecimeter;
+import static com.gabrielmjr.twaire.physic.units.toCentimeter;
 import static com.gabrielmjr.twaire.physic.units.Length.LENGTH_SCALES;
-
 import static com.gabrielmjr.twaire.physic.units.Length.KILOMETER;
 import static com.gabrielmjr.twaire.physic.units.Length.HECTOMETER;
 import static com.gabrielmjr.twaire.physic.units.Length.DECAMETER;
@@ -18,11 +23,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LengthTest {
-	private final Length length;
 	private final Random random;
 
 	public LengthTest() {
-		length = Length.getInstance();
 		random = new Random();
 	}
 
@@ -45,13 +48,13 @@ public class LengthTest {
 		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[KILOMETER]);
 
         try {
-            BigDecimal squareKilometerResult = length.toKilometer(kilometerValue, KILOMETER);
-            BigDecimal squareHectometerResult = length.toKilometer(hectometerValue, HECTOMETER);
-            BigDecimal squareDecameterResult = length.toKilometer(decameterValue, DECAMETER);
-            BigDecimal squareMeterResult = length.toKilometer(meterValue, METER);
-            BigDecimal squareDecimeterResult = length.toKilometer(decimeterValue, DECIMETER);
-            BigDecimal squareCentimeterResult = length.toKilometer(centimeterValue, CENTIMETER);
-            BigDecimal squareMillimeterResult = length.toKilometer(millimeterValue, MILLIMETER);
+            BigDecimal squareKilometerResult = toKilometer(kilometerValue, KILOMETER);
+            BigDecimal squareHectometerResult = toKilometer(hectometerValue, HECTOMETER);
+            BigDecimal squareDecameterResult = toKilometer(decameterValue, DECAMETER);
+            BigDecimal squareMeterResult = toKilometer(meterValue, METER);
+            BigDecimal squareDecimeterResult = toKilometer(decimeterValue, DECIMETER);
+            BigDecimal squareCentimeterResult = toKilometer(centimeterValue, CENTIMETER);
+            BigDecimal squareMillimeterResult = toKilometer(millimeterValue, MILLIMETER);
 
             assertEquals(kilometerTestResult, squareKilometerResult);
             assertEquals(hectometerTestResult, squareHectometerResult);
@@ -84,13 +87,13 @@ public class LengthTest {
 		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[HECTOMETER]);
 
         try {
-            BigDecimal squareKilometerResult = length.toHectometer(kilometerValue, KILOMETER);
-            BigDecimal squareHectometerResult = length.toHectometer(hectometerValue, HECTOMETER);
-            BigDecimal squareDecameterResult = length.toHectometer(decameterValue, DECAMETER);
-            BigDecimal squareMeterResult = length.toHectometer(meterValue, METER);
-            BigDecimal squareDecimeterResult = length.toHectometer(decimeterValue, DECIMETER);
-            BigDecimal squareCentimeterResult = length.toHectometer(centimeterValue, CENTIMETER);
-            BigDecimal squareMillimeterResult = length.toHectometer(millimeterValue, MILLIMETER);
+            BigDecimal squareKilometerResult = toHectometer(kilometerValue, KILOMETER);
+            BigDecimal squareHectometerResult = toHectometer(hectometerValue, HECTOMETER);
+            BigDecimal squareDecameterResult = toHectometer(decameterValue, DECAMETER);
+            BigDecimal squareMeterResult = toHectometer(meterValue, METER);
+            BigDecimal squareDecimeterResult = toHectometer(decimeterValue, DECIMETER);
+            BigDecimal squareCentimeterResult = toHectometer(centimeterValue, CENTIMETER);
+            BigDecimal squareMillimeterResult = toHectometer(millimeterValue, MILLIMETER);
 
             assertEquals(kilometerTestResult, squareKilometerResult);
             assertEquals(hectometerTestResult, squareHectometerResult);
@@ -123,13 +126,13 @@ public class LengthTest {
 		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[DECAMETER]);
 
         try {
-            BigDecimal squareKilometerResult = length.toDecameter(kilometerValue, KILOMETER);
-            BigDecimal squareHectometerResult = length.toDecameter(hectometerValue, HECTOMETER);
-            BigDecimal squareDecameterResult = length.toDecameter(decameterValue, DECAMETER);
-            BigDecimal squareMeterResult = length.toDecameter(meterValue, METER);
-            BigDecimal squareDecimeterResult = length.toDecameter(decimeterValue, DECIMETER);
-            BigDecimal squareCentimeterResult = length.toDecameter(centimeterValue, CENTIMETER);
-            BigDecimal squareMillimeterResult = length.toDecameter(millimeterValue, MILLIMETER);
+            BigDecimal squareKilometerResult = toDecameter(kilometerValue, KILOMETER);
+            BigDecimal squareHectometerResult = toDecameter(hectometerValue, HECTOMETER);
+            BigDecimal squareDecameterResult = toDecameter(decameterValue, DECAMETER);
+            BigDecimal squareMeterResult = toDecameter(meterValue, METER);
+            BigDecimal squareDecimeterResult = toDecameter(decimeterValue, DECIMETER);
+            BigDecimal squareCentimeterResult = toDecameter(centimeterValue, CENTIMETER);
+            BigDecimal squareMillimeterResult = toDecameter(millimeterValue, MILLIMETER);
 
             assertEquals(kilometerTestResult, squareKilometerResult);
             assertEquals(hectometerTestResult, squareHectometerResult);
@@ -162,13 +165,13 @@ public class LengthTest {
 		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[METER]);
 
         try {
-            BigDecimal squareKilometerResult = length.toMeter(kilometerValue, KILOMETER);
-            BigDecimal squareHectometerResult = length.toMeter(hectometerValue, HECTOMETER);
-            BigDecimal squareDecameterResult = length.toMeter(decameterValue, DECAMETER);
-            BigDecimal squareMeterResult = length.toMeter(meterValue, METER);
-            BigDecimal squareDecimeterResult = length.toMeter(decimeterValue, DECIMETER);
-            BigDecimal squareCentimeterResult = length.toMeter(centimeterValue, CENTIMETER);
-            BigDecimal squareMillimeterResult = length.toMeter(millimeterValue, MILLIMETER);
+            BigDecimal squareKilometerResult = toMeter(kilometerValue, KILOMETER);
+            BigDecimal squareHectometerResult = toMeter(hectometerValue, HECTOMETER);
+            BigDecimal squareDecameterResult = toMeter(decameterValue, DECAMETER);
+            BigDecimal squareMeterResult = toMeter(meterValue, METER);
+            BigDecimal squareDecimeterResult = toMeter(decimeterValue, DECIMETER);
+            BigDecimal squareCentimeterResult = toMeter(centimeterValue, CENTIMETER);
+            BigDecimal squareMillimeterResult = toMeter(millimeterValue, MILLIMETER);
 
             assertEquals(kilometerTestResult, squareKilometerResult);
             assertEquals(hectometerTestResult, squareHectometerResult);
@@ -200,13 +203,13 @@ public class LengthTest {
         BigDecimal centimeterTestResult = BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[DECIMETER]);
 		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[DECIMETER]);
         try {
-            BigDecimal squareKilometerResult = length.toDecimeter(kilometerValue, KILOMETER);
-            BigDecimal squareHectometerResult = length.toDecimeter(hectometerValue, HECTOMETER);
-            BigDecimal squareDecameterResult = length.toDecimeter(decameterValue, DECAMETER);
-            BigDecimal squareMeterResult = length.toDecimeter(meterValue, METER);
-            BigDecimal squareDecimeterResult = length.toDecimeter(decimeterValue, DECIMETER);
-            BigDecimal squareCentimeterResult = length.toDecimeter(centimeterValue, CENTIMETER);
-            BigDecimal squareMillimeterResult = length.toDecimeter(millimeterValue, MILLIMETER);
+            BigDecimal squareKilometerResult = toDecimeter(kilometerValue, KILOMETER);
+            BigDecimal squareHectometerResult = toDecimeter(hectometerValue, HECTOMETER);
+            BigDecimal squareDecameterResult = toDecimeter(decameterValue, DECAMETER);
+            BigDecimal squareMeterResult = toDecimeter(meterValue, METER);
+            BigDecimal squareDecimeterResult = toDecimeter(decimeterValue, DECIMETER);
+            BigDecimal squareCentimeterResult = toDecimeter(centimeterValue, CENTIMETER);
+            BigDecimal squareMillimeterResult = toDecimeter(millimeterValue, MILLIMETER);
 
             assertEquals(kilometerTestResult, squareKilometerResult);
             assertEquals(hectometerTestResult, squareHectometerResult);
@@ -239,13 +242,13 @@ public class LengthTest {
 		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[CENTIMETER]);
 
         try {
-            BigDecimal squareKilometerResult = length.toCentimeter(kilometerValue, KILOMETER);
-            BigDecimal squareHectometerResult = length.toCentimeter(hectometerValue, HECTOMETER);
-            BigDecimal squareDecameterResult = length.toCentimeter(decameterValue, DECAMETER);
-            BigDecimal squareMeterResult = length.toCentimeter(meterValue, METER);
-            BigDecimal squareDecimeterResult = length.toCentimeter(decimeterValue, DECIMETER);
-            BigDecimal squareCentimeterResult = length.toCentimeter(centimeterValue, CENTIMETER);
-            BigDecimal squareMillimeterResult = length.toCentimeter(millimeterValue, MILLIMETER);
+            BigDecimal squareKilometerResult = toCentimeter(kilometerValue, KILOMETER);
+            BigDecimal squareHectometerResult = toCentimeter(hectometerValue, HECTOMETER);
+            BigDecimal squareDecameterResult = toCentimeter(decameterValue, DECAMETER);
+            BigDecimal squareMeterResult = toCentimeter(meterValue, METER);
+            BigDecimal squareDecimeterResult = toCentimeter(decimeterValue, DECIMETER);
+            BigDecimal squareCentimeterResult = toCentimeter(centimeterValue, CENTIMETER);
+            BigDecimal squareMillimeterResult = toCentimeter(millimeterValue, MILLIMETER);
 
             assertEquals(kilometerTestResult, squareKilometerResult);
             assertEquals(hectometerTestResult, squareHectometerResult);
@@ -278,13 +281,13 @@ public class LengthTest {
 		BigDecimal millimeterTestResult = BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[MILLIMETER]);
 
         try {
-            BigDecimal squareKilometerResult = length.toMillimeter(kilometerValue, KILOMETER);
-            BigDecimal squareHectometerResult = length.toMillimeter(hectometerValue, HECTOMETER);
-            BigDecimal squareDecameterResult = length.toMillimeter(decameterValue, DECAMETER);
-            BigDecimal squareMeterResult = length.toMillimeter(meterValue, METER);
-            BigDecimal squareDecimeterResult = length.toMillimeter(decimeterValue, DECIMETER);
-            BigDecimal squareCentimeterResult = length.toMillimeter(centimeterValue, CENTIMETER);
-            BigDecimal squareMillimeterResult = length.toMillimeter(millimeterValue, MILLIMETER);
+            BigDecimal squareKilometerResult = toMillimeter(kilometerValue, KILOMETER);
+            BigDecimal squareHectometerResult = toMillimeter(hectometerValue, HECTOMETER);
+            BigDecimal squareDecameterResult = toMillimeter(decameterValue, DECAMETER);
+            BigDecimal squareMeterResult = toMillimeter(meterValue, METER);
+            BigDecimal squareDecimeterResult = toMillimeter(decimeterValue, DECIMETER);
+            BigDecimal squareCentimeterResult = toMillimeter(centimeterValue, CENTIMETER);
+            BigDecimal squareMillimeterResult = toMillimeter(millimeterValue, MILLIMETER);
 
             assertEquals(kilometerTestResult, squareKilometerResult);
             assertEquals(hectometerTestResult, squareHectometerResult);
