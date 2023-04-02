@@ -54,7 +54,7 @@ public class Area implements AreaIF {
 	public BigDecimal toSquareKilometer (double value, int unit) {
 		if (unit >= 7 && unit <= 13)
 			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7]);
-		return null;
+	    return null;
 	}
 
 	@Override
