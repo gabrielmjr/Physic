@@ -58,49 +58,49 @@ public class Length implements LengthIF {
 	public BigDecimal toKilometer (double value, int unit) throws InvalidUnitException {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER]);
-        throw new InvalidUnitException("error");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as lenght unit.");
     }
 
 	@Override
 	public BigDecimal toHectometer (double value, int unit) throws InvalidUnitException {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER]);
-	    throw new InvalidUnitException("");
+	    throw new InvalidUnitException("The unit " + unit + " is not valid as lenght unit.");
     }
 
 	@Override
 	public BigDecimal toDecameter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER]);
-		throw new InvalidUnitException("");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as lenght unit.");
     }
 
 	@Override
 	public BigDecimal toMeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER]);
-		throw new InvalidUnitException("");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as lenght unit.");
     }
 
 	@Override
 	public BigDecimal toDecimeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER]);
-		throw new InvalidUnitException("");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as lenght unit.");
     }
 
 	@Override
 	public BigDecimal toCentimeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER]);
-		throw new InvalidUnitException("");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as lenght unit.");
     }
 
 	@Override
 	public BigDecimal toMillimeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 0 && unit <= 6)
 			return BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER]);
-		throw new InvalidUnitException("");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as lenght unit.");
 	}
 
     protected static Length getInstance () {
