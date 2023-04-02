@@ -51,52 +51,52 @@ public class Area implements AreaIF {
 	public static final String SQUARE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "²";
 
 	@Override
-	public BigDecimal toSquareKilometer (double value, int unit) {
+	public BigDecimal toSquareKilometer (double value, int unit) throws InvalidUnitException {
 		if (unit >= 7 && unit <= 13)
 			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7]);
-	    return null;
+	    throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
 	}
 
 	@Override
-	public BigDecimal toSquareHectometer (double value, int unit) {
+	public BigDecimal toSquareHectometer (double value, int unit) throws InvalidUnitException {
 		if (unit >= 7 && unit <= 13)
 			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
 	}
 
 	@Override
-	public BigDecimal toSquareDecameter (double value, int unit) {
+	public BigDecimal toSquareDecameter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 7 && unit <= 13)
 			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
 	}
 
 	@Override
-	public BigDecimal toSquareMeter (double value, int unit) {
+	public BigDecimal toSquareMeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 7 && unit <= 13)
 			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_METER - 7]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
 	}
 
 	@Override
-	public BigDecimal toSquareDecimeter (double value, int unit) {
+	public BigDecimal toSquareDecimeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 7 && unit <= 13)
 			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
 	}
 
 	@Override
-	public BigDecimal toSquareCentimeter (double value, int unit) {
+	public BigDecimal toSquareCentimeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 7 && unit <= 13)
 			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
 	}
 
 	@Override
-	public BigDecimal toSquareMillimeter (double value, int unit) {
+	public BigDecimal toSquareMillimeter (double value, int unit) throws InvalidUnitException {
 		if (unit >= 7 && unit <= 13)
 			return BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7]);
-		return null;
+		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
 	}
 
     protected static Area getInstance () {
