@@ -1,6 +1,8 @@
 package com.gabrielmjr.twaire.physic.units;
 
-public class InvalidUnitException extends Exception{
+import com.gabrielmjr.twaire.physic.PhysicException;
+
+public class InvalidUnitException extends PhysicException {
     public InvalidUnitException(String message) {
         super(message);
     }
