@@ -106,50 +106,43 @@ public class Length extends BigDecimal implements LengthIF {
    
 	public static Length toKilometer (double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
-            return new Length().setUnit(unit)
-		        .setValue(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER]));
+            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER]), unit);
         throw new InvalidUnitException("The unit " + unit + " is not valid as length unit.");
     }
     
 	public static Length toHectometer (double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
-            return new Length().setUnit(unit)
-                .setValue(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER]));
+            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER]), unit);
         throw new InvalidUnitException("The unit " + unit + " is not valid as length unit.");
     }
 
 	public static Length toDecameter (double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
-            return new Length().setUnit(unit)
-                .setValue(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER]));
+            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER]), unit);
         throw new InvalidUnitException("The unit " + unit + " is not valid as length unit.");
     }
 
 	public static Length toMeter (double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
-            return new Length().setUnit(unit)
-                .setValue(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER]));
+            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER]), unit);
         throw new InvalidUnitException("The unit " + unit + " is not valid as length unit.");
     }
     
 	public static Length toDecimeter (double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
-            return new Length().setUnit(unit)
-                .setValue(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER]));
+            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER]), unit);
         throw new InvalidUnitException("The unit " + unit + " is not valid as length unit.");
     }
 
 	public static Length toCentimeter (double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
-            return new Length().setUnit(unit)
-                .setValue(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER]));
+            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER]), unit);
         throw new InvalidUnitException("The unit " + unit + " is not valid as length unit.");
     }
 
-	public static BigDecimal toMillimeter (double value, int unit) throws PhysicException {
+	public static Length toMillimeter (double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
-            return new Length().setUnit(unit)
-                .setValue(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER]));
+            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER]), unit);
         throw new InvalidUnitException("The unit " + unit + " is not valid as length unit.");
 	}
     
