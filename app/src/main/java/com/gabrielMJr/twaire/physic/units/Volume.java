@@ -54,31 +54,31 @@ public class Volume extends BigDecimal implements VolumeIF {
     public Volume() {
         super(0); 
         value = divide(ONE);
-        unit = METER;
+        unit = CUBE_METER;
     }
 
     public Volume(double value) {
         super(value);
         this.value = divide(ONE);
-        unit = METER;
+        unit = CUBE_METER;
     }
 
     public Volume(String value) {
         super(value);
         this.value = divide(ONE);
-        unit = METER;
+        unit = CUBE_METER;
     }
 
     public Volume(long value) {
         super(value);
         this.value = divide(ONE);
-        unit = METER;
+        unit = CUBE_METER;
     }
 
     public Volume(BigDecimal value) {
         super(value.toString());
         this.value = value;
-        unit = METER;
+        unit = CUBE_METER;
     }
 
     public Volume(double value, int unit) throws PhysicException {
