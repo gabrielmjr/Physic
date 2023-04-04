@@ -1,29 +1,27 @@
 package com.gabrielmjr.twaire.physic.units;
 
-import java.math.BigDecimal;
-
 public interface SpeedIF {
-	public abstract BigDecimal toKilometerPerSecond (double value, int unit);
-	public abstract BigDecimal toHectometerPerSecond (double value, int unit);
-	public abstract BigDecimal toDecameterPerSecond (double value, int unit);
-	public abstract BigDecimal toMeterPerSecond (double value, int unit);
-	public abstract BigDecimal toDecimeterPerSecond (double value, int unit);
-	public abstract BigDecimal toCentimeterPerSecond (double value, int unit);
-	public abstract BigDecimal toMillimeterPerSecond (double value, int unit);
+	public abstract Speed toKilometerPerSecond ();
+	public abstract Speed toHectometerPerSecond ();
+	public abstract Speed toDecameterPerSecond ();
+	public abstract Speed toMeterPerSecond ();
+	public abstract Speed toDecimeterPerSecond ();
+	public abstract Speed toCentimeterPerSecond ();
+	public abstract Speed toMillimeterPerSecond ();
 
-	public abstract BigDecimal toKilometerPerMinute (double value, int unit);
-	public abstract BigDecimal toHectometerPerMinute (double value, int unit);
-	public abstract BigDecimal toDecameterPerMinute (double value, int unit);
-	public abstract BigDecimal toMeterPerMinute (double value, int unit);
-	public abstract BigDecimal toDecimeterPerMinute (double value, int unit);
-	public abstract BigDecimal toCentimeterPerMinute (double value, int unit);
-	public abstract BigDecimal toMillimeterPerMinute (double value, int unit);
+	public abstract Speed toKilometerPerMinute ();
+	public abstract Speed toHectometerPerMinute ();
+	public abstract Speed toDecameterPerMinute ();
+	public abstract Speed toMeterPerMinute ();
+	public abstract Speed toDecimeterPerMinute ();
+	public abstract Speed toCentimeterPerMinute ();
+	public abstract Speed toMillimeterPerMinute ();
 
-	public abstract BigDecimal toKilometerPerHour (double value, int unit);
-	public abstract BigDecimal toHectometerPerHour (double value, int unit);
-	public abstract BigDecimal toDecameterPerHour (double value, int unit);
-	public abstract BigDecimal toMeterPerHour (double value, int unit);
-	public abstract BigDecimal toDecimeterPerHour (double value, int unit);
-	public abstract BigDecimal toCentimeterPerHour (double value, int unit);
-	public abstract BigDecimal toMillimeterPerHour (double value, int unit);
+	public abstract Speed toKilometerPerHour ();
+	public abstract Speed toHectometerPerHour ();
+	public abstract Speed toDecameterPerHour ();
+	public abstract Speed toMeterPerHour ();
+	public abstract Speed toDecimeterPerHour ();
+	public abstract Speed toCentimeterPerHour ();
+	public abstract Speed toMillimeterPerHour ();
 }

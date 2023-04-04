@@ -1,10 +1,10 @@
 package com.gabrielmjr.twaire.physic.units;
 
+import com.gabrielmjr.twaire.physic.PhysicException;
 import java.math.BigDecimal;
 
 import static com.gabrielmjr.twaire.physic.units.Length.LENGTH_SCALES;
 import static com.gabrielmjr.twaire.physic.units.Time.TIME_SCALES;
-
 import static com.gabrielmjr.twaire.physic.units.Length.KILOMETER;
 import static com.gabrielmjr.twaire.physic.units.Length.HECTOMETER;
 import static com.gabrielmjr.twaire.physic.units.Length.DECAMETER;
@@ -12,11 +12,9 @@ import static com.gabrielmjr.twaire.physic.units.Length.METER;
 import static com.gabrielmjr.twaire.physic.units.Length.DECIMETER;
 import static com.gabrielmjr.twaire.physic.units.Length.CENTIMETER;
 import static com.gabrielmjr.twaire.physic.units.Length.MILLIMETER;
-
 import static com.gabrielmjr.twaire.physic.units.Time.SECOND;
 import static com.gabrielmjr.twaire.physic.units.Time.MINUTE;
 import static com.gabrielmjr.twaire.physic.units.Time.HOUR;
-
 import static com.gabrielmjr.twaire.physic.units.Length.KILOMETER_SYMBOL;
 import static com.gabrielmjr.twaire.physic.units.Length.HECTOMETER_SYMBOL;
 import static com.gabrielmjr.twaire.physic.units.Length.DECAMETER_SYMBOL;
@@ -24,16 +22,14 @@ import static com.gabrielmjr.twaire.physic.units.Length.METER_SYMBOL;
 import static com.gabrielmjr.twaire.physic.units.Length.DECIMETER_SYMBOL;
 import static com.gabrielmjr.twaire.physic.units.Length.CENTIMETER_SYMBOL;
 import static com.gabrielmjr.twaire.physic.units.Length.MILLIMETER_SYMBOL;
-
 import static com.gabrielmjr.twaire.physic.units.Time.SECOND_SYMBOL;
 import static com.gabrielmjr.twaire.physic.units.Time.MINUTE_SYMBOL;
 import static com.gabrielmjr.twaire.physic.units.Time.HOUR_SYMBOL;
 
-public class Speed implements SpeedIF {
+public class Speed extends BigDecimal implements SpeedIF { 
 	private static Speed instance; 
-
-	private final Length length;
-	private final Time time;
+    private BigDecimal value;
+    private int unit;
 
 	public static final int KILOMETER_PER_SECOND = 31;
 	public static final int HECTOMETER_PER_SECOND = 32;
@@ -110,157 +106,305 @@ public class Speed implements SpeedIF {
 	public static final String CENTIMETER_PER_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 	public static final String MILLIMETER_PER_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 
-	public Speed () {
-		length = Length.getInstance();
-		time = Time.getInstance();
-	}
+	public Speed() {
+        super(0); 
+        value = divide(ONE);
+        unit = METER;
+    }
 
-	@Override
-	public BigDecimal toKilometerPerSecond (double value, int unit) {
+    public Speed(double value) {
+        super(value);
+        this.value = divide(ONE);
+        unit = METER;
+    }
+
+    public Speed(String value) {
+        super(value);
+        this.value = divide(ONE);
+        unit = METER;
+    }
+
+    public Speed(long value) {
+        super(value);
+        this.value = divide(ONE);
+        unit = METER;
+    }
+
+    public Speed(BigDecimal value) {
+        super(value.toString());
+        this.value = value;
+        unit = METER;
+    }
+
+    public Speed(double value, int unit) throws PhysicException {
+        super(value);
+        this.value = divide(ONE);
+        if (unit >= 0 && unit <= 6) {
+            this.unit = unit;
+            return;
+        }
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+    }
+
+    public Speed(String value, int unit) throws PhysicException {
+        super(value);
+        this.value = divide(ONE);
+        if (unit >= 0 && unit <= 6) {
+            this.unit = unit;
+            return;
+        }
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+    }
+
+    public Speed(long value, int unit) throws PhysicException {
+        super(value);
+        this.value = divide(ONE);
+        if (unit >= 0 && unit <= 6) {
+            this.unit = unit;
+            return;
+        }
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+    }
+
+    public Speed(BigDecimal value, int unit) throws PhysicException {
+        super(value.toString());
+        if (unit >= 0 && unit <= 6) {
+            this.unit = unit;
+            return;
+        }
+        throw new InvalidUnitException("The unit " + unit + " is not valid as length unit");
+    }
+    
+	public Speed toKilometerPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_SECOND - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_SECOND - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toHectometerPerSecond (double value, int unit) {
+	public Speed toHectometerPerSecond (double value, int unit) throws PhysicException {
 	    if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_SECOND - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_SECOND - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toDecameterPerSecond (double value, int unit) {
+	public Speed toDecameterPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_SECOND - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_SECOND - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+	}
+    
+	public Speed toMeterPerSecond (double value, int unit) throws PhysicException {
+		if (unit >= 31 && unit <= 51)
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_SECOND - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toMeterPerSecond (double value, int unit) {
+	public Speed toDecimeterPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_SECOND - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_SECOND - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toDecimeterPerSecond (double value, int unit) {
+	public Speed toCentimeterPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_SECOND - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_SECOND - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toCentimeterPerSecond (double value, int unit) {
+	public Speed toMillimeterPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_SECOND - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_SECOND - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toMillimeterPerSecond (double value, int unit) {
+	public Speed toKilometerPerMinute (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_SECOND - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_MINUTE - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+	}
+    
+	public Speed toHectometerPerMinute (double value, int unit) throws PhysicException {
+		if (unit >= 31 && unit <= 51)
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_MINUTE - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+	}
+    
+	public Speed toDecameterPerMinute (double value, int unit) throws PhysicException {
+		if (unit >= 31 && unit <= 51)
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_MINUTE - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toKilometerPerMinute (double value, int unit) {
+	public Speed toMeterPerMinute (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_MINUTE - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_MINUTE - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toHectometerPerMinute (double value, int unit) {
+	public Speed toDecimeterPerMinute (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_MINUTE - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+	}
+    
+	public Speed toCentimeterPerMinute (double value, int unit) throws PhysicException {
+		if (unit >= 31 && unit <= 51)
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_MINUTE - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+	}
+    
+	public Speed toMillimeterPerMinute (double value, int unit) throws PhysicException {
+		if (unit >= 31 && unit <= 51)
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_MINUTE - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+	}
+    
+	public Speed toKilometerPerHour (double value, int unit) throws PhysicException {
+		if (unit >= 31 && unit <= 51)
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_HOUR - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+	}
+    
+	public Speed toHectometerPerHour (double value, int unit) throws PhysicException {
+		if (unit >= 31 && unit <= 51)
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_HOUR - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toDecameterPerMinute (double value, int unit) {
+	public Speed toDecameterPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_MINUTE - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_HOUR - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toMeterPerMinute (double value, int unit) {
+	public Speed toMeterPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_MINUTE - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_HOUR - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toDecimeterPerMinute (double value, int unit) {
+	public Speed toDecimeterPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_HOUR - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+	}
+   
+	public Speed toCentimeterPerHour (double value, int unit) throws PhysicException {
+		if (unit >= 31 && unit <= 51)
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_HOUR - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
-	@Override
-	public BigDecimal toCentimeterPerMinute (double value, int unit) {
+	public Speed toMillimeterPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_MINUTE - 31]);
-		return null;
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_HOUR - 31]), unit);
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
+    
+    @Override
+    public Speed toKilometerPerSecond() {
+        return null;
+    }
 
-	@Override
-	public BigDecimal toMillimeterPerMinute (double value, int unit) {
-		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_MINUTE - 31]);
-		return null;
-	}
+    @Override
+    public Speed toHectometerPerSecond() {
+        return null;
+    }
 
-	@Override
-	public BigDecimal toKilometerPerHour (double value, int unit) {
-		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_HOUR - 31]);
-		return null;
-	}
+    @Override
+    public Speed toDecameterPerSecond() {
+        return null;
+    }
 
-	@Override
-	public BigDecimal toHectometerPerHour (double value, int unit) {
-		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_HOUR - 31]);
-		return null;
-	}
+    @Override
+    public Speed toMeterPerSecond() {
+        return null;
+    }
 
-	@Override
-	public BigDecimal toDecameterPerHour (double value, int unit) {
-		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_HOUR - 31]);
-		return null;
-	}
+    @Override
+    public Speed toDecimeterPerSecond() {
+        return null;
+    }
 
-	@Override
-	public BigDecimal toMeterPerHour (double value, int unit) {
-		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_HOUR - 31]);
-		return null;
-	}
+    @Override
+    public Speed toCentimeterPerSecond() {
+        return null;
+    }
 
-	@Override
-	public BigDecimal toDecimeterPerHour (double value, int unit) {
-		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_HOUR - 31]);
-		return null;
-	}
+    @Override
+    public Speed toMillimeterPerSecond() {
+        return null;
+    }
 
-	@Override
-	public BigDecimal toCentimeterPerHour (double value, int unit) {
-		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_HOUR - 31]);
-		return null;
-	}
+    @Override
+    public Speed toKilometerPerMinute() {
+        return null;
+    }
 
-	@Override
-	public BigDecimal toMillimeterPerHour (double value, int unit) {
-		if (unit >= 31 && unit <= 51)
-			return BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_HOUR - 31]);
-		return null;
-	}
+    @Override
+    public Speed toHectometerPerMinute() {
+        return null;
+    }
+
+    @Override
+    public Speed toDecameterPerMinute() {
+        return null;
+    }
+
+    @Override
+    public Speed toMeterPerMinute() {
+        return null;
+    }
+
+    @Override
+    public Speed toDecimeterPerMinute() {
+        return null;
+    }
+
+    @Override
+    public Speed toCentimeterPerMinute() {
+        return null;
+    }
+
+    @Override
+    public Speed toMillimeterPerMinute() {
+        return null;
+    }
+
+    @Override
+    public Speed toKilometerPerHour() {
+        return null;
+    }
+
+    @Override
+    public Speed toHectometerPerHour() {
+        return null;
+    }
+
+    @Override
+    public Speed toDecameterPerHour() {
+        return null;
+    }
+
+    @Override
+    public Speed toMeterPerHour() {
+        return null;
+    }
+
+    @Override
+    public Speed toDecimeterPerHour() {
+        return null;
+    }
+
+    @Override
+    public Speed toCentimeterPerHour() {
+        return null;
+    }
+
+    @Override
+    public Speed toMillimeterPerHour() {
+        return null;
+    }
 
 	protected static Speed getInstance () {
 		if (!(instance instanceof Speed))
