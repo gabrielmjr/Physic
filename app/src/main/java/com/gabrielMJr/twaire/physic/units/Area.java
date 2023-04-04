@@ -88,7 +88,7 @@ public class Area extends BigDecimal implements AreaIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
 
     public Area(String value, int unit) throws PhysicException {
@@ -98,7 +98,7 @@ public class Area extends BigDecimal implements AreaIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
 
     public Area(long value, int unit) throws PhysicException {
@@ -108,7 +108,7 @@ public class Area extends BigDecimal implements AreaIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
 
     public Area(BigDecimal value, int unit) throws PhysicException {
@@ -123,43 +123,43 @@ public class Area extends BigDecimal implements AreaIF {
 	public static Area toSquareKilometer (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
 			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7]), unit);
-	    throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+	    throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
     
 	public static Area toSquareHectometer (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
 			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7]), unit);
-		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
     
 	public static Area toSquareDecameter (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
 			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7]), unit);
-		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
     
 	public static Area toSquareMeter (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
 			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_METER - 7]), unit);
-		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
     
 	public static Area toSquareDecimeter (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
 			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7]), unit);
-		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
 
 	public static Area toSquareCentimeter (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
 			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7]), unit);
-		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
 
 	public static Area toSquareMillimeter (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
 			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7]), unit);
-		throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
     
     @Override
@@ -222,7 +222,7 @@ public class Area extends BigDecimal implements AreaIF {
             this.unit = unit;
             return this;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as area unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
 
     protected static Area getInstance () {
