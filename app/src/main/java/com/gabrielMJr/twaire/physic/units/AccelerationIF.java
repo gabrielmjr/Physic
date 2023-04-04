@@ -1,29 +1,27 @@
 package com.gabrielmjr.twaire.physic.units;
 
-import java.math.BigDecimal;
-
 public interface AccelerationIF {
-    public abstract BigDecimal toKilometerPerSquareSecond (double value, int unit);
-	public abstract BigDecimal toHectometerPerSquareSecond (double value, int unit);
-	public abstract BigDecimal toDecameterPerSquareSecond (double value, int unit);
-	public abstract BigDecimal toMeterPerSquareSecond (double value, int unit);
-	public abstract BigDecimal toDecimeterPerSquareSecond (double value, int unit);
-	public abstract BigDecimal toCentimeterPerSquareSecond (double value, int unit);
-	public abstract BigDecimal toMillimeterPerSquareSecond (double value, int unit);
+    public abstract Acceleration toKilometerPerSquareSecond ();
+	public abstract Acceleration toHectometerPerSquareSecond ();
+	public abstract Acceleration toDecameterPerSquareSecond ();
+	public abstract Acceleration toMeterPerSquareSecond ();
+	public abstract Acceleration toDecimeterPerSquareSecond ();
+	public abstract Acceleration toCentimeterPerSquareSecond ();
+	public abstract Acceleration toMillimeterPerSquareSecond ();
 
-	public abstract BigDecimal toKilometerPerSquareMinute (double value, int unit);
-	public abstract BigDecimal toHectometerPerSquareMinute (double value, int unit);
-	public abstract BigDecimal toDecameterPerSquareMinute (double value, int unit);
-	public abstract BigDecimal toMeterPerSquareMinute (double value, int unit);
-	public abstract BigDecimal toDecimeterPerSquareMinute (double value, int unit);
-	public abstract BigDecimal toCentimeterPerSquareMinute (double value, int unit);
-	public abstract BigDecimal toMillimeterPerSquareMinute (double value, int unit);
+	public abstract Acceleration toKilometerPerSquareMinute ();
+	public abstract Acceleration toHectometerPerSquareMinute ();
+	public abstract Acceleration toDecameterPerSquareMinute ();
+	public abstract Acceleration toMeterPerSquareMinute ();
+	public abstract Acceleration toDecimeterPerSquareMinute ();
+	public abstract Acceleration toCentimeterPerSquareMinute ();
+	public abstract Acceleration toMillimeterPerSquareMinute ();
 
-	public abstract BigDecimal toKilometerPerSquareHour (double value, int unit);
-	public abstract BigDecimal toHectometerPerSquareHour (double value, int unit);
-	public abstract BigDecimal toDecameterPerSquareHour (double value, int unit);
-	public abstract BigDecimal toMeterPerSquareHour (double value, int unit);
-	public abstract BigDecimal toDecimeterPerSquareHour (double value, int unit);
-	public abstract BigDecimal toCentimeterPerSquareHour (double value, int unit);
-	public abstract BigDecimal toMillimeterPerSquareHour (double value, int unit);
+	public abstract Acceleration toKilometerPerSquareHour ();
+	public abstract Acceleration toHectometerPerSquareHour ();
+	public abstract Acceleration toDecameterPerSquareHour ();
+	public abstract Acceleration toMeterPerSquareHour ();
+	public abstract Acceleration toDecimeterPerSquareHour ();
+	public abstract Acceleration toCentimeterPerSquareHour ();
+	public abstract Acceleration toMillimeterPerSquareHour ();
 }
