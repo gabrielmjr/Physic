@@ -117,7 +117,7 @@ public class Volume extends BigDecimal implements VolumeIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as volume unit");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
 
 	public static Volume toCubeKilometer (double value, int unit) throws PhysicException {

@@ -147,7 +147,7 @@ public class Acceleration extends BigDecimal implements AccelerationIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Acceleration(String value, int unit) throws PhysicException {
@@ -157,7 +157,7 @@ public class Acceleration extends BigDecimal implements AccelerationIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Acceleration(long value, int unit) throws PhysicException {
@@ -167,7 +167,7 @@ public class Acceleration extends BigDecimal implements AccelerationIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Acceleration(BigDecimal value, int unit) throws PhysicException {
@@ -176,7 +176,7 @@ public class Acceleration extends BigDecimal implements AccelerationIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
     
 	public static Acceleration toKilometerPerSquareSecond (double value, int unit) throws PhysicException {

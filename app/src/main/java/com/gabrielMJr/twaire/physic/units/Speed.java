@@ -143,7 +143,7 @@ public class Speed extends BigDecimal implements SpeedIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Speed(String value, int unit) throws PhysicException {
@@ -153,7 +153,7 @@ public class Speed extends BigDecimal implements SpeedIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Speed(long value, int unit) throws PhysicException {
@@ -163,7 +163,7 @@ public class Speed extends BigDecimal implements SpeedIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Speed(BigDecimal value, int unit) throws PhysicException {
@@ -172,7 +172,7 @@ public class Speed extends BigDecimal implements SpeedIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as length unit");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
     
 	public static Speed toKilometerPerSecond (double value, int unit) throws PhysicException {

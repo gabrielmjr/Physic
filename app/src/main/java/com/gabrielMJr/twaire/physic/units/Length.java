@@ -72,7 +72,7 @@ public class Length extends BigDecimal implements LengthIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Length(String value, int unit) throws PhysicException {
@@ -82,7 +82,7 @@ public class Length extends BigDecimal implements LengthIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Length(long value, int unit) throws PhysicException {
@@ -92,7 +92,7 @@ public class Length extends BigDecimal implements LengthIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
     
     public Length(BigDecimal value, int unit) throws PhysicException {
@@ -101,7 +101,7 @@ public class Length extends BigDecimal implements LengthIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as length unit");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
    
 	public static Length toKilometer (double value, int unit) throws PhysicException {

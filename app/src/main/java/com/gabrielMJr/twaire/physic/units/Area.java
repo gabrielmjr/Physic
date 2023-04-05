@@ -88,7 +88,7 @@ public class Area extends BigDecimal implements AreaIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Area(String value, int unit) throws PhysicException {
@@ -98,7 +98,7 @@ public class Area extends BigDecimal implements AreaIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Area(long value, int unit) throws PhysicException {
@@ -108,7 +108,7 @@ public class Area extends BigDecimal implements AreaIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Area(BigDecimal value, int unit) throws PhysicException {
@@ -117,7 +117,7 @@ public class Area extends BigDecimal implements AreaIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as area unit");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
    
 	public static Area toSquareKilometer (double value, int unit) throws PhysicException {

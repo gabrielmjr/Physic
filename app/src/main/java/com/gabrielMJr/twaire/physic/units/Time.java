@@ -118,7 +118,7 @@ public class Time extends BigDecimal implements TimeIF {
             this.unit = unit;
             return;
         }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as Time unit");
+        throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
     
 	public static Time toSecond (double value, int unit) throws PhysicException {
