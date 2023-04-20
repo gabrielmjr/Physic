@@ -6,7 +6,7 @@ repositories {
     mavenCentral()
 }
 
-ext.mainClass = 'com.gabrielmjr/twaire/physic/Physic'
+ext.mainClass = 'com.mjr.code.physic.Physic'
 version = '1.0'
 
 dependencies {
