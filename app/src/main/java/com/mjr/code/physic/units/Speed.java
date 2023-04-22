@@ -4,6 +4,7 @@ import com.mjr.code.physic.PhysicException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import static com.mjr.code.physic.Physic.ROUND_SCALE;
 import static com.mjr.code.physic.units.Length.LENGTH_SCALES;
 import static com.mjr.code.physic.units.Time.TIME_SCALES;
 import static com.mjr.code.physic.units.Length.KILOMETER;
@@ -58,29 +59,29 @@ public class Speed extends BigDecimal implements SpeedIF {
 
 	protected static final BigDecimal[] SPEED_SCALES = new BigDecimal[]
 	{
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
 
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
 
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP)
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP)
 	};
 
 	public static final String KILOMETER_PER_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SECOND_SYMBOL;
@@ -187,127 +188,127 @@ public class Speed extends BigDecimal implements SpeedIF {
     
 	public static Speed toKilometerPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_SECOND - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toHectometerPerSecond (double value, int unit) throws PhysicException {
 	    if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_SECOND - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toDecameterPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_SECOND - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
     
 	public static Speed toMeterPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_SECOND - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toDecimeterPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_SECOND - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toCentimeterPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_SECOND - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toMillimeterPerSecond (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_SECOND - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toKilometerPerMinute (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_MINUTE - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
     
 	public static Speed toHectometerPerMinute (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_MINUTE - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
     
 	public static Speed toDecameterPerMinute (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_MINUTE - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toMeterPerMinute (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_MINUTE - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toDecimeterPerMinute (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
     
 	public static Speed toCentimeterPerMinute (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_MINUTE - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
     
 	public static Speed toMillimeterPerMinute (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_MINUTE - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
     
 	public static Speed toKilometerPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_HOUR - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
     
 	public static Speed toHectometerPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_HOUR - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toDecameterPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_HOUR - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toMeterPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_HOUR - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toDecimeterPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_HOUR - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
    
 	public static Speed toCentimeterPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_HOUR - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
 
 	public static Speed toMillimeterPerHour (double value, int unit) throws PhysicException {
 		if (unit >= 31 && unit <= 51)
-			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_HOUR - 31]), unit);
+			return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
 	}
     

@@ -1,14 +1,12 @@
 package com.mjr.code.physic;
 
-public class Physic
-{
-
-	// Those constants were used to tell to the program if you want only results or steps
-	public static final int GET_RESULT = 0;
-	public static final int GET_STEP = 1;
-
-	public static void main (String[] args)
-	{
+public class Physic {
+	
+	public static final int GET_STEP = 0;
+	public static final int GET_RESULT = 1;
+	public static final int ROUND_SCALE = 20;
+	
+	public static void main (String[] args) {
 		return;
 	}
 }
