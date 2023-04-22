@@ -2,6 +2,7 @@ package com.mjr.code.physic.units;
 
 import com.mjr.code.physic.PhysicException;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static com.mjr.code.physic.units.Length.LENGTH_SCALES;
 import static com.mjr.code.physic.units.Time.TIME_SCALES;
@@ -57,29 +58,29 @@ public class Speed extends BigDecimal implements SpeedIF {
 
 	protected static final BigDecimal[] SPEED_SCALES = new BigDecimal[]
 	{
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[SECOND]),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[SECOND]),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[SECOND]),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[SECOND]),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[SECOND]),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[SECOND]),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[SECOND]),
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[SECOND - 21], 20, RoundingMode.HALF_UP),
 
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[MINUTE]),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[MINUTE]),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[MINUTE]),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[MINUTE]),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[MINUTE]),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[MINUTE]),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[MINUTE]),
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[MINUTE - 21], 20, RoundingMode.HALF_UP),
 
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[HOUR]),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[HOUR]),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[HOUR]),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[HOUR]),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[HOUR]),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[HOUR]),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[HOUR])
+		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[METER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP),
+		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[HOUR - 21], 20, RoundingMode.HALF_UP)
 	};
 
 	public static final String KILOMETER_PER_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SECOND_SYMBOL;
@@ -89,7 +90,7 @@ public class Speed extends BigDecimal implements SpeedIF {
 	public static final String DECIMETER_PER_SECOND_SYMBOL = DECIMETER_SYMBOL + "/" + SECOND_SYMBOL;
 	public static final String CENTIMETER_PER_SECOND_SYMBOL = CENTIMETER_SYMBOL + "/" + SECOND_SYMBOL;
 	public static final String MILLIMETER_PER_SECOND_SYMBOL = MILLIMETER_SYMBOL + "/" + SECOND_SYMBOL;
-
+	
 	public static final String KILOMETER_PER_MINUTE_SYMBOL = KILOMETER_SYMBOL + "/" + MINUTE_SYMBOL;
 	public static final String HECTOMETER_PER_MINUTE_SYMBOL = HECTOMETER_SYMBOL + "/" + MINUTE_SYMBOL;
 	public static final String DECAMETER_PER_MINUTE_SYMBOL = DECAMETER_SYMBOL + "/" + MINUTE_SYMBOL;
@@ -110,30 +111,35 @@ public class Speed extends BigDecimal implements SpeedIF {
         super(0); 
         value = divide(ONE);
         unit = METER;
+		setScale(20);
     }
 
     public Speed(double value) {
         super(value);
         this.value = divide(ONE);
         unit = METER;
+		setScale(20);
     }
 
     public Speed(String value) {
         super(value);
         this.value = divide(ONE);
         unit = METER;
+		setScale(20);
     }
 
     public Speed(long value) {
         super(value);
         this.value = divide(ONE);
         unit = METER;
+		setScale(20);
     }
 
     public Speed(BigDecimal value) {
         super(value.toString());
         this.value = value;
         unit = METER;
+		setScale(20);
     }
 
     public Speed(double value, int unit) throws PhysicException {
@@ -141,6 +147,7 @@ public class Speed extends BigDecimal implements SpeedIF {
         this.value = divide(ONE);
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
+			setScale(20);
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -151,6 +158,7 @@ public class Speed extends BigDecimal implements SpeedIF {
         this.value = divide(ONE);
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
+			setScale(20);
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -161,6 +169,7 @@ public class Speed extends BigDecimal implements SpeedIF {
         this.value = divide(ONE);
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
+			setScale(20);
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -170,6 +179,7 @@ public class Speed extends BigDecimal implements SpeedIF {
         super(value.toString());
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
+			setScale(20);
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
