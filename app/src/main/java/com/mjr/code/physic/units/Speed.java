@@ -145,7 +145,7 @@ public class Speed extends BigDecimal implements SpeedIF {
     public Speed(double value, int unit) throws PhysicException {
         super(value);
         this.value = divide(ONE);
-        if (unit >= 0 && unit <= 6) {
+        if (unit >= 31 && unit <= 51) {
             this.unit = unit;
 			setScale(20);
             return;
@@ -156,7 +156,7 @@ public class Speed extends BigDecimal implements SpeedIF {
     public Speed(String value, int unit) throws PhysicException {
         super(value);
         this.value = divide(ONE);
-        if (unit >= 0 && unit <= 6) {
+        if (unit >= 31 && unit <= 51) {
             this.unit = unit;
 			setScale(20);
             return;
@@ -167,7 +167,7 @@ public class Speed extends BigDecimal implements SpeedIF {
     public Speed(long value, int unit) throws PhysicException {
         super(value);
         this.value = divide(ONE);
-        if (unit >= 0 && unit <= 6) {
+        if (unit >= 31 && unit <= 51) {
             this.unit = unit;
 			setScale(20);
             return;
@@ -177,7 +177,7 @@ public class Speed extends BigDecimal implements SpeedIF {
 
     public Speed(BigDecimal value, int unit) throws PhysicException {
         super(value.toString());
-        if (unit >= 0 && unit <= 6) {
+        if (unit >= 31 && unit <= 51) {
             this.unit = unit;
 			setScale(20);
             return;
