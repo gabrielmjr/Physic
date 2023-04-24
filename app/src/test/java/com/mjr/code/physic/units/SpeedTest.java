@@ -1192,6 +1192,109 @@ public class SpeedTest {
         }
     }
 	
+	@Test
+    public void toDecimeterPerMinuteTest() throws PhysicException {
+        double kilometerPerSecondValue = getRandomDouble();
+        double hectometerPerSecondValue = getRandomDouble();
+        double decameterPerSecondValue = getRandomDouble();
+        double meterPerSecondValue = getRandomDouble();
+        double decimeterPerSecondValue = getRandomDouble();
+        double centimeterPerSecondValue = getRandomDouble();
+	    double millimeterPerSecondValue = getRandomDouble();
+
+        double kilometerPerMinuteValue = getRandomDouble();
+        double hectometerPerMinuteValue = getRandomDouble();
+        double decameterPerMinuteValue = getRandomDouble();
+        double meterPerMinuteValue = getRandomDouble();
+        double decimeterPerMinuteValue = getRandomDouble();
+        double centimeterPerMinuteValue = getRandomDouble();
+	    double millimeterPerMinuteValue = getRandomDouble();
+
+        double kilometerPerHourValue = getRandomDouble();
+        double hectometerPerHourValue = getRandomDouble();
+        double decameterPerHourValue = getRandomDouble();
+        double meterPerHourValue = getRandomDouble();
+        double decimeterPerHourValue = getRandomDouble();
+        double centimeterPerHourValue = getRandomDouble();
+	    double millimeterPerHourValue = getRandomDouble();
+        try {
+            Speed kilometerPerSecondResultTest = new Speed(BigDecimal.valueOf(kilometerPerSecondValue).multiply(SPEED_SCALES[KILOMETER_PER_SECOND - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), KILOMETER_PER_SECOND);
+			Speed hectometerPerSecondResultTest = new Speed(BigDecimal.valueOf(hectometerPerSecondValue).multiply(SPEED_SCALES[HECTOMETER_PER_SECOND - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), HECTOMETER_PER_SECOND);
+			Speed decameterPerSecondResultTest = new Speed(BigDecimal.valueOf(decameterPerSecondValue).multiply(SPEED_SCALES[DECAMETER_PER_SECOND - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECAMETER_PER_SECOND);
+			Speed meterPerSecondResultTest = new Speed(BigDecimal.valueOf(meterPerSecondValue).multiply(SPEED_SCALES[METER_PER_SECOND - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), METER_PER_SECOND);
+			Speed decimeterPerSecondResultTest = new Speed(BigDecimal.valueOf(decimeterPerSecondValue).multiply(SPEED_SCALES[DECIMETER_PER_SECOND - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECIMETER_PER_SECOND);
+			Speed centimeterPerSecondResultTest = new Speed(BigDecimal.valueOf(centimeterPerSecondValue).multiply(SPEED_SCALES[CENTIMETER_PER_SECOND - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), CENTIMETER_PER_SECOND);
+			Speed millimeterPerSecondResultTest = new Speed(BigDecimal.valueOf(millimeterPerSecondValue).multiply(SPEED_SCALES[MILLIMETER_PER_SECOND - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), MILLIMETER_PER_SECOND);
+
+			Speed kilometerPerMinuteResultTest = new Speed(BigDecimal.valueOf(kilometerPerMinuteValue).multiply(SPEED_SCALES[KILOMETER_PER_MINUTE - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), KILOMETER_PER_MINUTE);
+			Speed hectometerPerMinuteResultTest = new Speed(BigDecimal.valueOf(hectometerPerMinuteValue).multiply(SPEED_SCALES[HECTOMETER_PER_MINUTE - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), HECTOMETER_PER_MINUTE);
+			Speed decameterPerMinuteResultTest = new Speed(BigDecimal.valueOf(decameterPerMinuteValue).multiply(SPEED_SCALES[DECAMETER_PER_MINUTE - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECAMETER_PER_MINUTE);
+			Speed meterPerMinuteResultTest = new Speed(BigDecimal.valueOf(meterPerMinuteValue).multiply(SPEED_SCALES[METER_PER_MINUTE - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), METER_PER_MINUTE);
+			Speed decimeterPerMinuteResultTest = new Speed(BigDecimal.valueOf(decimeterPerMinuteValue).multiply(SPEED_SCALES[DECIMETER_PER_MINUTE - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECIMETER_PER_MINUTE);
+			Speed centimeterPerMinuteResultTest = new Speed(BigDecimal.valueOf(centimeterPerMinuteValue).multiply(SPEED_SCALES[CENTIMETER_PER_MINUTE - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), CENTIMETER_PER_MINUTE);
+			Speed millimeterPerMinuteResultTest = new Speed(BigDecimal.valueOf(millimeterPerMinuteValue).multiply(SPEED_SCALES[MILLIMETER_PER_MINUTE - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), MILLIMETER_PER_MINUTE);
+
+			Speed kilometerPerHourResultTest = new Speed(BigDecimal.valueOf(kilometerPerHourValue).multiply(SPEED_SCALES[KILOMETER_PER_HOUR - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), KILOMETER_PER_HOUR);
+			Speed hectometerPerHourResultTest = new Speed(BigDecimal.valueOf(hectometerPerHourValue).multiply(SPEED_SCALES[HECTOMETER_PER_HOUR - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), HECTOMETER_PER_HOUR);
+			Speed decameterPerHourResultTest = new Speed(BigDecimal.valueOf(decameterPerHourValue).multiply(SPEED_SCALES[DECAMETER_PER_HOUR - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECAMETER_PER_HOUR);
+			Speed meterPerHourResultTest = new Speed(BigDecimal.valueOf(meterPerHourValue).multiply(SPEED_SCALES[METER_PER_HOUR - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), METER_PER_HOUR);
+			Speed decimeterPerHourResultTest = new Speed(BigDecimal.valueOf(decimeterPerHourValue).multiply(SPEED_SCALES[DECIMETER_PER_HOUR - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECIMETER_PER_HOUR);
+			Speed centimeterPerHourResultTest = new Speed(BigDecimal.valueOf(centimeterPerHourValue).multiply(SPEED_SCALES[CENTIMETER_PER_HOUR - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), CENTIMETER_PER_HOUR);
+			Speed millimeterPerHourResultTest = new Speed(BigDecimal.valueOf(millimeterPerHourValue).multiply(SPEED_SCALES[MILLIMETER_PER_HOUR - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), MILLIMETER_PER_HOUR);
+
+			Speed kilometerPerSecondResult = toDecimeterPerMinute(kilometerPerSecondValue, KILOMETER_PER_SECOND);
+			Speed hectometerPerSecondResult = toDecimeterPerMinute(hectometerPerSecondValue, HECTOMETER_PER_SECOND);
+			Speed decameterPerSecondResult = toDecimeterPerMinute(decameterPerSecondValue, DECAMETER_PER_SECOND);
+			Speed meterPerSecondResult = toDecimeterPerMinute(meterPerSecondValue, METER_PER_SECOND);
+			Speed decimeterPerSecondResult = toDecimeterPerMinute(decimeterPerSecondValue, DECIMETER_PER_SECOND);
+			Speed centimeterPerSecondResult = toDecimeterPerMinute(centimeterPerSecondValue, CENTIMETER_PER_SECOND);
+			Speed millimeterPerSecondResult = toDecimeterPerMinute(millimeterPerSecondValue, MILLIMETER_PER_SECOND);
+
+			Speed kilometerPerMinuteResult = toDecimeterPerMinute(kilometerPerMinuteValue, KILOMETER_PER_MINUTE);
+			Speed hectometerPerMinuteResult = toDecimeterPerMinute(hectometerPerMinuteValue, HECTOMETER_PER_MINUTE);
+			Speed decameterPerMinuteResult = toDecimeterPerMinute(decameterPerMinuteValue, DECAMETER_PER_MINUTE);
+			Speed meterPerMinuteResult = toDecimeterPerMinute(meterPerMinuteValue, METER_PER_MINUTE);
+			Speed decimeterPerMinuteResult = toDecimeterPerMinute(decimeterPerMinuteValue, DECIMETER_PER_MINUTE);
+			Speed centimeterPerMinuteResult = toDecimeterPerMinute(centimeterPerMinuteValue, CENTIMETER_PER_MINUTE);
+			Speed millimeterPerMinuteResult = toDecimeterPerMinute(millimeterPerMinuteValue, MILLIMETER_PER_MINUTE);
+
+			Speed kilometerPerHourResult = toDecimeterPerMinute(kilometerPerHourValue, KILOMETER_PER_HOUR);
+			Speed hectometerPerHourResult = toDecimeterPerMinute(hectometerPerHourValue, HECTOMETER_PER_HOUR);
+			Speed decameterPerHourResult = toDecimeterPerMinute(decameterPerHourValue, DECAMETER_PER_HOUR);
+			Speed meterPerHourResult = toDecimeterPerMinute(meterPerHourValue, METER_PER_HOUR);
+			Speed decimeterPerHourResult = toDecimeterPerMinute(decimeterPerHourValue, DECIMETER_PER_HOUR);
+			Speed centimeterPerHourResult = toDecimeterPerMinute(centimeterPerHourValue, CENTIMETER_PER_HOUR);
+			Speed millimeterPerHourResult = toDecimeterPerMinute(millimeterPerHourValue, MILLIMETER_PER_HOUR);
+
+			assertEquals(kilometerPerSecondResult, kilometerPerSecondResultTest);
+			assertEquals(hectometerPerSecondResult, hectometerPerSecondResultTest);
+			assertEquals(decameterPerSecondResult, decameterPerSecondResultTest);
+			assertEquals(meterPerSecondResult, meterPerSecondResultTest);
+			assertEquals(decimeterPerSecondResult, decimeterPerSecondResultTest);
+			assertEquals(centimeterPerSecondResult, centimeterPerSecondResultTest);
+			assertEquals(millimeterPerSecondResult, millimeterPerSecondResultTest);
+
+			assertEquals(kilometerPerMinuteResult, kilometerPerMinuteResultTest);
+			assertEquals(hectometerPerMinuteResult, hectometerPerMinuteResultTest);
+			assertEquals(decameterPerMinuteResult, decameterPerMinuteResultTest);
+			assertEquals(meterPerMinuteResult, meterPerMinuteResultTest);
+			assertEquals(decimeterPerMinuteResult, decimeterPerMinuteResultTest);
+			assertEquals(centimeterPerMinuteResult, centimeterPerMinuteResultTest);
+			assertEquals(millimeterPerMinuteResult, millimeterPerMinuteResultTest);
+
+			assertEquals(kilometerPerHourResult, kilometerPerHourResultTest);
+			assertEquals(hectometerPerHourResult, hectometerPerHourResultTest);
+			assertEquals(decameterPerHourResult, decameterPerHourResultTest);
+			assertEquals(meterPerHourResult, meterPerHourResultTest);
+			assertEquals(decimeterPerHourResult, decimeterPerHourResultTest);
+			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
+			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
+
+        } catch (InvalidUnitException e) {
+            throw e;
+        }
+    }
+	
     private double getRandomDouble() {
         return random.nextDouble() * 100;
 	}
