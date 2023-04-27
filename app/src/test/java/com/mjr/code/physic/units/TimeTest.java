@@ -29,7 +29,7 @@ public class TimeTest {
 
 	@Test 
 	public void toSecondTest() throws PhysicException {
-		double secondValue = getRandomDouble() * 6;
+		double secondValue = getRandomDouble();
 		double minuteValue = getRandomDouble();
 		double hourValue = getRandomDouble();
 		double dayValue = getRandomDouble();
@@ -53,14 +53,14 @@ public class TimeTest {
             assertEquals(hourTestResult, hourResult);
             assertEquals(dayTestResult, dayResult);
             assertEquals(weekTestResult, weekResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
 
 	@Test 
 	public void toMinuteTest() throws PhysicException {
-		double secondValue = getRandomDouble() * 6;
+		double secondValue = getRandomDouble();
 		double minuteValue = getRandomDouble();
 		double hourValue = getRandomDouble();
 		double dayValue = getRandomDouble();
@@ -84,14 +84,14 @@ public class TimeTest {
             assertEquals(hourTestResult, hourResult);
             assertEquals(dayTestResult, dayResult);
             assertEquals(weekTestResult, weekResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
 
 	@Test 
 	public void toHourTest() throws PhysicException {
-		double secondValue = getRandomDouble() * 6;
+		double secondValue = getRandomDouble();
 		double minuteValue = getRandomDouble();
 		double hourValue = getRandomDouble();
 		double dayValue = getRandomDouble();
@@ -115,7 +115,7 @@ public class TimeTest {
             assertEquals(hourTestResult, hourResult);
             assertEquals(dayTestResult, dayResult);
             assertEquals(weekTestResult, weekResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -146,18 +146,18 @@ public class TimeTest {
             assertEquals(hourTestResult, hourResult);
             assertEquals(dayTestResult, dayResult);
             assertEquals(weekTestResult, weekResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
 
 	@Test 
 	public void toWeekTest() throws PhysicException {
-		double secondValue = 10000000;
+		double secondValue = getRandomDouble();
 		double minuteValue = getRandomDouble();
 		double hourValue = getRandomDouble();
         double dayValue = getRandomDouble();
-		double weekValue = getRandomDouble() / 9;
+		double weekValue = getRandomDouble();
 
         try {
             Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[WEEK - 21], 10, HALF_UP), SECOND);
@@ -177,7 +177,7 @@ public class TimeTest {
             assertEquals(hourTestResult, hourResult);
             assertEquals(dayTestResult, dayResult);
             assertEquals(weekTestResult, weekResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}

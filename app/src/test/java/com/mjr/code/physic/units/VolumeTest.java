@@ -64,7 +64,7 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -103,7 +103,7 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -142,7 +142,7 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -181,7 +181,7 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -220,7 +220,7 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -259,7 +259,7 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -298,7 +298,7 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}

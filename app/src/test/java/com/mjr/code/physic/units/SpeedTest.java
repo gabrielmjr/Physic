@@ -157,7 +157,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 			
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -260,7 +260,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -363,7 +363,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -466,7 +466,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -569,7 +569,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -672,7 +672,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -775,7 +775,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
 	}
@@ -878,7 +878,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -981,7 +981,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -1084,7 +1084,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -1187,7 +1187,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -1290,7 +1290,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -1393,7 +1393,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -1496,7 +1496,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -1599,7 +1599,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -1702,7 +1702,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -1805,7 +1805,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -1908,7 +1908,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -2011,7 +2011,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -2114,7 +2114,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
@@ -2217,7 +2217,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (InvalidUnitException e) {
+        } catch (PhysicException e) {
             throw e;
         }
     }
