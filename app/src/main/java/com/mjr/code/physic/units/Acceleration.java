@@ -143,7 +143,7 @@ public class Acceleration extends BigDecimal implements AccelerationIF {
     public Acceleration(double value, int unit) throws PhysicException {
         super(value);
         this.value = divide(ONE);
-        if (unit >= 0 && unit <= 6) {
+        if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
         }
@@ -153,7 +153,7 @@ public class Acceleration extends BigDecimal implements AccelerationIF {
     public Acceleration(String value, int unit) throws PhysicException {
         super(value);
         this.value = divide(ONE);
-        if (unit >= 0 && unit <= 6) {
+        if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
         }
@@ -163,7 +163,7 @@ public class Acceleration extends BigDecimal implements AccelerationIF {
     public Acceleration(long value, int unit) throws PhysicException {
         super(value);
         this.value = divide(ONE);
-        if (unit >= 0 && unit <= 6) {
+        if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
         }
@@ -172,7 +172,7 @@ public class Acceleration extends BigDecimal implements AccelerationIF {
 
     public Acceleration(BigDecimal value, int unit) throws PhysicException {
         super(value.toString());
-        if (unit >= 0 && unit <= 6) {
+        if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
         }
