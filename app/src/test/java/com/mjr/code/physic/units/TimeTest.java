@@ -3,9 +3,11 @@ package com.mjr.code.physic.units;
 import com.mjr.code.physic.PhysicException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.math.RoundingMode;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
+import static com.mjr.code.physic.Physic.ROUND_SCALE;
 import static com.mjr.code.physic.units.Time.toSecond;
 import static com.mjr.code.physic.units.Time.toMinute;
 import static com.mjr.code.physic.units.Time.toHour;
@@ -17,7 +19,6 @@ import static com.mjr.code.physic.units.Time.MINUTE;
 import static com.mjr.code.physic.units.Time.HOUR;
 import static com.mjr.code.physic.units.Time.DAY;
 import static com.mjr.code.physic.units.Time.WEEK;
-import static java.math.RoundingMode.HALF_UP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TimeTest {
@@ -36,11 +37,11 @@ public class TimeTest {
 		double weekValue = getRandomDouble();
 
         try {
-            Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[SECOND - 21], 10, HALF_UP), SECOND);
-            Time minuteTestResult = new Time(BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[SECOND - 21], 10, HALF_UP), MINUTE);
-            Time hourTestResult = new Time(BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[SECOND - 21], 10, HALF_UP), HOUR);
-            Time dayTestResult = new Time(BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[SECOND - 21], 10, HALF_UP), DAY);
-            Time weekTestResult = new Time(BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[SECOND - 21], 10, HALF_UP), WEEK);
+            Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP), SECOND);
+            Time minuteTestResult = new Time(BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP), MINUTE);
+            Time hourTestResult = new Time(BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP), HOUR);
+            Time dayTestResult = new Time(BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP), DAY);
+            Time weekTestResult = new Time(BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP), WEEK);
 
             Time secondResult = toSecond(secondValue, SECOND);
             Time minuteResult = toSecond(minuteValue, MINUTE);
@@ -67,11 +68,11 @@ public class TimeTest {
 		double weekValue = getRandomDouble();
 
         try {
-            Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[MINUTE - 21], 10, HALF_UP), SECOND);
-            Time minuteTestResult = new Time(BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[MINUTE - 21], 10, HALF_UP), MINUTE);
-            Time hourTestResult = new Time(BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[MINUTE - 21], 10, HALF_UP), HOUR);
-            Time dayTestResult = new Time(BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[MINUTE - 21], 10, HALF_UP), DAY);
-            Time weekTestResult = new Time(BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[MINUTE - 21], 10, HALF_UP), WEEK);
+            Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP), SECOND);
+            Time minuteTestResult = new Time(BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP), MINUTE);
+            Time hourTestResult = new Time(BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP), HOUR);
+            Time dayTestResult = new Time(BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP), DAY);
+            Time weekTestResult = new Time(BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP), WEEK);
 
             Time secondResult = toMinute(secondValue, SECOND);
             Time minuteResult = toMinute(minuteValue, MINUTE);
@@ -98,11 +99,11 @@ public class TimeTest {
 		double weekValue = getRandomDouble();
 
         try {
-            Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[HOUR - 21], 10, HALF_UP), SECOND);
-            Time minuteTestResult = new Time(BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[HOUR - 21], 10, HALF_UP), MINUTE);
-            Time hourTestResult = new Time(BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[HOUR - 21], 10, HALF_UP), HOUR);
-            Time dayTestResult = new Time(BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[HOUR - 21], 10, HALF_UP), DAY);
-            Time weekTestResult = new Time(BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[HOUR - 21], 10, HALF_UP), WEEK);
+            Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP), SECOND);
+            Time minuteTestResult = new Time(BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP), MINUTE);
+            Time hourTestResult = new Time(BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP), HOUR);
+            Time dayTestResult = new Time(BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP), DAY);
+            Time weekTestResult = new Time(BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP), WEEK);
 
             Time secondResult = toHour(secondValue, SECOND);
             Time minuteResult = toHour(minuteValue, MINUTE);
@@ -129,11 +130,11 @@ public class TimeTest {
 		double weekValue = getRandomDouble();
 
         try {
-            Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[DAY - 21], 10, HALF_UP), SECOND);
-            Time minuteTestResult = new Time(BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[DAY - 21], 10, HALF_UP), MINUTE);
-            Time hourTestResult = new Time(BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[DAY - 21], 10, HALF_UP), HOUR);
-            Time dayTestResult = new Time(BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[DAY - 21], 10, HALF_UP), DAY);
-            Time weekTestResult = new Time(BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[DAY - 21], 10, HALF_UP), WEEK);
+            Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[DAY - 21], ROUND_SCALE, RoundingMode.HALF_UP), SECOND);
+            Time minuteTestResult = new Time(BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[DAY - 21], ROUND_SCALE, RoundingMode.HALF_UP), MINUTE);
+            Time hourTestResult = new Time(BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[DAY - 21], ROUND_SCALE, RoundingMode.HALF_UP), HOUR);
+            Time dayTestResult = new Time(BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[DAY - 21], ROUND_SCALE, RoundingMode.HALF_UP), DAY);
+            Time weekTestResult = new Time(BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[DAY - 21], ROUND_SCALE, RoundingMode.HALF_UP), WEEK);
 
             Time secondResult = toDay(secondValue, SECOND);
             Time minuteResult = toDay(minuteValue, MINUTE);
@@ -160,11 +161,11 @@ public class TimeTest {
 		double weekValue = getRandomDouble();
 
         try {
-            Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[WEEK - 21], 10, HALF_UP), SECOND);
-            Time minuteTestResult = new Time(BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[WEEK - 21], 10, HALF_UP), MINUTE);
-            Time hourTestResult = new Time(BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[WEEK - 21], 10, HALF_UP), HOUR);
-            Time dayTestResult = new Time(BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[WEEK - 21], 10, HALF_UP), DAY);
-            Time weekTestResult = new Time(BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[WEEK - 21], 10, HALF_UP), WEEK);
+            Time secondTestResult = new Time(BigDecimal.valueOf(secondValue).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[WEEK - 21], ROUND_SCALE, RoundingMode.HALF_UP), SECOND);
+            Time minuteTestResult = new Time(BigDecimal.valueOf(minuteValue).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[WEEK - 21], ROUND_SCALE, RoundingMode.HALF_UP), MINUTE);
+            Time hourTestResult = new Time(BigDecimal.valueOf(hourValue).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[WEEK - 21], ROUND_SCALE, RoundingMode.HALF_UP), HOUR);
+            Time dayTestResult = new Time(BigDecimal.valueOf(dayValue).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[WEEK - 21], ROUND_SCALE, RoundingMode.HALF_UP), DAY);
+            Time weekTestResult = new Time(BigDecimal.valueOf(weekValue).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[WEEK - 21], ROUND_SCALE, RoundingMode.HALF_UP), WEEK);
 
             Time secondResult = toWeek(secondValue, SECOND);
             Time minuteResult = toWeek(minuteValue, MINUTE);
