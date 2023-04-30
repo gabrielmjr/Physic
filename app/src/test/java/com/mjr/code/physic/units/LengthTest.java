@@ -304,6 +304,46 @@ public class LengthTest {
             throw e;
         }
 	}
+	
+	
+	@Test
+	public void toKilometerFixedResultTest() throws PhysicException {
+		double kilometerValue = 1.0;
+		double hectometerValue = 1.0;
+		double decameterValue = 1.0;
+		double meterValue = 1.0;
+		double decimeterValue = 1.0;
+		double centimeterValue = 1.0;
+		double millimeterValue = 1.0;
+		
+		try {
+			Length kilometerTestResult = new Length("1.00000000000000000000", KILOMETER);
+			Length hectometerTestResult= new Length("0.10000000000000000000", KILOMETER);
+			Length decameterTestResult = new Length("0.01000000000000000000", KILOMETER);
+			Length meterTestResult = new Length("0.00100000000000000000", KILOMETER);
+			Length decimeterTestResult = new Length("0.00010000000000000000", KILOMETER);
+			Length centimeterTestResult = new Length("0.00001000000000000000", KILOMETER);
+			Length millimeterTestResult = new Length("0.00000100000000000000", KILOMETER);
+			
+			Length kilometerResult = toKilometer(kilometerValue, KILOMETER);
+			Length hectometerResult = toKilometer(hectometerValue, HECTOMETER);
+			Length decameterResult = toKilometer(decameterValue, DECAMETER);
+			Length meterResult = toKilometer(meterValue, METER);
+			Length decimeterResult = toKilometer(decimeterValue, DECIMETER);
+			Length centimeterResult = toKilometer(centimeterValue, CENTIMETER);
+			Length millimeterResult = toKilometer(millimeterValue, MILLIMETER);
+			
+			assertEquals(kilometerTestResult, kilometerResult);
+            assertEquals(hectometerTestResult, hectometerResult);
+            assertEquals(decameterTestResult, decameterResult);
+            assertEquals(meterTestResult, meterResult);
+            assertEquals(decimeterTestResult, decimeterResult);
+            assertEquals(centimeterTestResult, centimeterResult);
+            assertEquals(millimeterTestResult, millimeterResult);
+        } catch (PhysicException e) {
+            throw e;
+        }
+	}
 
 	private double getRandomDouble() {
 		return random.nextDouble() * 100;
