@@ -21,13 +21,13 @@ public class Length extends BigDecimal implements LengthIF {
 
     protected static final BigDecimal[] LENGTH_SCALES = new BigDecimal[]
     {
-        BigDecimal.valueOf(0.001),
-        BigDecimal.valueOf(0.01),
-        BigDecimal.valueOf(0.1),
         BigDecimal.valueOf(1.0),
-        BigDecimal.valueOf(10),
-        BigDecimal.valueOf(100),
-        BigDecimal.valueOf(1000)
+        BigDecimal.valueOf(0.1),
+        BigDecimal.valueOf(0.01),
+        BigDecimal.valueOf(0.001),
+        BigDecimal.valueOf(0.0001),
+        BigDecimal.valueOf(0.00001),
+        BigDecimal.valueOf(0.000001)
     };
 
     public static final String KILOMETER_SYMBOL = "km";
