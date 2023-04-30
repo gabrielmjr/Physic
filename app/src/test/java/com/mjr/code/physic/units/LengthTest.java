@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
+import static com.mjr.code.physic.Physic.ROUND_SCALE;
 import static com.mjr.code.physic.units.Length.toKilometer;
 import static com.mjr.code.physic.units.Length.toHectometer;
 import static com.mjr.code.physic.units.Length.toDecameter;
@@ -20,6 +21,7 @@ import static com.mjr.code.physic.units.Length.METER;
 import static com.mjr.code.physic.units.Length.DECIMETER;
 import static com.mjr.code.physic.units.Length.CENTIMETER;
 import static com.mjr.code.physic.units.Length.MILLIMETER;
+import static java.math.RoundingMode.HALF_UP;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -41,13 +43,13 @@ public class LengthTest {
 	    double millimeterValue = getRandomDouble();
 
         try {
-            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[KILOMETER]), KILOMETER);
-            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[KILOMETER]), HECTOMETER);
-            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[KILOMETER]), DECAMETER);
-            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[KILOMETER]), METER);
-            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[KILOMETER]), DECIMETER);
-            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[KILOMETER]), CENTIMETER);
-            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[KILOMETER]), MILLIMETER);
+            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP), KILOMETER);
+            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP), HECTOMETER);
+            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP), DECAMETER);
+            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP), METER);
+            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP), DECIMETER);
+            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP), CENTIMETER);
+            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP), MILLIMETER);
 
             Length kilometerResult = toKilometer(kilometerValue, KILOMETER);
             Length hectometerResult = toKilometer(hectometerValue, HECTOMETER);
@@ -80,13 +82,13 @@ public class LengthTest {
 		double millimeterValue = getRandomDouble();
 
         try {
-	        Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[HECTOMETER]), KILOMETER);
-		    Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[HECTOMETER]), HECTOMETER);
-	    	Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[HECTOMETER]), DECAMETER);
-		    Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[HECTOMETER]), METER);
-		    Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[HECTOMETER]), DECIMETER);
-            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[HECTOMETER]), CENTIMETER);
-		    Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[HECTOMETER]), MILLIMETER);
+	        Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP), KILOMETER);
+		    Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP), HECTOMETER);
+	    	Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP), DECAMETER);
+		    Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP), METER);
+		    Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP), DECIMETER);
+            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP), CENTIMETER);
+		    Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP), MILLIMETER);
 
             Length kilometerResult = toHectometer(kilometerValue, KILOMETER);
             Length hectometerResult = toHectometer(hectometerValue, HECTOMETER);
@@ -119,13 +121,13 @@ public class LengthTest {
 		double millimeterValue = getRandomDouble();
 
         try {
-            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[DECAMETER]), KILOMETER);
-            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[DECAMETER]), HECTOMETER);
-            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[DECAMETER]), DECAMETER);
-            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[DECAMETER]), METER);
-            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[DECAMETER]), DECIMETER);
-            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[DECAMETER]), CENTIMETER);
-            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[DECAMETER]), MILLIMETER);
+            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP), KILOMETER);
+            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP), HECTOMETER);
+            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP), DECAMETER);
+            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP), METER);
+            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP), DECIMETER);
+            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP), CENTIMETER);
+            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP), MILLIMETER);
 
             Length kilometerResult = toDecameter(kilometerValue, KILOMETER);
             Length hectometerResult = toDecameter(hectometerValue, HECTOMETER);
@@ -158,13 +160,13 @@ public class LengthTest {
 		double millimeterValue = getRandomDouble();
 
         try {
-            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[METER]), KILOMETER);
-            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[METER]), HECTOMETER);
-            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[METER]), DECAMETER);
-            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[METER]), METER);
-            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[METER]), DECIMETER);
-            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[METER]), CENTIMETER);
-            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[METER]), MILLIMETER);
+            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP), KILOMETER);
+            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP), HECTOMETER);
+            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP), DECAMETER);
+            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP), METER);
+            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP), DECIMETER);
+            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP), CENTIMETER);
+            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP), MILLIMETER);
 
             Length kilometerResult = toMeter(kilometerValue, KILOMETER);
             Length hectometerResult = toMeter(hectometerValue, HECTOMETER);
@@ -197,13 +199,13 @@ public class LengthTest {
 		double millimeterValue = getRandomDouble();
 
         try {
-            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[DECIMETER]), KILOMETER);
-            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[DECIMETER]), HECTOMETER);
-            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[DECIMETER]), DECAMETER);
-            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[DECIMETER]), METER);
-            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[DECIMETER]), DECIMETER);
-            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[DECIMETER]), CENTIMETER);
-            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[DECIMETER]), MILLIMETER);
+            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP), KILOMETER);
+            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP), HECTOMETER);
+            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP), DECAMETER);
+            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP), METER);
+            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP), DECIMETER);
+            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP), CENTIMETER);
+            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP), MILLIMETER);
 
             Length kilometerResult = toDecimeter(kilometerValue, KILOMETER);
             Length hectometerResult = toDecimeter(hectometerValue, HECTOMETER);
@@ -236,13 +238,13 @@ public class LengthTest {
 		double millimeterValue = getRandomDouble();
 
         try {
-            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[CENTIMETER]), KILOMETER);
-            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[CENTIMETER]), HECTOMETER);
-            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[CENTIMETER]), DECAMETER);
-            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[CENTIMETER]), METER);
-            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[CENTIMETER]), DECIMETER);
-            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[CENTIMETER]), CENTIMETER);
-            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[CENTIMETER]), MILLIMETER);
+            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP), KILOMETER);
+            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP), HECTOMETER);
+            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP), DECAMETER);
+            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP), METER);
+            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP), DECIMETER);
+            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP), CENTIMETER);
+            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP), MILLIMETER);
 
             Length kilometerResult = toCentimeter(kilometerValue, KILOMETER);
             Length hectometerResult = toCentimeter(hectometerValue, HECTOMETER);
@@ -275,13 +277,13 @@ public class LengthTest {
 		double millimeterValue = getRandomDouble();
 
         try {
-            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[MILLIMETER]), KILOMETER);
-            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[MILLIMETER]), HECTOMETER);
-            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[MILLIMETER]), DECAMETER);
-            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[MILLIMETER]), METER);
-            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[MILLIMETER]), DECIMETER);
-            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[MILLIMETER]), CENTIMETER);
-            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[MILLIMETER]), MILLIMETER);
+            Length kilometerTestResult = new Length(BigDecimal.valueOf(kilometerValue).multiply(LENGTH_SCALES[KILOMETER]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP), KILOMETER);
+            Length hectometerTestResult = new Length(BigDecimal.valueOf(hectometerValue).multiply(LENGTH_SCALES[HECTOMETER]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP), HECTOMETER);
+            Length decameterTestResult = new Length(BigDecimal.valueOf(decameterValue).multiply(LENGTH_SCALES[DECAMETER]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP), DECAMETER);
+            Length meterTestResult = new Length(BigDecimal.valueOf(meterValue).multiply(LENGTH_SCALES[METER]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP), METER);
+            Length decimeterTestResult = new Length(BigDecimal.valueOf(decimeterValue).multiply(LENGTH_SCALES[DECIMETER]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP), DECIMETER);
+            Length centimeterTestResult = new Length(BigDecimal.valueOf(centimeterValue).multiply(LENGTH_SCALES[CENTIMETER]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP), CENTIMETER);
+            Length millimeterTestResult = new Length(BigDecimal.valueOf(millimeterValue).multiply(LENGTH_SCALES[MILLIMETER]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP), MILLIMETER);
 
             Length kilometerResult = toMillimeter(kilometerValue, KILOMETER);
             Length hectometerResult = toMillimeter(hectometerValue, HECTOMETER);
