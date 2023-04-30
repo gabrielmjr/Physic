@@ -117,6 +117,36 @@ public class SquareTimeTest {
 		}
 	}
 	
+	@Test
+	public void toSquareDayTest() throws PhysicException {
+		double squareSecondValue = getRandomDouble();
+		double squareMinuteValue = getRandomDouble();
+		double squareHourValue = getRandomDouble();
+		double squareDayValue = getRandomDouble();
+		double squareWeekValue = getRandomDouble();
+		try {
+			Time squareSecondTestResult = new Time(BigDecimal.valueOf(squareSecondValue).multiply(SQUARE_TIME_SCALES[SQUARE_SECOND - 26]).divide(SQUARE_TIME_SCALES[SQUARE_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_SECOND);
+			Time squareMinuteTestResult = new Time(BigDecimal.valueOf(squareMinuteValue).multiply(SQUARE_TIME_SCALES[SQUARE_MINUTE - 26]).divide(SQUARE_TIME_SCALES[SQUARE_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MINUTE);
+			Time squareHourTestResult = new Time(BigDecimal.valueOf(squareHourValue).multiply(SQUARE_TIME_SCALES[SQUARE_HOUR - 26]).divide(SQUARE_TIME_SCALES[SQUARE_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HOUR);
+			Time squareDayTestResult = new Time(BigDecimal.valueOf(squareDayValue).multiply(SQUARE_TIME_SCALES[SQUARE_DAY - 26]).divide(SQUARE_TIME_SCALES[SQUARE_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DAY);
+			Time squareWeekTestResult = new Time(BigDecimal.valueOf(squareWeekValue).multiply(SQUARE_TIME_SCALES[SQUARE_WEEK - 26]).divide(SQUARE_TIME_SCALES[SQUARE_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_WEEK);
+
+			Time squareSecondResult = toSquareDay(squareSecondValue, SQUARE_SECOND);
+			Time squareMinuteResult = toSquareDay(squareMinuteValue, SQUARE_MINUTE);
+			Time squareHourResult = toSquareDay(squareHourValue, SQUARE_HOUR);
+			Time squareDayResult = toSquareDay(squareDayValue, SQUARE_DAY);
+			Time squareWeekResult = toSquareDay(squareWeekValue, SQUARE_WEEK);
+
+			assertEquals(squareSecondTestResult, squareSecondResult);
+			assertEquals(squareMinuteTestResult, squareMinuteResult);
+			assertEquals(squareHourTestResult, squareHourResult);
+			assertEquals(squareDayTestResult, squareDayResult);
+			assertEquals(squareWeekTestResult, squareWeekResult);
+		} catch (PhysicException e) {
+			throw e;
+		}
+	}
+	
 	private double getRandomDouble() {
 		return random.nextDouble();
 	}
