@@ -384,6 +384,45 @@ public class LengthTest {
         }
 	}
 	
+	@Test
+	public void toDecameterFixedResultTest() throws PhysicException {
+		int kilometerValue = 1;
+		int hectometerValue = 1;
+		int decameterValue = 1;
+		int meterValue = 1;
+		int decimeterValue = 1;
+		int centimeterValue = 1;
+		int millimeterValue = 1;
+
+		try {
+			Length kilometerTestResult = new Length("100.00000000000000000000", KILOMETER);
+			Length hectometerTestResult= new Length("10.00000000000000000000", KILOMETER);
+			Length decameterTestResult = new Length("1.00000000000000000000", KILOMETER);
+			Length meterTestResult = new Length("0.10000000000000000000", KILOMETER);
+			Length decimeterTestResult = new Length("0.01000000000000000000", KILOMETER);
+			Length centimeterTestResult = new Length("0.00100000000000000000", KILOMETER);
+			Length millimeterTestResult = new Length("0.00010000000000000000", KILOMETER);
+
+			Length kilometerResult = toDecameter(kilometerValue, KILOMETER);
+			Length hectometerResult = toDecameter(hectometerValue, HECTOMETER);
+			Length decameterResult = toDecameter(decameterValue, DECAMETER);
+			Length meterResult = toDecameter(meterValue, METER);
+			Length decimeterResult = toDecameter(decimeterValue, DECIMETER);
+			Length centimeterResult = toDecameter(centimeterValue, CENTIMETER);
+			Length millimeterResult = toDecameter(millimeterValue, MILLIMETER);
+
+			assertEquals(kilometerTestResult, kilometerResult);
+            assertEquals(hectometerTestResult, hectometerResult);
+            assertEquals(decameterTestResult, decameterResult);
+            assertEquals(meterTestResult, meterResult);
+            assertEquals(decimeterTestResult, decimeterResult);
+            assertEquals(centimeterTestResult, centimeterResult);
+            assertEquals(millimeterTestResult, millimeterResult);
+        } catch (PhysicException e) {
+            throw e;
+        }
+	}
+	
 	private double getRandomDouble() {
 		return random.nextDouble() * 100;
 	}
