@@ -34,11 +34,11 @@ public class Time extends BigDecimal implements TimeIF {
 
 	protected static final BigDecimal[] SQUARE_TIME_SCALES = new BigDecimal[]
 	{
-		TIME_SCALES[WEEK - 21].pow(2),
-		TIME_SCALES[DAY - 21].pow(2),
-		TIME_SCALES[HOUR - 21].pow(2),
-		TIME_SCALES[MINUTE - 21].pow(2),
-	    TIME_SCALES[SECOND - 21].pow(2)
+		TIME_SCALES[SQUARE_WEEK - 26].pow(2),
+		TIME_SCALES[SQUARE_DAY - 26].pow(2),
+		TIME_SCALES[SQUARE_HOUR - 26].pow(2),
+		TIME_SCALES[SQUARE_MINUTE - 26].pow(2),
+	    TIME_SCALES[SQUARE_SECOND - 26].pow(2)
 	};
 
 	public static final String WEEK_IN_YEAR_SYMBOL = "w";
@@ -178,7 +178,7 @@ public class Time extends BigDecimal implements TimeIF {
 
 	public static Time toSquareWeek (double value, int unit) throws PhysicException {
 		if (unit >= 26 && unit <= 30)
-			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[unit - 26]).divide(SQUARE_TIME_SCALES[SQUARE_SECOND - 26], ROUND_SCALE, HALF_UP), unit);
+			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[unit - 26]).divide(SQUARE_TIME_SCALES[SQUARE_WEEK - 26], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as square " + new Time().getClass().getName() + " unit.");
 	}
     
