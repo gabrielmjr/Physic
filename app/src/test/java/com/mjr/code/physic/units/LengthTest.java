@@ -356,13 +356,13 @@ public class LengthTest {
 		int millimeterValue = 1;
 
 		try {
-			Length kilometerTestResult = new Length("10.00000000000000000000", KILOMETER);
-			Length hectometerTestResult= new Length("1.00000000000000000000", KILOMETER);
-			Length decameterTestResult = new Length("0.10000000000000000000", KILOMETER);
-			Length meterTestResult = new Length("0.01000000000000000000", KILOMETER);
-			Length decimeterTestResult = new Length("0.00100000000000000000", KILOMETER);
-			Length centimeterTestResult = new Length("0.00010000000000000000", KILOMETER);
-			Length millimeterTestResult = new Length("0.00001000000000000000", KILOMETER);
+			Length kilometerTestResult = new Length("10.00000000000000000000", HECTOMETER);
+			Length hectometerTestResult= new Length("1.00000000000000000000", HECTOMETER);
+			Length decameterTestResult = new Length("0.10000000000000000000", HECTOMETER);
+			Length meterTestResult = new Length("0.01000000000000000000", HECTOMETER);
+			Length decimeterTestResult = new Length("0.00100000000000000000", HECTOMETER);
+			Length centimeterTestResult = new Length("0.00010000000000000000", HECTOMETER);
+			Length millimeterTestResult = new Length("0.00001000000000000000", HECTOMETER);
 
 			Length kilometerResult = toHectometer(kilometerValue, KILOMETER);
 			Length hectometerResult = toHectometer(hectometerValue, HECTOMETER);
@@ -395,13 +395,13 @@ public class LengthTest {
 		int millimeterValue = 1;
 
 		try {
-			Length kilometerTestResult = new Length("100.00000000000000000000", KILOMETER);
-			Length hectometerTestResult= new Length("10.00000000000000000000", KILOMETER);
+			Length kilometerTestResult = new Length("100.00000000000000000000", DECAMETER);
+			Length hectometerTestResult= new Length("10.00000000000000000000", DECAMETER);
 			Length decameterTestResult = new Length("1.00000000000000000000", KILOMETER);
-			Length meterTestResult = new Length("0.10000000000000000000", KILOMETER);
-			Length decimeterTestResult = new Length("0.01000000000000000000", KILOMETER);
-			Length centimeterTestResult = new Length("0.00100000000000000000", KILOMETER);
-			Length millimeterTestResult = new Length("0.00010000000000000000", KILOMETER);
+			Length meterTestResult = new Length("0.10000000000000000000", DECAMETER);
+			Length decimeterTestResult = new Length("0.01000000000000000000", DECAMETER);
+			Length centimeterTestResult = new Length("0.00100000000000000000", DECAMETER);
+			Length millimeterTestResult = new Length("0.00010000000000000000", DECAMETER);
 
 			Length kilometerResult = toDecameter(kilometerValue, KILOMETER);
 			Length hectometerResult = toDecameter(hectometerValue, HECTOMETER);
@@ -434,13 +434,13 @@ public class LengthTest {
 		int millimeterValue = 1;
 
 		try {
-			Length kilometerTestResult = new Length("1000.00000000000000000000", KILOMETER);
-			Length hectometerTestResult= new Length("100.00000000000000000000", KILOMETER);
-			Length decameterTestResult = new Length("10.00000000000000000000", KILOMETER);
-			Length meterTestResult = new Length("1.00000000000000000000", KILOMETER);
-			Length decimeterTestResult = new Length("0.10000000000000000000", KILOMETER);
-			Length centimeterTestResult = new Length("0.01000000000000000000", KILOMETER);
-			Length millimeterTestResult = new Length("0.00100000000000000000", KILOMETER);
+			Length kilometerTestResult = new Length("1000.00000000000000000000", METER);
+			Length hectometerTestResult= new Length("100.00000000000000000000", METER);
+			Length decameterTestResult = new Length("10.00000000000000000000", METER);
+			Length meterTestResult = new Length("1.00000000000000000000", METER);
+			Length decimeterTestResult = new Length("0.10000000000000000000", METER);
+			Length centimeterTestResult = new Length("0.01000000000000000000", METER);
+			Length millimeterTestResult = new Length("0.00100000000000000000", METER);
 
 			Length kilometerResult = toMeter(kilometerValue, KILOMETER);
 			Length hectometerResult = toMeter(hectometerValue, HECTOMETER);
@@ -449,6 +449,123 @@ public class LengthTest {
 			Length decimeterResult = toMeter(decimeterValue, DECIMETER);
 			Length centimeterResult = toMeter(centimeterValue, CENTIMETER);
 			Length millimeterResult = toMeter(millimeterValue, MILLIMETER);
+
+			assertEquals(kilometerTestResult, kilometerResult);
+            assertEquals(hectometerTestResult, hectometerResult);
+            assertEquals(decameterTestResult, decameterResult);
+            assertEquals(meterTestResult, meterResult);
+            assertEquals(decimeterTestResult, decimeterResult);
+            assertEquals(centimeterTestResult, centimeterResult);
+            assertEquals(millimeterTestResult, millimeterResult);
+        } catch (PhysicException e) {
+            throw e;
+        }
+	}
+	
+	@Test
+	public void toDecimeterFixedResultTest() throws PhysicException {
+		int kilometerValue = 1;
+		int hectometerValue = 1;
+		int decameterValue = 1;
+		int meterValue = 1;
+		int decimeterValue = 1;
+		int centimeterValue = 1;
+		int millimeterValue = 1;
+
+		try {
+			Length kilometerTestResult = new Length("10000.00000000000000000000", DECIMETER);
+			Length hectometerTestResult= new Length("1000.00000000000000000000", DECIMETER);
+			Length decameterTestResult = new Length("100.00000000000000000000", DECIMETER);
+			Length meterTestResult = new Length("10.00000000000000000000", DECIMETER);
+			Length decimeterTestResult = new Length("1.00000000000000000000", DECIMETER);
+			Length centimeterTestResult = new Length("0.10000000000000000000", DECIMETER);
+			Length millimeterTestResult = new Length("0.01000000000000000000", DECIMETER);
+
+			Length kilometerResult = toDecimeter(kilometerValue, KILOMETER);
+			Length hectometerResult = toDecimeter(hectometerValue, HECTOMETER);
+			Length decameterResult = toDecimeter(decameterValue, DECAMETER);
+			Length meterResult = toDecimeter(meterValue, METER);
+			Length decimeterResult = toDecimeter(decimeterValue, DECIMETER);
+			Length centimeterResult = toDecimeter(centimeterValue, CENTIMETER);
+			Length millimeterResult = toDecimeter(millimeterValue, MILLIMETER);
+
+			assertEquals(kilometerTestResult, kilometerResult);
+            assertEquals(hectometerTestResult, hectometerResult);
+            assertEquals(decameterTestResult, decameterResult);
+            assertEquals(meterTestResult, meterResult);
+            assertEquals(decimeterTestResult, decimeterResult);
+            assertEquals(centimeterTestResult, centimeterResult);
+            assertEquals(millimeterTestResult, millimeterResult);
+        } catch (PhysicException e) {
+            throw e;
+        }
+	}
+	
+	@Test
+	public void toCentimeterFixedResultTest() throws PhysicException {
+		int kilometerValue = 1;
+		int hectometerValue = 1;
+		int decameterValue = 1;
+		int meterValue = 1;
+		int decimeterValue = 1;
+		int centimeterValue = 1;
+		int millimeterValue = 1;
+
+		try {
+			Length kilometerTestResult = new Length("100000.00000000000000000000", CENTIMETER);
+			Length hectometerTestResult= new Length("10000.00000000000000000000", CENTIMETER);
+			Length decameterTestResult = new Length("1000.00000000000000000000", CENTIMETER);
+			Length meterTestResult = new Length("100.00000000000000000000", CENTIMETER);
+			Length decimeterTestResult = new Length("10.00000000000000000000", CENTIMETER);
+			Length centimeterTestResult = new Length("1.00000000000000000000", CENTIMETER);
+			Length millimeterTestResult = new Length("0.10000000000000000000", CENTIMETER);
+
+			Length kilometerResult = toCentimeter(kilometerValue, KILOMETER);
+			Length hectometerResult = toCentimeter(hectometerValue, HECTOMETER);
+			Length decameterResult = toCentimeter(decameterValue, DECAMETER);
+			Length meterResult = toCentimeter(meterValue, METER);
+			Length decimeterResult = toCentimeter(decimeterValue, DECIMETER);
+			Length centimeterResult = toCentimeter(centimeterValue, CENTIMETER);
+			Length millimeterResult = toCentimeter(millimeterValue, MILLIMETER);
+
+			assertEquals(kilometerTestResult, kilometerResult);
+            assertEquals(hectometerTestResult, hectometerResult);
+            assertEquals(decameterTestResult, decameterResult);
+            assertEquals(meterTestResult, meterResult);
+            assertEquals(decimeterTestResult, decimeterResult);
+            assertEquals(centimeterTestResult, centimeterResult);
+            assertEquals(millimeterTestResult, millimeterResult);
+        } catch (PhysicException e) {
+            throw e;
+        }
+	}
+	
+	@Test
+	public void toMillimeterFixedResultTest() throws PhysicException {
+		int kilometerValue = 1;
+		int hectometerValue = 1;
+		int decameterValue = 1;
+		int meterValue = 1;
+		int decimeterValue = 1;
+		int centimeterValue = 1;
+		int millimeterValue = 1;
+
+		try {
+			Length kilometerTestResult = new Length("1000000.00000000000000000000", MILLIMETER);
+			Length hectometerTestResult= new Length("100000.00000000000000000000", MILLIMETER);
+			Length decameterTestResult = new Length("10000.00000000000000000000", MILLIMETER);
+			Length meterTestResult = new Length("1000.00000000000000000000", MILLIMETER);
+			Length decimeterTestResult = new Length("100.00000000000000000000", MILLIMETER);
+			Length centimeterTestResult = new Length("10.00000000000000000000", MILLIMETER);
+			Length millimeterTestResult = new Length("1.00000000000000000000", MILLIMETER);
+
+			Length kilometerResult = toMillimeter(kilometerValue, KILOMETER);
+			Length hectometerResult = toMillimeter(hectometerValue, HECTOMETER);
+			Length decameterResult = toMillimeter(decameterValue, DECAMETER);
+			Length meterResult = toMillimeter(meterValue, METER);
+			Length decimeterResult = toMillimeter(decimeterValue, DECIMETER);
+			Length centimeterResult = toMillimeter(centimeterValue, CENTIMETER);
+			Length millimeterResult = toMillimeter(millimeterValue, MILLIMETER);
 
 			assertEquals(kilometerTestResult, kilometerResult);
             assertEquals(hectometerTestResult, hectometerResult);
