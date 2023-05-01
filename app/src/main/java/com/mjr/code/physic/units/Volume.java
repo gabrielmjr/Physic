@@ -3,6 +3,7 @@ package com.mjr.code.physic.units;
 import com.mjr.code.physic.PhysicException;
 import java.math.BigDecimal;
 
+import static com.mjr.code.physic.Physic.ROUND_SCALE;
 import static com.mjr.code.physic.units.Length.KILOMETER;
 import static com.mjr.code.physic.units.Length.HECTOMETER;
 import static com.mjr.code.physic.units.Length.DECAMETER;
@@ -18,6 +19,7 @@ import static com.mjr.code.physic.units.Length.METER_SYMBOL;
 import static com.mjr.code.physic.units.Length.DECIMETER_SYMBOL;
 import static com.mjr.code.physic.units.Length.CENTIMETER_SYMBOL;
 import static com.mjr.code.physic.units.Length.MILLIMETER_SYMBOL;
+import static java.math.RoundingMode.HALF_UP;
 
 public class Volume extends BigDecimal implements VolumeIF {
     private static Volume instance; 
@@ -122,43 +124,43 @@ public class Volume extends BigDecimal implements VolumeIF {
 
 	public static Volume toCubeKilometer (double value, int unit) throws PhysicException {
 		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_KILOMETER - 14]), unit);
+			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_KILOMETER - 14], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
     }
 
 	public static Volume toCubeHectometer (double value, int unit) throws PhysicException {
 		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_HECTOMETER - 14]), unit);
+			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_HECTOMETER - 14], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
     }
     
 	public static Volume toCubeDecameter (double value, int unit) throws PhysicException {
 		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECAMETER - 14]), unit);
+			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECAMETER - 14], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
     }
     
 	public static Volume toCubeMeter (double value, int unit) throws PhysicException {
 		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_METER - 14]), unit);
+			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_METER - 14], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
     }
 
 	public static Volume toCubeDecimeter (double value, int unit) throws PhysicException {
 		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECIMETER - 14]), unit);
+			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECIMETER - 14], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
     }
 
 	public static Volume toCubeCentimeter (double value, int unit) throws PhysicException {
 		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_CENTIMETER - 14]), unit);
+			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_CENTIMETER - 14], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
     }
 
 	public static Volume toCubeMillimeter (double value, int unit) throws PhysicException {
 		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_MILLIMETER - 14]), unit);
+			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_MILLIMETER - 14], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
     }
     
