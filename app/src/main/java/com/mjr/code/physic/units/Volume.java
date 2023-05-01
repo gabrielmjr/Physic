@@ -42,7 +42,7 @@ public class Volume extends BigDecimal implements VolumeIF {
 		LENGTH_SCALES[METER].pow(3),
 		LENGTH_SCALES[DECIMETER].pow(3),
 		LENGTH_SCALES[CENTIMETER].pow(3),
-		LENGTH_SCALES[CENTIMETER].pow(3)
+		LENGTH_SCALES[MILLIMETER].pow(3)
 	};
 
 	public static final String CUBE_KILOMETER_SYMBOL = KILOMETER_SYMBOL + "³";
