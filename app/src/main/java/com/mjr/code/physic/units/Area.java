@@ -3,6 +3,7 @@ package com.mjr.code.physic.units;
 import com.mjr.code.physic.PhysicException;
 import java.math.BigDecimal;
 
+import static com.mjr.code.physic.Physic.ROUND_SCALE;
 import static com.mjr.code.physic.units.Length.KILOMETER;
 import static com.mjr.code.physic.units.Length.HECTOMETER;
 import static com.mjr.code.physic.units.Length.DECAMETER;
@@ -18,6 +19,7 @@ import static com.mjr.code.physic.units.Length.METER_SYMBOL;
 import static com.mjr.code.physic.units.Length.DECIMETER_SYMBOL;
 import static com.mjr.code.physic.units.Length.CENTIMETER_SYMBOL;
 import static com.mjr.code.physic.units.Length.MILLIMETER_SYMBOL;
+import static java.math.RoundingMode.HALF_UP;
 
 public class Area extends BigDecimal implements AreaIF {
     private static Area instance; 
@@ -122,43 +124,43 @@ public class Area extends BigDecimal implements AreaIF {
    
 	public static Area toSquareKilometer (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7]), unit);
+			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, HALF_UP), unit);
 	    throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
     
 	public static Area toSquareHectometer (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7]), unit);
+			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
     
 	public static Area toSquareDecameter (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7]), unit);
+			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
     
 	public static Area toSquareMeter (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_METER - 7]), unit);
+			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
     
 	public static Area toSquareDecimeter (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7]), unit);
+			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
 
 	public static Area toSquareCentimeter (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7]), unit);
+			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
 
 	public static Area toSquareMillimeter (double value, int unit) throws PhysicException {
 		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7]), unit);
+			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
 	}
     
