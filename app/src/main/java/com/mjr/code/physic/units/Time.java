@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 
 import static com.mjr.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;
-import static java.math.RoundingMode.UP;
 import java.math.RoundingMode;
 
 public class Time extends BigDecimal implements TimeIF {
@@ -126,7 +125,7 @@ public class Time extends BigDecimal implements TimeIF {
     
 	public static Time toSecond (double value, int unit) throws PhysicException {
 		if (unit >= 21 && unit <= 25)
-			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, UP), unit);
+			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Time().getClass().getName() + " unit.");
 	}
 

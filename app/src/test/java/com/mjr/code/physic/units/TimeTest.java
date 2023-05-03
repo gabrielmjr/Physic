@@ -303,6 +303,36 @@ public class TimeTest {
 		}
 	}
 	
+	@Test
+	public void toWeekFixedResultTest() throws PhysicException {
+		int secondValue = 1;
+		int minuteValue = 1;
+		int hourValue = 1;
+		int dayValue = 1;
+		int weekValue = 1;
+		try {
+			Time secondTestResult = new Time("0.00000165343915343915",SECOND);
+			Time minuteTestResult = new Time("0.00009920634920634921", MINUTE);
+			Time hourTestResult = new Time("0.00595238095238095238", HOUR);
+			Time dayTestResult = new Time("0.14285714285714285714", DAY);
+			Time weekTestResult = new Time("1.00000000000000000000", WEEK);
+
+			Time secondResult = toWeek(secondValue, SECOND);
+			Time minuteResult = toWeek(minuteValue, MINUTE);
+			Time hourResult = toWeek(hourValue, HOUR);
+			Time dayResult = toWeek(dayValue, DAY);
+			Time weekResult = toWeek(weekValue, WEEK);
+
+			assertEquals(secondTestResult, secondResult);
+			assertEquals(minuteTestResult, minuteResult);
+			assertEquals(hourTestResult, hourResult);
+			assertEquals(dayTestResult, dayResult);
+			assertEquals(weekTestResult, weekResult);
+		} catch (PhysicException e) {
+			throw e;
+		}
+	}
+	
 	private double getRandomDouble() {
 		return random.nextDouble();
 	}
