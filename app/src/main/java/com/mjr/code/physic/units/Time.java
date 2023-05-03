@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 
 import static com.mjr.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;
+import static java.math.RoundingMode.UP;
+import java.math.RoundingMode;
 
 public class Time extends BigDecimal implements TimeIF {
     private static Time instance;
@@ -25,11 +27,11 @@ public class Time extends BigDecimal implements TimeIF {
 
 	protected static final BigDecimal[] TIME_SCALES = new BigDecimal[]
 	{
-		BigDecimal.valueOf(604800.0),
-		BigDecimal.valueOf(86400.0),
-		BigDecimal.valueOf(3600.0),
-		BigDecimal.valueOf(60.0),
-		BigDecimal.valueOf(1.0)
+		new BigDecimal(1.0),
+	    new BigDecimal(7.0),
+	    new BigDecimal(168.0),
+		new BigDecimal(10080.0),
+		new BigDecimal(604800.0)
 	};
 
 	protected static final BigDecimal[] SQUARE_TIME_SCALES = new BigDecimal[]
@@ -124,31 +126,31 @@ public class Time extends BigDecimal implements TimeIF {
     
 	public static Time toSecond (double value, int unit) throws PhysicException {
 		if (unit >= 21 && unit <= 25)
-			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[unit - 21]).divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, HALF_UP), unit);
+			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Time().getClass().getName() + " unit.");
 	}
 
 	public static Time toMinute (double value, int unit) throws PhysicException {
 		if (unit >= 21 && unit <= 25)
-			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[unit - 21]).divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, HALF_UP), unit);
+			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Time().getClass().getName() + " unit.");
 	}
 
 	public static Time toHour (double value, int unit) throws PhysicException {
 		if (unit >= 21 && unit <= 25)
-			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[unit - 21]).divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, HALF_UP), unit);
+			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Time().getClass().getName() + " unit.");
 	}
 
 	public static Time toDay (double value, int unit) throws PhysicException {
 		if (unit >= 21 && unit <= 25)
-			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[unit - 21]).divide(TIME_SCALES[DAY - 21], ROUND_SCALE, HALF_UP), unit);
+			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Time().getClass().getName() + " unit.");
 	}
 
 	public static Time toWeek (double value, int unit) throws PhysicException {
 		if (unit >= 21 && unit <= 25)
-			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[unit - 21]).divide(TIME_SCALES[WEEK - 21], ROUND_SCALE, HALF_UP), unit);
+			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Time().getClass().getName() + " unit.");
 	}
 
