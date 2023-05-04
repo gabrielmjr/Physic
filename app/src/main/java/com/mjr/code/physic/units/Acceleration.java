@@ -31,7 +31,6 @@ import static com.mjr.code.physic.units.Time.SQUARE_MINUTE_SYMBOL;
 import static com.mjr.code.physic.units.Time.SQUARE_HOUR_SYMBOL;
 
 public class Acceleration extends BigDecimal implements AccelerationIF {
-    private static Acceleration instance;
     private BigDecimal value;
     private int unit;
 	
@@ -409,10 +408,4 @@ public class Acceleration extends BigDecimal implements AccelerationIF {
     public Acceleration toMillimeterPerSquareHour() {
         return null;
     }
-	
-	protected Acceleration getInstance() {
-		if (!(instance instanceof Acceleration))
-			instance = new Acceleration();
-		return instance;
-	}
 }

@@ -8,7 +8,6 @@ import static java.math.RoundingMode.HALF_UP;
 import java.math.RoundingMode;
 
 public class Time extends BigDecimal implements TimeIF {
-    private static Time instance;
     private BigDecimal value;
     private int unit;
 
@@ -231,11 +230,5 @@ public class Time extends BigDecimal implements TimeIF {
     @Override
     public Time toSquareWeek() {
         return null;
-    }
-
-    protected static Time getInstance () {
-		if (!(instance instanceof Time))
-			instance = new Time();
-		return instance;
     }
 }

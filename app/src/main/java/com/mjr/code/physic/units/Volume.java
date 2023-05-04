@@ -21,8 +21,7 @@ import static com.mjr.code.physic.units.Length.CENTIMETER_SYMBOL;
 import static com.mjr.code.physic.units.Length.MILLIMETER_SYMBOL;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Volume extends BigDecimal implements VolumeIF {
-    private static Volume instance; 
+public class Volume extends BigDecimal implements VolumeIF { 
     private BigDecimal value;
     private int unit;
 
@@ -225,11 +224,5 @@ public class Volume extends BigDecimal implements VolumeIF {
             return this;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
-    }
-
-    protected static Volume getInstance () {
-		if (!(instance instanceof Volume))
-			instance = new Volume();
-		return instance;
     }
 }

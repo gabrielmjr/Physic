@@ -28,8 +28,7 @@ import static com.mjr.code.physic.units.Time.SECOND_SYMBOL;
 import static com.mjr.code.physic.units.Time.MINUTE_SYMBOL;
 import static com.mjr.code.physic.units.Time.HOUR_SYMBOL;
 
-public class Speed extends BigDecimal implements SpeedIF { 
-	private static Speed instance; 
+public class Speed extends BigDecimal implements SpeedIF {
     private BigDecimal value;
     private int unit;
 
@@ -416,10 +415,4 @@ public class Speed extends BigDecimal implements SpeedIF {
     public Speed toMillimeterPerHour() {
         return null;
     }
-
-	protected static Speed getInstance () {
-		if (!(instance instanceof Speed))
-		    instance = new Speed();
-		return instance;
-	}
 }

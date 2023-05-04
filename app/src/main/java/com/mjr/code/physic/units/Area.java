@@ -22,7 +22,6 @@ import static com.mjr.code.physic.units.Length.MILLIMETER_SYMBOL;
 import static java.math.RoundingMode.HALF_UP;
 
 public class Area extends BigDecimal implements AreaIF {
-    private static Area instance; 
     private BigDecimal value;
     private int unit;
 
@@ -225,11 +224,5 @@ public class Area extends BigDecimal implements AreaIF {
             return this;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
-    }
-
-    protected static Area getInstance () {
-		if (!(instance instanceof Area))
-			instance = new Area();
-		return instance;
     }
 }

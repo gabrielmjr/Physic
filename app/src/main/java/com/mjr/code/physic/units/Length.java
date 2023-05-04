@@ -6,8 +6,7 @@ import com.mjr.code.physic.PhysicException;
 import static com.mjr.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Length extends BigDecimal implements LengthIF { 
-	private static Length instance;
+public class Length extends BigDecimal implements LengthIF {
     private BigDecimal value;
     private int unit;
 
@@ -210,11 +209,5 @@ public class Length extends BigDecimal implements LengthIF {
             return this;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
-    }
-
-    protected static Length getInstance () {
-		if (!(instance instanceof Length))
-			instance = new Length();
-		return instance;
     }
 }

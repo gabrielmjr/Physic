@@ -3,7 +3,6 @@ package com.mjr.code.physic.units;
 import com.mjr.code.physic.PhysicException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.math.RoundingMode;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
@@ -213,7 +212,7 @@ public class TimeTest {
 		}
 	}
 	
-	@Test
+	@Test 
 	public void toMinuteFixedResultTest() throws PhysicException {
 		int secondValue = 1;
 		int minuteValue = 1;
