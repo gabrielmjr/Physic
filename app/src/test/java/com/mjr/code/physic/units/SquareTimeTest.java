@@ -298,6 +298,36 @@ public class SquareTimeTest {
 		}
 	}
 	
+	@Test
+	public void toSquareWeekFixedResultTest() throws PhysicException {
+		int squareSecondValue = 1;
+		int squareMinuteValue = 1;
+		int squareHourValue = 1;
+		int squareDayValue = 1;
+		int squareWeekValue = 1;
+		try {
+			Time squareSecondTestResult = new Time("0.00000000000273386103", SQUARE_SECOND);
+			Time squareMinuteTestResult = new Time("0.00000000984189972285", SQUARE_MINUTE);
+			Time squareHourTestResult = new Time("0.00003543083900226757", SQUARE_HOUR);
+			Time squareDayTestResult = new Time("0.02040816326530612245", SQUARE_DAY);
+			Time squareWeekTestResult = new Time("1.00000000000000000000", SQUARE_WEEK);
+
+			Time squareSecondResult = toSquareWeek(squareSecondValue, SQUARE_SECOND);
+			Time squareMinuteResult = toSquareWeek(squareMinuteValue, SQUARE_MINUTE);
+			Time squareHourResult = toSquareWeek(squareHourValue, SQUARE_HOUR);
+			Time squareDayResult = toSquareWeek(squareDayValue, SQUARE_DAY);
+			Time squareWeekResult = toSquareWeek(squareWeekValue, SQUARE_WEEK);
+
+			assertEquals(squareSecondTestResult, squareSecondResult);
+			assertEquals(squareMinuteTestResult, squareMinuteResult);
+			assertEquals(squareHourTestResult, squareHourResult);
+			assertEquals(squareDayTestResult, squareDayResult);
+			assertEquals(squareWeekTestResult, squareWeekResult);
+		} catch (PhysicException e) {
+			throw e;
+		}
+	}
+	
 	private double getRandomDouble() {
 		return random.nextDouble();
 	}
