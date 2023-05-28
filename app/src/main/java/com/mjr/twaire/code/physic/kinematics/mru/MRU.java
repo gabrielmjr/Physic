@@ -3,7 +3,6 @@ package com.mjr.twaire.code.physic.kinematics.mru;
 public class MRU implements MRUIF {
 	private static MRU instance; 
 
-	private Speed1 speed1;
 	private Speed2 speed2;
 	private Speed3 speed3;
 	private Speed4 speed4;
@@ -15,7 +14,6 @@ public class MRU implements MRUIF {
 	private Time5 time5;
 
 	public MRU () {
-		speed1 = Speed1.getInstance();
 		speed2 = Speed2.getInstance();
 		speed3 = Speed3.getInstance();
 		speed4 = Speed4.getInstance();
@@ -159,18 +157,18 @@ public class MRU implements MRUIF {
 
 	// v = ∆S / ∆t
 	@Override
-	public String speed1 (double deltaDisplacement, double deltaTime) {
-		return speed1.speed1(deltaDisplacement, deltaTime);
+	public Speed1 speed1 (double deltaDisplacement, double deltaTime) {
+		return Speed1.getInstance(deltaDisplacement, deltaTime);
 	}
 
 	@Override
-	public String speed1 (
+	public Speed1 speed1 (
 		double deltaDisplacement,
-		String deltaDisplacementUnit,
+		int deltaDisplacementUnit,
 		double deltaTime,
-		String deltaTimeUnit,
-		String unitOfResult) {
-		return speed1.speed1(
+		int deltaTimeUnit,
+		int unitOfResult) {
+		return Speed1.getInstance(
 			deltaDisplacement,
 			deltaDisplacementUnit,
 			deltaTime,

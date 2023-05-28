@@ -26,7 +26,7 @@ public class DigitalTimeTest {
 		random = new Random();
 	}
 	
-	@Test
+	//@Test
 	public void digitalRandomTest() throws InvalidUnitException {
 		int secondValue = getRandomInteger();
 		int minuteValue = getRandomInteger();

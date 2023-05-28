@@ -1,5 +1,6 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
+// Q = π * r² * v
 final class FlowRate3 {
     private static FlowRate3 instance;
 

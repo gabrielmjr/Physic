@@ -73,16 +73,16 @@ public interface MRUIF {
         int deltaTimeUnit,
         int unitOfResult);
 
-    public abstract String speed1 (
+    public abstract Speed1 speed1 (
         double variaion_displacement,
         double deltaTime);
 
-	public abstract String speed1 (
+	public abstract Speed1 speed1 (
         double variaion_displacement,
-        String deltaDisplacementUnit,
+        int deltaDisplacementUnit,
         double deltaTime,
-        String deltaTimeUnit,
-        String unitOfResult);
+        int deltaTimeUnit,
+        int unitOfResult);
 
     public abstract String speed2 (
         double initialDisplacement,
