@@ -58,7 +58,7 @@ final class Speed2 extends Calculations {
 			+ "\n∆v = " + step3 + "m/s";
 	}
 	
-	public Speed2 setInitialDisplacement(double initialDisplacement) {
+	private Speed2 setInitialDisplacement(double initialDisplacement) {
 		this.initialDisplacement = initialDisplacement;
 		return this;
 	}
@@ -67,7 +67,7 @@ final class Speed2 extends Calculations {
 		return initialDisplacement;
 	}
 
-	public Speed2 setFinalDisplacement(double finalDisplacement) {
+	private Speed2 setFinalDisplacement(double finalDisplacement) {
 		this.finalDisplacement = finalDisplacement;
 		return this;
 	}
@@ -76,7 +76,7 @@ final class Speed2 extends Calculations {
 		return finalDisplacement;
 	}
 
-	public Speed2 setInitialTime(double initialTime) {
+	private Speed2 setInitialTime(double initialTime) {
 		this.initialTime = initialTime;
 		return this;
 	}
@@ -85,7 +85,7 @@ final class Speed2 extends Calculations {
 		return initialTime;
 	}
 
-	public Speed2 setFinalTime(double finalTime) {
+	private Speed2 setFinalTime(double finalTime) {
 		this.finalTime = finalTime;
 		return this;
 	}
@@ -94,7 +94,7 @@ final class Speed2 extends Calculations {
 		return finalTime;
 	}
 
-	public Speed2 setInitialDisplacementUnit(int initialDisplacementUnit) {
+	private Speed2 setInitialDisplacementUnit(int initialDisplacementUnit) {
 		this.initialDisplacementUnit = initialDisplacementUnit;
 		return this;
 	}
@@ -103,7 +103,7 @@ final class Speed2 extends Calculations {
 		return initialDisplacementUnit;
 	}
 
-	public Speed2 setFinalDisplacementUnit(int finalDisplacementUnit) {
+	private Speed2 setFinalDisplacementUnit(int finalDisplacementUnit) {
 		this.finalDisplacementUnit = finalDisplacementUnit;
 		return this;
 	}
@@ -112,7 +112,7 @@ final class Speed2 extends Calculations {
 		return finalDisplacementUnit;
 	}
 
-	public Speed2 setInitialTimeUnit(int initialTimeUnit) {
+	private Speed2 setInitialTimeUnit(int initialTimeUnit) {
 		this.initialTimeUnit = initialTimeUnit;
 		return this;
 	}
@@ -121,7 +121,7 @@ final class Speed2 extends Calculations {
 		return initialTimeUnit;
 	}
 
-	public Speed2 setFinalTimeUnit(int finalTimeUnit) {
+	private Speed2 setFinalTimeUnit(int finalTimeUnit) {
 		this.finalTimeUnit = finalTimeUnit;
 		return this;
 	}
@@ -130,7 +130,7 @@ final class Speed2 extends Calculations {
 		return finalTimeUnit;
 	}
 
-	public Speed2 setUnitOfResult(int unitOfResult) {
+	private Speed2 setUnitOfResult(int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}

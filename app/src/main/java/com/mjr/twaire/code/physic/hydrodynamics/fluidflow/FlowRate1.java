@@ -50,7 +50,7 @@ final class FlowRate1 {
 		return this;
 	}
 
-	public Double getVolume () {
+	public double getVolume () {
 		return volume;
 	}
 
@@ -59,7 +59,7 @@ final class FlowRate1 {
 		return this;
 	}
 
-	public Double getDeltaTime () {
+	public double getDeltaTime () {
 		return deltaTime;
 	}
 
