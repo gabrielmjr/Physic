@@ -1,9 +1,10 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-// ∆t = V/ Q
-final class Time {
-    private static Time instance;
+import com.mjr.twaire.code.physic.Calculations;
 
+final class Time extends Calculations { 
+    private static Time instance;
+	
 	private double volume;
 	private double flowRate;
 
@@ -31,10 +32,12 @@ final class Time {
 		step1 = volume / flowRate;
 	}
 
+	@Override
 	public double getResult () {
 		return step1;
 	}
 
+	@Override
 	public String getSteps () {
 		return "∆t = " + volume + "m³ ÷ " + flowRate + "m³/s"
 			+ "\n∆t = " + step1 + "s";
@@ -83,6 +86,11 @@ final class Time {
 
 	public int getUnitOfResult () {
 		return unitOfResult;
+	}
+	
+	@Override
+	public String getFormula() {
+		return "∆t = V/ Q";
 	}
 
     protected static Time getInstance (double volume, double flowRate) {

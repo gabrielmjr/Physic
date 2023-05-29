@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-// Q = A * v
-final class FlowRate2 {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class FlowRate2 extends Calculations {
     private static FlowRate2 instance;
 
 	private double area;
@@ -31,10 +32,12 @@ final class FlowRate2 {
 		step1 = area * velocity;
 	}
 
+	@Override
 	public double getResult () {
 		return step1;
 	}
 
+	@Override
 	public String getSteps () {
 		if (hasCustomUnits)
 			return null;
@@ -87,6 +90,11 @@ final class FlowRate2 {
 
 	public int getUnitOfResult () {
 		return unitOfResult;
+	}
+	
+	@Override
+	public String getFormula() {
+		return "Q = A * v";
 	}
 
     protected static FlowRate2 getInstance (double area, double velocity) {

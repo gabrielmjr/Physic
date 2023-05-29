@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-// r = √[Q / (π * v)]
-final class Ray {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class Ray extends Calculations {
     private static Ray instance;
 
 	private double flowRate;
@@ -36,10 +37,12 @@ final class Ray {
 		step3 = Math.sqrt(step2);
 	}
 
+	@Override
 	public double getResult () {
 		return step3;
 	}
 
+	@Override
 	public String getSteps () {
 		if (hasCustomUnits)
 			return null;
@@ -93,6 +96,11 @@ final class Ray {
 
 	public int getUnitOfResult () {
 		return unitOfResult;
+	}
+
+	@Override
+	public String getFormula() {
+		return "r = √[Q / (π × v)]";
 	}
 
     protected static Ray getInstance (double flowRate, double velocity) {
