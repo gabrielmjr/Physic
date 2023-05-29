@@ -31,7 +31,7 @@ final class FlowRate1 {
 	private void calculateWithoutCustomUnit () {
 		step1 = volume / deltaTime;
 	}
-
+    
 	public Double getResult () {
 		return step1;
 	}
