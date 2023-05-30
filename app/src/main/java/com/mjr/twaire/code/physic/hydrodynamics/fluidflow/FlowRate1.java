@@ -33,7 +33,7 @@ final class FlowRate1 extends Calculations {
 		step1 = volume / deltaTime;
 	}
 
-    @Override
+	@Override
 	public Double getResult () {
 		return step1;
 	}
