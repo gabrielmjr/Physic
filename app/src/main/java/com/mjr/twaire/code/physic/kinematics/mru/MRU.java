@@ -3,8 +3,6 @@ package com.mjr.twaire.code.physic.kinematics.mru;
 public class MRU implements MRUIF {
 	private static MRU instance; 
 
-	private Speed4 speed4;
-
 	private Time1 time1;
 	private Time2 time2;
 	private Time3 time3;
@@ -12,8 +10,6 @@ public class MRU implements MRUIF {
 	private Time5 time5;
 
 	public MRU() {
-		speed4 = Speed4.getInstance();
-
 		time1 = Time1.getInstance();
 		time2 = Time2.getInstance();
 		time3 = Time3.getInstance();
@@ -231,37 +227,29 @@ public class MRU implements MRUIF {
 
 	// v = (delta_displacement / (finalTime - initialTime)
 	@Override
-	public String speed4(
-		double delta_displacement,
-		double initialTime,
-		double finalTime,
-		int resultOrStep) {
-		return speed4.speed(
-			delta_displacement,
-			initialTime,
-			finalTime,
-			resultOrStep);
-	} 
+	public Speed4 speed4(double delta_displacement,
+                         double initialTime,
+                         double finalTime) {
+		return Speed4.getInstance(delta_displacement,
+                                  initialTime,
+                                  finalTime);
+	}
 
 	@Override
-	public String speed4(
-		double delta_displacement,
-		String delta_displacement_unit,
-		double initialTime,
-		String initialTimeUnit,
-		double finalTime,
-		String finalTimeUnit,
-		String unitOfResult,
-		int resultOrStep) {
-		return speed4.speed(
-			delta_displacement,
-			delta_displacement_unit,
-			initialTime,
-			initialTimeUnit,
-			finalTime,
-			finalTimeUnit,
-			unitOfResult,
-			resultOrStep);
+	public Speed4 speed4(double delta_displacement,
+                         int delta_displacement_unit,
+                         double initialTime,
+                         int initialTimeUnit,
+                         double finalTime,
+                         int finalTimeUnit,
+                         int unitOfResult) {
+		return Speed4.getInstance(delta_displacement,
+                                  delta_displacement_unit,
+                                  initialTime,
+                                  initialTimeUnit,
+                                  finalTime,
+                                  finalTimeUnit,
+                                  unitOfResult);
 	}
 
 	// ∆t = finalTime - initialTime
