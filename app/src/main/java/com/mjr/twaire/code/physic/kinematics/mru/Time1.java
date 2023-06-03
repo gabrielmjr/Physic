@@ -1,9 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+import com.mjr.twaire.code.physic.Calculations;
+
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-// ∆t = tf - ti
-final class Time1 {
+final class Time1 extends Calculations {
 	private static Time1 instance; 
     private double initialTime;
     private double finalTime;
@@ -33,10 +34,12 @@ final class Time1 {
         step1 = finalTime - initialTime;
     }
 
+    @Override
     public double getResult() {
         return step1;
     }
     
+    @Override
     public String getSteps() {
         if (initialTime < 0)
             return "∆t = " + finalTime + "s - (" + initialTime + "s)"
@@ -97,6 +100,11 @@ final class Time1 {
 
     public int getUnitOfResult() {
         return unitOfResult;
+    }
+    
+    @Override
+    public String getFormula() {
+        return "∆t = t - ti";
     }
 
     public static Time1 getInstance(double initialTime, double finalTime) {

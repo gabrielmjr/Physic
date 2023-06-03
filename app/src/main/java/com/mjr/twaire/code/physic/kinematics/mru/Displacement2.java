@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-// ∆S = ∆t × deltaSpeed
-final class Displacement2 {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class Displacement2 extends Calculations {
 	private static Displacement2 instance; 
 
 	private double deltaTime;
@@ -33,10 +34,12 @@ final class Displacement2 {
 		step1 = deltaTime * deltaSpeed;
 	}
 
+    @Override
 	public double getResult () {
 		return step1;
 	}
 
+    @Override
 	public String getSteps () {
 		if (hasCustomUnits)
 			return null;
@@ -88,6 +91,11 @@ final class Displacement2 {
 	public int getUnitOfResult () {
 		return unitOfResult;
 	}
+    
+    @Override
+    public String getFormula() {
+        return "∆S = ∆t × ∆v";
+    }
 
     public static Displacement2 getInstance (double deltaTime, double deltaSpeed) {
 		if (!(instance instanceof Displacement2))

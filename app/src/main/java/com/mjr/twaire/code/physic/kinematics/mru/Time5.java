@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-// tf = ∆t + ti
-final class Time5 {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class Time5 extends Calculations {
 	private static Time5 instance;
     private double initialTime;
     private double deltaTime;
@@ -31,10 +32,12 @@ final class Time5 {
         step1 = deltaTime + initialTime;
     }
 
+    @Override
     public double getResult () {
         return step1;
 	}
     
+    @Override
     public String getSteps() {
         if (initialTime < 0)
             return "t = " + deltaTime + "s - (" + initialTime + "s)" 
@@ -87,7 +90,11 @@ final class Time5 {
     public int getUnitOfResult() {
         return unitOfResult;
     }
-
+    
+    @Override
+    public String getFormula() {
+        return "t = ∆t + ti";
+    }
 
     public static Time5 getInstance (double initialTime, double deltaTime) {
 		if(!(instance instanceof Time5))

@@ -141,7 +141,7 @@ final class Speed2 extends Calculations {
 	
 	@Override
 	public String getFormula() {
-		return "∆v = (Sf - Si) ÷ (tf - ti)";
+		return "∆v = (S - Si) ÷ (t - ti)";
 	}
 
     public static Speed2 getInstance(double initialDisplacement,

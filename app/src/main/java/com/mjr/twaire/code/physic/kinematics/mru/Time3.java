@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-// ∆t = (Sf - Si) / ∆v
-final class Time3 {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class Time3 extends Calculations {
 	private static Time3 instance; 
     private double initialDisplacement;
     private double finalDisplacement;
@@ -35,10 +36,12 @@ final class Time3 {
         step2 = step1 / deltaSpeed;
     }
 
+    @Override
     public double getResult () {
         return step2;
 	}
-    
+  
+    @Override
     public String getSteps() {
         if (initialDisplacement < 0)
             return "∆t = [" + finalDisplacement + "m - (" + initialDisplacement + "m)] / (" + deltaSpeed + "m/s)"
@@ -110,6 +113,11 @@ final class Time3 {
 
     public int getUnitOfResult() {
         return unitOfResult;
+    }
+    
+    @Override
+    public String getFormula() {
+        return "∆t = (S - Si) / ∆v";
     }
     
     public static Time3 getInstance (double initialDisplacement,

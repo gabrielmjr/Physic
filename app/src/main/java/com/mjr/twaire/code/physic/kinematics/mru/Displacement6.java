@@ -1,9 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+import com.mjr.twaire.code.physic.Calculations;
+
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-// S = Si + v * ∆t
-final class Displacement6 {
+final class Displacement6 extends Calculations {
 	private static Displacement6 instance;
 	private double initialDisplacement;
 	private double velocity;
@@ -37,10 +38,12 @@ final class Displacement6 {
 		step2 = initialDisplacement + step1;
 	}
 
+    @Override
 	public double getResult () {
 		return step2;
-	}
-
+    }
+      
+    @Override
 	public String getSteps () {
 		String velocity = putParenthesesIfNegative(this.velocity) + "m/s";
 		if (hasCustomUnits)
@@ -117,6 +120,11 @@ final class Displacement6 {
 	public int getUnitOfResult () {
 		return unitOfResult;
 	}
+    
+    @Override
+    public String getFormula() {
+        return "S = Si + v * ∆t";
+    }
 
 	public static Displacement6 getInstance (double initialDisplacement,
 											 double velocity,

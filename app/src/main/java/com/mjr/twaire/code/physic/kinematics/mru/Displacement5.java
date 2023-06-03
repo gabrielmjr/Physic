@@ -1,9 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+import com.mjr.twaire.code.physic.Calculations;
+
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-// Sf = Si + ∆S
-final class Displacement5 {
+final class Displacement5 extends Calculations {
 	private static Displacement5 instance; 
 	private double initialDisplacement;
 	private double deltaDisplacement;
@@ -32,10 +33,12 @@ final class Displacement5 {
 		step1 = initialDisplacement + deltaDisplacement;
 	}
 
+    @Override
 	public double getResult () {
 		return step1;
 	}
 
+    @Override
 	public String getSteps () {
 		String deltaDisplacement = putParenthesesIfNegative(this.deltaDisplacement) + "m";
 		if (hasCustomUnits)
@@ -92,6 +95,11 @@ final class Displacement5 {
 	public int getUnitOfResult () {
 		return unitOfResult;
 	}
+    
+    @Override
+    public String getFormula() {
+        return "S = Si + ∆S";
+    }
 
 	public static Displacement5 getInstance (double initialDisplacement,
         double deltaDisplacement) {

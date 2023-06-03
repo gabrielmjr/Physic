@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-// ∆t = ∆S / ∆v
-final class Time2 {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class Time2 extends Calculations {
 	private static Time2 instance; 
     private double deltaDisplacement;
     private double deltaSpeed;
@@ -30,10 +31,20 @@ final class Time2 {
     private void calculeWithoutCustomUnits () {
         step1 = deltaDisplacement / deltaSpeed;
     }
-
+    
+    @Override
     public double getResult () {
         return step1;
 	}
+    
+    @Override
+    public String getSteps() {
+        if (deltaSpeed < 0)
+            return "∆t = " + deltaDisplacement + "m / (" + deltaSpeed + "m/s)"
+                + "\n∆t = " + step1 + "s";
+        return "∆t = " + deltaDisplacement + "m /" + deltaSpeed + "m/s"
+            + "\n∆t = " + step1 + "s";
+    }
     
     private Time2 setDeltaDisplacement(double deltaDisplacement) {
         this.deltaDisplacement = deltaDisplacement;
@@ -78,6 +89,12 @@ final class Time2 {
 
     public int getUnitOfResult() {
         return unitOfResult;
+    }
+
+    
+    @Override
+    public String getFormula() {
+        return "∆t = ∆S / ∆v";
     }
 
     public static Time2 getInstance(double deltaDisplacement, double deltaSpeed) {

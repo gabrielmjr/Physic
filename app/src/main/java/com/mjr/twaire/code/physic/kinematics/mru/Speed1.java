@@ -1,9 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+import com.mjr.twaire.code.physic.Calculations;
+
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-// ∆v = ∆S / ∆t
-final class Speed1 {
+final class Speed1 extends Calculations {
 	private static Speed1 instance;
 	private double deltaDisplacement;
 	private double deltaTime;
@@ -33,10 +34,12 @@ final class Speed1 {
 		step1 = deltaDisplacement / deltaTime;
 	}
 	
+    @Override
 	public double getResult () {
 		return step1;
 	}
 	
+    @Override
 	public String getSteps() {
 		String deltaTime = putParenthesesIfNegative(this.deltaTime) + "m";
 		if (hasCustomUnits)
@@ -89,6 +92,11 @@ final class Speed1 {
 	public int getUnitOfResult() {
 		return unitOfResult;
 	}
+    
+    @Override
+    public String getFormula() {
+        return "∆v = ∆S / ∆t";
+    }
 
     public static Speed1 getInstance (double deltaDisplacement,
 	                                  double deltaTime) {

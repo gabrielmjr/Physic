@@ -1,9 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+import com.mjr.twaire.code.physic.Calculations;
+
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-// v = ∆S ÷ (tf - ti)
-final class Speed4 {
+final class Speed4 extends Calculations {
 	private static Speed4 instance; 
     private double deltaDisplacement;
     private double initialTime;
@@ -37,10 +38,12 @@ final class Speed4 {
 		step2 = deltaDisplacement / step1;
     }
 
+    @Override
     public double getResult() {
         return step2;
     }
 
+    @Override
     public String getSteps() {
         if (this.initialTime < 0)
             return "∆v = " + deltaDisplacement + "m / [" + finalTime + "s - (" + initialTime + "s)]"
@@ -112,6 +115,11 @@ final class Speed4 {
 
     public int getUnitOfResult() {
         return unitOfResult;
+    }
+    
+    @Override
+    public String getFormula() {
+        return "v = ∆S ÷ (t - ti)";
     }
 
     public static Speed4 getInstance(double deltaDisplacement,

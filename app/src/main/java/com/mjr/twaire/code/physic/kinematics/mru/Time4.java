@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-// ti = tf - ∆t
-final class Time4 {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class Time4 extends Calculations {
 	private static Time4 instance;
     private double deltaTime;
     private double finalTime;
@@ -31,9 +32,19 @@ final class Time4 {
         step1 = finalTime - deltaTime;
     }
 
+    @Override
     public double getResult () {
         return step1;
 	}
+    
+    @Override
+    public String getSteps() {
+        if (deltaTime < 0)
+            return "ti = " + finalTime + "s - (" + deltaTime + "s)"
+                + "\nti = " + step1;
+        return "ti = " + finalTime + "s - " + deltaTime + "s"
+            + "\nti = " + step1;
+    }
 
     private Time4 setDeltaTime(double deltaTime) {
         this.deltaTime = deltaTime;
@@ -79,6 +90,11 @@ final class Time4 {
     public int getUnitOfResult() {
         return unitOfResult;
     }
+     
+   @Override
+   public String getFormula() {
+       return "ti = t - ∆t";
+   }
 
     public static Time4 getInstance (double deltaTime, double finalTime) {
 		if(!(instance instanceof Time4))
