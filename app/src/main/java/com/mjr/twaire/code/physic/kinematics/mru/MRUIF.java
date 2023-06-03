@@ -176,14 +176,14 @@ public interface MRUIF {
         int initialTimeUnit,
         int unitOfResult);
 
-    public abstract String time5 (
+    public abstract Time5 time5 (
         double initialTime, 
         double deltaTime);
 
-    public abstract String time5 (
+    public abstract Time5 time5 (
         double initialTime, 
-        String initialTimeUnit,
+        int initialTimeUnit,
         double deltaTime,
-        String deltaTimeUnit,
-        String unitOfResult);
+        int deltaTimeUnit,
+        int unitOfResult);
 }

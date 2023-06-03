@@ -1,27 +1,114 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+// tf = ∆t + ti
 final class Time5 {
-	private static Time5 instance; 
+	private static Time5 instance;
+    private double initialTime;
+    private double deltaTime;
+    
+    private int initialTimeUnit;
+    private int deltaTimeUnit;
+    private int unitOfResult;
 
-	private Time5 () {}
+    private double step1;
+    private boolean hasCustomUnits;
+    
+	private Time5() {}
+    
+    private Time5 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
-	// tf = ti + ∆t
-	protected String time (double initialTime, double deltaTime) {
-		return String.valueOf(initialTime + deltaTime);
+    private void calculateWithCustomUnits () {
+    }
+
+    private void calculateWithoutCustomUnits () {
+        step1 = deltaTime + initialTime;
+    }
+
+    public double getResult () {
+        return step1;
 	}
+    
+    public String getSteps() {
+        if (initialTime < 0)
+            return "t = " + deltaTime + "s - (" + initialTime + "s)" 
+                + "\nt = " + step1 + "s";
+        return "t = " + deltaTime + "s - " + initialTime + "s" 
+            + "\nt = " + step1 + "s";
+    }
 
-	protected String time (
-		double initialTime, 
-		String initialTimeUnit,
-		double deltaTime,
-		String deltaTimeUnit,
-		String unitOfResult) {
-		return null;
-	}
+    private Time5 setInitialTime(double initialTime) {
+        this.initialTime = initialTime;
+        return this;
+    }
 
-    public static Time5 getInstance () {
+    public double getInitialTime() {
+        return initialTime;
+    }
+
+    private Time5 setDeltaTime(double deltaTime) {
+        this.deltaTime = deltaTime;
+        return this;
+    }
+
+    public double getDeltaTime() {
+        return deltaTime;
+    }
+
+    private Time5 setInitialTimeUnit(int initialTimeUnit) {
+        this.initialTimeUnit = initialTimeUnit;
+        return this;
+    }
+
+    public int getInitialTimeUnit() {
+        return initialTimeUnit;
+    }
+
+    private Time5 setDeltaTimeUnit(int deltaTimeUnit) {
+        this.deltaTimeUnit = deltaTimeUnit;
+        return this;
+    }
+
+    public int getDeltaTimeUnit() {
+        return deltaTimeUnit;
+    }
+
+    private Time5 setUnitOfResult(int unitOfResult) {
+        this.unitOfResult = unitOfResult;
+        return this;
+    }
+
+    public int getUnitOfResult() {
+        return unitOfResult;
+    }
+
+
+    public static Time5 getInstance (double initialTime, double deltaTime) {
 		if(!(instance instanceof Time5))
 			instance = new Time5();
-		return instance;
+		return instance.setInitialTime(initialTime)
+            .setDeltaTime(deltaTime)
+            .setHasCustomUnits(false);
+    }
+    
+    public static Time5 getInstance (double initialTime, 
+                                     int initialTimeUnit,
+                                     double deltaTime,
+                                     int deltaTimeUnit,
+                                     int unitOfResult) {
+        if(!(instance instanceof Time5))
+            instance = new Time5();
+        return instance.setInitialTime(initialTime)
+            .setInitialTimeUnit(initialTimeUnit)
+            .setDeltaTime(deltaTime)
+            .setDeltaTimeUnit(deltaTimeUnit)
+            .setUnitOfResult(unitOfResult)
+            .setHasCustomUnits(true);
     }
 }
