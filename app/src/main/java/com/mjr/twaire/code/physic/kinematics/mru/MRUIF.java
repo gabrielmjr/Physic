@@ -151,21 +151,19 @@ public interface MRUIF {
         int velocityUnit,
         int unitOfResult);
 
-    public abstract String time3 (
+    public abstract Time3 time3 (
         double initialDisplacement, 
         double finalDisplacement, 
-        double velocity, 
-        int stepOrResult);
+        double velocity);
 
-    public abstract String time3 (
+    public abstract Time3 time3 (
         double initialDisplacement, 
-        String initialDisplacementUnit,
+        int initialDisplacementUnit,
         double finalDisplacement,
-        String finalDisplacementUnit, 
+        int finalDisplacementUnit, 
         double velocity,
-        String velocityUnit,
-        String unitOfResult, 
-        int stepOrResult);
+        int velocityUnit,
+        int unitOfResult);
 
     public abstract String time4 (
         double deltaTime, 

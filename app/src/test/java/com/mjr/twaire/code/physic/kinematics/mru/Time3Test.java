@@ -13,10 +13,10 @@ public class Time3Test {
 
     @Test
     public void time3Test () {
-        Double initialDisplacement = 3.5;
-        Double finalDisplacement = 5.5;
-        Double velocity = 8.0;
-        String result = "0.25";
-        assertEquals(result, mru.time3(initialDisplacement, finalDisplacement, velocity, GET_RESULT));
+        double initialDisplacement = 3.5;
+        double finalDisplacement = 5.5;
+        double velocity = 8.0;
+        double result = 0.25;
+        assertEquals(result, mru.time3(initialDisplacement, finalDisplacement, velocity).getResult());
     }
 }

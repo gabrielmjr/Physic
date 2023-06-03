@@ -3,12 +3,10 @@ package com.mjr.twaire.code.physic.kinematics.mru;
 public class MRU implements MRUIF {
 	private static MRU instance; 
 
-	private Time3 time3;
 	private Time4 time4;
 	private Time5 time5;
 
 	public MRU() {
-		time3 = Time3.getInstance();
 		time4 = Time4.getInstance();
 		time5 = Time5.getInstance();
 	} 
@@ -288,37 +286,29 @@ public class MRU implements MRUIF {
 
 	// ∆t = (finalDisplacement - initialDisplacement) / speed
 	@Override
-	public String time3(
-		double initialDisplacement,
-		double finalDisplacement,
-		double velocity,
-		int resultOrStep) {
-		return time3.time(
-			initialDisplacement,
-			finalDisplacement,
-			velocity,
-			resultOrStep);
+	public Time3 time3(double initialDisplacement,
+                       double finalDisplacement,
+                       double velocity) {
+		return Time3.getInstance(initialDisplacement,
+                                 finalDisplacement,
+                                 velocity);
 	}
 
 	@Override
-	public String time3(
-		double initialDisplacement,
-		String initialDisplacementUnit,
-		double finalDisplacement,
-		String finalDisplacementUnit,
-		double velocity,
-		String velocityUnit,
-		String unitOfResult,
-		int resultOrStep) {
-		return time3.time(
-			initialDisplacement,
-			initialDisplacementUnit,
-			finalDisplacement,
-			finalDisplacementUnit,
-			velocity,
-			velocityUnit,
-			unitOfResult,
-			resultOrStep);
+	public Time3 time3(double initialDisplacement,
+                       int initialDisplacementUnit,
+                       double finalDisplacement,
+                       int finalDisplacementUnit,
+                       double velocity,
+                       int velocityUnit,
+                       int unitOfResult) {
+		return Time3.getInstance(initialDisplacement,
+                                 initialDisplacementUnit,
+                                 finalDisplacement,
+                                 finalDisplacementUnit,
+                                 velocity,
+                                 velocityUnit,
+                                 unitOfResult);
 	}
 
 	// initialTime = finalTime - ∆t
