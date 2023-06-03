@@ -145,6 +145,6 @@ final class Displacement6 {
 		    .setDeltaTime(deltaTime)
 		    .setDeltaTimeUnit(deltaTimeUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(true);
 	}
 }

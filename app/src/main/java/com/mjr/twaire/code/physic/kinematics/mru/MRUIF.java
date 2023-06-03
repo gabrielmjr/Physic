@@ -101,21 +101,19 @@ public interface MRUIF {
         int finalTimeUnit,
         int unitOfResult);
 
-    public abstract String speed3 (
+    public abstract Speed3 speed3 (
         double initialDisplacement,
         double finalDisplacement,
-        double deltaTime,
-        int stepOrResult);
+        double deltaTime);
 
-    public abstract String speed3 (
+    public abstract Speed3 speed3 (
         double initialDisplacement,
-        String initialDisplacementUnit,
+        int initialDisplacementUnit,
         double finalDisplacement,
-        String finalDisplacementUnit,
+        int finalDisplacementUnit,
         double deltaTime,
-        String deltaTimeUnit,
-        String unitOfResult,
-        int stepOrResult);
+        int deltaTimeUnit,
+        int unitOfResult);
 
     public abstract String speed4 (
         double deltaDisplacement,

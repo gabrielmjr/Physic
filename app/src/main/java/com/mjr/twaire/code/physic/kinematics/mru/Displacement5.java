@@ -93,7 +93,8 @@ final class Displacement5 {
 		return unitOfResult;
 	}
 
-	public static Displacement5 getInstance (double initialDisplacement, double deltaDisplacement) {
+	public static Displacement5 getInstance (double initialDisplacement,
+        double deltaDisplacement) {
 		if (!(instance instanceof Displacement5))
 			instance = new Displacement5();
 		return instance.setInitialDisplacement(initialDisplacement)
@@ -106,6 +107,14 @@ final class Displacement5 {
 											 double deltaDisplacement,
 											 int deltaDisplacementUnit,
 											 int unitOfResult) {
-		return null;
+		if (!(instance instanceof Displacement5)) 
+            instance = new Displacement5();
+        return instance.setInitialDisplacement(initialDisplacement)
+            .setInitialDisplacementUnit(initialDisplacementUnit)
+            .setDeltaDisplacement(deltaDisplacement)
+            .setDeltaDisplacementUnit(deltaDisplacementUnit)
+            .setUnitOfResult(unitOfResult)
+
+            .setHasCustomUnits(true);
 	}
 }

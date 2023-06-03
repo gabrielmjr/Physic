@@ -52,7 +52,7 @@ final class Speed2 extends Calculations {
 		String initialDisplacement = putParenthesesIfNegative(this.initialDisplacement);
 		String initialTime = putParenthesesIfNegative(this.initialTime);
 		String finalTime = putParenthesesIfNegative(this.finalTime);
-		return "∆v = " + finalDisplacement + "m - " + initialDisplacement + "m ÷ " + finalTime + "s - " + initialTime + "s"
+		return "∆v = (" + finalDisplacement + "m - " + initialDisplacement + "m) ÷ (" + finalTime + "s - " + initialTime + "s)"
 		    + "\n∆v = " + step1 + "m ÷ " + finalTime + "s - " + initialTime + "s"
 			+ "\n∆v = " + step1 + "m ÷ " + step2 + "s"
 			+ "\n∆v = " + step3 + "m/s";
@@ -157,8 +157,7 @@ final class Speed2 extends Calculations {
             .setHasCustomUnits(false);
     }
     
-    public static Speed2 getInstance(
-        double initialDisplacement,
+    public static Speed2 getInstance(double initialDisplacement,
         int initialDisplacementUnit,
         double finalDisplacement,
         int finalDisplacementUnit,

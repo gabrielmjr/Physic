@@ -34,7 +34,7 @@ final class FlowRate1 extends Calculations {
 	}
 
 	@Override
-	public Double getResult () {
+	public double getResult () {
 		return step1;
 	}
 
