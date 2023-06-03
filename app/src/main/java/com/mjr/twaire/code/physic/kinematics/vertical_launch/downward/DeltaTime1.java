@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 
-// ∆t = ∆v / g
-final class DeltaTime1 {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class DeltaTime1 extends Calculations {
     private static DeltaTime1 instance;
     private double deltaSpeed;
     private double gravity;
@@ -31,10 +32,12 @@ final class DeltaTime1 {
         step1 = deltaSpeed / gravity;
     }
     
+	@Override
     public double getResult() {
         return step1;
     }
     
+	@Override
     public String getSteps() {
         if (hasCustomUnits)
             return null;
@@ -86,6 +89,11 @@ final class DeltaTime1 {
     public int getUnitOfResult() {
         return unitOfResult;
     }
+	
+	@Override
+	public String getFormula() {
+		return "∆t = ∆v / g";
+	}
 
     public static DeltaTime1 getInstance(double deltaSpeed, double gravity) {
         if (!(instance instanceof DeltaTime1))

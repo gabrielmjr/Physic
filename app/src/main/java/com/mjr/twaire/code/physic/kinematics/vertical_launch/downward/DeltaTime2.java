@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 
-// ∆t = (v - vi) / gravity
-final class DeltaTime2 {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class DeltaTime2 extends Calculations {
     private static DeltaTime2 instance;
     private double initialVelocity;
     private double finalVelocity;
@@ -33,10 +34,12 @@ final class DeltaTime2 {
         step2 = step1 / gravity;
     }
 
+	@Override
     public double getResult() {
         return step2;
     }
 
+	@Override
     public String getSteps() {
         if (hasCustomUnits)
             return null;
@@ -112,6 +115,11 @@ final class DeltaTime2 {
     public int getUnitOfResult() {
         return unitOfResult;
     }
+	
+	@Override
+	public String getFormula() {
+		return "∆t = (v - vi) / g";
+	}
 
     public static DeltaTime2 getInstance(double initialVelocity,
                                          double finalVelocity,

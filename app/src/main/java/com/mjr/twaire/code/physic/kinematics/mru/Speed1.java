@@ -38,10 +38,10 @@ final class Speed1 {
 	}
 	
 	public String getSteps() {
-		String deltaTime = putParenthesesIfNegative(this.deltaTime);
+		String deltaTime = putParenthesesIfNegative(this.deltaTime) + "m";
 		if (hasCustomUnits)
 			return null;
-		return "∆v = " + deltaDisplacement + "m × " + deltaTime + "s"
+		return "∆v = " + deltaDisplacement + "m × " + deltaTime
 		    + "\n∆v = " + step1 + "m/s";
 	}
 
