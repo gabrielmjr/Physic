@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-// V = ∆t * Q
-final class Volume {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class Volume extends Calculations {
     private static Volume instance;
 
 	private double deltaTime;
@@ -32,10 +33,12 @@ final class Volume {
 		step1 = deltaTime * flowRate;
 	}
 
+	@Override
 	public double getResult () {
 		return step1;
 	}
 
+	@Override
 	public String getSteps () {
 		if (hasCustomUnit)
 			return null;
@@ -86,6 +89,11 @@ final class Volume {
 
 	public int getUnitOfResult () {
 		return unitOfResult;
+	}
+	
+	@Override
+	public String getFormula() {
+		return "V = ∆t × Q";
 	}
 
     protected static Volume getInstance (double deltaTime, double flowRate) {

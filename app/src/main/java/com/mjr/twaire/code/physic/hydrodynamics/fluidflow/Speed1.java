@@ -1,7 +1,8 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-// v = Q / A
-final class Speed1 {
+import com.mjr.twaire.code.physic.Calculations;
+
+final class Speed1 extends Calculations {
     private static Speed1 instance;
 
 	private double flowRate;
@@ -32,10 +33,12 @@ final class Speed1 {
 		step1 = flowRate / area;
 	}
 
+	@Override
 	public double getResult () {
 		return step1;
 	}
 
+	@Override
 	public String getSteps () {
 		if (hasCustomUnits)
 			return null;
@@ -86,6 +89,11 @@ final class Speed1 {
 
 	public int getUnitOfResult () {
 		return unitOfResult;
+	}
+
+	@Override
+	public String getFormula() {
+		return "v = Q / A";
 	}
 
     protected static Speed1 getInstance (double flowRate, double area) {
