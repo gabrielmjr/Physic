@@ -3,11 +3,9 @@ package com.mjr.twaire.code.physic.kinematics.mru;
 public class MRU implements MRUIF {
 	private static MRU instance; 
 
-	private Time4 time4;
 	private Time5 time5;
 
 	public MRU() {
-		time4 = Time4.getInstance();
 		time5 = Time5.getInstance();
 	} 
 
@@ -313,23 +311,21 @@ public class MRU implements MRUIF {
 
 	// initialTime = finalTime - ∆t
 	@Override
-	public String time4(double deltaTime, double finalTime) {
-		return time4.time(deltaTime, finalTime);
+	public Time4 time4(double deltaTime, double finalTime) {
+		return Time4.getInstance(deltaTime, finalTime);
 	}
 
 	@Override
-	public String time4(
-		double deltaTime, 
-		String deltaTimeUnit,
-		double finalTime,
-		String finalTimeUnit,
-		String unitOfResult) {
-		return time4.time(
-			deltaTime,
-			deltaTimeUnit,
-			finalTime,
-			finalTimeUnit,
-			unitOfResult);
+	public Time4 time4(double deltaTime, 
+                        int deltaTimeUnit,
+                        double finalTime,
+                        int finalTimeUnit,
+                        int unitOfResult) {
+		return Time4.getInstance(deltaTime,
+                                 deltaTimeUnit,
+                                 finalTime,
+                                 finalTimeUnit,
+                                 unitOfResult);
 	}
 
 	// finalTime = tempo_inicia + ∆t

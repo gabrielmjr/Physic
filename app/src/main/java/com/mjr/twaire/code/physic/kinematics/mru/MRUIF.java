@@ -165,16 +165,16 @@ public interface MRUIF {
         int velocityUnit,
         int unitOfResult);
 
-    public abstract String time4 (
+    public abstract Time4 time4 (
         double deltaTime, 
         double initialTime);
 
-    public abstract String time4 (
+    public abstract Time4 time4 (
         double deltaTime, 
-        String deltaTimeUnit,
+        int deltaTimeUnit,
         double initialTime,
-        String initialTimeUnit,
-        String unitOfResult);
+        int initialTimeUnit,
+        int unitOfResult);
 
     public abstract String time5 (
         double initialTime, 
