@@ -12,9 +12,9 @@ public class Time2Test {
 
     @Test
     public void time2Test () {
-        Double deltaDisplacement = 9.6;
-        Double velocity = 5.0;
-        String result = "1.92";
-        assertEquals(result, mru.time2(deltaDisplacement, velocity));
+        double deltaDisplacement = 9.6;
+        double velocity = 5.0;
+        double result = 1.92;
+        assertEquals(result, mru.time2(deltaDisplacement, velocity).getResult());
     }
 }

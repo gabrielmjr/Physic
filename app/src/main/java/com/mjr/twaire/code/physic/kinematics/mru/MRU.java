@@ -3,13 +3,11 @@ package com.mjr.twaire.code.physic.kinematics.mru;
 public class MRU implements MRUIF {
 	private static MRU instance; 
 
-	private Time2 time2;
 	private Time3 time3;
 	private Time4 time4;
 	private Time5 time5;
 
 	public MRU() {
-		time2 = Time2.getInstance();
 		time3 = Time3.getInstance();
 		time4 = Time4.getInstance();
 		time5 = Time5.getInstance();
@@ -271,22 +269,21 @@ public class MRU implements MRUIF {
 
 	// ∆t = ∆S / speed_média
 	@Override
-	public String time2(double deltaDisplacement, double speed) {
-		return time2.time(deltaDisplacement, speed);
+	public Time2 time2(double deltaDisplacement, double speed) {
+		return Time2.getInstance(deltaDisplacement, speed);
 	}
 
-	public String time2(
-		double deltaDisplacement, 
-		String deltaDisplacementUnit,
-		double velocity,
-		String velocityUnit,
-		String unitOfResult) {
-		return time2.time(
-			deltaDisplacement,
-			deltaDisplacementUnit,
-			velocity,
-			velocityUnit,
-			unitOfResult);
+    @Override
+	public Time2 time2(double deltaDisplacement, 
+                       int deltaDisplacementUnit,
+                       double velocity,
+                       int velocityUnit,
+                       int unitOfResult) {
+		return Time2.getInstance(deltaDisplacement,
+                                 deltaDisplacementUnit,
+                                 velocity,
+                                 velocityUnit,
+                                 unitOfResult);
 	}
 
 	// ∆t = (finalDisplacement - initialDisplacement) / speed
