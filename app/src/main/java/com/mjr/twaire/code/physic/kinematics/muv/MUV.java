@@ -1,10 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.muv;
 
-public class MUV implements MUVIF 
-{
+public class MUV implements MUVIF {
 	private static MUV instance;
 
-	private Acceleration1 acceleration1;
 	private Acceleration2 acceleration2;
 	private Acceleration3 acceleration3;
 	private Acceleration4 acceleration4;
@@ -22,9 +20,7 @@ public class MUV implements MUVIF
 	private Displacement1 displacement1;
 	private Displacement2 displacement2;
 
-	public MUV ()
-	{
-		acceleration1 = Acceleration1.getInstance();
+	public MUV() {
 		acceleration2 = Acceleration2.getInstance();
 		acceleration3 = Acceleration3.getInstance();
 		acceleration4 = Acceleration4.getInstance();
@@ -46,21 +42,17 @@ public class MUV implements MUVIF
 
 	// a = deltaVelocity / deltaTime
 	@Override
-	public String acceleration1 (double deltaSpeed, double deltaTime)
-	{
-		return acceleration1.acceleration(deltaSpeed, deltaTime);
+	public Acceleration1 acceleration1(double deltaSpeed, double deltaTime) {
+		return Acceleration1.getInstance(deltaSpeed, deltaTime);
 	}
 
 	@Override
-	public String acceleration1 (
-		double deltaSpeed, 
-		String deltaSpeedUnit,
+	public Acceleration1 acceleration1(double deltaSpeed, 
+		int deltaSpeedUnit,
 		double deltaTime,
-		String deltaTimeUnit,
-		String unitOfResult)
-    {
-		return acceleration1.acceleration(
-			deltaSpeed,
+		int deltaTimeUnit,
+		int unitOfResult) {
+		return Acceleration1.getInstance(deltaSpeed,
 			deltaSpeedUnit,
 			deltaTime,
 			deltaTimeUnit,
@@ -69,12 +61,11 @@ public class MUV implements MUVIF
 
 	// a = (deltaSpeed) / (finalTime - initialTime)
 	@Override
-	public String acceleration2 (
+	public String acceleration2(
 		double deltaSpeed,
 		double initialTime,
 		double finalTime,
-		int resultOrStep)
-	{
+		int resultOrStep) {
 		return acceleration2.acceleration(
 			deltaSpeed,
 			initialTime,
@@ -83,7 +74,7 @@ public class MUV implements MUVIF
 	}
 
 	@Override
-	public String acceleration2 (
+	public String acceleration2(
 		double deltaSpeed,
 		String deltaSpeedUnit,
 		double initialTime,
@@ -91,8 +82,7 @@ public class MUV implements MUVIF
 		double finalTime,
 		String finalTimeUnit,
 		String unitOfResult,
-		int resultOrStep)
-	{
+		int resultOrStep) {
 		return acceleration2.acceleration(
 			deltaSpeed,
 			initialTime,
@@ -102,12 +92,11 @@ public class MUV implements MUVIF
 
 	// a = (vf - vi) / variationTime
 	@Override
-	public String acceleration3 (
+	public String acceleration3(
 		double initialVelocity,
 		double finalVelocity, 
 		double variationTime,
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return acceleration3.acceleration(
 			initialVelocity,
 			finalVelocity,
@@ -116,7 +105,7 @@ public class MUV implements MUVIF
     }
 
 	@Override 
-	public String acceleration3 (
+	public String acceleration3(
 		double initialVelocity, 
 		String initialVelocityUnit, 
 		double finalVelocity, 
@@ -124,8 +113,7 @@ public class MUV implements MUVIF
 		double variationTime, 
 		String variationTimeUnit, 
 		String unitOfResult, 
-		int stepOrResult)
-    {
+		int stepOrResult) {
 	    return acceleration3.acceleration(
 			initialVelocity,
 			initialVelocityUnit,
@@ -136,16 +124,15 @@ public class MUV implements MUVIF
 			unitOfResult,
 			stepOrResult);
 	}
-	
+
 	// a = (finalVelocity - initialVelocity) ÷ (finalTime - initialTime)
 	@Override
-	public String acceleration4 (
+	public String acceleration4(
 		double initialVelocity,
 		double finalVelocity,
 		double initialTime,
 		double finalTime,
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return acceleration4.acceleration(
 			initialVelocity,
 			finalVelocity,
@@ -155,7 +142,7 @@ public class MUV implements MUVIF
     }
 
 	@Override
-	public String acceleration4 (
+	public String acceleration4(
 		double initialVelocity, 
 		String initialVelocityUnit, 
 		double finalVelocity, 
@@ -165,8 +152,7 @@ public class MUV implements MUVIF
 		double finalTime, 
 		String finalTimeUnit,
 		String unitOfResult, 
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return acceleration4.acceleration(
 			initialVelocity,
 			initialVelocityUnit,
@@ -183,19 +169,17 @@ public class MUV implements MUVIF
     // Speed
     // First speed's formula: ∆v = ∆t * a
 	@Override
-	public String speed1 (double deltaTime, double acceleration)
-	{
+	public String speed1(double deltaTime, double acceleration) {
 		return speed1.speed(deltaTime, acceleration);
     }
 
 	@Override
-	public String speed1 (
+	public String speed1(
 		double deltaTime,
 		String deltaTimeUnit,
 		double acceleration,
 		String accelerationUnit,
-		String unitOfResult)
-	{
+		String unitOfResult) {
 	    return speed1.speed(
 			deltaTime,
 			deltaTimeUnit,
@@ -207,12 +191,11 @@ public class MUV implements MUVIF
 
     // Second speed's formula: ∆v = (tf - ti) * acceleration
 	@Override
-	public String speed2 (
+	public String speed2(
 		double initialTime,
 		double finalTime, 
 		double acceleration,
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return speed2.speed(
 			initialTime,
 			finalTime,
@@ -221,7 +204,7 @@ public class MUV implements MUVIF
     }
 
 	@Override
-	public String speed2 (
+	public String speed2(
 		double initialTime,
 		String initialTimeUnit,
 		double finalTime, 
@@ -229,8 +212,7 @@ public class MUV implements MUVIF
 		double acceleration,
 		String accelerationUnit,
 		String unitOfResult,
-		int stepOrResult)
-	{
+		int stepOrResult) {
         return speed2.speed(
 			initialTime,
 			initialTimeUnit,
@@ -244,12 +226,11 @@ public class MUV implements MUVIF
 
 	// Initial speed: vi = vf - ∆t * a
 	@Override
-	public String speed3 (
+	public String speed3(
 		double finalVelocity,
 		double deltaTime,
 		double acceleration,
-		int stepOrResult) 
-    {
+		int stepOrResult) {
 		return speed3.speed(
 			finalVelocity,
 			deltaTime,
@@ -258,7 +239,7 @@ public class MUV implements MUVIF
 	}
 
 	@Override
-	public String speed3 (
+	public String speed3(
 		double finalVelocity, 
 		String finalVelocityUnit,
 		double deltaTime, 
@@ -266,8 +247,7 @@ public class MUV implements MUVIF
 		double acceleration,  
 		String accelerationUnit,
 		String unitOfResult,
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return speed3.speed(
 			finalVelocity,
 			finalVelocityUnit,
@@ -281,12 +261,11 @@ public class MUV implements MUVIF
 
 	// Final speed: vf = ∆t * a + vi
 	@Override
-	public String speed4 (
+	public String speed4(
 		double initialVelocity,
 		double deltaTime,
 		double acceleration,
-		int stepOrResult) 
-    {
+		int stepOrResult) {
 		return speed4.speed(
 			initialVelocity,
 			deltaTime,
@@ -296,7 +275,7 @@ public class MUV implements MUVIF
 
 	// 
 	@Override
-	public String speed4 (
+	public String speed4(
 		double initialVelocity, 
 		String initialVelocityUnit,
 		double deltaTime, 
@@ -304,8 +283,7 @@ public class MUV implements MUVIF
 		double acceleration, 
 		String accelerationUnit,
 		String unitOfResult,
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return speed4.speed(
 			initialVelocity,
 			initialVelocityUnit,
@@ -320,19 +298,17 @@ public class MUV implements MUVIF
 	// Time
 	// First variation of time: ∆t = ∆v / acceleration
 	@Override
-	public String time1 (double deltaVelocity, double acceleration) 
-    {
+	public String time1(double deltaVelocity, double acceleration) {
 		return time1.time(deltaVelocity, acceleration);
 	}
 
 	@Override  
-	public String time1 (
+	public String time1(
 		double deltaVelocity,
 		String deltaVelocityUnit, 
 		double acceleration,
 		String accelerationUnit,
-		String unitOfResult)
-    {
+		String unitOfResult) {
 		return time1.time(
 			deltaVelocity,
 			deltaVelocityUnit,
@@ -343,12 +319,11 @@ public class MUV implements MUVIF
 
 	// Second variation of time: ∆t = (vf - vi) / acceleration 
 	@Override
-	public String time2 (
+	public String time2(
 		double initialVelocity, 
 		double finalVelocity,
 		double acceleration,
-		int stepOrResult) 
-    {
+		int stepOrResult) {
 		return time2.time(
 			initialVelocity,
 			finalVelocity,
@@ -357,7 +332,7 @@ public class MUV implements MUVIF
     }
 
     @Override
-    public String time2 (
+    public String time2(
 		double initialVelocity, 
 		String initialVelocityUnit,
 		double finalVelocity, 
@@ -365,8 +340,7 @@ public class MUV implements MUVIF
 		double acceleration,
 		String accelerationUnit,
 		String unitOfResult,
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return time2.time(
 			initialVelocity,
 			initialVelocityUnit,
@@ -380,12 +354,11 @@ public class MUV implements MUVIF
 
 	// Initial time: ti = tf - ∆v / a
 	@Override
-	public String time3 (
+	public String time3(
 		double finalTime,
 		double deltaVelocity,
 		double acceleration,
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return time3.time(
 			finalTime,
 			deltaVelocity,
@@ -394,7 +367,7 @@ public class MUV implements MUVIF
 	}
 
 	@Override
-	public String time3 (
+	public String time3(
 		double finalTime,
 		String finalTimeUnit,
 		double deltaVelocity, 
@@ -402,8 +375,7 @@ public class MUV implements MUVIF
 		double acceleration, 
 		String accelerationUnit,
 		String unitOfResult,
-		int stepOrResult) 
-    {
+		int stepOrResult) {
 		return time3.time(
 			finalTime,
 			finalTimeUnit,
@@ -417,12 +389,11 @@ public class MUV implements MUVIF
 
 	// Final time: tf = (∆v / a) + ti
 	@Override
-	public String time4 (
+	public String time4(
 		double initialTime, 
 		double deltaVelocity, 
 		double acceleration, 
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return time4.time(
 			initialTime,
 			deltaVelocity,
@@ -431,7 +402,7 @@ public class MUV implements MUVIF
 	}
 
 	@Override
-	public String time4 (
+	public String time4(
 		double initialTime, 
 		String initialTimeUnit,
 		double deltaVelocity, 
@@ -439,8 +410,7 @@ public class MUV implements MUVIF
 		double acceleration,
 		String accelerationUnit,
 		String unitOfResult,
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return time4.time(
 			initialTime,
 			initialTimeUnit,
@@ -455,13 +425,12 @@ public class MUV implements MUVIF
 	// Displacement 
 	// total Displacement: S = si + vi * ∆t + (a * ∆t²) /2
 	@Override
-	public String displacement1 (
+	public String displacement1(
 		double initialDisplacement,
 		double initialVelocity,
 		double deltaTime,
 		double acceleration,
-		int stepOrResult) 
-    {
+		int stepOrResult) {
 		return displacement1.displacement(
 			initialDisplacement,
 			initialVelocity,
@@ -471,7 +440,7 @@ public class MUV implements MUVIF
 	}
 
 	@Override
-	public String displacement1 (
+	public String displacement1(
 		double initialDisplacement,
 		String initialDisplacementUnit,
 		double initialVelocity,
@@ -481,8 +450,7 @@ public class MUV implements MUVIF
 		double acceleration,
 		String accelerationUnit,
 		String unitOfResult,
-		int stepOrResult) 
-    {
+		int stepOrResult) {
 		return displacement1.displacement(
 			initialDisplacement,
 			initialDisplacementUnit,
@@ -498,13 +466,12 @@ public class MUV implements MUVIF
 
 	// Initial displacement: Si = S - [(vi * ∆t) + (a * ∆t²) / 2]
 	@Override
-	public String displacement2 (
+	public String displacement2(
 		double initialVelocity, 
 		double deltaTime, 
 		double acceleration, 
 		double displacement, 
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return displacement2.displacement(
 			initialVelocity,
 			deltaTime,
@@ -514,7 +481,7 @@ public class MUV implements MUVIF
     }
 
 	@Override
-	public String displacement2 (
+	public String displacement2(
 		double initialVelocity, 
 		String initialVelocityUnit,
 		double deltaTime, 
@@ -524,8 +491,7 @@ public class MUV implements MUVIF
 		double displacement, 
 		String displacementUnit,
 		String unitOfResult,
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		return displacement2.displacement(
 			initialVelocity,
 			initialVelocityUnit,
@@ -540,10 +506,8 @@ public class MUV implements MUVIF
     }
 
     // Get class instance object
-    protected static MUV getInstance ()
-    {
-		if (instance == null)
-		{
+    protected static MUV getInstance() {
+		if (instance == null) {
 			instance = new MUV();
 		}
 		return instance;
