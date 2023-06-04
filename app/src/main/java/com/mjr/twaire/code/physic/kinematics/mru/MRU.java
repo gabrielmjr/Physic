@@ -8,7 +8,7 @@ public class MRU implements MRUIF {
 	// ∆S = Sf - Si
 	@Override
 	public Displacement1 displacement1(double initialDisplacement, double finalDisplacement) {
-		return Displacement1.getInstance(initialDisplacement, finalDisplacement);
+		return new Displacement1(initialDisplacement, finalDisplacement);
 	}
 
 	@Override
@@ -17,12 +17,17 @@ public class MRU implements MRUIF {
                                        double finalDisplacement,
                                        int finalDisplacementUnit,
                                        int unitOfResult) {
-		return Displacement1.getInstance(initialDisplacement,
-										 initialDisplacementUnit,
-										 finalDisplacement,
-										 finalDisplacementUnit,
-										 unitOfResult);
+		return new Displacement1(initialDisplacement,
+                                 initialDisplacementUnit,
+                                 finalDisplacement,
+                                 finalDisplacementUnit,
+                                 unitOfResult);
 	}
+
+    @Override
+    public Displacement1 displacement1() {
+        return new Displacement1();
+    }
 
 	// ∆S = ∆t x speed_média
 	@Override

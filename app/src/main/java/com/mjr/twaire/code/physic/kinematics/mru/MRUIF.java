@@ -11,6 +11,8 @@ public interface MRUIF {
         double finalDisplacement,
         int finalDisplacementUnit,
         int unitOfResult);
+        
+    public abstract Displacement1 displacement1();
 
     public abstract Displacement2 displacement2 (
         double deltaTime,
