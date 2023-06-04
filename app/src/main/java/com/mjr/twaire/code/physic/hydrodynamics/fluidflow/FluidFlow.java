@@ -196,6 +196,11 @@ public class FluidFlow implements FluidFlowIF {
 								velocityUnit,
 								unitOfResult);
     }
+    
+    @Override
+    public Area area() {
+        return new Area();
+    }
 
     // r = √[Q / (π * v)]
     @Override
@@ -214,6 +219,11 @@ public class FluidFlow implements FluidFlowIF {
 							   velocity,
 							   velocityUnit,
 							   unitOfResult);
+    }
+    
+    @Override
+    public Ray ray() {
+        return new Ray();
     }
 
     protected static FluidFlow getInstance() {

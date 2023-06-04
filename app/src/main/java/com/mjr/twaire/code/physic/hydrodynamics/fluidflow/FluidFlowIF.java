@@ -102,6 +102,8 @@ public interface FluidFlowIF {
 		double velocity,
 		int velocityUnit, 
 		int unitOfResult);
+        
+    public abstract Area area();
 
     public abstract Ray ray (
 		double flowRate,
@@ -113,4 +115,6 @@ public interface FluidFlowIF {
 		double velocity,
 		int velocityUnit, 
 		int unitOfResult);
+        
+    public abstract Ray ray();
 }
