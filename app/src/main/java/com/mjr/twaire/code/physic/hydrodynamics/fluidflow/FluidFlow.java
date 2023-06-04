@@ -23,6 +23,11 @@ public class FluidFlow implements FluidFlowIF {
 									 timeUnit, 
 									 unitOfResult);
     }
+    
+    @Override
+    public FlowRate1 flowRate1() {
+        return new FlowRate1();
+    }
 
     // Q = A * v
     @Override

@@ -3,6 +3,7 @@ package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 import com.mjr.twaire.code.physic.Calculations;
 
 public final class Area extends Calculations {
+    @Deprecated
     private static Area instance;
 
 	private double flowRate;
@@ -15,8 +16,26 @@ public final class Area extends Calculations {
 	private double step1;
 	private boolean hasCustomUnits;
 
-    private Area () {}
+    protected Area() {}
+    
+    protected Area(double flowRate, double velocity) {
+        this.flowRate = flowRate;
+        this.velocity = velocity;
+        hasCustomUnits = false;
+        calculate();
+    }
 
+    protected Area(double flowRate, double velocity, int flowRateUnit, int velocityUnit, int unitOfResult) {
+        this.flowRate = flowRate;
+        this.velocity = velocity;
+        this.flowRateUnit = flowRateUnit;
+        this.velocityUnit = velocityUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
+
+    
     @Override
     public Area calculate() {
         if (hasCustomUnits)
@@ -101,6 +120,7 @@ public final class Area extends Calculations {
         return this;
 	}
 
+    @Deprecated
     protected static Area getInstance (double flowRate, double velocity) {
         if (!(instance instanceof Area))
             instance = new Area();
@@ -110,6 +130,7 @@ public final class Area extends Calculations {
             .calculate();
     }
 
+    @Deprecated
 	protected static Area getInstance (double flowRate,
 									   int flowRateUnit, 
 									   double velocity,
