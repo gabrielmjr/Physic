@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 import com.mjr.twaire.code.physic.Calculations;
 
-final class Time extends Calculations { 
+public final class Time extends Calculations { 
     private static Time instance;
 	
 	private double volume;

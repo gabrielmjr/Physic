@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 import com.mjr.twaire.code.physic.Calculations;
 
-final class FlowRate1 extends Calculations {
+public final class FlowRate1 extends Calculations {
     private static FlowRate1 instance;
 
 	private double volume;

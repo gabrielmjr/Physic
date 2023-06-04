@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 import com.mjr.twaire.code.physic.Calculations;
 
-final class Area extends Calculations {
+public final class Area extends Calculations {
     private static Area instance;
 
 	private double flowRate;

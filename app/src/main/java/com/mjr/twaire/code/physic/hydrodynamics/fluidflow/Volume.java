@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 import com.mjr.twaire.code.physic.Calculations;
 
-final class Volume extends Calculations {
+public final class Volume extends Calculations {
     private static Volume instance;
 
 	private double deltaTime;

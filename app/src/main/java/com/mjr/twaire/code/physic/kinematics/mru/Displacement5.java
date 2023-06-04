@@ -4,7 +4,7 @@ import com.mjr.twaire.code.physic.Calculations;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-final class Displacement5 extends Calculations {
+public final class Displacement5 extends Calculations {
 	private static Displacement5 instance; 
 	private double initialDisplacement;
 	private double deltaDisplacement;

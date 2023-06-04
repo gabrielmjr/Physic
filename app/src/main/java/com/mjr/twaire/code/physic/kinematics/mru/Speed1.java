@@ -4,7 +4,7 @@ import com.mjr.twaire.code.physic.Calculations;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-final class Speed1 extends Calculations {
+public final class Speed1 extends Calculations {
 	private static Speed1 instance;
 	private double deltaDisplacement;
 	private double deltaTime;

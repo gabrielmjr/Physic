@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.muv;
 
 // a = ∆v / ∆t
-final class Acceleration1 {
+public final class Acceleration1 {
 	private static Acceleration1 instance; 
     private double deltaSpeed;
     private double deltaTime;

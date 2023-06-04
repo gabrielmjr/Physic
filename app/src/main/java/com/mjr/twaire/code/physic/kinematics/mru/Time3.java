@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.kinematics.mru;
 
 import com.mjr.twaire.code.physic.Calculations;
 
-final class Time3 extends Calculations {
+public final class Time3 extends Calculations {
 	private static Time3 instance; 
     private double initialDisplacement;
     private double finalDisplacement;

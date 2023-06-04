@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 import com.mjr.twaire.code.physic.Calculations;
 
-final class Speed1 extends Calculations {
+public final class Speed1 extends Calculations {
     private static Speed1 instance;
 
 	private double flowRate;

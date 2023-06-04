@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.kinematics.mru;
 
 import com.mjr.twaire.code.physic.Calculations;
 
-final class Displacement2 extends Calculations {
+public final class Displacement2 extends Calculations {
 	private static Displacement2 instance; 
 
 	private double deltaTime;

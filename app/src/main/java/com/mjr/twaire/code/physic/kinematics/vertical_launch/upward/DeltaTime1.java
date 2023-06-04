@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.upward;
 
 // ∆t = ∆v / (-g)
-final class DeltaTime1 {
+public final class DeltaTime1 {
     private static DeltaTime1 instance;
     private double deltaSpeed;
     private double gravity;

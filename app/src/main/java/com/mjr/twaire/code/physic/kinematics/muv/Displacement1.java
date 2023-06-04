@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.kinematics.muv;
 
 import com.mjr.twaire.code.physic.Physic;
 
-final class Displacement1 
+public final class Displacement1 
 {
 	private static Displacement1 instance; 
 

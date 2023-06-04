@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics
 .muv;
 
-final class Speed1
+public final class Speed1
 {
 	private static Speed1 instance; 
 

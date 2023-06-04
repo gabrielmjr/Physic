@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.kinematics.muv;
 
-final class Time1 
+public final class Time1 
 {
 	private static Time1 instance; 
 

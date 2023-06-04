@@ -3,7 +3,7 @@ package com.mjr.twaire.code.physic.kinematics.vertical_launch.upward;
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
 // y = yi - vi * ∆t - (g * ∆t²)/2
-final class Height {
+public final class Height {
     private static Height instance;
     private double initialHeight;
     private double initialVelocity;
