@@ -11,10 +11,12 @@ public interface FluidFlowIF {
 		double time, 
 		int timeUnit,
 		int unitOfResult);
+        
+    public abstract FlowRate1 flowRate1();
 
     public abstract FlowRate2 flowRate2 (
 		double area,
-		double velocity);
+		double velopcity);
 
     public abstract FlowRate2 flowRate2 (
 		double area,
