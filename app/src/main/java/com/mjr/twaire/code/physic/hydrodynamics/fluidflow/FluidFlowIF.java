@@ -24,6 +24,8 @@ public interface FluidFlowIF {
 		double velocity,
 		int velocityUnit, 
 		int unitOfResult);
+        
+    public abstract FlowRate2 flowRate2();
 
     public abstract FlowRate3 flowRate3 (
 		double ray,

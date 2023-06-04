@@ -116,6 +116,7 @@ public final class FlowRate1 extends Calculations {
 		return "Q = V / ∆t";
 	}
     
+    @Deprecated
     private FlowRate1 setHasCustomUnits (boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;

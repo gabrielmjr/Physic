@@ -115,6 +115,7 @@ public final class Area extends Calculations {
 		return "A = Q / v";
 	}
     
+    @Deprecated
     private Area setHasCustomUnits (boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
