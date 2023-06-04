@@ -3,6 +3,7 @@ package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 import com.mjr.twaire.code.physic.Calculations;
 
 public final class Ray extends Calculations {
+    @Deprecated
     private static Ray instance;
 
 	private double flowRate;
@@ -16,8 +17,25 @@ public final class Ray extends Calculations {
 	private double step2;
 	private double step3;
 	private boolean hasCustomUnits;
+    
+    protected Ray() {}
 
-    private Ray () {}
+    protected Ray(double flowRate, double velocity) {
+        this.flowRate = flowRate;
+        this.velocity = velocity;
+        hasCustomUnits = false;
+        calculate();
+    }
+
+    protected Ray(double flowRate, double velocity, int flowRateUnit, int velocityUnit, int unitOfResult) {
+        this.flowRate = flowRate;
+        this.velocity = velocity;
+        this.flowRateUnit = flowRateUnit;
+        this.velocityUnit = velocityUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
     
     @Override
     public Ray calculate() {
@@ -103,11 +121,13 @@ public final class Ray extends Calculations {
 		return "r = √[Q / (π × v)]";
 	}
     
+    @Deprecated
     private Ray setHasCustomUnits (boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
 	}
 
+    @Deprecated
     protected static Ray getInstance (double flowRate, double velocity) {
         if (!(instance instanceof Ray))
 			instance = new Ray();
@@ -117,6 +137,7 @@ public final class Ray extends Calculations {
             .calculate();
     }
 
+    @Deprecated
 	protected static Ray getInstance (double flowRate,
 									  int flowRateUnit,
 									  double velocity,

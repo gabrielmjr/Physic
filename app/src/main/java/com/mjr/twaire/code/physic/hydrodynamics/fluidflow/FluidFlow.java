@@ -76,6 +76,11 @@ public class FluidFlow implements FluidFlowIF {
 									 velocityUnit,
 									 unitOfResult);
     }
+    
+    @Override
+    public FlowRate3 flowRate3() {
+        return new FlowRate3();
+    }
 
     // ∆t = V/ Q
     @Override

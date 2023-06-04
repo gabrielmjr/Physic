@@ -37,6 +37,8 @@ public interface FluidFlowIF {
 		double velocity,
 		int velocityUnit,
 		int unitOfResult);
+        
+    public abstract FlowRate3 flowRate3();
 
     public abstract Time time (
 		double volume,
