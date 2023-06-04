@@ -51,6 +51,7 @@ public final class Displacement1 extends Calculations {
         return this;
     }
 
+    @Deprecated
 	private Displacement1 setHasCustomUnits(boolean hasCustomUnits) {
 		this.hasCustomUnits = hasCustomUnits;
 		if (hasCustomUnits)
