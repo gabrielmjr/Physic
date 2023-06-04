@@ -76,6 +76,8 @@ public interface FluidFlowIF {
 		double area,
 		int areaUnit, 
 		int unitOfResult);
+        
+    public abstract Speed1 speed1();
 
     public abstract Speed2 speed2 (
 		double flowRate,
@@ -87,6 +89,8 @@ public interface FluidFlowIF {
 		double ray,
 		int rayUnit,
 		int unitOfResult);
+        
+    public abstract Speed2 speed2();
 
     public abstract Area area (
 	    double flowRate, 

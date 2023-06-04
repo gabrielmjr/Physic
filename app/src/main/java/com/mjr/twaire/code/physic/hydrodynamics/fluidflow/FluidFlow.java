@@ -148,6 +148,11 @@ public class FluidFlow implements FluidFlowIF {
 								  areaUnit,
 								  unitOfResult);
     }
+    
+    @Override
+    public Speed1 speed1() {
+        return new Speed1();
+    }
 
     // v = Q / (π * r²)]
     @Override
@@ -166,6 +171,11 @@ public class FluidFlow implements FluidFlowIF {
 								  ray,
 								  raioUnit,
 								  unitOfResult);
+    }
+    
+    @Override
+    public Speed2 speed2() {
+        return new Speed2();
     }
 
     // A = Q / v

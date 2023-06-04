@@ -3,6 +3,7 @@ package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 import com.mjr.twaire.code.physic.Calculations;
 
 public final class Speed2 extends Calculations {
+    @Deprecated
     private static Speed2 instance;
 
 	private double flowRate;
@@ -16,9 +17,26 @@ public final class Speed2 extends Calculations {
 	private double step2;
 	private double step3;
 	private boolean hasCustomUnits;
+    
+    protected Speed2() {}
 
-    private Speed2 () {}
+    protected Speed2(double flowRate, double ray) {
+        this.flowRate = flowRate;
+        this.ray = ray;
+        hasCustomUnits = false;
+        calculate();
+    }
 
+    protected Speed2(double flowRate, double ray, int flowRateUnit, int rayUnit, int unitOfResult) {
+        this.flowRate = flowRate;
+        this.ray = ray;
+        this.flowRateUnit = flowRateUnit;
+        this.rayUnit = rayUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
+    
     @Override
     public Speed2 calculate() {
         if (hasCustomUnits)
@@ -101,11 +119,13 @@ public final class Speed2 extends Calculations {
 		return "v = Q / [π × (r)²]";
 	}
 
+    @Deprecated
     private Speed2 setHasCustomUnits (boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
     }
     
+    @Deprecated
     protected static Speed2 getInstance (double flowRate, double ray) {
         if (!(instance instanceof Speed2))
             instance = new Speed2();
@@ -115,6 +135,7 @@ public final class Speed2 extends Calculations {
             .calculate();
     }
 
+    @Deprecated
 	protected static Speed2 getInstance (double flowRate,
 									  int flowRateUnit,
 									  double ray,
