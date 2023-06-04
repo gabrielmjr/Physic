@@ -32,7 +32,7 @@ public class MRU implements MRUIF {
 	// ∆S = ∆t x speed_média
 	@Override
 	public Displacement2 displacement2(double deltaTime, double deltaSpeed) {
-		return Displacement2.getInstance(deltaTime, deltaSpeed);
+		return new Displacement2(deltaTime, deltaSpeed);
 	}
 
 	@Override
@@ -41,21 +41,26 @@ public class MRU implements MRUIF {
                                        double deltaSpeed,
                                        int deltaSpeedUnit,
                                        int unitOfResult) {
-		return Displacement2.getInstance(deltaTime,
-										 deltaSpeedUnit,
-										 deltaSpeed,
-										 deltaSpeedUnit,
-										 unitOfResult);
+		return new Displacement2(deltaTime,
+                                 deltaSpeedUnit,
+                                 deltaSpeed,
+                                 deltaSpeedUnit,
+                                 unitOfResult);
 	}
+
+    @Override
+    public Displacement2 displacement2() {
+        return new Displacement2();
+    }
 
 	// ∆S = (finalTime - initialTime) x media_speed
 	@Override
 	public Displacement3 displacement3(double initialTime,
                                        double finalTime,
                                        double deltaSpeed) {
-		return Displacement3.getInstance(initialTime,
-										 finalTime,
-										 deltaSpeed);
+		return new Displacement3(initialTime,
+					          	 finalTime,
+								 deltaSpeed);
 	}
 
 	@Override
@@ -66,14 +71,19 @@ public class MRU implements MRUIF {
                                        double deltaSpeed,
                                        int deltaSpeedUnit,
                                        int unitOfResult) {
-		return Displacement3.getInstance(initialTime,
-										 initialTimeUnit,
-										 finalTime,
-										 finalTimeUnit,
-										 deltaSpeed,
-										 deltaSpeedUnit,
-										 unitOfResult);
+		return new Displacement3(initialTime,
+                                 initialTimeUnit,
+                                 finalTime,
+                                 finalTimeUnit,
+                                 deltaSpeed,
+                                 deltaSpeedUnit,
+                                 unitOfResult);
 	}
+
+    @Override
+    public Displacement3 displacement3() {
+        return new Displacement3();
+    }
 
 	// S_inicial = S_final - ∆S
 	@Override

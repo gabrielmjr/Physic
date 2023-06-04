@@ -24,6 +24,8 @@ public interface MRUIF {
         double deltaSpeed,
         int deltaSpeedUnit,
         int unitOfResult);
+        
+    public abstract Displacement2 displacement2();
 
     public abstract Displacement3 displacement3 (
         double intial_time, 
@@ -38,6 +40,8 @@ public interface MRUIF {
         double deltaSpeed,
         int deltaSpeedUnit, 
         int unitOfResult);
+        
+    public abstract Displacement3 displacement3();
 
     public abstract Displacement4 displacement4 (
         double deltaDisplacement, 
