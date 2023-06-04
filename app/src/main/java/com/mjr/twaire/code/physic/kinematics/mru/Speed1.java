@@ -17,15 +17,15 @@ public final class Speed1 extends Calculations {
 	private boolean hasCustomUnits;
 
 	private Speed1() {}
-
-	private Speed1 setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Speed1 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits() {
 	}
@@ -97,6 +97,11 @@ public final class Speed1 extends Calculations {
     public String getFormula() {
         return "∆v = ∆S / ∆t";
     }
+    
+    private Speed1 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
     public static Speed1 getInstance (double deltaDisplacement,
 	                                  double deltaTime) {
@@ -104,7 +109,8 @@ public final class Speed1 extends Calculations {
 			instance = new Speed1();
 		return instance.setDeltaDisplacement(deltaDisplacement)
 		    .setDeltaTime(deltaTime)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 	
 	public static Speed1 getInstance (double deltaDisplacement,
@@ -119,6 +125,7 @@ public final class Speed1 extends Calculations {
 		    .setDeltaTime(deltaTime)
 		    .setDeltaTimeUnit(deltaTimeUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

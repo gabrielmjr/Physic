@@ -17,19 +17,20 @@ public final class Displacement5 extends Calculations {
 	private boolean hasCustomUnits;
 
 	private Displacement5 () {}
-
-	private Displacement5 setHasCustomUnits (boolean hasCustomUnits) {
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculeWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Displacement5 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits () {
 	}
 
-	private void calculeWithoutCustomUnits () {
+	private void calculateWithoutCustomUnits () {
 		step1 = initialDisplacement + deltaDisplacement;
 	}
 
@@ -100,6 +101,11 @@ public final class Displacement5 extends Calculations {
     public String getFormula() {
         return "S = Si + ∆S";
     }
+    
+    private Displacement5 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
 	public static Displacement5 getInstance (double initialDisplacement,
         double deltaDisplacement) {
@@ -107,7 +113,8 @@ public final class Displacement5 extends Calculations {
 			instance = new Displacement5();
 		return instance.setInitialDisplacement(initialDisplacement)
 		    .setDeltaDisplacement(deltaDisplacement)
-	        .setHasCustomUnits(false);
+	        .setHasCustomUnits(false)
+            .calculate();
 	}
 
 	public static Displacement5 getInstance (double initialDisplacement,
@@ -122,7 +129,7 @@ public final class Displacement5 extends Calculations {
             .setDeltaDisplacement(deltaDisplacement)
             .setDeltaDisplacementUnit(deltaDisplacementUnit)
             .setUnitOfResult(unitOfResult)
-
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
 	}
 }

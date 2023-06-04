@@ -20,15 +20,15 @@ public final class Displacement6 extends Calculations {
 	private boolean hasCustomUnits;
 
 	private Displacement6 () {}
-
-	private Displacement6 setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Displacement6 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits () {
 	}
@@ -125,6 +125,11 @@ public final class Displacement6 extends Calculations {
     public String getFormula() {
         return "S = Si + v * ∆t";
     }
+    
+    private Displacement6 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
 	public static Displacement6 getInstance (double initialDisplacement,
 											 double velocity,
@@ -134,7 +139,8 @@ public final class Displacement6 extends Calculations {
 		return instance.setInitialDisplacement(initialDisplacement)
 		    .setVelocity(velocity)
 		    .setDeltaTime(deltaTime)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
 	}
 
 	public static Displacement6 getInstance (double initialDisplacement, 
@@ -153,6 +159,7 @@ public final class Displacement6 extends Calculations {
 		    .setDeltaTime(deltaTime)
 		    .setDeltaTimeUnit(deltaTimeUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
 	}
 }

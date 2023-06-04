@@ -16,8 +16,8 @@ public final class Time5 extends Calculations {
     
 	private Time5() {}
     
-    private Time5 setHasCustomUnits (boolean hasCustomUnits) {
-        this.hasCustomUnits = hasCustomUnits;
+    @Override
+    public Time5 calculate() {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
@@ -96,12 +96,18 @@ public final class Time5 extends Calculations {
         return "t = ∆t + ti";
     }
 
+    private Time5 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+    }
+    
     public static Time5 getInstance (double initialTime, double deltaTime) {
 		if(!(instance instanceof Time5))
 			instance = new Time5();
 		return instance.setInitialTime(initialTime)
             .setDeltaTime(deltaTime)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
     }
     
     public static Time5 getInstance (double initialTime, 
@@ -116,6 +122,7 @@ public final class Time5 extends Calculations {
             .setDeltaTime(deltaTime)
             .setDeltaTimeUnit(deltaTimeUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
     }
 }

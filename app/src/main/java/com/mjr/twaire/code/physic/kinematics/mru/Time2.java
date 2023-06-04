@@ -16,19 +16,19 @@ public final class Time2 extends Calculations {
 
 	private Time2() {}
     
-    private Time2 setHasCustomUnits (boolean hasCustomUnits) {
-        this.hasCustomUnits = hasCustomUnits;
+    @Override
+    public Time2 calculate() {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
-            calculeWithoutCustomUnits();
+            calculateWithoutCustomUnits();
         return this;
     }
-
+    
     private void calculateWithCustomUnits () {
     }
 
-    private void calculeWithoutCustomUnits () {
+    private void calculateWithoutCustomUnits () {
         step1 = deltaDisplacement / deltaSpeed;
     }
     
@@ -102,7 +102,13 @@ public final class Time2 extends Calculations {
 			instance = new Time2();
 		return instance.setDeltaDisplacement(deltaDisplacement)
             .setDeltaSpeed(deltaSpeed)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
+    }
+    
+    private Time2 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
     }
     
     public static Time2 getInstance(double deltaDisplacement, 
@@ -117,6 +123,7 @@ public final class Time2 extends Calculations {
             .setDeltaSpeed(deltaSpeed)
             .setDeltaSpeedUnit(deltaSpeedUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
     }
 }

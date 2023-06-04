@@ -13,23 +13,23 @@ public final class FlowRate1 extends Calculations {
 	private int unitOfResult;
 
 	private double step1;
-	private boolean hasCustomUnit;
+	private boolean hasCustomUnits;
 
     private FlowRate1 () {}
-
-	private FlowRate1 setHasCustomUnits (boolean hasCustomUnit) {
-		this.hasCustomUnit = hasCustomUnit;
-		if (hasCustomUnit) 
-			calculateWithCustomUnit();
-		else 
-			calculateWithoutCustomUnit();
-		return this;
-	}
-
-	private void calculateWithCustomUnit () {
+    
+    @Override
+    public FlowRate1 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
     }
 
-	private void calculateWithoutCustomUnit () {
+	private void calculateWithCustomUnits () {
+    }
+
+	private void calculateWithoutCustomUnits () {
 		step1 = volume / deltaTime;
 	}
 
@@ -40,7 +40,7 @@ public final class FlowRate1 extends Calculations {
 
 	@Override
 	public String getSteps () {
-		if (hasCustomUnit) 
+		if (hasCustomUnits) 
 			return null;
 		else {
 			return "Q = " + volume + " ÷ " + deltaTime
@@ -97,13 +97,19 @@ public final class FlowRate1 extends Calculations {
 	public String getFormula() {
 		return "Q = V / ∆t";
 	}
+    
+    private FlowRate1 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
     protected static FlowRate1 getInstance (double volume, double time) {
         if (!(instance instanceof FlowRate1))
             instance = new FlowRate1();
 		return instance.setVolume(volume)
 		    .setDeltaTime(time)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
 	protected static FlowRate1 getInstance (double volume, 
@@ -118,6 +124,7 @@ public final class FlowRate1 extends Calculations {
 		    .setDeltaTime(time)
 		    .setDeltaTimeUnit(deltaTimeUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

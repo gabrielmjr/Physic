@@ -15,17 +15,16 @@ public final class Displacement2 extends Calculations {
 	private double step1;
 	private boolean hasCustomUnits;
 
-	private Displacement2 () {}
+	private Displacement2() {}
 
-	private Displacement2 setHasCustomUnit (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
+    @Override
+    public Displacement2 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
 		return this;
-	}
+    }
 
 	private void calculateWithCustomUnits () {
 	}
@@ -96,13 +95,19 @@ public final class Displacement2 extends Calculations {
     public String getFormula() {
         return "∆S = ∆t × ∆v";
     }
+    
+    private Displacement2 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
     public static Displacement2 getInstance (double deltaTime, double deltaSpeed) {
 		if (!(instance instanceof Displacement2))
 			instance = new Displacement2();
 		return instance.setDeltaTime(deltaTime)
 		    .setDeltaSpeed(deltaSpeed)
-		    .setHasCustomUnit(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
 	public static Displacement2 getInstance (double deltaTime,
@@ -117,6 +122,7 @@ public final class Displacement2 extends Calculations {
 		    .setDeltaSpeed(deltaSpeed)
 		    .setDeltaSpeedUnit(deltaSpeedUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnit(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

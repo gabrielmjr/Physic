@@ -16,8 +16,8 @@ public final class Time4 extends Calculations {
 
 	private Time4() {}
     
-    private Time4 setHasCustomUnits (boolean hasCustomUnits) {
-        this.hasCustomUnits = hasCustomUnits;
+    @Override
+    public Time4 calculate() {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
@@ -95,13 +95,19 @@ public final class Time4 extends Calculations {
    public String getFormula() {
        return "ti = t - ∆t";
    }
+   
+    private Time4 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+    }
 
     public static Time4 getInstance (double deltaTime, double finalTime) {
 		if(!(instance instanceof Time4))
 			instance = new Time4();
 		return instance.setDeltaTime(deltaTime)
             .setFinalTime(finalTime)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
     }
     
     public static Time4 getInstance (double deltaTime, 
@@ -116,6 +122,7 @@ public final class Time4 extends Calculations {
             .setFinalTime(finalTime)
             .setFinalTimeUnit(finalTimeUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
     }
 }

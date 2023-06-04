@@ -20,9 +20,9 @@ public final class Speed4 extends Calculations {
     private boolean hasCustomUnits;;
 
 	private Speed4() {}
-
-    private Speed4 setHasCustomUnits(boolean hasCustomUnits) {
-        this.hasCustomUnits = hasCustomUnits;
+    
+    @Override
+    public Speed4 calculate() {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
@@ -121,6 +121,11 @@ public final class Speed4 extends Calculations {
     public String getFormula() {
         return "v = ∆S ÷ (t - ti)";
     }
+    
+    private Speed4 setHasCustomUnits(boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+    }
 
     public static Speed4 getInstance(double deltaDisplacement,
                                      double initialTime,
@@ -130,7 +135,8 @@ public final class Speed4 extends Calculations {
 		return instance.setDeltaDisplacement(deltaDisplacement)
             .setInitialTime(initialTime)
             .setFinalTime(finalTime)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
     }
 
     public static Speed4 getInstance(double deltaDisplacement,
@@ -149,6 +155,7 @@ public final class Speed4 extends Calculations {
             .setFinalTime(finalTime)
             .setFinalTimeUnit(finalTimeUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
     }
 }

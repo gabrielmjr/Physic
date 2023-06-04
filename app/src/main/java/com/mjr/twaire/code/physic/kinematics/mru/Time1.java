@@ -18,8 +18,8 @@ public final class Time1 extends Calculations {
 
 	private Time1() {}
     
-    private Time1 setHasCustomUnits(boolean hasCustomUnits) {
-        this.hasCustomUnits = hasCustomUnits;
+    @Override
+    public Time1 calculate() {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
@@ -106,13 +106,19 @@ public final class Time1 extends Calculations {
     public String getFormula() {
         return "∆t = t - ti";
     }
+    
+    private Time1 setHasCustomUnits(boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+    }
 
     public static Time1 getInstance(double initialTime, double finalTime) {
 		if(!(instance instanceof Time1))
 			instance = new Time1();
 		return instance.setInitialTime(initialTime)
             .setFinalTime(finalTime)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
     }
     
     public static Time1 getInstance(double initialTime,
@@ -127,6 +133,7 @@ public final class Time1 extends Calculations {
             .setFinalTime(finalTime)
             .setFinalTimeUnit(finalTimeUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
     }
 }

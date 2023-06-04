@@ -17,15 +17,15 @@ public final class Displacement4 extends Calculations {
 	private boolean hasCustomUnits;
 
 	private Displacement4 () {}
-
-	private Displacement4 setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Displacement4 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits () {
 	}
@@ -102,12 +102,18 @@ public final class Displacement4 extends Calculations {
         return "Si = S - ∆S";
     }
     
+    private Displacement4 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
+    
 	public static Displacement4 getInstance (double deltaDisplacement, double finalDisplacement) {
 		if (!(instance instanceof Displacement4))
 			instance = new Displacement4();
 		return instance.setDeltaDisplacement(deltaDisplacement)
 		    .setFinalDisplacement(finalDisplacement)
-			.setHasCustomUnits(false);
+			.setHasCustomUnits(false)
+            .calculate();
     }
 	
 	public static Displacement4 getInstance (double deltaDisplacement, 
@@ -122,6 +128,7 @@ public final class Displacement4 extends Calculations {
 		    .setFinalDisplacement(finalDisplacement)
 		    .setFinalDispacementUnit(finalDisplacementUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

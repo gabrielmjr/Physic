@@ -17,18 +17,18 @@ public final class Time extends Calculations {
 
     private Time () {}
 
-	private Time setHasCustUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustUnit();
-		else
-			calculateWithoutCustomUnit();
-		return this;
-	}
+    @Override
+    public Time calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
-	private void calculateWithCustUnit () {}
+	private void calculateWithCustomUnits () {}
 
-	private void calculateWithoutCustomUnit () {
+	private void calculateWithoutCustomUnits () {
 		step1 = volume / flowRate;
 	}
 
@@ -92,13 +92,19 @@ public final class Time extends Calculations {
 	public String getFormula() {
 		return "∆t = V/ Q";
 	}
+    
+    private Time setHasCustUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
     protected static Time getInstance (double volume, double flowRate) {
         if (!(instance instanceof Time))
 			instance = new Time();
         return instance.setVolume(volume)
 		    .setFlowRate(flowRate)
-		    .setHasCustUnits(false);
+		    .setHasCustUnits(false)
+            .calculate();
     }
 
 	protected static Time getInstance (double volume,
@@ -113,6 +119,7 @@ public final class Time extends Calculations {
 		    .setFlowRate(flowRate)
 		    .setFlowRateUnit(flowRateUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustUnits(true);
+		    .setHasCustUnits(true)
+            .calculate();
     }
 }

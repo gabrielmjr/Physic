@@ -19,18 +19,18 @@ public final class Speed2 extends Calculations {
 
     private Speed2 () {}
 
-	private Speed2 setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnit();
-		else
-			calculateWithoutCustomUnit();
-		return this;
-	}
+    @Override
+    public Speed2 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
+    
+	private void calculateWithCustomUnits () {}
 
-	private void calculateWithCustomUnit () {}
-
-	private void calculateWithoutCustomUnit () {
+	private void calculateWithoutCustomUnits () {
 		step1 = Math.pow(ray, 2);
 		step2 = step1 * 3.14;
 		step3 = flowRate / step2;
@@ -101,12 +101,18 @@ public final class Speed2 extends Calculations {
 		return "v = Q / [π × (r)²]";
 	}
 
+    private Speed2 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+    }
+    
     protected static Speed2 getInstance (double flowRate, double ray) {
         if (!(instance instanceof Speed2))
             instance = new Speed2();
 		return instance.setFlowRate(flowRate)
 		    .setRay(ray)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
 	protected static Speed2 getInstance (double flowRate,
@@ -121,6 +127,7 @@ public final class Speed2 extends Calculations {
 		    .setRay(ray)
 		    .setRayUnit(rayUnit)
 		    .setUnitOfRest(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

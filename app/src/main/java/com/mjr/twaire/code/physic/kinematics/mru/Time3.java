@@ -19,8 +19,8 @@ public final class Time3 extends Calculations {
     
 	private Time3() {}
     
-    private Time3 setHasCustomUnits (boolean hasCustomUnits) {
-        this.hasCustomUnits = hasCustomUnits;
+    @Override
+    public Time3 calculate() {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
@@ -120,6 +120,11 @@ public final class Time3 extends Calculations {
         return "∆t = (S - Si) / ∆v";
     }
     
+    private Time3 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+    }
+    
     public static Time3 getInstance (double initialDisplacement,
                                      double finalDisplacement,
                                      double deltaSpeed) {
@@ -128,7 +133,8 @@ public final class Time3 extends Calculations {
 		return instance.setInitialDisplacement(initialDisplacement)
             .setFinalDisplacement(finalDisplacement)
             .setDeltaSpeed(deltaSpeed)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
     }
     
     public static Time3 getInstance (double initialDisplacement,
@@ -147,6 +153,7 @@ public final class Time3 extends Calculations {
             .setDeltaSpeed(deltaSpeed)
             .setDeltaSpeedUnit(deltaSpeedUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
     }
 }

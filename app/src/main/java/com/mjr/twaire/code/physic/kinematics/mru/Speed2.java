@@ -23,15 +23,15 @@ public final class Speed2 extends Calculations {
 	private boolean hasCustomUnits;
 	
 	private Speed2() {}
-	
-	private Speed2 setHasCustomUnits(boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Speed2 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 	
 	private void calculateWithCustomUnits() {
 	}
@@ -143,6 +143,11 @@ public final class Speed2 extends Calculations {
 	public String getFormula() {
 		return "∆v = (S - Si) ÷ (t - ti)";
 	}
+    
+    private Speed2 setHasCustomUnits(boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
     public static Speed2 getInstance(double initialDisplacement,
 		double finalDisplacement,
@@ -154,7 +159,8 @@ public final class Speed2 extends Calculations {
 		    .setFinalDisplacement(finalDisplacement)
 		    .setInitialTime(initialTime)
             .setFinalTime(finalTime)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
     }
     
     public static Speed2 getInstance(double initialDisplacement,
@@ -178,6 +184,7 @@ public final class Speed2 extends Calculations {
             .setFinalTime(finalTime)
             .setFinalTimeUnit(finalTimeUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
         }
 }

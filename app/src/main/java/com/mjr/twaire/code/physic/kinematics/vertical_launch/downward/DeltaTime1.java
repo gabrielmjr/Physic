@@ -16,8 +16,8 @@ public final class DeltaTime1 extends Calculations {
     
     private DeltaTime1() {}
     
-    private DeltaTime1 setHasCustomUnits(boolean hasCustomUnits) {
-        this.hasCustomUnits = hasCustomUnits;
+    @Override
+    public DeltaTime1 calculate() {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
@@ -94,13 +94,19 @@ public final class DeltaTime1 extends Calculations {
 	public String getFormula() {
 		return "∆t = ∆v / g";
 	}
+    
+    private DeltaTime1 setHasCustomUnits(boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+    }
 
     public static DeltaTime1 getInstance(double deltaSpeed, double gravity) {
         if (!(instance instanceof DeltaTime1))
             instance = new DeltaTime1();
         return instance.setDeltaSpeed(deltaSpeed)
             .setGravity(gravity)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
     }
 
     public static DeltaTime1 getInstance(double deltaSpeed,
@@ -115,6 +121,7 @@ public final class DeltaTime1 extends Calculations {
             .setGravity(gravity)
             .setGravityUnit(gravityUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
     }
 }

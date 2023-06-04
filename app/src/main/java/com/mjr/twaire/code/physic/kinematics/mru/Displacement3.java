@@ -20,20 +20,20 @@ public final class Displacement3 extends Calculations {
 	private boolean hasCustomUnits;
 
 	private Displacement3 () {}
-
-	private Displacement3 setHasCustomUnit (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCUstomUnits();
-		return this;
-	}
+    
+    @Override
+    public Displacement3 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits () {
 	}
 
-	private void calculateWithoutCUstomUnits () {
+	private void calculateWithoutCustomUnits () {
 		step1 = finalTime - initialTime;
 		step2 = step1 * deltaSpeed;
 	}
@@ -128,6 +128,11 @@ public final class Displacement3 extends Calculations {
     public String getFormula() {
         return "∆S = (t - ti) × ∆v";
     }
+    
+    private Displacement3 setHasCustomUnit (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 	
 	public static Displacement3 getInstance (double initialTime,
 											 double finalTime,
@@ -137,7 +142,8 @@ public final class Displacement3 extends Calculations {
 		return instance.setInitialTime(initialTime)
 		    .setFinalTime(finalTime)
 		    .setDeltaSpeed(deltaSpeed)
-		    .setHasCustomUnit(false);
+		    .setHasCustomUnit(false)
+            .calculate();
     }
 	
     public static Displacement3 getInstance (double initialTime,
@@ -156,6 +162,7 @@ public final class Displacement3 extends Calculations {
 	        .setDeltaSpeed(deltaSpeed)
 		    .setDeltaSpeedUnit(deltaSpeedUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnit(true);
+		    .setHasCustomUnit(true)
+            .calculate();
     }
 }

@@ -20,9 +20,9 @@ public final class Speed3 extends Calculations {
     private boolean hasCustomUnits;
 
 	private Speed3() {}
-
-    private Speed3 setHasCustomUnits(boolean hasCustomUnits) {
-        this.hasCustomUnits = hasCustomUnits;
+    
+    @Override
+    public Speed3 calculate() {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
@@ -123,6 +123,11 @@ public final class Speed3 extends Calculations {
         return "∆v = (S - Si) / ∆t";
     }
 
+    private Speed3 setHasCustomUnits(boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+    }
+    
     public static Speed3 getInstance(double initialDisplacement,
                                      double finalDisplacement,
                                      double deltaTime) {
@@ -131,7 +136,8 @@ public final class Speed3 extends Calculations {
         return instance.setInitialDisplacement(initialDisplacement)
             .setFinalDisplacement(finalDisplacement)
             .setDeltaTime(deltaTime)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
     }
     
     public static Speed3 getInstance(double initialDisplacement,
@@ -150,6 +156,7 @@ public final class Speed3 extends Calculations {
             .setDeltaTime(deltaTime)
             .setDeltaTimeUnit(deltaTimeUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
     }
 }

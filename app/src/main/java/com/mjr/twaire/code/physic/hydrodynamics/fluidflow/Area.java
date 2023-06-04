@@ -17,19 +17,19 @@ public final class Area extends Calculations {
 
     private Area () {}
 
-	private Area setHasCustomUnist (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnit();
-		else
-			calculateWithoutCustomUnit();
-		return this;
+    @Override
+    public Area calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
+
+	private void calculateWithCustomUnits () {
 	}
 
-	private void calculateWithCustomUnit () {
-	}
-
-	private void calculateWithoutCustomUnit () {
+	private void calculateWithoutCustomUnits () {
 		step1 = flowRate / velocity;
 	}
 
@@ -95,13 +95,19 @@ public final class Area extends Calculations {
 	public String getFormula() {
 		return "A = Q / v";
 	}
+    
+    private Area setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
     protected static Area getInstance (double flowRate, double velocity) {
         if (!(instance instanceof Area))
             instance = new Area();
         return instance.setFlowwRate(flowRate)
 		    .setVelocity(velocity)
-		    .setHasCustomUnist(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
 	protected static Area getInstance (double flowRate,
@@ -116,6 +122,7 @@ public final class Area extends Calculations {
 		    .setVelocity(velocity)
 		    .setVelocityUnit(velocityUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnist(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

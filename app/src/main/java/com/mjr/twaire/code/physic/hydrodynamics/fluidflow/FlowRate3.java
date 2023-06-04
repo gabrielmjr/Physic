@@ -18,20 +18,20 @@ public final class FlowRate3 extends Calculations {
 	private boolean hasCustomUnits;
 
     private FlowRate3 () {}
+    
+    @Override
+    public FlowRate3 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
-	private FlowRate3 setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnit();
-		else
-			calculateWithoutCustomUnit();
-		return this;
+	private void calculateWithCustomUnits () {
 	}
 
-	private void calculateWithCustomUnit () {
-	}
-
-	private void calculateWithoutCustomUnit () {
+	private void calculateWithoutCustomUnits () {
 		step1 = Math.pow(ray, 2);
 		step2 = 3.14 * step1;
 		step3 = step2 * velocity;
@@ -98,6 +98,11 @@ public final class FlowRate3 extends Calculations {
 	public String getFormula() {
 		return "Q = π × r² * v";
 	}
+  
+    private FlowRate3 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
     protected static FlowRate3 getInstance (double ray,
 										 double velocity) {
@@ -105,7 +110,8 @@ public final class FlowRate3 extends Calculations {
             instance = new FlowRate3();
         return instance.setRay(ray)
 		    .setVelocity(velocity)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
 	protected static FlowRate3 getInstance (double ray,
@@ -120,6 +126,7 @@ public final class FlowRate3 extends Calculations {
 		    .setVelocity(velocity)
 		    .setVelocityUnit(velocityUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

@@ -18,6 +18,15 @@ public final class Displacement1 extends Calculations {
 	private boolean hasCustomUnits;
 
 	private Displacement1 () {}
+    
+    @Override
+    public Displacement1 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private Displacement1 setHasCustomUnits (boolean hasCustomUnits) {
 		this.hasCustomUnits = hasCustomUnits;
@@ -107,7 +116,8 @@ public final class Displacement1 extends Calculations {
 			instance = new Displacement1();
 		return instance.setInitiDisplacement(initialDisplacement)
 		    .setFinalDisplacement(finalDisplacement)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
 	public static Displacement1 getInstance (double initialDisplacement, 
@@ -122,6 +132,7 @@ public final class Displacement1 extends Calculations {
 		    .setFinalDisplacement(finalDisplacement)
 		    .setFinalDisplacementUnit(finalDisplacementUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

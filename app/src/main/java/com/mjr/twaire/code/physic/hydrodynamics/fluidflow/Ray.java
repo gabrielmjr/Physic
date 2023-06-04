@@ -18,15 +18,15 @@ public final class Ray extends Calculations {
 	private boolean hasCustomUnits;
 
     private Ray () {}
-
-	private Ray setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Ray calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits () {
 	}
@@ -102,13 +102,19 @@ public final class Ray extends Calculations {
 	public String getFormula() {
 		return "r = √[Q / (π × v)]";
 	}
+    
+    private Ray setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
     protected static Ray getInstance (double flowRate, double velocity) {
         if (!(instance instanceof Ray))
 			instance = new Ray();
 		return instance.setFlowRate(flowRate)
 		    .setVelocity(velocity)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
 	protected static Ray getInstance (double flowRate,
@@ -123,6 +129,7 @@ public final class Ray extends Calculations {
 		    .setVelocity(velocity)
 		    .setVelocityUnit(velocityUnit)
 		    .setUnitOfResut(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }
