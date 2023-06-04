@@ -50,6 +50,8 @@ public interface FluidFlowIF {
         double flowRate,
 		int flowRateUnit,
         int unitOfResult);
+        
+    public abstract Time time();
 
     public abstract Volume volume (
 		double time, 

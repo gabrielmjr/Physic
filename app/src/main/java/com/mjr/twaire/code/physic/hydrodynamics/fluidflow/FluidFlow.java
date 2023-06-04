@@ -100,6 +100,11 @@ public class FluidFlow implements FluidFlowIF {
 								flowRateUnit,
 								unitOfResult);
     }
+    
+    @Override
+    public Time time() {
+        return new Time();
+    }
 
     // V = ∆t * Q
     @Override
