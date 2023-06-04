@@ -124,6 +124,11 @@ public class FluidFlow implements FluidFlowIF {
 								  flowRateUnit,
 								  unitOfResult);
     }
+    
+    @Override
+    public Volume volume() {
+        return new Volume();
+    }
 
     // v = Q / A
     @Override

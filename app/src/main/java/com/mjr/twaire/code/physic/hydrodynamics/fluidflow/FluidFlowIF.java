@@ -63,6 +63,8 @@ public interface FluidFlowIF {
 		double flowRate,
 		int flowRateUnit,
 		int unitOfResult);
+        
+    public abstract Volume volume();
 
     public abstract Speed1 speed1 (
 		double flowRate, 

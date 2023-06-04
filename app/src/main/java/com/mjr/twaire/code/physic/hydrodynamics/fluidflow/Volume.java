@@ -3,6 +3,7 @@ package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 import com.mjr.twaire.code.physic.Calculations;
 
 public final class Volume extends Calculations {
+    @Deprecated
     private static Volume instance;
 
 	private double deltaTime;
@@ -15,7 +16,25 @@ public final class Volume extends Calculations {
 	private double step1;
 	private boolean hasCustomUnits;
 
-    private Volume () {}
+    protected Volume() {}
+    
+    protected Volume(double deltaTime, double flowRate) {
+        this.deltaTime = deltaTime;
+        this.flowRate = flowRate;
+        hasCustomUnits = false;
+        calculate();
+    }
+
+    protected Volume(double deltaTime, double flowRate, int deltaTimeUnit, int flowRateUnit, int unitOfResult) {
+        this.deltaTime = deltaTime;
+        this.flowRate = flowRate;
+        this.deltaTimeUnit = deltaTimeUnit;
+        this.flowRateUnit = flowRateUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = false;
+        calculate();
+    }
+
     
     @Override
     public Volume calculate() {
@@ -96,11 +115,13 @@ public final class Volume extends Calculations {
 		return "V = ∆t × Q";
 	}
     
+    @Deprecated
     private Volume setHasCustomUnits (boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
 	}
 
+    @Deprecated
     protected static Volume getInstance (double deltaTime, double flowRate) {
         if (!(instance instanceof Volume))
 			instance = new Volume();
@@ -110,6 +131,7 @@ public final class Volume extends Calculations {
             .calculate();
     }
 
+    @Deprecated
 	protected static Volume getInstance (double deltaTime,
 									  int deltaTimeUnit,
 									  double flowRate,
