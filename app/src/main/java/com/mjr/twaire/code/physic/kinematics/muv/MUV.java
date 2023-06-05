@@ -3,7 +3,6 @@ package com.mjr.twaire.code.physic.kinematics.muv;
 public class MUV implements MUVIF {
 	private static MUV instance;
 
-	private Acceleration2 acceleration2;
 	private Acceleration3 acceleration3;
 	private Acceleration4 acceleration4;
 
@@ -21,7 +20,6 @@ public class MUV implements MUVIF {
 	private Displacement2 displacement2;
 
 	public MUV() {
-		acceleration2 = Acceleration2.getInstance();
 		acceleration3 = Acceleration3.getInstance();
 		acceleration4 = Acceleration4.getInstance();
 
@@ -61,33 +59,29 @@ public class MUV implements MUVIF {
 
 	// a = (deltaSpeed) / (finalTime - initialTime)
 	@Override
-	public String acceleration2(
-		double deltaSpeed,
-		double initialTime,
-		double finalTime,
-		int resultOrStep) {
-		return acceleration2.acceleration(
-			deltaSpeed,
-			initialTime,
-			finalTime,
-			resultOrStep);
+	public Acceleration2 acceleration2(double deltaSpeed,
+                                       double initialTime,
+                                       double finalTime) {
+		return new Acceleration2(deltaSpeed,
+                                 initialTime,
+                                 finalTime);
 	}
 
 	@Override
-	public String acceleration2(
-		double deltaSpeed,
-		String deltaSpeedUnit,
-		double initialTime,
-		String initialTimeUnit,
-		double finalTime,
-		String finalTimeUnit,
-		String unitOfResult,
-		int resultOrStep) {
-		return acceleration2.acceleration(
-			deltaSpeed,
-			initialTime,
-			finalTime,
-			resultOrStep);
+	public Acceleration2 acceleration2(double deltaSpeed,
+                                       int deltaSpeedUnit,
+                                       double initialTime,
+                                       int initialTimeUnit,
+                                       double finalTime,
+                                       int finalTimeUnit,
+                                       int unitOfResult) {
+		return new Acceleration2(deltaSpeed,
+                                 deltaSpeedUnit,
+                                 initialTime,
+                                 initialTimeUnit,
+                                 finalTime,
+                                 finalTimeUnit,
+                                 unitOfResult);
 	}
 
 	// a = (vf - vi) / variationTime

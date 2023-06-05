@@ -12,21 +12,19 @@ public interface MUVIF {
         int deltaTimeUnit, 
         int unitOfResult);
 
-    public abstract String acceleration2(
+    public abstract Acceleration2 acceleration2(
         double deltaSpeed, 
         double initialTime, 
-        double finalTime, 
-        int stepOrResult);
+        double finalTime);
 
-    public abstract String acceleration2(
+    public abstract Acceleration2 acceleration2(
         double deltaSpeed, 
-        String deltaSpeedUnit, 
+        int deltaSpeedUnit, 
         double initialTime, 
-        String initialTimeUnit, 
+        int initialTimeUnit, 
         double finalTime, 
-        String finalTimeUnit, 
-        String unitOfResult, 
-        int stepOrResult);
+        int finalTimeUnit, 
+        int unitOfResult);
 
     public abstract String acceleration3(
         double initialSpeed, 

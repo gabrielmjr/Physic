@@ -3,6 +3,7 @@ package com.mjr.twaire.code.physic.kinematics.muv;
 import com.mjr.twaire.code.physic.Calculations;
 
 public final class Acceleration1 extends Calculations {
+    @Deprecated
 	private static Acceleration1 instance; 
     private double deltaSpeed;
     private double deltaTime;
@@ -24,10 +25,10 @@ public final class Acceleration1 extends Calculations {
     }
 
     protected Acceleration1(double deltaSpeed, 
-                         int deltaSpeedUnit, 
-                         double deltaTime,
-                         int deltaTimeUnit,
-                         int unitOfResult) {
+                            int deltaSpeedUnit, 
+                            double deltaTime,
+                            int deltaTimeUnit,
+                            int unitOfResult) {
         this.deltaSpeed = deltaSpeed;
         this.deltaTime = deltaTime;
         this.deltaSpeedUnit = deltaSpeedUnit;
@@ -42,23 +43,24 @@ public final class Acceleration1 extends Calculations {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
-            calculateWithoutCUstomUnits();
+            calculateWithoutCustomUnits();
         return this;
     }
 
+    @Deprecated
     private Acceleration1 setHasCustomUnit(boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
-            calculateWithoutCUstomUnits();
+            calculateWithoutCustomUnits();
         return this;
     }
 
     private void calculateWithCustomUnits() {
     }
 
-    private void calculateWithoutCUstomUnits() {
+    private void calculateWithoutCustomUnits() {
         step1 = deltaSpeed / deltaTime;
     }
 
@@ -123,6 +125,7 @@ public final class Acceleration1 extends Calculations {
         return "a = ∆v / ∆t";
     }
 
+    @Deprecated
     public static Acceleration1 getInstance(double deltaSpeed, double deltaTime) {
 		if (instance == null) {
 			instance = new Acceleration1();
@@ -132,6 +135,7 @@ public final class Acceleration1 extends Calculations {
             .setHasCustomUnit(false);
     }
 
+    @Deprecated
     public static Acceleration1 getInstance(double deltaSpeed, 
                                             int deltaSpeedUnit,
                                             double deltaTime,
