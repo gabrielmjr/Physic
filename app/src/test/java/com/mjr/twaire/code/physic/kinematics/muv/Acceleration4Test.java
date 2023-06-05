@@ -13,11 +13,11 @@ public class Acceleration4Test {
 
     @Test
     public void acceleration4Test () {
-        Double initialVelocity = 3.0;
-        Double finalVelocity = 9.0;
-        Double initialTime = 8.0;
-        Double finalTime = 18.0;
-        String result = "0.6";
-        assertEquals(result, muv.acceleration4(initialVelocity, finalVelocity, initialTime, finalTime, GET_RESULT));
+        double initialVelocity = 3.0;
+        double finalVelocity = 9.0;
+        double initialTime = 8.0;
+        double finalTime = 18.0;
+        double result = 0.6;
+        assertEquals(result, muv.acceleration4(initialVelocity, finalVelocity, initialTime, finalTime).getResult());
     }
 }

@@ -3,8 +3,6 @@ package com.mjr.twaire.code.physic.kinematics.muv;
 public class MUV implements MUVIF {
 	private static MUV instance;
 
-	private Acceleration4 acceleration4;
-
 	private Speed1 speed1;
 	private Speed2 speed2;
 	private Speed3 speed3;
@@ -19,8 +17,6 @@ public class MUV implements MUVIF {
 	private Displacement2 displacement2;
 
 	public MUV() {
-		acceleration4 = Acceleration4.getInstance();
-
 		speed1 = Speed1.getInstance();
 		speed2 = Speed2.getInstance();
 		speed3 = Speed3.getInstance();
@@ -111,43 +107,36 @@ public class MUV implements MUVIF {
 
 	// a = (finalVelocity - initialVelocity) ÷ (finalTime - initialTime)
 	@Override
-	public String acceleration4(
+	public Acceleration4 acceleration4(
 		double initialVelocity,
 		double finalVelocity,
 		double initialTime,
-		double finalTime,
-		int stepOrResult) {
-		return acceleration4.acceleration(
-			initialVelocity,
-			finalVelocity,
-			initialTime,
-			finalTime,
-			stepOrResult);
+		double finalTime) {
+		return new Acceleration4(initialVelocity,
+                                 finalVelocity,
+                                 initialTime,
+                                 finalTime);
     }
 
 	@Override
-	public String acceleration4(
-		double initialVelocity, 
-		String initialVelocityUnit, 
-		double finalVelocity, 
-		String finalVelocityUnit, 
-		double initialTime, 
-		String initialTimeUnit, 
-		double finalTime, 
-		String finalTimeUnit,
-		String unitOfResult, 
-		int stepOrResult) {
-		return acceleration4.acceleration(
-			initialVelocity,
-			initialVelocityUnit,
-			finalVelocity,
-			finalVelocityUnit,
-			initialTime,
-			initialTimeUnit,
-			finalTime,
-			finalTimeUnit,
-			unitOfResult,
-			stepOrResult);
+	public Acceleration4 acceleration4(double initialVelocity, 
+                                       int initialVelocityUnit, 
+                                       double finalVelocity, 
+                                       int finalVelocityUnit, 
+                                       double initialTime, 
+                                       int initialTimeUnit, 
+                                       double finalTime, 
+                                       int finalTimeUnit,
+                                       int unitOfResult) {
+		return new Acceleration4(initialVelocity,
+                                 initialVelocityUnit,
+                                 finalVelocity,
+                                 finalVelocityUnit,
+                                 initialTime,
+                                 initialTimeUnit,
+                                 finalTime,
+                                 finalTimeUnit,
+                                 unitOfResult);
     }
 
     // Speed
