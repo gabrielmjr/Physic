@@ -65,7 +65,7 @@ public final class Area extends Calculations {
 			+ "\nA = " + step1 + "m²";
 	}
 
-	private Area setFlowwRate (double flowRate) {
+	public Area setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -74,7 +74,7 @@ public final class Area extends Calculations {
 		return flowRate;
 	}
 
-	private Area setVelocity (double velocity) {
+	public Area setVelocity (double velocity) {
 		this.velocity = velocity;
 		return this;
 	}
@@ -83,7 +83,7 @@ public final class Area extends Calculations {
 		return velocity;
 	}
 
-	private Area setFlowRateUnit (int flowRateUnit) {
+	public Area setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
@@ -92,7 +92,7 @@ public final class Area extends Calculations {
 		return flowRateUnit;
 	}
 
-	private Area setVelocityUnit (int velocityUnit) {
+	public Area setVelocityUnit (int velocityUnit) {
 		this.velocityUnit = velocityUnit;
 		return this;
 	}
@@ -101,7 +101,7 @@ public final class Area extends Calculations {
 		return velocityUnit;
 	}
 
-	private Area setUnitOfResult (int unitOfResult) {
+	public Area setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
@@ -125,7 +125,7 @@ public final class Area extends Calculations {
     protected static Area getInstance (double flowRate, double velocity) {
         if (!(instance instanceof Area))
             instance = new Area();
-        return instance.setFlowwRate(flowRate)
+        return instance.setFlowRate(flowRate)
 		    .setVelocity(velocity)
 		    .setHasCustomUnits(false)
             .calculate();
@@ -139,7 +139,7 @@ public final class Area extends Calculations {
 									   int unitOfResult) {
         if (!(instance instanceof Area))
             instance = new Area();
-        return instance.setFlowwRate(flowRate)
+        return instance.setFlowRate(flowRate)
 		    .setFlowRateUnit(flowRateUnit)
 		    .setVelocity(velocity)
 		    .setVelocityUnit(velocityUnit)

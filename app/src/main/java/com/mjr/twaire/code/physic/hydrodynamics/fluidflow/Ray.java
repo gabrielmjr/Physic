@@ -70,7 +70,7 @@ public final class Ray extends Calculations {
 			+ "\nr = " + step3 + "m";
 	}
 
-    private Ray setFlowRate (double flowRate) {
+    public Ray setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -79,7 +79,7 @@ public final class Ray extends Calculations {
 		return flowRate;
 	}
 
-	private Ray setVelocity (double velocity) {
+	public Ray setVelocity (double velocity) {
 		this.velocity = velocity;
 		return this;
 	}
@@ -88,7 +88,7 @@ public final class Ray extends Calculations {
 		return velocity;
 	}
 
-	private Ray setFlowRateUnit (int flowRateUnit) {
+	public Ray setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit  = flowRateUnit;
 		return this;
 	}
@@ -98,7 +98,7 @@ public final class Ray extends Calculations {
 	}
 
 
-	private Ray setVelocityUnit (int velocityUnit) {
+	public Ray setVelocityUnit (int velocityUnit) {
 		this.velocityUnit = velocityUnit;
 		return this;
 	}
@@ -107,7 +107,7 @@ public final class Ray extends Calculations {
 		return velocityUnit;
 	}
 
-	private Ray setUnitOfResut (int unitOfResult) {
+	public Ray setUnitOfResut (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}

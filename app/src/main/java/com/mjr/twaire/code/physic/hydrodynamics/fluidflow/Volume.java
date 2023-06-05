@@ -65,7 +65,7 @@ public final class Volume extends Calculations {
 			+ "\nV = " + step1 + "m³";
 	}
 
-    private Volume setDeltaTime (double deltaTime) {
+    public Volume setDeltaTime (double deltaTime) {
 		this.deltaTime = deltaTime;
 		return this;
 	}
@@ -74,7 +74,7 @@ public final class Volume extends Calculations {
 		return deltaTime;
 	}
 
-	private Volume setFlowRate (double flowRate) {
+	public Volume setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -83,7 +83,7 @@ public final class Volume extends Calculations {
 		return flowRate;
 	}
 
-	private Volume setDeltaTimeUnit (int deltaTimeUnit) {
+	public Volume setDeltaTimeUnit (int deltaTimeUnit) {
 		this.deltaTimeUnit = deltaTimeUnit;
 		return this;
 	}
@@ -92,7 +92,7 @@ public final class Volume extends Calculations {
 		return deltaTimeUnit;
 	}
 
-	private Volume setFlowRateUnit (int flowRateUnit) {
+	public Volume setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
@@ -101,7 +101,7 @@ public final class Volume extends Calculations {
 		return flowRateUnit;
 	}
 
-	private Volume setUnitOfResult (int unitOfResult) {
+	public Volume setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}

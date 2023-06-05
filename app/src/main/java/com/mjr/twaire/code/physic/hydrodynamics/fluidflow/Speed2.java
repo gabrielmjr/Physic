@@ -69,7 +69,7 @@ public final class Speed2 extends Calculations {
 			+ "\nv = " + step3 + "m/s";
 	}
 
-	private Speed2 setFlowRate (double flowRate) {
+	public Speed2 setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -78,7 +78,7 @@ public final class Speed2 extends Calculations {
 		return flowRate;
 	}
 
-	private Speed2 setRay (double ray) {
+	public Speed2 setRay (double ray) {
 		this.ray = ray;
 		return this;
 	}
@@ -87,7 +87,7 @@ public final class Speed2 extends Calculations {
 		return ray;
 	}
 
-	private Speed2 setFlowRateUnit (int flowRateUnit) {
+	public Speed2 setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
@@ -96,7 +96,7 @@ public final class Speed2 extends Calculations {
 		return flowRateUnit;
 	}
 
-	private Speed2 setRayUnit (int rayUnit) {
+	public Speed2 setRayUnit (int rayUnit) {
 		this.rayUnit = rayUnit;
 		return this;
 	}
@@ -105,7 +105,7 @@ public final class Speed2 extends Calculations {
 		return rayUnit;
 	}
 
-	private Speed2 setUnitOfRest (int unitOfResult) {
+	public Speed2 setUnitOfRest (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}

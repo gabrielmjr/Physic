@@ -65,7 +65,7 @@ public final class FlowRate2 extends Calculations {
 		}
 	}
 
-	private FlowRate2 setArea (double area) {
+	public FlowRate2 setArea (double area) {
 		this.area = area;
 		return this;
 	}
@@ -74,7 +74,7 @@ public final class FlowRate2 extends Calculations {
 		return area;
 	}
 
-	private FlowRate2 setVelocity (double velocity) {
+	public FlowRate2 setVelocity (double velocity) {
 		this.velocity = velocity;
 		return this;
 	}
@@ -83,7 +83,7 @@ public final class FlowRate2 extends Calculations {
 		return velocity;
 	}
 
-	private FlowRate2 setAreaUnit (int areaUnit) {
+	public FlowRate2 setAreaUnit (int areaUnit) {
 		this.areaUnit = areaUnit;
 		return this;
 	}
@@ -92,7 +92,7 @@ public final class FlowRate2 extends Calculations {
 		return areaUnit;
 	}
 
-	private FlowRate2 setVelocityUnit (int velocityUnit) {
+	public FlowRate2 setVelocityUnit (int velocityUnit) {
 		this.velocityUnit = velocityUnit;
 		return this;
 	}
@@ -101,7 +101,7 @@ public final class FlowRate2 extends Calculations {
 		return velocityUnit;
 	}
 
-	private FlowRate2 setUnitOfResult (int unitOfResult) {
+	public FlowRate2 setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}

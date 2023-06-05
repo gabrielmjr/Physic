@@ -64,7 +64,7 @@ public final class Speed1 extends Calculations {
 			+ "\nv = " + step1 + "m/s";
 	}
 
-    private Speed1 setFlowRate (double flowRate) {
+    public Speed1 setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -73,7 +73,7 @@ public final class Speed1 extends Calculations {
 		return flowRate;
 	}
 
-	private Speed1 setArea (double area) {
+	public Speed1 setArea (double area) {
 		this.area = area;
 		return this;
 	}
@@ -82,7 +82,7 @@ public final class Speed1 extends Calculations {
 		return area;
 	}
 
-	private Speed1 setFlowRateUnit (int flowRateUnit) {
+	public Speed1 setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
@@ -91,7 +91,7 @@ public final class Speed1 extends Calculations {
 		return flowRateUnit;
 	}
 
-	private Speed1 setAreaUnit (int areaUnit) {
+	public Speed1 setAreaUnit (int areaUnit) {
 		this.areaUnit = areaUnit;
 		return this;
 	}
@@ -100,7 +100,7 @@ public final class Speed1 extends Calculations {
 		return areaUnit;
 	}
 
-	private Speed1 setUnitOfResult (int unitOfResult) {
+	public Speed1 setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}

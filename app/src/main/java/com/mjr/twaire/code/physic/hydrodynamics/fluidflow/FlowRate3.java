@@ -72,7 +72,7 @@ public final class FlowRate3 extends Calculations {
 				+ "\nQ = " + step3 + "m³/s";
 	}
 
-	private FlowRate3 setRay (double ray) {
+	public FlowRate3 setRay (double ray) {
 		this.ray = ray;
 		return this;
 	}
@@ -81,12 +81,16 @@ public final class FlowRate3 extends Calculations {
 		return ray;
 	}
 
-	private FlowRate3 setVelocity (double velocity) {
+	public FlowRate3 setVelocity (double velocity) {
 		this.velocity = velocity;
 		return this;
 	}
+    
+    public double getVelocity() {
+        return velocity;
+    }
 
-	private FlowRate3 setRayUnit (int rayUnit) {
+	public FlowRate3 setRayUnit (int rayUnit) {
 		this.rayUnit = rayUnit;
 		return this;
 	}
@@ -95,7 +99,7 @@ public final class FlowRate3 extends Calculations {
 		return rayUnit;
 	}
 
-	private FlowRate3 setVelocityUnit (int velocityUnit) {
+	public FlowRate3 setVelocityUnit (int velocityUnit) {
 		this.velocityUnit = velocityUnit;
 		return this;
 	}
@@ -104,7 +108,7 @@ public final class FlowRate3 extends Calculations {
 		return velocityUnit;
 	}
 
-	private FlowRate3 setUnitOfResult (int unitOfResult) {
+	public FlowRate3 setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}

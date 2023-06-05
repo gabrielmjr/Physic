@@ -66,7 +66,7 @@ public final class FlowRate1 extends Calculations {
 		}
 	}
 
-	private FlowRate1 setVolume (double volume) {
+	public FlowRate1 setVolume (double volume) {
 		this.volume = volume;
 		return this;
 	}
@@ -75,7 +75,7 @@ public final class FlowRate1 extends Calculations {
 		return volume;
 	}
 
-	private FlowRate1 setDeltaTime (double deltaTime) {
+	public FlowRate1 setDeltaTime (double deltaTime) {
 		this.deltaTime = deltaTime;
 		return this;
 	}
@@ -84,7 +84,7 @@ public final class FlowRate1 extends Calculations {
 		return deltaTime;
 	}
 
-	private FlowRate1 setVolumeUnit (int volumeUnit) {
+	public FlowRate1 setVolumeUnit (int volumeUnit) {
 		this.volumeUnit = volumeUnit;
 		return this;
 	}
@@ -93,7 +93,7 @@ public final class FlowRate1 extends Calculations {
 		return volumeUnit;
 	}
 
-	private FlowRate1 setDeltaTimeUnit (int deltaTimeUnit) {
+	public FlowRate1 setDeltaTimeUnit (int deltaTimeUnit) {
 		this.deltaTimeUnit = deltaTimeUnit;
 		return this;
 	}
@@ -102,7 +102,7 @@ public final class FlowRate1 extends Calculations {
 		return deltaTimeUnit;
 	}
 
-	private FlowRate1 setUnitOfResult (int unitOfResult) {
+	public FlowRate1 setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}

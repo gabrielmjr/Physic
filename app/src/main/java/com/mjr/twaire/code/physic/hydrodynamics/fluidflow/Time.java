@@ -62,7 +62,7 @@ public final class Time extends Calculations {
 			+ "\n∆t = " + step1 + "s";
 	}
 
-    private Time setVolume (double volume) {
+    public Time setVolume (double volume) {
 		this.volume = volume;
 		return this;
 	}
@@ -71,7 +71,7 @@ public final class Time extends Calculations {
 		return volume;
 	}
 
-	private Time setFlowRate (double flowRate) {
+	public Time setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -80,7 +80,7 @@ public final class Time extends Calculations {
 		return flowRate;
 	}
 
-	private Time setVolumeUnit (int volumeUnit) {
+	public Time setVolumeUnit (int volumeUnit) {
 		this.volumeUnit = volumeUnit;
 		return this;
 	}
@@ -89,7 +89,7 @@ public final class Time extends Calculations {
 		return volumeUnit;
 	}
 
-	private Time setFlowRateUnit (int flowRateUnit) {
+	public Time setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
@@ -98,7 +98,7 @@ public final class Time extends Calculations {
 		return flowRateUnit;
 	}
 
-	private Time setUnitOfResult (int unitOfResult) {
+	public Time setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
