@@ -43,20 +43,20 @@ public class MUV implements MUVIF {
 	// a = deltaVelocity / deltaTime
 	@Override
 	public Acceleration1 acceleration1(double deltaSpeed, double deltaTime) {
-		return Acceleration1.getInstance(deltaSpeed, deltaTime);
+		return new Acceleration1(deltaSpeed, deltaTime);
 	}
 
 	@Override
 	public Acceleration1 acceleration1(double deltaSpeed, 
-		int deltaSpeedUnit,
-		double deltaTime,
-		int deltaTimeUnit,
-		int unitOfResult) {
-		return Acceleration1.getInstance(deltaSpeed,
-			deltaSpeedUnit,
-			deltaTime,
-			deltaTimeUnit,
-			unitOfResult);
+                                       int deltaSpeedUnit,
+                                       double deltaTime,
+                                       int deltaTimeUnit,
+                                       int unitOfResult) {
+		return new Acceleration1(deltaSpeed,
+                                 deltaSpeedUnit,
+                                 deltaTime,
+                                 deltaTimeUnit,
+                                 unitOfResult);
 	}
 
 	// a = (deltaSpeed) / (finalTime - initialTime)
