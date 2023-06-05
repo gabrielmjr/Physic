@@ -26,21 +26,19 @@ public interface MUVIF {
         int finalTimeUnit, 
         int unitOfResult);
 
-    public abstract String acceleration3(
+    public abstract Acceleration3 acceleration3(
         double initialSpeed, 
         double finalSpeed, 
-        double variationTime, 
-        int stepOrResult);
+        double variationTime);
 
-    public abstract String acceleration3(
+    public abstract Acceleration3 acceleration3(
         double initialSpeed, 
-        String initialSpeedUnit, 
+        int initialSpeedUnit, 
         double finalSpeed, 
-        String finalSpeedUnit, 
+        int finalSpeedUnit, 
         double variationTime, 
-        String variationTimeUnit, 
-        String unitOfResult, 
-        int stepOrResult);
+        int variationTimeUnit, 
+        int unitOfResult);
 
     public abstract String acceleration4(
         double initialSpeed, 

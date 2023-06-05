@@ -3,7 +3,6 @@ package com.mjr.twaire.code.physic.kinematics.muv;
 public class MUV implements MUVIF {
 	private static MUV instance;
 
-	private Acceleration3 acceleration3;
 	private Acceleration4 acceleration4;
 
 	private Speed1 speed1;
@@ -20,7 +19,6 @@ public class MUV implements MUVIF {
 	private Displacement2 displacement2;
 
 	public MUV() {
-		acceleration3 = Acceleration3.getInstance();
 		acceleration4 = Acceleration4.getInstance();
 
 		speed1 = Speed1.getInstance();
@@ -86,37 +84,29 @@ public class MUV implements MUVIF {
 
 	// a = (vf - vi) / variationTime
 	@Override
-	public String acceleration3(
-		double initialVelocity,
-		double finalVelocity, 
-		double variationTime,
-		int stepOrResult) {
-		return acceleration3.acceleration(
-			initialVelocity,
-			finalVelocity,
-			variationTime,
-			stepOrResult);
+	public Acceleration3 acceleration3(double initialVelocity,
+                                       double finalVelocity, 
+                                       double variationTime) {
+		return new Acceleration3(initialVelocity,
+                                 finalVelocity,
+                                 variationTime);
     }
 
 	@Override 
-	public String acceleration3(
-		double initialVelocity, 
-		String initialVelocityUnit, 
-		double finalVelocity, 
-		String finalVelocityUnit, 
-		double variationTime, 
-		String variationTimeUnit, 
-		String unitOfResult, 
-		int stepOrResult) {
-	    return acceleration3.acceleration(
-			initialVelocity,
-			initialVelocityUnit,
-			finalVelocity,
-			finalVelocityUnit,
-			variationTime, 
-			variationTimeUnit,
-			unitOfResult,
-			stepOrResult);
+	public Acceleration3 acceleration3(double initialVelocity, 
+                                       int initialVelocityUnit, 
+                                       double finalVelocity, 
+                                       int finalVelocityUnit, 
+                                       double variationTime, 
+                                       int variationTimeUnit, 
+                                       int unitOfResult) {
+	    return new Acceleration3(initialVelocity,
+                                 initialVelocityUnit,
+                                 finalVelocity,
+                                 finalVelocityUnit,
+                                 variationTime, 
+                                 variationTimeUnit,
+                                 unitOfResult);
 	}
 
 	// a = (finalVelocity - initialVelocity) ÷ (finalTime - initialTime)
