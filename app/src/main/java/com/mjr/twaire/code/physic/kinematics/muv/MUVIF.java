@@ -57,14 +57,14 @@ public interface MUVIF {
         int finalTimeUnit, 
         int unitOfResult);
 
-    public abstract String speed1(double deltaTime, double acceleration);
+    public abstract Speed1 speed1(double deltaTime, double acceleration);
 
-    public abstract String speed1(
+    public abstract Speed1 speed1(
         double deltaTime, 
-        String deltaSpeedUnit, 
+        int deltaSpeedUnit, 
         double acceleration, 
-        String accelerationUnit, 
-        String unitOfResult);
+        int accelerationUnit, 
+        int unitOfResult);
 
     public abstract String speed2(
         double initialTime, 
