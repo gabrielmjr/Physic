@@ -13,8 +13,6 @@ public class MUV implements MUVIF {
 	private Time3 time3;
 	private Time4 time4;
 
-	private Displacement2 displacement2;
-
 	public MUV() {
 		speed1 = Speed1.getInstance();
 		speed2 = Speed2.getInstance();
@@ -25,9 +23,7 @@ public class MUV implements MUVIF {
 		time2 = Time2.getInstance();
 		time3 = Time3.getInstance();
 		time4 = Time4.getInstance();
-
-		displacement2 = Displacement2.getInstance();
-	}
+    }
 
 
 	// a = deltaVelocity / deltaTime
@@ -397,75 +393,67 @@ public class MUV implements MUVIF {
 	// total Displacement: S = si + vi * ∆t + (a * ∆t²) /2
 	@Override
 	public Displacement1 displacement1(double initialDisplacement,
-		double initialVelocity,
-		double deltaTime,
-		double acceleration) {
+                                       double initialVelocity,
+                                       double deltaTime,
+                                       double acceleration) {
 		return new Displacement1(initialDisplacement,
-			initialVelocity,
-			deltaTime,
-			acceleration);
+                                 initialVelocity,
+                                 deltaTime,
+                                 acceleration);
 	}
 
 	@Override
 	public Displacement1 displacement1(double initialDisplacement,
-		int initialDisplacementUnit,
-		double initialVelocity,
-		int initialVelocityUnit,
-		double deltaTime,
-		int deltaTimeUnit,
-		double acceleration,
-		int accelerationUnit,
-		int unitOfResult) {
+                                       int initialDisplacementUnit,
+                                       double initialVelocity,
+                                       int initialVelocityUnit,
+                                       double deltaTime,
+                                       int deltaTimeUnit,
+                                       double acceleration,
+                                       int accelerationUnit,
+                                       int unitOfResult) {
 		return new Displacement1(initialDisplacement,
-			initialDisplacementUnit,
-			initialVelocity,
-			initialVelocityUnit,
-			deltaTime,
-			deltaTimeUnit,
-			acceleration,
-			accelerationUnit,
-			unitOfResult);
+                                 initialDisplacementUnit,
+                                 initialVelocity,
+                                 initialVelocityUnit,
+                                 deltaTime,
+                                 deltaTimeUnit,
+                                 acceleration,
+                                 accelerationUnit,
+                                 unitOfResult);
 	}
 
 	// Initial displacement: Si = S - [(vi * ∆t) + (a * ∆t²) / 2]
 	@Override
-	public String displacement2(
-		double initialVelocity, 
-		double deltaTime, 
-		double acceleration, 
-		double displacement, 
-		int stepOrResult) {
-		return displacement2.displacement(
-			initialVelocity,
-			deltaTime,
-			acceleration,
-			displacement,
-			stepOrResult);
+	public Displacement2 displacement2(double initialVelocity, 
+                                       double deltaTime, 
+                                       double acceleration, 
+                                       double displacement) {
+		return new Displacement2(initialVelocity,
+                                 deltaTime,
+                                 acceleration,
+                                 displacement);
     }
 
 	@Override
-	public String displacement2(
-		double initialVelocity, 
-		String initialVelocityUnit,
-		double deltaTime, 
-		String deltaTimeUnit,
-		double acceleration, 
-		String accelerationUnit,
-		double displacement, 
-		String displacementUnit,
-		String unitOfResult,
-		int stepOrResult) {
-		return displacement2.displacement(
-			initialVelocity,
-			initialVelocityUnit,
-			deltaTime,
-			deltaTimeUnit,
-			acceleration,
-			accelerationUnit,
-			displacement,
-			displacementUnit,
-			unitOfResult,
-			stepOrResult);
+	public Displacement2 displacement2(double initialVelocity, 
+                                       int initialVelocityUnit,
+                                       double deltaTime, 
+                                       int deltaTimeUnit,
+                                       double acceleration, 
+                                       int accelerationUnit,
+                                       double displacement, 
+                                       int displacementUnit,
+                                       int unitOfResult) {
+		return new Displacement2(initialVelocity,
+                                 initialVelocityUnit,
+                                 deltaTime,
+                                 deltaTimeUnit,
+                                 acceleration,
+                                 accelerationUnit,
+                                 displacement,
+                                 displacementUnit,
+                                 unitOfResult);
     }
 
     // Get class instance object

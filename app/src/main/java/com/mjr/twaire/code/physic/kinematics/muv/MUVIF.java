@@ -188,22 +188,20 @@ public interface MUVIF {
         int accelerationUnit,
         int unitOfResult);
 
-    public abstract String displacement2(
+    public abstract Displacement2 displacement2(
         double initialSpeed, 
         double deltaTime, 
         double acceleration, 
-        double displacement,
-        int stepOrResult);
+        double displacement);
 
-    public abstract String displacement2(
+    public abstract Displacement2 displacement2(
         double initialSpeed, 
-        String initialSpeedUnit,
+        int initialSpeedUnit,
         double deltaTime, 
-        String deltaTimeUnit,
+        int deltaTimeUnit,
         double acceleration, 
-        String accelerationUnit,
+        int accelerationUnit,
         double displacement,
-        String displacementUnit,
-        String unitOfResult,
-        int stepOrResult);
+        int displacementUnit,
+        int unitOfResult);
 }
