@@ -16,7 +16,7 @@ public class Speed2Test {
         double initialTime = 4.0;
         double finalTime = 8.0;
         double acceleration = 9.0;
-        double result = "36.0";
-        assertEquals(result, muv.speed2(initialTime, finalTime, acceleration, GET_RESULT));
+        double result = 36.0;
+        assertEquals(result, muv.speed2(initialTime, finalTime, acceleration).getResult());
     }
 }

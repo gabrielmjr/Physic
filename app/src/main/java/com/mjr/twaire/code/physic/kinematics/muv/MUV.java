@@ -3,7 +3,6 @@ package com.mjr.twaire.code.physic.kinematics.muv;
 public class MUV implements MUVIF {
 	private static MUV instance;
 
-	private Speed2 speed2;
 	private Speed3 speed3;
 	private Speed4 speed4;
 
@@ -13,7 +12,6 @@ public class MUV implements MUVIF {
 	private Time4 time4;
 
 	public MUV() {
-		speed2 = Speed2.getInstance();
 		speed3 = Speed3.getInstance();
 		speed4 = Speed4.getInstance();
 
@@ -154,37 +152,29 @@ public class MUV implements MUVIF {
 
     // Second speed's formula: ∆v = (tf - ti) * acceleration
 	@Override
-	public String speed2(
-		double initialTime,
-		double finalTime, 
-		double acceleration,
-		int stepOrResult) {
-		return speed2.speed(
-			initialTime,
-			finalTime,
-			acceleration,
-			stepOrResult);
+	public Speed2 speed2(double initialTime,
+                         double finalTime, 
+                         double acceleration) {
+		return new Speed2(initialTime,
+                          finalTime,
+                          acceleration);
     }
 
 	@Override
-	public String speed2(
-		double initialTime,
-		String initialTimeUnit,
-		double finalTime, 
-		String finalTimeUnit,
-		double acceleration,
-		String accelerationUnit,
-		String unitOfResult,
-		int stepOrResult) {
-        return speed2.speed(
-			initialTime,
-			initialTimeUnit,
-			finalTime,
-			finalTimeUnit,
-			acceleration,
-			accelerationUnit,
-			unitOfResult,
-			stepOrResult);
+	public Speed2 speed2(double initialTime,
+                         int initialTimeUnit,
+                         double finalTime, 
+                         int finalTimeUnit,
+                         double acceleration,
+                         int accelerationUnit,
+                         int unitOfResult) {
+        return new Speed2(initialTime,
+                          initialTimeUnit,
+                          finalTime,
+                          finalTimeUnit,
+                          acceleration,
+                          accelerationUnit,
+                          unitOfResult);
 	}
 
 	// Initial speed: vi = vf - ∆t * a
