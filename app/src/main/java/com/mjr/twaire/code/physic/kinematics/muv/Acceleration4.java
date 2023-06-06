@@ -1,9 +1,9 @@
 package com.mjr.twaire.code.physic.kinematics.muv;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 import com.mjr.twaire.code.physic.Physic;
 
-public final class Acceleration4 extends Calculations {
+public final class Acceleration4 extends Calculation {
     @Deprecated
 	private static Acceleration4 instance; 
     private double initialVelocity;

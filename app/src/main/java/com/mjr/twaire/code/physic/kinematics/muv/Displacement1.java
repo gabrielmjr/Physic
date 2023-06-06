@@ -1,22 +1,22 @@
 package com.mjr.twaire.code.physic.kinematics.muv;
 
+//import com.mjr.twaire.code.physic.Calculation;
 import com.mjr.twaire.code.physic.Physic;
 
-public final class Displacement1 
-{
+public final class Displacement1 {
+    @Deprecated
 	private static Displacement1 instance; 
 
-	private Displacement1 ()
-	{}
+	private Displacement1() {}
 
-	// S = Si + vi * ∆t + (vi * ∆t²) / 2
-	protected  String displacement (
+	// S = Si + vi * ∆t + (a * ∆t²) / 2
+    @Deprecated
+	protected  String displacement(
 		double initialDisplacement, 
 		double initialVelocity, 
 		double deltaTime, 
 		double acceleration, 
-		int stepOrResult)
-    {
+		int stepOrResult) {
 		double step1 = initialVelocity * deltaTime;
 		double step11 = Math.pow(deltaTime, 2);
 		double step2 = initialDisplacement + step1;
@@ -24,8 +24,7 @@ public final class Displacement1
 		double step3 = step22 / 2;
 		double step4 = step2 + step3;
 		String res;
-		if (stepOrResult == Physic.GET_STEP)
-		{             
+		if (stepOrResult == Physic.GET_STEP) {             
 			res = "S = "
 				+ initialDisplacement
 				+ "m + "
@@ -60,19 +59,16 @@ public final class Displacement1
 				+ step4
 				+ "m";
 			return res;
-		} 
-		else if 
-		(stepOrResult == Physic.GET_RESULT)
-		{            
+		} else if 
+		(stepOrResult == Physic.GET_RESULT) {            
 			return String.valueOf(step4);
-		} 
-		else 
-		{
+		} else {
 			return "Error 404: fifth parameter not found.";
 		}
 	}
 
-	protected String displacement (
+    @Deprecated
+	protected String displacement(
 		double initialDisplacement,
 		String initialDisplacementUnit,
 		double initialVelocity,
@@ -82,15 +78,13 @@ public final class Displacement1
 		double acceleration,
 		String accelerationUnit,
 		String unitOfResult,
-		int stepOrResult) 
-    {
+		int stepOrResult) {
 		return null;
     }
 
-    public static Displacement1 getInstance ()
-    {
-		if (instance == null)
-		{
+    @Deprecated
+    public static Displacement1 getInstance() {
+		if (instance == null) {
 			instance = new Displacement1();
 		}
 		return instance;

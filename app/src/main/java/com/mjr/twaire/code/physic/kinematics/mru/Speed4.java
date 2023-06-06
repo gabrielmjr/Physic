@@ -1,10 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-public final class Speed4 extends Calculations {
+public final class Speed4 extends Calculation {
 	private static Speed4 instance; 
     private double deltaDisplacement;
     private double initialTime;

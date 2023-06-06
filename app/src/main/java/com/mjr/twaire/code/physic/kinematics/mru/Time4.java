@@ -1,8 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-public final class Time4 extends Calculations {
+public final class Time4 extends Calculation {
 	private static Time4 instance;
     private double deltaTime;
     private double finalTime;

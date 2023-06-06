@@ -1,8 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-public final class DeltaTime2 extends Calculations {
+public final class DeltaTime2 extends Calculation {
     private static DeltaTime2 instance;
     private double initialVelocity;
     private double finalVelocity;

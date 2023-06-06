@@ -1,10 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-public final class Time1 extends Calculations {
+public final class Time1 extends Calculation {
 	private static Time1 instance; 
     private double initialTime;
     private double finalTime;

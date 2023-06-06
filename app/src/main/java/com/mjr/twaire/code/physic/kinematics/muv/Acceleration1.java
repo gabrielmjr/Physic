@@ -1,8 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.muv;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-public final class Acceleration1 extends Calculations {
+public final class Acceleration1 extends Calculation {
     @Deprecated
 	private static Acceleration1 instance; 
     private double deltaSpeed;

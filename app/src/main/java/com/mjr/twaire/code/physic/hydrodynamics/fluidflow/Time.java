@@ -1,8 +1,8 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-public final class Time extends Calculations { 
+public final class Time extends Calculation { 
     @Deprecated
     private static Time instance;
 	

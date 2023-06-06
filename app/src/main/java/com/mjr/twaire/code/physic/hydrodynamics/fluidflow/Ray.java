@@ -1,8 +1,8 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-public final class Ray extends Calculations {
+public final class Ray extends Calculation {
     @Deprecated
     private static Ray instance;
 

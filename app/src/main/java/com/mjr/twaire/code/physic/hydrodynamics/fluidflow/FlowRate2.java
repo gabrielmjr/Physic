@@ -1,8 +1,8 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-public final class FlowRate2 extends Calculations {
+public final class FlowRate2 extends Calculation {
     @Deprecated
     private static FlowRate2 instance;
 

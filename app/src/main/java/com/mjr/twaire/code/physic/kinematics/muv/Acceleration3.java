@@ -1,11 +1,11 @@
 package com.mjr.twaire.code.physic.kinematics.muv;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 import com.mjr.twaire.code.physic.Physic;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-public final class Acceleration3 extends Calculations {
+public final class Acceleration3 extends Calculation {
     @Deprecated
 	private static Acceleration3 instance; 
     private double initialVelocity;
