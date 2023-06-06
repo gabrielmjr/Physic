@@ -13,7 +13,6 @@ public class MUV implements MUVIF {
 	private Time3 time3;
 	private Time4 time4;
 
-	private Displacement1 displacement1;
 	private Displacement2 displacement2;
 
 	public MUV() {
@@ -27,7 +26,6 @@ public class MUV implements MUVIF {
 		time3 = Time3.getInstance();
 		time4 = Time4.getInstance();
 
-		displacement1 = Displacement1.getInstance();
 		displacement2 = Displacement2.getInstance();
 	}
 
@@ -398,34 +396,27 @@ public class MUV implements MUVIF {
 	// Displacement 
 	// total Displacement: S = si + vi * ∆t + (a * ∆t²) /2
 	@Override
-	public String displacement1(
-		double initialDisplacement,
+	public Displacement1 displacement1(double initialDisplacement,
 		double initialVelocity,
 		double deltaTime,
-		double acceleration,
-		int stepOrResult) {
-		return displacement1.displacement(
-			initialDisplacement,
+		double acceleration) {
+		return new Displacement1(initialDisplacement,
 			initialVelocity,
 			deltaTime,
-			acceleration,
-			stepOrResult);
+			acceleration);
 	}
 
 	@Override
-	public String displacement1(
-		double initialDisplacement,
-		String initialDisplacementUnit,
+	public Displacement1 displacement1(double initialDisplacement,
+		int initialDisplacementUnit,
 		double initialVelocity,
-		String initialVelocityUnit,
+		int initialVelocityUnit,
 		double deltaTime,
-		String deltaTimeUnit,
+		int deltaTimeUnit,
 		double acceleration,
-		String accelerationUnit,
-		String unitOfResult,
-		int stepOrResult) {
-		return displacement1.displacement(
-			initialDisplacement,
+		int accelerationUnit,
+		int unitOfResult) {
+		return new Displacement1(initialDisplacement,
 			initialDisplacementUnit,
 			initialVelocity,
 			initialVelocityUnit,
@@ -433,8 +424,7 @@ public class MUV implements MUVIF {
 			deltaTimeUnit,
 			acceleration,
 			accelerationUnit,
-			unitOfResult,
-			stepOrResult);
+			unitOfResult);
 	}
 
 	// Initial displacement: Si = S - [(vi * ∆t) + (a * ∆t²) / 2]

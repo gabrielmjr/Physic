@@ -13,11 +13,11 @@ public class Displacement1Test {
 	
     @Test
     public void displacement1Test () {
-        Double initialDisplacement = 3.0;
-        Double initialVelocity = 6.0;
-        Double deltaTime = 2.0;
-        Double acceleration= 3.0;
-        String result = "21.0";
-        assertEquals(result, muv.displacement1(initialDisplacement, initialVelocity, deltaTime, acceleration, GET_RESULT));
+        double initialDisplacement = 3.0;
+        double initialVelocity = 6.0;
+        double deltaTime = 2.0;
+        double acceleration= 3.0;
+        double result = 21.0;
+        assertEquals(result, muv.displacement1(initialDisplacement, initialVelocity, deltaTime, acceleration).getResult());
     }
 }
