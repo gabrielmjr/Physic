@@ -3,7 +3,6 @@ package com.mjr.twaire.code.physic.kinematics.muv;
 public class MUV implements MUVIF {
 	private static MUV instance;
 
-	private Speed3 speed3;
 	private Speed4 speed4;
 
 	private Time1 time1;
@@ -12,7 +11,6 @@ public class MUV implements MUVIF {
 	private Time4 time4;
 
 	public MUV() {
-		speed3 = Speed3.getInstance();
 		speed4 = Speed4.getInstance();
 
 		time1 = Time1.getInstance();
@@ -179,37 +177,30 @@ public class MUV implements MUVIF {
 
 	// Initial speed: vi = vf - ∆t * a
 	@Override
-	public String speed3(
-		double finalVelocity,
-		double deltaTime,
-		double acceleration,
-		int stepOrResult) {
-		return speed3.speed(
-			finalVelocity,
-			deltaTime,
-			acceleration,
-			stepOrResult);
+	public Speed3 speed3(double finalVelocity,
+                         double deltaTime,
+                         double acceleration) {
+		return new Speed3(finalVelocity,
+                          deltaTime,
+                          acceleration);
 	}
 
 	@Override
-	public String speed3(
+	public Speed3 speed3(
 		double finalVelocity, 
-		String finalVelocityUnit,
+		int finalVelocityUnit,
 		double deltaTime, 
-		String deltaTimeUnit,
+		int deltaTimeUnit,
 		double acceleration,  
-		String accelerationUnit,
-		String unitOfResult,
-		int stepOrResult) {
-		return speed3.speed(
-			finalVelocity,
-			finalVelocityUnit,
-			deltaTime,
-			deltaTimeUnit,
-			acceleration,
-			accelerationUnit,
-			unitOfResult,
-			stepOrResult);
+		int accelerationUnit,
+		int unitOfResult) {
+		return new Speed3(finalVelocity,
+                          finalVelocityUnit,
+                          deltaTime,
+                          deltaTimeUnit,
+                          acceleration,
+                          accelerationUnit,
+                          unitOfResult);
     }
 
 	// Final speed: vf = ∆t * a + vi
