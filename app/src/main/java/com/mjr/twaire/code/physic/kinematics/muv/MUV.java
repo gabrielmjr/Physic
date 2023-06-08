@@ -3,16 +3,12 @@ package com.mjr.twaire.code.physic.kinematics.muv;
 public class MUV implements MUVIF {
 	private static MUV instance;
 
-	private Speed4 speed4;
-
 	private Time1 time1;
 	private Time2 time2;
 	private Time3 time3;
 	private Time4 time4;
 
 	public MUV() {
-		speed4 = Speed4.getInstance();
-
 		time1 = Time1.getInstance();
 		time2 = Time2.getInstance();
 		time3 = Time3.getInstance();
@@ -205,38 +201,30 @@ public class MUV implements MUVIF {
 
 	// Final speed: vf = ∆t * a + vi
 	@Override
-	public String speed4(
-		double initialVelocity,
-		double deltaTime,
-		double acceleration,
-		int stepOrResult) {
-		return speed4.speed(
-			initialVelocity,
-			deltaTime,
-			acceleration,
-			stepOrResult);
+	public Speed4 speed4(double initialVelocity,
+                         double deltaTime,
+                         double acceleration) {
+		return new Speed4(initialVelocity,
+                             deltaTime,
+                             acceleration);
     }
 
 	// 
 	@Override
-	public String speed4(
-		double initialVelocity, 
-		String initialVelocityUnit,
-		double deltaTime, 
-		String deltaTimeUnit,
-		double acceleration, 
-		String accelerationUnit,
-		String unitOfResult,
-		int stepOrResult) {
-		return speed4.speed(
-			initialVelocity,
-			initialVelocityUnit,
-			deltaTime,
-			deltaTimeUnit,
-			acceleration,
-			accelerationUnit,
-			unitOfResult,
-			stepOrResult);
+	public Speed4 speed4(double initialVelocity, 
+                         int initialVelocityUnit,
+                         double deltaTime, 
+                         int deltaTimeUnit,
+                         double acceleration, 
+                         int accelerationUnit,
+                         int unitOfResult) {
+		return new Speed4(initialVelocity,
+                          initialVelocityUnit,
+                          deltaTime,
+                          deltaTimeUnit,
+                          acceleration,
+                          accelerationUnit,
+                          unitOfResult);
     }
 
 	// Time
