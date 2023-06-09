@@ -3,6 +3,7 @@ package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 import com.mjr.twaire.code.physic.Calculation;
 
 public final class DeltaTime2 extends Calculation {
+    @Deprecated
     private static DeltaTime2 instance;
     private double initialVelocity;
     private double finalVelocity;
@@ -121,11 +122,13 @@ public final class DeltaTime2 extends Calculation {
 		return "∆t = (v - vi) / g";
 	}
    
+    @Deprecated
     private DeltaTime2 setHasCustomUnits(boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
     }
 
+    @Deprecated
     public static DeltaTime2 getInstance(double initialVelocity,
                                          double finalVelocity,
                                          double gravity) {
@@ -138,6 +141,7 @@ public final class DeltaTime2 extends Calculation {
             .calculate();
     }
 
+    @Deprecated
     public static DeltaTime2 getInstance(double initialVelocity, 
                                          int initialVelocityUnit,
                                          double finalVelocity,

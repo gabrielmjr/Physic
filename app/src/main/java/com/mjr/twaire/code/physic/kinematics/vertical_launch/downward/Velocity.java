@@ -2,6 +2,7 @@ package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 
 // v = vi + g * ∆t
 public final class Velocity {
+    @Deprecated
     private static Velocity instance;
     private double initialVelocity;
     private double gravity;
@@ -18,6 +19,7 @@ public final class Velocity {
     
     private Velocity() {}
     
+    @Deprecated
     private Velocity setHasCustomUnits (boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         if (hasCustomUnits) 
@@ -111,6 +113,7 @@ public final class Velocity {
         return unitOfResult;
     }
     
+    @Deprecated
 	protected static Velocity getInstance (double initialVelocity,
 							  double gravity,
 							  double deltaTime) {
@@ -122,6 +125,7 @@ public final class Velocity {
 		    .setHasCustomUnits(false);
 	}
 	
+    @Deprecated
 	protected static Velocity getInstance (double initialVelocity,
 							  int initialVelocityUnit,
 							  double deltaTime,

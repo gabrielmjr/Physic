@@ -4,6 +4,7 @@ import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
 // y = yi + vi * ∆t + (g * ∆t²) / 2
 public final class Height {
+    @Deprecated
 	private static Height instance;
 	private double initialHeight;
 	private double initialVelocity;
@@ -26,6 +27,7 @@ public final class Height {
 	
 	private Height() {}
 
+    @Deprecated
 	private Height setHasCustomUnits(boolean hasCustomUnits) {
 		this.hasCustomUnits = hasCustomUnits;
 		if (hasCustomUnits)
@@ -144,6 +146,7 @@ public final class Height {
 		return unitOfResult;
 	}
 
+    @Deprecated
 	protected static Height getInstance(double initialHeight, 
 										double initialVelocity, 
 										double deltaTime,
@@ -157,6 +160,7 @@ public final class Height {
 		    .setHasCustomUnits(false);
 	}
 
+    @Deprecated
 	protected static Height getInstance(double initialHeight, 
 										int initialHeightUnit,
 										double initialVelocity,

@@ -3,6 +3,7 @@ package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 import com.mjr.twaire.code.physic.Calculation;
 
 public final class DeltaTime1 extends Calculation {
+    @Deprecated
     private static DeltaTime1 instance;
     private double deltaSpeed;
     private double gravity;
@@ -45,7 +46,7 @@ public final class DeltaTime1 extends Calculation {
             + "\n∆t = " + step1 + "s";
     }
     
-    private DeltaTime1 setDeltaSpeed(double deltaSpeed) {
+    public DeltaTime1 setDeltaSpeed(double deltaSpeed) {
         this.deltaSpeed = deltaSpeed;
         return this;
     }
@@ -54,7 +55,7 @@ public final class DeltaTime1 extends Calculation {
         return deltaSpeed;
     }
 
-    private DeltaTime1 setGravity(double gravity) {
+    public DeltaTime1 setGravity(double gravity) {
         this.gravity = gravity;
         return this;
     }
@@ -63,7 +64,7 @@ public final class DeltaTime1 extends Calculation {
         return gravity;
     }
 
-    private DeltaTime1 setDeltaSpeedUnit(int deltaSpeedUnit) {
+    public DeltaTime1 setDeltaSpeedUnit(int deltaSpeedUnit) {
         this.deltaSpeedUnit = deltaSpeedUnit;
         return this;
     }
@@ -72,7 +73,7 @@ public final class DeltaTime1 extends Calculation {
         return deltaSpeedUnit;
     }
 
-    private DeltaTime1 setGravityUnit(int gravityUnit) {
+    public DeltaTime1 setGravityUnit(int gravityUnit) {
         this.gravityUnit = gravityUnit;
         return this;
     }
@@ -81,7 +82,7 @@ public final class DeltaTime1 extends Calculation {
         return gravityUnit;
     }
 
-    private DeltaTime1 setUnitOfResult(int unitOfResult) {
+    public DeltaTime1 setUnitOfResult(int unitOfResult) {
         this.unitOfResult = unitOfResult;
         return this;
     }
@@ -95,11 +96,13 @@ public final class DeltaTime1 extends Calculation {
 		return "∆t = ∆v / g";
 	}
     
+    @Deprecated
     private DeltaTime1 setHasCustomUnits(boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
     }
 
+    @Deprecated
     public static DeltaTime1 getInstance(double deltaSpeed, double gravity) {
         if (!(instance instanceof DeltaTime1))
             instance = new DeltaTime1();
@@ -109,6 +112,7 @@ public final class DeltaTime1 extends Calculation {
             .calculate();
     }
 
+    @Deprecated
     public static DeltaTime1 getInstance(double deltaSpeed,
     int deltaSpeedUnit,
     double gravity,

@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 
 public class DownWard implements DownWardIF {
-
+    @Deprecated
     private static DownWard instance;
 
     public DownWard() {}
@@ -166,6 +166,7 @@ public class DownWard implements DownWardIF {
                                       unitOfResult);
     }
 
+    @Deprecated
 	protected static DownWard getInstance() {
 		if (!(instance instanceof DownWard))
 			instance = new DownWard();

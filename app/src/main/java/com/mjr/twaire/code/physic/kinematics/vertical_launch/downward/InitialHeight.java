@@ -2,6 +2,7 @@ package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 
 // yi = y - [vi * ∆t + (g * t²)/2]
 public final class InitialHeight {
+    @Deprecated
     private static InitialHeight instance;
 	private double height;
 	private double initialVelocity;
@@ -22,6 +23,7 @@ public final class InitialHeight {
 	private double step6;
 	private boolean hasCustomUnits;
 
+    @Deprecated
 	private InitialHeight setHasCustomUnits(boolean hasCustomUnits) {
 		this.hasCustomUnits = hasCustomUnits;
 		if (hasCustomUnits)
@@ -140,6 +142,7 @@ public final class InitialHeight {
 		return unitOfResult;
 	}
 	
+    @Deprecated
 	public static InitialHeight getInstance(double height,
 											double initialVelocity,
 											double deltaTime,
@@ -153,6 +156,7 @@ public final class InitialHeight {
 		    .setHasCustomUnits(false);
 	}
 
+    @Deprecated
 	public static InitialHeight getInstance(double height,
 											int heightUnit,
 											double initialVelocity,
