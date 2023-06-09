@@ -3,103 +3,100 @@ package com.mjr.twaire.code.physic.kinematics.mru;
 public class MRU implements MRUIF {
 	private static MRU instance; 
 
-	private Speed3 speed3;
-	private Speed4 speed4;
-
-	private Time1 time1;
-	private Time2 time2;
-	private Time3 time3;
-	private Time4 time4;
-	private Time5 time5;
-
-	public MRU () {
-		speed3 = Speed3.getInstance();
-		speed4 = Speed4.getInstance();
-
-		time1 = Time1.getInstance();
-		time2 = Time2.getInstance();
-		time3 = Time3.getInstance();
-		time4 = Time4.getInstance();
-		time5 = Time5.getInstance();
-	} 
+	public MRU() {} 
 
 	// ∆S = Sf - Si
 	@Override
-	public Displacement1 displacement1 (double initialDisplacement, double finalDisplacement) {
-		return Displacement1.getInstance(initialDisplacement, finalDisplacement);
+	public Displacement1 displacement1(double initialDisplacement, double finalDisplacement) {
+		return new Displacement1(initialDisplacement, finalDisplacement);
 	}
 
 	@Override
-	public Displacement1 displacement1 (double initialDisplacement,
-										int initialDisplacementUnit, 
-										double finalDisplacement,
-										int finalDisplacementUnit,
-										int unitOfResult) {
-		return Displacement1.getInstance(initialDisplacement,
-										 initialDisplacementUnit,
-										 finalDisplacement,
-										 finalDisplacementUnit,
-										 unitOfResult);
+	public Displacement1 displacement1(double initialDisplacement,
+                                       int initialDisplacementUnit, 
+                                       double finalDisplacement,
+                                       int finalDisplacementUnit,
+                                       int unitOfResult) {
+		return new Displacement1(initialDisplacement,
+                                 initialDisplacementUnit,
+                                 finalDisplacement,
+                                 finalDisplacementUnit,
+                                 unitOfResult);
 	}
+
+    @Override
+    public Displacement1 displacement1() {
+        return new Displacement1();
+    }
 
 	// ∆S = ∆t x speed_média
 	@Override
-	public Displacement2 displacement2 (double deltaTime, double deltaSpeed) {
-		return Displacement2.getInstance(deltaTime, deltaSpeed);
+	public Displacement2 displacement2(double deltaTime, double deltaSpeed) {
+		return new Displacement2(deltaTime, deltaSpeed);
 	}
 
 	@Override
-	public Displacement2 displacement2 (double deltaTime,
-										int deltaTimeUnit, 
-										double deltaSpeed,
-										int deltaSpeedUnit,
-										int unitOfResult) {
-		return Displacement2.getInstance(deltaTime,
-										 deltaSpeedUnit,
-										 deltaSpeed,
-										 deltaSpeedUnit,
-										 unitOfResult);
+	public Displacement2 displacement2(double deltaTime,
+                                       int deltaTimeUnit, 
+                                       double deltaSpeed,
+                                       int deltaSpeedUnit,
+                                       int unitOfResult) {
+		return new Displacement2(deltaTime,
+                                 deltaSpeedUnit,
+                                 deltaSpeed,
+                                 deltaSpeedUnit,
+                                 unitOfResult);
 	}
+
+    @Override
+    public Displacement2 displacement2() {
+        return new Displacement2();
+    }
 
 	// ∆S = (finalTime - initialTime) x media_speed
 	@Override
-	public Displacement3 displacement3 (double initialTime,
-										double finalTime,
-										double deltaSpeed) {
-		return Displacement3.getInstance(initialTime,
-										 finalTime,
-										 deltaSpeed);
+	public Displacement3 displacement3(double initialTime,
+                                       double finalTime,
+                                       double deltaSpeed) {
+		return new Displacement3(initialTime,
+					          	 finalTime,
+								 deltaSpeed);
 	}
 
 	@Override
-	public Displacement3 displacement3 (double initialTime,
-										int initialTimeUnit,
-										double finalTime,
-										int finalTimeUnit,
-										double deltaSpeed,
-										int deltaSpeedUnit,
-										int unitOfResult) {
-		return Displacement3.getInstance(initialTime,
-										 initialTimeUnit,
-										 finalTime,
-										 finalTimeUnit,
-										 deltaSpeed,
-										 deltaSpeedUnit,
-										 unitOfResult);
+	public Displacement3 displacement3(double initialTime,
+                                       int initialTimeUnit,
+                                       double finalTime,
+                                       int finalTimeUnit,
+                                       double deltaSpeed,
+                                       int deltaSpeedUnit,
+                                       int unitOfResult) {
+		return new Displacement3(initialTime,
+                                 initialTimeUnit,
+                                 finalTime,
+                                 finalTimeUnit,
+                                 deltaSpeed,
+                                 deltaSpeedUnit,
+                                 unitOfResult);
 	}
+
+    @Override
+    public Displacement3 displacement3() {
+        return new Displacement3();
+    }
 
 	// S_inicial = S_final - ∆S
 	@Override
-	public Displacement4 displacement4 (double deltaDisplacement, double finalDisplacement) {
+	public Displacement4 displacement4(double deltaDisplacement, double finalDisplacement) {
 		return Displacement4.getInstance(deltaDisplacement, finalDisplacement);
 	}
 
 	@Override
-	public Displacement4 displacement4 (double deltaDisplacement,
-										int deltaDisplacementUnit,
-										double finalDisplacement,
-										int finalDisplacementUnit,
-										int unitOfResult) {
+	public Displacement4 displacement4(double deltaDisplacement,
+                                       int deltaDisplacementUnit,
+                                       double finalDisplacement,
+                                       int finalDisplacementUnit,
+                                       int unitOfResult) {
 		return Displacement4.getInstance(deltaDisplacement,
 										 deltaDisplacementUnit,
 										 finalDisplacement,
@@ -109,16 +106,16 @@ public class MRU implements MRUIF {
 
 	// S_final = S_inicial + ∆S
 	@Override
-	public Displacement5 displacement5 (double initialDisplacement, double deltaDisplacement) {
+	public Displacement5 displacement5(double initialDisplacement, double deltaDisplacement) {
 		return Displacement5.getInstance(initialDisplacement, deltaDisplacement);
 	}
 
 	@Override
-	public Displacement5 displacement5 (double initialDisplacement, 
-										int initialDisplacementUnit,
-										double deltaDisplacement,
-										int deltaDisplacementUnit,
-										int unitOfResult) {
+	public Displacement5 displacement5(double initialDisplacement, 
+                                       int initialDisplacementUnit,
+                                       double deltaDisplacement,
+                                       int deltaDisplacementUnit,
+                                       int unitOfResult) {
 		return Displacement5.getInstance(initialDisplacement,
 										 initialDisplacementUnit,
 										 deltaDisplacement,
@@ -128,22 +125,22 @@ public class MRU implements MRUIF {
 
 	// S = S_inicial + velocity * ∆t
 	@Override
-	public Displacement6 displacement6 (double initialDisplacement,
-										double velocity,
-										double deltaTime) {
+	public Displacement6 displacement6(double initialDisplacement,
+                                       double velocity,
+                                       double deltaTime) {
 		return Displacement6.getInstance(initialDisplacement,
 										 velocity,
 										 deltaTime);
 	}
 
 	@Override
-	public Displacement6 displacement6 (double initialDisplacement,
-								 int initialDisplacementUnit,
-								 double velocity,
-								 int velocityUnit,
-								 double deltaTime,
-								 int deltaTimeUnit,
-								 int unitOfResult) {
+	public Displacement6 displacement6(double initialDisplacement,
+                                       int initialDisplacementUnit,
+                                       double velocity,
+                                       int velocityUnit,
+                                       double deltaTime,
+                                       int deltaTimeUnit,
+                                       int unitOfResult) {
 		return Displacement6.getInstance(initialDisplacement,
 										 initialDisplacementUnit,
 										 velocity,
@@ -155,250 +152,213 @@ public class MRU implements MRUIF {
 
 	// v = ∆S / ∆t
 	@Override
-	public Speed1 speed1 (double deltaDisplacement, double deltaTime) {
+	public Speed1 speed1(double deltaDisplacement, double deltaTime) {
 		return Speed1.getInstance(deltaDisplacement, deltaTime);
 	}
 
 	@Override
-	public Speed1 speed1 (
-		double deltaDisplacement,
-		int deltaDisplacementUnit,
-		double deltaTime,
-		int deltaTimeUnit,
-		int unitOfResult) {
-		return Speed1.getInstance(
-			deltaDisplacement,
-			deltaDisplacementUnit,
-			deltaTime,
-			deltaTimeUnit,
-			unitOfResult);
+	public Speed1 speed1(double deltaDisplacement,
+                         int deltaDisplacementUnit,
+                         double deltaTime,
+                         int deltaTimeUnit,
+                         int unitOfResult) {
+		return Speed1.getInstance(deltaDisplacement,
+                                  deltaDisplacementUnit,
+                                  deltaTime,
+                                  deltaTimeUnit,
+                                  unitOfResult);
 	}
 
 	// v = (finalDisplacement - initialDisplacement) / (finalTime - initialTime)
 	@Override
-	public Speed2 speed2 (
-		double initialDisplacement,
-		double finalDisplacement,
-		double initialTime,
-		double finalTime) {
+	public Speed2 speed2(double initialDisplacement,
+                         double finalDisplacement,
+                         double initialTime,
+                         double finalTime) {
 		return Speed2.getInstance(initialDisplacement,
-			finalDisplacement,
-			initialTime,
-			finalTime);
+                                  finalDisplacement,
+                                  initialTime,
+                                  finalTime);
 	}
 
     @Override
-	public Speed2 speed2 (
-		double initialDisplacement,
-		int initialDisplacementUnit,
-		double finalDisplacement,
-		int finalDisplacementUnit,
-		double initialTime,
-		int initialTimeUnit,
-		double finalTime,
-		int finalTimeUnit,
-		int unitOfResult) {
-		return Speed2.getInstance(
-			initialDisplacement,
-			initialDisplacementUnit,
-			finalDisplacement,
-			finalDisplacementUnit,
-			initialTime,
-			initialTimeUnit,
-			finalTime,
-			finalTimeUnit,
-			unitOfResult);
+	public Speed2 speed2(double initialDisplacement,
+                         int initialDisplacementUnit,
+                         double finalDisplacement,
+                         int finalDisplacementUnit,
+                         double initialTime,
+                         int initialTimeUnit,
+                         double finalTime,
+                         int finalTimeUnit,
+                         int unitOfResult) {
+		return Speed2.getInstance(initialDisplacement,
+                                  initialDisplacementUnit,
+                                  finalDisplacement,
+                                  finalDisplacementUnit,
+                                  initialTime,
+                                  initialTimeUnit,
+                                  finalTime,
+                                  finalTimeUnit,
+                                  unitOfResult);
 	}
 
 	// v = (finalDisplacement - initialDisplacement) / deltaTime 
 	@Override
-	public String speed3 (
-		double initialDisplacement,
-		double finalDisplacement,
-		double deltaTime,
-		int resultOrStep) {
-		return speed3.speed(
-			initialDisplacement,
-			finalDisplacement,
-			deltaTime,
-			resultOrStep);
+	public Speed3 speed3(double initialDisplacement,
+                         double finalDisplacement,
+                         double deltaTime) {
+		return Speed3.getInstance(initialDisplacement,
+                                  finalDisplacement,
+                                  deltaTime);
 	} 
 
 	@Override
-	public String speed3 (
-		double initialDisplacement,
-		String initialDisplacementUnit,
-		double finalDisplacement,
-		String finalDisplacementUnit,
-		double deltaTime,
-		String deltaTimeUnit,
-		String unitOfResult,
-		int resultOrStep) {
-		return speed3.speed(
-			initialDisplacement,
-			initialDisplacementUnit,
-			finalDisplacement,
-			finalDisplacementUnit,
-			deltaTime,
-			deltaTimeUnit,
-			unitOfResult,
-			resultOrStep);
+	public Speed3 speed3(double initialDisplacement,
+                         int initialDisplacementUnit,
+                         double finalDisplacement,
+                         int finalDisplacementUnit,
+                         double deltaTime,
+                         int deltaTimeUnit,
+                         int unitOfResult) {
+		return Speed3.getInstance(initialDisplacement, initialDisplacementUnit,
+                                  finalDisplacement,
+                                  finalDisplacementUnit,
+                                  deltaTime,
+                                  deltaTimeUnit,
+                                  unitOfResult);
 	}
 
 	// v = (delta_displacement / (finalTime - initialTime)
 	@Override
-	public String speed4 (
-		double delta_displacement,
-		double initialTime,
-		double finalTime,
-		int resultOrStep) {
-		return speed4.speed(
-			delta_displacement,
-			initialTime,
-			finalTime,
-			resultOrStep);
-	} 
+	public Speed4 speed4(double delta_displacement,
+                         double initialTime,
+                         double finalTime) {
+		return Speed4.getInstance(delta_displacement,
+                                  initialTime,
+                                  finalTime);
+	}
 
 	@Override
-	public String speed4 (
-		double delta_displacement,
-		String delta_displacement_unit,
-		double initialTime,
-		String initialTimeUnit,
-		double finalTime,
-		String finalTimeUnit,
-		String unitOfResult,
-		int resultOrStep) {
-		return speed4.speed(
-			delta_displacement,
-			delta_displacement_unit,
-			initialTime,
-			initialTimeUnit,
-			finalTime,
-			finalTimeUnit,
-			unitOfResult,
-			resultOrStep);
+	public Speed4 speed4(double delta_displacement,
+                         int delta_displacement_unit,
+                         double initialTime,
+                         int initialTimeUnit,
+                         double finalTime,
+                         int finalTimeUnit,
+                         int unitOfResult) {
+		return Speed4.getInstance(delta_displacement,
+                                  delta_displacement_unit,
+                                  initialTime,
+                                  initialTimeUnit,
+                                  finalTime,
+                                  finalTimeUnit,
+                                  unitOfResult);
 	}
 
 	// ∆t = finalTime - initialTime
 	@Override
-	public String time1 (double initialTime, double finalTime) {
-		return time1.time(initialTime, finalTime);
+	public Time1 time1(double initialTime, double finalTime) {
+		return Time1.getInstance(initialTime, finalTime);
 	}
 
 	@Override
-	public String time1 (
-		double initialTime,
-		String initialTimeUnit,
-		double finalTime,
-		String finalTimeUnit,
-		String unitOfResult) {
-		return time1.time(
-			initialTime,
-			initialTimeUnit,
-			finalTime,
-			finalTimeUnit,
-			unitOfResult);
+	public Time1 time1(double initialTime,
+                       int initialTimeUnit,
+                       double finalTime,
+                       int finalTimeUnit,
+                       int unitOfResult) {
+		return Time1.getInstance(initialTime,
+                                 initialTimeUnit,
+                                 finalTime,
+                                 finalTimeUnit,
+                                 unitOfResult);
 	}
 
 	// ∆t = ∆S / speed_média
 	@Override
-	public String time2 (double deltaDisplacement, double speed) {
-		return time2.time(deltaDisplacement, speed);
+	public Time2 time2(double deltaDisplacement, double speed) {
+		return Time2.getInstance(deltaDisplacement, speed);
 	}
 
-	public String time2 (
-		double deltaDisplacement, 
-		String deltaDisplacementUnit,
-		double velocity,
-		String velocityUnit,
-		String unitOfResult) {
-		return time2.time(
-			deltaDisplacement,
-			deltaDisplacementUnit,
-			velocity,
-			velocityUnit,
-			unitOfResult);
+    @Override
+	public Time2 time2(double deltaDisplacement, 
+                       int deltaDisplacementUnit,
+                       double velocity,
+                       int velocityUnit,
+                       int unitOfResult) {
+		return Time2.getInstance(deltaDisplacement,
+                                 deltaDisplacementUnit,
+                                 velocity,
+                                 velocityUnit,
+                                 unitOfResult);
 	}
 
 	// ∆t = (finalDisplacement - initialDisplacement) / speed
 	@Override
-	public String time3 (
-		double initialDisplacement,
-		double finalDisplacement,
-		double velocity,
-		int resultOrStep) {
-		return time3.time(
-			initialDisplacement,
-			finalDisplacement,
-			velocity,
-			resultOrStep);
+	public Time3 time3(double initialDisplacement,
+                       double finalDisplacement,
+                       double velocity) {
+		return Time3.getInstance(initialDisplacement,
+                                 finalDisplacement,
+                                 velocity);
 	}
 
 	@Override
-	public String time3 (
-		double initialDisplacement,
-		String initialDisplacementUnit,
-		double finalDisplacement,
-		String finalDisplacementUnit,
-		double velocity,
-		String velocityUnit,
-		String unitOfResult,
-		int resultOrStep) {
-		return time3.time(
-			initialDisplacement,
-			initialDisplacementUnit,
-			finalDisplacement,
-			finalDisplacementUnit,
-			velocity,
-			velocityUnit,
-			unitOfResult,
-			resultOrStep);
+	public Time3 time3(double initialDisplacement,
+                       int initialDisplacementUnit,
+                       double finalDisplacement,
+                       int finalDisplacementUnit,
+                       double velocity,
+                       int velocityUnit,
+                       int unitOfResult) {
+		return Time3.getInstance(initialDisplacement,
+                                 initialDisplacementUnit,
+                                 finalDisplacement,
+                                 finalDisplacementUnit,
+                                 velocity,
+                                 velocityUnit,
+                                 unitOfResult);
 	}
 
 	// initialTime = finalTime - ∆t
 	@Override
-	public String time4 (double deltaTime, double finalTime) {
-		return time4.time(deltaTime, finalTime);
+	public Time4 time4(double deltaTime, double finalTime) {
+		return Time4.getInstance(deltaTime, finalTime);
 	}
 
 	@Override
-	public String time4 (
-		double deltaTime, 
-		String deltaTimeUnit,
-		double finalTime,
-		String finalTimeUnit,
-		String unitOfResult) {
-		return time4.time(
-			deltaTime,
-			deltaTimeUnit,
-			finalTime,
-			finalTimeUnit,
-			unitOfResult);
+	public Time4 time4(double deltaTime, 
+                       int deltaTimeUnit,
+                       double finalTime,
+                       int finalTimeUnit,
+                       int unitOfResult) {
+		return Time4.getInstance(deltaTime,
+                                 deltaTimeUnit,
+                                 finalTime,
+                                 finalTimeUnit,
+                                 unitOfResult);
 	}
 
 	// finalTime = tempo_inicia + ∆t
 	@Override
-	public String time5 (double initialTime, double deltaTime) {
-		return time5.time(initialTime, deltaTime);
+	public Time5 time5(double initialTime, double deltaTime) {
+		return Time5.getInstance(initialTime, deltaTime);
 	}
 
 	@Override
-	public String time5 (
-		double initialTime,
-		String initialTimeUnit, 
-		double deltaTime,
-		String deltaTimeUnit,
-		String unitOfResult) {
-		return time5.time(
-			initialTime,
-			initialTimeUnit,
-			deltaTime,
-			deltaTimeUnit,
-			unitOfResult);
+	public Time5 time5(double initialTime,
+                       int initialTimeUnit, 
+                       double deltaTime,
+                       int deltaTimeUnit,
+                       int unitOfResult) {
+		return Time5.getInstance(initialTime,
+                                 initialTimeUnit,
+                                 deltaTime,
+                                 deltaTimeUnit,
+                                 unitOfResult);
 	}
 
-    protected static MRU getInstance () {
+    protected static MRU getInstance() {
 		if (!(instance instanceof MRU))
 			instance = new MRU();
 		return instance;

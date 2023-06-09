@@ -1,8 +1,9 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-final class Ray extends Calculations {
+public final class Ray extends Calculation {
+    @Deprecated
     private static Ray instance;
 
 	private double flowRate;
@@ -16,17 +17,34 @@ final class Ray extends Calculations {
 	private double step2;
 	private double step3;
 	private boolean hasCustomUnits;
+    
+    protected Ray() {}
 
-    private Ray () {}
+    protected Ray(double flowRate, double velocity) {
+        this.flowRate = flowRate;
+        this.velocity = velocity;
+        hasCustomUnits = false;
+        calculate();
+    }
 
-	private Ray setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
+    protected Ray(double flowRate, double velocity, int flowRateUnit, int velocityUnit, int unitOfResult) {
+        this.flowRate = flowRate;
+        this.velocity = velocity;
+        this.flowRateUnit = flowRateUnit;
+        this.velocityUnit = velocityUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
+    
+    @Override
+    public Ray calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits () {
 	}
@@ -52,7 +70,7 @@ final class Ray extends Calculations {
 			+ "\nr = " + step3 + "m";
 	}
 
-    private Ray setFlowRate (double flowRate) {
+    public Ray setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -61,7 +79,7 @@ final class Ray extends Calculations {
 		return flowRate;
 	}
 
-	private Ray setVelocity (double velocity) {
+	public Ray setVelocity (double velocity) {
 		this.velocity = velocity;
 		return this;
 	}
@@ -70,7 +88,7 @@ final class Ray extends Calculations {
 		return velocity;
 	}
 
-	private Ray setFlowRateUnit (int flowRateUnit) {
+	public Ray setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit  = flowRateUnit;
 		return this;
 	}
@@ -80,7 +98,7 @@ final class Ray extends Calculations {
 	}
 
 
-	private Ray setVelocityUnit (int velocityUnit) {
+	public Ray setVelocityUnit (int velocityUnit) {
 		this.velocityUnit = velocityUnit;
 		return this;
 	}
@@ -89,7 +107,7 @@ final class Ray extends Calculations {
 		return velocityUnit;
 	}
 
-	private Ray setUnitOfResut (int unitOfResult) {
+	public Ray setUnitOfResut (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
@@ -102,15 +120,24 @@ final class Ray extends Calculations {
 	public String getFormula() {
 		return "r = √[Q / (π × v)]";
 	}
+    
+    @Deprecated
+    private Ray setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
+    @Deprecated
     protected static Ray getInstance (double flowRate, double velocity) {
         if (!(instance instanceof Ray))
 			instance = new Ray();
 		return instance.setFlowRate(flowRate)
 		    .setVelocity(velocity)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
+    @Deprecated
 	protected static Ray getInstance (double flowRate,
 									  int flowRateUnit,
 									  double velocity,
@@ -123,6 +150,7 @@ final class Ray extends Calculations {
 		    .setVelocity(velocity)
 		    .setVelocityUnit(velocityUnit)
 		    .setUnitOfResut(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

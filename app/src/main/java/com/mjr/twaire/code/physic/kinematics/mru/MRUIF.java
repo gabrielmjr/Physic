@@ -11,6 +11,8 @@ public interface MRUIF {
         double finalDisplacement,
         int finalDisplacementUnit,
         int unitOfResult);
+        
+    public abstract Displacement1 displacement1();
 
     public abstract Displacement2 displacement2 (
         double deltaTime,
@@ -22,6 +24,8 @@ public interface MRUIF {
         double deltaSpeed,
         int deltaSpeedUnit,
         int unitOfResult);
+        
+    public abstract Displacement2 displacement2();
 
     public abstract Displacement3 displacement3 (
         double intial_time, 
@@ -36,6 +40,8 @@ public interface MRUIF {
         double deltaSpeed,
         int deltaSpeedUnit, 
         int unitOfResult);
+        
+    public abstract Displacement3 displacement3();
 
     public abstract Displacement4 displacement4 (
         double deltaDisplacement, 
@@ -101,95 +107,89 @@ public interface MRUIF {
         int finalTimeUnit,
         int unitOfResult);
 
-    public abstract String speed3 (
+    public abstract Speed3 speed3 (
         double initialDisplacement,
         double finalDisplacement,
-        double deltaTime,
-        int stepOrResult);
+        double deltaTime);
 
-    public abstract String speed3 (
+    public abstract Speed3 speed3 (
         double initialDisplacement,
-        String initialDisplacementUnit,
+        int initialDisplacementUnit,
         double finalDisplacement,
-        String finalDisplacementUnit,
+        int finalDisplacementUnit,
         double deltaTime,
-        String deltaTimeUnit,
-        String unitOfResult,
-        int stepOrResult);
+        int deltaTimeUnit,
+        int unitOfResult);
 
-    public abstract String speed4 (
+    public abstract Speed4 speed4 (
         double deltaDisplacement,
         double initialTime,
-        double finalTime,
-        int stepOrResult);
+        double finalTime);
 
-    public abstract String speed4 (
+    public abstract Speed4 speed4 (
         double deltaDisplacement,
-        String deltaDisplacementUnit,
+        int deltaDisplacementUnit,
         double initialTime,
-        String initialTimeUnit,
+        int initialTimeUnit,
         double finalTime,
-        String finalTimeUnit,
-        String unitOfResult,
-        int stepOrResult);
+        int finalTimeUnit,
+        int unitOfResult);
 
-    public abstract String time1 (
+    public abstract Time1 time1 (
         double initialTime, 
         double finalTime);
 
-    public abstract String time1 (
+    public abstract Time1 time1 (
         double initialTime, 
-        String initialTimeUnit,
+        int initialTimeUnit,
         double finalTime,
-        String finalTimeUnit,
-        String unitOfResult);
+        int finalTimeUnit,
+        int unitOfResult);
 
-    public abstract String time2 (
+    public abstract Time2 time2 (
         double deltaDisplacement, 
         double velocity);
 
-    public abstract String time2 (
+    public abstract Time2 time2 (
         double deltaDisplacement,
-        String deltaDisplacementUnit, 
+        int deltaDisplacementUnit, 
         double velocity,
-        String velocityUnit,
-        String unitOfResult);
+        int velocityUnit,
+        int unitOfResult);
 
-    public abstract String time3 (
+    public abstract Time3 time3 (
         double initialDisplacement, 
         double finalDisplacement, 
-        double velocity, 
-        int stepOrResult);
+        double velocity);
 
-    public abstract String time3 (
+    public abstract Time3 time3 (
         double initialDisplacement, 
-        String initialDisplacementUnit,
+        int initialDisplacementUnit,
         double finalDisplacement,
-        String finalDisplacementUnit, 
+        int finalDisplacementUnit, 
         double velocity,
-        String velocityUnit,
-        String unitOfResult, 
-        int stepOrResult);
+        int velocityUnit,
+        int unitOfResult);
 
-    public abstract String time4 (
+    public abstract Time4 time4 (
         double deltaTime, 
         double initialTime);
 
-    public abstract String time4 (
+    public abstract Time4 time4 (
         double deltaTime, 
-        String deltaTimeUnit,
+        int deltaTimeUnit,
         double initialTime,
-        String initialTimeUnit,
-        String unitOfResult);
+        int initialTimeUnit,
+        int unitOfResult);
 
-    public abstract String time5 (
+    public abstract Time5 time5 (
         double initialTime, 
         double deltaTime);
 
-    public abstract String time5 (
+    public abstract Time5 time5 (
         double initialTime, 
-        String initialTimeUnit,
+        int initialTimeUnit,
         double deltaTime,
-        String deltaTimeUnit,
-        String unitOfResult);
+        int deltaTimeUnit,
+        int unitOfResult);
 }

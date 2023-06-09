@@ -1,8 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-final class DeltaTime2 extends Calculations {
+public final class DeltaTime2 extends Calculation {
     private static DeltaTime2 instance;
     private double initialVelocity;
     private double finalVelocity;
@@ -17,8 +17,8 @@ final class DeltaTime2 extends Calculations {
     private double step2;
     private boolean hasCustomUnits;
 
-    private DeltaTime2 setHasCustomUnits(boolean hasCustomUnits) {
-        this.hasCustomUnits = hasCustomUnits;
+    @Override
+    public DeltaTime2 calculate() {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
@@ -120,6 +120,11 @@ final class DeltaTime2 extends Calculations {
 	public String getFormula() {
 		return "∆t = (v - vi) / g";
 	}
+   
+    private DeltaTime2 setHasCustomUnits(boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+    }
 
     public static DeltaTime2 getInstance(double initialVelocity,
                                          double finalVelocity,
@@ -129,7 +134,8 @@ final class DeltaTime2 extends Calculations {
         return instance.setInitialVelocity(initialVelocity)
             .setFinalVelocity(finalVelocity)
             .setGravity(gravity)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
     }
 
     public static DeltaTime2 getInstance(double initialVelocity, 
@@ -148,6 +154,7 @@ final class DeltaTime2 extends Calculations {
             .setGravity(gravity)
             .setGravityUnit(gravityUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
     }
 }

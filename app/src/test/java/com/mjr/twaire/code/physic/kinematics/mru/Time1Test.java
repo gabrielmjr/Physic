@@ -12,9 +12,9 @@ public class Time1Test {
 
     @Test
     public void time1Test () {
-        Double initialTime = 3.5;
-        Double finalTime = 8.5;
-        String result = "5.0";
-        assertEquals(result, mru.time1(initialTime, finalTime));
+        double initialTime = 3.5;
+        double finalTime = 8.5;
+        double result = 5.0;
+        assertEquals(result, mru.time1(initialTime, finalTime).getResult());
     }
 }

@@ -1,8 +1,9 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-final class Area extends Calculations {
+public final class Area extends Calculation {
+    @Deprecated
     private static Area instance;
 
 	private double flowRate;
@@ -15,21 +16,39 @@ final class Area extends Calculations {
 	private double step1;
 	private boolean hasCustomUnits;
 
-    private Area () {}
+    protected Area() {}
+    
+    protected Area(double flowRate, double velocity) {
+        this.flowRate = flowRate;
+        this.velocity = velocity;
+        hasCustomUnits = false;
+        calculate();
+    }
 
-	private Area setHasCustomUnist (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnit();
-		else
-			calculateWithoutCustomUnit();
-		return this;
+    protected Area(double flowRate, double velocity, int flowRateUnit, int velocityUnit, int unitOfResult) {
+        this.flowRate = flowRate;
+        this.velocity = velocity;
+        this.flowRateUnit = flowRateUnit;
+        this.velocityUnit = velocityUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
+
+    
+    @Override
+    public Area calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
+
+	private void calculateWithCustomUnits () {
 	}
 
-	private void calculateWithCustomUnit () {
-	}
-
-	private void calculateWithoutCustomUnit () {
+	private void calculateWithoutCustomUnits () {
 		step1 = flowRate / velocity;
 	}
 
@@ -46,7 +65,7 @@ final class Area extends Calculations {
 			+ "\nA = " + step1 + "m²";
 	}
 
-	private Area setFlowwRate (double flowRate) {
+	public Area setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -55,7 +74,7 @@ final class Area extends Calculations {
 		return flowRate;
 	}
 
-	private Area setVelocity (double velocity) {
+	public Area setVelocity (double velocity) {
 		this.velocity = velocity;
 		return this;
 	}
@@ -64,7 +83,7 @@ final class Area extends Calculations {
 		return velocity;
 	}
 
-	private Area setFlowRateUnit (int flowRateUnit) {
+	public Area setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
@@ -73,7 +92,7 @@ final class Area extends Calculations {
 		return flowRateUnit;
 	}
 
-	private Area setVelocityUnit (int velocityUnit) {
+	public Area setVelocityUnit (int velocityUnit) {
 		this.velocityUnit = velocityUnit;
 		return this;
 	}
@@ -82,7 +101,7 @@ final class Area extends Calculations {
 		return velocityUnit;
 	}
 
-	private Area setUnitOfResult (int unitOfResult) {
+	public Area setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
@@ -95,15 +114,24 @@ final class Area extends Calculations {
 	public String getFormula() {
 		return "A = Q / v";
 	}
+    
+    @Deprecated
+    private Area setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
+    @Deprecated
     protected static Area getInstance (double flowRate, double velocity) {
         if (!(instance instanceof Area))
             instance = new Area();
-        return instance.setFlowwRate(flowRate)
+        return instance.setFlowRate(flowRate)
 		    .setVelocity(velocity)
-		    .setHasCustomUnist(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
+    @Deprecated
 	protected static Area getInstance (double flowRate,
 									   int flowRateUnit, 
 									   double velocity,
@@ -111,11 +139,12 @@ final class Area extends Calculations {
 									   int unitOfResult) {
         if (!(instance instanceof Area))
             instance = new Area();
-        return instance.setFlowwRate(flowRate)
+        return instance.setFlowRate(flowRate)
 		    .setFlowRateUnit(flowRateUnit)
 		    .setVelocity(velocity)
 		    .setVelocityUnit(velocityUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnist(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

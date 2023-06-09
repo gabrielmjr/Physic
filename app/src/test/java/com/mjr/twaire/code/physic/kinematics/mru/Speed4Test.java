@@ -17,7 +17,7 @@ public class Speed4Test {
 		double deltaDisplacement = 3.0;
 		double initialTime = 2.5;
 		double finalTime = 8.5;
-		String result = "0.5";
-		assertEquals(result, mru.speed4(deltaDisplacement, initialTime, finalTime, GET_RESULT));
+		double result = 0.5;
+		assertEquals(result, mru.speed4(deltaDisplacement, initialTime, finalTime).getResult());
 	}
 }

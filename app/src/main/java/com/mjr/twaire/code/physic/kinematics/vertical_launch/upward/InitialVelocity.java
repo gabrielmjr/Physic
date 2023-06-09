@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.upward;
 
 // vi = v + g * ∆t
-final class InitialVelocity {
+public final class InitialVelocity {
     private static InitialVelocity instance;
     private double velocity;
     private double gravity;

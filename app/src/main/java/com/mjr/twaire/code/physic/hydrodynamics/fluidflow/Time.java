@@ -1,8 +1,9 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-final class Time extends Calculations { 
+public final class Time extends Calculation { 
+    @Deprecated
     private static Time instance;
 	
 	private double volume;
@@ -14,21 +15,39 @@ final class Time extends Calculations {
 
 	private double step1;
 	private boolean hasCustomUnits;
+    
+    protected Time() {}
 
-    private Time () {}
+    protected Time(double volume, double flowRate) {
+        this.volume = volume;
+        this.flowRate = flowRate;
+        hasCustomUnits = false;
+        calculate();
+    }
 
-	private Time setHasCustUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustUnit();
-		else
-			calculateWithoutCustomUnit();
-		return this;
-	}
+    protected Time(double volume, double flowRate, int volumeUnit, int flowRateUnit, int unitOfResult) {
+        this.volume = volume;
+        this.flowRate = flowRate;
+        this.volumeUnit = volumeUnit;
+        this.flowRateUnit = flowRateUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
 
-	private void calculateWithCustUnit () {}
+    
+    @Override
+    public Time calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
-	private void calculateWithoutCustomUnit () {
+	private void calculateWithCustomUnits () {}
+
+	private void calculateWithoutCustomUnits () {
 		step1 = volume / flowRate;
 	}
 
@@ -43,7 +62,7 @@ final class Time extends Calculations {
 			+ "\n∆t = " + step1 + "s";
 	}
 
-    private Time setVolume (double volume) {
+    public Time setVolume (double volume) {
 		this.volume = volume;
 		return this;
 	}
@@ -52,7 +71,7 @@ final class Time extends Calculations {
 		return volume;
 	}
 
-	private Time setFlowRate (double flowRate) {
+	public Time setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -61,7 +80,7 @@ final class Time extends Calculations {
 		return flowRate;
 	}
 
-	private Time setVolumeUnit (int volumeUnit) {
+	public Time setVolumeUnit (int volumeUnit) {
 		this.volumeUnit = volumeUnit;
 		return this;
 	}
@@ -70,7 +89,7 @@ final class Time extends Calculations {
 		return volumeUnit;
 	}
 
-	private Time setFlowRateUnit (int flowRateUnit) {
+	public Time setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
@@ -79,7 +98,7 @@ final class Time extends Calculations {
 		return flowRateUnit;
 	}
 
-	private Time setUnitOfResult (int unitOfResult) {
+	public Time setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
@@ -92,15 +111,24 @@ final class Time extends Calculations {
 	public String getFormula() {
 		return "∆t = V/ Q";
 	}
+    
+    @Deprecated
+    private Time setHasCustUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
+    @Deprecated
     protected static Time getInstance (double volume, double flowRate) {
         if (!(instance instanceof Time))
 			instance = new Time();
         return instance.setVolume(volume)
 		    .setFlowRate(flowRate)
-		    .setHasCustUnits(false);
+		    .setHasCustUnits(false)
+            .calculate();
     }
 
+    @Deprecated
 	protected static Time getInstance (double volume,
 									int volumeUnit,
 									double flowRate,
@@ -113,6 +141,7 @@ final class Time extends Calculations {
 		    .setFlowRate(flowRate)
 		    .setFlowRateUnit(flowRateUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustUnits(true);
+		    .setHasCustUnits(true)
+            .calculate();
     }
 }

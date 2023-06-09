@@ -1,9 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+import com.mjr.twaire.code.physic.Calculation;
+
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-// Sf = Si + ∆S
-final class Displacement5 {
+public final class Displacement5 extends Calculation {
 	private static Displacement5 instance; 
 	private double initialDisplacement;
 	private double deltaDisplacement;
@@ -16,26 +17,29 @@ final class Displacement5 {
 	private boolean hasCustomUnits;
 
 	private Displacement5 () {}
-
-	private Displacement5 setHasCustomUnits (boolean hasCustomUnits) {
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculeWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Displacement5 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits () {
 	}
 
-	private void calculeWithoutCustomUnits () {
+	private void calculateWithoutCustomUnits () {
 		step1 = initialDisplacement + deltaDisplacement;
 	}
 
+    @Override
 	public double getResult () {
 		return step1;
 	}
 
+    @Override
 	public String getSteps () {
 		String deltaDisplacement = putParenthesesIfNegative(this.deltaDisplacement) + "m";
 		if (hasCustomUnits)
@@ -92,13 +96,25 @@ final class Displacement5 {
 	public int getUnitOfResult () {
 		return unitOfResult;
 	}
+    
+    @Override
+    public String getFormula() {
+        return "S = Si + ∆S";
+    }
+    
+    private Displacement5 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
-	public static Displacement5 getInstance (double initialDisplacement, double deltaDisplacement) {
+	public static Displacement5 getInstance (double initialDisplacement,
+        double deltaDisplacement) {
 		if (!(instance instanceof Displacement5))
 			instance = new Displacement5();
 		return instance.setInitialDisplacement(initialDisplacement)
 		    .setDeltaDisplacement(deltaDisplacement)
-	        .setHasCustomUnits(false);
+	        .setHasCustomUnits(false)
+            .calculate();
 	}
 
 	public static Displacement5 getInstance (double initialDisplacement,
@@ -106,6 +122,14 @@ final class Displacement5 {
 											 double deltaDisplacement,
 											 int deltaDisplacementUnit,
 											 int unitOfResult) {
-		return null;
+		if (!(instance instanceof Displacement5)) 
+            instance = new Displacement5();
+        return instance.setInitialDisplacement(initialDisplacement)
+            .setInitialDisplacementUnit(initialDisplacementUnit)
+            .setDeltaDisplacement(deltaDisplacement)
+            .setDeltaDisplacementUnit(deltaDisplacementUnit)
+            .setUnitOfResult(unitOfResult)
+            .setHasCustomUnits(true)
+            .calculate();
 	}
 }

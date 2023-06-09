@@ -1,8 +1,9 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-final class Volume extends Calculations {
+public final class Volume extends Calculation {
+    @Deprecated
     private static Volume instance;
 
 	private double deltaTime;
@@ -13,23 +14,41 @@ final class Volume extends Calculations {
 	private int unitOfResult;
 
 	private double step1;
-	private boolean hasCustomUnit;
+	private boolean hasCustomUnits;
 
-    private Volume () {}
+    protected Volume() {}
+    
+    protected Volume(double deltaTime, double flowRate) {
+        this.deltaTime = deltaTime;
+        this.flowRate = flowRate;
+        hasCustomUnits = false;
+        calculate();
+    }
 
-	private Volume setHasCustomUnit (boolean hasCustomUnit) {
-		this.hasCustomUnit = hasCustomUnit;
-		if (hasCustomUnit)
-			calculateWithCustomUnit();
-		else
-			calculateWithoutCustomUnit();
-		return this;
+    protected Volume(double deltaTime, double flowRate, int deltaTimeUnit, int flowRateUnit, int unitOfResult) {
+        this.deltaTime = deltaTime;
+        this.flowRate = flowRate;
+        this.deltaTimeUnit = deltaTimeUnit;
+        this.flowRateUnit = flowRateUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = false;
+        calculate();
+    }
+
+    
+    @Override
+    public Volume calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
+
+	private void calculateWithCustomUnits () {
 	}
 
-	private void calculateWithCustomUnit () {
-	}
-
-	private void calculateWithoutCustomUnit () {
+	private void calculateWithoutCustomUnits() {
 		step1 = deltaTime * flowRate;
 	}
 
@@ -40,13 +59,13 @@ final class Volume extends Calculations {
 
 	@Override
 	public String getSteps () {
-		if (hasCustomUnit)
+		if (hasCustomUnits)
 			return null;
 		return "V = " + deltaTime + "s × " + flowRate + "m³/s"
 			+ "\nV = " + step1 + "m³";
 	}
 
-    private Volume setDeltaTime (double deltaTime) {
+    public Volume setDeltaTime (double deltaTime) {
 		this.deltaTime = deltaTime;
 		return this;
 	}
@@ -55,7 +74,7 @@ final class Volume extends Calculations {
 		return deltaTime;
 	}
 
-	private Volume setFlowRate (double flowRate) {
+	public Volume setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -64,7 +83,7 @@ final class Volume extends Calculations {
 		return flowRate;
 	}
 
-	private Volume setDeltaTimeUnit (int deltaTimeUnit) {
+	public Volume setDeltaTimeUnit (int deltaTimeUnit) {
 		this.deltaTimeUnit = deltaTimeUnit;
 		return this;
 	}
@@ -73,7 +92,7 @@ final class Volume extends Calculations {
 		return deltaTimeUnit;
 	}
 
-	private Volume setFlowRateUnit (int flowRateUnit) {
+	public Volume setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
@@ -82,7 +101,7 @@ final class Volume extends Calculations {
 		return flowRateUnit;
 	}
 
-	private Volume setUnitOfResult (int unitOfResult) {
+	public Volume setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
@@ -95,15 +114,24 @@ final class Volume extends Calculations {
 	public String getFormula() {
 		return "V = ∆t × Q";
 	}
+    
+    @Deprecated
+    private Volume setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
+    @Deprecated
     protected static Volume getInstance (double deltaTime, double flowRate) {
         if (!(instance instanceof Volume))
 			instance = new Volume();
 		return instance.setDeltaTime(deltaTime)
 		    .setFlowRate(flowRate)
-		    .setHasCustomUnit(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
+    @Deprecated
 	protected static Volume getInstance (double deltaTime,
 									  int deltaTimeUnit,
 									  double flowRate,
@@ -116,6 +144,7 @@ final class Volume extends Calculations {
             .setFlowRate(flowRate)
 		    .setFlowRateUnit(flowRateUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnit(false);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

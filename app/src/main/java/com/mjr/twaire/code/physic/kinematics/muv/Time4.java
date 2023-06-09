@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.kinematics.muv;
 
 import com.mjr.twaire.code.physic.Physic;
 
-final class Time4 
+public final class Time4 
 {
 	private static Time4 instance; 
 

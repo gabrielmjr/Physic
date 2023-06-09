@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.upward;
 
 // yi = y + [vi * ∆t + (g * t²)/2]
-final class InitialHeight {
+public final class InitialHeight {
     private static InitialHeight instance;
     private double height;
     private double initialVelocity;

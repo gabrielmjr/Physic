@@ -1,9 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+import com.mjr.twaire.code.physic.Calculation;
+
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-// Si = Sf - ∆S
-final class Displacement4 {
+public final class Displacement4 extends Calculation {
 	private static Displacement4 instance; 
     private double deltaDisplacement;
 	private double finalDisplacement;
@@ -16,15 +17,15 @@ final class Displacement4 {
 	private boolean hasCustomUnits;
 
 	private Displacement4 () {}
-
-	private Displacement4 setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Displacement4 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits () {
 	}
@@ -33,10 +34,12 @@ final class Displacement4 {
 		step1 = finalDisplacement - deltaDisplacement;
 	}
 
+    @Override
 	public double getResult () {
 		return step1;
 	}
 
+    @Override
 	public String getSteps () {
 		String deltaDisplacement = putParenthesesIfNegative(this.deltaDisplacement) + "m";
 		if (hasCustomUnits)
@@ -94,12 +97,23 @@ final class Displacement4 {
 		return unitOfResult;
 	}
 	
+    @Override
+    public String getFormula() {
+        return "Si = S - ∆S";
+    }
+    
+    private Displacement4 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
+    
 	public static Displacement4 getInstance (double deltaDisplacement, double finalDisplacement) {
 		if (!(instance instanceof Displacement4))
 			instance = new Displacement4();
 		return instance.setDeltaDisplacement(deltaDisplacement)
 		    .setFinalDisplacement(finalDisplacement)
-			.setHasCustomUnits(false);
+			.setHasCustomUnits(false)
+            .calculate();
     }
 	
 	public static Displacement4 getInstance (double deltaDisplacement, 
@@ -114,6 +128,7 @@ final class Displacement4 {
 		    .setFinalDisplacement(finalDisplacement)
 		    .setFinalDispacementUnit(finalDisplacementUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

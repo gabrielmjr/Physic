@@ -12,9 +12,9 @@ public class Time5Test {
 
     @Test
     public void time5Test () {
-        Double initialTime = 3.5;
-        Double deltaTime = 5.5;
-        String result = "9.0";
-        assertEquals(result, mru.time5(initialTime, deltaTime));
+        double initialTime = 3.5;
+        double deltaTime = 5.5;
+        double result = 9.0;
+        assertEquals(result, mru.time5(initialTime, deltaTime).getResult());
     }
 }

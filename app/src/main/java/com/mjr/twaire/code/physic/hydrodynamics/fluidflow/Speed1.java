@@ -1,8 +1,9 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-final class Speed1 extends Calculations {
+public final class Speed1 extends Calculation {
+    @Deprecated
     private static Speed1 instance;
 
 	private double flowRate;
@@ -14,22 +15,39 @@ final class Speed1 extends Calculations {
 
 	private double step1;
 	private boolean hasCustomUnits;
+    
+    protected Speed1() {}
 
-    private Speed1 () {}
+    protected Speed1(double flowRate, double area) {
+        this.flowRate = flowRate;
+        this.area = area;
+        hasCustomUnits = false;
+        calculate();
+    }
 
-	private Speed1 setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
+    protected Speed1(double flowRate, double area, int flowRateUnit, int areaUnit, int unitOfResult) {
+        this.flowRate = flowRate;
+        this.area = area;
+        this.flowRateUnit = flowRateUnit;
+        this.areaUnit = areaUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
 
-			calculateWithCustomUnit();
-		else
-		    calculateWithoutCustomUnit();
-		return this;
-	}
+    
+    @Override
+    public Speed1 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
-	private void calculateWithCustomUnit () {}
+	private void calculateWithCustomUnits () {}
 
-	private void calculateWithoutCustomUnit () {
+	private void calculateWithoutCustomUnits () {
 		step1 = flowRate / area;
 	}
 
@@ -46,7 +64,7 @@ final class Speed1 extends Calculations {
 			+ "\nv = " + step1 + "m/s";
 	}
 
-    private Speed1 setFlowRate (double flowRate) {
+    public Speed1 setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -55,7 +73,7 @@ final class Speed1 extends Calculations {
 		return flowRate;
 	}
 
-	private Speed1 setArea (double area) {
+	public Speed1 setArea (double area) {
 		this.area = area;
 		return this;
 	}
@@ -64,7 +82,7 @@ final class Speed1 extends Calculations {
 		return area;
 	}
 
-	private Speed1 setFlowRateUnit (int flowRateUnit) {
+	public Speed1 setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
@@ -73,7 +91,7 @@ final class Speed1 extends Calculations {
 		return flowRateUnit;
 	}
 
-	private Speed1 setAreaUnit (int areaUnit) {
+	public Speed1 setAreaUnit (int areaUnit) {
 		this.areaUnit = areaUnit;
 		return this;
 	}
@@ -82,7 +100,7 @@ final class Speed1 extends Calculations {
 		return areaUnit;
 	}
 
-	private Speed1 setUnitOfResult (int unitOfResult) {
+	public Speed1 setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
@@ -95,16 +113,25 @@ final class Speed1 extends Calculations {
 	public String getFormula() {
 		return "v = Q / A";
 	}
+    
+    @Deprecated
+    private Speed1 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
+    @Deprecated
     protected static Speed1 getInstance (double flowRate, double area) {
         if (!(instance instanceof Speed1))
             instance = new Speed1();
 		return instance
 			.setFlowRate(flowRate)
 			.setArea(area)
-			.setHasCustomUnits(false);
+			.setHasCustomUnits(false)
+            .calculate();
     }
 
+    @Deprecated
 	protected static Speed1 getInstance (double flowRate, 
 									  int flowRateUnit,
 									  double area,
@@ -118,6 +145,7 @@ final class Speed1 extends Calculations {
 		    .setArea(area)
 		    .setAreaUnit(areaUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

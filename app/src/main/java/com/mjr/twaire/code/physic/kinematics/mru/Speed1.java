@@ -1,9 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+import com.mjr.twaire.code.physic.Calculation;
+
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-// ∆v = ∆S / ∆t
-final class Speed1 {
+public final class Speed1 extends Calculation {
 	private static Speed1 instance;
 	private double deltaDisplacement;
 	private double deltaTime;
@@ -16,15 +17,15 @@ final class Speed1 {
 	private boolean hasCustomUnits;
 
 	private Speed1() {}
-
-	private Speed1 setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Speed1 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits() {
 	}
@@ -33,10 +34,12 @@ final class Speed1 {
 		step1 = deltaDisplacement / deltaTime;
 	}
 	
+    @Override
 	public double getResult () {
 		return step1;
 	}
 	
+    @Override
 	public String getSteps() {
 		String deltaTime = putParenthesesIfNegative(this.deltaTime) + "m";
 		if (hasCustomUnits)
@@ -89,6 +92,16 @@ final class Speed1 {
 	public int getUnitOfResult() {
 		return unitOfResult;
 	}
+    
+    @Override
+    public String getFormula() {
+        return "∆v = ∆S / ∆t";
+    }
+    
+    private Speed1 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
     public static Speed1 getInstance (double deltaDisplacement,
 	                                  double deltaTime) {
@@ -96,7 +109,8 @@ final class Speed1 {
 			instance = new Speed1();
 		return instance.setDeltaDisplacement(deltaDisplacement)
 		    .setDeltaTime(deltaTime)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 	
 	public static Speed1 getInstance (double deltaDisplacement,
@@ -111,6 +125,7 @@ final class Speed1 {
 		    .setDeltaTime(deltaTime)
 		    .setDeltaTimeUnit(deltaTimeUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

@@ -1,7 +1,9 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-// ∆S = ∆t × deltaSpeed
-final class Displacement2 {
+import com.mjr.twaire.code.physic.Calculation;
+
+public final class Displacement2 extends Calculation {
+    @Deprecated
 	private static Displacement2 instance; 
 
 	private double deltaTime;
@@ -14,94 +16,130 @@ final class Displacement2 {
 	private double step1;
 	private boolean hasCustomUnits;
 
-	private Displacement2 () {}
+    protected Displacement2() {}
 
-	private Displacement2 setHasCustomUnit (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
+    protected Displacement2(double deltaTime, double deltaSpeed) {
+        this.deltaTime = deltaTime;
+        this.deltaSpeed = deltaSpeed;
+        hasCustomUnits = false;
+        calculate();
+    }
 
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
+    protected Displacement2(double deltaTime,
+                            int deltaTimeUnit, 
+                            double deltaSpeed,
+                            int deltaSpeedUnit, 
+                            int unitOfResult) {
+        this.deltaTime = deltaTime;
+        this.deltaSpeed = deltaSpeed;
+        this.deltaTimeUnit = deltaTimeUnit;
+        this.deltaSpeedUnit = deltaSpeedUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
+
+    @Override
+    public Displacement2 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
 		return this;
+    }
+
+	private void calculateWithCustomUnits() {
 	}
 
-	private void calculateWithCustomUnits () {
-	}
-
-	private void calculateWithoutCustomUnits () {
+	private void calculateWithoutCustomUnits() {
 		step1 = deltaTime * deltaSpeed;
 	}
 
-	public double getResult () {
+    @Override
+	public double getResult() {
 		return step1;
 	}
 
-	public String getSteps () {
+    @Override
+	public String getSteps() {
 		if (hasCustomUnits)
 			return null;
 		return "∆S = " + deltaTime + "s × " + deltaSpeed + "m/s"
 			+ "\nS = " + step1 + "m";
 	}
 
-	private Displacement2 setDeltaTime (double deltaTime) {
+	private Displacement2 setDeltaTime(double deltaTime) {
 		this.deltaTime = deltaTime;
 		return this;
 	}
 
-	public double getDeltaTime () {
+	public double getDeltaTime() {
 		return deltaTime;
 	}
 
-	private Displacement2 setDeltaSpeed (double deltaSpeed) {
+	private Displacement2 setDeltaSpeed(double deltaSpeed) {
 		this.deltaSpeed = deltaSpeed;
 		return this;
 	}
 
-	public double getdeltaSpeed () {
+	public double getdeltaSpeed() {
 		return deltaSpeed;
 	}
 
-	private Displacement2 setDeltaTimeUnit (int deltaTimeUnit) {
+	private Displacement2 setDeltaTimeUnit(int deltaTimeUnit) {
 		this.deltaTimeUnit = deltaTimeUnit;
 		return this;
 	}
 
-	public int getDeltaTimeUnit () {
+	public int getDeltaTimeUnit() {
 		return deltaTimeUnit;
 	}
 
-	private Displacement2 setDeltaSpeedUnit (int deltaSpeedUnit) {
+	private Displacement2 setDeltaSpeedUnit(int deltaSpeedUnit) {
 		this.deltaSpeedUnit = deltaSpeedUnit;
 		return this;
 	}
 
-	public int getDeltaSpeedUnit () {
+	public int getDeltaSpeedUnit() {
 		return deltaSpeedUnit;
 	}
 
-	private Displacement2 setUnitOfResult (int unitOfResult) {
+	private Displacement2 setUnitOfResult(int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
 
-	public int getUnitOfResult () {
+	public int getUnitOfResult() {
 		return unitOfResult;
 	}
 
-    public static Displacement2 getInstance (double deltaTime, double deltaSpeed) {
+    @Override
+    public String getFormula() {
+        return "∆S = ∆t × ∆v";
+    }
+
+    @Deprecated
+    private Displacement2 setHasCustomUnits(boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
+
+    @Deprecated
+    public static Displacement2 getInstance(double deltaTime, double deltaSpeed) {
 		if (!(instance instanceof Displacement2))
 			instance = new Displacement2();
 		return instance.setDeltaTime(deltaTime)
 		    .setDeltaSpeed(deltaSpeed)
-		    .setHasCustomUnit(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
-	public static Displacement2 getInstance (double deltaTime,
-											 int deltaTimeUnit,
-											 double deltaSpeed,
-											 int deltaSpeedUnit,
-											 int unitOfResult) {
+    @Deprecated
+	public static Displacement2 getInstance(double deltaTime,
+                                            int deltaTimeUnit,
+                                            double deltaSpeed,
+                                            int deltaSpeedUnit,
+                                            int unitOfResult) {
 		if (!(instance instanceof Displacement2))
 			instance = new Displacement2();
 		return instance.setDeltaTime(deltaTime)
@@ -109,6 +147,7 @@ final class Displacement2 {
 		    .setDeltaSpeed(deltaSpeed)
 		    .setDeltaSpeedUnit(deltaSpeedUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnit(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

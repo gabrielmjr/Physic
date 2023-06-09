@@ -11,10 +11,12 @@ public interface FluidFlowIF {
 		double time, 
 		int timeUnit,
 		int unitOfResult);
+        
+    public abstract FlowRate1 flowRate1();
 
     public abstract FlowRate2 flowRate2 (
 		double area,
-		double velocity);
+		double velopcity);
 
     public abstract FlowRate2 flowRate2 (
 		double area,
@@ -22,6 +24,8 @@ public interface FluidFlowIF {
 		double velocity,
 		int velocityUnit, 
 		int unitOfResult);
+        
+    public abstract FlowRate2 flowRate2();
 
     public abstract FlowRate3 flowRate3 (
 		double ray,
@@ -33,6 +37,8 @@ public interface FluidFlowIF {
 		double velocity,
 		int velocityUnit,
 		int unitOfResult);
+        
+    public abstract FlowRate3 flowRate3();
 
     public abstract Time time (
 		double volume,
@@ -44,6 +50,8 @@ public interface FluidFlowIF {
         double flowRate,
 		int flowRateUnit,
         int unitOfResult);
+        
+    public abstract Time time();
 
     public abstract Volume volume (
 		double time, 
@@ -55,6 +63,8 @@ public interface FluidFlowIF {
 		double flowRate,
 		int flowRateUnit,
 		int unitOfResult);
+        
+    public abstract Volume volume();
 
     public abstract Speed1 speed1 (
 		double flowRate, 
@@ -66,6 +76,8 @@ public interface FluidFlowIF {
 		double area,
 		int areaUnit, 
 		int unitOfResult);
+        
+    public abstract Speed1 speed1();
 
     public abstract Speed2 speed2 (
 		double flowRate,
@@ -77,6 +89,8 @@ public interface FluidFlowIF {
 		double ray,
 		int rayUnit,
 		int unitOfResult);
+        
+    public abstract Speed2 speed2();
 
     public abstract Area area (
 	    double flowRate, 
@@ -88,6 +102,8 @@ public interface FluidFlowIF {
 		double velocity,
 		int velocityUnit, 
 		int unitOfResult);
+        
+    public abstract Area area();
 
     public abstract Ray ray (
 		double flowRate,
@@ -99,4 +115,6 @@ public interface FluidFlowIF {
 		double velocity,
 		int velocityUnit, 
 		int unitOfResult);
+        
+    public abstract Ray ray();
 }

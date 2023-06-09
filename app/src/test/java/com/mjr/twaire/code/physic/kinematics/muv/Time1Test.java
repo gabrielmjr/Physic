@@ -12,9 +12,9 @@ public class Time1Test {
 
     @Test
     public void time1Test () {
-        Double deltaSpeed = 3.0;
-        Double acceleration = 8.0;
-        String result = "0.375";
-        assertEquals(result, muv.time1(deltaSpeed, acceleration));
+        double deltaSpeed = 3.0;
+        double acceleration = 8.0;
+        double result = 0.375;
+        assertEquals(result, muv.time1(deltaSpeed, acceleration).getResult());
     }
 }

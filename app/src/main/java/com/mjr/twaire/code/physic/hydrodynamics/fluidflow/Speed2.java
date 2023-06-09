@@ -1,8 +1,9 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-final class Speed2 extends Calculations {
+public final class Speed2 extends Calculation {
+    @Deprecated
     private static Speed2 instance;
 
 	private double flowRate;
@@ -16,21 +17,38 @@ final class Speed2 extends Calculations {
 	private double step2;
 	private double step3;
 	private boolean hasCustomUnits;
+    
+    protected Speed2() {}
 
-    private Speed2 () {}
+    protected Speed2(double flowRate, double ray) {
+        this.flowRate = flowRate;
+        this.ray = ray;
+        hasCustomUnits = false;
+        calculate();
+    }
 
-	private Speed2 setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnit();
-		else
-			calculateWithoutCustomUnit();
-		return this;
-	}
+    protected Speed2(double flowRate, double ray, int flowRateUnit, int rayUnit, int unitOfResult) {
+        this.flowRate = flowRate;
+        this.ray = ray;
+        this.flowRateUnit = flowRateUnit;
+        this.rayUnit = rayUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
+    
+    @Override
+    public Speed2 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
+    
+	private void calculateWithCustomUnits () {}
 
-	private void calculateWithCustomUnit () {}
-
-	private void calculateWithoutCustomUnit () {
+	private void calculateWithoutCustomUnits () {
 		step1 = Math.pow(ray, 2);
 		step2 = step1 * 3.14;
 		step3 = flowRate / step2;
@@ -51,7 +69,7 @@ final class Speed2 extends Calculations {
 			+ "\nv = " + step3 + "m/s";
 	}
 
-	private Speed2 setFlowRate (double flowRate) {
+	public Speed2 setFlowRate (double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
@@ -60,7 +78,7 @@ final class Speed2 extends Calculations {
 		return flowRate;
 	}
 
-	private Speed2 setRay (double ray) {
+	public Speed2 setRay (double ray) {
 		this.ray = ray;
 		return this;
 	}
@@ -69,7 +87,7 @@ final class Speed2 extends Calculations {
 		return ray;
 	}
 
-	private Speed2 setFlowRateUnit (int flowRateUnit) {
+	public Speed2 setFlowRateUnit (int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
@@ -78,7 +96,7 @@ final class Speed2 extends Calculations {
 		return flowRateUnit;
 	}
 
-	private Speed2 setRayUnit (int rayUnit) {
+	public Speed2 setRayUnit (int rayUnit) {
 		this.rayUnit = rayUnit;
 		return this;
 	}
@@ -87,7 +105,7 @@ final class Speed2 extends Calculations {
 		return rayUnit;
 	}
 
-	private Speed2 setUnitOfRest (int unitOfResult) {
+	public Speed2 setUnitOfRest (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
@@ -101,14 +119,23 @@ final class Speed2 extends Calculations {
 		return "v = Q / [π × (r)²]";
 	}
 
+    @Deprecated
+    private Speed2 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+    }
+    
+    @Deprecated
     protected static Speed2 getInstance (double flowRate, double ray) {
         if (!(instance instanceof Speed2))
             instance = new Speed2();
 		return instance.setFlowRate(flowRate)
 		    .setRay(ray)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
+    @Deprecated
 	protected static Speed2 getInstance (double flowRate,
 									  int flowRateUnit,
 									  double ray,
@@ -121,6 +148,7 @@ final class Speed2 extends Calculations {
 		    .setRay(ray)
 		    .setRayUnit(rayUnit)
 		    .setUnitOfRest(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

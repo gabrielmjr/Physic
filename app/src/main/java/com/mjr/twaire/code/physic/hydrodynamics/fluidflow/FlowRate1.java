@@ -1,8 +1,9 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
-final class FlowRate1 extends Calculations {
+public final class FlowRate1 extends Calculation {
+    @Deprecated
     private static FlowRate1 instance;
 
 	private double volume;
@@ -13,34 +14,51 @@ final class FlowRate1 extends Calculations {
 	private int unitOfResult;
 
 	private double step1;
-	private boolean hasCustomUnit;
+	private boolean hasCustomUnits;
+    
+    protected FlowRate1() {}
 
-    private FlowRate1 () {}
-
-	private FlowRate1 setHasCustomUnits (boolean hasCustomUnit) {
-		this.hasCustomUnit = hasCustomUnit;
-		if (hasCustomUnit) 
-			calculateWithCustomUnit();
-		else 
-			calculateWithoutCustomUnit();
-		return this;
-	}
-
-	private void calculateWithCustomUnit () {
+    protected FlowRate1(double volume, double deltaTime) {
+        this.volume = volume;
+        this.deltaTime = deltaTime;
+        hasCustomUnits = false;
+        calculate();
     }
 
-	private void calculateWithoutCustomUnit () {
+    protected FlowRate1(double volume, double deltaTime, int volumeUnit, int deltaTimeUnit, int unitOfResult) {
+        this.volume = volume;
+        this.deltaTime = deltaTime;
+        this.volumeUnit = volumeUnit;
+        this.deltaTimeUnit = deltaTimeUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
+
+    @Override
+    public FlowRate1 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
+
+	private void calculateWithCustomUnits () {
+    }
+
+	private void calculateWithoutCustomUnits () {
 		step1 = volume / deltaTime;
 	}
 
 	@Override
-	public Double getResult () {
+	public double getResult () {
 		return step1;
 	}
 
 	@Override
 	public String getSteps () {
-		if (hasCustomUnit) 
+		if (hasCustomUnits) 
 			return null;
 		else {
 			return "Q = " + volume + " ÷ " + deltaTime
@@ -48,7 +66,7 @@ final class FlowRate1 extends Calculations {
 		}
 	}
 
-	private FlowRate1 setVolume (double volume) {
+	public FlowRate1 setVolume (double volume) {
 		this.volume = volume;
 		return this;
 	}
@@ -57,7 +75,7 @@ final class FlowRate1 extends Calculations {
 		return volume;
 	}
 
-	private FlowRate1 setDeltaTime (double deltaTime) {
+	public FlowRate1 setDeltaTime (double deltaTime) {
 		this.deltaTime = deltaTime;
 		return this;
 	}
@@ -66,7 +84,7 @@ final class FlowRate1 extends Calculations {
 		return deltaTime;
 	}
 
-	private FlowRate1 setVolumeUnit (int volumeUnit) {
+	public FlowRate1 setVolumeUnit (int volumeUnit) {
 		this.volumeUnit = volumeUnit;
 		return this;
 	}
@@ -75,7 +93,7 @@ final class FlowRate1 extends Calculations {
 		return volumeUnit;
 	}
 
-	private FlowRate1 setDeltaTimeUnit (int deltaTimeUnit) {
+	public FlowRate1 setDeltaTimeUnit (int deltaTimeUnit) {
 		this.deltaTimeUnit = deltaTimeUnit;
 		return this;
 	}
@@ -84,7 +102,7 @@ final class FlowRate1 extends Calculations {
 		return deltaTimeUnit;
 	}
 
-	private FlowRate1 setUnitOfResult (int unitOfResult) {
+	public FlowRate1 setUnitOfResult (int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
@@ -97,15 +115,24 @@ final class FlowRate1 extends Calculations {
 	public String getFormula() {
 		return "Q = V / ∆t";
 	}
+    
+    @Deprecated
+    private FlowRate1 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
+    @Deprecated
     protected static FlowRate1 getInstance (double volume, double time) {
         if (!(instance instanceof FlowRate1))
             instance = new FlowRate1();
 		return instance.setVolume(volume)
 		    .setDeltaTime(time)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
+    @Deprecated
 	protected static FlowRate1 getInstance (double volume, 
 										 int volumeUnit,
 										 double time,
@@ -118,6 +145,7 @@ final class FlowRate1 extends Calculations {
 		    .setDeltaTime(time)
 		    .setDeltaTimeUnit(deltaTimeUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

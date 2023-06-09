@@ -1,9 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+import com.mjr.twaire.code.physic.Calculation;
+
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-// S = Si + v * ∆t
-final class Displacement6 {
+public final class Displacement6 extends Calculation {
 	private static Displacement6 instance;
 	private double initialDisplacement;
 	private double velocity;
@@ -19,15 +20,15 @@ final class Displacement6 {
 	private boolean hasCustomUnits;
 
 	private Displacement6 () {}
-
-	private Displacement6 setHasCustomUnits (boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Displacement6 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 
 	private void calculateWithCustomUnits () {
 	}
@@ -37,10 +38,12 @@ final class Displacement6 {
 		step2 = initialDisplacement + step1;
 	}
 
+    @Override
 	public double getResult () {
 		return step2;
-	}
-
+    }
+      
+    @Override
 	public String getSteps () {
 		String velocity = putParenthesesIfNegative(this.velocity) + "m/s";
 		if (hasCustomUnits)
@@ -117,6 +120,16 @@ final class Displacement6 {
 	public int getUnitOfResult () {
 		return unitOfResult;
 	}
+    
+    @Override
+    public String getFormula() {
+        return "S = Si + v * ∆t";
+    }
+    
+    private Displacement6 setHasCustomUnits (boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
+	}
 
 	public static Displacement6 getInstance (double initialDisplacement,
 											 double velocity,
@@ -126,7 +139,8 @@ final class Displacement6 {
 		return instance.setInitialDisplacement(initialDisplacement)
 		    .setVelocity(velocity)
 		    .setDeltaTime(deltaTime)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
 	}
 
 	public static Displacement6 getInstance (double initialDisplacement, 
@@ -145,6 +159,7 @@ final class Displacement6 {
 		    .setDeltaTime(deltaTime)
 		    .setDeltaTimeUnit(deltaTimeUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(true)
+            .calculate();
 	}
 }

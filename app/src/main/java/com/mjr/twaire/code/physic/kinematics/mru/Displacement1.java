@@ -1,9 +1,11 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
+import com.mjr.twaire.code.physic.Calculation;
+
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-// ∆S = sf - si
-final class Displacement1 {
+public final class Displacement1 extends Calculation {
+    @Deprecated
 	private static Displacement1 instance; 
 
 	private double initialDisplacement;
@@ -16,9 +18,41 @@ final class Displacement1 {
 	private double step1;
 	private boolean hasCustomUnits;
 
-	private Displacement1 () {}
 
-	private Displacement1 setHasCustomUnits (boolean hasCustomUnits) {
+	protected Displacement1() {}
+
+    protected Displacement1(double initialDisplacement, double finalDisplacement) {
+        this.initialDisplacement = initialDisplacement;
+        this.finalDisplacement = finalDisplacement;
+        hasCustomUnits = false;
+        calculate();
+    }
+
+    protected Displacement1(double initialDisplacement,
+                            int initialDisplacementUnit,
+                            double finalDisplacement,
+                            int finalDisplacementUnit,
+                            int unitOfResult) {
+        this.initialDisplacement = initialDisplacement;
+        this.finalDisplacement = finalDisplacement;
+        this.initialDisplacementUnit = initialDisplacementUnit;
+        this.finalDisplacementUnit = finalDisplacementUnit;
+        this.unitOfResult = unitOfResult;
+        hasCustomUnits = true;
+        calculate();
+    }
+
+    @Override
+    public Displacement1 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
+
+    @Deprecated
+	private Displacement1 setHasCustomUnits(boolean hasCustomUnits) {
 		this.hasCustomUnits = hasCustomUnits;
 		if (hasCustomUnits)
 			calculateWithCustomUnits();
@@ -27,86 +61,96 @@ final class Displacement1 {
 		return this;
 	}
 
-	private void calculateWithCustomUnits () {
+	private void calculateWithCustomUnits() {
 	}
 
-	private void calculateWithoutCustomUnits () {
+	private void calculateWithoutCustomUnits() {
 		step1 = finalDisplacement - initialDisplacement;
 	}
 
-	public double getResult () {
+    @Override
+	public double getResult() {
 		return step1;
 	}
 
-	public String getSteps () {
+    @Override
+	public String getSteps() {
 		String initialDisplacement = putParenthesesIfNegative(this.initialDisplacement) + "m";
 		boolean isInitialDisplacementNegative = this.initialDisplacement < 0;
 		if (hasCustomUnits)
 			return null;
 		return "∆S = " + finalDisplacement + "m - " + initialDisplacement
-				+ "\n∆S = " + finalDisplacement + "m " + ((isInitialDisplacementNegative) ? "+ " + (- this.initialDisplacement) : "- " + this.initialDisplacement) + "m"
-				+ "\n∆S = " + step1 + "m";
+            + "\n∆S = " + finalDisplacement + "m " + ((isInitialDisplacementNegative) ? "+ " + (- this.initialDisplacement) : "- " + this.initialDisplacement) + "m"
+            + "\n∆S = " + step1 + "m";
 	}
 
-	private Displacement1 setInitiDisplacement (double initialDisplacement) {
+	private Displacement1 setInitiDisplacement(double initialDisplacement) {
 		this.initialDisplacement = initialDisplacement;
 		return this;
 	}
 
-	public double getInitialDisplacement () {
+	public double getInitialDisplacement() {
 		return initialDisplacement;
 	}
 
-	private Displacement1 setFinalDisplacement (double finalDisplacement) {
+	private Displacement1 setFinalDisplacement(double finalDisplacement) {
 		this.finalDisplacement = finalDisplacement;
 		return this;
 	}
 
-	public double getFinalDisplacement () {
+	public double getFinalDisplacement() {
 		return finalDisplacement;
 	}
 
-	private Displacement1 setInitialDisplacementUnit (int initialDisplacementUnit) {
+	private Displacement1 setInitialDisplacementUnit(int initialDisplacementUnit) {
 		this.initialDisplacementUnit = initialDisplacementUnit;
 
 		return this;
 	}
-	
-	public int getInitialDisplacementUnit () {
+
+	public int getInitialDisplacementUnit() {
 		return initialDisplacementUnit;
 	}
-	
-	private Displacement1 setFinalDisplacementUnit (int finalDisplacementUnit) {
+
+	private Displacement1 setFinalDisplacementUnit(int finalDisplacementUnit) {
 		this.finalDisplacementUnit = finalDisplacementUnit;
 		return this;
 	}
-	
-	public int getFinalDisplacementUnit () {
+
+	public int getFinalDisplacementUnit() {
 		return finalDisplacementUnit;
 	}
-	
-	private Displacement1 setUnitOfResult (int unitOfResult) {
+
+	private Displacement1 setUnitOfResult(int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
-	
-	public int getUnitOfResult () {
+
+	public int getUnitOfResult() {
 		return unitOfResult;
 	}
 
-    public static Displacement1 getInstance (double initialDisplacement, double finalDisplacement) {
+    @Override
+    public String getFormula() {
+        return "∆S = S - Si";
+    }
+
+    @Deprecated
+    public static Displacement1 getInstance(double initialDisplacement, double finalDisplacement) {
 		if (!(instance instanceof Displacement1))
 			instance = new Displacement1();
 		return instance.setInitiDisplacement(initialDisplacement)
 		    .setFinalDisplacement(finalDisplacement)
-		    .setHasCustomUnits(false);
+		    .setHasCustomUnits(false)
+            .calculate();
     }
 
-	public static Displacement1 getInstance (double initialDisplacement, 
-											 int initialDisplacementUnit,
-											 double finalDisplacement,
-											 int finalDisplacementUnit,
-											 int unitOfResult) {
+    @Deprecated
+	public static Displacement1 getInstance(double initialDisplacement, 
+                                            int initialDisplacementUnit,
+                                            double finalDisplacement,
+                                            int finalDisplacementUnit,
+                                            int unitOfResult) {
 		if (!(instance instanceof Displacement1))
 			instance = new Displacement1();
 		return instance.setInitiDisplacement(initialDisplacement)
@@ -114,6 +158,7 @@ final class Displacement1 {
 		    .setFinalDisplacement(finalDisplacement)
 		    .setFinalDisplacementUnit(finalDisplacementUnit)
 		    .setUnitOfResult(unitOfResult)
-		    .setHasCustomUnits(true);
+		    .setHasCustomUnits(true)
+            .calculate();
     }
 }

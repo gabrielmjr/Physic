@@ -1,10 +1,10 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-import com.mjr.twaire.code.physic.Calculations;
+import com.mjr.twaire.code.physic.Calculation;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-final class Speed2 extends Calculations {
+public final class Speed2 extends Calculation {
 	private static Speed2 instance; 
 	private double initialDisplacement;
 	private double finalDisplacement;
@@ -23,15 +23,15 @@ final class Speed2 extends Calculations {
 	private boolean hasCustomUnits;
 	
 	private Speed2() {}
-	
-	private Speed2 setHasCustomUnits(boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
+    
+    @Override
+    public Speed2 calculate() {
+        if (hasCustomUnits)
+            calculateWithCustomUnits();
+        else
+            calculateWithoutCustomUnits();
+        return this;
+    }
 	
 	private void calculateWithCustomUnits() {
 	}
@@ -52,7 +52,7 @@ final class Speed2 extends Calculations {
 		String initialDisplacement = putParenthesesIfNegative(this.initialDisplacement);
 		String initialTime = putParenthesesIfNegative(this.initialTime);
 		String finalTime = putParenthesesIfNegative(this.finalTime);
-		return "∆v = " + finalDisplacement + "m - " + initialDisplacement + "m ÷ " + finalTime + "s - " + initialTime + "s"
+		return "∆v = (" + finalDisplacement + "m - " + initialDisplacement + "m) ÷ (" + finalTime + "s - " + initialTime + "s)"
 		    + "\n∆v = " + step1 + "m ÷ " + finalTime + "s - " + initialTime + "s"
 			+ "\n∆v = " + step1 + "m ÷ " + step2 + "s"
 			+ "\n∆v = " + step3 + "m/s";
@@ -141,7 +141,12 @@ final class Speed2 extends Calculations {
 	
 	@Override
 	public String getFormula() {
-		return "∆v = (Sf - Si) ÷ (tf - ti)";
+		return "∆v = (S - Si) ÷ (t - ti)";
+	}
+    
+    private Speed2 setHasCustomUnits(boolean hasCustomUnits) {
+        this.hasCustomUnits = hasCustomUnits;
+        return this;
 	}
 
     public static Speed2 getInstance(double initialDisplacement,
@@ -154,11 +159,11 @@ final class Speed2 extends Calculations {
 		    .setFinalDisplacement(finalDisplacement)
 		    .setInitialTime(initialTime)
             .setFinalTime(finalTime)
-            .setHasCustomUnits(false);
+            .setHasCustomUnits(false)
+            .calculate();
     }
     
-    public static Speed2 getInstance(
-        double initialDisplacement,
+    public static Speed2 getInstance(double initialDisplacement,
         int initialDisplacementUnit,
         double finalDisplacement,
         int finalDisplacementUnit,
@@ -179,6 +184,7 @@ final class Speed2 extends Calculations {
             .setFinalTime(finalTime)
             .setFinalTimeUnit(finalTimeUnit)
             .setUnitOfResult(unitOfResult)
-            .setHasCustomUnits(true);
+            .setHasCustomUnits(true)
+            .calculate();
         }
 }
