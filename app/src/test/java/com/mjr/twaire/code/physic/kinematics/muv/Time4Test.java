@@ -13,10 +13,10 @@ public class Time4Test {
 
     @Test
     public void time4Test () {
-        Double initialTime = 8.4;
-        Double deltaSpeed = 3.0;
-        Double acceleration = 5.0;
-        String result = "9.0";
-        assertEquals(result, muv.time4(initialTime, deltaSpeed, acceleration, GET_RESULT));
+        double initialTime = 8.4;
+        double deltaSpeed = 3.0;
+        double acceleration = 5.0;
+        double result = 9.0;
+        assertEquals(result, muv.time4(initialTime, deltaSpeed, acceleration).getResult());
     }
 }

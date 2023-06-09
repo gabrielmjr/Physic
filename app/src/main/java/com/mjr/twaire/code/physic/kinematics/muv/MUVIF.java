@@ -145,21 +145,19 @@ public interface MUVIF {
         int accelerationUnit,
         int unitOfResult);
 
-    public abstract String time4(
+    public abstract Time4 time4(
         double initialTime, 
         double deltaSpeed, 
-        double acceleration, 
-        int stepOrResult);
+        double acceleration);
 
-    public abstract String time4(
+    public abstract Time4 time4(
         double initialTime, 
-        String initialTimeUnit,
+        int initialTimeUnit,
         double deltaSpeed, 
-        String deltaSpeedUnit,
+        int deltaSpeedUnit,
         double acceleration,
-        String accelerationUnit,
-        String unitOfResult,
-        int stepOrResult);
+        int accelerationUnit,
+        int unitOfResult);
 
     public abstract Displacement1 displacement1(
         double initialDisplacement, 

@@ -151,11 +151,10 @@ public final class Time3 extends Calculation {
     
     @Override
     public String getFormula() {
-        return "∆t = t - ∆t ÷ a";
+        return "ti = t - ∆t ÷ a";
     }
     
     @Deprecated
-    // ∆t = t - ∆v /acceleration
 	protected String time(
 		double finalTime,
 		double deltaSpeed,

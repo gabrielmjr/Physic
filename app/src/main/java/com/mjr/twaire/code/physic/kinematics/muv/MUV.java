@@ -2,11 +2,8 @@ package com.mjr.twaire.code.physic.kinematics.muv;
 
 public class MUV implements MUVIF {
 	private static MUV instance;
-
-	private Time4 time4;
-
+    
 	public MUV() {
-		time4 = Time4.getInstance();
     }
 
 
@@ -297,37 +294,29 @@ public class MUV implements MUVIF {
 
 	// Final time: tf = (∆v / a) + ti
 	@Override
-	public String time4(
-		double initialTime, 
-		double deltaVelocity, 
-		double acceleration, 
-		int stepOrResult) {
-		return time4.time(
-			initialTime,
-			deltaVelocity,
-			acceleration,
-			stepOrResult);
+	public Time4 time4(double initialTime, 
+                       double deltaSpeed, 
+                       double acceleration) {
+		return new Time4(initialTime,
+                         deltaSpeed,
+                         acceleration);
 	}
 
 	@Override
-	public String time4(
-		double initialTime, 
-		String initialTimeUnit,
-		double deltaVelocity, 
-		String deltaVelocityUnit,
-		double acceleration,
-		String accelerationUnit,
-		String unitOfResult,
-		int stepOrResult) {
-		return time4.time(
-			initialTime,
-			initialTimeUnit,
-			deltaVelocity,
-			deltaVelocityUnit,
-			acceleration,
-			accelerationUnit,
-			unitOfResult,
-			stepOrResult);
+	public Time4 time4(double initialTime, 
+                       int initialTimeUnit,
+                       double deltaSpeed, 
+                       int deltaSpeedUnit,
+                       double acceleration,
+                       int accelerationUnit,
+                       int unitOfResult) {
+		return new Time4(initialTime,
+                         initialTimeUnit,
+                         deltaSpeed,
+                         deltaSpeedUnit,
+                         acceleration,
+                         accelerationUnit,
+                         unitOfResult);
     }
 
 	// Displacement 
