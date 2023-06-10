@@ -21,7 +21,7 @@ import static com.mjr.twaire.code.physic.units.Length.CENTIMETER_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Length.MILLIMETER_SYMBOL;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Area extends BigDecimal implements AreaIF {
+public class Area extends BigDecimal implements IArea {
     private static Area instance; 
     private BigDecimal value;
     private int unit;

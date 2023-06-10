@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.waves.electromagnetic;
 
-public class Electromagnetic implements ElectromagneticIF {
+public class Electromagnetic implements IElectromagnetic {
     private static Electromagnetic instance;
 
     @Override

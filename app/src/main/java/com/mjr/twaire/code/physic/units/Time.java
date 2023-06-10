@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Time extends BigDecimal implements TimeIF {
+public class Time extends BigDecimal implements ITime {
     private static Time instance;
     private BigDecimal value;
 	private Digital digital;

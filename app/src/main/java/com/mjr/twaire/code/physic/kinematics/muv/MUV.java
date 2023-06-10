@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.kinematics.muv;
 
-public class MUV implements MUVIF {
+public class MUV implements IMUV {
 	private static MUV instance;
     
 	public MUV() {

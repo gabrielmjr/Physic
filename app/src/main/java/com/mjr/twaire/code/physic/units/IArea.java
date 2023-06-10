@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-public interface AreaIF {
+public interface IArea {
 	public abstract Area toSquareKilometer();
 	public abstract Area toSquareHectometer();
 	public abstract Area toSquareDecameter();

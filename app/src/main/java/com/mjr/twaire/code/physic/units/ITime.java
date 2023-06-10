@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-public interface TimeIF {
+public interface ITime {
 	public Time toSecond () throws InvalidUnitException;
 	public Time toMinute () throws InvalidUnitException;
 	public Time toHour () throws InvalidUnitException;

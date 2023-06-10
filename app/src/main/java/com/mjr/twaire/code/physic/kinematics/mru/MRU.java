@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-public class MRU implements MRUIF {
+public class MRU implements IMRU {
 	private static MRU instance; 
 
 	public MRU() {} 

@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.waves.electromagnetic;
 
-public interface ElectromagneticIF {
+public interface IElectromagnetic {
     public abstract Velocity1 velocity(
         double length,
         double frequency);

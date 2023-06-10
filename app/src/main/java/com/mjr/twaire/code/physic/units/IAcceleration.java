@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-public interface AccelerationIF {
+public interface IAcceleration {
     public abstract Acceleration toKilometerPerSquareSecond ();
 	public abstract Acceleration toHectometerPerSquareSecond ();
 	public abstract Acceleration toDecameterPerSquareSecond ();

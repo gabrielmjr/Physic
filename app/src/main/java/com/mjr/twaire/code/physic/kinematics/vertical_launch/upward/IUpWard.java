@@ -1,40 +1,40 @@
-package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
+package com.mjr.twaire.code.physic.kinematics.vertical_launch.upward;
 
-public interface DownWardIF {
+public interface IUpWard {
 	public abstract Height height(
-	    double initialHeight,
-		double initialVelocity,
-		double deltaTime,
-		double gravity);
+        double initialHeight,
+        double initialVelocity,
+        double deltaTime,
+        double gravity);
 
-	public abstract Height height(
-	    double initialHeight,
-		int initialHeightUnit,
-		double initialVelocity,
-		int initialVelocityUnit,
-		double deltaTime,
-		int deltTimeUnit,
-		double gravity,
-		int gravityUnit,
+    public abstract Height height(
+        double initialHeight,
+        int initialHeightUnit,
+        double initialVelocity,
+        int initialVelocityUnit,
+        double deltaTime,
+        int deltTimeUnit,
+        double gravity,
+        int gravityUnit,
 		int unitOfResult);
+        
+    public abstract InitialHeight initialHeight(
+        double height,
+        double initialVelocity,
+        double deltaTime,
+        double gravity);
 
-	public abstract InitialHeight initialHeight(
-		double height,
-		double initialVelocity,
-		double deltaTime,
-		double gravity);
-
-	public abstract InitialHeight initialHeight(
-		double height,
-		int heightUnit,
-		double initialVelocity,
-		int initialVelocityUnit,
-		double deltaTime,
-		int deltaTimeUnit,
-		double gravity,
-		int gravityUnit,
+    public abstract InitialHeight initialHeight(
+        double height,
+        int heightUnit,
+        double initialVelocity,
+        int initialVelocityUnit,
+        double deltaTime,
+        int deltaTimeUnit,
+        double gravity,
+        int gravityUnit,
 		int unitOfResult);
-
+        
     public abstract Velocity velocity(
         double initialVelocity,
         double gravity,
@@ -48,7 +48,7 @@ public interface DownWardIF {
         double gravity,
         int gravityUnit,
         int unitOfResult);
-
+        
     public abstract InitialVelocity initialVelocity(
         double velocity,
         double gravity,
@@ -62,7 +62,7 @@ public interface DownWardIF {
         double time,
         int timeUnit,
         int unitOfResult);
-
+    
     public abstract DeltaTime1 deltaTime(
         double velocity,
         double gravity);
@@ -73,7 +73,7 @@ public interface DownWardIF {
         double gravity,
         int gravityUnit,
         int unitOfResult);
-
+        
     public abstract DeltaTime2 deltaTime(
         double initialVelocity,
         double finalVelocity,

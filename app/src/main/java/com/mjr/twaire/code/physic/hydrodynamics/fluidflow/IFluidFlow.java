@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-public interface FluidFlowIF {
+public interface IFluidFlow {
     public abstract FlowRate1 flowRate1 (
 	    double volume, 
 		double time);

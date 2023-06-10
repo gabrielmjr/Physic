@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
-public class FluidFlow implements FluidFlowIF {
+public class FluidFlow implements IFluidFlow {
     private static FluidFlow instance;
 
     public FluidFlow() {}

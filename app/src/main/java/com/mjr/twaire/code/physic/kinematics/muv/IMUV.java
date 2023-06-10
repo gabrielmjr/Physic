@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.kinematics.muv; 
 
-public interface MUVIF {
+public interface IMUV {
     public abstract Acceleration1 acceleration1(
         double deltaSpeed, 
         double deltaTime);

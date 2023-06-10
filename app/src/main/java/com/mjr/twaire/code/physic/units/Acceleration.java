@@ -30,7 +30,7 @@ import static com.mjr.twaire.code.physic.units.Time.SQUARE_SECOND_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.SQUARE_MINUTE_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.SQUARE_HOUR_SYMBOL;
 
-public class Acceleration extends BigDecimal implements AccelerationIF {
+public class Acceleration extends BigDecimal implements IAcceleration {
     private static Acceleration instance;
     private BigDecimal value;
     private int unit;

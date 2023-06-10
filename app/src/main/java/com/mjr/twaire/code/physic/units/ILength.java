@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-public interface LengthIF {
+public interface ILength {
 	public abstract Length toKilometer();
 	public abstract Length toHectometer();
 	public abstract Length toDecameter();

@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-public interface SpeedIF {
+public interface ISpeed {
 	public abstract Speed toKilometerPerSecond ();
 	public abstract Speed toHectometerPerSecond ();
 	public abstract Speed toDecameterPerSecond ();

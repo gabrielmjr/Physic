@@ -6,7 +6,7 @@ import com.mjr.twaire.code.physic.PhysicException;
 import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Length extends BigDecimal implements LengthIF { 
+public class Length extends BigDecimal implements ILength { 
 	private static Length instance;
     private BigDecimal value;
     private int unit;

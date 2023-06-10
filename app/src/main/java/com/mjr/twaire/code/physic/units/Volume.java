@@ -21,7 +21,7 @@ import static com.mjr.twaire.code.physic.units.Length.CENTIMETER_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Length.MILLIMETER_SYMBOL;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Volume extends BigDecimal implements VolumeIF {
+public class Volume extends BigDecimal implements IVolume {
     private static Volume instance; 
     private BigDecimal value;
     private int unit;

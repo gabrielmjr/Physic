@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-public interface VolumeIF {
+public interface IVolume {
 	public abstract Volume toCubeKilometer ();
 	public abstract Volume toCubeHectometer ();
 	public abstract Volume toCubeDecameter ();

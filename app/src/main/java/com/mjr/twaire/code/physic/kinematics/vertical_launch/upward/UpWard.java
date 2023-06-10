@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.upward;
 
-public class UpWard implements UpWardIF {
+public class UpWard implements IUpWard {
     @Deprecated
     private static UpWard instance;
 

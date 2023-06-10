@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
-public interface MRUIF {
+public interface IMRU {
     public abstract Displacement1 displacement1 (
         double initialDisplacement, 
         double finalDisplacement);

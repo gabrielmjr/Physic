@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 
-public class DownWard implements DownWardIF {
+public class DownWard implements IDownWard {
     @Deprecated
     private static DownWard instance;
 

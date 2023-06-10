@@ -28,7 +28,7 @@ import static com.mjr.twaire.code.physic.units.Time.SECOND_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.MINUTE_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.HOUR_SYMBOL;
 
-public class Speed extends BigDecimal implements SpeedIF { 
+public class Speed extends BigDecimal implements ISpeed { 
 	private static Speed instance; 
     private BigDecimal value;
     private int unit;
