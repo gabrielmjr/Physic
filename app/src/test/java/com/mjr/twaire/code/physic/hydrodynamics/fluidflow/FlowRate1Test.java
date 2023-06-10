@@ -7,7 +7,7 @@ public class FlowRate1Test {
     private FluidFlow fluidFlow;
 
     public FlowRate1Test () {
-        fluidFlow = FluidFlow.getInstance();
+        fluidFlow = new FluidFlow();
 	}
 
     @Test

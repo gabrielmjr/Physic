@@ -7,7 +7,7 @@ public class VolumeTest {
     private FluidFlow fluidFlow;
 
     public VolumeTest () {
-        fluidFlow = FluidFlow.getInstance();
+        fluidFlow = new FluidFlow();
     }
 
     @Test

@@ -8,7 +8,7 @@ public class Speed2Test {
     private FluidFlow fluidFlow;
 
     public Speed2Test () {
-        fluidFlow = FluidFlow.getInstance();
+        fluidFlow = new FluidFlow();
     }
 
     @Test

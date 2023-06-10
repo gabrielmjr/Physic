@@ -8,7 +8,7 @@ public class TimeTest {
     private FluidFlow fluidFlow;
 
     public TimeTest () {
-        fluidFlow = FluidFlow.getInstance();
+        fluidFlow = new FluidFlow();
     }
 	
     @Test

@@ -8,7 +8,7 @@ public class RayTest {
     private FluidFlow fluidFlow;
 
     public RayTest () {
-        fluidFlow = FluidFlow.getInstance();
+        fluidFlow = new FluidFlow();
     }
 
     @Test
