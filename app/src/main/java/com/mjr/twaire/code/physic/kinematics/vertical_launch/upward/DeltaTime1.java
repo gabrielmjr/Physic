@@ -2,6 +2,7 @@ package com.mjr.twaire.code.physic.kinematics.vertical_launch.upward;
 
 // ∆t = ∆v / (-g)
 public final class DeltaTime1 {
+    @Deprecated
     private static DeltaTime1 instance;
     private double deltaSpeed;
     private double gravity;
@@ -15,6 +16,7 @@ public final class DeltaTime1 {
 
     private DeltaTime1() {}
 
+    @Deprecated
     private DeltaTime1 setHasCustomUnits(boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         if (hasCustomUnits)
@@ -87,6 +89,7 @@ public final class DeltaTime1 {
         return unitOfResult;
     }
 
+    @Deprecated
     public static DeltaTime1 getInstance(double deltaSpeed, double gravity) {
         if (!(instance instanceof DeltaTime1))
             instance = new DeltaTime1();
@@ -95,6 +98,7 @@ public final class DeltaTime1 {
             .setHasCustomUnits(false);
     }
 
+    @Deprecated
     public static DeltaTime1 getInstance(double deltaSpeed,
                                          int deltaSpeedUnit,
                                          double gravity,

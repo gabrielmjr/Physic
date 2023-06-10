@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.upward;
 
 public class UpWard implements UpWardIF {
-
+    @Deprecated
     private static UpWard instance;
 
     public UpWard() {}
@@ -166,6 +166,7 @@ public class UpWard implements UpWardIF {
                                       unitOfResult);
     }
 	
+    @Deprecated
 	protected static UpWard getInstance() {
 		if (!(instance instanceof UpWard))
 			instance = new UpWard();
