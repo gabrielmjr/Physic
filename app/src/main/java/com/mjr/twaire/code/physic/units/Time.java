@@ -8,6 +8,7 @@ import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;
 
 public class Time extends BigDecimal implements ITime {
+    @Deprecated
     private static Time instance;
     private BigDecimal value;
 	private Digital digital;
@@ -333,6 +334,7 @@ public class Time extends BigDecimal implements ITime {
 		}
 	}
 
+    @Deprecated
     protected static Time getInstance () {
 		if (!(instance instanceof Time))
 			instance = new Time();

@@ -7,6 +7,7 @@ import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;
 
 public class Length extends BigDecimal implements ILength { 
+    @Deprecated
 	private static Length instance;
     private BigDecimal value;
     private int unit;
@@ -212,6 +213,7 @@ public class Length extends BigDecimal implements ILength {
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
     }
 
+    @Deprecated
     protected static Length getInstance () {
 		if (!(instance instanceof Length))
 			instance = new Length();

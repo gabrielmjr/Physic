@@ -29,6 +29,7 @@ import static com.mjr.twaire.code.physic.units.Time.MINUTE_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.HOUR_SYMBOL;
 
 public class Speed extends BigDecimal implements ISpeed { 
+    @Deprecated
 	private static Speed instance; 
     private BigDecimal value;
     private int unit;
@@ -417,6 +418,7 @@ public class Speed extends BigDecimal implements ISpeed {
         return null;
     }
 
+    @Deprecated
 	protected static Speed getInstance () {
 		if (!(instance instanceof Speed))
 		    instance = new Speed();

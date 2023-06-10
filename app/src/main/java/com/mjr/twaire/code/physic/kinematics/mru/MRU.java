@@ -1,6 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
 public class MRU implements IMRU {
+    @Deprecated
 	private static MRU instance; 
 
 	public MRU() {} 
@@ -358,6 +359,7 @@ public class MRU implements IMRU {
                                  unitOfResult);
 	}
 
+    @Deprecated
     protected static MRU getInstance() {
 		if (!(instance instanceof MRU))
 			instance = new MRU();

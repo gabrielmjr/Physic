@@ -22,6 +22,7 @@ import static com.mjr.twaire.code.physic.units.Length.MILLIMETER_SYMBOL;
 import static java.math.RoundingMode.HALF_UP;
 
 public class Area extends BigDecimal implements IArea {
+    @Deprecated
     private static Area instance; 
     private BigDecimal value;
     private int unit;
@@ -227,6 +228,7 @@ public class Area extends BigDecimal implements IArea {
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
 
+    @Deprecated
     protected static Area getInstance () {
 		if (!(instance instanceof Area))
 			instance = new Area();

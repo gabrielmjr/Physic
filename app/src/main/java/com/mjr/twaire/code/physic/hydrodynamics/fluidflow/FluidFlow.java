@@ -1,6 +1,7 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 public class FluidFlow implements IFluidFlow {
+    @Deprecated
     private static FluidFlow instance;
 
     public FluidFlow() {}
@@ -226,6 +227,7 @@ public class FluidFlow implements IFluidFlow {
         return new Ray();
     }
 
+    @Deprecated
     protected static FluidFlow getInstance() {
         if (!(instance instanceof FluidFlow))
             instance = new FluidFlow();

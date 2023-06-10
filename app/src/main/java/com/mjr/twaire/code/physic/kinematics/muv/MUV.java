@@ -1,6 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.muv;
 
 public class MUV implements IMUV {
+    @Deprecated
 	private static MUV instance;
     
 	public MUV() {
@@ -386,7 +387,7 @@ public class MUV implements IMUV {
                                  unitOfResult);
     }
 
-    // Get class instance object
+    @Deprecated
     protected static MUV getInstance() {
 		if (instance == null) {
 			instance = new MUV();

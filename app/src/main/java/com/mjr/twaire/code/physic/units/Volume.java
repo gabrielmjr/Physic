@@ -22,6 +22,7 @@ import static com.mjr.twaire.code.physic.units.Length.MILLIMETER_SYMBOL;
 import static java.math.RoundingMode.HALF_UP;
 
 public class Volume extends BigDecimal implements IVolume {
+    @Deprecated
     private static Volume instance; 
     private BigDecimal value;
     private int unit;
@@ -227,6 +228,7 @@ public class Volume extends BigDecimal implements IVolume {
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
     }
 
+    @Deprecated
     protected static Volume getInstance () {
 		if (!(instance instanceof Volume))
 			instance = new Volume();

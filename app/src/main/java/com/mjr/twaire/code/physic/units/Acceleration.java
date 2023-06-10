@@ -31,10 +31,11 @@ import static com.mjr.twaire.code.physic.units.Time.SQUARE_MINUTE_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.SQUARE_HOUR_SYMBOL;
 
 public class Acceleration extends BigDecimal implements IAcceleration {
+    @Deprecated
     private static Acceleration instance;
     private BigDecimal value;
     private int unit;
-	
+
 	public static final int KILOMETER_PER_SQUARE_SECOND = 52;
 	public static final int HECTOMETER_PER_SQUARE_SECOND = 53;
 	public static final int DECAMETER_PER_SQUARE_SECOND = 54;
@@ -178,133 +179,133 @@ public class Acceleration extends BigDecimal implements IAcceleration {
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
-    
-	public static Acceleration toKilometerPerSquareSecond (double value, int unit) throws PhysicException {
+
+	public static Acceleration toKilometerPerSquareSecond(double value, int unit) throws PhysicException {
 	    if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[KILOMETER_PER_SQUARE_SECOND - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toHectometerPerSquareSecond (double value, int unit) throws PhysicException {
+	public static Acceleration toHectometerPerSquareSecond(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_SECOND - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toDecameterPerSquareSecond (double value, int unit) throws PhysicException {
+	public static Acceleration toDecameterPerSquareSecond(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECAMETER_PER_SQUARE_SECOND - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
     }
-    
-	public static Acceleration toMeterPerSquareSecond (double value, int unit) throws PhysicException {
+
+	public static Acceleration toMeterPerSquareSecond(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[METER_PER_SQUARE_SECOND - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
-    
-	public static Acceleration toDecimeterPerSquareSecond (double value, int unit) throws PhysicException {
+
+	public static Acceleration toDecimeterPerSquareSecond(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECIMETER_PER_SQUARE_SECOND - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toCentimeterPerSquareSecond (double value, int unit) throws PhysicException {
+	public static Acceleration toCentimeterPerSquareSecond(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_SECOND - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
     }
-    
-	public static Acceleration toMillimeterPerSquareSecond (double value, int unit) throws PhysicException {
+
+	public static Acceleration toMillimeterPerSquareSecond(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_SECOND - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
-    
-	public static Acceleration toKilometerPerSquareMinute (double value, int unit) throws PhysicException {
+
+	public static Acceleration toKilometerPerSquareMinute(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[KILOMETER_PER_SQUARE_MINUTE - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
     }
-    
-	public static Acceleration toHectometerPerSquareMinute (double value, int unit) throws PhysicException {
+
+	public static Acceleration toHectometerPerSquareMinute(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_MINUTE - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toDecameterPerSquareMinute (double value, int unit) throws PhysicException {
+	public static Acceleration toDecameterPerSquareMinute(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECAMETER_PER_SQUARE_MINUTE - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toMeterPerSquareMinute (double value, int unit) throws PhysicException {
+	public static Acceleration toMeterPerSquareMinute(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[METER_PER_SQUARE_MINUTE - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toDecimeterPerSquareMinute (double value, int unit) throws PhysicException {
+	public static Acceleration toDecimeterPerSquareMinute(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECIMETER_PER_SQUARE_MINUTE - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toCentimeterPerSquareMinute (double value, int unit) throws PhysicException {
+	public static Acceleration toCentimeterPerSquareMinute(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_MINUTE - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
-    
-	public static Acceleration toMillimeterPerSquareMinute (double value, int unit) throws PhysicException {
+
+	public static Acceleration toMillimeterPerSquareMinute(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_MINUTE - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toKilometerPerSquareHour (double value, int unit) throws PhysicException {
+	public static Acceleration toKilometerPerSquareHour(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[KILOMETER_PER_SQUARE_HOUR - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toHectometerPerSquareHour (double value, int unit) throws PhysicException {
+	public static Acceleration toHectometerPerSquareHour(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_HOUR - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toDecameterPerSquareHour (double value, int unit) throws PhysicException {
+	public static Acceleration toDecameterPerSquareHour(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECAMETER_PER_SQUARE_HOUR - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toMeterPerSquareHour (double value, int unit) throws PhysicException {
+	public static Acceleration toMeterPerSquareHour(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[METER_PER_SQUARE_HOUR - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toDecimeterPerSquareHour (double value, int unit) throws PhysicException {
+	public static Acceleration toDecimeterPerSquareHour(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECIMETER_PER_SQUARE_HOUR - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toCentimeterPerSquareHour (double value, int unit) throws PhysicException {
+	public static Acceleration toCentimeterPerSquareHour(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_HOUR - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
 
-	public static Acceleration toMillimeterPerSquareHour (double value, int unit) throws PhysicException {
+	public static Acceleration toMillimeterPerSquareHour(double value, int unit) throws PhysicException {
 		if (unit >= 52 && unit <= 72)
 			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_HOUR - 52]), unit);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
 	}
-    
+
     @Override
     public Acceleration toKilometerPerSquareSecond() {
         return null;
@@ -409,7 +410,8 @@ public class Acceleration extends BigDecimal implements IAcceleration {
     public Acceleration toMillimeterPerSquareHour() {
         return null;
     }
-	
+
+    @Deprecated
 	protected Acceleration getInstance() {
 		if (!(instance instanceof Acceleration))
 			instance = new Acceleration();
