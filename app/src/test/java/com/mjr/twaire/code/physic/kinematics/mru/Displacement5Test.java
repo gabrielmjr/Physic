@@ -1,13 +1,14 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Displacement5Test {
     private MRU mru;
 
     public Displacement5Test () {
-        mru = MRU.getInstance();
+        mru = new MRU();
     }
 
     @Test

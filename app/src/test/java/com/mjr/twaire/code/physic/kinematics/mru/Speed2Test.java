@@ -8,7 +8,7 @@ public class Speed2Test {
     private MRU mru;
 
     public Speed2Test () {
-        mru = MRU.getInstance();
+        mru = new MRU();
     }
 
     @Test

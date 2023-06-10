@@ -7,7 +7,7 @@ public class Time5Test {
     private MRU mru;
 
     public Time5Test () {
-        mru = MRU.getInstance();
+        mru = new MRU();
     }
 
     @Test

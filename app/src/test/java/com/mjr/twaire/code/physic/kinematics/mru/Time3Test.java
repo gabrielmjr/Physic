@@ -1,14 +1,14 @@
 package com.mjr.twaire.code.physic.kinematics.mru;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static com.mjr.twaire.code.physic.Physic.GET_RESULT;
 
 public class Time3Test {
     private MRU mru;
 
     public Time3Test () {
-        mru = MRU.getInstance();
+        mru = new MRU();
     }
 
     @Test

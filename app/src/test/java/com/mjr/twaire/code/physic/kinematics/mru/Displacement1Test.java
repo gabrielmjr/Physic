@@ -8,7 +8,7 @@ public class Displacement1Test {
     private MRU mru;
 
     public Displacement1Test () {
-        mru = MRU.getInstance();
+        mru = new MRU();
     }
 
     @Test
