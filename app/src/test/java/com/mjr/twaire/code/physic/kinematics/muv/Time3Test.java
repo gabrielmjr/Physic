@@ -1,14 +1,14 @@
 package com.mjr.twaire.code.physic.kinematics.muv;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static com.mjr.twaire.code.physic.Physic.GET_RESULT;
 
 public class Time3Test {
     private MUV muv;
 
     public Time3Test () {
-        muv = MUV.getInstance();
+        muv = new MUV();
     }
 
     @Test

@@ -8,7 +8,7 @@ public class DeltaTime2Test {
     private UpWard upWard;
 
     public DeltaTime2Test () {
-        upWard = UpWard.getInstance();
+        upWard = new UpWard();
     }
 
     @Test

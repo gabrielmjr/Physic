@@ -8,7 +8,7 @@ public class InitialVelocityTest {
     private DownWard downWard;
     
     public InitialVelocityTest () {
-        downWard = DownWard.getInstance();
+        downWard = new DownWard();
     }
     
     @Test

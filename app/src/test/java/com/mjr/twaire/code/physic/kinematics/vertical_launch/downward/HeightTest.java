@@ -8,7 +8,7 @@ public class HeightTest {
     private DownWard downWard;
 
     public HeightTest() {
-        downWard = DownWard.getInstance();
+        downWard = new DownWard();
     }
 
 	@Test

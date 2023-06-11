@@ -7,7 +7,7 @@ public class Acceleration1Test {
     private MUV muv;
 
     public Acceleration1Test () {
-        muv = MUV.getInstance();
+        muv = new MUV();
 	}
 
     @Test
