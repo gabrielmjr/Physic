@@ -1,4 +1,4 @@
-package com.mjr.twaire.code.physic.kinematics.muv;
+package com.mjr.twaire.code.physic.kinematics.uvm;
 
 import com.mjr.twaire.code.physic.Calculation;
 import com.mjr.twaire.code.physic.Physic;

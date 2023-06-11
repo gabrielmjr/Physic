@@ -1,6 +1,6 @@
-package com.mjr.twaire.code.physic.kinematics.muv; 
+package com.mjr.twaire.code.physic.kinematics.uvm; 
 
-public interface IMUV {
+public interface IUniformlyVariedMovement {
     public abstract Acceleration1 acceleration1(
         double deltaSpeed, 
         double deltaTime);

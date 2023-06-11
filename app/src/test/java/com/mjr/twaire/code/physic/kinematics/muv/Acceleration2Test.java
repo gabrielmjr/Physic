@@ -1,14 +1,14 @@
-package com.mjr.twaire.code.physic.kinematics.muv;
+package com.mjr.twaire.code.physic.kinematics.uvm;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Acceleration2Test {
-    private MUV muv;
+    private UniformlyVariedMovement uvm;
 
     public Acceleration2Test () {
-        muv = new MUV();
+        uvm = new UniformlyVariedMovement();
     }
 
     @Test
@@ -17,6 +17,6 @@ public class Acceleration2Test {
         double initialTime = 3.0;
         double finalTime = 6.0;
         double result = 3.0;
-        assertEquals(result, muv.acceleration2(deltaSpeed, initialTime, finalTime).getResult());
+        assertEquals(result, uvm.acceleration2(deltaSpeed, initialTime, finalTime).getResult());
     }
 }

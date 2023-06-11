@@ -1,12 +1,11 @@
-package com.mjr.twaire.code.physic.kinematics.muv;
+package com.mjr.twaire.code.physic.kinematics.uvm;
 
-public class MUV implements IMUV {
+public class UniformlyVariedMovement implements IUniformlyVariedMovement {
     @Deprecated
-	private static MUV instance;
+	private static UniformlyVariedMovement instance;
     
-	public MUV() {
+	public UniformlyVariedMovement() {
     }
-
 
 	// a = deltaVelocity / deltaTime
 	@Override
@@ -388,9 +387,9 @@ public class MUV implements IMUV {
     }
 
     @Deprecated
-    protected static MUV getInstance() {
+    protected static UniformlyVariedMovement getInstance() {
 		if (instance == null) {
-			instance = new MUV();
+			instance = new UniformlyVariedMovement();
 		}
 		return instance;
     }
