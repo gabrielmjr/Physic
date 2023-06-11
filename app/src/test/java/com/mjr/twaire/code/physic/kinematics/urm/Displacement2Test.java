@@ -1,14 +1,14 @@
-package com.mjr.twaire.code.physic.kinematics.mru;
+package com.mjr.twaire.code.physic.kinematics.urm;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Displacement2Test {
-    private UniformRectilinearMovement mru;
+    private UniformRectilinearMovement urm;
 
     public Displacement2Test () {
-        mru = new UniformRectilinearMovement();
+        urm = new UniformRectilinearMovement();
     }
 
     @Test
@@ -16,6 +16,6 @@ public class Displacement2Test {
         double deltaTime = 3.0;
         double deltaSpeed = 4.0;
         double result = 12.0;
-        assertEquals(result, mru.displacement2(deltaTime, deltaSpeed).getResult());
+        assertEquals(result, urm.displacement2(deltaTime, deltaSpeed).getResult());
     }
 }

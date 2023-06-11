@@ -1,14 +1,14 @@
-package com.mjr.twaire.code.physic.kinematics.mru;
+package com.mjr.twaire.code.physic.kinematics.urm;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Time3Test {
-    private UniformRectilinearMovement mru;
+    private UniformRectilinearMovement urm;
 
     public Time3Test () {
-        mru = new UniformRectilinearMovement();
+        urm = new UniformRectilinearMovement();
     }
 
     @Test
@@ -17,6 +17,6 @@ public class Time3Test {
         double finalDisplacement = 5.5;
         double velocity = 8.0;
         double result = 0.25;
-        assertEquals(result, mru.time3(initialDisplacement, finalDisplacement, velocity).getResult());
+        assertEquals(result, urm.time3(initialDisplacement, finalDisplacement, velocity).getResult());
     }
 }

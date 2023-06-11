@@ -1,13 +1,13 @@
-package com.mjr.twaire.code.physic.kinematics.mru;
+package com.mjr.twaire.code.physic.kinematics.urm;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Time5Test {
-    private UniformRectilinearMovement mru;
+    private UniformRectilinearMovement urm;
 
     public Time5Test () {
-        mru = new UniformRectilinearMovement();
+        urm = new UniformRectilinearMovement();
     }
 
     @Test
@@ -15,6 +15,6 @@ public class Time5Test {
         double initialTime = 3.5;
         double deltaTime = 5.5;
         double result = 9.0;
-        assertEquals(result, mru.time5(initialTime, deltaTime).getResult());
+        assertEquals(result, urm.time5(initialTime, deltaTime).getResult());
     }
 }
