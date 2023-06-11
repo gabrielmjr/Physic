@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Time5Test {
-    private MRU mru;
+    private UniformRectilinearMovement mru;
 
     public Time5Test () {
-        mru = new MRU();
+        mru = new UniformRectilinearMovement();
     }
 
     @Test

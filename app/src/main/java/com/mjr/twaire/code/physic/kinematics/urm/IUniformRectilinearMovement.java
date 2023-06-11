@@ -1,6 +1,6 @@
-package com.mjr.twaire.code.physic.kinematics.mru;
+package com.mjr.twaire.code.physic.kinematics.urm;
 
-public interface IMRU {
+public interface IUniformRectilinearMovement {
     public abstract Displacement1 displacement1 (
         double initialDisplacement, 
         double finalDisplacement);

@@ -1,26 +1,28 @@
-package com.mjr.twaire.code.physic.kinematics.mru;
+package com.mjr.twaire.code.physic.kinematics.urm;
 
 import com.mjr.twaire.code.physic.Calculation;
 
-public final class Time3 extends Calculation {
-	private static Time3 instance; 
+import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
+
+public final class Speed3 extends Calculation {
+	private static Speed3 instance; 
     private double initialDisplacement;
     private double finalDisplacement;
-    private double deltaSpeed;
-    
+    private double deltaTime;
+
     private int initialDisplacementUnit;
     private int finalDisplacementUnit;
-    private int deltaSpeedUnit;
+    private int deltaTimeUnit;
     private int unitOfResult;
 
     private double step1;
     private double step2;
     private boolean hasCustomUnits;
-    
-	private Time3() {}
+
+	private Speed3() {}
     
     @Override
-    public Time3 calculate() {
+    public Speed3 calculate() {
         if (hasCustomUnits)
             calculateWithCustomUnits();
         else
@@ -28,31 +30,32 @@ public final class Time3 extends Calculation {
         return this;
     }
 
-    private void calculateWithCustomUnits () {
+    private void calculateWithCustomUnits() {
     }
 
-    private void calculateWithoutCustomUnits () {
+    private void calculateWithoutCustomUnits() {
         step1 = finalDisplacement - initialDisplacement;
-        step2 = step1 / deltaSpeed;
-    }
-
+	    step2 = step1 / deltaTime;
+	}
+    
     @Override
-    public double getResult () {
+    public double getResult() {
         return step2;
 	}
   
     @Override
     public String getSteps() {
-        if (initialDisplacement < 0)
-            return "∆t = [" + finalDisplacement + "m - (" + initialDisplacement + "m)] / (" + deltaSpeed + "m/s)"
-                + "\n∆t = " + step1 + "m / (" + deltaSpeed + "m/s)"
-                + "\n∆t = " + step2 + "s";
-        return "∆t = (" + finalDisplacement + "m - " + initialDisplacement + "m) / (" + deltaSpeed + "m/s)"
-            + "\n∆t = " + step1 + "m / (" + deltaSpeed + "m/s)"
-            + "\n∆t = " + step2 + "s";
+       String deltaTime = putParenthesesIfNegative(this.deltaTime);
+       if (initialDisplacement < 0)
+           return "∆v = [" + finalDisplacement + "m - (" + initialDisplacement + "m)] / " + deltaTime + "s"
+               + "\n∆v = " + step1 + "m / " + deltaTime + "s"
+               + "\n∆v = " + step2 + "m/s";
+       return "∆v = (" + finalDisplacement + "m - " + initialDisplacement + "m) / " + deltaTime + "s"
+            + "\n∆v = " + step1 +"m / + " + deltaTime + "s"
+            + "\n∆v = " + step2 + "m/s";
     }
-    
-    private Time3 setInitialDisplacement(double initialDisplacement) {
+
+    private Speed3 setInitialDisplacement(double initialDisplacement) {
         this.initialDisplacement = initialDisplacement;
         return this;
     }
@@ -61,7 +64,7 @@ public final class Time3 extends Calculation {
         return initialDisplacement;
     }
 
-    private Time3 setFinalDisplacement(double finalDisplacement) {
+    private Speed3 setFinalDisplacement(double finalDisplacement) {
         this.finalDisplacement = finalDisplacement;
         return this;
     }
@@ -70,16 +73,16 @@ public final class Time3 extends Calculation {
         return finalDisplacement;
     }
 
-    private Time3 setDeltaSpeed(double deltaSpeed) {
-        this.deltaSpeed = deltaSpeed;
+    private Speed3 setDeltaTime(double deltaTime) {
+        this.deltaTime = deltaTime;
         return this;
     }
 
-    public double getDeltaSpeed() {
-        return deltaSpeed;
+    public double getDeltaTime() {
+        return deltaTime;
     }
 
-    private Time3 setInitialDisplacementUnit(int initialDisplacementUnit) {
+    private Speed3 setInitialDisplacementUnit(int initialDisplacementUnit) {
         this.initialDisplacementUnit = initialDisplacementUnit;
         return this;
     }
@@ -88,7 +91,7 @@ public final class Time3 extends Calculation {
         return initialDisplacementUnit;
     }
 
-    private Time3 setFinalDisplacementUnit(int finalDisplacementUnit) {
+    private Speed3 setFinalDisplacementUnit(int finalDisplacementUnit) {
         this.finalDisplacementUnit = finalDisplacementUnit;
         return this;
     }
@@ -97,16 +100,16 @@ public final class Time3 extends Calculation {
         return finalDisplacementUnit;
     }
 
-    private Time3 setDeltaSpeedUnit(int deltaSpeedUnit) {
-        this.deltaSpeedUnit = deltaSpeedUnit;
+    private Speed3 setDeltaTimeUnit(int deltaTimeUnit) {
+        this.deltaTimeUnit = deltaTimeUnit;
         return this;
     }
 
-    public int getDeltaSpeedUnit() {
-        return deltaSpeedUnit;
+    public int getDeltaTimeUnit() {
+        return deltaTimeUnit;
     }
 
-    private Time3 setUnitOfResult(int unitOfResult) {
+    private Speed3 setUnitOfResult(int unitOfResult) {
         this.unitOfResult = unitOfResult;
         return this;
     }
@@ -117,41 +120,41 @@ public final class Time3 extends Calculation {
     
     @Override
     public String getFormula() {
-        return "∆t = (S - Si) / ∆v";
+        return "∆v = (S - Si) / ∆t";
     }
-    
-    private Time3 setHasCustomUnits (boolean hasCustomUnits) {
+
+    private Speed3 setHasCustomUnits(boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
     }
     
-    public static Time3 getInstance (double initialDisplacement,
+    public static Speed3 getInstance(double initialDisplacement,
                                      double finalDisplacement,
-                                     double deltaSpeed) {
-		if(!(instance instanceof Time3))
-			instance = new Time3();
-		return instance.setInitialDisplacement(initialDisplacement)
+                                     double deltaTime) {
+        if (!(instance instanceof Speed3))
+            instance = new Speed3();
+        return instance.setInitialDisplacement(initialDisplacement)
             .setFinalDisplacement(finalDisplacement)
-            .setDeltaSpeed(deltaSpeed)
+            .setDeltaTime(deltaTime)
             .setHasCustomUnits(false)
             .calculate();
     }
     
-    public static Time3 getInstance (double initialDisplacement,
+    public static Speed3 getInstance(double initialDisplacement,
                                      int initialDisplacementUnit,
                                      double finalDisplacement,
                                      int finalDisplacementUnit,
-                                     double deltaSpeed,
-                                     int deltaSpeedUnit,
+                                     double deltaTime,
+                                     int deltaTimeUnit,
                                      int unitOfResult) {
-        if(!(instance instanceof Time3))
-            instance = new Time3();
+        if (!(instance instanceof Speed3))
+            instance = new Speed3();
         return instance.setInitialDisplacement(initialDisplacement)
             .setInitialDisplacementUnit(initialDisplacementUnit)
             .setFinalDisplacement(finalDisplacement)
             .setFinalDisplacementUnit(finalDisplacementUnit)
-            .setDeltaSpeed(deltaSpeed)
-            .setDeltaSpeedUnit(deltaSpeedUnit)
+            .setDeltaTime(deltaTime)
+            .setDeltaTimeUnit(deltaTimeUnit)
             .setUnitOfResult(unitOfResult)
             .setHasCustomUnits(true)
             .calculate();

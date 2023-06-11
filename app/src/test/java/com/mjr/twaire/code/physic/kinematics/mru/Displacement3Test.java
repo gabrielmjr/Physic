@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Displacement3Test {
-    private MRU mru;
+    private UniformRectilinearMovement mru;
 
     public Displacement3Test () {
-        mru = new MRU();
+        mru = new UniformRectilinearMovement();
     }
 
     @Test

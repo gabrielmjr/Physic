@@ -1,10 +1,10 @@
-package com.mjr.twaire.code.physic.kinematics.mru;
+package com.mjr.twaire.code.physic.kinematics.urm;
 
-public class MRU implements IMRU {
+public class UniformRectilinearMovement implements IUniformRectilinearMovement {
     @Deprecated
-	private static MRU instance; 
+	private static UniformRectilinearMovement instance; 
 
-	public MRU() {} 
+	public UniformRectilinearMovement() {} 
 
 	// ∆S = Sf - Si
 	@Override
@@ -360,9 +360,9 @@ public class MRU implements IMRU {
 	}
 
     @Deprecated
-    protected static MRU getInstance() {
-		if (!(instance instanceof MRU))
-			instance = new MRU();
+    protected static UniformRectilinearMovement getInstance() {
+		if (!(instance instanceof UniformRectilinearMovement))
+			instance = new UniformRectilinearMovement();
 		return instance;
     }
 }
