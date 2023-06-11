@@ -3,9 +3,9 @@ package com.mjr.twaire.code.physic.units;
 import com.mjr.twaire.code.physic.PhysicException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Random;
 import org.junit.jupiter.api.Test;
 
+import static com.mjr.twaire.code.physic.NumberRandomizer.getRandomDouble;
 import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static com.mjr.twaire.code.physic.units.Area.toSquareKilometer;
 import static com.mjr.twaire.code.physic.units.Area.toSquareHectometer;
@@ -26,12 +26,6 @@ import static com.mjr.twaire.code.physic.units.Area.SQUARE_MILLIMETER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AreaTest {
-	private final Random random;
-
-	public AreaTest() {
-		random = new Random();
-	}
-
 	@Test 
 	public void toSquareKilometerTest() throws PhysicException {
 		double squareKilometerValue = getRandomDouble();
@@ -576,9 +570,5 @@ public class AreaTest {
         } catch (PhysicException e) {
             throw e;
         }
-	}
-
-	private double getRandomDouble() {
-		return random.nextDouble() * 100;
 	}
 }

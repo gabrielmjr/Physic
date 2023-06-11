@@ -3,9 +3,9 @@ package com.mjr.twaire.code.physic.units;
 import com.mjr.twaire.code.physic.PhysicException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Random;
 import org.junit.jupiter.api.Test;
 
+import static com.mjr.twaire.code.physic.NumberRandomizer.getRandomDouble;
 import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static com.mjr.twaire.code.physic.units.Volume.toCubeKilometer;
 import static com.mjr.twaire.code.physic.units.Volume.toCubeHectometer;
@@ -26,12 +26,6 @@ import static com.mjr.twaire.code.physic.units.Volume.CUBE_MILLIMETER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VolumeTest {
-	private final Random random;
-
-	public VolumeTest() {
-		random = new Random();
-	}
-
 	@Test 
 	public void toCubeKilometerTest() throws PhysicException {
 		double cubeKilometerValue = getRandomDouble();
@@ -576,9 +570,5 @@ public class VolumeTest {
         } catch (PhysicException e) {
             throw e;
         }
-	}
-	
-	private double getRandomDouble() {
-		return random.nextDouble() * 100;
 	}
 }

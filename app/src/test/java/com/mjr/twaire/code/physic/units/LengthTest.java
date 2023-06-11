@@ -2,9 +2,9 @@ package com.mjr.twaire.code.physic.units;
 
 import com.mjr.twaire.code.physic.PhysicException;
 import java.math.BigDecimal;
-import java.util.Random;
 import org.junit.jupiter.api.Test;
 
+import static com.mjr.twaire.code.physic.NumberRandomizer.getRandomDouble;
 import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static com.mjr.twaire.code.physic.units.Length.toKilometer;
 import static com.mjr.twaire.code.physic.units.Length.toHectometer;
@@ -26,12 +26,6 @@ import static java.math.RoundingMode.HALF_UP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LengthTest {
-	private final Random random;
-
-	public LengthTest() {
-		random = new Random();
-	}
-
 	@Test 
 	public void toKilometerTest() throws PhysicException {
 		double kilometerValue = getRandomDouble();
@@ -577,9 +571,5 @@ public class LengthTest {
         } catch (PhysicException e) {
             throw e;
         }
-	}
-	
-	private double getRandomDouble() {
-		return random.nextDouble() * 100;
 	}
 }

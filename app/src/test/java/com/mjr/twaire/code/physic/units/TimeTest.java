@@ -4,9 +4,9 @@ import com.mjr.twaire.code.physic.PhysicException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.math.RoundingMode;
-import java.util.Random;
 import org.junit.jupiter.api.Test;
 
+import static com.mjr.twaire.code.physic.NumberRandomizer.getRandomDouble;
 import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static com.mjr.twaire.code.physic.units.Time.toSecond;
 import static com.mjr.twaire.code.physic.units.Time.toMinute;
@@ -22,12 +22,6 @@ import static com.mjr.twaire.code.physic.units.Time.WEEK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TimeTest {
-	private final Random random;
-
-	public TimeTest() {
-		random = new Random();
-	}
-
 	@Test 
 	public void toSecondTest() throws PhysicException {
 		double secondValue = getRandomDouble();
@@ -331,9 +325,5 @@ public class TimeTest {
 		} catch (PhysicException e) {
 			throw e;
 		}
-	}
-	
-	private double getRandomDouble() {
-		return random.nextDouble();
 	}
 }
