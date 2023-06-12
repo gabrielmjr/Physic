@@ -1,6 +1,8 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 import org.junit.jupiter.api.Test;
+
+import static com.mjr.twaire.code.physic.NumberRandomizer.getRandomDouble;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FlowRate1Test {
@@ -9,9 +11,17 @@ public class FlowRate1Test {
     public FlowRate1Test () {
         fluidFlow = new FluidFlow();
 	}
+    
+    @Test
+    public void flowRate1Test() {
+        double volume = getRandomDouble();
+        double time = getRandomDouble();
+        double flowRate = volume / time;
+        assertEquals(flowRate, fluidFlow.flowRate1(volume, time).getResult());
+    }
 
     @Test
-    public void flowRate1Test () {
+    public void flowRate1FixedResultTest () {
         double volume = 13.5;
         double time = 8.0;
         double result = 1.6875;

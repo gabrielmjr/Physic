@@ -2,6 +2,7 @@ package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 import org.junit.jupiter.api.Test;
 
+import static com.mjr.twaire.code.physic.NumberRandomizer.getRandomDouble;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RayTest {
@@ -12,7 +13,15 @@ public class RayTest {
     }
 
     @Test
-    public void rayTest () {
+    public void rayTest() {
+        double flowRate = getRandomDouble();
+        double velocity = getRandomDouble();
+        double ray = Math.sqrt(flowRate / (3.14 * velocity));
+        assertEquals(ray, fluidFlow.ray(flowRate, velocity).getResult());
+    }
+    
+    @Test
+    public void rayFixedResultTest () {
         double flowRate = 8.4;
         double velocity = 7.0;
         double result = 0.6181954424739327;
