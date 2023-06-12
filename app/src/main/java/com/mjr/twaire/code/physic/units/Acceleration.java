@@ -86,6 +86,8 @@ public class Acceleration implements IAcceleration {
 		LENGTH_SCALES[CENTIMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR - 21]),
 		LENGTH_SCALES[MILLIMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR - 21])
 	};
+   
+    
 
 	public static final String KILOMETER_PER_SQUARE_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
 	public static final String HECTOMETER_PER_SQUARE_SECOND_SYMBOL = HECTOMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
@@ -111,6 +113,32 @@ public class Acceleration implements IAcceleration {
 	public static final String CENTIMETER_PER_SQUARE_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
 	public static final String MILLIMETER_PER_SQUARE_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
 
+    private final String ACCELERATION_SYMBOLS[] = new String[]{
+        KILOMETER_PER_SQUARE_SECOND_SYMBOL,
+        HECTOMETER_PER_SQUARE_SECOND_SYMBOL,
+        DECAMETER_PER_SQUARE_SECOND_SYMBOL,
+        METER_PER_SQUARE_SECOND_SYMBOL,
+        DECIMETER_PER_SQUARE_SECOND_SYMBOL,
+        CENTIMETER_PER_SQUARE_SECOND_SYMBOL,
+        MILLIMETER_PER_SQUARE_SECOND_SYMBOL,
+        
+        KILOMETER_PER_SQUARE_MINUTE_SYMBOL,
+        HECTOMETER_PER_SQUARE_MINUTE_SYMBOL,
+        DECAMETER_PER_SQUARE_MINUTE_SYMBOL,
+        METER_PER_SQUARE_MINUTE_SYMBOL,
+        DECIMETER_PER_SQUARE_MINUTE_SYMBOL,
+        CENTIMETER_PER_SQUARE_MINUTE_SYMBOL,
+        MILLIMETER_PER_SQUARE_MINUTE_SYMBOL,
+        
+        KILOMETER_PER_SQUARE_HOUR_SYMBOL,
+        HECTOMETER_PER_SQUARE_HOUR_SYMBOL,
+        DECAMETER_PER_SQUARE_HOUR_SYMBOL,
+        METER_PER_SQUARE_HOUR_SYMBOL,
+        DECIMETER_PER_SQUARE_HOUR_SYMBOL,
+        CENTIMETER_PER_SQUARE_HOUR_SYMBOL,
+        MILLIMETER_PER_SQUARE_HOUR_SYMBOL
+    };
+    
 	public Acceleration() {
         value = BigDecimal.ZERO;
         unit = METER;
@@ -403,6 +431,11 @@ public class Acceleration implements IAcceleration {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return value + ACCELERATION_SYMBOLS[unit];
+    }
+    
     @Deprecated
 	protected Acceleration getInstance() {
 		if (!(instance instanceof Acceleration))
