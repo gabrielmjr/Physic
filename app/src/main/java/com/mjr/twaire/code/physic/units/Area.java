@@ -21,7 +21,7 @@ import static com.mjr.twaire.code.physic.units.Length.CENTIMETER_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Length.MILLIMETER_SYMBOL;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Area extends BigDecimal implements IArea {
+public class Area implements IArea {
     @Deprecated
     private static Area instance; 
     private BigDecimal value;
@@ -55,38 +55,32 @@ public class Area extends BigDecimal implements IArea {
 	public static final String SQUARE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "²";
 
     public Area() {
-        super(0); 
-        value = divide(ONE);
+        this.value = BigDecimal.ZERO;
         unit = SQUARE_METER;
     }
 
     public Area(double value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         unit = SQUARE_METER;
     }
 
     public Area(String value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = new BigDecimal(value);
         unit = SQUARE_METER;
     }
 
     public Area(long value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         unit = SQUARE_METER;
     }
 
     public Area(BigDecimal value) {
-        super(value.toString());
         this.value = value;
         unit = SQUARE_METER;
     }
 
     public Area(double value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         if (unit >= 7 || unit <= 13) {
             this.unit = unit;
             return;
@@ -95,8 +89,7 @@ public class Area extends BigDecimal implements IArea {
     }
 
     public Area(String value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = new BigDecimal(value);
         if (unit >= 7 || unit <= 13) {
             this.unit = unit;
             return;
@@ -105,8 +98,7 @@ public class Area extends BigDecimal implements IArea {
     }
 
     public Area(long value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         if (unit >= 7 || unit <= 13) {
             this.unit = unit;
             return;
@@ -115,7 +107,7 @@ public class Area extends BigDecimal implements IArea {
     }
 
     public Area(BigDecimal value, int unit) throws PhysicException {
-        super(value.toString());
+        this.value = value;
         if (unit >= 7 || unit <= 13) {
             this.unit = unit;
             return;

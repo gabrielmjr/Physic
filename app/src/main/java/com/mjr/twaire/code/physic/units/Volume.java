@@ -21,7 +21,7 @@ import static com.mjr.twaire.code.physic.units.Length.CENTIMETER_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Length.MILLIMETER_SYMBOL;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Volume extends BigDecimal implements IVolume {
+public class Volume implements IVolume {
     @Deprecated
     private static Volume instance; 
     private BigDecimal value;
@@ -55,38 +55,32 @@ public class Volume extends BigDecimal implements IVolume {
 	public static final String CUBE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "³";
     
     public Volume() {
-        super(0); 
-        value = divide(ONE);
+        this.value = BigDecimal.ZERO;
         unit = CUBE_METER;
     }
 
     public Volume(double value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         unit = CUBE_METER;
     }
 
     public Volume(String value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = new BigDecimal(value);
         unit = CUBE_METER;
     }
 
     public Volume(long value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         unit = CUBE_METER;
     }
 
     public Volume(BigDecimal value) {
-        super(value.toString());
         this.value = value;
         unit = CUBE_METER;
     }
 
     public Volume(double value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         if (unit >= 14 && unit <= 20) {
             this.unit = unit;
             return;
@@ -95,8 +89,7 @@ public class Volume extends BigDecimal implements IVolume {
     }
 
     public Volume(String value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = new BigDecimal(value);
         if (unit >= 14 && unit <= 20) {
             this.unit = unit;
             return;
@@ -105,8 +98,7 @@ public class Volume extends BigDecimal implements IVolume {
     }
 
     public Volume(long value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);;
         if (unit >= 14 && unit <= 20) {
             this.unit = unit;
             return;
@@ -115,7 +107,7 @@ public class Volume extends BigDecimal implements IVolume {
     }
 
     public Volume(BigDecimal value, int unit) throws PhysicException {
-        super(value.toString());
+        this.value = value;
         if (unit >= 14 && unit <= 20) {
             this.unit = unit;
             return;

@@ -6,7 +6,7 @@ import com.mjr.twaire.code.physic.PhysicException;
 import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Length extends BigDecimal implements ILength { 
+public class Length implements ILength { 
     @Deprecated
 	private static Length instance;
     private BigDecimal value;
@@ -40,38 +40,32 @@ public class Length extends BigDecimal implements ILength {
     public static final String MILLIMETER_SYMBOL= "mm";
 
     public Length() {
-        super(0); 
-        value = divide(ONE);
+        value = BigDecimal.ZERO;
         unit = METER;
     }
 
     public Length(double value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         unit = METER;
     }
 
     public Length(String value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = new BigDecimal(value);
         unit = METER;
     }
 
     public Length(long value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         unit = METER;
     }
 
     public Length(BigDecimal value) {
-        super(value.toString());
         this.value = value;
         unit = METER;
     }
 
     public Length(double value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
             return;
@@ -80,8 +74,7 @@ public class Length extends BigDecimal implements ILength {
     }
 
     public Length(String value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = new BigDecimal(value);
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
             return;
@@ -90,8 +83,7 @@ public class Length extends BigDecimal implements ILength {
     }
 
     public Length(long value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
             return;
@@ -100,7 +92,7 @@ public class Length extends BigDecimal implements ILength {
     }
 
     public Length(BigDecimal value, int unit) throws PhysicException {
-        super(value.toString());
+        this.value = value;
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
             return;

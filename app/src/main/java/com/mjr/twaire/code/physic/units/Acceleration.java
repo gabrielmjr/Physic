@@ -30,7 +30,7 @@ import static com.mjr.twaire.code.physic.units.Time.SQUARE_SECOND_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.SQUARE_MINUTE_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.SQUARE_HOUR_SYMBOL;
 
-public class Acceleration extends BigDecimal implements IAcceleration {
+public class Acceleration implements IAcceleration {
     @Deprecated
     private static Acceleration instance;
     private BigDecimal value;
@@ -112,38 +112,32 @@ public class Acceleration extends BigDecimal implements IAcceleration {
 	public static final String MILLIMETER_PER_SQUARE_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
 
 	public Acceleration() {
-        super(0); 
-        value = divide(ONE);
+        value = BigDecimal.ZERO;
         unit = METER;
     }
 
     public Acceleration(double value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         unit = METER;
     }
 
     public Acceleration(String value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = new BigDecimal(value);
         unit = METER;
     }
 
     public Acceleration(long value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         unit = METER;
     }
 
     public Acceleration(BigDecimal value) {
-        super(value.toString());
         this.value = value;
         unit = METER;
     }
 
     public Acceleration(double value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
@@ -152,8 +146,7 @@ public class Acceleration extends BigDecimal implements IAcceleration {
     }
 
     public Acceleration(String value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = new BigDecimal(value);
         if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
@@ -162,8 +155,7 @@ public class Acceleration extends BigDecimal implements IAcceleration {
     }
 
     public Acceleration(long value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
@@ -172,7 +164,7 @@ public class Acceleration extends BigDecimal implements IAcceleration {
     }
 
     public Acceleration(BigDecimal value, int unit) throws PhysicException {
-        super(value.toString());
+        this.value = value;
         if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;

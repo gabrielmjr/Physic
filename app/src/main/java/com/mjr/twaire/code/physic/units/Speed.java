@@ -28,7 +28,7 @@ import static com.mjr.twaire.code.physic.units.Time.SECOND_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.MINUTE_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.HOUR_SYMBOL;
 
-public class Speed extends BigDecimal implements ISpeed { 
+public class Speed implements ISpeed { 
     @Deprecated
 	private static Speed instance; 
     private BigDecimal value;
@@ -110,78 +110,70 @@ public class Speed extends BigDecimal implements ISpeed {
 	public static final String MILLIMETER_PER_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 
 	public Speed() {
-        super(0); 
-        value = divide(ONE);
+        value = BigDecimal.ZERO;
         unit = METER;
-		setScale(20);
+		value.setScale(20);
     }
 
     public Speed(double value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         unit = METER;
-		setScale(20);
+		this.value.setScale(20);
     }
 
     public Speed(String value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = new BigDecimal(value);
         unit = METER;
-		setScale(20);
+		this.value.setScale(20);
     }
 
     public Speed(long value) {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         unit = METER;
-		setScale(20);
+		this.value.setScale(20);
     }
 
     public Speed(BigDecimal value) {
-        super(value.toString());
         this.value = value;
         unit = METER;
-		setScale(20);
+		this.value.setScale(20);
     }
 
     public Speed(double value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         if (unit >= 31 && unit <= 51) {
             this.unit = unit;
-			setScale(20);
+			this.value.setScale(20);
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Speed(String value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = new BigDecimal(value);
         if (unit >= 31 && unit <= 51) {
             this.unit = unit;
-			setScale(20);
+			this.value.setScale(20);
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Speed(long value, int unit) throws PhysicException {
-        super(value);
-        this.value = divide(ONE);
+        this.value = BigDecimal.valueOf(value);
         if (unit >= 31 && unit <= 51) {
             this.unit = unit;
-			setScale(20);
+			this.value.setScale(20);
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public Speed(BigDecimal value, int unit) throws PhysicException {
-        super(value.toString());
+        this.value = value;
         if (unit >= 31 && unit <= 51) {
             this.unit = unit;
-			setScale(20);
+			this.value.setScale(20);
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");

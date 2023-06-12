@@ -66,7 +66,7 @@ public class DigitalTimeTest {
 		String hourString;
 		
 		try {
-		    second = toSecond(value, unit).toBigInteger();
+		    second = toSecond(value, unit).getValue().toBigInteger();
 			while (second.max(SIXTY) == SIXTY) {
 				minute.add(BigInteger.ONE);
 				second.subtract(SIXTY);
