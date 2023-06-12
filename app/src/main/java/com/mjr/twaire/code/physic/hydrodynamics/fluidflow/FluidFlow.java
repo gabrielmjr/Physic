@@ -8,8 +8,13 @@ public class FluidFlow implements IFluidFlow {
 
     // Q = V/∆t
     @Override
+    public FlowRate1 flowRate1() {
+        return new FlowRate1();
+    }
+    
+    @Override
     public FlowRate1 flowRate1(double volume, double time) {
-        return FlowRate1.getInstance(volume, time);
+        return new FlowRate1(volume, time);
     }
 
     @Override
@@ -18,22 +23,22 @@ public class FluidFlow implements IFluidFlow {
                                double time, 
                                int timeUnit, 
                                int unitOfResult) {
-        return FlowRate1.getInstance(volume, 
-									 volumeUnit, 
-									 time, 
-									 timeUnit, 
-									 unitOfResult);
-    }
-
-    @Override
-    public FlowRate1 flowRate1() {
-        return new FlowRate1();
+        return new  FlowRate1(volume, 
+                              volumeUnit, 
+                              time, 
+                              timeUnit, 
+                              unitOfResult);
     }
 
     // Q = A * v
     @Override
+    public FlowRate2 flowRate2() {
+        return new FlowRate2();
+    }
+    
+    @Override
     public FlowRate2 flowRate2(double area, double velocity) {
-        return FlowRate2.getInstance(area, velocity);
+        return new FlowRate2(area, velocity);
     }
 
     @Override
@@ -42,27 +47,22 @@ public class FluidFlow implements IFluidFlow {
                                double velocity, 
                                int velocityUnit, 
                                int unitOfResult) {
-		return FlowRate2.getInstance(area, 
-									 areaUnit,
-									 velocity, 
-									 velocityUnit, 
-									 unitOfResult);
+		return new FlowRate2(area, 
+                             areaUnit,
+                             velocity, 
+                             velocityUnit, 
+                             unitOfResult);
     }
-    
-    @Override
-    public FlowRate2 flowRate2() {
-        return new FlowRate2();
-    }
-    
 
     // Q = π * r² * v
     @Override
-    public FlowRate3 flowRate3(
-		double ray, 
-		double velocity) {
-        return FlowRate3.getInstance(
-			ray, 
-			velocity);
+    public FlowRate3 flowRate3(double ray, double velocity) {
+        return new FlowRate3(ray, velocity);
+    }
+    
+    @Override
+    public FlowRate3 flowRate3() {
+        return new FlowRate3();
     }
 
     @Override
@@ -71,22 +71,22 @@ public class FluidFlow implements IFluidFlow {
                                double velocity,
                                int velocityUnit,
                                int unitOfResult) {
-        return FlowRate3.getInstance(ray,
-									 rayUnit,
-									 velocity,
-									 velocityUnit,
-									 unitOfResult);
+        return new FlowRate3(ray,
+                             rayUnit,
+                             velocity,
+                             velocityUnit,
+                             unitOfResult);
     }
     
     @Override
-    public FlowRate3 flowRate3() {
-        return new FlowRate3();
+    public Time time() {
+        return new Time();
     }
 
     // ∆t = V/ Q
     @Override
     public Time time(double volume, double flowRate) {
-        return Time.getInstance(volume, flowRate);
+        return new Time(volume, flowRate);
     }
 
     @Override
@@ -95,22 +95,22 @@ public class FluidFlow implements IFluidFlow {
                      double flowRate,
                      int flowRateUnit, 
                      int unitOfResult) {
-        return Time.getInstance(volume,
-								volumeUnit,
-								flowRate,
-								flowRateUnit,
-								unitOfResult);
-    }
-    
-    @Override
-    public Time time() {
-        return new Time();
+        return new Time(volume,
+                        volumeUnit,
+                        flowRate,
+                        flowRateUnit,
+                        unitOfResult);
     }
 
     // V = ∆t * Q
     @Override
+    public Volume volume() {
+        return new Volume();
+    }
+    
+    @Override
     public Volume volume(double time, double flowRate) {
-        return Volume.getInstance(time, flowRate);
+        return new Volume(time, flowRate);
     }
 
     @Override
@@ -119,22 +119,22 @@ public class FluidFlow implements IFluidFlow {
                          double flowRate, 
                          int flowRateUnit, 
                          int unitOfResult) {
-        return Volume.getInstance(time,
-								  timeUnit,
-								  flowRate,
-								  flowRateUnit,
-								  unitOfResult);
-    }
-    
-    @Override
-    public Volume volume() {
-        return new Volume();
+        return new Volume(time,
+                          timeUnit,
+                          flowRate,
+                          flowRateUnit,
+                          unitOfResult);
     }
 
     // v = Q / A
     @Override
+    public Speed1 speed1() {
+        return new Speed1();
+    }
+    
+    @Override
     public Speed1 speed1(double flowRate, double area) {
-        return Speed1.getInstance(flowRate, area);
+        return new Speed1(flowRate, area);
     }
 
     @Override
@@ -143,22 +143,22 @@ public class FluidFlow implements IFluidFlow {
                          double area, 
                          int areaUnit, 
                          int unitOfResult) {
-        return Speed1.getInstance(flowRate,
-								  flowRateUnit,
-								  area,
-								  areaUnit,
-								  unitOfResult);
-    }
-    
-    @Override
-    public Speed1 speed1() {
-        return new Speed1();
+        return new Speed1(flowRate,
+                          flowRateUnit,
+                          area,
+                          areaUnit,
+                          unitOfResult);
     }
 
     // v = Q / (π * r²)]
     @Override
+    public Speed2 speed2() {
+        return new Speed2();
+    }
+    
+    @Override
     public Speed2 speed2(double flowRate, double ray) {
-        return Speed2.getInstance(flowRate, ray);
+        return new Speed2(flowRate, ray);
     }
 
     @Override
@@ -167,22 +167,22 @@ public class FluidFlow implements IFluidFlow {
                          double ray, 
                          int raioUnit,
                          int unitOfResult) {
-        return Speed2.getInstance(flowRate,
-								  flowRateUnit,
-								  ray,
-								  raioUnit,
-								  unitOfResult);
-    }
-    
-    @Override
-    public Speed2 speed2() {
-        return new Speed2();
+        return new Speed2(flowRate,
+                          flowRateUnit,
+                          ray,
+                          raioUnit,
+                          unitOfResult);
     }
 
     // A = Q / v
     @Override
+    public Area area() {
+        return new Area();
+    }
+    
+    @Override
     public Area area(double flowRate, double velocity) {
-		return Area.getInstance(flowRate, velocity);
+		return new Area(flowRate, velocity);
     }
 
     @Override
@@ -191,22 +191,22 @@ public class FluidFlow implements IFluidFlow {
                      double velocity, 
                      int velocityUnit,
                      int unitOfResult) {
-        return Area.getInstance(flowRate,
-								flowRateUnit, 
-								velocity,
-								velocityUnit,
-								unitOfResult);
-    }
-    
-    @Override
-    public Area area() {
-        return new Area();
+        return new Area(flowRate,
+                        flowRateUnit, 
+                        velocity,
+                        velocityUnit,
+                        unitOfResult);
     }
 
     // r = √[Q / (π * v)]
     @Override
+    public Ray ray() {
+        return new Ray();
+    }
+    
+    @Override
     public Ray ray(double flowRate, double velocity) {
-        return Ray.getInstance(flowRate, velocity);
+        return new Ray(flowRate, velocity);
     }
 
     @Override
@@ -215,16 +215,11 @@ public class FluidFlow implements IFluidFlow {
                    double velocity, 
                    int velocityUnit,
                    int unitOfResult) {
-        return Ray.getInstance(flowRate, 
-							   flowRateUnit,
-							   velocity,
-							   velocityUnit,
-							   unitOfResult);
-    }
-    
-    @Override
-    public Ray ray() {
-        return new Ray();
+        return new Ray(flowRate, 
+                       flowRateUnit,
+                       velocity,
+                       velocityUnit,
+                       unitOfResult);
     }
 
     @Deprecated

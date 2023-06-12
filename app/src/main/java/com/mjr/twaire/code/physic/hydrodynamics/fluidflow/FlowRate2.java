@@ -15,7 +15,7 @@ public final class FlowRate2 extends Calculation {
 
 	private double step1;
 	private boolean hasCustomUnits;
-    
+
     protected FlowRate2() {}
 
     protected FlowRate2(double area, double velocity) {
@@ -25,7 +25,11 @@ public final class FlowRate2 extends Calculation {
         calculate();
     }
 
-    protected FlowRate2(double area, double velocity, int areaUnit, int velocityUnit, int unitOfResult) {
+    protected FlowRate2(double area,
+                        int areaUnit,
+                        double velocity,
+                        int velocityUnit, 
+                        int unitOfResult) {
         this.area = area;
         this.velocity = velocity;
         this.areaUnit = areaUnit;
@@ -44,19 +48,19 @@ public final class FlowRate2 extends Calculation {
         return this;
     }
 
-	private void calculateWithCustomUnits () {}
+	private void calculateWithCustomUnits() {}
 
-	private void calculateWithoutCustomUnits () {
+	private void calculateWithoutCustomUnits() {
 		step1 = area * velocity;
 	}
 
 	@Override
-	public double getResult () {
+	public double getResult() {
 		return step1;
 	}
 
 	@Override
-	public String getSteps () {
+	public String getSteps() {
 		if (hasCustomUnits)
 			return null;
 	    else {
@@ -65,64 +69,64 @@ public final class FlowRate2 extends Calculation {
 		}
 	}
 
-	public FlowRate2 setArea (double area) {
+	public FlowRate2 setArea(double area) {
 		this.area = area;
 		return this;
 	}
 
-	public double getArea () {
+	public double getArea() {
 		return area;
 	}
 
-	public FlowRate2 setVelocity (double velocity) {
+	public FlowRate2 setVelocity(double velocity) {
 		this.velocity = velocity;
 		return this;
 	}
 
-	public double getVelocity () {
+	public double getVelocity() {
 		return velocity;
 	}
 
-	public FlowRate2 setAreaUnit (int areaUnit) {
+	public FlowRate2 setAreaUnit(int areaUnit) {
 		this.areaUnit = areaUnit;
 		return this;
 	}
 
-	public int getAreaUnit () {
+	public int getAreaUnit() {
 		return areaUnit;
 	}
 
-	public FlowRate2 setVelocityUnit (int velocityUnit) {
+	public FlowRate2 setVelocityUnit(int velocityUnit) {
 		this.velocityUnit = velocityUnit;
 		return this;
 	}
 
-	public int getVelocityUnit () {
+	public int getVelocityUnit() {
 		return velocityUnit;
 	}
 
-	public FlowRate2 setUnitOfResult (int unitOfResult) {
+	public FlowRate2 setUnitOfResult(int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
 
-	public int getUnitOfResult () {
+	public int getUnitOfResult() {
 		return unitOfResult;
 	}
-	
+
 	@Override
 	public String getFormula() {
 		return "Q = A * v";
 	}
-    
+
     @Deprecated
-    private FlowRate2 setHasCustomUnits (boolean hasCustomUnits) {
+    private FlowRate2 setHasCustomUnits(boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
 	}
 
     @Deprecated
-    protected static FlowRate2 getInstance (double area, double velocity) {
+    protected static FlowRate2 getInstance(double area, double velocity) {
         if (!(instance instanceof FlowRate2))
             instance = new FlowRate2();
         return instance.setArea(area)
@@ -132,11 +136,11 @@ public final class FlowRate2 extends Calculation {
     }
 
     @Deprecated
-	protected static FlowRate2 getInstance (double area,
-										 int areaUnit,
-										 double velocity,
-										 int velocityUnit, 
-										 int unitOfResult) {
+	protected static FlowRate2 getInstance(double area,
+                                           int areaUnit,
+                                           double velocity,
+                                           int velocityUnit, 
+                                           int unitOfResult) {
         if (!(instance instanceof FlowRate2))
 			instance = new FlowRate2();
 	    return instance.setArea(area)

@@ -17,7 +17,7 @@ public final class Ray extends Calculation {
 	private double step2;
 	private double step3;
 	private boolean hasCustomUnits;
-    
+
     protected Ray() {}
 
     protected Ray(double flowRate, double velocity) {
@@ -27,7 +27,11 @@ public final class Ray extends Calculation {
         calculate();
     }
 
-    protected Ray(double flowRate, double velocity, int flowRateUnit, int velocityUnit, int unitOfResult) {
+    protected Ray(double flowRate,
+                  int flowRateUnit,
+                  double velocity,
+                  int velocityUnit,
+                  int unitOfResult) {
         this.flowRate = flowRate;
         this.velocity = velocity;
         this.flowRateUnit = flowRateUnit;
@@ -36,7 +40,7 @@ public final class Ray extends Calculation {
         hasCustomUnits = true;
         calculate();
     }
-    
+
     @Override
     public Ray calculate() {
         if (hasCustomUnits)
@@ -46,22 +50,22 @@ public final class Ray extends Calculation {
         return this;
     }
 
-	private void calculateWithCustomUnits () {
+	private void calculateWithCustomUnits() {
 	}
 
-	private void calculateWithoutCustomUnits () {
+	private void calculateWithoutCustomUnits() {
 		step1 = velocity * 3.14;
 		step2 = flowRate / step1;
 		step3 = Math.sqrt(step2);
 	}
 
 	@Override
-	public double getResult () {
+	public double getResult() {
 		return step3;
 	}
 
 	@Override
-	public String getSteps () {
+	public String getSteps() {
 		if (hasCustomUnits)
 			return null;
 		return "r = √[" + flowRate + "m³/s ÷ (3.14 × " + velocity + "m/s)]"
@@ -70,49 +74,49 @@ public final class Ray extends Calculation {
 			+ "\nr = " + step3 + "m";
 	}
 
-    public Ray setFlowRate (double flowRate) {
+    public Ray setFlowRate(double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
 
-	public double getFlowRate () {
+	public double getFlowRate() {
 		return flowRate;
 	}
 
-	public Ray setVelocity (double velocity) {
+	public Ray setVelocity(double velocity) {
 		this.velocity = velocity;
 		return this;
 	}
 
-	public double getVelocity () {
+	public double getVelocity() {
 		return velocity;
 	}
 
-	public Ray setFlowRateUnit (int flowRateUnit) {
+	public Ray setFlowRateUnit(int flowRateUnit) {
 		this.flowRateUnit  = flowRateUnit;
 		return this;
 	}
 
-	public int getFlowRateUnit () {
+	public int getFlowRateUnit() {
 		return flowRateUnit;
 	}
 
 
-	public Ray setVelocityUnit (int velocityUnit) {
+	public Ray setVelocityUnit(int velocityUnit) {
 		this.velocityUnit = velocityUnit;
 		return this;
 	}
 
-	public int getVelocityUnit () {
+	public int getVelocityUnit() {
 		return velocityUnit;
 	}
 
-	public Ray setUnitOfResut (int unitOfResult) {
+	public Ray setUnitOfResut(int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
 
-	public int getUnitOfResult () {
+	public int getUnitOfResult() {
 		return unitOfResult;
 	}
 
@@ -120,15 +124,15 @@ public final class Ray extends Calculation {
 	public String getFormula() {
 		return "r = √[Q / (π × v)]";
 	}
-    
+
     @Deprecated
-    private Ray setHasCustomUnits (boolean hasCustomUnits) {
+    private Ray setHasCustomUnits(boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
 	}
 
     @Deprecated
-    protected static Ray getInstance (double flowRate, double velocity) {
+    protected static Ray getInstance(double flowRate, double velocity) {
         if (!(instance instanceof Ray))
 			instance = new Ray();
 		return instance.setFlowRate(flowRate)
@@ -138,11 +142,11 @@ public final class Ray extends Calculation {
     }
 
     @Deprecated
-	protected static Ray getInstance (double flowRate,
-									  int flowRateUnit,
-									  double velocity,
-									  int velocityUnit,
-									  int unitOfResult) {
+	protected static Ray getInstance(double flowRate,
+                                     int flowRateUnit,
+                                     double velocity,
+                                     int velocityUnit,
+                                     int unitOfResult) {
         if (!(instance instanceof Ray))
 			instance = new Ray();
 		return instance.setFlowRate(flowRate)

@@ -17,7 +17,7 @@ public final class Volume extends Calculation {
 	private boolean hasCustomUnits;
 
     protected Volume() {}
-    
+
     protected Volume(double deltaTime, double flowRate) {
         this.deltaTime = deltaTime;
         this.flowRate = flowRate;
@@ -25,7 +25,11 @@ public final class Volume extends Calculation {
         calculate();
     }
 
-    protected Volume(double deltaTime, double flowRate, int deltaTimeUnit, int flowRateUnit, int unitOfResult) {
+    protected Volume(double deltaTime, 
+                     int deltaTimeUnit,
+                     double flowRate, 
+                     int flowRateUnit, 
+                     int unitOfResult) {
         this.deltaTime = deltaTime;
         this.flowRate = flowRate;
         this.deltaTimeUnit = deltaTimeUnit;
@@ -35,7 +39,7 @@ public final class Volume extends Calculation {
         calculate();
     }
 
-    
+
     @Override
     public Volume calculate() {
         if (hasCustomUnits)
@@ -45,7 +49,7 @@ public final class Volume extends Calculation {
         return this;
     }
 
-	private void calculateWithCustomUnits () {
+	private void calculateWithCustomUnits() {
 	}
 
 	private void calculateWithoutCustomUnits() {
@@ -53,76 +57,76 @@ public final class Volume extends Calculation {
 	}
 
 	@Override
-	public double getResult () {
+	public double getResult() {
 		return step1;
 	}
 
 	@Override
-	public String getSteps () {
+	public String getSteps() {
 		if (hasCustomUnits)
 			return null;
 		return "V = " + deltaTime + "s × " + flowRate + "m³/s"
 			+ "\nV = " + step1 + "m³";
 	}
 
-    public Volume setDeltaTime (double deltaTime) {
+    public Volume setDeltaTime(double deltaTime) {
 		this.deltaTime = deltaTime;
 		return this;
 	}
 
-	public double getDeltaTime () {
+	public double getDeltaTime() {
 		return deltaTime;
 	}
 
-	public Volume setFlowRate (double flowRate) {
+	public Volume setFlowRate(double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
 
-	public double getFlowRate () {
+	public double getFlowRate() {
 		return flowRate;
 	}
 
-	public Volume setDeltaTimeUnit (int deltaTimeUnit) {
+	public Volume setDeltaTimeUnit(int deltaTimeUnit) {
 		this.deltaTimeUnit = deltaTimeUnit;
 		return this;
 	}
 
-	public int getDeltaTimeUnit () {
+	public int getDeltaTimeUnit() {
 		return deltaTimeUnit;
 	}
 
-	public Volume setFlowRateUnit (int flowRateUnit) {
+	public Volume setFlowRateUnit(int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
 
-	public int getFlowRateUnit () {
+	public int getFlowRateUnit() {
 		return flowRateUnit;
 	}
 
-	public Volume setUnitOfResult (int unitOfResult) {
+	public Volume setUnitOfResult(int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
 
-	public int getUnitOfResult () {
+	public int getUnitOfResult() {
 		return unitOfResult;
 	}
-	
+
 	@Override
 	public String getFormula() {
 		return "V = ∆t × Q";
 	}
-    
+
     @Deprecated
-    private Volume setHasCustomUnits (boolean hasCustomUnits) {
+    private Volume setHasCustomUnits(boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
 	}
 
     @Deprecated
-    protected static Volume getInstance (double deltaTime, double flowRate) {
+    protected static Volume getInstance(double deltaTime, double flowRate) {
         if (!(instance instanceof Volume))
 			instance = new Volume();
 		return instance.setDeltaTime(deltaTime)
@@ -132,11 +136,11 @@ public final class Volume extends Calculation {
     }
 
     @Deprecated
-	protected static Volume getInstance (double deltaTime,
-									  int deltaTimeUnit,
-									  double flowRate,
-									  int flowRateUnit,
-									  int unitOfResult) {
+	protected static Volume getInstance(double deltaTime,
+                                        int deltaTimeUnit,
+                                        double flowRate,
+                                        int flowRateUnit,
+                                        int unitOfResult) {
         if (!(instance instanceof Volume))
 			instance = new Volume();
 		return instance.setDeltaTime(deltaTime)

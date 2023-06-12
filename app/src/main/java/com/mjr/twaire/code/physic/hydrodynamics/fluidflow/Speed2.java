@@ -17,7 +17,7 @@ public final class Speed2 extends Calculation {
 	private double step2;
 	private double step3;
 	private boolean hasCustomUnits;
-    
+
     protected Speed2() {}
 
     protected Speed2(double flowRate, double ray) {
@@ -27,7 +27,11 @@ public final class Speed2 extends Calculation {
         calculate();
     }
 
-    protected Speed2(double flowRate, double ray, int flowRateUnit, int rayUnit, int unitOfResult) {
+    protected Speed2(double flowRate,
+                     int flowRateUnit,
+                     double ray,
+                     int rayUnit,
+                     int unitOfResult) {
         this.flowRate = flowRate;
         this.ray = ray;
         this.flowRateUnit = flowRateUnit;
@@ -36,7 +40,7 @@ public final class Speed2 extends Calculation {
         hasCustomUnits = true;
         calculate();
     }
-    
+
     @Override
     public Speed2 calculate() {
         if (hasCustomUnits)
@@ -45,22 +49,22 @@ public final class Speed2 extends Calculation {
             calculateWithoutCustomUnits();
         return this;
     }
-    
-	private void calculateWithCustomUnits () {}
 
-	private void calculateWithoutCustomUnits () {
+	private void calculateWithCustomUnits() {}
+
+	private void calculateWithoutCustomUnits() {
 		step1 = Math.pow(ray, 2);
 		step2 = step1 * 3.14;
 		step3 = flowRate / step2;
 	}
 
 	@Override
-	public double getResult () {
+	public double getResult() {
 		return step3;
 	}
 
 	@Override
-	public String getSteps () {
+	public String getSteps() {
 		if (hasCustomUnits)
 			return null;
 		return "v = " + flowRate + "m³/s ÷ [3.14 × (" + ray + "m)²]"
@@ -69,64 +73,64 @@ public final class Speed2 extends Calculation {
 			+ "\nv = " + step3 + "m/s";
 	}
 
-	public Speed2 setFlowRate (double flowRate) {
+	public Speed2 setFlowRate(double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
 
-	public double getFlowRate () {
+	public double getFlowRate() {
 		return flowRate;
 	}
 
-	public Speed2 setRay (double ray) {
+	public Speed2 setRay(double ray) {
 		this.ray = ray;
 		return this;
 	}
 
-	public double getRay () {
+	public double getRay() {
 		return ray;
 	}
 
-	public Speed2 setFlowRateUnit (int flowRateUnit) {
+	public Speed2 setFlowRateUnit(int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
 
-	public int getFlowRateUnit () {
+	public int getFlowRateUnit() {
 		return flowRateUnit;
 	}
 
-	public Speed2 setRayUnit (int rayUnit) {
+	public Speed2 setRayUnit(int rayUnit) {
 		this.rayUnit = rayUnit;
 		return this;
 	}
 
-	public int getRayUnit () {
+	public int getRayUnit() {
 		return rayUnit;
 	}
 
-	public Speed2 setUnitOfRest (int unitOfResult) {
+	public Speed2 setUnitOfRest(int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
 
-	public int getUnitOfResult () {
+	public int getUnitOfResult() {
 		return unitOfResult;
 	}
-	
+
 	@Override
 	public String getFormula() {
 		return "v = Q / [π × (r)²]";
 	}
 
     @Deprecated
-    private Speed2 setHasCustomUnits (boolean hasCustomUnits) {
+    private Speed2 setHasCustomUnits(boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
     }
-    
+
     @Deprecated
-    protected static Speed2 getInstance (double flowRate, double ray) {
+    protected static Speed2 getInstance(double flowRate, double ray) {
         if (!(instance instanceof Speed2))
             instance = new Speed2();
 		return instance.setFlowRate(flowRate)
@@ -136,11 +140,11 @@ public final class Speed2 extends Calculation {
     }
 
     @Deprecated
-	protected static Speed2 getInstance (double flowRate,
-									  int flowRateUnit,
-									  double ray,
-									  int rayUnit,
-									  int unitOfResult) {
+	protected static Speed2 getInstance(double flowRate,
+                                        int flowRateUnit,
+                                        double ray,
+                                        int rayUnit,
+                                        int unitOfResult) {
         if (!(instance instanceof Speed2))
             instance = new Speed2();
 		return instance.setFlowRate(flowRate)

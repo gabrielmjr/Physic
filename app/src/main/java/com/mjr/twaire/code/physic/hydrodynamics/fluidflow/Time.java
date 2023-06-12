@@ -5,7 +5,7 @@ import com.mjr.twaire.code.physic.Calculation;
 public final class Time extends Calculation { 
     @Deprecated
     private static Time instance;
-	
+
 	private double volume;
 	private double flowRate;
 
@@ -15,7 +15,7 @@ public final class Time extends Calculation {
 
 	private double step1;
 	private boolean hasCustomUnits;
-    
+
     protected Time() {}
 
     protected Time(double volume, double flowRate) {
@@ -25,7 +25,11 @@ public final class Time extends Calculation {
         calculate();
     }
 
-    protected Time(double volume, double flowRate, int volumeUnit, int flowRateUnit, int unitOfResult) {
+    protected Time(double volume, 
+                   int volumeUnit, 
+                   double flowRate, 
+                   int flowRateUnit,
+                   int unitOfResult) {
         this.volume = volume;
         this.flowRate = flowRate;
         this.volumeUnit = volumeUnit;
@@ -35,7 +39,7 @@ public final class Time extends Calculation {
         calculate();
     }
 
-    
+
     @Override
     public Time calculate() {
         if (hasCustomUnits)
@@ -45,81 +49,81 @@ public final class Time extends Calculation {
         return this;
     }
 
-	private void calculateWithCustomUnits () {}
+	private void calculateWithCustomUnits() {}
 
-	private void calculateWithoutCustomUnits () {
+	private void calculateWithoutCustomUnits() {
 		step1 = volume / flowRate;
 	}
 
 	@Override
-	public double getResult () {
+	public double getResult() {
 		return step1;
 	}
 
 	@Override
-	public String getSteps () {
+	public String getSteps() {
 		return "∆t = " + volume + "m³ ÷ " + flowRate + "m³/s"
 			+ "\n∆t = " + step1 + "s";
 	}
 
-    public Time setVolume (double volume) {
+    public Time setVolume(double volume) {
 		this.volume = volume;
 		return this;
 	}
 
-	public double getVolume () {
+	public double getVolume() {
 		return volume;
 	}
 
-	public Time setFlowRate (double flowRate) {
+	public Time setFlowRate(double flowRate) {
 		this.flowRate = flowRate;
 		return this;
 	}
 
-	public double getFlowRate () {
+	public double getFlowRate() {
 		return flowRate;
 	}
 
-	public Time setVolumeUnit (int volumeUnit) {
+	public Time setVolumeUnit(int volumeUnit) {
 		this.volumeUnit = volumeUnit;
 		return this;
 	}
 
-	public int getVolumeUnit () {
+	public int getVolumeUnit() {
 		return volumeUnit;
 	}
 
-	public Time setFlowRateUnit (int flowRateUnit) {
+	public Time setFlowRateUnit(int flowRateUnit) {
 		this.flowRateUnit = flowRateUnit;
 		return this;
 	}
 
-	public int getFlowRateUnit () {
+	public int getFlowRateUnit() {
 		return flowRateUnit;
 	}
 
-	public Time setUnitOfResult (int unitOfResult) {
+	public Time setUnitOfResult(int unitOfResult) {
 		this.unitOfResult = unitOfResult;
 		return this;
 	}
 
-	public int getUnitOfResult () {
+	public int getUnitOfResult() {
 		return unitOfResult;
 	}
-	
+
 	@Override
 	public String getFormula() {
 		return "∆t = V/ Q";
 	}
-    
+
     @Deprecated
-    private Time setHasCustUnits (boolean hasCustomUnits) {
+    private Time setHasCustUnits(boolean hasCustomUnits) {
         this.hasCustomUnits = hasCustomUnits;
         return this;
 	}
 
     @Deprecated
-    protected static Time getInstance (double volume, double flowRate) {
+    protected static Time getInstance(double volume, double flowRate) {
         if (!(instance instanceof Time))
 			instance = new Time();
         return instance.setVolume(volume)
@@ -129,11 +133,11 @@ public final class Time extends Calculation {
     }
 
     @Deprecated
-	protected static Time getInstance (double volume,
-									int volumeUnit,
-									double flowRate,
-									int flowRateUnit,
-									int unitOfResult) {
+	protected static Time getInstance(double volume,
+                                      int volumeUnit,
+                                      double flowRate,
+                                      int flowRateUnit,
+                                      int unitOfResult) {
         if (!(instance instanceof Time))
 			instance = new Time();
         return instance.setVolume(volume)
