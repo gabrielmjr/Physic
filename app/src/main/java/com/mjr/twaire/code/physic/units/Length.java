@@ -39,6 +39,16 @@ public class Length implements ILength {
     public static final String CENTIMETER_SYMBOL = "cm";
     public static final String MILLIMETER_SYMBOL= "mm";
 
+    protected final String LENGTH_SYMBOLS[] = new String[] {
+        KILOMETER_SYMBOL,
+        HECTOMETER_SYMBOL,
+        DECAMETER_SYMBOL,
+        METER_SYMBOL,
+        DECIMETER_SYMBOL,
+        CENTIMETER_SYMBOL,
+        MILLIMETER_SYMBOL
+    };
+    
     public Length() {
         value = BigDecimal.ZERO;
         unit = METER;
@@ -175,6 +185,11 @@ public class Length implements ILength {
     @Override
     public Length toMillimeter() {
         return null;
+    }
+    
+    @Override
+    public String toString() {
+        return value + LENGTH_SYMBOLS[unit];
     }
 
     public Length setValue(double value) {

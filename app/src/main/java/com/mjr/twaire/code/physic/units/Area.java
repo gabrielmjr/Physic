@@ -201,6 +201,21 @@ public class Area implements IArea {
         return null;
     }
     
+    @Override
+    public String toString() {
+        return value + AREA_SYMBOLS[unit];
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        try {
+            Area area = (Area) object;
+            return (area.toString().equals(toString()));
+        } catch (ClassCastException e) {
+            return false;
+        }
+    }
+    
     public Area setValue(double value) {
         this.value = BigDecimal.valueOf(value);
         return this;
@@ -232,21 +247,7 @@ public class Area implements IArea {
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
-    
-    @Override
-    public String toString() {
-        return value + AREA_SYMBOLS[unit];
-    }
-    
-    @Override
-    public boolean equals(Object object) {
-        try {
-            Area area = (Area) object;
-            return (area.toString().equals(toString()));
-        } catch (ClassCastException e) {
-            return false;
-        }
-    }
+
 
     @Deprecated
     protected static Area getInstance () {
