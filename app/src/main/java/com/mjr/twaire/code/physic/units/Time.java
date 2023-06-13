@@ -56,6 +56,11 @@ public class Time implements ITime {
 	public static final String SQUARE_MINUTE_SYMBOL = MINUTE_SYMBOL + "²";
 	public static final String SQUARE_SECOND_SYMBOL = SECOND_SYMBOL + "²";
     
+  /*  protected final String TIME_SYMBOLS[] = new String[] {
+        WEEK_IN_YEAR_SYMBOL,
+        
+    };
+    */
     public Time() {
         value = BigDecimal.ZERO;
         unit = SECOND;

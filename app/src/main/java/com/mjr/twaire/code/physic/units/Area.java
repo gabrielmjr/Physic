@@ -35,8 +35,7 @@ public class Area implements IArea {
 	public static final int SQUARE_CENTIMETER = 12;
 	public static final int SQUARE_MILLIMETER = 13;
 
-	protected static final BigDecimal[] AREA_SCALES = new BigDecimal[]
-	{
+	protected static final BigDecimal[] AREA_SCALES = new BigDecimal[] {
 		LENGTH_SCALES[KILOMETER].pow(2),
 		LENGTH_SCALES[HECTOMETER].pow(2),
 		LENGTH_SCALES[DECAMETER].pow(2),
@@ -63,7 +62,7 @@ public class Area implements IArea {
         SQUARE_CENTIMETER_SYMBOL,
         SQUARE_MILLIMETER_SYMBOL
     };
-
+    
     public Area() {
         this.value = BigDecimal.ZERO;
         unit = SQUARE_METER - 7;
@@ -237,6 +236,16 @@ public class Area implements IArea {
     @Override
     public String toString() {
         return value + AREA_SYMBOLS[unit];
+    }
+    
+    @Override
+    public boolean equals(Object object) {
+        try {
+            Area area = (Area) object;
+            return (area.toString().equals(toString()));
+        } catch (ClassCastException e) {
+            return false;
+        }
     }
 
     @Deprecated
