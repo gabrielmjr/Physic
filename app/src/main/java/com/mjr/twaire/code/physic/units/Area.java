@@ -53,36 +53,46 @@ public class Area implements IArea {
 	public static final String SQUARE_DECIMETER_SYMBOL = DECIMETER_SYMBOL + "²";
 	public static final String SQUARE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "²";
 	public static final String SQUARE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "²";
+    
+    protected final String AREA_SYMBOLS[] = new String[] {
+        SQUARE_KILOMETER_SYMBOL,
+        SQUARE_HECTOMETER_SYMBOL,
+        SQUARE_DECAMETER_SYMBOL,
+        SQUARE_METER_SYMBOL,
+        SQUARE_DECIMETER_SYMBOL,
+        SQUARE_CENTIMETER_SYMBOL,
+        SQUARE_MILLIMETER_SYMBOL
+    };
 
     public Area() {
         this.value = BigDecimal.ZERO;
-        unit = SQUARE_METER;
+        unit = SQUARE_METER - 7;
     }
 
     public Area(double value) {
         this.value = BigDecimal.valueOf(value);
-        unit = SQUARE_METER;
+        unit = SQUARE_METER - 7;
     }
 
     public Area(String value) {
         this.value = new BigDecimal(value);
-        unit = SQUARE_METER;
+        unit = SQUARE_METER - 7;
     }
 
     public Area(long value) {
         this.value = BigDecimal.valueOf(value);
-        unit = SQUARE_METER;
+        unit = SQUARE_METER - 7;
     }
 
     public Area(BigDecimal value) {
         this.value = value;
-        unit = SQUARE_METER;
+        unit = SQUARE_METER - 7;
     }
 
     public Area(double value, int unit) throws PhysicException {
         this.value = BigDecimal.valueOf(value);
         if (unit >= 7 || unit <= 13) {
-            this.unit = unit;
+            this.unit = unit - 7;
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -91,7 +101,7 @@ public class Area implements IArea {
     public Area(String value, int unit) throws PhysicException {
         this.value = new BigDecimal(value);
         if (unit >= 7 || unit <= 13) {
-            this.unit = unit;
+            this.unit = unit - 7;
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -100,7 +110,7 @@ public class Area implements IArea {
     public Area(long value, int unit) throws PhysicException {
         this.value = BigDecimal.valueOf(value);
         if (unit >= 7 || unit <= 13) {
-            this.unit = unit;
+            this.unit = unit - 7;
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -109,7 +119,7 @@ public class Area implements IArea {
     public Area(BigDecimal value, int unit) throws PhysicException {
         this.value = value;
         if (unit >= 7 || unit <= 13) {
-            this.unit = unit;
+            this.unit = unit - 7;
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
@@ -193,23 +203,27 @@ public class Area implements IArea {
     }
     
     public Area setValue(double value) {
-        return new Area(value);
+        this.value = BigDecimal.valueOf(value);
+        return this;
     }
 
     public Area setValue(long value) {
-        return new Area(value);
+        this.value = BigDecimal.valueOf(value);
+        return this;
     }
 
     public Area setValue(String value) {
-        return new Area(value);
+        this.value = new BigDecimal(value);
+        return this;
     }
 
     public Area setValue(BigDecimal value) {
-        return new Area(value);
+        this.value = value;
+        return this;
     }
 
-    public Area getValue() {
-        return this;
+    public BigDecimal getValue() {
+        return value;
     }
 
     public Area setUnit(int unit) throws InvalidUnitException {
@@ -218,6 +232,11 @@ public class Area implements IArea {
             return this;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
+    }
+    
+    @Override
+    public String toString() {
+        return value + AREA_SYMBOLS[unit];
     }
 
     @Deprecated
