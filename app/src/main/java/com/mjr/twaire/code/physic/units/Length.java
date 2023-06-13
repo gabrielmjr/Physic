@@ -191,6 +191,16 @@ public class Length implements ILength {
     public String toString() {
         return value + LENGTH_SYMBOLS[unit];
     }
+    
+    @Override
+    public boolean equals(Object object) {
+        try {
+            Length length = (Length) object;
+            return length.toString().equals(toString());
+        } catch (ClassCastException e) {
+            return false;
+        }
+    }
 
     public Length setValue(double value) {
         return new Length(value);
