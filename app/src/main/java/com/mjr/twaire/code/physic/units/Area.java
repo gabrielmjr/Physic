@@ -90,7 +90,7 @@ public class Area implements IArea {
 
     public Area(double value, int unit) throws PhysicException {
         this.value = BigDecimal.valueOf(value);
-        if (unit >= 7 || unit <= 13) {
+        if (unit >= 7 && unit <= 13) {
             this.unit = unit - 7;
             return;
         }
@@ -99,7 +99,7 @@ public class Area implements IArea {
 
     public Area(String value, int unit) throws PhysicException {
         this.value = new BigDecimal(value);
-        if (unit >= 7 || unit <= 13) {
+        if (unit >= 7 && unit <= 13) {
             this.unit = unit - 7;
             return;
         }
@@ -108,7 +108,7 @@ public class Area implements IArea {
 
     public Area(long value, int unit) throws PhysicException {
         this.value = BigDecimal.valueOf(value);
-        if (unit >= 7 || unit <= 13) {
+        if (unit >= 7 && unit <= 13) {
             this.unit = unit - 7;
             return;
         }
@@ -117,7 +117,7 @@ public class Area implements IArea {
 
     public Area(BigDecimal value, int unit) throws PhysicException {
         this.value = value;
-        if (unit >= 7 || unit <= 13) {
+        if (unit >= 7 && unit <= 13) {
             this.unit = unit - 7;
             return;
         }
