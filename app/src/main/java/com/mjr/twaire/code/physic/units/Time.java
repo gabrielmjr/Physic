@@ -70,27 +70,27 @@ public class Time implements ITime {
     
     public Time() {
         value = BigDecimal.ZERO;
-        unit = SECOND;
+        unit = SECOND - 21;
     }
 
     public Time(double value) {
         this.value = BigDecimal.valueOf(value);
-        unit = SECOND;
+        unit = SECOND - 21;
     }
 
     public Time(String value) {
         this.value = new BigDecimal(value);
-        unit = SECOND;
+        unit = SECOND - 21;
     }
 
     public Time(long value) {
         this.value = BigDecimal.valueOf(value);
-        unit = SECOND;
+        unit = SECOND - 21;
     }
 
     public Time(BigDecimal value) {
         this.value = value;
-        unit = SECOND;
+        unit = SECOND - 21;
     }
 
     public Time(double value, int unit) throws InvalidUnitException {
@@ -331,7 +331,7 @@ public class Time implements ITime {
     
     @Override
     public String toString() {
-        return value + TIME_SYMBOLS[unit];
+        return value + ((unit <= 4) ? TIME_SYMBOLS[unit] : TIME_SYMBOLS[unit - 4]);
     }
    
     @Override
