@@ -135,38 +135,38 @@ public class Speed implements ISpeed {
     
 	public Speed() {
         value = BigDecimal.ZERO;
-        unit = METER;
+        unit = METER - 31;
 		value.setScale(20);
     }
 
     public Speed(double value) {
         this.value = BigDecimal.valueOf(value);
-        unit = METER;
+        unit = METER - 31;
 		this.value.setScale(20);
     }
 
     public Speed(String value) {
         this.value = new BigDecimal(value);
-        unit = METER;
+        unit = METER - 31;
 		this.value.setScale(20);
     }
 
     public Speed(long value) {
         this.value = BigDecimal.valueOf(value);
-        unit = METER;
+        unit = METER - 31;
 		this.value.setScale(20);
     }
 
     public Speed(BigDecimal value) {
         this.value = value;
-        unit = METER;
+        unit = METER - 31;
 		this.value.setScale(20);
     }
 
     public Speed(double value, int unit) throws PhysicException {
         this.value = BigDecimal.valueOf(value);
         if (unit >= 31 && unit <= 51) {
-            this.unit = unit;
+            this.unit = unit - 31;
 			this.value.setScale(20);
             return;
         }
@@ -176,7 +176,7 @@ public class Speed implements ISpeed {
     public Speed(String value, int unit) throws PhysicException {
         this.value = new BigDecimal(value);
         if (unit >= 31 && unit <= 51) {
-            this.unit = unit;
+            this.unit = unit - 31;
 			this.value.setScale(20);
             return;
         }
@@ -186,7 +186,7 @@ public class Speed implements ISpeed {
     public Speed(long value, int unit) throws PhysicException {
         this.value = BigDecimal.valueOf(value);
         if (unit >= 31 && unit <= 51) {
-            this.unit = unit;
+            this.unit = unit - 31;
 			this.value.setScale(20);
             return;
         }
@@ -196,7 +196,7 @@ public class Speed implements ISpeed {
     public Speed(BigDecimal value, int unit) throws PhysicException {
         this.value = value;
         if (unit >= 31 && unit <= 51) {
-            this.unit = unit;
+            this.unit = unit - 31;
 			this.value.setScale(20);
             return;
         }
@@ -437,6 +437,16 @@ public class Speed implements ISpeed {
     @Override
     public String toString() {
         return value + SPEED_SYMBOLS[unit];
+    }
+    
+    @Override
+    public boolean equals(Object object) {
+        try {
+            Speed speed = (Speed) object;
+            return speed.toString().equals(toString());
+        } catch (ClassCastException e) {
+            return false;
+        }
     }
 
     @Deprecated
