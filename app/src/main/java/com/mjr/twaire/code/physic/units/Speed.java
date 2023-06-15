@@ -109,6 +109,30 @@ public class Speed implements ISpeed {
 	public static final String CENTIMETER_PER_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 	public static final String MILLIMETER_PER_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 
+    protected static final String SPEED_SYMBOLS[] = new String[] {
+        KILOMETER_PER_SECOND_SYMBOL,
+        HECTOMETER_PER_SECOND_SYMBOL,
+        DECAMETER_PER_SECOND_SYMBOL,
+        METER_PER_SECOND_SYMBOL,
+        DECIMETER_PER_SECOND_SYMBOL,
+        CENTIMETER_PER_SECOND_SYMBOL,
+        MILLIMETER_PER_SECOND_SYMBOL,
+        KILOMETER_PER_MINUTE_SYMBOL,
+        HECTOMETER_PER_MINUTE_SYMBOL,
+        DECAMETER_PER_MINUTE_SYMBOL,
+        METER_PER_MINUTE_SYMBOL,
+        DECIMETER_PER_MINUTE_SYMBOL,
+        CENTIMETER_PER_MINUTE_SYMBOL,
+        MILLIMETER_PER_MINUTE_SYMBOL,
+        KILOMETER_PER_HOUR_SYMBOL,
+        HECTOMETER_PER_HOUR_SYMBOL,
+        DECAMETER_PER_HOUR_SYMBOL,
+        METER_PER_HOUR_SYMBOL,
+        DECIMETER_PER_HOUR_SYMBOL,
+        CENTIMETER_PER_HOUR_SYMBOL,
+        MILLIMETER_PER_HOUR_SYMBOL
+    };
+    
 	public Speed() {
         value = BigDecimal.ZERO;
         unit = METER;
@@ -408,6 +432,11 @@ public class Speed implements ISpeed {
     @Override
     public Speed toMillimeterPerHour() {
         return null;
+    }
+    
+    @Override
+    public String toString() {
+        return value + SPEED_SYMBOLS[unit];
     }
 
     @Deprecated
