@@ -54,6 +54,16 @@ public class Volume implements IVolume {
 	public static final String CUBE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "³";
 	public static final String CUBE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "³";
     
+    protected final String VOLUME_SYMBOLS[] = new String[] {
+        CUBE_KILOMETER_SYMBOL,
+        CUBE_HECTOMETER_SYMBOL,
+        CUBE_DECAMETER_SYMBOL,
+        CUBE_METER_SYMBOL,
+        CUBE_DECIMETER_SYMBOL,
+        CUBE_CENTIMETER_SYMBOL,
+        CUBE_MILLIMETER_SYMBOL
+    };
+    
     public Volume() {
         this.value = BigDecimal.ZERO;
         unit = CUBE_METER - 14;
@@ -190,6 +200,11 @@ public class Volume implements IVolume {
     @Override
     public Volume toCubeMillimeter() {
         return null;
+    }
+    
+    @Override
+    public String toString() {
+        return value + VOLUME_SYMBOLS[unit];
     }
     
     public Volume setValue(double value) {

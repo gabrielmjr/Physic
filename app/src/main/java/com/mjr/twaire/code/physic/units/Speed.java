@@ -109,7 +109,7 @@ public class Speed implements ISpeed {
 	public static final String CENTIMETER_PER_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 	public static final String MILLIMETER_PER_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 
-    protected static final String SPEED_SYMBOLS[] = new String[] {
+    protected final String SPEED_SYMBOLS[] = new String[] {
         KILOMETER_PER_SECOND_SYMBOL,
         HECTOMETER_PER_SECOND_SYMBOL,
         DECAMETER_PER_SECOND_SYMBOL,
