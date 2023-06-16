@@ -101,7 +101,7 @@ public class Volume implements IVolume {
     public Volume(String value, int unit) throws PhysicException {
         this.value = new BigDecimal(value);
         if (unit >= 14 && unit <= 20) {
-            this.unit = unit - 13;
+            this.unit = unit - 14;
             return;
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
