@@ -48,7 +48,7 @@ public class Length implements ILength {
         CENTIMETER_SYMBOL,
         MILLIMETER_SYMBOL
     };
-    
+
     public Length() {
         value = BigDecimal.ZERO;
         unit = METER;
@@ -110,43 +110,43 @@ public class Length implements ILength {
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
 
-	public static Length toKilometer (double value, int unit) throws PhysicException {
+	public static Length toKilometer(double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
             return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP), KILOMETER);
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
     }
 
-	public static Length toHectometer (double value, int unit) throws PhysicException {
+	public static Length toHectometer(double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
             return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP), HECTOMETER);
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
     }
 
-	public static Length toDecameter (double value, int unit) throws PhysicException {
+	public static Length toDecameter(double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
             return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP), DECAMETER);
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
     }
 
-	public static Length toMeter (double value, int unit) throws PhysicException {
+	public static Length toMeter(double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
             return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP), METER);
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
     }
 
-	public static Length toDecimeter (double value, int unit) throws PhysicException {
+	public static Length toDecimeter(double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
             return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP), DECIMETER);
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
     }
 
-	public static Length toCentimeter (double value, int unit) throws PhysicException {
+	public static Length toCentimeter(double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
             return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP), CENTIMETER);
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
     }
 
-	public static Length toMillimeter (double value, int unit) throws PhysicException {
+	public static Length toMillimeter(double value, int unit) throws PhysicException {
 		if (unit >= 0 && unit <= 6)
             return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP), MILLIMETER);
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
@@ -186,12 +186,12 @@ public class Length implements ILength {
     public Length toMillimeter() {
         return null;
     }
-    
+
     @Override
     public String toString() {
         return value + LENGTH_SYMBOLS[unit];
     }
-    
+
     @Override
     public boolean equals(Object object) {
         try {
@@ -203,23 +203,27 @@ public class Length implements ILength {
     }
 
     public Length setValue(double value) {
-        return new Length(value);
+        this.value = BigDecimal.valueOf(value);
+        return this;
     }
 
     public Length setValue(long value) {
-        return new Length(value);
+        this.value = BigDecimal.valueOf(value);
+        return this;
     }
 
     public Length setValue(String value) {
-        return new Length(value);
+        this.value = new BigDecimal(value);
+        return this;
     }
 
     public Length setValue(BigDecimal value) {
-        return new Length(value);
+        this.value = value;
+        return this;
     }
 
-    public Length getValue() {
-        return this;
+    public BigDecimal getValue() {
+        return value;
     }
 
     public Length setUnit(int unit) throws PhysicException {
@@ -231,7 +235,7 @@ public class Length implements ILength {
     }
 
     @Deprecated
-    protected static Length getInstance () {
+    protected static Length getInstance() {
 		if (!(instance instanceof Length))
 			instance = new Length();
 		return instance;
