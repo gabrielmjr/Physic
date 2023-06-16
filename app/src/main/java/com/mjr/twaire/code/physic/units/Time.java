@@ -55,7 +55,7 @@ public class Time implements ITime {
 	public static final String SQUARE_HOUR_SYMBOL = HOUR_SYMBOL + "²";
 	public static final String SQUARE_MINUTE_SYMBOL = MINUTE_SYMBOL + "²";
 	public static final String SQUARE_SECOND_SYMBOL = SECOND_SYMBOL + "²";
-    
+
     protected final String TIME_SYMBOLS[] = new String[] {
         WEEK_IN_MONTH_SYMBOL,
         DAY_SYMBOL,
@@ -67,7 +67,7 @@ public class Time implements ITime {
         SQUARE_MINUTE_SYMBOL,
         SQUARE_SECOND_SYMBOL
     };
-    
+
     public Time() {
         value = BigDecimal.ZERO;
         unit = SECOND - 21;
@@ -128,222 +128,172 @@ public class Time implements ITime {
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as time unit");
     }
-    
-	public static Time toSecond (double value, int unit) throws InvalidUnitException {
+
+	public static Time toSecond(double value, int unit) throws InvalidUnitException {
 		if (unit >= 21 && unit <= 25)
 			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP), SECOND);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as time unit.");
 	}
 
-	public static Time toMinute (double value, int unit) throws InvalidUnitException {
+	public static Time toMinute(double value, int unit) throws InvalidUnitException {
 		if (unit >= 21 && unit <= 25)
 			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP), MINUTE);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as time unit.");
 	}
 
-	public static Time toHour (double value, int unit) throws InvalidUnitException {
+	public static Time toHour(double value, int unit) throws InvalidUnitException {
 		if (unit >= 21 && unit <= 25)
 			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP), HOUR);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as time unit.");
 	}
 
-	public static Time toDay (double value, int unit) throws InvalidUnitException {
+	public static Time toDay(double value, int unit) throws InvalidUnitException {
 		if (unit >= 21 && unit <= 25)
 			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP), DAY);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as time unit.");
 	}
 
-	public static Time toWeek (double value, int unit) throws InvalidUnitException {
+	public static Time toWeek(double value, int unit) throws InvalidUnitException {
 		if (unit >= 21 && unit <= 25)
 			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP), WEEK);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as time unit.");
 	}
 
-	public static Time toSquareSecond (double value, int unit) throws InvalidUnitException {
+	public static Time toSquareSecond(double value, int unit) throws InvalidUnitException {
 		if (unit >= 26 && unit <= 30)
 			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[SQUARE_SECOND - 26]).divide(SQUARE_TIME_SCALES[unit - 26], ROUND_SCALE, HALF_UP), SQUARE_SECOND);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as square time unit.");
 	}
 
-	public static Time toSquareMinute (double value, int unit) throws InvalidUnitException {
+	public static Time toSquareMinute(double value, int unit) throws InvalidUnitException {
 		if (unit >= 26 && unit <= 30)
 			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[SQUARE_MINUTE - 26]).divide(SQUARE_TIME_SCALES[unit - 26], ROUND_SCALE, HALF_UP), SQUARE_MINUTE);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as square time unit.");
 	}
 
-	public static Time toSquareHour (double value, int unit) throws InvalidUnitException {
+	public static Time toSquareHour(double value, int unit) throws InvalidUnitException {
 		if (unit >= 26 && unit <= 30)
 			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[SQUARE_HOUR - 26]).divide(SQUARE_TIME_SCALES[unit - 26], ROUND_SCALE, HALF_UP), SQUARE_HOUR);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as square time unit.");
 	}
 
-	public static Time toSquareDay (double value, int unit) throws InvalidUnitException {
+	public static Time toSquareDay(double value, int unit) throws InvalidUnitException {
 		if (unit >= 26 && unit <= 30)
 			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[SQUARE_DAY - 26]).divide(SQUARE_TIME_SCALES[unit - 26], ROUND_SCALE, HALF_UP), SQUARE_DAY);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as square time unit.");
 	}
 
-	public static Time toSquareWeek (double value, int unit) throws InvalidUnitException {
+	public static Time toSquareWeek(double value, int unit) throws InvalidUnitException {
 		if (unit >= 26 && unit <= 30)
 			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[SQUARE_WEEK - 26]).divide(SQUARE_TIME_SCALES[unit - 26], ROUND_SCALE, HALF_UP), SQUARE_WEEK);
 		throw new InvalidUnitException("The unit " + unit + " is not valid as square time unit.");
 	}
-    
+
     @Override
     public Time toSecond() throws InvalidUnitException {
-		if (unit >= 21 && unit <= 25) {
-			value = value.multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
-			unit = SECOND - 21;
-			return this;
-		}
-		if (unit >= 26 && unit <= 30) {
-			throw new InvalidUnitException("Cannot convert from square time to time.");
-		} else {
-		    throw new InvalidUnitException("The unit " + unit + " is not valid as time unit.");
-		}
+        if (unit >= 26 && unit <= 30) 
+            throw new InvalidUnitException("Cannot convert from square time to time.");
+        value = value.multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
+        unit = SECOND - 21;
+        return this;
     }
 
     @Override
     public Time toMinute() throws InvalidUnitException {
-        if (unit >= 21 && unit <= 25) {
-			value = value.multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
-			unit = MINUTE - 21;
-			return this;
-		}
-		if (unit >= 26 && unit <= 30) {
-			throw new InvalidUnitException("Cannot convert from square time to time.");
-		} else {
-		    throw new InvalidUnitException("The unit " + unit + " is not valid as time unit.");
-		}
+        if (unit >= 26 && unit <= 30)
+            throw new InvalidUnitException("Cannot convert from square time to time.");
+        value = value.multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
+        unit = MINUTE - 21;
+        return this;
     }
 
     @Override
     public Time toHour() throws InvalidUnitException {
-        if (unit >= 21 && unit <= 25) {
-			value = value.multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
-			unit = HOUR - 21;
-			return this;
-		}
-		if (unit >= 26 && unit <= 30) {
-			throw new InvalidUnitException("Cannot convert from square time to time.");
-		} else {
-		    throw new InvalidUnitException("The unit " + unit + " is not valid as time unit.");
-		}
+        if (unit >= 26 && unit <= 30)
+            throw new InvalidUnitException("Cannot convert from square time to time.");
+        value = value.multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
+        unit = HOUR - 21;
+        return this;
     }
 
     @Override
     public Time toDay() throws InvalidUnitException {
-        if (unit >= 21 && unit <= 25) {
-			value = value.multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
-			unit = DAY - 21;
-			return this;
-		}
-		if (unit >= 26 && unit <= 30) {
-			throw new InvalidUnitException("Cannot convert from square time to time.");
-		} else {
-		    throw new InvalidUnitException("The unit " + unit + " is not valid as time unit.");
-		}
+        if (unit >= 26 && unit <= 30)
+            throw new InvalidUnitException("Cannot convert from square time to time.");
+        value = value.multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
+        unit = DAY - 21;
+        return this;
     }
 
     @Override
     public Time toWeek() throws InvalidUnitException {
-        if (unit >= 21 && unit <= 25) {
-			value = value.multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
-			unit = WEEK - 21;
-			return this;
-		}
-		if (unit >= 26 && unit <= 30) {
-			throw new InvalidUnitException("Cannot convert from square time to time.");
-		} else {
-		    throw new InvalidUnitException("The unit " + unit + " is not valid as time unit.");
-		}
+        if (unit >= 26 && unit <= 30)
+            throw new InvalidUnitException("Cannot convert from square time to time.");
+        value = value.multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
+        unit = WEEK - 21;
+        return this;
     }
 
     @Override
     public Time toSquareSecond() throws InvalidUnitException {
-        if (unit >= 26 && unit <= 30) {
-			value = value.multiply(TIME_SCALES[SQUARE_SECOND - 26]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
-			unit = SQUARE_SECOND - 26;
-			return this;
-		}
-		if (unit >= 21 && unit <= 25) {
-			throw new InvalidUnitException("Cannot convert from time to square time.");
-		} else {
-			throw new InvalidUnitException("The unit " + unit + " is not valid as square time unit.");
-		}
+        if (unit >= 21 && unit <= 25)
+            throw new InvalidUnitException("Cannot convert from time to square time.");
+        value = value.multiply(TIME_SCALES[SQUARE_SECOND - 26]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
+        unit = SQUARE_SECOND - 26;
+        return this;
     }
 
     @Override
     public Time toSquareMinute() throws InvalidUnitException {
-        if (unit >= 26 && unit <= 30) {
-			value = value.multiply(TIME_SCALES[SQUARE_MINUTE - 26]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
-			unit = SQUARE_MINUTE - 26;
-			return this;
-		}
-		if (unit >= 21 && unit <= 25) {
-			throw new InvalidUnitException("Cannot convert from time to square time.");
-		} else {
-			throw new InvalidUnitException("The unit " + unit + " is not valid as square time unit.");
-		}
+        if (unit >= 21 && unit <= 25)
+            throw new InvalidUnitException("Cannot convert from time to square time.");
+        value = value.multiply(TIME_SCALES[SQUARE_MINUTE - 26]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
+        unit = SQUARE_MINUTE - 26;
+        return this;
     }
 
     @Override
     public Time toSquareHour() throws InvalidUnitException {
-        if (unit >= 26 && unit <= 30) {
-			value = value.multiply(TIME_SCALES[SQUARE_HOUR - 26]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
-			unit = SQUARE_HOUR - 26;
-			return this;
-		}
-		if (unit >= 21 && unit <= 25) {
-			throw new InvalidUnitException("Cannot convert from time to square time.");
-		} else {
-			throw new InvalidUnitException("The unit " + unit + " is not valid as square time unit.");
-		}
+        if (unit >= 21 && unit <= 25)
+            throw new InvalidUnitException("Cannot convert from time to square time.");
+        value = value.multiply(TIME_SCALES[SQUARE_HOUR - 26]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
+        unit = SQUARE_HOUR - 26;
+        return this;
     }
 
     @Override
     public Time toSquareDay() throws InvalidUnitException {
-        if (unit >= 26 && unit <= 30) {
-			value = value.multiply(TIME_SCALES[SQUARE_DAY - 26]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
-			unit = SQUARE_DAY - 26;
-			return this;
-		}
-		if (unit >= 21 && unit <= 25) {
-			throw new InvalidUnitException("Cannot convert from time to square time.");
-		} else {
-			throw new InvalidUnitException("The unit " + unit + " is not valid as square time unit.");
-		}
+        if (unit >= 21 && unit <= 25)
+            throw new InvalidUnitException("Cannot convert from time to square time.");
+        value = value.multiply(TIME_SCALES[SQUARE_DAY - 26]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
+        unit = SQUARE_DAY - 26;
+        return this;
     }
 
     @Override
     public Time toSquareWeek() throws InvalidUnitException {
-        if (unit >= 26 && unit <= 30) {
-			value = value.multiply(TIME_SCALES[SQUARE_WEEK - 26]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
-			unit = SQUARE_WEEK - 26;
-			return this;
-		}
-		if (unit >= 21 && unit <= 25) {
-			throw new InvalidUnitException("Cannot convert from time to square time.");
-		} else {
-			throw new InvalidUnitException("The unit " + unit + " is not valid as square time unit.");
-		}
-    }
-    
+        if (unit >= 21 && unit <= 25)
+            throw new InvalidUnitException("Cannot convert from time to square time.");
+        value = value.multiply(TIME_SCALES[SQUARE_WEEK - 26]).divide(TIME_SCALES[unit - 21], ROUND_SCALE, HALF_UP);
+        unit = SQUARE_WEEK - 26;
+        return this;
+	}
+
     @Override
     public String toString() {
         return value + ((unit <= 4) ? TIME_SYMBOLS[unit] : TIME_SYMBOLS[unit - 4]);
     }
-   
+
     @Override
     public boolean equals(Object object) {
         try {
             Time time = (Time) object;
             return time.toString().equals(toString());
-        } catch(ClassCastException e) {
+        } catch (ClassCastException e) {
             return false;
         }
     }
-    
+
     public Time setValue(double value) {
         this.value = BigDecimal.valueOf(value);
         return this;
@@ -375,7 +325,7 @@ public class Time implements ITime {
         }
         throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
-	
+
 	public Digital toDigital() throws InvalidUnitException {
 		try {
 			return new Digital();
@@ -385,22 +335,22 @@ public class Time implements ITime {
 	}
 
     @Deprecated
-    protected static Time getInstance () {
+    protected static Time getInstance() {
 		if (!(instance instanceof Time))
 			instance = new Time();
 		return instance;
     }
-	
+
 	public class Digital {
 		public static final BigInteger SIXTY = BigInteger.valueOf(60);
-		
+
 		private BigInteger second;
 		private BigInteger minute;
 		private BigInteger hour;
 		private String secondString;
 		private String minuteString;
 		private String hourString;
-		
+
 		private Digital() throws InvalidUnitException {
 			if (!(unit >= 25 && unit <= 25)) {
 				throw new InvalidUnitException("Cannot use digital time in square time.");
@@ -409,19 +359,19 @@ public class Time implements ITime {
 			minute = BigInteger.ZERO;
 			hour = BigInteger.ZERO;
 		}
-		
+
 		public String getToFormat(String format) {
 			normalize();
 		    convert();
 			return format.replaceFirst("hh", hourString).replaceFirst("mm", minuteString).replaceFirst("ss", secondString);
 		}
-		
+
 		private void normalize() {
 			try {
 				second = toSecond().getValue().toBigIntegerExact();
 			} catch (InvalidUnitException e) {}
 		}
-		
+
 		private void convert() {
 			if (second.max(SIXTY) == SIXTY) {
 				minute.add(BigInteger.ONE);
