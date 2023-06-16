@@ -207,6 +207,16 @@ public class Volume implements IVolume {
         return value + VOLUME_SYMBOLS[unit];
     }
     
+    @Override
+    public boolean equals(Object object) {
+        try {
+            Volume volume = (Volume) object;
+            return volume.toString().equals(toString());
+        } catch (ClassCastException e) {
+            return false;
+        }
+    }
+    
     public Volume setValue(double value) {
         return new Volume(value);
     }
