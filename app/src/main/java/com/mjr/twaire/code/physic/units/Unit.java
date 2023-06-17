@@ -50,7 +50,7 @@ public abstract class Unit {
         return value;
     }
 
-    public Unit setUnit(int unit) {
+    public Unit setUnit(int unit) throws IllegalArgumentException {
         this.unit = unit;
         return this;
     }
