@@ -7,13 +7,11 @@ import java.math.BigInteger;
 import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Time implements ITime {
+public class Time extends Unit implements ITime {
     @Deprecated
     private static Time instance;
-    private BigDecimal value;
 	private Digital digital;
-    private int unit;
-
+    
 	public static final int WEEK = 21;
 	public static final int DAY = 22;
 	public static final int HOUR = 23;
@@ -69,32 +67,32 @@ public class Time implements ITime {
     };
 
     public Time() {
-        value = BigDecimal.ZERO;
+        super();
         unit = SECOND - 21;
     }
 
     public Time(double value) {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         unit = SECOND - 21;
     }
 
     public Time(String value) {
-        this.value = new BigDecimal(value);
+        super(value);
         unit = SECOND - 21;
     }
 
     public Time(long value) {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         unit = SECOND - 21;
     }
 
     public Time(BigDecimal value) {
-        this.value = value;
+        super(value);
         unit = SECOND - 21;
     }
 
     public Time(double value, int unit) throws InvalidUnitException {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         if (unit >= 21 && unit <= 30) {
             this.unit = unit - 21;
             return;
@@ -103,7 +101,7 @@ public class Time implements ITime {
     }
 
     public Time(String value, int unit) throws InvalidUnitException {
-        this.value = new BigDecimal(value);
+        super(value);
         if (unit >= 21 && unit <= 30) {
             this.unit = unit - 21;
             return;
@@ -112,7 +110,7 @@ public class Time implements ITime {
     }
 
     public Time(long value, int unit) throws InvalidUnitException {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         if (unit >= 21 && unit <= 30) {
             this.unit = unit - 21;
             return;
@@ -121,7 +119,7 @@ public class Time implements ITime {
     }
 
     public Time(BigDecimal value, int unit) throws InvalidUnitException {
-        this.value = value;
+        super(value);
         if (unit >= 21 && unit <= 30) {
             this.unit = unit - 21;
             return;
@@ -292,38 +290,6 @@ public class Time implements ITime {
         } catch (ClassCastException e) {
             return false;
         }
-    }
-
-    public Time setValue(double value) {
-        this.value = BigDecimal.valueOf(value);
-        return this;
-    }
-
-    public Time setValue(long value) {
-        this.value = BigDecimal.valueOf(value);
-        return this;
-    }
-
-    public Time setValue(String value) {
-        this.value = new BigDecimal(value);
-        return this;
-    }
-
-    public Time setValue(BigDecimal value) {
-        this.value = value;
-        return this;
-    }
-
-    public BigDecimal getValue() {
-        return value;
-    }
-
-    public Time setUnit(int unit) throws InvalidUnitException {
-        if (unit >= 21 && unit <= 30) {
-            this.unit = unit;
-            return this;
-        }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
 
 	public Digital toDigital() throws InvalidUnitException {
