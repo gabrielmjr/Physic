@@ -1,15 +1,15 @@
 package com.mjr.twaire.code.physic.kinematics.urm;
 
+import com.mjr.twaire.code.physic.units.Length;
+
 public interface IUniformRectilinearMovement {
     public abstract Displacement1 displacement1 (
-        double initialDisplacement, 
-        double finalDisplacement);
+        Length initialDisplacement, 
+        Length finalDisplacement);
 
     public abstract Displacement1 displacement1 (
-        double initialDisplacement,
-        int initialDisplacementUnit, 
-        double finalDisplacement,
-        int finalDisplacementUnit,
+        Length initialDisplacement,
+        Length finalDisplacement,
         int unitOfResult);
         
     public abstract Displacement1 displacement1();

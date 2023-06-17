@@ -1,5 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.urm;
 
+import com.mjr.twaire.code.physic.units.Length;
+
 public class UniformRectilinearMovement implements IUniformRectilinearMovement {
     @Deprecated
 	private static UniformRectilinearMovement instance; 
@@ -8,20 +10,16 @@ public class UniformRectilinearMovement implements IUniformRectilinearMovement {
 
 	// ∆S = Sf - Si
 	@Override
-	public Displacement1 displacement1(double initialDisplacement, double finalDisplacement) {
+	public Displacement1 displacement1(Length initialDisplacement, Length finalDisplacement) {
 		return new Displacement1(initialDisplacement, finalDisplacement);
 	}
 
 	@Override
-	public Displacement1 displacement1(double initialDisplacement,
-                                       int initialDisplacementUnit, 
-                                       double finalDisplacement,
-                                       int finalDisplacementUnit,
+	public Displacement1 displacement1(Length initialDisplacement,
+                                       Length finalDisplacement,
                                        int unitOfResult) {
 		return new Displacement1(initialDisplacement,
-                                 initialDisplacementUnit,
                                  finalDisplacement,
-                                 finalDisplacementUnit,
                                  unitOfResult);
 	}
 
