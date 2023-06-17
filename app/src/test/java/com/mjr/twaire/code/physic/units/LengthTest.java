@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-import com.mjr.twaire.code.physic.PhysicException;
+import com.mjr.twaire.code.physic.IllegalArgumentException;
 import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LengthTest {
 	@Test 
-	public void toKilometerTest() throws PhysicException {
+	public void toKilometerTest() throws IllegalArgumentException {
 		double kilometerValue = getRandomDouble();
 		double hectometerValue = getRandomDouble();
 		double decameterValue = getRandomDouble();
@@ -60,13 +60,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toHectometerTest() throws PhysicException {
+	public void toHectometerTest() throws IllegalArgumentException {
 		double kilometerValue = getRandomDouble();
 		double hectometerValue = getRandomDouble();
 		double decameterValue = getRandomDouble();
@@ -99,13 +99,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toDecameterTest() throws PhysicException {
+	public void toDecameterTest() throws IllegalArgumentException {
 		double kilometerValue = getRandomDouble();
 		double hectometerValue = getRandomDouble();
 		double decameterValue = getRandomDouble();
@@ -138,13 +138,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toMeterTest() throws PhysicException {
+	public void toMeterTest() throws IllegalArgumentException {
 		double kilometerValue = getRandomDouble();
 		double hectometerValue = getRandomDouble();
 		double decameterValue = getRandomDouble();
@@ -177,13 +177,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toDecimeterTest() throws PhysicException {
+	public void toDecimeterTest() throws IllegalArgumentException {
 		double kilometerValue = getRandomDouble();
 		double hectometerValue = getRandomDouble();
 		double decameterValue = getRandomDouble();
@@ -216,13 +216,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toCentimeterTest() throws PhysicException {
+	public void toCentimeterTest() throws IllegalArgumentException {
 		double kilometerValue = getRandomDouble();
 		double hectometerValue = getRandomDouble();
 		double decameterValue = getRandomDouble();
@@ -255,13 +255,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toMillimeterTest() throws PhysicException {
+	public void toMillimeterTest() throws IllegalArgumentException {
 		double kilometerValue = getRandomDouble();
 		double hectometerValue = getRandomDouble();
 		double decameterValue = getRandomDouble();
@@ -294,14 +294,14 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	
 	@Test
-	public void toKilometerFixedResultTest() throws PhysicException {
+	public void toKilometerFixedResultTest() throws IllegalArgumentException {
 		int kilometerValue = 1;
 		int hectometerValue = 1;
 		int decameterValue = 1;
@@ -334,13 +334,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test
-	public void toHectometerFixedResultTest() throws PhysicException {
+	public void toHectometerFixedResultTest() throws IllegalArgumentException {
 		int kilometerValue = 1;
 		int hectometerValue = 1;
 		int decameterValue = 1;
@@ -373,13 +373,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toDecameterFixedResultTest() throws PhysicException {
+	public void toDecameterFixedResultTest() throws IllegalArgumentException {
 		int kilometerValue = 1;
 		int hectometerValue = 1;
 		int decameterValue = 1;
@@ -412,13 +412,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toMeterFixedResultTest() throws PhysicException {
+	public void toMeterFixedResultTest() throws IllegalArgumentException {
 		int kilometerValue = 1;
 		int hectometerValue = 1;
 		int decameterValue = 1;
@@ -451,13 +451,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toDecimeterFixedResultTest() throws PhysicException {
+	public void toDecimeterFixedResultTest() throws IllegalArgumentException {
 		int kilometerValue = 1;
 		int hectometerValue = 1;
 		int decameterValue = 1;
@@ -490,13 +490,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toCentimeterFixedResultTest() throws PhysicException {
+	public void toCentimeterFixedResultTest() throws IllegalArgumentException {
 		int kilometerValue = 1;
 		int hectometerValue = 1;
 		int decameterValue = 1;
@@ -529,13 +529,13 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toMillimeterFixedResultTest() throws PhysicException {
+	public void toMillimeterFixedResultTest() throws IllegalArgumentException {
 		int kilometerValue = 1;
 		int hectometerValue = 1;
 		int decameterValue = 1;
@@ -568,7 +568,7 @@ public class LengthTest {
             assertEquals(decimeterTestResult, decimeterResult);
             assertEquals(centimeterTestResult, centimeterResult);
             assertEquals(millimeterTestResult, millimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}

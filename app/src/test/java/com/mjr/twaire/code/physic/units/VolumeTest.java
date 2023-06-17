@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-import com.mjr.twaire.code.physic.PhysicException;
+import com.mjr.twaire.code.physic.IllegalArgumentException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VolumeTest {
 	@Test 
-	public void toCubeKilometerTest() throws PhysicException {
+	public void toCubeKilometerTest() throws IllegalArgumentException {
 		double cubeKilometerValue = getRandomDouble();
 		double cubeHectometerValue = getRandomDouble();
 		double cubeDecameterValue = getRandomDouble();
@@ -60,13 +60,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toCubeHectometerTest() throws PhysicException {
+	public void toCubeHectometerTest() throws IllegalArgumentException {
 		double cubeKilometerValue = getRandomDouble();
 		double cubeHectometerValue = getRandomDouble();
 		double cubeDecameterValue = getRandomDouble();
@@ -99,13 +99,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toCubeDecameterTest() throws PhysicException {
+	public void toCubeDecameterTest() throws IllegalArgumentException {
 		double cubeKilometerValue = getRandomDouble();
 		double cubeHectometerValue = getRandomDouble();
 		double cubeDecameterValue = getRandomDouble();
@@ -138,13 +138,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toCubeMeterTest() throws PhysicException {
+	public void toCubeMeterTest() throws IllegalArgumentException {
 		double cubeKilometerValue = getRandomDouble();
 		double cubeHectometerValue = getRandomDouble();
 		double cubeDecameterValue = getRandomDouble();
@@ -177,13 +177,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toCubeDecimeterTest() throws PhysicException {
+	public void toCubeDecimeterTest() throws IllegalArgumentException {
 		double cubeKilometerValue = getRandomDouble();
 		double cubeHectometerValue = getRandomDouble();
 		double cubeDecameterValue = getRandomDouble();
@@ -216,13 +216,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toCubeCentimeterTest() throws PhysicException {
+	public void toCubeCentimeterTest() throws IllegalArgumentException {
 		double cubeKilometerValue = getRandomDouble();
 		double cubeHectometerValue = getRandomDouble();
 		double cubeDecameterValue = getRandomDouble();
@@ -255,13 +255,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toCubeMillimeterTest() throws PhysicException {
+	public void toCubeMillimeterTest() throws IllegalArgumentException {
 		double cubeKilometerValue = getRandomDouble();
 		double cubeHectometerValue = getRandomDouble();
 		double cubeDecameterValue = getRandomDouble();
@@ -294,13 +294,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toCubeKilometerFixedResultTest() throws PhysicException {
+	public void toCubeKilometerFixedResultTest() throws IllegalArgumentException {
 		int cubeKilometerValue = 1;
 		int cubeHectometerValue = 1;
 		int cubeDecameterValue = 1;
@@ -333,13 +333,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toCubeHectometerFixedResultTest() throws PhysicException {
+	public void toCubeHectometerFixedResultTest() throws IllegalArgumentException {
 		int cubeKilometerValue = 1;
 		int cubeHectometerValue = 1;
 		int cubeDecameterValue = 1;
@@ -372,13 +372,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test
-	public void toCubeDecameterFixedResultTest() throws PhysicException {
+	public void toCubeDecameterFixedResultTest() throws IllegalArgumentException {
 		int cubeKilometerValue = 1;
 		int cubeHectometerValue = 1;
 		int cubeDecameterValue = 1;
@@ -411,13 +411,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toCubeMeterFixedResultTest() throws PhysicException {
+	public void toCubeMeterFixedResultTest() throws IllegalArgumentException {
 		int cubeKilometerValue = 1;
 		int cubeHectometerValue = 1;
 		int cubeDecameterValue = 1;
@@ -450,13 +450,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toCubeDecimeterFixedResultTest() throws PhysicException {
+	public void toCubeDecimeterFixedResultTest() throws IllegalArgumentException {
 		int cubeKilometerValue = 1;
 		int cubeHectometerValue = 1;
 		int cubeDecameterValue = 1;
@@ -489,13 +489,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toCubeCentimeterFixedResultTest() throws PhysicException {
+	public void toCubeCentimeterFixedResultTest() throws IllegalArgumentException {
 		int cubeKilometerValue = 1;
 		int cubeHectometerValue = 1;
 		int cubeDecameterValue = 1;
@@ -528,13 +528,13 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toCubeMillimeterFixedResultTest() throws PhysicException {
+	public void toCubeMillimeterFixedResultTest() throws IllegalArgumentException {
 		int cubeKilometerValue = 1;
 		int cubeHectometerValue = 1;
 		int cubeDecameterValue = 1;
@@ -567,7 +567,7 @@ public class VolumeTest {
             assertEquals(cubeDecimeterTestResult, cubeDecimeterResult);
             assertEquals(cubeCentimeterTestResult, cubeCentimeterResult);
             assertEquals(cubeMillimeterTestResult, cubeMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}

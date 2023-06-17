@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-import com.mjr.twaire.code.physic.PhysicException;
+import com.mjr.twaire.code.physic.IllegalArgumentException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.math.RoundingMode;
@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TimeTest {
 	@Test 
-	public void toSecondTest() throws PhysicException {
+	public void toSecondTest() throws IllegalArgumentException {
 		double secondValue = getRandomDouble();
 		double minuteValue = getRandomDouble();
 		double hourValue = getRandomDouble();
@@ -48,13 +48,13 @@ public class TimeTest {
             assertEquals(hourTestResult, hourResult);
             assertEquals(dayTestResult, dayResult);
             assertEquals(weekTestResult, weekResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toMinuteTest() throws PhysicException {
+	public void toMinuteTest() throws IllegalArgumentException {
 		double secondValue = getRandomDouble();
 		double minuteValue = getRandomDouble();
 		double hourValue = getRandomDouble();
@@ -79,13 +79,13 @@ public class TimeTest {
             assertEquals(hourTestResult, hourResult);
             assertEquals(dayTestResult, dayResult);
             assertEquals(weekTestResult, weekResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toHourTest() throws PhysicException {
+	public void toHourTest() throws IllegalArgumentException {
 		double secondValue = getRandomDouble();
 		double minuteValue = getRandomDouble();
 		double hourValue = getRandomDouble();
@@ -110,13 +110,13 @@ public class TimeTest {
             assertEquals(hourTestResult, hourResult);
             assertEquals(dayTestResult, dayResult);
             assertEquals(weekTestResult, weekResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toDayTest() throws PhysicException {
+	public void toDayTest() throws IllegalArgumentException {
 		double secondValue = getRandomDouble();
 		double minuteValue = getRandomDouble();
 		double hourValue = getRandomDouble();
@@ -141,13 +141,13 @@ public class TimeTest {
             assertEquals(hourTestResult, hourResult);
             assertEquals(dayTestResult, dayResult);
             assertEquals(weekTestResult, weekResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toWeekTest() throws PhysicException {
+	public void toWeekTest() throws IllegalArgumentException {
 		double secondValue = getRandomDouble();
 		double minuteValue = getRandomDouble();
 		double hourValue = getRandomDouble();
@@ -172,13 +172,13 @@ public class TimeTest {
             assertEquals(hourTestResult, hourResult);
             assertEquals(dayTestResult, dayResult);
             assertEquals(weekTestResult, weekResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toSecondFixedResultTest() throws PhysicException {
+	public void toSecondFixedResultTest() throws IllegalArgumentException {
 		int secondValue = 1;
 		int minuteValue = 1;
 		int hourValue = 1;
@@ -202,13 +202,13 @@ public class TimeTest {
 			assertEquals(hourTestResult, hourResult);
 			assertEquals(dayTestResult, dayResult);
 			assertEquals(weekTestResult, weekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toMinuteFixedResultTest() throws PhysicException {
+	public void toMinuteFixedResultTest() throws IllegalArgumentException {
 		int secondValue = 1;
 		int minuteValue = 1;
 		int hourValue = 1;
@@ -232,13 +232,13 @@ public class TimeTest {
 			assertEquals(hourTestResult, hourResult);
 			assertEquals(dayTestResult, dayResult);
 			assertEquals(weekTestResult, weekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toHourFixedResultTest() throws PhysicException {
+	public void toHourFixedResultTest() throws IllegalArgumentException {
 		int secondValue = 1;
 		int minuteValue = 1;
 		int hourValue = 1;
@@ -262,13 +262,13 @@ public class TimeTest {
 			assertEquals(hourTestResult, hourResult);
 			assertEquals(dayTestResult, dayResult);
 			assertEquals(weekTestResult, weekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toDayFixedResultTest() throws PhysicException {
+	public void toDayFixedResultTest() throws IllegalArgumentException {
 		int secondValue = 1;
 		int minuteValue = 1;
 		int hourValue = 1;
@@ -292,13 +292,13 @@ public class TimeTest {
 			assertEquals(hourTestResult, hourResult);
 			assertEquals(dayTestResult, dayResult);
 			assertEquals(weekTestResult, weekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toWeekFixedResultTest() throws PhysicException {
+	public void toWeekFixedResultTest() throws IllegalArgumentException {
 		int secondValue = 1;
 		int minuteValue = 1;
 		int hourValue = 1;
@@ -322,7 +322,7 @@ public class TimeTest {
 			assertEquals(hourTestResult, hourResult);
 			assertEquals(dayTestResult, dayResult);
 			assertEquals(weekTestResult, weekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}

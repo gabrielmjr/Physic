@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-import com.mjr.twaire.code.physic.PhysicException;
+import com.mjr.twaire.code.physic.IllegalArgumentException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SquareTimeTest {
 	@Test
-	public void toSquareSecondTest() throws PhysicException {
+	public void toSquareSecondTest() throws IllegalArgumentException {
 		double squareSecondValue = getRandomDouble();
 		double squareMinuteValue = getRandomDouble();
 		double squareHourValue = getRandomDouble();
@@ -46,13 +46,13 @@ public class SquareTimeTest {
 			assertEquals(squareHourTestResult, squareHourResult);
 			assertEquals(squareDayTestResult, squareDayResult);
 			assertEquals(squareWeekTestResult, squareWeekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toSquareMinuteTest() throws PhysicException {
+	public void toSquareMinuteTest() throws IllegalArgumentException {
 		double squareSecondValue = getRandomDouble();
 		double squareMinuteValue = getRandomDouble();
 		double squareHourValue = getRandomDouble();
@@ -76,13 +76,13 @@ public class SquareTimeTest {
 			assertEquals(squareHourTestResult, squareHourResult);
 			assertEquals(squareDayTestResult, squareDayResult);
 			assertEquals(squareWeekTestResult, squareWeekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toSquareHourTest() throws PhysicException {
+	public void toSquareHourTest() throws IllegalArgumentException {
 		double squareSecondValue = getRandomDouble();
 		double squareMinuteValue = getRandomDouble();
 		double squareHourValue = getRandomDouble();
@@ -106,13 +106,13 @@ public class SquareTimeTest {
 			assertEquals(squareHourTestResult, squareHourResult);
 			assertEquals(squareDayTestResult, squareDayResult);
 			assertEquals(squareWeekTestResult, squareWeekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toSquareDayTest() throws PhysicException {
+	public void toSquareDayTest() throws IllegalArgumentException {
 		double squareSecondValue = getRandomDouble();
 		double squareMinuteValue = getRandomDouble();
 		double squareHourValue = getRandomDouble();
@@ -136,13 +136,13 @@ public class SquareTimeTest {
 			assertEquals(squareHourTestResult, squareHourResult);
 			assertEquals(squareDayTestResult, squareDayResult);
 			assertEquals(squareWeekTestResult, squareWeekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toSquareWeekTest() throws PhysicException {
+	public void toSquareWeekTest() throws IllegalArgumentException {
 		double squareSecondValue = getRandomDouble();
 		double squareMinuteValue = getRandomDouble();
 		double squareHourValue = getRandomDouble();
@@ -166,14 +166,14 @@ public class SquareTimeTest {
 			assertEquals(squareHourTestResult, squareHourResult);
 			assertEquals(squareDayTestResult, squareDayResult);
 			assertEquals(squareWeekTestResult, squareWeekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	
 	@Test
-	public void toSquareSecondFixedResultTest() throws PhysicException {
+	public void toSquareSecondFixedResultTest() throws IllegalArgumentException {
 		int squareSecondValue = 1;
 		int squareMinuteValue = 1;
 		int squareHourValue = 1;
@@ -197,13 +197,13 @@ public class SquareTimeTest {
 			assertEquals(squareHourTestResult, squareHourResult);
 			assertEquals(squareDayTestResult, squareDayResult);
 			assertEquals(squareWeekTestResult, squareWeekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toSquareMinuteFixedResultTest() throws PhysicException {
+	public void toSquareMinuteFixedResultTest() throws IllegalArgumentException {
 		int squareSecondValue = 1;
 		int squareMinuteValue = 1;
 		int squareHourValue = 1;
@@ -227,13 +227,13 @@ public class SquareTimeTest {
 			assertEquals(squareHourTestResult, squareHourResult);
 			assertEquals(squareDayTestResult, squareDayResult);
 			assertEquals(squareWeekTestResult, squareWeekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toSquareHourFixedResultTest() throws PhysicException {
+	public void toSquareHourFixedResultTest() throws IllegalArgumentException {
 		int squareSecondValue = 1;
 		int squareMinuteValue = 1;
 		int squareHourValue = 1;
@@ -257,13 +257,13 @@ public class SquareTimeTest {
 			assertEquals(squareHourTestResult, squareHourResult);
 			assertEquals(squareDayTestResult, squareDayResult);
 			assertEquals(squareWeekTestResult, squareWeekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toSquareDayFixedResultTest() throws PhysicException {
+	public void toSquareDayFixedResultTest() throws IllegalArgumentException {
 		int squareSecondValue = 1;
 		int squareMinuteValue = 1;
 		int squareHourValue = 1;
@@ -287,13 +287,13 @@ public class SquareTimeTest {
 			assertEquals(squareHourTestResult, squareHourResult);
 			assertEquals(squareDayTestResult, squareDayResult);
 			assertEquals(squareWeekTestResult, squareWeekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
 	@Test
-	public void toSquareWeekFixedResultTest() throws PhysicException {
+	public void toSquareWeekFixedResultTest() throws IllegalArgumentException {
 		int squareSecondValue = 1;
 		int squareMinuteValue = 1;
 		int squareHourValue = 1;
@@ -317,7 +317,7 @@ public class SquareTimeTest {
 			assertEquals(squareHourTestResult, squareHourResult);
 			assertEquals(squareDayTestResult, squareDayResult);
 			assertEquals(squareWeekTestResult, squareWeekResult);
-		} catch (PhysicException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}

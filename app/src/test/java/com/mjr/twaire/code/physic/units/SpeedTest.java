@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-import com.mjr.twaire.code.physic.PhysicException;
+import com.mjr.twaire.code.physic.IllegalArgumentException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.junit.jupiter.api.Test;
@@ -54,7 +54,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SpeedTest {
     @Test
-    public void toKilometerPerSecondTest() throws PhysicException {
+    public void toKilometerPerSecondTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -151,13 +151,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 			
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toHectometerPerSecondTest() throws PhysicException {
+    public void toHectometerPerSecondTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -254,13 +254,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toDecameterPerSecondTest() throws PhysicException {
+    public void toDecameterPerSecondTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -357,13 +357,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
     
 	@Test
-    public void toMeterPerSecondTest() throws PhysicException {
+    public void toMeterPerSecondTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -460,13 +460,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-    public void toDecimeterPerSecondTest() throws PhysicException {
+    public void toDecimeterPerSecondTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -563,13 +563,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-    public void toCentimeterPerSecondTest() throws PhysicException {
+    public void toCentimeterPerSecondTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -666,13 +666,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-    public void toMillimeterPerSecondTest() throws PhysicException {
+    public void toMillimeterPerSecondTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -769,13 +769,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-    public void toKilometerPerMinuteTest() throws PhysicException {
+    public void toKilometerPerMinuteTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -872,13 +872,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toHectometerPerMinuteTest() throws PhysicException {
+    public void toHectometerPerMinuteTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -975,13 +975,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toDecameterPerMinuteTest() throws PhysicException {
+    public void toDecameterPerMinuteTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -1078,13 +1078,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toMeterPerMinuteTest() throws PhysicException {
+    public void toMeterPerMinuteTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -1181,13 +1181,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toDecimeterPerMinuteTest() throws PhysicException {
+    public void toDecimeterPerMinuteTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -1284,13 +1284,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toCentimeterPerMinuteTest() throws PhysicException {
+    public void toCentimeterPerMinuteTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -1387,13 +1387,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toMillimeterPerMinuteTest() throws PhysicException {
+    public void toMillimeterPerMinuteTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -1490,13 +1490,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toKilometerPerHourTest() throws PhysicException {
+    public void toKilometerPerHourTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -1593,13 +1593,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toHectometerPerHourTest() throws PhysicException {
+    public void toHectometerPerHourTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -1696,13 +1696,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toDecameterPerHourTest() throws PhysicException {
+    public void toDecameterPerHourTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -1799,13 +1799,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toMeterPerHourTest() throws PhysicException {
+    public void toMeterPerHourTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -1902,13 +1902,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toDecimeterPerHourTest() throws PhysicException {
+    public void toDecimeterPerHourTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -2005,13 +2005,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toCentimeterPerHourTest() throws PhysicException {
+    public void toCentimeterPerHourTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -2108,13 +2108,13 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 	
 	@Test
-    public void toMillimeterPerHourTest() throws PhysicException {
+    public void toMillimeterPerHourTest() throws IllegalArgumentException {
         double kilometerPerSecondValue = getRandomDouble();
         double hectometerPerSecondValue = getRandomDouble();
         double decameterPerSecondValue = getRandomDouble();
@@ -2211,7 +2211,7 @@ public class SpeedTest {
 			assertEquals(centimeterPerHourResult, centimeterPerHourResultTest);
 			assertEquals(millimeterPerHourResult, millimeterPerHourResultTest);
 
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }

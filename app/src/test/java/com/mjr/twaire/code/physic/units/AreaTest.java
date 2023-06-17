@@ -1,6 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
-import com.mjr.twaire.code.physic.PhysicException;
+import com.mjr.twaire.code.physic.IllegalArgumentException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AreaTest {
 	@Test 
-	public void toSquareKilometerTest() throws PhysicException {
+	public void toSquareKilometerTest() throws IllegalArgumentException {
 		double squareKilometerValue = getRandomDouble();
 		double squareHectometerValue = getRandomDouble();
 		double squareDecameterValue = getRandomDouble();
@@ -60,13 +60,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 
 	@Test 
-	public void toSquareHectometerTest() throws PhysicException {
+	public void toSquareHectometerTest() throws IllegalArgumentException {
 		double squareKilometerValue = getRandomDouble();
 		double squareHectometerValue = getRandomDouble();
 		double squareDecameterValue = getRandomDouble();
@@ -99,13 +99,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 
 	@Test 
-	public void toSquareDecameterTest() throws PhysicException {
+	public void toSquareDecameterTest() throws IllegalArgumentException {
 		double squareKilometerValue = getRandomDouble();
 		double squareHectometerValue = getRandomDouble();
 		double squareDecameterValue = getRandomDouble();
@@ -138,13 +138,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toSquareMeterTest() throws PhysicException {
+	public void toSquareMeterTest() throws IllegalArgumentException {
 		double squareKilometerValue = getRandomDouble();
 		double squareHectometerValue = getRandomDouble();
 		double squareDecameterValue = getRandomDouble();
@@ -177,13 +177,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }
 
 	@Test 
-	public void toSquareDecimeterTest() throws PhysicException {
+	public void toSquareDecimeterTest() throws IllegalArgumentException {
 		double squareKilometerValue = getRandomDouble();
 		double squareHectometerValue = getRandomDouble();
 		double squareDecameterValue = getRandomDouble();
@@ -216,13 +216,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toSquareCentimeterTest() throws PhysicException {
+	public void toSquareCentimeterTest() throws IllegalArgumentException {
 		double squareKilometerValue = getRandomDouble();
 		double squareHectometerValue = getRandomDouble();
 		double squareDecameterValue = getRandomDouble();
@@ -255,13 +255,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 
 	@Test 
-	public void toSquareMillimeterTest() throws PhysicException {
+	public void toSquareMillimeterTest() throws IllegalArgumentException {
 		double squareKilometerValue = getRandomDouble();
 		double squareHectometerValue = getRandomDouble();
 		double squareDecameterValue = getRandomDouble();
@@ -294,13 +294,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toSquareKilometerFixedResultTest() throws PhysicException {
+	public void toSquareKilometerFixedResultTest() throws IllegalArgumentException {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -333,13 +333,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toSquareHectometerFixedResultTest() throws PhysicException {
+	public void toSquareHectometerFixedResultTest() throws IllegalArgumentException {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -372,13 +372,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toSquareDecameterFixedResultTest() throws PhysicException {
+	public void toSquareDecameterFixedResultTest() throws IllegalArgumentException {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -411,13 +411,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toSquareMeterFixedResultTest() throws PhysicException {
+	public void toSquareMeterFixedResultTest() throws IllegalArgumentException {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -450,13 +450,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toSquareDecimeterFixedResultTest() throws PhysicException {
+	public void toSquareDecimeterFixedResultTest() throws IllegalArgumentException {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -489,13 +489,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toSquareCentimeterFixedResultTest() throws PhysicException {
+	public void toSquareCentimeterFixedResultTest() throws IllegalArgumentException {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -528,13 +528,13 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
 	
 	@Test
-	public void toSquareMillimeterFixedResultTest() throws PhysicException {
+	public void toSquareMillimeterFixedResultTest() throws IllegalArgumentException {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -567,7 +567,7 @@ public class AreaTest {
             assertEquals(squareDecimeterTestResult, squareDecimeterResult);
             assertEquals(squareCentimeterTestResult, squareCentimeterResult);
             assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-        } catch (PhysicException e) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 	}
