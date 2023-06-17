@@ -6,12 +6,10 @@ import com.mjr.twaire.code.physic.PhysicException;
 import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;
 
-public class Length implements ILength { 
+public class Length extends Unit implements ILength { 
     @Deprecated
 	private static Length instance;
-    private BigDecimal value;
-    private int unit;
-
+    
     public static final int KILOMETER = 0;
     public static final int HECTOMETER = 1;
     public static final int DECAMETER = 2;
@@ -50,32 +48,32 @@ public class Length implements ILength {
     };
 
     public Length() {
-        value = BigDecimal.ZERO;
+        super();
         unit = METER;
     }
 
     public Length(double value) {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         unit = METER;
     }
 
     public Length(String value) {
-        this.value = new BigDecimal(value);
+        super(value);
         unit = METER;
     }
 
     public Length(long value) {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         unit = METER;
     }
 
     public Length(BigDecimal value) {
-        this.value = value;
+        super(value);
         unit = METER;
     }
 
     public Length(double value, int unit) throws PhysicException {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
             return;
@@ -84,7 +82,7 @@ public class Length implements ILength {
     }
 
     public Length(String value, int unit) throws PhysicException {
-        this.value = new BigDecimal(value);
+        super(value);
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
             return;
@@ -93,7 +91,7 @@ public class Length implements ILength {
     }
 
     public Length(long value, int unit) throws PhysicException {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
             return;
@@ -102,7 +100,7 @@ public class Length implements ILength {
     }
 
     public Length(BigDecimal value, int unit) throws PhysicException {
-        this.value = value;
+        super(value);
         if (unit >= 0 && unit <= 6) {
             this.unit = unit;
             return;
@@ -200,38 +198,6 @@ public class Length implements ILength {
         } catch (ClassCastException e) {
             return false;
         }
-    }
-
-    public Length setValue(double value) {
-        this.value = BigDecimal.valueOf(value);
-        return this;
-    }
-
-    public Length setValue(long value) {
-        this.value = BigDecimal.valueOf(value);
-        return this;
-    }
-
-    public Length setValue(String value) {
-        this.value = new BigDecimal(value);
-        return this;
-    }
-
-    public Length setValue(BigDecimal value) {
-        this.value = value;
-        return this;
-    }
-
-    public BigDecimal getValue() {
-        return value;
-    }
-
-    public Length setUnit(int unit) throws PhysicException {
-        if (unit >= 0 && unit <= 6) {
-            this.unit = unit;
-            return this;
-        }
-        throw new InvalidUnitException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
     }
 
     @Deprecated

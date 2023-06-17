@@ -25,6 +25,21 @@ public abstract class Unit {
     public Unit(BigDecimal value) {
         this.value = value;
     }
+    
+    public Unit setValue(double value) {
+        this.value = BigDecimal.valueOf(value);
+        return this;
+    }
+    
+    public Unit setValue(long value) {
+        this.value = BigDecimal.valueOf(value);
+        return this;
+    }
+    
+    public Unit setValue(String value) {
+        this.value = new BigDecimal(value);
+        return this;
+    }
 
     public Unit setValue(BigDecimal value) {
         this.value = value;
