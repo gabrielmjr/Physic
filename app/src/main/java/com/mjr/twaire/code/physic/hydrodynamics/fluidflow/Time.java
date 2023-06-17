@@ -1,6 +1,7 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 import com.mjr.twaire.code.physic.Calculation;
+import java.math.BigDecimal;
 
 public final class Time extends Calculation { 
     @Deprecated
@@ -56,8 +57,8 @@ public final class Time extends Calculation {
 	}
 
 	@Override
-	public double getResult() {
-		return step1;
+	public BigDecimal getResult() {
+		return null; //step1;
 	}
 
 	@Override

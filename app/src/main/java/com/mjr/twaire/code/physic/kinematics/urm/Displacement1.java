@@ -7,9 +7,6 @@ import java.math.BigDecimal;
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
 public final class Displacement1 extends Calculation {
-    @Deprecated
-	private static Displacement1 instance; 
-
 	private Length initialDisplacement;
 	private Length finalDisplacement;
 
@@ -46,16 +43,6 @@ public final class Displacement1 extends Calculation {
             calculateWithoutCustomUnits();
         return this;
     }
-
-    @Deprecated
-	private Displacement1 setHasCustomUnits(boolean hasCustomUnits) {
-		this.hasCustomUnits = hasCustomUnits;
-		if (hasCustomUnits)
-			calculateWithCustomUnits();
-		else
-			calculateWithoutCustomUnits();
-		return this;
-	}
 
 	private void calculateWithCustomUnits() {
 	}

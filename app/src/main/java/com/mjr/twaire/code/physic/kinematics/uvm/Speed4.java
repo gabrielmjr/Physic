@@ -2,6 +2,7 @@ package com.mjr.twaire.code.physic.kinematics.uvm;
 
 import com.mjr.twaire.code.physic.Calculation;
 import com.mjr.twaire.code.physic.Physic;
+import java.math.BigDecimal;
 
 public final class Speed4 extends Calculation {
     @Deprecated
@@ -67,8 +68,8 @@ public final class Speed4 extends Calculation {
     }
     
     @Override
-    public double getResult() {
-        return step2;
+    public BigDecimal getResult() {
+        return null; //step2;
     }
     
     @Override

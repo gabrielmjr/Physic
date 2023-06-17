@@ -1,6 +1,7 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 import com.mjr.twaire.code.physic.Calculation;
+import java.math.BigDecimal;
 
 public final class Speed2 extends Calculation {
     @Deprecated
@@ -59,8 +60,8 @@ public final class Speed2 extends Calculation {
 	}
 
 	@Override
-	public double getResult() {
-		return step3;
+	public BigDecimal getResult() {
+		return null; //step3;
 	}
 
 	@Override

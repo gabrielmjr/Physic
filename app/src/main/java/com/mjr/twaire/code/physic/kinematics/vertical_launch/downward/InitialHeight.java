@@ -1,6 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 
 // yi = y - [vi * ∆t + (g * t²)/2]
+import java.math.BigDecimal;
+
 public final class InitialHeight {
     @Deprecated
     private static InitialHeight instance;
@@ -45,8 +47,8 @@ public final class InitialHeight {
 		step6 = height - step5;
 	}
 
-	public double getResult() {
-		return step6;
+	public BigDecimal getResult() {
+		return null; //step6;
 	}
 
 	public String getSeps() {

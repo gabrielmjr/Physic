@@ -1,6 +1,7 @@
 package com.mjr.twaire.code.physic.hydrodynamics.fluidflow;
 
 import com.mjr.twaire.code.physic.Calculation;
+import java.math.BigDecimal;
 
 public final class FlowRate3 extends Calculation {
     @Deprecated
@@ -61,8 +62,8 @@ public final class FlowRate3 extends Calculation {
 	}
 
 	@Override
-	public double getResult() {
-		return step3;
+	public BigDecimal getResult() {
+		return null; //step3;
 	}
 
 	@Override
