@@ -29,12 +29,10 @@ import static com.mjr.twaire.code.physic.units.Time.SQUARE_SECOND_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.SQUARE_MINUTE_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.SQUARE_HOUR_SYMBOL;
 
-public class Acceleration implements IAcceleration {
+public class Acceleration extends Unit implements IAcceleration {
     @Deprecated
     private static Acceleration instance;
-    private BigDecimal value;
-    private int unit;
-
+    
 	public static final int KILOMETER_PER_SQUARE_SECOND = 52;
 	public static final int HECTOMETER_PER_SQUARE_SECOND = 53;
 	public static final int DECAMETER_PER_SQUARE_SECOND = 54;
@@ -139,32 +137,32 @@ public class Acceleration implements IAcceleration {
     };
     
 	public Acceleration() {
-        value = BigDecimal.ZERO;
+        super();
         unit = METER;
     }
 
     public Acceleration(double value) {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         unit = METER;
     }
 
     public Acceleration(String value) {
-        this.value = new BigDecimal(value);
+        super(value);
         unit = METER;
     }
 
     public Acceleration(long value) {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         unit = METER;
     }
 
     public Acceleration(BigDecimal value) {
-        this.value = value;
+        super(value);
         unit = METER;
     }
 
     public Acceleration(double value, int unit) throws IllegalArgumentException {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
@@ -173,7 +171,7 @@ public class Acceleration implements IAcceleration {
     }
 
     public Acceleration(String value, int unit) throws IllegalArgumentException {
-        this.value = new BigDecimal(value);
+        super(value);
         if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
@@ -182,7 +180,7 @@ public class Acceleration implements IAcceleration {
     }
 
     public Acceleration(long value, int unit) throws IllegalArgumentException {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
@@ -191,7 +189,7 @@ public class Acceleration implements IAcceleration {
     }
 
     public Acceleration(BigDecimal value, int unit) throws IllegalArgumentException {
-        this.value = value;
+        super(value);
         if (unit >= 52 && unit <= 72) {
             this.unit = unit;
             return;
@@ -433,6 +431,20 @@ public class Acceleration implements IAcceleration {
     @Override
     public String toString() {
         return value + ACCELERATION_SYMBOLS[unit];
+    }
+    
+    @Override
+    public Unit setUnit(int unit) throws IllegalArgumentException {
+        if (unit >= 52 && unit <= 72) {
+            super.setUnit(unit);
+            return this;
+        }
+        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit.");
+    }
+
+    @Override
+    public String getUnitSymbol() {
+        return ACCELERATION_SYMBOLS[unit];
     }
     
     @Deprecated
