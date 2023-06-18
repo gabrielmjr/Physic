@@ -207,6 +207,11 @@ public class Length extends Unit implements ILength {
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
     }
+    
+    @Override
+    public String getUnitSymbol() {
+        return LENGTH_SYMBOLS[unit];
+    }
 
     @Deprecated
     protected static Length getInstance() {

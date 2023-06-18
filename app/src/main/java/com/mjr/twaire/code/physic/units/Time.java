@@ -300,6 +300,11 @@ public class Time extends Unit implements ITime {
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Time().getClass().getName() + " unit.");
     }
     
+    @Override
+    public String getUnitSymbol() {
+        return TIME_SYMBOLS[unit];
+    }
+    
 	public Digital toDigital() throws IllegalArgumentException {
 		try {
 			return new Digital();

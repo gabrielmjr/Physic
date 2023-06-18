@@ -224,6 +224,11 @@ public class Volume extends Unit implements IVolume {
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
     }
+    
+    @Override
+    public String getUnitSymbol() {
+        return VOLUME_SYMBOLS[unit];
+    }
 
     @Deprecated
     protected static Volume getInstance () {

@@ -58,4 +58,6 @@ public abstract class Unit {
     public int getUnit() {
         return unit;
     }
+    
+    public abstract String getUnitSymbol();
 }

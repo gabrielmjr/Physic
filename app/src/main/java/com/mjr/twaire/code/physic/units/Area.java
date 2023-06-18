@@ -224,6 +224,11 @@ public class Area extends Unit implements IArea {
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
     
+    @Override
+    public String getUnitSymbol() {
+        return AREA_SYMBOLS[unit];
+    }
+    
     @Deprecated
     protected static Area getInstance () {
 		if (!(instance instanceof Area))
