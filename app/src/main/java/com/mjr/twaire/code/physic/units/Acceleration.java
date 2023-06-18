@@ -1,6 +1,5 @@
 package com.mjr.twaire.code.physic.units;
 
-import com.mjr.twaire.code.physic.PhysicException;
 import java.math.BigDecimal;
 
 import static com.mjr.twaire.code.physic.units.Length.LENGTH_SCALES;

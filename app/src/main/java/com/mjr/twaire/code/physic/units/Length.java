@@ -1,7 +1,6 @@
 package com.mjr.twaire.code.physic.units;
 
 import java.math.BigDecimal;
-import com.mjr.twaire.code.physic.PhysicException;
 
 import static com.mjr.twaire.code.physic.Physic.ROUND_SCALE;
 import static java.math.RoundingMode.HALF_UP;

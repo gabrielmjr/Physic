@@ -27,7 +27,7 @@ public class DigitalTimeTest {
 	}
 	
 	//@Test
-	public void digitalRandomTest() throws InvalidUnitException {
+	public void digitalRandomTest() throws IllegalArgumentException {
 		int secondValue = getRandomInteger();
 		int minuteValue = getRandomInteger();
 		int hourValue = getRandomInteger();
@@ -52,12 +52,12 @@ public class DigitalTimeTest {
 			assertEquals(hourTestResult, hourResult);
 			assertEquals(dayTestResult, dayResult);
 			assertEquals(weekTestResult, weekResult);
-		} catch (InvalidUnitException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}
 	
-	private String getConvertedFrom(int value, int unit) throws InvalidUnitException {
+	private String getConvertedFrom(int value, int unit) throws IllegalArgumentException {
 		BigInteger second;
 		BigInteger minute = BigInteger.ZERO;
 		BigInteger hour = BigInteger.ZERO;
@@ -91,7 +91,7 @@ public class DigitalTimeTest {
 				hourString = hour.toString();
 			}
 			return FORMAT.replaceFirst("hh", hourString).replaceFirst("mm", minuteString).replaceFirst("ss", secondString);
-		} catch (InvalidUnitException e) {
+		} catch (IllegalArgumentException e) {
 			throw e;
 		}
 	}

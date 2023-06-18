@@ -1,6 +1,5 @@
 package com.mjr.twaire.code.physic.units;
 
-import com.mjr.twaire.code.physic.IllegalArgumentException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.math.RoundingMode;
