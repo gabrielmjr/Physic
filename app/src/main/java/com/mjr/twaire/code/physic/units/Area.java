@@ -23,8 +23,6 @@ import static java.math.RoundingMode.HALF_UP;
 public class Area extends Unit implements IArea {
     @Deprecated
     private static Area instance; 
-    private BigDecimal value;
-    private int unit;
 
 	public static final int SQUARE_KILOMETER = 7;
 	public static final int SQUARE_HECTOMETER = 8;
@@ -63,32 +61,32 @@ public class Area extends Unit implements IArea {
     };
     
     public Area() {
-        this.value = BigDecimal.ZERO;
+        super();
         unit = SQUARE_METER - 7;
     }
 
     public Area(double value) {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         unit = SQUARE_METER - 7;
     }
 
     public Area(String value) {
-        this.value = new BigDecimal(value);
+        super(value);
         unit = SQUARE_METER - 7;
     }
 
     public Area(long value) {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         unit = SQUARE_METER - 7;
     }
 
     public Area(BigDecimal value) {
-        this.value = value;
+        super(value);
         unit = SQUARE_METER - 7;
     }
 
     public Area(double value, int unit) throws IllegalArgumentException {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         if (unit >= 7 && unit <= 13) {
             this.unit = unit - 7;
             return;
@@ -97,7 +95,7 @@ public class Area extends Unit implements IArea {
     }
 
     public Area(String value, int unit) throws IllegalArgumentException {
-        this.value = new BigDecimal(value);
+        super(value);
         if (unit >= 7 && unit <= 13) {
             this.unit = unit - 7;
             return;
@@ -106,7 +104,7 @@ public class Area extends Unit implements IArea {
     }
 
     public Area(long value, int unit) throws IllegalArgumentException {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         if (unit >= 7 && unit <= 13) {
             this.unit = unit - 7;
             return;
@@ -115,7 +113,7 @@ public class Area extends Unit implements IArea {
     }
 
     public Area(BigDecimal value, int unit) throws IllegalArgumentException {
-        this.value = value;
+        super(value);
         if (unit >= 7 && unit <= 13) {
             this.unit = unit - 7;
             return;
