@@ -27,11 +27,9 @@ import static com.mjr.twaire.code.physic.units.Time.SECOND_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.MINUTE_SYMBOL;
 import static com.mjr.twaire.code.physic.units.Time.HOUR_SYMBOL;
 
-public class Speed implements ISpeed { 
+public class Speed extends Unit implements ISpeed { 
     @Deprecated
 	private static Speed instance; 
-    private BigDecimal value;
-    private int unit;
 
 	public static final int KILOMETER_PER_SECOND = 31;
 	public static final int HECTOMETER_PER_SECOND = 32;
@@ -133,37 +131,37 @@ public class Speed implements ISpeed {
     };
     
 	public Speed() {
-        value = BigDecimal.ZERO;
+        super();
         unit = METER - 31;
 		value.setScale(20);
     }
 
     public Speed(double value) {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         unit = METER - 31;
 		this.value.setScale(20);
     }
 
     public Speed(String value) {
-        this.value = new BigDecimal(value);
+        super(value);
         unit = METER - 31;
 		this.value.setScale(20);
     }
 
     public Speed(long value) {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         unit = METER - 31;
 		this.value.setScale(20);
     }
 
     public Speed(BigDecimal value) {
-        this.value = value;
+        super(value);
         unit = METER - 31;
 		this.value.setScale(20);
     }
 
     public Speed(double value, int unit) throws IllegalArgumentException {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         if (unit >= 31 && unit <= 51) {
             this.unit = unit - 31;
 			this.value.setScale(20);
@@ -173,7 +171,7 @@ public class Speed implements ISpeed {
     }
 
     public Speed(String value, int unit) throws IllegalArgumentException {
-        this.value = new BigDecimal(value);
+        super(value);
         if (unit >= 31 && unit <= 51) {
             this.unit = unit - 31;
 			this.value.setScale(20);
@@ -183,7 +181,7 @@ public class Speed implements ISpeed {
     }
 
     public Speed(long value, int unit) throws IllegalArgumentException {
-        this.value = BigDecimal.valueOf(value);
+        super(value);
         if (unit >= 31 && unit <= 51) {
             this.unit = unit - 31;
 			this.value.setScale(20);
@@ -193,7 +191,7 @@ public class Speed implements ISpeed {
     }
 
     public Speed(BigDecimal value, int unit) throws IllegalArgumentException {
-        this.value = value;
+        super(value);
         if (unit >= 31 && unit <= 51) {
             this.unit = unit - 31;
 			this.value.setScale(20);
@@ -446,6 +444,20 @@ public class Speed implements ISpeed {
         } catch (ClassCastException e) {
             return false;
         }
+    }
+    
+    @Override
+    public Speed setUnit(int unit) throws IllegalArgumentException { 
+        if (unit >= 31 && unit <= 51) {
+            this.unit = unit;
+            return this;
+        }   
+        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Speed().getClass().getName() + " unit.");
+    }
+
+    @Override
+    public String getUnitSymbol() {
+        return SPEED_SYMBOLS[unit];
     }
 
     @Deprecated

@@ -215,7 +215,7 @@ public class Area extends Unit implements IArea {
     
     @Override
     public Area setUnit(int unit) throws IllegalArgumentException { 
-        if (unit >= 0 && unit <= 6) {
+        if (unit >= 7 && unit <= 13) {
             this.unit = unit;
             return this;
         }   
