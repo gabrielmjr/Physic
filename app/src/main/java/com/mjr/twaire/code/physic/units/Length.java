@@ -16,9 +16,8 @@ public class Length extends Unit implements ILength {
     public static final int DECIMETER = 4;
     public static final int CENTIMETER = 5;
     public static final int MILLIMETER = 6;
-
-    private static final int MIN_UNIT_SCALE = 0;
-    private static final int MAX_UNIT_SCALE = 6;
+    
+    private final int MAX_UNIT_SCALE = 6;
 
     protected static final BigDecimal[] LENGTH_SCALES = new BigDecimal[]
     {
@@ -51,35 +50,30 @@ public class Length extends Unit implements ILength {
 
     public Length() {
         super();
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         unit = METER;
     }
 
     public Length(double value) {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         unit = METER;
     }
 
     public Length(String value) {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         unit = METER;
     }
 
     public Length(long value) {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         unit = METER;
     }
 
     public Length(BigDecimal value) {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         unit = METER;
     }

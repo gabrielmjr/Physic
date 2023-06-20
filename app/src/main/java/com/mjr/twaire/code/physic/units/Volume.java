@@ -23,9 +23,7 @@ import static java.math.RoundingMode.HALF_UP;
 public class Volume extends Unit implements IVolume {
     @Deprecated
     private static Volume instance; 
-    private BigDecimal value;
-    private int unit;
-
+    
 	public static final int CUBE_KILOMETER = 14;
 	public static final int CUBE_HECTOMETER = 15;
 	public static final int CUBE_DECAMETER = 16;
@@ -33,6 +31,8 @@ public class Volume extends Unit implements IVolume {
 	public static final int CUBE_DECIMETER = 18;
 	public static final int CUBE_CENTIMETER =19;
 	public static final int CUBE_MILLIMETER = 20;
+    
+    private static final int MIN_UNIT_SCALE = 0;
 
     protected static final BigDecimal[] VOLUME_SCALES = new BigDecimal[]
 	{

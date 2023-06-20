@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public abstract class Unit {
     protected BigDecimal value;
     protected int unit;
-    protected int minUnit;
+    protected int minUnit = 0;
     protected int maxUnit;
     
     public Unit() {

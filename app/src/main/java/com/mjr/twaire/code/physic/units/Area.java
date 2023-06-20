@@ -31,8 +31,7 @@ public class Area extends Unit implements IArea {
 	public static final int SQUARE_DECIMETER = 11;
 	public static final int SQUARE_CENTIMETER = 12;
 	public static final int SQUARE_MILLIMETER = 13;
-
-    private static final int MIN_UNIT_SCALE = 0;
+    
     private static final int UNIT_SCALE = SQUARE_KILOMETER;
     private static final int MAX_UNIT_SCALE = SQUARE_MILLIMETER - UNIT_SCALE;
 
@@ -66,42 +65,36 @@ public class Area extends Unit implements IArea {
 
     public Area() {
         super();
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         unit = SQUARE_METER - UNIT_SCALE;
     }
 
     public Area(double value) {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         unit = SQUARE_METER - UNIT_SCALE;
     }
 
     public Area(String value) {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         unit = SQUARE_METER - UNIT_SCALE;
     }
 
     public Area(long value) {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         unit = SQUARE_METER - UNIT_SCALE;
     }
 
     public Area(BigDecimal value) {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         unit = SQUARE_METER - UNIT_SCALE;
     }
 
     public Area(double value, int unit) throws IllegalArgumentException {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         if (isUnitInRange()) {
             this.unit = unit - UNIT_SCALE;
@@ -112,7 +105,6 @@ public class Area extends Unit implements IArea {
 
     public Area(String value, int unit) throws IllegalArgumentException {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         if (isUnitInRange()) {
             this.unit = unit - UNIT_SCALE;
@@ -123,7 +115,6 @@ public class Area extends Unit implements IArea {
 
     public Area(long value, int unit) throws IllegalArgumentException {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         if (isUnitInRange()) {
             this.unit = unit - UNIT_SCALE;
@@ -134,7 +125,6 @@ public class Area extends Unit implements IArea {
 
     public Area(BigDecimal value, int unit) throws IllegalArgumentException {
         super(value);
-        setMinUnit(MIN_UNIT_SCALE);
         setMaxUnit(MAX_UNIT_SCALE);
         if (isUnitInRange()) {
             this.unit = unit - UNIT_SCALE;
