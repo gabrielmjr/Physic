@@ -8,7 +8,7 @@ import static java.math.RoundingMode.HALF_UP;
 public class Length extends Unit implements ILength { 
     @Deprecated
 	private static Length instance;
-    
+
     public static final int KILOMETER = 0;
     public static final int HECTOMETER = 1;
     public static final int DECAMETER = 2;
@@ -16,6 +16,9 @@ public class Length extends Unit implements ILength {
     public static final int DECIMETER = 4;
     public static final int CENTIMETER = 5;
     public static final int MILLIMETER = 6;
+
+    private static final int MIN_UNIT_SCALE = 0;
+    private static final int MAX_UNIT_SCALE = 6;
 
     protected static final BigDecimal[] LENGTH_SCALES = new BigDecimal[]
     {
@@ -48,41 +51,55 @@ public class Length extends Unit implements ILength {
 
     public Length() {
         super();
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
         unit = METER;
     }
 
     public Length(double value) {
         super(value);
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
         unit = METER;
     }
 
     public Length(String value) {
         super(value);
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
         unit = METER;
     }
 
     public Length(long value) {
         super(value);
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
         unit = METER;
     }
 
     public Length(BigDecimal value) {
         super(value);
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
         unit = METER;
     }
 
     public Length(double value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 0 && unit <= 6) {
+        setMinUnit(KILOMETER);
+        setMaxUnit(MILLIMETER);
+        if (isUnitInRange()) {
             this.unit = unit;
             return;
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
-
+    
     public Length(String value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 0 && unit <= 6) {
+        setMinUnit(KILOMETER);
+        setMaxUnit(MILLIMETER);
+        if (isUnitInRange()) {
             this.unit = unit;
             return;
         }
@@ -91,7 +108,9 @@ public class Length extends Unit implements ILength {
 
     public Length(long value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 0 && unit <= 6) {
+        setMinUnit(KILOMETER);
+        setMaxUnit(MILLIMETER);
+        if (isUnitInRange()) {
             this.unit = unit;
             return;
         }
@@ -100,54 +119,42 @@ public class Length extends Unit implements ILength {
 
     public Length(BigDecimal value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 0 && unit <= 6) {
+        setMinUnit(KILOMETER);
+        setMaxUnit(MILLIMETER);
+        if (isUnitInRange()) {
             this.unit = unit;
             return;
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
 
-	public static Length toKilometer(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 0 && unit <= 6)
-            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP), KILOMETER);
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
+	public static Length toKilometer(double value, int unit) {
+        return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP), KILOMETER);
     }
 
-	public static Length toHectometer(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 0 && unit <= 6)
-            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP), HECTOMETER);
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
+	public static Length toHectometer(double value, int unit) {
+        return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP), HECTOMETER);
     }
 
 	public static Length toDecameter(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 0 && unit <= 6)
-            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP), DECAMETER);
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
+        return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP), DECAMETER);
     }
 
 	public static Length toMeter(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 0 && unit <= 6)
-            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP), METER);
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
+        return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP), METER);
     }
 
 	public static Length toDecimeter(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 0 && unit <= 6)
-            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP), DECIMETER);
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
+        return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP), DECIMETER);
     }
 
 	public static Length toCentimeter(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 0 && unit <= 6)
-            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP), CENTIMETER);
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
+        return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP), CENTIMETER);
     }
 
 	public static Length toMillimeter(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 0 && unit <= 6)
-            return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP), MILLIMETER);
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
-	}
+        return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP), MILLIMETER);
+    }
 
     @Override
     public Length toKilometer() {
@@ -198,7 +205,7 @@ public class Length extends Unit implements ILength {
             return false;
         }
     }
-    
+
     @Override
     public Unit setUnit(int unit) throws IllegalArgumentException {
         if (unit >= 0 && unit <= 6) {
@@ -207,7 +214,7 @@ public class Length extends Unit implements ILength {
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Length().getClass().getName() + " unit.");
     }
-    
+
     @Override
     public String getUnitSymbol() {
         return LENGTH_SYMBOLS[unit];
