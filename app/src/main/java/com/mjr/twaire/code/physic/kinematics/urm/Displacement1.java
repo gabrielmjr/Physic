@@ -48,7 +48,7 @@ public final class Displacement1 extends Calculation {
 	}
 
 	private void calculateWithoutCustomUnits() {
-		step1 = new Length(finalDisplacement.getValue().subtract(initialDisplacement.getValue()));
+		step1 = new Length(finalDisplacement.getValue().subtract(initialDisplacement.getValue()), Length.METER);
 	}
 
     @Override
@@ -58,13 +58,14 @@ public final class Displacement1 extends Calculation {
 
     @Override
 	public String getSteps() {
-		//String initialDisplacement = putParenthesesIfNegative(this.initialDisplacement.getValue() 
+		String initialDisplacement = putParenthesesIfNegative(this.initialDisplacement.getValue(), this.initialDisplacement.getUnitSymbol());
+        String finalDisplacement = putParenthesesIfNegative(this.finalDisplacement.getValue(), this.finalDisplacement.getUnitSymbol());
 		if (hasCustomUnits)
 			return null;
-		/*return "∆S = " + finalDisplacement + "m - " + initialDisplacement
-            + "\n∆S = " + finalDisplacement + "m " + ((isInitialDisplacementNegative) ? "+ " + (- this.initialDisplacement) : "- " + this.initialDisplacement) + "m"
-            + "\n∆S = " + step1 + "m";*/
-        return null;
+		StringBuilder resolution = new StringBuilder();
+        resolution.append("∆S = " + finalDisplacement + " - " + initialDisplacement);
+        resolution.append("\n∆S = " + step1.toString());
+        return resolution.toString();
 	}
 
 	private Displacement1 setInitiDisplacement(Length initialDisplacement) {
