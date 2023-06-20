@@ -32,6 +32,10 @@ public class Area extends Unit implements IArea {
 	public static final int SQUARE_CENTIMETER = 12;
 	public static final int SQUARE_MILLIMETER = 13;
 
+    private static final int MIN_UNIT_SCALE = 0;
+    private static final int UNIT_SCALE = SQUARE_KILOMETER;
+    private static final int MAX_UNIT_SCALE = SQUARE_MILLIMETER - UNIT_SCALE;
+
 	protected static final BigDecimal[] AREA_SCALES = new BigDecimal[] {
 		LENGTH_SCALES[KILOMETER].pow(2),
 		LENGTH_SCALES[HECTOMETER].pow(2),
@@ -49,7 +53,7 @@ public class Area extends Unit implements IArea {
 	public static final String SQUARE_DECIMETER_SYMBOL = DECIMETER_SYMBOL + "²";
 	public static final String SQUARE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "²";
 	public static final String SQUARE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "²";
-    
+
     protected final String AREA_SYMBOLS[] = new String[] {
         SQUARE_KILOMETER_SYMBOL,
         SQUARE_HECTOMETER_SYMBOL,
@@ -59,36 +63,48 @@ public class Area extends Unit implements IArea {
         SQUARE_CENTIMETER_SYMBOL,
         SQUARE_MILLIMETER_SYMBOL
     };
-    
+
     public Area() {
         super();
-        unit = SQUARE_METER - 7;
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
+        unit = SQUARE_METER - UNIT_SCALE;
     }
 
     public Area(double value) {
         super(value);
-        unit = SQUARE_METER - 7;
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
+        unit = SQUARE_METER - UNIT_SCALE;
     }
 
     public Area(String value) {
         super(value);
-        unit = SQUARE_METER - 7;
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
+        unit = SQUARE_METER - UNIT_SCALE;
     }
 
     public Area(long value) {
         super(value);
-        unit = SQUARE_METER - 7;
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
+        unit = SQUARE_METER - UNIT_SCALE;
     }
 
     public Area(BigDecimal value) {
         super(value);
-        unit = SQUARE_METER - 7;
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
+        unit = SQUARE_METER - UNIT_SCALE;
     }
 
     public Area(double value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 7 && unit <= 13) {
-            this.unit = unit - 7;
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
+        if (isUnitInRange()) {
+            this.unit = unit - UNIT_SCALE;
             return;
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -96,8 +112,10 @@ public class Area extends Unit implements IArea {
 
     public Area(String value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 7 && unit <= 13) {
-            this.unit = unit - 7;
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
+        if (isUnitInRange()) {
+            this.unit = unit - UNIT_SCALE;
             return;
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -105,8 +123,10 @@ public class Area extends Unit implements IArea {
 
     public Area(long value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 7 && unit <= 13) {
-            this.unit = unit - 7;
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
+        if (isUnitInRange()) {
+            this.unit = unit - UNIT_SCALE;
             return;
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -114,55 +134,42 @@ public class Area extends Unit implements IArea {
 
     public Area(BigDecimal value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 7 && unit <= 13) {
-            this.unit = unit - 7;
+        setMinUnit(MIN_UNIT_SCALE);
+        setMaxUnit(MAX_UNIT_SCALE);
+        if (isUnitInRange()) {
+            this.unit = unit - UNIT_SCALE;
             return;
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
-   
-	public static Area toSquareKilometer (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_KILOMETER);
-	    throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
-	}
-    
-	public static Area toSquareHectometer (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_HECTOMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
-	}
-    
-	public static Area toSquareDecameter (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_DECAMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
-	}
-    
-	public static Area toSquareMeter (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, HALF_UP), SQUARE_METER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
+
+	public static Area toSquareKilometer(double value, int unit) {
+        return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_KILOMETER);
     }
-    
-	public static Area toSquareDecimeter (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_DECIMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
-	}
 
-	public static Area toSquareCentimeter (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_CENTIMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
-	}
+	public static Area toSquareHectometer(double value, int unit) {
+		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_HECTOMETER);
+    }
 
-	public static Area toSquareMillimeter (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 7 && unit <= 13)
-			return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_MILLIMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
-	}
-    
+	public static Area toSquareDecameter(double value, int unit) {
+		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_DECAMETER);
+    }
+
+	public static Area toSquareMeter(double value, int unit) {
+		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, HALF_UP), SQUARE_METER);
+    }
+	public static Area toSquareDecimeter(double value, int unit) {
+		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_DECIMETER);
+    }
+
+	public static Area toSquareCentimeter(double value, int unit) {
+		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_CENTIMETER);
+    }
+
+	public static Area toSquareMillimeter(double value, int unit) {
+		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_MILLIMETER);
+    }
+
     @Override
     public Area toSquareKilometer() {
         return null;
@@ -197,7 +204,7 @@ public class Area extends Unit implements IArea {
     public Area toSquareMillimeter() {
         return null;
     }
-    
+
     @Override
     public String toString() {
         return value + AREA_SYMBOLS[unit];
@@ -212,7 +219,7 @@ public class Area extends Unit implements IArea {
             return false;
         }
     }
-    
+
     @Override
     public Area setUnit(int unit) throws IllegalArgumentException { 
         if (unit >= 7 && unit <= 13) {
@@ -221,14 +228,14 @@ public class Area extends Unit implements IArea {
         }   
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Area().getClass().getName() + " unit.");
     }
-    
+
     @Override
     public String getUnitSymbol() {
         return AREA_SYMBOLS[unit];
     }
-    
+
     @Deprecated
-    protected static Area getInstance () {
+    protected static Area getInstance() {
 		if (!(instance instanceof Area))
 			instance = new Area();
 		return instance;
