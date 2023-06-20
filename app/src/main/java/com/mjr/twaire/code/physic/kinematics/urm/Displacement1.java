@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.kinematics.urm;
 
 import com.mjr.twaire.code.physic.Calculation;
 import com.mjr.twaire.code.physic.units.Length;
-import java.math.BigDecimal;
+import com.mjr.twaire.code.physic.units.Unit;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
@@ -12,7 +12,7 @@ public final class Displacement1 extends Calculation {
 
 	private int unitOfResult;
 
-	private BigDecimal step1;
+	private Length step1;
 	private boolean hasCustomUnits;
 
 
@@ -48,17 +48,17 @@ public final class Displacement1 extends Calculation {
 	}
 
 	private void calculateWithoutCustomUnits() {
-		step1 = finalDisplacement.getValue().subtract(initialDisplacement.getValue());
+		step1 = new Length(finalDisplacement.getValue().subtract(initialDisplacement.getValue()));
 	}
 
     @Override
-	public BigDecimal getResult() {
+	public Length getResult() {
 		return step1;
 	}
 
     @Override
 	public String getSteps() {
-		//String initialDisplacement = 
+		//String initialDisplacement = putParenthesesIfNegative(this.initialDisplacement.getValue() 
 		if (hasCustomUnits)
 			return null;
 		/*return "∆S = " + finalDisplacement + "m - " + initialDisplacement

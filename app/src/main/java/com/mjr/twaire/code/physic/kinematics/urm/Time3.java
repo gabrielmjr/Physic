@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.urm;
 
 import com.mjr.twaire.code.physic.Calculation;
-import java.math.BigDecimal;
+import com.mjr.twaire.code.physic.units.Unit;
 
 public final class Time3 extends Calculation {
 	private static Time3 instance; 
@@ -38,7 +38,7 @@ public final class Time3 extends Calculation {
     }
 
     @Override
-    public BigDecimal getResult () {
+    public Unit getResult () {
         return null; //step2;
 	}
   

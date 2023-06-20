@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.uvm;
 
 import com.mjr.twaire.code.physic.Calculation;
-import java.math.BigDecimal;
+import com.mjr.twaire.code.physic.units.Unit;
 
 public final class Time1 extends Calculation {
     @Deprecated
@@ -56,7 +56,7 @@ public final class Time1 extends Calculation {
     }
 
     @Override
-    public BigDecimal getResult() {
+    public Unit getResult() {
         return null; //step1;
     }
 

@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.vertical_launch.downward;
 
 import com.mjr.twaire.code.physic.Calculation;
-import java.math.BigDecimal;
+import com.mjr.twaire.code.physic.units.Unit;
 
 public final class DeltaTime1 extends Calculation {
     @Deprecated
@@ -35,7 +35,7 @@ public final class DeltaTime1 extends Calculation {
     }
     
 	@Override
-    public BigDecimal getResult() {
+    public Unit getResult() {
         return null; //step1;
     }
     

@@ -2,7 +2,7 @@ package com.mjr.twaire.code.physic.kinematics.uvm;
 
 import com.mjr.twaire.code.physic.Calculation;
 import com.mjr.twaire.code.physic.Physic;
-import java.math.BigDecimal;
+import com.mjr.twaire.code.physic.units.Unit;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
@@ -68,7 +68,7 @@ public final class Acceleration2 extends Calculation {
     }
 
     @Override
-    public BigDecimal getResult() {
+    public Unit getResult() {
         return null; //step2;
     }
 

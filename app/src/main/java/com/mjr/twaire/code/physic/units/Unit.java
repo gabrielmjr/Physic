@@ -5,8 +5,11 @@ import java.math.BigDecimal;
 public abstract class Unit {
     protected BigDecimal value;
     protected int unit;
+    protected int minUnit;
+    protected int maxUnit;
     
     public Unit() {
+        if (!isUnitInRange()) 
         value = BigDecimal.ZERO;
     }
 
@@ -24,6 +27,14 @@ public abstract class Unit {
 
     public Unit(BigDecimal value) {
         this.value = value;
+    }
+    
+    protected final boolean isUnitInRange(int unit) {
+        return (unit >= minUnit && unit <= maxUnit);
+    }
+    
+    protected final boolean isUnitInRange() {
+        return (unit >= minUnit && unit <= maxUnit);
     }
     
     public Unit setValue(double value) {
@@ -60,4 +71,22 @@ public abstract class Unit {
     }
     
     public abstract String getUnitSymbol();
+    
+    protected Unit setMinUnit(int minUnit) {
+        this.minUnit = minUnit;
+        return this;
+    }
+
+    protected int getMinUnit() {
+        return minUnit;
+    }
+
+    protected Unit setMaxUnit(int maxUnit) {
+        this.maxUnit = maxUnit;
+        return this;
+    }
+
+    protected int getMaxUnit() {
+        return maxUnit;
+    }
 }

@@ -1,7 +1,7 @@
 package com.mjr.twaire.code.physic.kinematics.urm;
 
 import com.mjr.twaire.code.physic.Calculation;
-import java.math.BigDecimal;
+import com.mjr.twaire.code.physic.units.Unit;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
@@ -36,7 +36,7 @@ public final class Speed1 extends Calculation {
 	}
 	
     @Override
-	public BigDecimal getResult () {
+	public Unit getResult () {
 		return null; //step1;
 	}
 	
