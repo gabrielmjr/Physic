@@ -32,8 +32,8 @@ public class Area extends Unit implements IArea {
 	public static final int SQUARE_CENTIMETER = 12;
 	public static final int SQUARE_MILLIMETER = 13;
     
-    private static final int UNIT_SCALE = SQUARE_KILOMETER;
-    private static final int MAX_UNIT_SCALE = SQUARE_MILLIMETER - UNIT_SCALE;
+    private final int UNIT_SCALE = SQUARE_KILOMETER;
+    private final int MAX_UNIT_SCALE = SQUARE_MILLIMETER - UNIT_SCALE;
 
 	protected static final BigDecimal[] AREA_SCALES = new BigDecimal[] {
 		LENGTH_SCALES[KILOMETER].pow(2),

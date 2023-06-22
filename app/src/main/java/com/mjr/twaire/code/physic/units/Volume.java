@@ -23,7 +23,7 @@ import static java.math.RoundingMode.HALF_UP;
 public class Volume extends Unit implements IVolume {
     @Deprecated
     private static Volume instance; 
-    
+
 	public static final int CUBE_KILOMETER = 14;
 	public static final int CUBE_HECTOMETER = 15;
 	public static final int CUBE_DECAMETER = 16;
@@ -31,8 +31,9 @@ public class Volume extends Unit implements IVolume {
 	public static final int CUBE_DECIMETER = 18;
 	public static final int CUBE_CENTIMETER =19;
 	public static final int CUBE_MILLIMETER = 20;
-    
-    private static final int MIN_UNIT_SCALE = 0;
+
+    private final int UNIT_SCALE = CUBE_KILOMETER;
+    private final int MAX_UNIT_SCALE = CUBE_MILLIMETER - UNIT_SCALE;
 
     protected static final BigDecimal[] VOLUME_SCALES = new BigDecimal[]
 	{
@@ -52,7 +53,7 @@ public class Volume extends Unit implements IVolume {
 	public static final String CUBE_DECIMETER_SYMBOL = DECIMETER_SYMBOL + "³";
 	public static final String CUBE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "³";
 	public static final String CUBE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "³";
-    
+
     protected final String VOLUME_SYMBOLS[] = new String[] {
         CUBE_KILOMETER_SYMBOL,
         CUBE_HECTOMETER_SYMBOL,
@@ -62,36 +63,42 @@ public class Volume extends Unit implements IVolume {
         CUBE_CENTIMETER_SYMBOL,
         CUBE_MILLIMETER_SYMBOL
     };
-    
+
     public Volume() {
         super();
-        unit = CUBE_METER - 14;
+        setMaxUnit(MAX_UNIT_SCALE);
+        unit = CUBE_METER - UNIT_SCALE;
     }
 
     public Volume(double value) {
-        super(value);;
-        unit = CUBE_METER - 14;
+        super(value);
+        setMaxUnit(MAX_UNIT_SCALE);
+        unit = CUBE_METER - UNIT_SCALE;
     }
 
     public Volume(String value) {
         super(value);
-        unit = CUBE_METER - 14;
+        setMaxUnit(MAX_UNIT_SCALE);
+        unit = CUBE_METER - UNIT_SCALE;
     }
 
     public Volume(long value) {
         super(value);
-        unit = CUBE_METER - 14;
+        setMaxUnit(MAX_UNIT_SCALE);
+        unit = CUBE_METER - UNIT_SCALE;
     }
 
     public Volume(BigDecimal value) {
         super(value);
-        unit = CUBE_METER - 14;
+        setMaxUnit(MAX_UNIT_SCALE);
+        unit = CUBE_METER - UNIT_SCALE;
     }
 
     public Volume(double value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 14 && unit <= 20) {
-            this.unit = unit - 14;
+        setMaxUnit(MAX_UNIT_SCALE);
+        if (isUnitInRange()) {
+            this.unit = unit - UNIT_SCALE;
             return;
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -99,8 +106,9 @@ public class Volume extends Unit implements IVolume {
 
     public Volume(String value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 14 && unit <= 20) {
-            this.unit = unit - 14;
+        setMaxUnit(MAX_UNIT_SCALE);
+        if (isUnitInRange()) {
+            this.unit = unit - UNIT_SCALE;
             return;
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -108,8 +116,9 @@ public class Volume extends Unit implements IVolume {
 
     public Volume(long value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 14 && unit <= 20) {
-            this.unit = unit - 14;
+        setMaxUnit(MAX_UNIT_SCALE);
+        if (isUnitInRange()) {
+            this.unit = unit - UNIT_SCALE;
             return;
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
@@ -117,53 +126,40 @@ public class Volume extends Unit implements IVolume {
 
     public Volume(BigDecimal value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 14 && unit <= 20) {
+        setMaxUnit(MAX_UNIT_SCALE);
+        if (isUnitInRange()) {
             this.unit = unit - 14;
             return;
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
 
-	public static Volume toCubeKilometer (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_KILOMETER - 14], ROUND_SCALE, HALF_UP), CUBE_KILOMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
+	public static Volume toCubeKilometer(double value, int unit) {
+		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_KILOMETER - 14], ROUND_SCALE, HALF_UP), CUBE_KILOMETER);
     }
 
-	public static Volume toCubeHectometer (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_HECTOMETER - 14], ROUND_SCALE, HALF_UP), CUBE_HECTOMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
-    }
-    
-	public static Volume toCubeDecameter (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECAMETER - 14], ROUND_SCALE, HALF_UP), CUBE_DECAMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
-    }
-    
-	public static Volume toCubeMeter (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_METER - 14], ROUND_SCALE, HALF_UP), CUBE_METER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
+	public static Volume toCubeHectometer(double value, int unit) {
+		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_HECTOMETER - 14], ROUND_SCALE, HALF_UP), CUBE_HECTOMETER);
     }
 
-	public static Volume toCubeDecimeter (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECIMETER - 14], ROUND_SCALE, HALF_UP), CUBE_DECIMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
+	public static Volume toCubeDecameter(double value, int unit) {
+		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECAMETER - 14], ROUND_SCALE, HALF_UP), CUBE_DECAMETER);
     }
 
-	public static Volume toCubeCentimeter (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_CENTIMETER - 14], ROUND_SCALE, HALF_UP), CUBE_CENTIMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
+	public static Volume toCubeMeter(double value, int unit) {
+		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_METER - 14], ROUND_SCALE, HALF_UP), CUBE_METER);
     }
 
-	public static Volume toCubeMillimeter (double value, int unit) throws IllegalArgumentException {
-		if (unit >= 14 && unit <= 20)
-			return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_MILLIMETER - 14], ROUND_SCALE, HALF_UP), CUBE_MILLIMETER);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
+	public static Volume toCubeDecimeter(double value, int unit) {
+		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECIMETER - 14], ROUND_SCALE, HALF_UP), CUBE_DECIMETER);
+    }
+
+	public static Volume toCubeCentimeter(double value, int unit) {
+		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_CENTIMETER - 14], ROUND_SCALE, HALF_UP), CUBE_CENTIMETER);
+    }
+
+	public static Volume toCubeMillimeter(double value, int unit) {
+		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_MILLIMETER - 14], ROUND_SCALE, HALF_UP), CUBE_MILLIMETER);
     }
     
     @Override
@@ -200,12 +196,12 @@ public class Volume extends Unit implements IVolume {
     public Volume toCubeMillimeter() {
         return null;
     }
-    
+
     @Override
     public String toString() {
         return value + VOLUME_SYMBOLS[unit];
     }
-    
+
     @Override
     public boolean equals(Object object) {
         try {
@@ -215,7 +211,7 @@ public class Volume extends Unit implements IVolume {
             return false;
         }
     }
-    
+
     @Override
     public Volume setUnit(int unit) throws IllegalArgumentException {
         if (unit >= 14 && unit <= 20) {
@@ -224,14 +220,14 @@ public class Volume extends Unit implements IVolume {
         }
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
     }
-    
+
     @Override
     public String getUnitSymbol() {
         return VOLUME_SYMBOLS[unit];
     }
 
     @Deprecated
-    protected static Volume getInstance () {
+    protected static Volume getInstance() {
 		if (!(instance instanceof Volume))
 			instance = new Volume();
 		return instance;
