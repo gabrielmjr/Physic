@@ -8,8 +8,7 @@ public abstract class Unit {
     protected int minUnit = 0;
     protected int maxUnit;
     
-    public Unit() {
-        if (!isUnitInRange()) 
+    public Unit() { 
         value = BigDecimal.ZERO;
     }
 
@@ -62,8 +61,11 @@ public abstract class Unit {
     }
 
     public Unit setUnit(int unit) throws IllegalArgumentException {
-        this.unit = unit;
-        return this;
+        if (isUnitInRange(unit)) {
+            this.unit = unit;
+            return this;
+        }
+        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
     public int getUnit() {
