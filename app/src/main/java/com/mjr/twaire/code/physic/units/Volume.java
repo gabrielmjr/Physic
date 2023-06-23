@@ -213,15 +213,6 @@ public class Volume extends Unit implements IVolume {
     }
 
     @Override
-    public Volume setUnit(int unit) throws IllegalArgumentException {
-        if (unit >= 14 && unit <= 20) {
-            super.setUnit(unit);
-            return this;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Volume().getClass().getName() + " unit.");
-    }
-
-    @Override
     public String getUnitSymbol() {
         return VOLUME_SYMBOLS[unit];
     }

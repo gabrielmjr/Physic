@@ -23,6 +23,13 @@ public class Time extends Unit implements ITime {
 	public static final int SQUARE_MINUTE = 29;
 	public static final int SQUARE_SECOND = 30;
 
+    private final int UNIT_SCALE = WEEK;
+    private final int MAX_UNIT_SCALE = SQUARE_SECOND - UNIT_SCALE;
+    
+    private final int EXPOENT_MODE_SINGLE = 0;
+    private final int EXPOENT_MODE_SQUARE = 1;
+    private final int EXPOENT_MODE_BOTH = 2;
+    
 	protected static final BigDecimal[] TIME_SCALES = new BigDecimal[]
 	{
 		new BigDecimal(1.0),
@@ -67,31 +74,37 @@ public class Time extends Unit implements ITime {
 
     public Time() {
         super();
+        setMaxUnit(MAX_UNIT_SCALE);
         unit = SECOND - 21;
     }
 
     public Time(double value) {
         super(value);
+        setMaxUnit(MAX_UNIT_SCALE);
         unit = SECOND - 21;
     }
 
     public Time(String value) {
         super(value);
+        setMaxUnit(MAX_UNIT_SCALE);
         unit = SECOND - 21;
     }
 
     public Time(long value) {
         super(value);
+        setMaxUnit(MAX_UNIT_SCALE);
         unit = SECOND - 21;
     }
 
     public Time(BigDecimal value) {
         super(value);
+        setMaxUnit(MAX_UNIT_SCALE);
         unit = SECOND - 21;
     }
 
     public Time(double value, int unit) throws IllegalArgumentException {
         super(value);
+        setMaxUnit(MAX_UNIT_SCALE);
         if (unit >= 21 && unit <= 30) {
             this.unit = unit - 21;
             return;
@@ -280,7 +293,18 @@ public class Time extends Unit implements ITime {
     public String toString() {
         return value + ((unit <= 4) ? TIME_SYMBOLS[unit] : TIME_SYMBOLS[unit - 4]);
     }
+    
+   /* private boolean isInUnitRange(int expoentMode) {
+        if (expoentMode == EXPOENT_MODE_SINGLE) {
+            
+        }
+        else if (expoentMode == EXPOENT_MODE_SQUARE) {
 
+        } else {
+            return super.isUnitInRange();
+        }
+    }
+*/
     @Override
     public boolean equals(Object object) {
         try {
