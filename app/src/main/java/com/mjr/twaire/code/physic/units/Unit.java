@@ -36,6 +36,10 @@ public abstract class Unit {
         return (unit >= minUnit && unit <= maxUnit);
     }
     
+    public boolean equalUnts(Unit unit) {
+        return getUnitSymbol().equals(unit.getUnitSymbol());
+    }
+    
     public Unit setValue(double value) {
         this.value = BigDecimal.valueOf(value);
         return this;
