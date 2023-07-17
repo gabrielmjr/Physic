@@ -1,6 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.urm;
 
 import com.mjr.twaire.code.physic.units.Length;
+import com.mjr.twaire.code.physic.units.Speed;
+import com.mjr.twaire.code.physic.units.Time;
 
 public class UniformRectilinearMovement implements IUniformRectilinearMovement {
     @Deprecated
@@ -30,20 +32,16 @@ public class UniformRectilinearMovement implements IUniformRectilinearMovement {
 
 	// ∆S = ∆t x speed_média
 	@Override
-	public Displacement2 displacement2(double deltaTime, double deltaSpeed) {
+	public Displacement2 displacement2(Time deltaTime, Speed deltaSpeed) {
 		return new Displacement2(deltaTime, deltaSpeed);
 	}
 
 	@Override
-	public Displacement2 displacement2(double deltaTime,
-                                       int deltaTimeUnit, 
-                                       double deltaSpeed,
-                                       int deltaSpeedUnit,
+	public Displacement2 displacement2(Time deltaTime,
+                                       Speed deltaSpeed,
                                        int unitOfResult) {
 		return new Displacement2(deltaTime,
-                                 deltaSpeedUnit,
                                  deltaSpeed,
-                                 deltaSpeedUnit,
                                  unitOfResult);
 	}
 

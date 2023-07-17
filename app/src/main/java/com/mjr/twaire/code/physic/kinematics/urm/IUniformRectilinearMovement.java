@@ -1,6 +1,8 @@
 package com.mjr.twaire.code.physic.kinematics.urm;
 
 import com.mjr.twaire.code.physic.units.Length;
+import com.mjr.twaire.code.physic.units.Speed;
+import com.mjr.twaire.code.physic.units.Time;
 
 public interface IUniformRectilinearMovement {
     public abstract Displacement1 displacement1 (
@@ -15,14 +17,12 @@ public interface IUniformRectilinearMovement {
     public abstract Displacement1 displacement1();
 
     public abstract Displacement2 displacement2 (
-        double deltaTime,
-        double deltaSpeed);
+        Time deltaTime,
+        Speed deltaSpeed);
 
     public abstract Displacement2 displacement2 (
-        double deltaTime,
-        int deltaTimeUnit,
-        double deltaSpeed,
-        int deltaSpeedUnit,
+        Time deltaTime,
+        Speed deltaSpeed,
         int unitOfResult);
         
     public abstract Displacement2 displacement2();
