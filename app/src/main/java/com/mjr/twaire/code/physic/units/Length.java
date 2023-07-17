@@ -135,37 +135,51 @@ public class Length extends Unit implements ILength {
 
     @Override
     public Length toKilometer() {
-        return null;
+        value = value.multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER], ROUND_SCALE, HALF_UP);
+        unit = KILOMETER;
+        return this;
     }
 
     @Override
     public Length toHectometer() {
-        return null;
+        value = value.multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER], ROUND_SCALE, HALF_UP);
+        unit = HECTOMETER;
+        return this;
     }
 
     @Override
     public Length toDecameter() {
-        return null;
+        value = value.multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER], ROUND_SCALE, HALF_UP);
+        unit = DECAMETER;
+        return this;
     }
 
     @Override
     public Length toMeter() {
-        return null;
+        value = value.multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER], ROUND_SCALE, HALF_UP);
+        unit = METER;
+        return this;
     }
 
     @Override
     public Length toDecimeter() {
-        return null;
+        value = value.multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER], ROUND_SCALE, HALF_UP);
+        unit = DECIMETER;
+        return this;
     }
 
     @Override
     public Length toCentimeter() {
-        return null;
+        value = value.multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER], ROUND_SCALE, HALF_UP);
+        unit = CENTIMETER;
+        return this;
     }
 
     @Override
     public Length toMillimeter() {
-        return null;
+        value = value.multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER], ROUND_SCALE, HALF_UP);
+        unit = MILLIMETER;
+        return this;
     }
 
     @Override
