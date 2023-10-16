@@ -27,16 +27,17 @@ public class Area extends Unit implements IArea {
     @Deprecated
     private static Area instance; 
 
-	public static final int SQUARE_KILOMETER = 7;
-	public static final int SQUARE_HECTOMETER = 8;
-	public static final int SQUARE_DECAMETER = 9;
-	public static final int SQUARE_METER = 10;
-	public static final int SQUARE_DECIMETER = 11;
-	public static final int SQUARE_CENTIMETER = 12;
-	public static final int SQUARE_MILLIMETER = 13;
+	public static final int SQUARE_KILOMETER = Length.LAST_UNIT_CONS + 1;
+	public static final int SQUARE_HECTOMETER = Length.LAST_UNIT_CONS + 2;
+	public static final int SQUARE_DECAMETER = Length.LAST_UNIT_CONS + 3;
+	public static final int SQUARE_METER = Length.LAST_UNIT_CONS + 4;
+	public static final int SQUARE_DECIMETER = Length.LAST_UNIT_CONS + 5;
+	public static final int SQUARE_CENTIMETER = Length.LAST_UNIT_CONS + 6;
+	public static final int SQUARE_MILLIMETER = Length.LAST_UNIT_CONS + 7;
 
     private final int UNIT_SCALE = SQUARE_KILOMETER;
-    private final int MAX_UNIT_SCALE = SQUARE_MILLIMETER - UNIT_SCALE;
+    protected static final int LAST_UNIT_CONS = SQUARE_MILLIMETER;
+    private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
 
 	protected static final BigDecimal[] AREA_SCALES = new BigDecimal[] {
 		LENGTH_SCALES[KILOMETER].pow(2),

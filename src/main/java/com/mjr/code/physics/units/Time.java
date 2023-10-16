@@ -14,20 +14,21 @@ public class Time extends Unit implements ITime {
     private static Time instance;
 	private Digital digital;
     
-	public static final int WEEK = 21;
-	public static final int DAY = 22;
-	public static final int HOUR = 23;
-	public static final int MINUTE = 24;
-	public static final int SECOND = 25;
+	public static final int WEEK = Volume.LAST_UNIT_CONS + 1;
+	public static final int DAY = Volume.LAST_UNIT_CONS + 2;
+	public static final int HOUR = 3;
+	public static final int MINUTE = Volume.LAST_UNIT_CONS + 4;
+	public static final int SECOND = Volume.LAST_UNIT_CONS + 5;
 
-	public static final int SQUARE_WEEK = 26;
-	public static final int SQUARE_DAY = 27;
-	public static final int SQUARE_HOUR = 28;
-	public static final int SQUARE_MINUTE = 29;
-	public static final int SQUARE_SECOND = 30;
+	public static final int SQUARE_WEEK = Volume.LAST_UNIT_CONS + 6;
+	public static final int SQUARE_DAY = Volume.LAST_UNIT_CONS + 7;
+	public static final int SQUARE_HOUR = Volume.LAST_UNIT_CONS + 8;
+	public static final int SQUARE_MINUTE = Volume.LAST_UNIT_CONS + 9;
+	public static final int SQUARE_SECOND = Volume.LAST_UNIT_CONS + 10;
 
     private final int UNIT_SCALE = WEEK;
-    private final int MAX_UNIT_SCALE = SQUARE_SECOND - UNIT_SCALE;
+    protected static final int LAST_UNIT_CONS = SQUARE_SECOND;
+    private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
     
     private final int EXPOENT_MODE_SINGLE = 0;
     private final int EXPOENT_MODE_SQUARE = 1;

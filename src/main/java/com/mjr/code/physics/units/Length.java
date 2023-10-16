@@ -21,6 +21,7 @@ public class Length extends Unit implements ILength {
     public static final int MILLIMETER = 6;
 
     private final int MAX_UNIT_SCALE = 6;
+    protected static final int LAST_UNIT_CONS = MILLIMETER;
 
     protected static final BigDecimal[] LENGTH_SCALES = new BigDecimal[]
     {

@@ -34,32 +34,33 @@ public class Speed extends Unit implements ISpeed {
     @Deprecated
 	private static Speed instance; 
 
-	public static final int KILOMETER_PER_SECOND = 31;
-	public static final int HECTOMETER_PER_SECOND = 32;
-	public static final int DECAMETER_PER_SECOND = 33;
-	public static final int METER_PER_SECOND = 34;
-	public static final int DECIMETER_PER_SECOND = 35;
-	public static final int CENTIMETER_PER_SECOND = 36;
-	public static final int MILLIMETER_PER_SECOND = 37;
+	public static final int KILOMETER_PER_SECOND = Time.LAST_UNIT_CONS + 1;
+	public static final int HECTOMETER_PER_SECOND = Time.LAST_UNIT_CONS + 2;
+	public static final int DECAMETER_PER_SECOND = Time.LAST_UNIT_CONS + 3;
+	public static final int METER_PER_SECOND = Time.LAST_UNIT_CONS + 4;
+	public static final int DECIMETER_PER_SECOND = Time.LAST_UNIT_CONS + 5;
+	public static final int CENTIMETER_PER_SECOND = Time.LAST_UNIT_CONS + 6;
+	public static final int MILLIMETER_PER_SECOND = Time.LAST_UNIT_CONS + 7;
 
-	public static final int KILOMETER_PER_MINUTE = 38;
-	public static final int HECTOMETER_PER_MINUTE = 39;
-	public static final int DECAMETER_PER_MINUTE = 40;
-	public static final int METER_PER_MINUTE = 41;
-	public static final int DECIMETER_PER_MINUTE = 42;
-	public static final int CENTIMETER_PER_MINUTE = 43;
-	public static final int MILLIMETER_PER_MINUTE = 44;
+	public static final int KILOMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 8;
+	public static final int HECTOMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 9;
+	public static final int DECAMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 10;
+	public static final int METER_PER_MINUTE = Time.LAST_UNIT_CONS + 11;
+	public static final int DECIMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 12;
+	public static final int CENTIMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 13;
+	public static final int MILLIMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 14;
 
-	public static final int KILOMETER_PER_HOUR = 45;
-	public static final int HECTOMETER_PER_HOUR = 46;
-	public static final int DECAMETER_PER_HOUR = 47;
-	public static final int METER_PER_HOUR = 48;
-	public static final int DECIMETER_PER_HOUR = 39;
-	public static final int CENTIMETER_PER_HOUR = 50;
-	public static final int MILLIMETER_PER_HOUR = 51;
+	public static final int KILOMETER_PER_HOUR = Time.LAST_UNIT_CONS + 15;
+	public static final int HECTOMETER_PER_HOUR = Time.LAST_UNIT_CONS + 16;
+	public static final int DECAMETER_PER_HOUR = Time.LAST_UNIT_CONS + 17;
+	public static final int METER_PER_HOUR = Time.LAST_UNIT_CONS + 18;
+	public static final int DECIMETER_PER_HOUR = Time.LAST_UNIT_CONS + 19;
+	public static final int CENTIMETER_PER_HOUR = Time.LAST_UNIT_CONS + 20;
+	public static final int MILLIMETER_PER_HOUR = Time.LAST_UNIT_CONS + 21;
 
     private final int UNIT_SCALE = KILOMETER_PER_SECOND;
-    private final int MAX_UNIT_SCALE = MILLIMETER_PER_HOUR - UNIT_SCALE;
+    protected static final int LAST_UNIT_CONS = MILLIMETER_PER_HOUR;
+    private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
 
 	protected static final BigDecimal[] SPEED_SCALES = new BigDecimal[]
 	{

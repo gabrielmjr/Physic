@@ -27,16 +27,17 @@ public class Volume extends Unit implements IVolume {
     @Deprecated
     private static Volume instance; 
 
-	public static final int CUBE_KILOMETER = 14;
-	public static final int CUBE_HECTOMETER = 15;
-	public static final int CUBE_DECAMETER = 16;
-	public static final int CUBE_METER = 17;
-	public static final int CUBE_DECIMETER = 18;
-	public static final int CUBE_CENTIMETER =19;
-	public static final int CUBE_MILLIMETER = 20;
+	public static final int CUBE_KILOMETER = Area.LAST_UNIT_CONS + 1;
+	public static final int CUBE_HECTOMETER = Area.LAST_UNIT_CONS + 2;
+	public static final int CUBE_DECAMETER = Area.LAST_UNIT_CONS + 3;
+	public static final int CUBE_METER = Area.LAST_UNIT_CONS + 4;
+	public static final int CUBE_DECIMETER = Area.LAST_UNIT_CONS + 5;
+	public static final int CUBE_CENTIMETER = Area.LAST_UNIT_CONS + 6;
+	public static final int CUBE_MILLIMETER = Area.LAST_UNIT_CONS + 7;
 
     private final int UNIT_SCALE = CUBE_KILOMETER;
-    private final int MAX_UNIT_SCALE = CUBE_MILLIMETER - UNIT_SCALE;
+    protected static final int LAST_UNIT_CONS = CUBE_MILLIMETER;
+    private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
 
     protected static final BigDecimal[] VOLUME_SCALES = new BigDecimal[]
 	{
