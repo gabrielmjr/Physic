@@ -57,6 +57,8 @@ public class Acceleration extends Unit implements IAcceleration {
 	public static final int CENTIMETER_PER_SQUARE_HOUR = 71;
 	public static final int MILLIMETER_PER_SQUARE_HOUR = 72;
 
+	private final int UNIT_SCALE = KILOMETER_PER_SQUARE_SECOND;
+
 	protected static final BigDecimal[] ACCELERATION_SCALES = new BigDecimal[]
 	{
 		LENGTH_SCALES[KILOMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND - 21]),
@@ -110,7 +112,7 @@ public class Acceleration extends Unit implements IAcceleration {
 	public static final String CENTIMETER_PER_SQUARE_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
 	public static final String MILLIMETER_PER_SQUARE_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
 
-    private final String ACCELERATION_SYMBOLS[] = new String[]{
+    private final String[] ACCELERATION_SYMBOLS = new String[]{
         KILOMETER_PER_SQUARE_SECOND_SYMBOL,
         HECTOMETER_PER_SQUARE_SECOND_SYMBOL,
         DECAMETER_PER_SQUARE_SECOND_SYMBOL,
@@ -432,8 +434,13 @@ public class Acceleration extends Unit implements IAcceleration {
     public String toString() {
         return value + ACCELERATION_SYMBOLS[unit];
     }
-    
-    @Override
+
+	@Override
+	public boolean isInInternationalSystem() {
+		return unit == (METER_PER_SQUARE_SECOND - UNIT_SCALE);
+	}
+
+	@Override
     public Unit setUnit(int unit) throws IllegalArgumentException {
         if (unit >= 52 && unit <= 72) {
             super.setUnit(unit);

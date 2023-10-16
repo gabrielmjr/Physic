@@ -1,5 +1,8 @@
 package com.mjr.code.physics.units;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 
 import static com.mjr.code.physics.Physic.ROUND_SCALE;
@@ -54,7 +57,7 @@ public class Volume extends Unit implements IVolume {
 	public static final String CUBE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "³";
 	public static final String CUBE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "³";
 
-    protected final String VOLUME_SYMBOLS[] = new String[] {
+    protected final String[] VOLUME_SYMBOLS = new String[] {
         CUBE_KILOMETER_SYMBOL,
         CUBE_HECTOMETER_SYMBOL,
         CUBE_DECAMETER_SYMBOL,
@@ -134,31 +137,38 @@ public class Volume extends Unit implements IVolume {
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
     }
 
-	public static Volume toCubeKilometer(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Volume toCubeKilometer(double value, int unit) {
 		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_KILOMETER - 14], ROUND_SCALE, HALF_UP), CUBE_KILOMETER);
     }
 
-	public static Volume toCubeHectometer(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Volume toCubeHectometer(double value, int unit) {
 		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_HECTOMETER - 14], ROUND_SCALE, HALF_UP), CUBE_HECTOMETER);
     }
 
-	public static Volume toCubeDecameter(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Volume toCubeDecameter(double value, int unit) {
 		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECAMETER - 14], ROUND_SCALE, HALF_UP), CUBE_DECAMETER);
     }
 
-	public static Volume toCubeMeter(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Volume toCubeMeter(double value, int unit) {
 		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_METER - 14], ROUND_SCALE, HALF_UP), CUBE_METER);
     }
 
-	public static Volume toCubeDecimeter(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Volume toCubeDecimeter(double value, int unit) {
 		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_DECIMETER - 14], ROUND_SCALE, HALF_UP), CUBE_DECIMETER);
     }
 
-	public static Volume toCubeCentimeter(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Volume toCubeCentimeter(double value, int unit) {
 		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_CENTIMETER - 14], ROUND_SCALE, HALF_UP), CUBE_CENTIMETER);
     }
 
-	public static Volume toCubeMillimeter(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Volume toCubeMillimeter(double value, int unit) {
 		return new Volume(BigDecimal.valueOf(value).multiply(VOLUME_SCALES[unit - 14]).divide(VOLUME_SCALES[CUBE_MILLIMETER - 14], ROUND_SCALE, HALF_UP), CUBE_MILLIMETER);
     }
     
@@ -210,6 +220,11 @@ public class Volume extends Unit implements IVolume {
         } catch (ClassCastException e) {
             return false;
         }
+    }
+
+    @Override
+    public boolean isInInternationalSystem() {
+        return unit == (CUBE_METER - UNIT_SCALE);
     }
 
     @Override

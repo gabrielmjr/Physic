@@ -1,5 +1,8 @@
 package com.mjr.code.physics.units;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 
 import static com.mjr.code.physics.Physic.ROUND_SCALE;
@@ -53,7 +56,7 @@ public class Area extends Unit implements IArea {
 	public static final String SQUARE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "²";
 	public static final String SQUARE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "²";
 
-    protected final String AREA_SYMBOLS[] = new String[] {
+    protected final String[] AREA_SYMBOLS = new String[] {
         SQUARE_KILOMETER_SYMBOL,
         SQUARE_HECTOMETER_SYMBOL,
         SQUARE_DECAMETER_SYMBOL,
@@ -117,30 +120,37 @@ public class Area extends Unit implements IArea {
         setUnit(unit - UNIT_SCALE);
     }
 
-	public static Area toSquareKilometer(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Area toSquareKilometer(double value, int unit) {
         return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_KILOMETER);
     }
 
-	public static Area toSquareHectometer(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Area toSquareHectometer(double value, int unit) {
 		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_HECTOMETER);
     }
 
-	public static Area toSquareDecameter(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Area toSquareDecameter(double value, int unit) {
 		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_DECAMETER);
     }
 
-	public static Area toSquareMeter(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Area toSquareMeter(double value, int unit) {
 		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, HALF_UP), SQUARE_METER);
     }
-	public static Area toSquareDecimeter(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Area toSquareDecimeter(double value, int unit) {
 		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_DECIMETER);
     }
 
-	public static Area toSquareCentimeter(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Area toSquareCentimeter(double value, int unit) {
 		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_CENTIMETER);
     }
 
-	public static Area toSquareMillimeter(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Area toSquareMillimeter(double value, int unit) {
 		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_MILLIMETER);
     }
 
@@ -192,6 +202,11 @@ public class Area extends Unit implements IArea {
         } catch (ClassCastException e) {
             return false;
         }
+    }
+
+    @Override
+    public boolean isInInternationalSystem() {
+        return unit == (SQUARE_METER - UNIT_SCALE);
     }
 
     @Override

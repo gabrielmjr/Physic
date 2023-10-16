@@ -1,6 +1,8 @@
 package com.mjr.code.physics.units;
 
 import com.mjr.code.physics.Physic;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -33,11 +35,11 @@ public class Time extends Unit implements ITime {
     
 	protected static final BigDecimal[] TIME_SCALES = new BigDecimal[]
 	{
-		new BigDecimal(1.0),
-	    new BigDecimal(7.0),
-	    new BigDecimal(168.0),
-		new BigDecimal(10080.0),
-		new BigDecimal(604800.0)
+		new BigDecimal("1.0"),
+	    new BigDecimal("7.0"),
+	    new BigDecimal("168.0"),
+		new BigDecimal("10080.0"),
+		new BigDecimal("604800.0")
 	};
 
 	protected static final BigDecimal[] SQUARE_TIME_SCALES = new BigDecimal[]
@@ -61,7 +63,7 @@ public class Time extends Unit implements ITime {
 	public static final String SQUARE_MINUTE_SYMBOL = MINUTE_SYMBOL + "²";
 	public static final String SQUARE_SECOND_SYMBOL = SECOND_SYMBOL + "²";
 
-    protected final String TIME_SYMBOLS[] = new String[] {
+    protected final String[] TIME_SYMBOLS = new String[] {
         WEEK_IN_MONTH_SYMBOL,
         DAY_SYMBOL,
         HOUR_SYMBOL,
@@ -140,61 +142,71 @@ public class Time extends Unit implements ITime {
         throw new IllegalArgumentException("The unit " + unit + " is not valid as time unit");
     }
 
-	public static Time toSecond(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Time toSecond(double value, int unit) throws IllegalArgumentException {
 		if (unit >= 21 && unit <= 25)
 			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[SECOND - 21]).divide(TIME_SCALES[unit - 21], Physic.ROUND_SCALE, HALF_UP), SECOND);
 		throw new IllegalArgumentException("The unit " + unit + " is not valid as time unit.");
 	}
 
-	public static Time toMinute(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Time toMinute(double value, int unit) throws IllegalArgumentException {
 		if (unit >= 21 && unit <= 25)
 			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[MINUTE - 21]).divide(TIME_SCALES[unit - 21], Physic.ROUND_SCALE, HALF_UP), MINUTE);
 		throw new IllegalArgumentException("The unit " + unit + " is not valid as time unit.");
 	}
 
-	public static Time toHour(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Time toHour(double value, int unit) throws IllegalArgumentException {
 		if (unit >= 21 && unit <= 25)
 			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[HOUR - 21]).divide(TIME_SCALES[unit - 21], Physic.ROUND_SCALE, HALF_UP), HOUR);
 		throw new IllegalArgumentException("The unit " + unit + " is not valid as time unit.");
 	}
 
-	public static Time toDay(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Time toDay(double value, int unit) throws IllegalArgumentException {
 		if (unit >= 21 && unit <= 25)
 			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[DAY - 21]).divide(TIME_SCALES[unit - 21], Physic.ROUND_SCALE, HALF_UP), DAY);
 		throw new IllegalArgumentException("The unit " + unit + " is not valid as time unit.");
 	}
 
-	public static Time toWeek(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Time toWeek(double value, int unit) throws IllegalArgumentException {
 		if (unit >= 21 && unit <= 25)
 			return new Time(BigDecimal.valueOf(value).multiply(TIME_SCALES[WEEK - 21]).divide(TIME_SCALES[unit - 21], Physic.ROUND_SCALE, HALF_UP), WEEK);
 		throw new IllegalArgumentException("The unit " + unit + " is not valid as time unit.");
 	}
 
-	public static Time toSquareSecond(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Time toSquareSecond(double value, int unit) throws IllegalArgumentException {
 		if (unit >= 26 && unit <= 30)
 			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[SQUARE_SECOND - 26]).divide(SQUARE_TIME_SCALES[unit - 26], Physic.ROUND_SCALE, HALF_UP), SQUARE_SECOND);
 		throw new IllegalArgumentException("The unit " + unit + " is not valid as square time unit.");
 	}
 
-	public static Time toSquareMinute(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Time toSquareMinute(double value, int unit) throws IllegalArgumentException {
 		if (unit >= 26 && unit <= 30)
 			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[SQUARE_MINUTE - 26]).divide(SQUARE_TIME_SCALES[unit - 26], Physic.ROUND_SCALE, HALF_UP), SQUARE_MINUTE);
 		throw new IllegalArgumentException("The unit " + unit + " is not valid as square time unit.");
 	}
 
-	public static Time toSquareHour(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Time toSquareHour(double value, int unit) throws IllegalArgumentException {
 		if (unit >= 26 && unit <= 30)
 			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[SQUARE_HOUR - 26]).divide(SQUARE_TIME_SCALES[unit - 26], Physic.ROUND_SCALE, HALF_UP), SQUARE_HOUR);
 		throw new IllegalArgumentException("The unit " + unit + " is not valid as square time unit.");
 	}
 
-	public static Time toSquareDay(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Time toSquareDay(double value, int unit) throws IllegalArgumentException {
 		if (unit >= 26 && unit <= 30)
 			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[SQUARE_DAY - 26]).divide(SQUARE_TIME_SCALES[unit - 26], Physic.ROUND_SCALE, HALF_UP), SQUARE_DAY);
 		throw new IllegalArgumentException("The unit " + unit + " is not valid as square time unit.");
 	}
 
-	public static Time toSquareWeek(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Time toSquareWeek(double value, int unit) throws IllegalArgumentException {
 		if (unit >= 26 && unit <= 30)
 			return new Time(BigDecimal.valueOf(value).multiply(SQUARE_TIME_SCALES[SQUARE_WEEK - 26]).divide(SQUARE_TIME_SCALES[unit - 26], Physic.ROUND_SCALE, HALF_UP), SQUARE_WEEK);
 		throw new IllegalArgumentException("The unit " + unit + " is not valid as square time unit.");
@@ -306,6 +318,7 @@ public class Time extends Unit implements ITime {
         }
     }
 */
+
     @Override
     public boolean equals(Object object) {
         try {
@@ -314,6 +327,11 @@ public class Time extends Unit implements ITime {
         } catch (ClassCastException e) {
             return false;
         }
+    }
+
+    @Override
+    public boolean isInInternationalSystem() {
+        return unit == (SECOND - UNIT_SCALE);
     }
 
     @Override
@@ -331,12 +349,8 @@ public class Time extends Unit implements ITime {
     }
     
 	public Digital toDigital() throws IllegalArgumentException {
-		try {
-			return new Digital();
-		} catch (IllegalArgumentException e) {
-			throw e;
-		}
-	}
+        return new Digital();
+    }
 
     @Deprecated
     protected static Time getInstance() {

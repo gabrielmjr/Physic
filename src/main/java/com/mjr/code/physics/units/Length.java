@@ -1,6 +1,8 @@
 package com.mjr.code.physics.units;
 
 import com.mjr.code.physics.Physic;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
 
@@ -106,31 +108,38 @@ public class Length extends Unit implements ILength {
         setUnit(unit);
     }
 
-	public static Length toKilometer(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Length toKilometer(double value, int unit) {
         return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[KILOMETER], Physic.ROUND_SCALE, HALF_UP), KILOMETER);
     }
 
-	public static Length toHectometer(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Length toHectometer(double value, int unit) {
         return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[HECTOMETER], Physic.ROUND_SCALE, HALF_UP), HECTOMETER);
     }
 
-	public static Length toDecameter(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Length toDecameter(double value, int unit) throws IllegalArgumentException {
         return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECAMETER], Physic.ROUND_SCALE, HALF_UP), DECAMETER);
     }
 
-	public static Length toMeter(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Length toMeter(double value, int unit) throws IllegalArgumentException {
         return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[METER], Physic.ROUND_SCALE, HALF_UP), METER);
     }
 
-	public static Length toDecimeter(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Length toDecimeter(double value, int unit) throws IllegalArgumentException {
         return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[DECIMETER], Physic.ROUND_SCALE, HALF_UP), DECIMETER);
     }
 
-	public static Length toCentimeter(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Length toCentimeter(double value, int unit) throws IllegalArgumentException {
         return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[CENTIMETER], Physic.ROUND_SCALE, HALF_UP), CENTIMETER);
     }
 
-	public static Length toMillimeter(double value, int unit) throws IllegalArgumentException {
+	@Contract("_, _ -> new")
+    public static @NotNull Length toMillimeter(double value, int unit) throws IllegalArgumentException {
         return new Length(BigDecimal.valueOf(value).multiply(LENGTH_SCALES[unit]).divide(LENGTH_SCALES[MILLIMETER], Physic.ROUND_SCALE, HALF_UP), MILLIMETER);
     }
 
@@ -197,7 +206,12 @@ public class Length extends Unit implements ILength {
             return false;
         }
     }
-    
+
+    @Override
+    public boolean isInInternationalSystem() {
+        return unit == METER;
+    }
+
     @Override
     public String getUnitSymbol() {
         return LENGTH_SYMBOLS[unit];

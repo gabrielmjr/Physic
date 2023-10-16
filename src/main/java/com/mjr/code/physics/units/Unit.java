@@ -1,9 +1,14 @@
 package com.mjr.code.physics.units;
 
+import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 
 public abstract class Unit {
+    @Getter
     protected BigDecimal value;
+    @Getter
     protected int unit;
     protected int minUnit = 0;
     protected int maxUnit;
@@ -36,7 +41,7 @@ public abstract class Unit {
         return (unit >= minUnit && unit <= maxUnit);
     }
     
-    public boolean equalUnts(Unit unit) {
+    public boolean equalUnit(@NotNull Unit unit) {
         return getUnitSymbol().equals(unit.getUnitSymbol()) && getUnit() == unit.getUnit();
     }
     
@@ -60,10 +65,6 @@ public abstract class Unit {
         return this;
     }
 
-    public BigDecimal getValue() {
-        return value;
-    }
-
     public Unit setUnit(int unit) throws IllegalArgumentException {
         if (isUnitInRange(unit)) {
             this.unit = unit;
@@ -72,12 +73,8 @@ public abstract class Unit {
         throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
     }
 
-    public int getUnit() {
-        return unit;
-    }
-    
-    
-    
+    public abstract boolean isInInternationalSystem();
+
     public abstract String getUnitSymbol();
     
     protected Unit setMinUnit(int minUnit) {

@@ -1,5 +1,8 @@
 package com.mjr.code.physics.units;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -109,7 +112,7 @@ public class Speed extends Unit implements ISpeed {
 	public static final String CENTIMETER_PER_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 	public static final String MILLIMETER_PER_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + HOUR_SYMBOL;
 
-    protected final String SPEED_SYMBOLS[] = new String[] {
+    protected final String[] SPEED_SYMBOLS = new String[] {
         KILOMETER_PER_SECOND_SYMBOL,
         HECTOMETER_PER_SECOND_SYMBOL,
         DECAMETER_PER_SECOND_SYMBOL,
@@ -137,146 +140,167 @@ public class Speed extends Unit implements ISpeed {
         super();
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(METER_PER_SECOND - UNIT_SCALE);
-		value.setScale(20);
+		value = value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Speed(double value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(METER_PER_SECOND - UNIT_SCALE);
-		this.value.setScale(20);
+        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(String value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(METER_PER_SECOND - UNIT_SCALE);
-		this.value.setScale(20);
+        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(long value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(METER_PER_SECOND - UNIT_SCALE);
-		this.value.setScale(20);
+        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(BigDecimal value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(METER_PER_SECOND - UNIT_SCALE);
-		this.value.setScale(20);
+        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(double value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit - UNIT_SCALE);
-        this.value.setScale(20);
+        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(String value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit - UNIT_SCALE);
-        this.value.setScale(20);
+        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(long value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit - UNIT_SCALE);
-        this.value.setScale(20);
+        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(BigDecimal value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit - UNIT_SCALE);
-        this.value.setScale(20);
+        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
-	public static Speed toKilometerPerSecond(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toKilometerPerSecond(double value, int unit) {
         return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), KILOMETER_PER_SECOND);
     }
 
-	public static Speed toHectometerPerSecond(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toHectometerPerSecond(double value, int unit) {
 	    return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), HECTOMETER_PER_SECOND);
     }
 
-	public static Speed toDecameterPerSecond(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toDecameterPerSecond(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECAMETER_PER_SECOND);
     }
 
-	public static Speed toMeterPerSecond(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toMeterPerSecond(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), METER_PER_SECOND);
     }
 
-	public static Speed toDecimeterPerSecond(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toDecimeterPerSecond(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECIMETER_PER_SECOND);
     }
 
-	public static Speed toCentimeterPerSecond(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toCentimeterPerSecond(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), CENTIMETER_PER_SECOND);
     }
 
-	public static Speed toMillimeterPerSecond(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toMillimeterPerSecond(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), MILLIMETER_PER_SECOND);
     }
 
-	public static Speed toKilometerPerMinute(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toKilometerPerMinute(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), KILOMETER_PER_MINUTE);
     }
 
-	public static Speed toHectometerPerMinute(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toHectometerPerMinute(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), HECTOMETER_PER_MINUTE);
     }
 
-	public static Speed toDecameterPerMinute(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toDecameterPerMinute(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECAMETER_PER_MINUTE);
     }
 
-	public static Speed toMeterPerMinute(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toMeterPerMinute(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), METER_PER_MINUTE);
     }
 
-	public static Speed toDecimeterPerMinute(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toDecimeterPerMinute(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECIMETER_PER_MINUTE);
     }
 
-	public static Speed toCentimeterPerMinute(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toCentimeterPerMinute(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), CENTIMETER_PER_MINUTE);
     }
 
-	public static Speed toMillimeterPerMinute(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toMillimeterPerMinute(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_MINUTE - 31], ROUND_SCALE, RoundingMode.HALF_UP), MILLIMETER_PER_MINUTE);
     }
 
-	public static Speed toKilometerPerHour(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toKilometerPerHour(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), KILOMETER_PER_HOUR);
     }
 
-	public static Speed toHectometerPerHour(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toHectometerPerHour(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[HECTOMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), HECTOMETER_PER_HOUR);
     }
 
-	public static Speed toDecameterPerHour(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toDecameterPerHour(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECAMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECAMETER_PER_HOUR);
     }
 
-	public static Speed toMeterPerHour(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toMeterPerHour(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[METER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), METER_PER_HOUR);
     }
 
-	public static Speed toDecimeterPerHour(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toDecimeterPerHour(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[DECIMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), DECIMETER_PER_HOUR);
     }
 
-	public static Speed toCentimeterPerHour(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toCentimeterPerHour(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[CENTIMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), CENTIMETER_PER_HOUR);
     }
 
-	public static Speed toMillimeterPerHour(double value, int unit) {
+	@Contract("_, _ -> new")
+    public static @NotNull Speed toMillimeterPerHour(double value, int unit) {
 		return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[MILLIMETER_PER_HOUR - 31], ROUND_SCALE, RoundingMode.HALF_UP), MILLIMETER_PER_HOUR);
     }
 
@@ -398,6 +422,11 @@ public class Speed extends Unit implements ISpeed {
         } catch (ClassCastException e) {
             return false;
         }
+    }
+
+    @Override
+    public boolean isInInternationalSystem() {
+        return unit == (METER_PER_SECOND - UNIT_SCALE);
     }
 
     @Override
