@@ -35,7 +35,7 @@ public class Volume extends Unit implements IVolume {
 	public static final int CUBE_CENTIMETER = Area.LAST_UNIT_CONS + 6;
 	public static final int CUBE_MILLIMETER = Area.LAST_UNIT_CONS + 7;
 
-    private final int UNIT_SCALE = CUBE_KILOMETER;
+    private final int UNIT_SCALE = CUBE_MILLIMETER;
     protected static final int LAST_UNIT_CONS = CUBE_MILLIMETER;
     private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
 
@@ -71,71 +71,55 @@ public class Volume extends Unit implements IVolume {
     public Volume() {
         super();
         setMaxUnit(MAX_UNIT_SCALE);
-        unit = CUBE_METER - UNIT_SCALE;
+        setUnit(CUBE_METER - UNIT_SCALE);
     }
 
     public Volume(double value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        unit = CUBE_METER - UNIT_SCALE;
+        setUnit(CUBE_METER - UNIT_SCALE);
     }
 
     public Volume(String value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        unit = CUBE_METER - UNIT_SCALE;
+        setUnit(CUBE_METER - UNIT_SCALE);
     }
 
     public Volume(long value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        unit = CUBE_METER - UNIT_SCALE;
+        setUnit(CUBE_METER - UNIT_SCALE);
     }
 
     public Volume(BigDecimal value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        unit = CUBE_METER - UNIT_SCALE;
+        setUnit(CUBE_METER - UNIT_SCALE);
     }
 
-    public Volume(double value, int unit) throws IllegalArgumentException {
+    public Volume(double value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        if (isUnitInRange()) {
-            this.unit = unit - UNIT_SCALE;
-            return;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
+        setUnit(unit - UNIT_SCALE);
     }
 
-    public Volume(String value, int unit) throws IllegalArgumentException {
+    public Volume(String value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        if (isUnitInRange()) {
-            this.unit = unit - UNIT_SCALE;
-            return;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
+        setUnit(unit - UNIT_SCALE);
     }
 
-    public Volume(long value, int unit) throws IllegalArgumentException {
+    public Volume(long value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        if (isUnitInRange()) {
-            this.unit = unit - UNIT_SCALE;
-            return;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
+        setUnit(unit - UNIT_SCALE);
     }
 
-    public Volume(BigDecimal value, int unit) throws IllegalArgumentException {
+    public Volume(BigDecimal value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        if (isUnitInRange()) {
-            this.unit = unit - 14;
-            return;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
+        setUnit(unit - UNIT_SCALE);
     }
 
 	@Contract("_, _ -> new")
@@ -235,7 +219,7 @@ public class Volume extends Unit implements IVolume {
 
     @Deprecated
     protected static Volume getInstance() {
-		if (!(instance instanceof Volume))
+		if (instance == null)
 			instance = new Volume();
 		return instance;
     }
