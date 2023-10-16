@@ -1,120 +1,57 @@
 package com.mjr.code.physics.hydrodynamics.fluidflow;
 
 public interface IFluidFlow {
-    public abstract FlowRate1 flowRate1 (
-	    double volume, 
-		double time);
+	FlowRate1 flowRate1 (double volume, double time);
 
-    public abstract FlowRate1 flowRate1 (
-		double volume,
-		int volumeUnit,
-		double time, 
-		int timeUnit,
-		int unitOfResult);
+	FlowRate1 flowRate1 (double volume, int volumeUnit, double time, int timeUnit, int unitOfResult);
         
-    public abstract FlowRate1 flowRate1();
+	FlowRate1 flowRate1();
 
-    public abstract FlowRate2 flowRate2 (
-		double area,
-		double velopcity);
+	FlowRate2 flowRate2 (double area, double velopcity);
 
-    public abstract FlowRate2 flowRate2 (
-		double area,
-		int areaUnit,
-		double velocity,
-		int velocityUnit, 
-		int unitOfResult);
+    FlowRate2 flowRate2 (double area, int areaUnit, double velocity, int velocityUnit, int unitOfResult);
         
-    public abstract FlowRate2 flowRate2();
+    FlowRate2 flowRate2();
 
-    public abstract FlowRate3 flowRate3 (
-		double ray,
-		double velocity);  
+    FlowRate3 flowRate3 (double ray, double velocity);
 
-    public abstract FlowRate3 flowRate3 (
-		double ray, 
-		int rayUnit, 
-		double velocity,
-		int velocityUnit,
-		int unitOfResult);
+    FlowRate3 flowRate3 (double ray, int rayUnit, double velocity, int velocityUnit, int unitOfResult);
         
-    public abstract FlowRate3 flowRate3();
+    FlowRate3 flowRate3();
 
-    public abstract Time time (
-		double volume,
-		double flowRate);
+    Time time (double volume, double flowRate);
 
-    public abstract Time time (
-        double volume, 
-		int volumeUnit, 
-        double flowRate,
-		int flowRateUnit,
-        int unitOfResult);
+	Time time (double volume, int volumeUnit, double flowRate, int flowRateUnit, int unitOfResult);
         
-    public abstract Time time();
+	Time time();
 
-    public abstract Volume volume (
-		double time, 
-		double flowRate);
+    Volume volume (double time, double flowRate);
 
-    public abstract Volume volume (
-		double time, 
-		int timeUnit,
-		double flowRate,
-		int flowRateUnit,
-		int unitOfResult);
+    Volume volume (double time, int timeUnit, double flowRate, int flowRateUnit, int unitOfResult);
         
-    public abstract Volume volume();
+	Volume volume();
 
-    public abstract Speed1 speed1 (
-		double flowRate, 
-		double area);
+    Speed1 speed1 (double flowRate, double area);
 
-    public abstract Speed1 speed1 (
-		double flowRate,
-		int flowRateUnit, 
-		double area,
-		int areaUnit, 
-		int unitOfResult);
-        
-    public abstract Speed1 speed1();
+    Speed1 speed1 (double flowRate, int flowRateUnit, double area, int areaUnit, int unitOfResult);
 
-    public abstract Speed2 speed2 (
-		double flowRate,
-		double ray);
+    Speed1 speed1();
 
-    public abstract Speed2 speed2 (
-		double fluidFlow,
-		int flowRateUnit, 
-		double ray,
-		int rayUnit,
-		int unitOfResult);
-        
-    public abstract Speed2 speed2();
+    Speed2 speed2 (double flowRate, double ray);
 
-    public abstract Area area (
-	    double flowRate, 
-		double velocity);
+    Speed2 speed2 (double fluidFlow, int flowRateUnit, double ray, int rayUnit, int unitOfResult);
 
-    public abstract Area area (
-		double fluidFlow,
-		int flowRateUnit, 
-		double velocity,
-		int velocityUnit, 
-		int unitOfResult);
-        
-    public abstract Area area();
+    Speed2 speed2();
 
-    public abstract Ray ray (
-		double flowRate,
-		double velocity);
+    Area area (double flowRate, double velocity);
 
-    public abstract Ray ray (
-		double flowRate,
-		int flowRateUnit, 
-		double velocity,
-		int velocityUnit, 
-		int unitOfResult);
-        
-    public abstract Ray ray();
+    Area area (double fluidFlow, int flowRateUnit, double velocity, int velocityUnit, int unitOfResult);
+
+    Area area();
+
+    Ray ray (double flowRate, double velocity);
+
+    Ray ray (double flowRate, int flowRateUnit, double velocity, int velocityUnit, int unitOfResult);
+
+    Ray ray();
 }
