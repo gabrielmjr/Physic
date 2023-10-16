@@ -1,9 +1,13 @@
 package com.mjr.code.physics.units;
 
 import lombok.Getter;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+import static com.mjr.code.physics.Physic.ROUND_SCALE;
 
 public abstract class Unit {
     @Getter
@@ -14,15 +18,15 @@ public abstract class Unit {
     protected int maxUnit;
     
     public Unit() { 
-        value = BigDecimal.ZERO;
+        setValue(BigDecimal.ZERO);
     }
 
     public Unit(double value) {
-        this.value = BigDecimal.valueOf(value);
+        setValue(BigDecimal.valueOf(value));
     }
 
     public Unit(String value) {
-        this.value = new BigDecimal(value);
+        setValue(new BigDecimal(value));
     }
 
     public Unit(long value) {
@@ -32,12 +36,22 @@ public abstract class Unit {
     public Unit(BigDecimal value) {
         this.value = value;
     }
-    
-    protected final boolean isUnitInRange(int unit) {
-        return (unit >= minUnit && unit <= maxUnit);
+
+    @Contract(pure = true)
+    protected static @NotNull BigDecimal divide(@NotNull BigDecimal dividend, BigDecimal divider) {
+        return dividend.divide(divider, ROUND_SCALE, RoundingMode.HALF_UP);
+    }
+
+    protected static @NotNull BigDecimal multiply(double dividend, BigDecimal divider) {
+        return BigDecimal.valueOf(dividend).multiply(divider);
+    }
+
+    @Contract(pure = true)
+    protected static @NotNull BigDecimal multiply(BigDecimal dividend, BigDecimal divider) {
+        return dividend.multiply(divider);
     }
     
-    protected final boolean isUnitInRange() {
+    protected boolean isUnitInRange(int unit) {
         return (unit >= minUnit && unit <= maxUnit);
     }
     
@@ -46,23 +60,22 @@ public abstract class Unit {
     }
     
     public Unit setValue(double value) {
-        this.value = BigDecimal.valueOf(value);
+        this.value = BigDecimal.valueOf(value).setScale(ROUND_SCALE, RoundingMode.HALF_UP);
         return this;
     }
     
     public Unit setValue(long value) {
-        this.value = BigDecimal.valueOf(value);
+        this.value = BigDecimal.valueOf(value).setScale(ROUND_SCALE, RoundingMode.HALF_UP);
         return this;
     }
     
     public Unit setValue(String value) {
-        this.value = new BigDecimal(value);
+        this.value = new BigDecimal(value).setScale(ROUND_SCALE, RoundingMode.HALF_UP);
         return this;
     }
 
-    public Unit setValue(BigDecimal value) {
-        this.value = value;
-        return this;
+    public void setValue(@NotNull BigDecimal value) {
+        this.value = value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Unit setUnit(int unit) throws IllegalArgumentException {
@@ -77,18 +90,16 @@ public abstract class Unit {
 
     public abstract String getUnitSymbol();
     
-    protected Unit setMinUnit(int minUnit) {
+    protected void setMinUnit(int minUnit) {
         this.minUnit = minUnit;
-        return this;
     }
 
     protected int getMinUnit() {
         return minUnit;
     }
 
-    protected Unit setMaxUnit(int maxUnit) {
+    protected void setMaxUnit(int maxUnit) {
         this.maxUnit = maxUnit;
-        return this;
     }
 
     protected int getMaxUnit() {
