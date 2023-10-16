@@ -5,23 +5,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
 
-import static com.mjr.code.physics.Physic.ROUND_SCALE;
-import static com.mjr.code.physics.units.Length.KILOMETER;
-import static com.mjr.code.physics.units.Length.HECTOMETER;
-import static com.mjr.code.physics.units.Length.DECAMETER;
-import static com.mjr.code.physics.units.Length.METER;
-import static com.mjr.code.physics.units.Length.DECIMETER;
-import static com.mjr.code.physics.units.Length.CENTIMETER;
-import static com.mjr.code.physics.units.Length.MILLIMETER;
-import static com.mjr.code.physics.units.Length.LENGTH_SCALES;
-import static com.mjr.code.physics.units.Length.KILOMETER_SYMBOL;
-import static com.mjr.code.physics.units.Length.HECTOMETER_SYMBOL;
-import static com.mjr.code.physics.units.Length.DECAMETER_SYMBOL;
-import static com.mjr.code.physics.units.Length.METER_SYMBOL;
-import static com.mjr.code.physics.units.Length.DECIMETER_SYMBOL;
-import static com.mjr.code.physics.units.Length.CENTIMETER_SYMBOL;
-import static com.mjr.code.physics.units.Length.MILLIMETER_SYMBOL;
-import static java.math.RoundingMode.HALF_UP;
+import static com.mjr.code.physics.units.Length.*;
 
 public class Area extends Unit implements IArea {
     @Deprecated
@@ -35,7 +19,7 @@ public class Area extends Unit implements IArea {
 	public static final int SQUARE_CENTIMETER = Length.LAST_UNIT_CONS + 6;
 	public static final int SQUARE_MILLIMETER = Length.LAST_UNIT_CONS + 7;
 
-    private final int UNIT_SCALE = SQUARE_KILOMETER;
+    private static final int UNIT_SCALE = SQUARE_KILOMETER;
     protected static final int LAST_UNIT_CONS = SQUARE_MILLIMETER;
     private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
 
@@ -123,36 +107,36 @@ public class Area extends Unit implements IArea {
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareKilometer(double value, int unit) {
-        return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_KILOMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_KILOMETER - UNIT_SCALE]));
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareHectometer(double value, int unit) {
-		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_HECTOMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_HECTOMETER - UNIT_SCALE]));
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareDecameter(double value, int unit) {
-		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_DECAMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_DECAMETER - UNIT_SCALE]));
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareMeter(double value, int unit) {
-		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, HALF_UP), SQUARE_METER);
+        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_METER - UNIT_SCALE]));
     }
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareDecimeter(double value, int unit) {
-		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_DECIMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_DECIMETER - UNIT_SCALE]));
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareCentimeter(double value, int unit) {
-		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_CENTIMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_CENTIMETER - UNIT_SCALE]));
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareMillimeter(double value, int unit) {
-		return new Area(BigDecimal.valueOf(value).multiply(AREA_SCALES[unit - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, HALF_UP), SQUARE_MILLIMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_MILLIMETER - UNIT_SCALE]));
     }
 
     @Override
@@ -217,7 +201,7 @@ public class Area extends Unit implements IArea {
 
     @Deprecated
     protected static Area getInstance() {
-		if (!(instance instanceof Area))
+		if (instance == null)
 			instance = new Area();
 		return instance;
     }
