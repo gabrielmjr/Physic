@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AreaTest {
 	@Test 
-	public void toSquareKilometerTest() throws IllegalArgumentException {
+	public void toSquareKilometerTest() {
 		double squareKilometerValue = NumberRandomizer.getRandomDouble();
 		double squareHectometerValue = NumberRandomizer.getRandomDouble();
 		double squareDecameterValue = NumberRandomizer.getRandomDouble();
@@ -47,7 +47,7 @@ public class AreaTest {
     } 
 
 	@Test 
-	public void toSquareHectometerTest() throws IllegalArgumentException {
+	public void toSquareHectometerTest() {
 		double squareKilometerValue = NumberRandomizer.getRandomDouble();
 		double squareHectometerValue = NumberRandomizer.getRandomDouble();
 		double squareDecameterValue = NumberRandomizer.getRandomDouble();
@@ -82,7 +82,7 @@ public class AreaTest {
     } 
 
 	@Test 
-	public void toSquareDecameterTest() throws IllegalArgumentException {
+	public void toSquareDecameterTest() {
 		double squareKilometerValue = NumberRandomizer.getRandomDouble();
 		double squareHectometerValue = NumberRandomizer.getRandomDouble();
 		double squareDecameterValue = NumberRandomizer.getRandomDouble();
@@ -117,7 +117,7 @@ public class AreaTest {
     } 
 
 	@Test 
-	public void toSquareMeterTest() throws IllegalArgumentException {
+	public void toSquareMeterTest() {
 		double squareKilometerValue = NumberRandomizer.getRandomDouble();
 		double squareHectometerValue = NumberRandomizer.getRandomDouble();
 		double squareDecameterValue = NumberRandomizer.getRandomDouble();
@@ -152,7 +152,7 @@ public class AreaTest {
     }
 
 	@Test 
-	public void toSquareDecimeterTest() throws IllegalArgumentException {
+	public void toSquareDecimeterTest() {
 		double squareKilometerValue = NumberRandomizer.getRandomDouble();
 		double squareHectometerValue = NumberRandomizer.getRandomDouble();
 		double squareDecameterValue = NumberRandomizer.getRandomDouble();
@@ -187,7 +187,7 @@ public class AreaTest {
     } 
 
 	@Test 
-	public void toSquareCentimeterTest() throws IllegalArgumentException {
+	public void toSquareCentimeterTest() {
 		double squareKilometerValue = NumberRandomizer.getRandomDouble();
 		double squareHectometerValue = NumberRandomizer.getRandomDouble();
 		double squareDecameterValue = NumberRandomizer.getRandomDouble();
@@ -222,7 +222,7 @@ public class AreaTest {
     } 
 
 	@Test 
-	public void toSquareMillimeterTest() throws IllegalArgumentException {
+	public void toSquareMillimeterTest() {
 		double squareKilometerValue = NumberRandomizer.getRandomDouble();
 		double squareHectometerValue = NumberRandomizer.getRandomDouble();
 		double squareDecameterValue = NumberRandomizer.getRandomDouble();
@@ -257,7 +257,7 @@ public class AreaTest {
     } 
 
 	@Test
-	public void toSquareKilometerFixedResultTest() throws IllegalArgumentException {
+	public void toSquareKilometerFixedResultTest() {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -292,7 +292,7 @@ public class AreaTest {
     } 
 
 	@Test
-	public void toSquareHectometerFixedResultTest() throws IllegalArgumentException {
+	public void toSquareHectometerFixedResultTest() {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -327,7 +327,7 @@ public class AreaTest {
     } 
 
 	@Test
-	public void toSquareDecameterFixedResultTest() throws IllegalArgumentException {
+	public void toSquareDecameterFixedResultTest() {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -362,7 +362,7 @@ public class AreaTest {
     } 
 
 	@Test
-	public void toSquareMeterFixedResultTest() throws IllegalArgumentException {
+	public void toSquareMeterFixedResultTest() {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -397,7 +397,7 @@ public class AreaTest {
     } 
 
 	@Test
-	public void toSquareDecimeterFixedResultTest() throws IllegalArgumentException {
+	public void toSquareDecimeterFixedResultTest() {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -432,7 +432,7 @@ public class AreaTest {
     } 
 
 	@Test
-	public void toSquareCentimeterFixedResultTest() throws IllegalArgumentException {
+	public void toSquareCentimeterFixedResultTest() {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
@@ -467,7 +467,7 @@ public class AreaTest {
     } 
 
 	@Test
-	public void toSquareMillimeterFixedResultTest() throws IllegalArgumentException {
+	public void toSquareMillimeterFixedResultTest() {
 		int squareKilometerValue = 1;
 		int squareHectometerValue = 1;
 		int squareDecameterValue = 1;
