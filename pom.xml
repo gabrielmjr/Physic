@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mjr.code</groupId>
-    <artifactId>Physic</artifactId>
+    <artifactId>physic</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -23,6 +23,18 @@
             <version>5.9.3</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>24.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.28</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -31,4 +43,21 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.artifacts.version>3.1.1</maven.artifacts.version>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClassPath>true</addClassPath>
+                            <mainClass>${groupId}.physics.Physics</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
