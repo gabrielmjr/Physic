@@ -1,9 +1,13 @@
 package com.mjr.code.physics.units;
 
-import java.math.BigDecimal;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+import static com.mjr.code.physics.Physic.ROUND_SCALE;
 import static com.mjr.code.physics.units.Length.LENGTH_SCALES;
-import static com.mjr.code.physics.units.Time.SQUARE_TIME_SCALES;
 
 import static com.mjr.code.physics.units.Length.KILOMETER;
 import static com.mjr.code.physics.units.Length.HECTOMETER;
@@ -13,10 +17,6 @@ import static com.mjr.code.physics.units.Length.DECIMETER;
 import static com.mjr.code.physics.units.Length.CENTIMETER;
 import static com.mjr.code.physics.units.Length.MILLIMETER;
 
-import static com.mjr.code.physics.units.Time.SQUARE_SECOND;
-import static com.mjr.code.physics.units.Time.SQUARE_MINUTE;
-import static com.mjr.code.physics.units.Time.SQUARE_HOUR;
-
 import static com.mjr.code.physics.units.Length.KILOMETER_SYMBOL;
 import static com.mjr.code.physics.units.Length.HECTOMETER_SYMBOL;
 import static com.mjr.code.physics.units.Length.DECAMETER_SYMBOL;
@@ -24,10 +24,7 @@ import static com.mjr.code.physics.units.Length.METER_SYMBOL;
 import static com.mjr.code.physics.units.Length.DECIMETER_SYMBOL;
 import static com.mjr.code.physics.units.Length.CENTIMETER_SYMBOL;
 import static com.mjr.code.physics.units.Length.MILLIMETER_SYMBOL;
-
-import static com.mjr.code.physics.units.Time.SQUARE_SECOND_SYMBOL;
-import static com.mjr.code.physics.units.Time.SQUARE_MINUTE_SYMBOL;
-import static com.mjr.code.physics.units.Time.SQUARE_HOUR_SYMBOL;
+import static com.mjr.code.physics.units.SquaredTime.*;
 
 public class Acceleration extends Unit implements IAcceleration {
     @Deprecated
@@ -57,38 +54,36 @@ public class Acceleration extends Unit implements IAcceleration {
 	public static final int CENTIMETER_PER_SQUARE_HOUR = Speed.LAST_UNIT_CONS + 20;
 	public static final int MILLIMETER_PER_SQUARE_HOUR = Speed.LAST_UNIT_CONS + 21;
 
-	private final int UNIT_SCALE = KILOMETER_PER_SQUARE_SECOND;
+	private static final int UNIT_SCALE = KILOMETER_PER_SQUARE_SECOND;
 	protected static final int LAST_UNIT_CONS = MILLIMETER_PER_SQUARE_HOUR;
 	private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
 
 	protected static final BigDecimal[] ACCELERATION_SCALES = new BigDecimal[]
 	{
-		LENGTH_SCALES[KILOMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND - 21]),
-		LENGTH_SCALES[HECTOMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND - 21]),
-		LENGTH_SCALES[DECAMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND - 21]),
-		LENGTH_SCALES[METER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND - 21]),
-		LENGTH_SCALES[DECIMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND - 21]),
-		LENGTH_SCALES[CENTIMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND - 21]),
-		LENGTH_SCALES[MILLIMETER].divide(SQUARE_TIME_SCALES[SQUARE_SECOND - 21]),
+		divide(LENGTH_SCALES[KILOMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
+		divide(LENGTH_SCALES[HECTOMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
+		divide(LENGTH_SCALES[DECAMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
+		divide(LENGTH_SCALES[METER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
+		divide(LENGTH_SCALES[DECIMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
+		divide(LENGTH_SCALES[CENTIMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
+		divide(LENGTH_SCALES[MILLIMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
 
-		LENGTH_SCALES[KILOMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE - 21]),
-		LENGTH_SCALES[HECTOMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE - 21]),
-		LENGTH_SCALES[DECAMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE - 21]),
-		LENGTH_SCALES[METER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE - 21]),
-		LENGTH_SCALES[DECIMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE - 21]),
-		LENGTH_SCALES[CENTIMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE - 21]),
-		LENGTH_SCALES[MILLIMETER].divide(SQUARE_TIME_SCALES[SQUARE_MINUTE - 21]),
+		divide(LENGTH_SCALES[KILOMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
+		divide(LENGTH_SCALES[HECTOMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
+		divide(LENGTH_SCALES[DECAMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
+		divide(LENGTH_SCALES[METER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
+		divide(LENGTH_SCALES[DECIMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
+		divide(LENGTH_SCALES[CENTIMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
+		divide(LENGTH_SCALES[MILLIMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
 
-		LENGTH_SCALES[KILOMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR - 21]),
-		LENGTH_SCALES[HECTOMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR - 21]),
-		LENGTH_SCALES[DECAMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR - 21]),
-		LENGTH_SCALES[METER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR - 21]),
-		LENGTH_SCALES[DECIMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR - 21]),
-		LENGTH_SCALES[CENTIMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR - 21]),
-		LENGTH_SCALES[MILLIMETER].divide(SQUARE_TIME_SCALES[SQUARE_HOUR - 21])
+		divide(LENGTH_SCALES[KILOMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
+		divide(LENGTH_SCALES[HECTOMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
+		divide(LENGTH_SCALES[DECAMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
+		divide(LENGTH_SCALES[METER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
+		divide(LENGTH_SCALES[DECIMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
+		divide(LENGTH_SCALES[CENTIMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
+		divide(LENGTH_SCALES[MILLIMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21])
 	};
-   
-    
 
 	public static final String KILOMETER_PER_SQUARE_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
 	public static final String HECTOMETER_PER_SQUARE_SECOND_SYMBOL = HECTOMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
@@ -142,189 +137,170 @@ public class Acceleration extends Unit implements IAcceleration {
     
 	public Acceleration() {
         super();
-        unit = METER;
+		setMaxUnit(MAX_UNIT_SCALE);
+		setUnit(METER_PER_SQUARE_SECOND);
+		value = value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Acceleration(double value) {
         super(value);
-        unit = METER;
+		setMaxUnit(MAX_UNIT_SCALE);
+		setUnit(METER_PER_SQUARE_SECOND);
+		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Acceleration(String value) {
         super(value);
-        unit = METER;
+		setMaxUnit(MAX_UNIT_SCALE);
+		setUnit(METER_PER_SQUARE_SECOND);
+		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Acceleration(long value) {
         super(value);
-        unit = METER;
+		setMaxUnit(MAX_UNIT_SCALE);
+		setUnit(METER_PER_SQUARE_SECOND);
+		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Acceleration(BigDecimal value) {
         super(value);
-        unit = METER;
+		setMaxUnit(MAX_UNIT_SCALE);
+		setUnit(METER_PER_SQUARE_SECOND);
+		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
-    public Acceleration(double value, int unit) throws IllegalArgumentException {
+    public Acceleration(double value, int unit) {
         super(value);
-        if (unit >= 52 && unit <= 72) {
-            this.unit = unit;
-            return;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
+		setMaxUnit(MAX_UNIT_SCALE);
+		setUnit(unit - UNIT_SCALE);
+		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
-    public Acceleration(String value, int unit) throws IllegalArgumentException {
+    public Acceleration(String value, int unit) {
         super(value);
-        if (unit >= 52 && unit <= 72) {
-            this.unit = unit;
-            return;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
+		setMaxUnit(MAX_UNIT_SCALE);
+		setUnit(unit - UNIT_SCALE);
+		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Acceleration(long value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 52 && unit <= 72) {
-            this.unit = unit;
-            return;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
+		setMaxUnit(MAX_UNIT_SCALE);
+		setUnit(unit - UNIT_SCALE);
+		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Acceleration(BigDecimal value, int unit) throws IllegalArgumentException {
         super(value);
-        if (unit >= 52 && unit <= 72) {
-            this.unit = unit;
-            return;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit");
+		setMaxUnit(MAX_UNIT_SCALE);
+		setUnit(unit - UNIT_SCALE);
+		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
-	public static Acceleration toKilometerPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-	    if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[KILOMETER_PER_SQUARE_SECOND - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toKilometerPerSquareSecond(double value, int unit) {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[KILOMETER_PER_SQUARE_SECOND - UNIT_SCALE]));
 	}
 
-	public static Acceleration toHectometerPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_SECOND - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toHectometerPerSquareSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_SECOND- UNIT_SCALE]));
 	}
 
-	public static Acceleration toDecameterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECAMETER_PER_SQUARE_SECOND - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toDecameterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECAMETER_PER_SQUARE_SECOND - UNIT_SCALE]));
     }
 
-	public static Acceleration toMeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[METER_PER_SQUARE_SECOND - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toMeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[METER_PER_SQUARE_SECOND - UNIT_SCALE]));
 	}
 
-	public static Acceleration toDecimeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECIMETER_PER_SQUARE_SECOND - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toDecimeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECIMETER_PER_SQUARE_SECOND - UNIT_SCALE]));
 	}
 
-	public static Acceleration toCentimeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_SECOND - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toCentimeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_SECOND - UNIT_SCALE]));
     }
 
-	public static Acceleration toMillimeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_SECOND - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toMillimeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_SECOND- UNIT_SCALE]));
 	}
 
-	public static Acceleration toKilometerPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[KILOMETER_PER_SQUARE_MINUTE - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toKilometerPerSquareMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[KILOMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
     }
 
-	public static Acceleration toHectometerPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_MINUTE - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toHectometerPerSquareMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
 	}
 
-	public static Acceleration toDecameterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECAMETER_PER_SQUARE_MINUTE - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toDecameterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECAMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
 	}
 
-	public static Acceleration toMeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[METER_PER_SQUARE_MINUTE - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toMeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[METER_PER_SQUARE_MINUTE - UNIT_SCALE]));
 	}
 
-	public static Acceleration toDecimeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECIMETER_PER_SQUARE_MINUTE - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toDecimeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECIMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
 	}
 
-	public static Acceleration toCentimeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_MINUTE - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toCentimeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
 	}
 
-	public static Acceleration toMillimeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_MINUTE - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toMillimeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
 	}
 
-	public static Acceleration toKilometerPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[KILOMETER_PER_SQUARE_HOUR - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toKilometerPerSquareHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[KILOMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
 	}
 
-	public static Acceleration toHectometerPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_HOUR - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toHectometerPerSquareHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
 	}
 
-	public static Acceleration toDecameterPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECAMETER_PER_SQUARE_HOUR - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toDecameterPerSquareHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECAMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
 	}
 
-	public static Acceleration toMeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[METER_PER_SQUARE_HOUR - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toMeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[METER_PER_SQUARE_HOUR - UNIT_SCALE]));
 	}
 
-	public static Acceleration toDecimeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[DECIMETER_PER_SQUARE_HOUR - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toDecimeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECIMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
 	}
 
-	public static Acceleration toCentimeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_HOUR - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toCentimeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
 	}
 
-	public static Acceleration toMillimeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		if (unit >= 52 && unit <= 72)
-			return new Acceleration(BigDecimal.valueOf(value).multiply(ACCELERATION_SCALES[unit - 52]).divide(ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_HOUR - 52]), unit);
-		throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit");
+	@Contract("_, _ -> new")
+	public static @NotNull Acceleration toMillimeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
 	}
 
     @Override
@@ -442,15 +418,6 @@ public class Acceleration extends Unit implements IAcceleration {
 		return unit == (METER_PER_SQUARE_SECOND - UNIT_SCALE);
 	}
 
-	@Override
-    public Unit setUnit(int unit) throws IllegalArgumentException {
-        if (unit >= 52 && unit <= 72) {
-            super.setUnit(unit);
-            return this;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + new Acceleration().getClass().getName() + " unit.");
-    }
-
     @Override
     public String getUnitSymbol() {
         return ACCELERATION_SYMBOLS[unit];
@@ -458,7 +425,7 @@ public class Acceleration extends Unit implements IAcceleration {
     
     @Deprecated
 	protected Acceleration getInstance() {
-		if (!(instance instanceof Acceleration))
+		if (instance == null)
 			instance = new Acceleration();
 		return instance;
 	}
