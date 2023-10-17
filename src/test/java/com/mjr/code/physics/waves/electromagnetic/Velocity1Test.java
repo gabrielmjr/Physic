@@ -1,4 +1,4 @@
-package com.mjr.code.physics.physics.waves.electromagnetic;
+package com.mjr.code.physics.waves.electromagnetic;
 
 import com.mjr.code.physics.waves.electromagnetic.Electromagnetic;
 import org.junit.jupiter.api.Test;

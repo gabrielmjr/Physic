@@ -1,9 +1,8 @@
-package com.mjr.code.physics.physics.hydrodynamics.fluidflow;
+package com.mjr.code.physics.hydrodynamics.fluidflow;
 
-import com.mjr.code.physics.hydrodynamics.fluidflow.FluidFlow;
 import org.junit.jupiter.api.Test;
 
-import static com.mjr.code.physics.physics.NumberRandomizer.getRandomDouble;
+import static com.mjr.code.physics.NumberRandomizer.getRandomDouble;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FlowRate3Test {

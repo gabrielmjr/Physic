@@ -1,4 +1,4 @@
-package com.mjr.code.physics.physics.kinematics.uvm;
+package com.mjr.code.physics.kinematics.uvm;
 
 import com.mjr.code.physics.kinematics.uvm.UniformlyVariedMovement;
 import org.junit.jupiter.api.Test;

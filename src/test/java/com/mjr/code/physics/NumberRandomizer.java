@@ -1,4 +1,4 @@
-package com.mjr.code.physics.physics;
+package com.mjr.code.physics;
 
 import java.util.Random;
 

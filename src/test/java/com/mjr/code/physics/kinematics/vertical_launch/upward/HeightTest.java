@@ -1,4 +1,4 @@
-package com.mjr.code.physics.physics.kinematics.vertical_launch.upward;
+package com.mjr.code.physics.kinematics.vertical_launch.upward;
 
 import com.mjr.code.physics.kinematics.vertical_launch.upward.UpWard;
 import org.junit.jupiter.api.Test;

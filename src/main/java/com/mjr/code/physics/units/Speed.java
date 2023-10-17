@@ -58,35 +58,35 @@ public class Speed extends Unit implements ISpeed {
 	public static final int CENTIMETER_PER_HOUR = Time.LAST_UNIT_CONS + 20;
 	public static final int MILLIMETER_PER_HOUR = Time.LAST_UNIT_CONS + 21;
 
-    private final int UNIT_SCALE = KILOMETER_PER_SECOND;
+    private static final int UNIT_SCALE = KILOMETER_PER_SECOND;
     protected static final int LAST_UNIT_CONS = MILLIMETER_PER_HOUR;
     private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
 
 	protected static final BigDecimal[] SPEED_SCALES = new BigDecimal[]
 	{
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[SECOND - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		divide(LENGTH_SCALES[KILOMETER], TIME_SCALES[SECOND - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[HECTOMETER], TIME_SCALES[SECOND - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[DECAMETER], TIME_SCALES[SECOND - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[METER], TIME_SCALES[SECOND - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[DECIMETER], TIME_SCALES[SECOND - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[CENTIMETER], TIME_SCALES[SECOND - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[MILLIMETER], TIME_SCALES[SECOND - Time.UNIT_SCALE]),
 
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[MINUTE - 21], ROUND_SCALE, RoundingMode.HALF_UP),
+		divide(LENGTH_SCALES[KILOMETER], TIME_SCALES[MINUTE - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[HECTOMETER], TIME_SCALES[MINUTE - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[DECAMETER], TIME_SCALES[MINUTE - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[METER], TIME_SCALES[MINUTE - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[DECIMETER], TIME_SCALES[MINUTE - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[CENTIMETER], TIME_SCALES[MINUTE - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[MILLIMETER], TIME_SCALES[MINUTE - Time.UNIT_SCALE]),
 
-		LENGTH_SCALES[KILOMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[HECTOMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECAMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[METER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[DECIMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[CENTIMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP),
-		LENGTH_SCALES[MILLIMETER].divide(TIME_SCALES[HOUR - 21], ROUND_SCALE, RoundingMode.HALF_UP)
+		divide(LENGTH_SCALES[KILOMETER], TIME_SCALES[HOUR - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[HECTOMETER], TIME_SCALES[HOUR - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[DECAMETER], TIME_SCALES[HOUR - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[METER], TIME_SCALES[HOUR - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[DECIMETER], TIME_SCALES[HOUR - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[CENTIMETER], TIME_SCALES[HOUR - Time.UNIT_SCALE]),
+		divide(LENGTH_SCALES[MILLIMETER], TIME_SCALES[HOUR - Time.UNIT_SCALE]),
 	};
 
 	public static final String KILOMETER_PER_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SECOND_SYMBOL;
@@ -141,68 +141,59 @@ public class Speed extends Unit implements ISpeed {
         super();
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(METER_PER_SECOND - UNIT_SCALE);
-		value = value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Speed(double value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(METER_PER_SECOND - UNIT_SCALE);
-        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(String value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(METER_PER_SECOND - UNIT_SCALE);
-        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(long value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(METER_PER_SECOND - UNIT_SCALE);
-        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(BigDecimal value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(METER_PER_SECOND - UNIT_SCALE);
-        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(double value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit - UNIT_SCALE);
-        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(String value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit - UNIT_SCALE);
-        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(long value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit - UNIT_SCALE);
-        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
     public Speed(BigDecimal value, int unit) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit - UNIT_SCALE);
-        this.value = this.value.setScale(20, RoundingMode.HALF_UP);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Speed toKilometerPerSecond(double value, int unit) {
-        return new Speed(BigDecimal.valueOf(value).multiply(SPEED_SCALES[unit - 31]).divide(SPEED_SCALES[KILOMETER_PER_SECOND - 31], ROUND_SCALE, RoundingMode.HALF_UP), KILOMETER_PER_SECOND);
+        return new Speed(divide(multiply(value, SPEED_SCALES[unit - UNIT_SCALE]), SPEED_SCALES[KILOMETER_PER_SECOND - UNIT_SCALE]));
     }
 
 	@Contract("_, _ -> new")

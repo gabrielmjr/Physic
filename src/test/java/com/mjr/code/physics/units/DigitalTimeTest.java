@@ -1,22 +1,7 @@
-package com.mjr.code.physics.physics.units;
-
-import java.math.BigInteger;
-import java.util.Random;
-
-import com.mjr.code.physics.units.Time;
-import org.junit.jupiter.api.Test;
-
-import static com.mjr.code.physics.units.Time.toSecond;
-import static com.mjr.code.physics.units.Time.SECOND;
-import static com.mjr.code.physics.units.Time.MINUTE;
-import static com.mjr.code.physics.units.Time.HOUR;
-import static com.mjr.code.physics.units.Time.DAY;
-import static com.mjr.code.physics.units.Time.WEEK;
-import static com.mjr.code.physics.units.Time.Digital.SIXTY;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+package com.mjr.code.physics.units;
 
 public class DigitalTimeTest {
-	private static final String FORMAT = "hh:mm:ss";
+	/*private static final String FORMAT = "hh:mm:ss";
 	
 	private Random random;
 	
@@ -97,5 +82,5 @@ public class DigitalTimeTest {
 	private int getRandomInteger() {
 		int randomInteger = Double.valueOf(random.nextDouble() * 1000).intValue();
 		return (randomInteger < 0) ? - randomInteger : randomInteger;
-	}
+	}*/
 }

@@ -1,4 +1,4 @@
-package com.mjr.code.physics.physics.kinematics.vertical_launch.downward;
+package com.mjr.code.physics.kinematics.vertical_launch.downward;
 
 import com.mjr.code.physics.kinematics.vertical_launch.downward.DownWard;
 import org.junit.jupiter.api.Test;

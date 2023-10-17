@@ -1,30 +1,13 @@
-package com.mjr.code.physics.physics.units;
+package com.mjr.code.physics.units;
+
+import com.mjr.code.physics.NumberRandomizer;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import com.mjr.code.physics.physics.NumberRandomizer;
-import com.mjr.code.physics.units.Area;
-import org.junit.jupiter.api.Test;
-
-import static com.mjr.code.physics.physics.NumberRandomizer.getRandomDouble;
 import static com.mjr.code.physics.Physic.ROUND_SCALE;
-import static com.mjr.code.physics.units.Area.toSquareKilometer;
-import static com.mjr.code.physics.units.Area.toSquareHectometer;
-import static com.mjr.code.physics.units.Area.toSquareDecameter;
-import static com.mjr.code.physics.units.Area.toSquareMeter;
-import static com.mjr.code.physics.units.Area.toSquareDecimeter;
-import static com.mjr.code.physics.units.Area.toSquareCentimeter;
-import static com.mjr.code.physics.units.Area.toSquareMillimeter;
-import static com.mjr.code.physics.units.Area.AREA_SCALES;
-import static com.mjr.code.physics.units.Area.SQUARE_KILOMETER;
-import static com.mjr.code.physics.units.Area.SQUARE_HECTOMETER;
-import static com.mjr.code.physics.units.Area.SQUARE_DECAMETER;
-import static com.mjr.code.physics.units.Area.SQUARE_METER;
-import static com.mjr.code.physics.units.Area.SQUARE_DECIMETER;
-import static com.mjr.code.physics.units.Area.SQUARE_CENTIMETER;
-import static com.mjr.code.physics.units.Area.SQUARE_MILLIMETER;
-
+import static com.mjr.code.physics.units.Area.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AreaTest {

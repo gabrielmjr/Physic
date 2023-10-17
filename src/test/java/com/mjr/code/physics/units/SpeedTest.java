@@ -1,13 +1,12 @@
-package com.mjr.code.physics.physics.units;
+package com.mjr.code.physics.units;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import com.mjr.code.physics.physics.NumberRandomizer;
-import com.mjr.code.physics.units.Speed;
+import com.mjr.code.physics.NumberRandomizer;
 import org.junit.jupiter.api.Test;
 
-import static com.mjr.code.physics.physics.NumberRandomizer.getRandomDouble;
+import static com.mjr.code.physics.NumberRandomizer.getRandomDouble;
 import static com.mjr.code.physics.Physic.ROUND_SCALE;
 import static com.mjr.code.physics.units.Speed.toKilometerPerSecond;
 import static com.mjr.code.physics.units.Speed.toHectometerPerSecond;

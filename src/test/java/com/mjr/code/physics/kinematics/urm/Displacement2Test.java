@@ -1,4 +1,4 @@
-package com.mjr.code.physics.physics.kinematics.urm;
+package com.mjr.code.physics.kinematics.urm;
 
 import com.mjr.code.physics.kinematics.urm.UniformRectilinearMovement;
 import com.mjr.code.physics.units.Speed;
