@@ -17,7 +17,7 @@ public class Length extends Unit implements ILength {
     public static final int CENTIMETER = 5;
     public static final int MILLIMETER = 6;
 
-    private final int MAX_UNIT_SCALE = 6;
+    private final int MAX_UNIT_SCALE = MILLIMETER;
     protected static final int LAST_UNIT_CONS = MILLIMETER;
 
     protected static final BigDecimal[] LENGTH_SCALES = new BigDecimal[]
@@ -81,25 +81,25 @@ public class Length extends Unit implements ILength {
 
     public Length(double value, int unit) {
         super(value);
-        setMaxUnit(MILLIMETER);
+        setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit);
     }
 
     public Length(String value, int unit) {
         super(value);
-        setMaxUnit(MILLIMETER);
+        setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit);
     }
 
     public Length(long value, int unit) {
         super(value);
-        setMaxUnit(MILLIMETER);
+        setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit);
     }
 
     public Length(BigDecimal value, int unit) {
         super(value);
-        setMaxUnit(MILLIMETER);
+        setMaxUnit(MAX_UNIT_SCALE);
         setUnit(unit);
     }
 
@@ -135,7 +135,7 @@ public class Length extends Unit implements ILength {
 
 	@Contract("_, _ -> new")
     public static @NotNull Length toMillimeter(double value, int unit) throws IllegalArgumentException {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[MILLIMETER]));
+        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[MILLIMETER]), MILLIMETER);
     }
 
     @Override
