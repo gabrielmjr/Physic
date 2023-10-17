@@ -10,10 +10,12 @@ import java.math.RoundingMode;
 import static com.mjr.code.physics.Physic.ROUND_SCALE;
 
 public abstract class Unit {
+    protected final int MIN_UNIT = 0;
     @Getter
     protected BigDecimal value;
     @Getter
     protected int unit;
+    @Deprecated(forRemoval = true)
     protected int minUnit = 0;
     protected int maxUnit;
     
@@ -22,19 +24,19 @@ public abstract class Unit {
     }
 
     public Unit(double value) {
-        setValue(BigDecimal.valueOf(value));
+        setValue(value);
     }
 
     public Unit(String value) {
-        setValue(new BigDecimal(value));
+        setValue(value);
     }
 
     public Unit(long value) {
-        this.value = BigDecimal.valueOf(value);
+        setValue(value);
     }
 
     public Unit(BigDecimal value) {
-        this.value = value;
+        setValue(value);
     }
 
     @Contract(pure = true)
@@ -47,12 +49,12 @@ public abstract class Unit {
     }
 
     @Contract(pure = true)
-    protected static @NotNull BigDecimal multiply(BigDecimal dividend, BigDecimal divider) {
+    protected static @NotNull BigDecimal multiply(@NotNull BigDecimal dividend, BigDecimal divider) {
         return dividend.multiply(divider);
     }
     
     protected boolean isUnitInRange(int unit) {
-        return (unit >= minUnit && unit <= maxUnit);
+        return (unit >= MIN_UNIT && unit <= maxUnit);
     }
     
     public boolean equalUnit(@NotNull Unit unit) {
@@ -89,11 +91,13 @@ public abstract class Unit {
     public abstract boolean isInInternationalSystem();
 
     public abstract String getUnitSymbol();
-    
+
+    @Deprecated(forRemoval = true)
     protected void setMinUnit(int minUnit) {
         this.minUnit = minUnit;
     }
 
+    @Deprecated(forRemoval = true)
     protected int getMinUnit() {
         return minUnit;
     }
@@ -102,6 +106,7 @@ public abstract class Unit {
         this.maxUnit = maxUnit;
     }
 
+    @Deprecated(forRemoval = true)
     protected int getMaxUnit() {
         return maxUnit;
     }
