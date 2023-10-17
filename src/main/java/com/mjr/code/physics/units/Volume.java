@@ -108,37 +108,37 @@ public class Volume extends Unit implements IVolume {
 
 	@Contract("_, _ -> new")
     public static @NotNull Volume toCubeKilometer(double value, int unit) {
-		return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_KILOMETER - UNIT_SCALE]));
+		return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_KILOMETER - UNIT_SCALE]), CUBE_KILOMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Volume toCubeHectometer(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_HECTOMETER - UNIT_SCALE]));
+        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_HECTOMETER - UNIT_SCALE]), CUBE_HECTOMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Volume toCubeDecameter(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_DECAMETER - UNIT_SCALE]));
+        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_DECAMETER - UNIT_SCALE]), CUBE_DECAMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Volume toCubeMeter(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_METER - UNIT_SCALE]));
+        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_METER - UNIT_SCALE]), CUBE_METER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Volume toCubeDecimeter(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_DECIMETER - UNIT_SCALE]));
+        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_DECIMETER - UNIT_SCALE]), CUBE_DECIMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Volume toCubeCentimeter(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_CENTIMETER - UNIT_SCALE]));
+        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_CENTIMETER - UNIT_SCALE]), CUBE_CENTIMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Volume toCubeMillimeter(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_MILLIMETER - UNIT_SCALE]));
+        return new Volume(divide(multiply(value, VOLUME_SCALES[unit - UNIT_SCALE]), VOLUME_SCALES[CUBE_MILLIMETER - UNIT_SCALE]), CUBE_MILLIMETER);
     }
     
     @Override

@@ -105,32 +105,32 @@ public class Length extends Unit implements ILength {
 
 	@Contract("_, _ -> new")
     public static @NotNull Length toKilometer(double value, int unit) {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[KILOMETER]));
+        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[KILOMETER]), KILOMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Length toHectometer(double value, int unit) {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[HECTOMETER]));
+        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[HECTOMETER]), HECTOMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Length toDecameter(double value, int unit) throws IllegalArgumentException {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[DECAMETER]));
+        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[DECAMETER]), DECAMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Length toMeter(double value, int unit) throws IllegalArgumentException {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[METER]));
+        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[METER]), METER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Length toDecimeter(double value, int unit) throws IllegalArgumentException {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[DECIMETER]));
+        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[DECIMETER]), DECIMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Length toCentimeter(double value, int unit) throws IllegalArgumentException {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[CENTIMETER]));
+        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[CENTIMETER]), CENTIMETER);
     }
 
 	@Contract("_, _ -> new")
