@@ -16,19 +16,18 @@ public class Length extends Unit implements ILength {
     public static final int DECIMETER = 4;
     public static final int CENTIMETER = 5;
     public static final int MILLIMETER = 6;
-
     private final int MAX_UNIT_SCALE = MILLIMETER;
     protected static final int LAST_UNIT_CONS = MILLIMETER;
 
     protected static final BigDecimal[] LENGTH_SCALES = new BigDecimal[]
     {
         BigDecimal.valueOf(1.0),
-        BigDecimal.valueOf(0.1),
-        BigDecimal.valueOf(0.01),
-        BigDecimal.valueOf(0.001),
-        BigDecimal.valueOf(0.0001),
-        BigDecimal.valueOf(0.00001),
-        BigDecimal.valueOf(0.000001)
+        BigDecimal.valueOf(10.0),
+        BigDecimal.valueOf(100.0),
+        BigDecimal.valueOf(1000.0),
+        BigDecimal.valueOf(10000.0),
+        BigDecimal.valueOf(100000.0),
+        BigDecimal.valueOf(1000000.0)
     };
 
     public static final String KILOMETER_SYMBOL = "km";
@@ -105,84 +104,84 @@ public class Length extends Unit implements ILength {
 
 	@Contract("_, _ -> new")
     public static @NotNull Length toKilometer(double value, int unit) {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[KILOMETER]), KILOMETER);
+        return new Length(divide(multiply(value, LENGTH_SCALES[KILOMETER]), LENGTH_SCALES[unit]), KILOMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Length toHectometer(double value, int unit) {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[HECTOMETER]), HECTOMETER);
+        return new Length(divide(multiply(value, LENGTH_SCALES[HECTOMETER]), LENGTH_SCALES[unit]), HECTOMETER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Length toDecameter(double value, int unit) throws IllegalArgumentException {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[DECAMETER]), DECAMETER);
+    public static @NotNull Length toDecameter(double value, int unit) {
+        return new Length(divide(multiply(value, LENGTH_SCALES[DECAMETER]), LENGTH_SCALES[unit]), DECAMETER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Length toMeter(double value, int unit) throws IllegalArgumentException {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[METER]), METER);
+    public static @NotNull Length toMeter(double value, int unit) {
+        return new Length(divide(multiply(value, LENGTH_SCALES[METER]), LENGTH_SCALES[unit]), METER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Length toDecimeter(double value, int unit) throws IllegalArgumentException {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[DECIMETER]), DECIMETER);
+    public static @NotNull Length toDecimeter(double value, int unit) {
+        return new Length(divide(multiply(value, LENGTH_SCALES[DECIMETER]), LENGTH_SCALES[unit]), DECIMETER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Length toCentimeter(double value, int unit) throws IllegalArgumentException {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[CENTIMETER]), CENTIMETER);
+    public static @NotNull Length toCentimeter(double value, int unit) {
+        return new Length(divide(multiply(value, LENGTH_SCALES[CENTIMETER]), LENGTH_SCALES[unit]), CENTIMETER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Length toMillimeter(double value, int unit) throws IllegalArgumentException {
-        return new Length(divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[MILLIMETER]), MILLIMETER);
+    public static @NotNull Length toMillimeter(double value, int unit) {
+        return new Length(divide(multiply(value, LENGTH_SCALES[MILLIMETER]), LENGTH_SCALES[unit]), MILLIMETER);
     }
 
     @Override
     public Length toKilometer() {
-        value = divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[KILOMETER]);
+        value = divide(multiply(value, LENGTH_SCALES[KILOMETER]), LENGTH_SCALES[unit]);
         unit = KILOMETER;
         return this;
     }
 
     @Override
     public Length toHectometer() {
-        value = divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[HECTOMETER]);
+        value = divide(multiply(value, LENGTH_SCALES[HECTOMETER]), LENGTH_SCALES[unit]);
         unit = HECTOMETER;
         return this;
     }
 
     @Override
     public Length toDecameter() {
-        value = divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[DECAMETER]);
+        value = divide(multiply(value, LENGTH_SCALES[DECAMETER]), LENGTH_SCALES[unit]);
         unit = DECAMETER;
         return this;
     }
 
     @Override
     public Length toMeter() {
-        value = divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[METER]);
+        value = divide(multiply(value, LENGTH_SCALES[METER]), LENGTH_SCALES[unit]);
         unit = METER;
         return this;
     }
 
     @Override
     public Length toDecimeter() {
-        value = divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[DECIMETER]);
+        value = divide(multiply(value, LENGTH_SCALES[DECIMETER]), LENGTH_SCALES[unit]);
         unit = DECIMETER;
         return this;
     }
 
     @Override
     public Length toCentimeter() {
-        value = divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[CENTIMETER]);
+        value = divide(multiply(value, LENGTH_SCALES[CENTIMETER]), LENGTH_SCALES[unit]);
         unit = CENTIMETER;
         return this;
     }
 
     @Override
     public Length toMillimeter() {
-        value = divide(multiply(value, LENGTH_SCALES[unit]), LENGTH_SCALES[MILLIMETER]);
+        value = divide(multiply(value, LENGTH_SCALES[MILLIMETER]), LENGTH_SCALES[unit]);
         unit = MILLIMETER;
         return this;
     }
