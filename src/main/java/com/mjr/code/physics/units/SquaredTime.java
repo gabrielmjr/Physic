@@ -1,13 +1,11 @@
 package com.mjr.code.physics.units;
 
-import com.mjr.code.physics.Physic;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
 
 import static com.mjr.code.physics.units.Time.*;
-import static java.math.RoundingMode.HALF_UP;
 
 public class SquaredTime extends Unit implements ISquaredTime {
 
@@ -30,12 +28,14 @@ public class SquaredTime extends Unit implements ISquaredTime {
                     TIME_SCALES[SQUARE_SECOND - UNIT_SCALE].pow(2)
             };
 
+    public static final String SQUARE_WEEK_SYMBOL = WEEK_IN_YEAR_SYMBOL + "²";
     public static final String SQUARE_DAY_SYMBOL = DAY_SYMBOL + "²";
     public static final String SQUARE_HOUR_SYMBOL = HOUR_SYMBOL + "²";
     public static final String SQUARE_MINUTE_SYMBOL = MINUTE_SYMBOL + "²";
     public static final String SQUARE_SECOND_SYMBOL = SECOND_SYMBOL + "²";
 
     protected static final String[] SQUARED_TIME_SYMBOLS = new String[] {
+            SQUARE_WEEK_SYMBOL,
             SQUARE_DAY_SYMBOL,
             SQUARE_HOUR_SYMBOL,
             SQUARE_MINUTE_SYMBOL,
@@ -98,27 +98,27 @@ public class SquaredTime extends Unit implements ISquaredTime {
 
     @Contract("_, _ -> new")
     public static @NotNull SquaredTime toSquareSecond(double value, int unit) {
-        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_TIME_SCALES[SQUARE_SECOND - UNIT_SCALE]));
+        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SQUARE_SECOND - UNIT_SCALE]), SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARE_SECOND);
     }
 
     @Contract("_, _ -> new")
     public static @NotNull SquaredTime toSquareMinute(double value, int unit) {
-        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_TIME_SCALES[SQUARE_MINUTE - UNIT_SCALE]));
+        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SQUARE_MINUTE - UNIT_SCALE]), SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARE_MINUTE);
     }
 
     @Contract("_, _ -> new")
     public static @NotNull SquaredTime toSquareHour(double value, int unit) {
-        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_TIME_SCALES[SQUARE_HOUR - UNIT_SCALE]));
+        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SQUARE_HOUR - UNIT_SCALE]), SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARE_HOUR);
     }
 
     @Contract("_, _ -> new")
     public static @NotNull SquaredTime toSquareDay(double value, int unit) {
-        return new SquaredTime(BigDecimal.valueOf(value).multiply(SQUARED_TIME_SCALES[SQUARE_DAY - UNIT_SCALE]).divide(SQUARED_TIME_SCALES[unit - UNIT_SCALE], Physic.ROUND_SCALE, HALF_UP), SQUARE_DAY);
+        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SQUARE_DAY - UNIT_SCALE]), SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARE_DAY);
     }
 
     @Contract("_, _ -> new")
     public static @NotNull SquaredTime toSquareWeek(double value, int unit) {
-        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_TIME_SCALES[SQUARE_DAY - UNIT_SCALE]));
+        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SQUARE_WEEK - UNIT_SCALE]), SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARE_WEEK);
     }
 
     @Override
@@ -154,6 +154,21 @@ public class SquaredTime extends Unit implements ISquaredTime {
         setUnit(SQUARE_WEEK - UNIT_SCALE);
         value = divide(multiply(value, SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_TIME_SCALES[SQUARE_WEEK - UNIT_SCALE]);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return value + SQUARED_TIME_SYMBOLS[unit];
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        try {
+            SquaredTime squareTime = (SquaredTime) object;
+            return squareTime.toString().equals(toString());
+        } catch (ClassCastException e) {
+            return false;
+        }
     }
 
     @Override
