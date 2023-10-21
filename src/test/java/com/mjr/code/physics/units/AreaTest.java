@@ -3,31 +3,27 @@ package com.mjr.code.physics.units;
 import com.mjr.code.physics.NumberRandomizer;
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
-import static com.mjr.code.physics.Physic.ROUND_SCALE;
 import static com.mjr.code.physics.units.Area.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AreaTest {
-	@Test 
-	public void toSquareKilometerTest() {
-		double squareKilometerValue = NumberRandomizer.getRandomDouble();
-		double squareHectometerValue = NumberRandomizer.getRandomDouble();
-		double squareDecameterValue = NumberRandomizer.getRandomDouble();
-		double squareMeterValue = NumberRandomizer.getRandomDouble();
-		double squareDecimeterValue = NumberRandomizer.getRandomDouble();
-		double squareCentimeterValue = NumberRandomizer.getRandomDouble();
-	    double squareMillimeterValue = NumberRandomizer.getRandomDouble();
+public class AreaTest extends UnitTest {
+    @Test
+    public void toSquareKilometerTest() {
+        double squareKilometerValue = NumberRandomizer.getRandomDouble();
+        double squareHectometerValue = NumberRandomizer.getRandomDouble();
+        double squareDecameterValue = NumberRandomizer.getRandomDouble();
+        double squareMeterValue = NumberRandomizer.getRandomDouble();
+        double squareDecimeterValue = NumberRandomizer.getRandomDouble();
+        double squareCentimeterValue = NumberRandomizer.getRandomDouble();
+        double squareMillimeterValue = NumberRandomizer.getRandomDouble();
 
-        Area squareKilometerTestResult = new Area(BigDecimal.valueOf(squareKilometerValue).multiply(AREA_SCALES[SQUARE_KILOMETER - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_KILOMETER);
-        Area squareHectometerTestResult = new Area(BigDecimal.valueOf(squareHectometerValue).multiply(AREA_SCALES[SQUARE_HECTOMETER - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_KILOMETER);
-        Area squareDecameterTestResult = new Area(BigDecimal.valueOf(squareDecameterValue).multiply(AREA_SCALES[SQUARE_DECAMETER - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_KILOMETER);
-        Area squareMeterTestResult = new Area(BigDecimal.valueOf(squareMeterValue).multiply(AREA_SCALES[SQUARE_METER - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_KILOMETER);
-        Area squareDecimeterTestResult = new Area(BigDecimal.valueOf(squareDecimeterValue).multiply(AREA_SCALES[SQUARE_DECIMETER - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_KILOMETER);
-        Area squareCentimeterTestResult = new Area(BigDecimal.valueOf(squareCentimeterValue).multiply(AREA_SCALES[SQUARE_CENTIMETER - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_KILOMETER);
-        Area squareMillimeterTestResult = new Area(BigDecimal.valueOf(squareMillimeterValue).multiply(AREA_SCALES[SQUARE_MILLIMETER - 7]).divide(AREA_SCALES[SQUARE_KILOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_KILOMETER);
+        Area squareKilometerTestResult = convert(squareKilometerValue, SQUARE_KILOMETER, SQUARE_KILOMETER);
+        Area squareHectometerTestResult = convert(squareHectometerValue, SQUARE_HECTOMETER, SQUARE_KILOMETER);
+        Area squareDecameterTestResult = convert(squareDecameterValue, SQUARE_DECAMETER, SQUARE_KILOMETER);
+        Area squareMeterTestResult = convert(squareMeterValue, SQUARE_METER, SQUARE_KILOMETER);
+        Area squareDecimeterTestResult = convert(squareDecimeterValue, SQUARE_DECIMETER, SQUARE_KILOMETER);
+        Area squareCentimeterTestResult = convert(squareCentimeterValue, SQUARE_CENTIMETER, SQUARE_KILOMETER);
+        Area squareMillimeterTestResult = convert(squareMillimeterValue, SQUARE_MILLIMETER, SQUARE_KILOMETER);
 
         Area squareKilometerResult = toSquareKilometer(squareKilometerValue, SQUARE_KILOMETER);
         Area squareHectometerResult = toSquareKilometer(squareHectometerValue, SQUARE_HECTOMETER);
@@ -44,25 +40,25 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test 
-	public void toSquareHectometerTest() {
-		double squareKilometerValue = NumberRandomizer.getRandomDouble();
-		double squareHectometerValue = NumberRandomizer.getRandomDouble();
-		double squareDecameterValue = NumberRandomizer.getRandomDouble();
-		double squareMeterValue = NumberRandomizer.getRandomDouble();
-		double squareDecimeterValue = NumberRandomizer.getRandomDouble();
-		double squareCentimeterValue = NumberRandomizer.getRandomDouble();
-		double squareMillimeterValue = NumberRandomizer.getRandomDouble();
+    @Test
+    public void toSquareHectometerTest() {
+        double squareKilometerValue = NumberRandomizer.getRandomDouble();
+        double squareHectometerValue = NumberRandomizer.getRandomDouble();
+        double squareDecameterValue = NumberRandomizer.getRandomDouble();
+        double squareMeterValue = NumberRandomizer.getRandomDouble();
+        double squareDecimeterValue = NumberRandomizer.getRandomDouble();
+        double squareCentimeterValue = NumberRandomizer.getRandomDouble();
+        double squareMillimeterValue = NumberRandomizer.getRandomDouble();
 
-        Area squareKilometerTestResult = new Area(BigDecimal.valueOf(squareKilometerValue).multiply(AREA_SCALES[SQUARE_KILOMETER - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HECTOMETER);
-        Area squareHectometerTestResult = new Area(BigDecimal.valueOf(squareHectometerValue).multiply(AREA_SCALES[SQUARE_HECTOMETER - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HECTOMETER);
-        Area squareDecameterTestResult = new Area(BigDecimal.valueOf(squareDecameterValue).multiply(AREA_SCALES[SQUARE_DECAMETER - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HECTOMETER);
-        Area squareMeterTestResult = new Area(BigDecimal.valueOf(squareMeterValue).multiply(AREA_SCALES[SQUARE_METER - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HECTOMETER);
-        Area squareDecimeterTestResult = new Area(BigDecimal.valueOf(squareDecimeterValue).multiply(AREA_SCALES[SQUARE_DECIMETER - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HECTOMETER);
-        Area squareCentimeterTestResult = new Area(BigDecimal.valueOf(squareCentimeterValue).multiply(AREA_SCALES[SQUARE_CENTIMETER - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HECTOMETER);
-        Area squareMillimeterTestResult = new Area(BigDecimal.valueOf(squareMillimeterValue).multiply(AREA_SCALES[SQUARE_MILLIMETER - 7]).divide(AREA_SCALES[SQUARE_HECTOMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HECTOMETER);
+        Area squareKilometerTestResult = convert(squareKilometerValue, SQUARE_KILOMETER, SQUARE_HECTOMETER);
+        Area squareHectometerTestResult = convert(squareHectometerValue, SQUARE_HECTOMETER, SQUARE_HECTOMETER);
+        Area squareDecameterTestResult = convert(squareDecameterValue, SQUARE_DECAMETER, SQUARE_HECTOMETER);
+        Area squareMeterTestResult = convert(squareMeterValue, SQUARE_METER, SQUARE_HECTOMETER);
+        Area squareDecimeterTestResult = convert(squareDecimeterValue, SQUARE_DECIMETER, SQUARE_HECTOMETER);
+        Area squareCentimeterTestResult = convert(squareCentimeterValue, SQUARE_CENTIMETER, SQUARE_HECTOMETER);
+        Area squareMillimeterTestResult = convert(squareMillimeterValue, SQUARE_MILLIMETER, SQUARE_HECTOMETER);
 
         Area squareKilometerResult = toSquareHectometer(squareKilometerValue, SQUARE_KILOMETER);
         Area squareHectometerResult = toSquareHectometer(squareHectometerValue, SQUARE_HECTOMETER);
@@ -79,25 +75,25 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test 
-	public void toSquareDecameterTest() {
-		double squareKilometerValue = NumberRandomizer.getRandomDouble();
-		double squareHectometerValue = NumberRandomizer.getRandomDouble();
-		double squareDecameterValue = NumberRandomizer.getRandomDouble();
-		double squareMeterValue = NumberRandomizer.getRandomDouble();
-		double squareDecimeterValue = NumberRandomizer.getRandomDouble();
-		double squareCentimeterValue = NumberRandomizer.getRandomDouble();
-		double squareMillimeterValue = NumberRandomizer.getRandomDouble();
+    @Test
+    public void toSquareDecameterTest() {
+        double squareKilometerValue = NumberRandomizer.getRandomDouble();
+        double squareHectometerValue = NumberRandomizer.getRandomDouble();
+        double squareDecameterValue = NumberRandomizer.getRandomDouble();
+        double squareMeterValue = NumberRandomizer.getRandomDouble();
+        double squareDecimeterValue = NumberRandomizer.getRandomDouble();
+        double squareCentimeterValue = NumberRandomizer.getRandomDouble();
+        double squareMillimeterValue = NumberRandomizer.getRandomDouble();
 
-        Area squareKilometerTestResult = new Area(BigDecimal.valueOf(squareKilometerValue).multiply(AREA_SCALES[SQUARE_KILOMETER - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECAMETER);
-        Area squareHectometerTestResult = new Area(BigDecimal.valueOf(squareHectometerValue).multiply(AREA_SCALES[SQUARE_HECTOMETER - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECAMETER);
-        Area squareDecameterTestResult = new Area(BigDecimal.valueOf(squareDecameterValue).multiply(AREA_SCALES[SQUARE_DECAMETER - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECAMETER);
-        Area squareMeterTestResult = new Area(BigDecimal.valueOf(squareMeterValue).multiply(AREA_SCALES[SQUARE_METER - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECAMETER);
-        Area squareDecimeterTestResult = new Area(BigDecimal.valueOf(squareDecimeterValue).multiply(AREA_SCALES[SQUARE_DECIMETER - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECAMETER);
-        Area squareCentimeterTestResult = new Area(BigDecimal.valueOf(squareCentimeterValue).multiply(AREA_SCALES[SQUARE_CENTIMETER - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECAMETER);
-        Area squareMillimeterTestResult = new Area(BigDecimal.valueOf(squareMillimeterValue).multiply(AREA_SCALES[SQUARE_MILLIMETER - 7]).divide(AREA_SCALES[SQUARE_DECAMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECAMETER);
+        Area squareKilometerTestResult = convert(squareKilometerValue, SQUARE_KILOMETER, SQUARE_DECAMETER);
+        Area squareHectometerTestResult = convert(squareHectometerValue, SQUARE_HECTOMETER, SQUARE_DECAMETER);
+        Area squareDecameterTestResult = convert(squareDecameterValue, SQUARE_DECAMETER, SQUARE_DECAMETER);
+        Area squareMeterTestResult = convert(squareMeterValue, SQUARE_METER, SQUARE_DECAMETER);
+        Area squareDecimeterTestResult = convert(squareDecimeterValue, SQUARE_DECIMETER, SQUARE_DECAMETER);
+        Area squareCentimeterTestResult = convert(squareCentimeterValue, SQUARE_CENTIMETER, SQUARE_DECAMETER);
+        Area squareMillimeterTestResult = convert(squareMillimeterValue, SQUARE_MILLIMETER, SQUARE_DECAMETER);
 
         Area squareKilometerResult = toSquareDecameter(squareKilometerValue, SQUARE_KILOMETER);
         Area squareHectometerResult = toSquareDecameter(squareHectometerValue, SQUARE_HECTOMETER);
@@ -114,25 +110,25 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test 
-	public void toSquareMeterTest() {
-		double squareKilometerValue = NumberRandomizer.getRandomDouble();
-		double squareHectometerValue = NumberRandomizer.getRandomDouble();
-		double squareDecameterValue = NumberRandomizer.getRandomDouble();
-		double squareMeterValue = NumberRandomizer.getRandomDouble();
-		double squareDecimeterValue = NumberRandomizer.getRandomDouble();
-		double squareCentimeterValue = NumberRandomizer.getRandomDouble();
-		double squareMillimeterValue = NumberRandomizer.getRandomDouble();
+    @Test
+    public void toSquareMeterTest() {
+        double squareKilometerValue = NumberRandomizer.getRandomDouble();
+        double squareHectometerValue = NumberRandomizer.getRandomDouble();
+        double squareDecameterValue = NumberRandomizer.getRandomDouble();
+        double squareMeterValue = NumberRandomizer.getRandomDouble();
+        double squareDecimeterValue = NumberRandomizer.getRandomDouble();
+        double squareCentimeterValue = NumberRandomizer.getRandomDouble();
+        double squareMillimeterValue = NumberRandomizer.getRandomDouble();
 
-        Area squareKilometerTestResult = new Area(BigDecimal.valueOf(squareKilometerValue).multiply(AREA_SCALES[SQUARE_KILOMETER - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_METER);
-        Area squareHectometerTestResult = new Area(BigDecimal.valueOf(squareHectometerValue).multiply(AREA_SCALES[SQUARE_HECTOMETER - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_METER);
-        Area squareDecameterTestResult = new Area(BigDecimal.valueOf(squareDecameterValue).multiply(AREA_SCALES[SQUARE_DECAMETER - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_METER);
-        Area squareMeterTestResult = new Area(BigDecimal.valueOf(squareMeterValue).multiply(AREA_SCALES[SQUARE_METER - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_METER);
-        Area squareDecimeterTestResult = new Area(BigDecimal.valueOf(squareDecimeterValue).multiply(AREA_SCALES[SQUARE_DECIMETER - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_METER);
-        Area squareCentimeterTestResult = new Area(BigDecimal.valueOf(squareCentimeterValue).multiply(AREA_SCALES[SQUARE_CENTIMETER - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_METER);
-        Area squareMillimeterTestResult = new Area(BigDecimal.valueOf(squareMillimeterValue).multiply(AREA_SCALES[SQUARE_MILLIMETER - 7]).divide(AREA_SCALES[SQUARE_METER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_METER);
+        Area squareKilometerTestResult = convert(squareKilometerValue, SQUARE_KILOMETER, SQUARE_METER);
+        Area squareHectometerTestResult = convert(squareHectometerValue, SQUARE_HECTOMETER, SQUARE_METER);
+        Area squareDecameterTestResult = convert(squareDecameterValue, SQUARE_DECAMETER, SQUARE_METER);
+        Area squareMeterTestResult = convert(squareMeterValue, SQUARE_METER, SQUARE_METER);
+        Area squareDecimeterTestResult = convert(squareDecimeterValue, SQUARE_DECIMETER, SQUARE_METER);
+        Area squareCentimeterTestResult = convert(squareCentimeterValue, SQUARE_CENTIMETER, SQUARE_METER);
+        Area squareMillimeterTestResult = convert(squareMillimeterValue, SQUARE_MILLIMETER, SQUARE_METER);
 
         Area squareKilometerResult = toSquareMeter(squareKilometerValue, SQUARE_KILOMETER);
         Area squareHectometerResult = toSquareMeter(squareHectometerValue, SQUARE_HECTOMETER);
@@ -151,23 +147,23 @@ public class AreaTest {
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
     }
 
-	@Test 
-	public void toSquareDecimeterTest() {
-		double squareKilometerValue = NumberRandomizer.getRandomDouble();
-		double squareHectometerValue = NumberRandomizer.getRandomDouble();
-		double squareDecameterValue = NumberRandomizer.getRandomDouble();
-		double squareMeterValue = NumberRandomizer.getRandomDouble();
-		double squareDecimeterValue = NumberRandomizer.getRandomDouble();
-		double squareCentimeterValue = NumberRandomizer.getRandomDouble();
-		double squareMillimeterValue = NumberRandomizer.getRandomDouble();
+    @Test
+    public void toSquareDecimeterTest() {
+        double squareKilometerValue = NumberRandomizer.getRandomDouble();
+        double squareHectometerValue = NumberRandomizer.getRandomDouble();
+        double squareDecameterValue = NumberRandomizer.getRandomDouble();
+        double squareMeterValue = NumberRandomizer.getRandomDouble();
+        double squareDecimeterValue = NumberRandomizer.getRandomDouble();
+        double squareCentimeterValue = NumberRandomizer.getRandomDouble();
+        double squareMillimeterValue = NumberRandomizer.getRandomDouble();
 
-        Area squareKilometerTestResult = new Area(BigDecimal.valueOf(squareKilometerValue).multiply(AREA_SCALES[SQUARE_KILOMETER - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECIMETER);
-        Area squareHectometerTestResult = new Area(BigDecimal.valueOf(squareHectometerValue).multiply(AREA_SCALES[SQUARE_HECTOMETER - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECIMETER);
-        Area squareDecameterTestResult = new Area(BigDecimal.valueOf(squareDecameterValue).multiply(AREA_SCALES[SQUARE_DECAMETER - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECIMETER);
-        Area squareMeterTestResult = new Area(BigDecimal.valueOf(squareMeterValue).multiply(AREA_SCALES[SQUARE_METER - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECIMETER);
-        Area squareDecimeterTestResult = new Area(BigDecimal.valueOf(squareDecimeterValue).multiply(AREA_SCALES[SQUARE_DECIMETER - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECIMETER);
-        Area squareCentimeterTestResult = new Area(BigDecimal.valueOf(squareCentimeterValue).multiply(AREA_SCALES[SQUARE_CENTIMETER - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECIMETER);
-        Area squareMillimeterTestResult = new Area(BigDecimal.valueOf(squareMillimeterValue).multiply(AREA_SCALES[SQUARE_MILLIMETER - 7]).divide(AREA_SCALES[SQUARE_DECIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DECIMETER);
+        Area squareKilometerTestResult = convert(squareKilometerValue, SQUARE_KILOMETER, SQUARE_DECIMETER);
+        Area squareHectometerTestResult = convert(squareHectometerValue, SQUARE_HECTOMETER, SQUARE_DECIMETER);
+        Area squareDecameterTestResult = convert(squareDecameterValue, SQUARE_DECAMETER, SQUARE_DECIMETER);
+        Area squareMeterTestResult = convert(squareMeterValue, SQUARE_METER, SQUARE_DECIMETER);
+        Area squareDecimeterTestResult = convert(squareDecimeterValue, SQUARE_DECIMETER, SQUARE_DECIMETER);
+        Area squareCentimeterTestResult = convert(squareCentimeterValue, SQUARE_CENTIMETER, SQUARE_DECIMETER);
+        Area squareMillimeterTestResult = convert(squareMillimeterValue, SQUARE_MILLIMETER, SQUARE_DECIMETER);
 
         Area squareKilometerResult = toSquareDecimeter(squareKilometerValue, SQUARE_KILOMETER);
         Area squareHectometerResult = toSquareDecimeter(squareHectometerValue, SQUARE_HECTOMETER);
@@ -184,25 +180,25 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test 
-	public void toSquareCentimeterTest() {
-		double squareKilometerValue = NumberRandomizer.getRandomDouble();
-		double squareHectometerValue = NumberRandomizer.getRandomDouble();
-		double squareDecameterValue = NumberRandomizer.getRandomDouble();
-		double squareMeterValue = NumberRandomizer.getRandomDouble();
-		double squareDecimeterValue = NumberRandomizer.getRandomDouble();
-		double squareCentimeterValue = NumberRandomizer.getRandomDouble();
-		double squareMillimeterValue = NumberRandomizer.getRandomDouble();
+    @Test
+    public void toSquareCentimeterTest() {
+        double squareKilometerValue = NumberRandomizer.getRandomDouble();
+        double squareHectometerValue = NumberRandomizer.getRandomDouble();
+        double squareDecameterValue = NumberRandomizer.getRandomDouble();
+        double squareMeterValue = NumberRandomizer.getRandomDouble();
+        double squareDecimeterValue = NumberRandomizer.getRandomDouble();
+        double squareCentimeterValue = NumberRandomizer.getRandomDouble();
+        double squareMillimeterValue = NumberRandomizer.getRandomDouble();
 
-        Area squareKilometerTestResult = new Area(BigDecimal.valueOf(squareKilometerValue).multiply(AREA_SCALES[SQUARE_KILOMETER - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_CENTIMETER);
-        Area squareHectometerTestResult = new Area(BigDecimal.valueOf(squareHectometerValue).multiply(AREA_SCALES[SQUARE_HECTOMETER - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_CENTIMETER);
-        Area squareDecameterTestResult = new Area(BigDecimal.valueOf(squareDecameterValue).multiply(AREA_SCALES[SQUARE_DECAMETER - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_CENTIMETER);
-        Area squareMeterTestResult = new Area(BigDecimal.valueOf(squareMeterValue).multiply(AREA_SCALES[SQUARE_METER - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_CENTIMETER);
-        Area squareDecimeterTestResult = new Area(BigDecimal.valueOf(squareDecimeterValue).multiply(AREA_SCALES[SQUARE_DECIMETER - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_CENTIMETER);
-        Area squareCentimeterTestResult = new Area(BigDecimal.valueOf(squareCentimeterValue).multiply(AREA_SCALES[SQUARE_CENTIMETER - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_CENTIMETER);
-        Area squareMillimeterTestResult = new Area(BigDecimal.valueOf(squareMillimeterValue).multiply(AREA_SCALES[SQUARE_MILLIMETER - 7]).divide(AREA_SCALES[SQUARE_CENTIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_CENTIMETER);
+        Area squareKilometerTestResult = convert(squareKilometerValue, SQUARE_KILOMETER, SQUARE_CENTIMETER);
+        Area squareHectometerTestResult = convert(squareHectometerValue, SQUARE_HECTOMETER, SQUARE_CENTIMETER);
+        Area squareDecameterTestResult = convert(squareDecameterValue, SQUARE_DECAMETER, SQUARE_CENTIMETER);
+        Area squareMeterTestResult = convert(squareMeterValue, SQUARE_METER, SQUARE_CENTIMETER);
+        Area squareDecimeterTestResult = convert(squareDecimeterValue, SQUARE_DECIMETER, SQUARE_CENTIMETER);
+        Area squareCentimeterTestResult = convert(squareCentimeterValue, SQUARE_CENTIMETER, SQUARE_CENTIMETER);
+        Area squareMillimeterTestResult = convert(squareMillimeterValue, SQUARE_MILLIMETER, SQUARE_CENTIMETER);
 
         Area squareKilometerResult = toSquareCentimeter(squareKilometerValue, SQUARE_KILOMETER);
         Area squareHectometerResult = toSquareCentimeter(squareHectometerValue, SQUARE_HECTOMETER);
@@ -219,25 +215,25 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test 
-	public void toSquareMillimeterTest() {
-		double squareKilometerValue = NumberRandomizer.getRandomDouble();
-		double squareHectometerValue = NumberRandomizer.getRandomDouble();
-		double squareDecameterValue = NumberRandomizer.getRandomDouble();
-		double squareMeterValue = NumberRandomizer.getRandomDouble();
-		double squareDecimeterValue = NumberRandomizer.getRandomDouble();
-		double squareCentimeterValue = NumberRandomizer.getRandomDouble();
-		double squareMillimeterValue = NumberRandomizer.getRandomDouble();
+    @Test
+    public void toSquareMillimeterTest() {
+        double squareKilometerValue = NumberRandomizer.getRandomDouble();
+        double squareHectometerValue = NumberRandomizer.getRandomDouble();
+        double squareDecameterValue = NumberRandomizer.getRandomDouble();
+        double squareMeterValue = NumberRandomizer.getRandomDouble();
+        double squareDecimeterValue = NumberRandomizer.getRandomDouble();
+        double squareCentimeterValue = NumberRandomizer.getRandomDouble();
+        double squareMillimeterValue = NumberRandomizer.getRandomDouble();
 
-        Area squareKilometerTestResult = new Area(BigDecimal.valueOf(squareKilometerValue).multiply(AREA_SCALES[SQUARE_KILOMETER - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MILLIMETER);
-        Area squareHectometerTestResult = new Area(BigDecimal.valueOf(squareHectometerValue).multiply(AREA_SCALES[SQUARE_HECTOMETER - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MILLIMETER);
-        Area squareDecameterTestResult = new Area(BigDecimal.valueOf(squareDecameterValue).multiply(AREA_SCALES[SQUARE_DECAMETER - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MILLIMETER);
-        Area squareMeterTestResult = new Area(BigDecimal.valueOf(squareMeterValue).multiply(AREA_SCALES[SQUARE_METER - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MILLIMETER);
-        Area squareDecimeterTestResult = new Area(BigDecimal.valueOf(squareDecimeterValue).multiply(AREA_SCALES[SQUARE_DECIMETER - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MILLIMETER);
-        Area squareCentimeterTestResult = new Area(BigDecimal.valueOf(squareCentimeterValue).multiply(AREA_SCALES[SQUARE_CENTIMETER - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MILLIMETER);
-        Area squareMillimeterTestResult = new Area(BigDecimal.valueOf(squareMillimeterValue).multiply(AREA_SCALES[SQUARE_MILLIMETER - 7]).divide(AREA_SCALES[SQUARE_MILLIMETER - 7], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MILLIMETER);
+        Area squareKilometerTestResult = convert(squareKilometerValue, SQUARE_KILOMETER, SQUARE_MILLIMETER);
+        Area squareHectometerTestResult = convert(squareHectometerValue, SQUARE_HECTOMETER, SQUARE_MILLIMETER);
+        Area squareDecameterTestResult = convert(squareDecameterValue, SQUARE_DECAMETER, SQUARE_MILLIMETER);
+        Area squareMeterTestResult = convert(squareMeterValue, SQUARE_METER, SQUARE_MILLIMETER);
+        Area squareDecimeterTestResult = convert(squareDecimeterValue, SQUARE_DECIMETER, SQUARE_MILLIMETER);
+        Area squareCentimeterTestResult = convert(squareCentimeterValue, SQUARE_CENTIMETER, SQUARE_MILLIMETER);
+        Area squareMillimeterTestResult = convert(squareMillimeterValue, SQUARE_MILLIMETER, SQUARE_MILLIMETER);
 
         Area squareKilometerResult = toSquareMillimeter(squareKilometerValue, SQUARE_KILOMETER);
         Area squareHectometerResult = toSquareMillimeter(squareHectometerValue, SQUARE_HECTOMETER);
@@ -254,20 +250,20 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test
-	public void toSquareKilometerFixedResultTest() {
-		int squareKilometerValue = 1;
-		int squareHectometerValue = 1;
-		int squareDecameterValue = 1;
-		int squareMeterValue = 1;
-		int squareDecimeterValue = 1;
-		int squareCentimeterValue = 1;
-		int squareMillimeterValue = 1;
+    @Test
+    public void toSquareKilometerFixedResultTest() {
+        int squareKilometerValue = 1;
+        int squareHectometerValue = 1;
+        int squareDecameterValue = 1;
+        int squareMeterValue = 1;
+        int squareDecimeterValue = 1;
+        int squareCentimeterValue = 1;
+        int squareMillimeterValue = 1;
 
         Area squareKilometerTestResult = new Area("1.00000000000000000000", SQUARE_KILOMETER);
-        Area squareHectometerTestResult= new Area("0.01000000000000000000", SQUARE_KILOMETER);
+        Area squareHectometerTestResult = new Area("0.01000000000000000000", SQUARE_KILOMETER);
         Area squareDecameterTestResult = new Area("0.00010000000000000000", SQUARE_KILOMETER);
         Area squareMeterTestResult = new Area("0.00000100000000000000", SQUARE_KILOMETER);
         Area squareDecimeterTestResult = new Area("0.00000001000000000000", SQUARE_KILOMETER);
@@ -289,20 +285,20 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test
-	public void toSquareHectometerFixedResultTest() {
-		int squareKilometerValue = 1;
-		int squareHectometerValue = 1;
-		int squareDecameterValue = 1;
-		int squareMeterValue = 1;
-		int squareDecimeterValue = 1;
-		int squareCentimeterValue = 1;
-		int squareMillimeterValue = 1;
+    @Test
+    public void toSquareHectometerFixedResultTest() {
+        int squareKilometerValue = 1;
+        int squareHectometerValue = 1;
+        int squareDecameterValue = 1;
+        int squareMeterValue = 1;
+        int squareDecimeterValue = 1;
+        int squareCentimeterValue = 1;
+        int squareMillimeterValue = 1;
 
         Area squareKilometerTestResult = new Area("100.00000000000000000000", SQUARE_HECTOMETER);
-        Area squareHectometerTestResult= new Area("1.00000000000000000000", SQUARE_HECTOMETER);
+        Area squareHectometerTestResult = new Area("1.00000000000000000000", SQUARE_HECTOMETER);
         Area squareDecameterTestResult = new Area("0.01000000000000000000", SQUARE_HECTOMETER);
         Area squareMeterTestResult = new Area("0.00010000000000000000", SQUARE_HECTOMETER);
         Area squareDecimeterTestResult = new Area("0.00000100000000000000", SQUARE_HECTOMETER);
@@ -324,20 +320,20 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test
-	public void toSquareDecameterFixedResultTest() {
-		int squareKilometerValue = 1;
-		int squareHectometerValue = 1;
-		int squareDecameterValue = 1;
-		int squareMeterValue = 1;
-		int squareDecimeterValue = 1;
-		int squareCentimeterValue = 1;
-		int squareMillimeterValue = 1;
+    @Test
+    public void toSquareDecameterFixedResultTest() {
+        int squareKilometerValue = 1;
+        int squareHectometerValue = 1;
+        int squareDecameterValue = 1;
+        int squareMeterValue = 1;
+        int squareDecimeterValue = 1;
+        int squareCentimeterValue = 1;
+        int squareMillimeterValue = 1;
 
         Area squareKilometerTestResult = new Area("10000.00000000000000000000", SQUARE_DECAMETER);
-        Area squareHectometerTestResult= new Area("100.00000000000000000000", SQUARE_DECAMETER);
+        Area squareHectometerTestResult = new Area("100.00000000000000000000", SQUARE_DECAMETER);
         Area squareDecameterTestResult = new Area("1.00000000000000000000", SQUARE_DECAMETER);
         Area squareMeterTestResult = new Area("0.01000000000000000000", SQUARE_DECAMETER);
         Area squareDecimeterTestResult = new Area("0.00010000000000000000", SQUARE_DECAMETER);
@@ -359,20 +355,20 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test
-	public void toSquareMeterFixedResultTest() {
-		int squareKilometerValue = 1;
-		int squareHectometerValue = 1;
-		int squareDecameterValue = 1;
-		int squareMeterValue = 1;
-		int squareDecimeterValue = 1;
-		int squareCentimeterValue = 1;
-		int squareMillimeterValue = 1;
+    @Test
+    public void toSquareMeterFixedResultTest() {
+        int squareKilometerValue = 1;
+        int squareHectometerValue = 1;
+        int squareDecameterValue = 1;
+        int squareMeterValue = 1;
+        int squareDecimeterValue = 1;
+        int squareCentimeterValue = 1;
+        int squareMillimeterValue = 1;
 
         Area squareKilometerTestResult = new Area("1000000.00000000000000000000", SQUARE_METER);
-        Area squareHectometerTestResult= new Area("10000.00000000000000000000", SQUARE_METER);
+        Area squareHectometerTestResult = new Area("10000.00000000000000000000", SQUARE_METER);
         Area squareDecameterTestResult = new Area("100.00000000000000000000", SQUARE_METER);
         Area squareMeterTestResult = new Area("1.00000000000000000000", SQUARE_METER);
         Area squareDecimeterTestResult = new Area("0.01000000000000000000", SQUARE_METER);
@@ -394,20 +390,20 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test
-	public void toSquareDecimeterFixedResultTest() {
-		int squareKilometerValue = 1;
-		int squareHectometerValue = 1;
-		int squareDecameterValue = 1;
-		int squareMeterValue = 1;
-		int squareDecimeterValue = 1;
-		int squareCentimeterValue = 1;
-		int squareMillimeterValue = 1;
+    @Test
+    public void toSquareDecimeterFixedResultTest() {
+        int squareKilometerValue = 1;
+        int squareHectometerValue = 1;
+        int squareDecameterValue = 1;
+        int squareMeterValue = 1;
+        int squareDecimeterValue = 1;
+        int squareCentimeterValue = 1;
+        int squareMillimeterValue = 1;
 
         Area squareKilometerTestResult = new Area("100000000.00000000000000000000", SQUARE_DECIMETER);
-        Area squareHectometerTestResult= new Area("1000000.00000000000000000000", SQUARE_DECIMETER);
+        Area squareHectometerTestResult = new Area("1000000.00000000000000000000", SQUARE_DECIMETER);
         Area squareDecameterTestResult = new Area("10000.00000000000000000000", SQUARE_DECIMETER);
         Area squareMeterTestResult = new Area("100.00000000000000000000", SQUARE_DECIMETER);
         Area squareDecimeterTestResult = new Area("1.00000000000000000000", SQUARE_DECIMETER);
@@ -429,20 +425,20 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test
-	public void toSquareCentimeterFixedResultTest() {
-		int squareKilometerValue = 1;
-		int squareHectometerValue = 1;
-		int squareDecameterValue = 1;
-		int squareMeterValue = 1;
-		int squareDecimeterValue = 1;
-		int squareCentimeterValue = 1;
-		int squareMillimeterValue = 1;
+    @Test
+    public void toSquareCentimeterFixedResultTest() {
+        int squareKilometerValue = 1;
+        int squareHectometerValue = 1;
+        int squareDecameterValue = 1;
+        int squareMeterValue = 1;
+        int squareDecimeterValue = 1;
+        int squareCentimeterValue = 1;
+        int squareMillimeterValue = 1;
 
         Area squareKilometerTestResult = new Area("10000000000.00000000000000000000", SQUARE_CENTIMETER);
-        Area squareHectometerTestResult= new Area("100000000.00000000000000000000", SQUARE_CENTIMETER);
+        Area squareHectometerTestResult = new Area("100000000.00000000000000000000", SQUARE_CENTIMETER);
         Area squareDecameterTestResult = new Area("1000000.00000000000000000000", SQUARE_CENTIMETER);
         Area squareMeterTestResult = new Area("10000.00000000000000000000", SQUARE_CENTIMETER);
         Area squareDecimeterTestResult = new Area("100.00000000000000000000", SQUARE_CENTIMETER);
@@ -464,20 +460,20 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
 
-	@Test
-	public void toSquareMillimeterFixedResultTest() {
-		int squareKilometerValue = 1;
-		int squareHectometerValue = 1;
-		int squareDecameterValue = 1;
-		int squareMeterValue = 1;
-		int squareDecimeterValue = 1;
-		int squareCentimeterValue = 1;
-		int squareMillimeterValue = 1;
+    @Test
+    public void toSquareMillimeterFixedResultTest() {
+        int squareKilometerValue = 1;
+        int squareHectometerValue = 1;
+        int squareDecameterValue = 1;
+        int squareMeterValue = 1;
+        int squareDecimeterValue = 1;
+        int squareCentimeterValue = 1;
+        int squareMillimeterValue = 1;
 
         Area squareKilometerTestResult = new Area("1000000000000.00000000000000000000", SQUARE_MILLIMETER);
-        Area squareHectometerTestResult= new Area("10000000000.00000000000000000000", SQUARE_MILLIMETER);
+        Area squareHectometerTestResult = new Area("10000000000.00000000000000000000", SQUARE_MILLIMETER);
         Area squareDecameterTestResult = new Area("100000000.00000000000000000000", SQUARE_MILLIMETER);
         Area squareMeterTestResult = new Area("1000000.00000000000000000000", SQUARE_MILLIMETER);
         Area squareDecimeterTestResult = new Area("10000.00000000000000000000", SQUARE_MILLIMETER);
@@ -499,5 +495,10 @@ public class AreaTest {
         assertEquals(squareDecimeterTestResult, squareDecimeterResult);
         assertEquals(squareCentimeterTestResult, squareCentimeterResult);
         assertEquals(squareMillimeterTestResult, squareMillimeterResult);
-    } 
+    }
+
+    @Override
+    public Area convert(double value, int currentUnit, int targetUnit) {
+        return new Area(divide(multiply(value, AREA_SCALES[targetUnit - UNIT_SCALE]), AREA_SCALES[currentUnit - UNIT_SCALE]), targetUnit);
+    }
 }

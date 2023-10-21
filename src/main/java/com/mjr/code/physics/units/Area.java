@@ -19,7 +19,7 @@ public class Area extends Unit implements IArea {
 	public static final int SQUARE_CENTIMETER = Length.LAST_UNIT_CONS + 6;
 	public static final int SQUARE_MILLIMETER = Length.LAST_UNIT_CONS + 7;
 
-    private static final int UNIT_SCALE = SQUARE_KILOMETER;
+    protected static final int UNIT_SCALE = SQUARE_KILOMETER;
     protected static final int LAST_UNIT_CONS = SQUARE_MILLIMETER;
     private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
 
@@ -107,36 +107,36 @@ public class Area extends Unit implements IArea {
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareKilometer(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_KILOMETER - UNIT_SCALE]), SQUARE_KILOMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[SQUARE_KILOMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARE_KILOMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareHectometer(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_HECTOMETER - UNIT_SCALE]), SQUARE_HECTOMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[SQUARE_HECTOMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARE_HECTOMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareDecameter(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_DECAMETER - UNIT_SCALE]), SQUARE_DECAMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[SQUARE_DECAMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARE_DECAMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareMeter(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_METER - UNIT_SCALE]), SQUARE_METER);
+        return new Area(divide(multiply(value, AREA_SCALES[SQUARE_METER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARE_METER);
     }
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareDecimeter(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_DECIMETER - UNIT_SCALE]), SQUARE_DECIMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[SQUARE_DECIMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARE_DECIMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareCentimeter(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_CENTIMETER - UNIT_SCALE]), SQUARE_CENTIMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[SQUARE_CENTIMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARE_CENTIMETER);
     }
 
 	@Contract("_, _ -> new")
     public static @NotNull Area toSquareMillimeter(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[unit - 7]), AREA_SCALES[SQUARE_MILLIMETER - UNIT_SCALE]), SQUARE_MILLIMETER);
+        return new Area(divide(multiply(value, AREA_SCALES[SQUARE_MILLIMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARE_MILLIMETER);
     }
 
     @Override
