@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static com.mjr.code.physics.units.Time.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TimeTest {
+public class TimeTest extends UnitTest {
 	@Test 
 	public void toSecondTest() {
 		double secondValue = NumberRandomizer.getRandomDouble();
@@ -15,11 +15,11 @@ public class TimeTest {
 		double dayValue = NumberRandomizer.getRandomDouble();
 		double weekValue = NumberRandomizer.getRandomDouble();
 
-        Time secondTestResult = new Time(divide(multiply(secondValue, TIME_SCALES[SECOND - UNIT_SCALE]), TIME_SCALES[SECOND - UNIT_SCALE]), SECOND);
-        Time minuteTestResult = new Time(divide(multiply(minuteValue, TIME_SCALES[SECOND - UNIT_SCALE]), TIME_SCALES[MINUTE - UNIT_SCALE]), SECOND);
-        Time hourTestResult = new Time(divide(multiply(hourValue, TIME_SCALES[SECOND - UNIT_SCALE]), TIME_SCALES[HOUR - UNIT_SCALE]), SECOND);
-        Time dayTestResult = new Time(divide(multiply(dayValue, TIME_SCALES[SECOND - UNIT_SCALE]), TIME_SCALES[DAY - UNIT_SCALE]), SECOND);
-        Time weekTestResult = new Time(divide(multiply(weekValue, TIME_SCALES[SECOND - UNIT_SCALE]), TIME_SCALES[WEEK - UNIT_SCALE]), SECOND);
+        Time secondTestResult = convert(secondValue, SECOND, SECOND);
+        Time minuteTestResult = convert(minuteValue, MINUTE, SECOND);
+        Time hourTestResult = convert(hourValue, HOUR, SECOND);
+        Time dayTestResult = convert(dayValue, DAY, SECOND);
+        Time weekTestResult = convert(weekValue, WEEK, SECOND);
 
         Time secondResult = toSecond(secondValue, SECOND);
         Time minuteResult = toSecond(minuteValue, MINUTE);
@@ -42,11 +42,11 @@ public class TimeTest {
 		double dayValue = NumberRandomizer.getRandomDouble();
 		double weekValue = NumberRandomizer.getRandomDouble();
 
-        Time secondTestResult = new Time(divide(multiply(secondValue, TIME_SCALES[MINUTE - UNIT_SCALE]), TIME_SCALES[SECOND - UNIT_SCALE]), MINUTE);
-        Time minuteTestResult = new Time(divide(multiply(minuteValue, TIME_SCALES[MINUTE - UNIT_SCALE]), TIME_SCALES[MINUTE - UNIT_SCALE]), MINUTE);
-        Time hourTestResult = new Time(divide(multiply(hourValue, TIME_SCALES[MINUTE - UNIT_SCALE]), TIME_SCALES[HOUR - UNIT_SCALE]), MINUTE);
-        Time dayTestResult = new Time(divide(multiply(dayValue, TIME_SCALES[MINUTE - UNIT_SCALE]), TIME_SCALES[DAY - UNIT_SCALE]), MINUTE);
-        Time weekTestResult = new Time(divide(multiply(weekValue, TIME_SCALES[MINUTE - UNIT_SCALE]), TIME_SCALES[WEEK - UNIT_SCALE]), MINUTE);
+        Time secondTestResult = convert(secondValue, SECOND, MINUTE);
+        Time minuteTestResult = convert(minuteValue, MINUTE, MINUTE);
+        Time hourTestResult = convert(hourValue, HOUR, MINUTE);
+        Time dayTestResult = convert(dayValue, DAY, MINUTE);
+        Time weekTestResult = convert(weekValue, WEEK, MINUTE);
 
         Time secondResult = toMinute(secondValue, SECOND);
         Time minuteResult = toMinute(minuteValue, MINUTE);
@@ -69,11 +69,11 @@ public class TimeTest {
 		double dayValue = NumberRandomizer.getRandomDouble();
 		double weekValue = NumberRandomizer.getRandomDouble();
 
-        Time secondTestResult = new Time(divide(multiply(secondValue, TIME_SCALES[HOUR - UNIT_SCALE]), TIME_SCALES[SECOND - UNIT_SCALE]), HOUR);
-        Time minuteTestResult = new Time(divide(multiply(minuteValue, TIME_SCALES[HOUR - UNIT_SCALE]), TIME_SCALES[MINUTE - UNIT_SCALE]), HOUR);
-        Time hourTestResult = new Time(divide(multiply(hourValue, TIME_SCALES[HOUR - UNIT_SCALE]), TIME_SCALES[HOUR - UNIT_SCALE]), HOUR);
-        Time dayTestResult = new Time(divide(multiply(dayValue, TIME_SCALES[HOUR - UNIT_SCALE]), TIME_SCALES[DAY - UNIT_SCALE]), HOUR);
-        Time weekTestResult = new Time(divide(multiply(weekValue, TIME_SCALES[HOUR - UNIT_SCALE]), TIME_SCALES[WEEK - UNIT_SCALE]), HOUR);
+        Time secondTestResult = convert(secondValue, SECOND, HOUR);
+        Time minuteTestResult = convert(minuteValue, MINUTE, HOUR);
+        Time hourTestResult = convert(hourValue, HOUR, HOUR);
+        Time dayTestResult = convert(dayValue, DAY, HOUR);
+        Time weekTestResult = convert(weekValue, WEEK, HOUR);
 
         Time secondResult = toHour(secondValue, SECOND);
         Time minuteResult = toHour(minuteValue, MINUTE);
@@ -96,11 +96,11 @@ public class TimeTest {
 		double dayValue = NumberRandomizer.getRandomDouble();
 		double weekValue = NumberRandomizer.getRandomDouble();
 
-        Time secondTestResult = new Time(divide(multiply(secondValue, TIME_SCALES[DAY - UNIT_SCALE]), TIME_SCALES[SECOND - UNIT_SCALE]), DAY);
-        Time minuteTestResult = new Time(divide(multiply(minuteValue, TIME_SCALES[DAY - UNIT_SCALE]), TIME_SCALES[MINUTE - UNIT_SCALE]), DAY);
-        Time hourTestResult = new Time(divide(multiply(hourValue, TIME_SCALES[DAY - UNIT_SCALE]), TIME_SCALES[HOUR - UNIT_SCALE]), DAY);
-        Time dayTestResult = new Time(divide(multiply(dayValue, TIME_SCALES[DAY - UNIT_SCALE]), TIME_SCALES[DAY - UNIT_SCALE]), DAY);
-        Time weekTestResult = new Time(divide(multiply(weekValue, TIME_SCALES[DAY - UNIT_SCALE]), TIME_SCALES[WEEK - UNIT_SCALE]), DAY);
+        Time secondTestResult = convert(secondValue, SECOND, DAY);
+        Time minuteTestResult = convert(minuteValue, MINUTE, DAY);
+        Time hourTestResult = convert(hourValue,HOUR , DAY);
+        Time dayTestResult = convert(dayValue, DAY, DAY);
+        Time weekTestResult = convert(weekValue, WEEK, DAY);
 
         Time secondResult = toDay(secondValue, SECOND);
         Time minuteResult = toDay(minuteValue, MINUTE);
@@ -123,11 +123,11 @@ public class TimeTest {
         double dayValue = NumberRandomizer.getRandomDouble();
 		double weekValue = NumberRandomizer.getRandomDouble();
 
-        Time secondTestResult = new Time(divide(multiply(secondValue, TIME_SCALES[WEEK - UNIT_SCALE]), TIME_SCALES[SECOND - UNIT_SCALE]), WEEK);
-        Time minuteTestResult = new Time(divide(multiply(minuteValue, TIME_SCALES[WEEK - UNIT_SCALE]), TIME_SCALES[MINUTE - UNIT_SCALE]), WEEK);
-        Time hourTestResult = new Time(divide(multiply(hourValue, TIME_SCALES[WEEK - UNIT_SCALE]), TIME_SCALES[HOUR - UNIT_SCALE]), WEEK);
-        Time dayTestResult = new Time(divide(multiply(dayValue, TIME_SCALES[WEEK - UNIT_SCALE]), TIME_SCALES[DAY - UNIT_SCALE]), WEEK);
-        Time weekTestResult = new Time(divide(multiply(weekValue, TIME_SCALES[WEEK - UNIT_SCALE]), TIME_SCALES[WEEK - UNIT_SCALE]), WEEK);
+        Time secondTestResult = convert(secondValue, SECOND, WEEK);
+        Time minuteTestResult = convert(minuteValue, MINUTE, WEEK);
+        Time hourTestResult = convert(hourValue,HOUR , WEEK);
+        Time dayTestResult = convert(dayValue, DAY, WEEK);
+        Time weekTestResult = convert(weekValue, WEEK, WEEK);
 
         Time secondResult = toWeek(secondValue, SECOND);
         Time minuteResult = toWeek(minuteValue, MINUTE);
@@ -270,5 +270,10 @@ public class TimeTest {
         assertEquals(hourTestResult, hourResult);
         assertEquals(dayTestResult, dayResult);
         assertEquals(weekTestResult, weekResult);
+    }
+
+    @Override
+    public Time convert(double value, int currentUnit, int targetUnit) {
+        return new Time(divide(multiply(value, TIME_SCALES[targetUnit - UNIT_SCALE]), TIME_SCALES[currentUnit - UNIT_SCALE]), targetUnit);
     }
 }
