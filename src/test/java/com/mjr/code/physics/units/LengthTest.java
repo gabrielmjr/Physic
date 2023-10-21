@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static com.mjr.code.physics.units.Length.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LengthTest {
+public class LengthTest extends UnitTest{
 	@Test 
 	public void toKilometerTest() {
 		double kilometerValue = NumberRandomizer.getRandomDouble();
@@ -17,13 +17,13 @@ public class LengthTest {
 		double centimeterValue = NumberRandomizer.getRandomDouble();
 	    double millimeterValue = NumberRandomizer.getRandomDouble();
 
-        Length kilometerTestResult = new Length(divide(multiply(kilometerValue, LENGTH_SCALES[KILOMETER]), LENGTH_SCALES[KILOMETER]), KILOMETER);
-        Length hectometerTestResult = new Length(divide(multiply(hectometerValue, LENGTH_SCALES[KILOMETER]), LENGTH_SCALES[HECTOMETER]), KILOMETER);
-        Length decameterTestResult = new Length(divide(multiply(decameterValue, LENGTH_SCALES[KILOMETER]), LENGTH_SCALES[DECAMETER]), KILOMETER);
-        Length meterTestResult = new Length(divide(multiply(meterValue, LENGTH_SCALES[KILOMETER]), LENGTH_SCALES[METER]), KILOMETER);
-        Length decimeterTestResult = new Length(divide(multiply(decimeterValue, LENGTH_SCALES[KILOMETER]), LENGTH_SCALES[DECIMETER]), KILOMETER);
-        Length centimeterTestResult = new Length(divide(multiply(centimeterValue, LENGTH_SCALES[KILOMETER]), LENGTH_SCALES[CENTIMETER]), KILOMETER);
-        Length millimeterTestResult = new Length(divide(multiply(millimeterValue, LENGTH_SCALES[KILOMETER]), LENGTH_SCALES[MILLIMETER]), KILOMETER);
+        Length kilometerTestResult = convert(kilometerValue, KILOMETER, KILOMETER);
+        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, KILOMETER);
+        Length decameterTestResult = convert(decameterValue, DECAMETER, KILOMETER);
+        Length meterTestResult = convert(meterValue, METER, KILOMETER);
+        Length decimeterTestResult = convert(decimeterValue, DECIMETER, KILOMETER);
+        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, KILOMETER);
+        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, KILOMETER);
 
         Length kilometerResult = toKilometer(kilometerValue, KILOMETER);
         Length hectometerResult = toKilometer(hectometerValue, HECTOMETER);
@@ -52,13 +52,13 @@ public class LengthTest {
 		double centimeterValue = NumberRandomizer.getRandomDouble();
 		double millimeterValue = NumberRandomizer.getRandomDouble();
 
-        Length kilometerTestResult = new Length(divide(multiply(kilometerValue, LENGTH_SCALES[HECTOMETER]), LENGTH_SCALES[KILOMETER]), HECTOMETER);
-        Length hectometerTestResult = new Length(divide(multiply(hectometerValue, LENGTH_SCALES[HECTOMETER]), LENGTH_SCALES[HECTOMETER]), HECTOMETER);
-        Length decameterTestResult = new Length(divide(multiply(decameterValue, LENGTH_SCALES[HECTOMETER]), LENGTH_SCALES[DECAMETER]), HECTOMETER);
-        Length meterTestResult = new Length(divide(multiply(meterValue, LENGTH_SCALES[HECTOMETER]), LENGTH_SCALES[METER]), HECTOMETER);
-        Length decimeterTestResult = new Length(divide(multiply(decimeterValue, LENGTH_SCALES[HECTOMETER]), LENGTH_SCALES[DECIMETER]), HECTOMETER);
-        Length centimeterTestResult = new Length(divide(multiply(centimeterValue, LENGTH_SCALES[HECTOMETER]), LENGTH_SCALES[CENTIMETER]), HECTOMETER);
-        Length millimeterTestResult = new Length(divide(multiply(millimeterValue, LENGTH_SCALES[HECTOMETER]), LENGTH_SCALES[MILLIMETER]), HECTOMETER);
+        Length kilometerTestResult = convert(kilometerValue, KILOMETER, HECTOMETER);
+        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, HECTOMETER);
+        Length decameterTestResult = convert(decameterValue, DECAMETER, HECTOMETER);
+        Length meterTestResult = convert(meterValue, METER, HECTOMETER);
+        Length decimeterTestResult = convert(decimeterValue, DECIMETER, HECTOMETER);
+        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, HECTOMETER);
+        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, HECTOMETER);
 
         Length kilometerResult = toHectometer(kilometerValue, KILOMETER);
         Length hectometerResult = toHectometer(hectometerValue, HECTOMETER);
@@ -87,13 +87,13 @@ public class LengthTest {
 		double centimeterValue = NumberRandomizer.getRandomDouble();
 		double millimeterValue = NumberRandomizer.getRandomDouble();
 
-        Length kilometerTestResult = new Length(divide(multiply(kilometerValue, LENGTH_SCALES[DECAMETER]), LENGTH_SCALES[KILOMETER]), DECAMETER);
-        Length hectometerTestResult = new Length(divide(multiply(hectometerValue, LENGTH_SCALES[DECAMETER]), LENGTH_SCALES[HECTOMETER]), DECAMETER);
-        Length decameterTestResult = new Length(divide(multiply(decameterValue, LENGTH_SCALES[DECAMETER]), LENGTH_SCALES[DECAMETER]), DECAMETER);
-        Length meterTestResult = new Length(divide(multiply(meterValue, LENGTH_SCALES[DECAMETER]), LENGTH_SCALES[METER]), DECAMETER);
-        Length decimeterTestResult = new Length(divide(multiply(decimeterValue, LENGTH_SCALES[DECAMETER]), LENGTH_SCALES[DECIMETER]), DECAMETER);
-        Length centimeterTestResult = new Length(divide(multiply(centimeterValue, LENGTH_SCALES[DECAMETER]), LENGTH_SCALES[CENTIMETER]), DECAMETER);
-        Length millimeterTestResult = new Length(divide(multiply(millimeterValue, LENGTH_SCALES[DECAMETER]), LENGTH_SCALES[MILLIMETER]), DECAMETER);
+        Length kilometerTestResult = convert(kilometerValue, KILOMETER, DECAMETER);
+        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, DECAMETER);
+        Length decameterTestResult = convert(decameterValue, DECAMETER, DECAMETER);
+        Length meterTestResult = convert(meterValue, METER, DECAMETER);
+        Length decimeterTestResult = convert(decimeterValue, DECIMETER, DECAMETER);
+        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, DECAMETER);
+        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, DECAMETER);
 
         Length kilometerResult = toDecameter(kilometerValue, KILOMETER);
         Length hectometerResult = toDecameter(hectometerValue, HECTOMETER);
@@ -122,13 +122,13 @@ public class LengthTest {
 		double centimeterValue = NumberRandomizer.getRandomDouble();
 		double millimeterValue = NumberRandomizer.getRandomDouble();
 
-        Length kilometerTestResult = new Length(divide(multiply(kilometerValue, LENGTH_SCALES[METER]), LENGTH_SCALES[KILOMETER]), METER);
-        Length hectometerTestResult = new Length(divide(multiply(hectometerValue, LENGTH_SCALES[METER]), LENGTH_SCALES[HECTOMETER]), METER);
-        Length decameterTestResult = new Length(divide(multiply(decameterValue, LENGTH_SCALES[METER]), LENGTH_SCALES[DECAMETER]), METER);
-        Length meterTestResult = new Length(divide(multiply(meterValue, LENGTH_SCALES[METER]), LENGTH_SCALES[METER]), METER);
-        Length decimeterTestResult = new Length(divide(multiply(decimeterValue, LENGTH_SCALES[METER]), LENGTH_SCALES[DECIMETER]), METER);
-        Length centimeterTestResult = new Length(divide(multiply(centimeterValue, LENGTH_SCALES[METER]), LENGTH_SCALES[CENTIMETER]), METER);
-        Length millimeterTestResult = new Length(divide(multiply(millimeterValue, LENGTH_SCALES[METER]), LENGTH_SCALES[MILLIMETER]), METER);
+        Length kilometerTestResult = convert(kilometerValue, KILOMETER, METER);
+        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, METER);
+        Length decameterTestResult = convert(decameterValue, DECAMETER, METER);
+        Length meterTestResult = convert(meterValue, METER, METER);
+        Length decimeterTestResult = convert(decimeterValue, DECIMETER, METER);
+        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, METER);
+        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, METER);
 
         Length kilometerResult = toMeter(kilometerValue, KILOMETER);
         Length hectometerResult = toMeter(hectometerValue, HECTOMETER);
@@ -157,13 +157,13 @@ public class LengthTest {
 		double centimeterValue = NumberRandomizer.getRandomDouble();
 		double millimeterValue = NumberRandomizer.getRandomDouble();
 
-        Length kilometerTestResult = new Length(divide(multiply(kilometerValue, LENGTH_SCALES[DECIMETER]), LENGTH_SCALES[KILOMETER]), DECIMETER);
-        Length hectometerTestResult = new Length(divide(multiply(hectometerValue, LENGTH_SCALES[DECIMETER]), LENGTH_SCALES[HECTOMETER]), DECIMETER);
-        Length decameterTestResult = new Length(divide(multiply(decameterValue, LENGTH_SCALES[DECIMETER]), LENGTH_SCALES[DECAMETER]), DECIMETER);
-        Length meterTestResult = new Length(divide(multiply(meterValue, LENGTH_SCALES[DECIMETER]), LENGTH_SCALES[METER]), DECIMETER);
-        Length decimeterTestResult = new Length(divide(multiply(decimeterValue, LENGTH_SCALES[DECIMETER]), LENGTH_SCALES[DECIMETER]), DECIMETER);
-        Length centimeterTestResult = new Length(divide(multiply(centimeterValue, LENGTH_SCALES[DECIMETER]), LENGTH_SCALES[CENTIMETER]), DECIMETER);
-        Length millimeterTestResult = new Length(divide(multiply(millimeterValue, LENGTH_SCALES[DECIMETER]), LENGTH_SCALES[MILLIMETER]), DECIMETER);
+        Length kilometerTestResult = convert(kilometerValue, KILOMETER, DECIMETER);
+        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, DECIMETER);
+        Length decameterTestResult = convert(decameterValue, DECAMETER, DECIMETER);
+        Length meterTestResult = convert(meterValue, METER, DECIMETER);
+        Length decimeterTestResult = convert(decimeterValue, DECIMETER, DECIMETER);
+        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, DECIMETER);
+        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, DECIMETER);
 
         Length kilometerResult = toDecimeter(kilometerValue, KILOMETER);
         Length hectometerResult = toDecimeter(hectometerValue, HECTOMETER);
@@ -192,13 +192,13 @@ public class LengthTest {
 		double centimeterValue = NumberRandomizer.getRandomDouble();
 		double millimeterValue = NumberRandomizer.getRandomDouble();
 
-        Length kilometerTestResult = new Length(divide(multiply(kilometerValue, LENGTH_SCALES[CENTIMETER]), LENGTH_SCALES[KILOMETER]), CENTIMETER);
-        Length hectometerTestResult = new Length(divide(multiply(hectometerValue, LENGTH_SCALES[CENTIMETER]), LENGTH_SCALES[HECTOMETER]), CENTIMETER);
-        Length decameterTestResult = new Length(divide(multiply(decameterValue, LENGTH_SCALES[CENTIMETER]), LENGTH_SCALES[DECAMETER]), CENTIMETER);
-        Length meterTestResult = new Length(divide(multiply(meterValue, LENGTH_SCALES[CENTIMETER]), LENGTH_SCALES[METER]), CENTIMETER);
-        Length decimeterTestResult = new Length(divide(multiply(decimeterValue, LENGTH_SCALES[CENTIMETER]), LENGTH_SCALES[DECIMETER]), CENTIMETER);
-        Length centimeterTestResult = new Length(divide(multiply(centimeterValue, LENGTH_SCALES[CENTIMETER]), LENGTH_SCALES[CENTIMETER]), CENTIMETER);
-        Length millimeterTestResult = new Length(divide(multiply(millimeterValue, LENGTH_SCALES[CENTIMETER]), LENGTH_SCALES[MILLIMETER]), CENTIMETER);
+        Length kilometerTestResult = convert(kilometerValue, KILOMETER, CENTIMETER);
+        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, CENTIMETER);
+        Length decameterTestResult = convert(decameterValue, DECAMETER, CENTIMETER);
+        Length meterTestResult = convert(meterValue, METER, CENTIMETER);
+        Length decimeterTestResult = convert(decimeterValue, DECIMETER, CENTIMETER);
+        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, CENTIMETER);
+        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, CENTIMETER);
 
         Length kilometerResult = toCentimeter(kilometerValue, KILOMETER);
         Length hectometerResult = toCentimeter(hectometerValue, HECTOMETER);
@@ -227,13 +227,13 @@ public class LengthTest {
 		double centimeterValue = NumberRandomizer.getRandomDouble();
 		double millimeterValue = NumberRandomizer.getRandomDouble();
 
-        Length kilometerTestResult = new Length(divide(multiply(kilometerValue, LENGTH_SCALES[MILLIMETER]), LENGTH_SCALES[KILOMETER]), MILLIMETER);
-        Length hectometerTestResult = new Length(divide(multiply(hectometerValue, LENGTH_SCALES[MILLIMETER]), LENGTH_SCALES[HECTOMETER]), MILLIMETER);
-        Length decameterTestResult = new Length(divide(multiply(decameterValue, LENGTH_SCALES[MILLIMETER]), LENGTH_SCALES[DECAMETER]), MILLIMETER);
-        Length meterTestResult = new Length(divide(multiply(meterValue, LENGTH_SCALES[MILLIMETER]), LENGTH_SCALES[METER]), MILLIMETER);
-        Length decimeterTestResult = new Length(divide(multiply(decimeterValue, LENGTH_SCALES[MILLIMETER]), LENGTH_SCALES[DECIMETER]), MILLIMETER);
-        Length centimeterTestResult = new Length(divide(multiply(centimeterValue, LENGTH_SCALES[MILLIMETER]), LENGTH_SCALES[CENTIMETER]), MILLIMETER);
-        Length millimeterTestResult = new Length(divide(multiply(millimeterValue, LENGTH_SCALES[MILLIMETER]), LENGTH_SCALES[MILLIMETER]), MILLIMETER);
+        Length kilometerTestResult = convert(kilometerValue, KILOMETER, MILLIMETER);
+        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, MILLIMETER);
+        Length decameterTestResult = convert(decameterValue, DECAMETER, MILLIMETER);
+        Length meterTestResult = convert(meterValue, METER, MILLIMETER);
+        Length decimeterTestResult = convert(decimeterValue, DECIMETER, MILLIMETER);
+        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, MILLIMETER);
+        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, MILLIMETER);
 
         Length kilometerResult = toMillimeter(kilometerValue, KILOMETER);
         Length hectometerResult = toMillimeter(hectometerValue, HECTOMETER);
@@ -497,4 +497,9 @@ public class LengthTest {
         assertEquals(centimeterTestResult, centimeterResult);
         assertEquals(millimeterTestResult, millimeterResult);
 	}
+
+    @Override
+    public Length convert(double value, int currentUnit, int targetUnit) {
+        return new Length(divide(multiply(value, LENGTH_SCALES[targetUnit]), LENGTH_SCALES[currentUnit]), targetUnit);
+    }
 }
