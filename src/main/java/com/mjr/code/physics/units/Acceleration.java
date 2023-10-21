@@ -30,143 +30,143 @@ public class Acceleration extends Unit implements IAcceleration {
     @Deprecated
     private static Acceleration instance;
     
-	public static final int KILOMETER_PER_SQUARE_SECOND = Speed.LAST_UNIT_CONS + 1;
-	public static final int HECTOMETER_PER_SQUARE_SECOND = Speed.LAST_UNIT_CONS + 2;
-	public static final int DECAMETER_PER_SQUARE_SECOND = Speed.LAST_UNIT_CONS + 3;
-	public static final int METER_PER_SQUARE_SECOND = Speed.LAST_UNIT_CONS + 4;
-	public static final int DECIMETER_PER_SQUARE_SECOND = Speed.LAST_UNIT_CONS + 5;
-	public static final int CENTIMETER_PER_SQUARE_SECOND = Speed.LAST_UNIT_CONS + 6;
-	public static final int MILLIMETER_PER_SQUARE_SECOND = Speed.LAST_UNIT_CONS + 7;
+	public static final int KILOMETER_PER_SQUARED_SECOND = Speed.LAST_UNIT_CONS + 1;
+	public static final int HECTOMETER_PER_SQUARED_SECOND = Speed.LAST_UNIT_CONS + 2;
+	public static final int DECAMETER_PER_SQUARED_SECOND = Speed.LAST_UNIT_CONS + 3;
+	public static final int METER_PER_SQUARED_SECOND = Speed.LAST_UNIT_CONS + 4;
+	public static final int DECIMETER_PER_SQUARED_SECOND = Speed.LAST_UNIT_CONS + 5;
+	public static final int CENTIMETER_PER_SQUARED_SECOND = Speed.LAST_UNIT_CONS + 6;
+	public static final int MILLIMETER_PER_SQUARED_SECOND = Speed.LAST_UNIT_CONS + 7;
 
-	public static final int KILOMETER_PER_SQUARE_MINUTE = Speed.LAST_UNIT_CONS + 8;
-	public static final int HECTOMETER_PER_SQUARE_MINUTE = Speed.LAST_UNIT_CONS + 9;
-	public static final int DECAMETER_PER_SQUARE_MINUTE = Speed.LAST_UNIT_CONS + 10;
-	public static final int METER_PER_SQUARE_MINUTE = Speed.LAST_UNIT_CONS + 11;
-	public static final int DECIMETER_PER_SQUARE_MINUTE = Speed.LAST_UNIT_CONS + 12;
-	public static final int CENTIMETER_PER_SQUARE_MINUTE = Speed.LAST_UNIT_CONS + 13;
-	public static final int MILLIMETER_PER_SQUARE_MINUTE = Speed.LAST_UNIT_CONS + 14;
+	public static final int KILOMETER_PER_SQUARED_MINUTE = Speed.LAST_UNIT_CONS + 8;
+	public static final int HECTOMETER_PER_SQUARED_MINUTE = Speed.LAST_UNIT_CONS + 9;
+	public static final int DECAMETER_PER_SQUARED_MINUTE = Speed.LAST_UNIT_CONS + 10;
+	public static final int METER_PER_SQUARED_MINUTE = Speed.LAST_UNIT_CONS + 11;
+	public static final int DECIMETER_PER_SQUARED_MINUTE = Speed.LAST_UNIT_CONS + 12;
+	public static final int CENTIMETER_PER_SQUARED_MINUTE = Speed.LAST_UNIT_CONS + 13;
+	public static final int MILLIMETER_PER_SQUARED_MINUTE = Speed.LAST_UNIT_CONS + 14;
 
-	public static final int KILOMETER_PER_SQUARE_HOUR = Speed.LAST_UNIT_CONS + 15;
-	public static final int HECTOMETER_PER_SQUARE_HOUR = Speed.LAST_UNIT_CONS + 16;
-	public static final int DECAMETER_PER_SQUARE_HOUR = Speed.LAST_UNIT_CONS + 17;
-	public static final int METER_PER_SQUARE_HOUR = Speed.LAST_UNIT_CONS + 18;
-	public static final int DECIMETER_PER_SQUARE_HOUR = Speed.LAST_UNIT_CONS + 19;
-	public static final int CENTIMETER_PER_SQUARE_HOUR = Speed.LAST_UNIT_CONS + 20;
-	public static final int MILLIMETER_PER_SQUARE_HOUR = Speed.LAST_UNIT_CONS + 21;
+	public static final int KILOMETER_PER_SQUARED_HOUR = Speed.LAST_UNIT_CONS + 15;
+	public static final int HECTOMETER_PER_SQUARED_HOUR = Speed.LAST_UNIT_CONS + 16;
+	public static final int DECAMETER_PER_SQUARED_HOUR = Speed.LAST_UNIT_CONS + 17;
+	public static final int METER_PER_SQUARED_HOUR = Speed.LAST_UNIT_CONS + 18;
+	public static final int DECIMETER_PER_SQUARED_HOUR = Speed.LAST_UNIT_CONS + 19;
+	public static final int CENTIMETER_PER_SQUARED_HOUR = Speed.LAST_UNIT_CONS + 20;
+	public static final int MILLIMETER_PER_SQUARED_HOUR = Speed.LAST_UNIT_CONS + 21;
 
-	private static final int UNIT_SCALE = KILOMETER_PER_SQUARE_SECOND;
-	protected static final int LAST_UNIT_CONS = MILLIMETER_PER_SQUARE_HOUR;
+	private static final int UNIT_SCALE = KILOMETER_PER_SQUARED_SECOND;
+	protected static final int LAST_UNIT_CONS = MILLIMETER_PER_SQUARED_HOUR;
 	private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
 
 	protected static final BigDecimal[] ACCELERATION_SCALES = new BigDecimal[]
 	{
-		divide(LENGTH_SCALES[KILOMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
-		divide(LENGTH_SCALES[HECTOMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
-		divide(LENGTH_SCALES[DECAMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
-		divide(LENGTH_SCALES[METER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
-		divide(LENGTH_SCALES[DECIMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
-		divide(LENGTH_SCALES[CENTIMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
-		divide(LENGTH_SCALES[MILLIMETER], SQUARED_TIME_SCALES[SQUARE_SECOND - 21]),
+		divide(LENGTH_SCALES[KILOMETER], SQUAREDD_TIME_SCALES[SQUARED_SECOND - 21]),
+		divide(LENGTH_SCALES[HECTOMETER], SQUAREDD_TIME_SCALES[SQUARED_SECOND - 21]),
+		divide(LENGTH_SCALES[DECAMETER], SQUAREDD_TIME_SCALES[SQUARED_SECOND - 21]),
+		divide(LENGTH_SCALES[METER], SQUAREDD_TIME_SCALES[SQUARED_SECOND - 21]),
+		divide(LENGTH_SCALES[DECIMETER], SQUAREDD_TIME_SCALES[SQUARED_SECOND - 21]),
+		divide(LENGTH_SCALES[CENTIMETER], SQUAREDD_TIME_SCALES[SQUARED_SECOND - 21]),
+		divide(LENGTH_SCALES[MILLIMETER], SQUAREDD_TIME_SCALES[SQUARED_SECOND - 21]),
 
-		divide(LENGTH_SCALES[KILOMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
-		divide(LENGTH_SCALES[HECTOMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
-		divide(LENGTH_SCALES[DECAMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
-		divide(LENGTH_SCALES[METER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
-		divide(LENGTH_SCALES[DECIMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
-		divide(LENGTH_SCALES[CENTIMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
-		divide(LENGTH_SCALES[MILLIMETER], SQUARED_TIME_SCALES[SQUARE_MINUTE - 21]),
+		divide(LENGTH_SCALES[KILOMETER], SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 21]),
+		divide(LENGTH_SCALES[HECTOMETER], SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 21]),
+		divide(LENGTH_SCALES[DECAMETER], SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 21]),
+		divide(LENGTH_SCALES[METER], SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 21]),
+		divide(LENGTH_SCALES[DECIMETER], SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 21]),
+		divide(LENGTH_SCALES[CENTIMETER], SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 21]),
+		divide(LENGTH_SCALES[MILLIMETER], SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 21]),
 
-		divide(LENGTH_SCALES[KILOMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
-		divide(LENGTH_SCALES[HECTOMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
-		divide(LENGTH_SCALES[DECAMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
-		divide(LENGTH_SCALES[METER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
-		divide(LENGTH_SCALES[DECIMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
-		divide(LENGTH_SCALES[CENTIMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21]),
-		divide(LENGTH_SCALES[MILLIMETER], SQUARED_TIME_SCALES[SQUARE_HOUR - 21])
+		divide(LENGTH_SCALES[KILOMETER], SQUAREDD_TIME_SCALES[SQUARED_HOUR - 21]),
+		divide(LENGTH_SCALES[HECTOMETER], SQUAREDD_TIME_SCALES[SQUARED_HOUR - 21]),
+		divide(LENGTH_SCALES[DECAMETER], SQUAREDD_TIME_SCALES[SQUARED_HOUR - 21]),
+		divide(LENGTH_SCALES[METER], SQUAREDD_TIME_SCALES[SQUARED_HOUR - 21]),
+		divide(LENGTH_SCALES[DECIMETER], SQUAREDD_TIME_SCALES[SQUARED_HOUR - 21]),
+		divide(LENGTH_SCALES[CENTIMETER], SQUAREDD_TIME_SCALES[SQUARED_HOUR - 21]),
+		divide(LENGTH_SCALES[MILLIMETER], SQUAREDD_TIME_SCALES[SQUARED_HOUR - 21])
 	};
 
-	public static final String KILOMETER_PER_SQUARE_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
-	public static final String HECTOMETER_PER_SQUARE_SECOND_SYMBOL = HECTOMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
-	public static final String DECAMETER_PER_SQUARE_SECOND_SYMBOL = DECAMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
-	public static final String METER_PER_SQUARE_SECOND_SYMBOL = METER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
-	public static final String DECIMETER_PER_SQUARE_SECOND_SYMBOL = DECIMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
-	public static final String CENTIMETER_PER_SQUARE_SECOND_SYMBOL = CENTIMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
-	public static final String MILLIMETER_PER_SQUARE_SECOND_SYMBOL = MILLIMETER_SYMBOL + "/" + SQUARE_SECOND_SYMBOL;
+	public static final String KILOMETER_PER_SQUARED_SECOND_SYMBOL = KILOMETER_SYMBOL + "/" + SQUARED_SECOND_SYMBOL;
+	public static final String HECTOMETER_PER_SQUARED_SECOND_SYMBOL = HECTOMETER_SYMBOL + "/" + SQUARED_SECOND_SYMBOL;
+	public static final String DECAMETER_PER_SQUARED_SECOND_SYMBOL = DECAMETER_SYMBOL + "/" + SQUARED_SECOND_SYMBOL;
+	public static final String METER_PER_SQUARED_SECOND_SYMBOL = METER_SYMBOL + "/" + SQUARED_SECOND_SYMBOL;
+	public static final String DECIMETER_PER_SQUARED_SECOND_SYMBOL = DECIMETER_SYMBOL + "/" + SQUARED_SECOND_SYMBOL;
+	public static final String CENTIMETER_PER_SQUARED_SECOND_SYMBOL = CENTIMETER_SYMBOL + "/" + SQUARED_SECOND_SYMBOL;
+	public static final String MILLIMETER_PER_SQUARED_SECOND_SYMBOL = MILLIMETER_SYMBOL + "/" + SQUARED_SECOND_SYMBOL;
 
-	public static final String KILOMETER_PER_SQUARE_MINUTE_SYMBOL = KILOMETER_SYMBOL + "/" + SQUARE_MINUTE_SYMBOL;
-	public static final String HECTOMETER_PER_SQUARE_MINUTE_SYMBOL = HECTOMETER_SYMBOL + "/" + SQUARE_MINUTE_SYMBOL;
-	public static final String DECAMETER_PER_SQUARE_MINUTE_SYMBOL = DECAMETER_SYMBOL + "/" + SQUARE_MINUTE_SYMBOL;
-	public static final String METER_PER_SQUARE_MINUTE_SYMBOL = METER_SYMBOL + "/" + SQUARE_MINUTE_SYMBOL;
-	public static final String DECIMETER_PER_SQUARE_MINUTE_SYMBOL = DECIMETER_SYMBOL + "/" + SQUARE_MINUTE_SYMBOL;
-	public static final String CENTIMETER_PER_SQUARE_MINUTE_SYMBOL = CENTIMETER_SYMBOL + "/" + SQUARE_MINUTE_SYMBOL;
-	public static final String MILLIMETER_PER_SQUARE_MINUTE_SYMBOL = MILLIMETER_SYMBOL + "/" + SQUARE_MINUTE_SYMBOL;
+	public static final String KILOMETER_PER_SQUARED_MINUTE_SYMBOL = KILOMETER_SYMBOL + "/" + SQUARED_MINUTE_SYMBOL;
+	public static final String HECTOMETER_PER_SQUARED_MINUTE_SYMBOL = HECTOMETER_SYMBOL + "/" + SQUARED_MINUTE_SYMBOL;
+	public static final String DECAMETER_PER_SQUARED_MINUTE_SYMBOL = DECAMETER_SYMBOL + "/" + SQUARED_MINUTE_SYMBOL;
+	public static final String METER_PER_SQUARED_MINUTE_SYMBOL = METER_SYMBOL + "/" + SQUARED_MINUTE_SYMBOL;
+	public static final String DECIMETER_PER_SQUARED_MINUTE_SYMBOL = DECIMETER_SYMBOL + "/" + SQUARED_MINUTE_SYMBOL;
+	public static final String CENTIMETER_PER_SQUARED_MINUTE_SYMBOL = CENTIMETER_SYMBOL + "/" + SQUARED_MINUTE_SYMBOL;
+	public static final String MILLIMETER_PER_SQUARED_MINUTE_SYMBOL = MILLIMETER_SYMBOL + "/" + SQUARED_MINUTE_SYMBOL;
 
-	public static final String KILOMETER_PER_SQUARE_HOUR_SYMBOL = KILOMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
-	public static final String HECTOMETER_PER_SQUARE_HOUR_SYMBOL = HECTOMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
-	public static final String DECAMETER_PER_SQUARE_HOUR_SYMBOL = DECAMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
-	public static final String METER_PER_SQUARE_HOUR_SYMBOL = METER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
-	public static final String DECIMETER_PER_SQUARE_HOUR_SYMBOL = DECIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
-	public static final String CENTIMETER_PER_SQUARE_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
-	public static final String MILLIMETER_PER_SQUARE_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + SQUARE_HOUR_SYMBOL;
+	public static final String KILOMETER_PER_SQUARED_HOUR_SYMBOL = KILOMETER_SYMBOL + "/" + SQUARED_HOUR_SYMBOL;
+	public static final String HECTOMETER_PER_SQUARED_HOUR_SYMBOL = HECTOMETER_SYMBOL + "/" + SQUARED_HOUR_SYMBOL;
+	public static final String DECAMETER_PER_SQUARED_HOUR_SYMBOL = DECAMETER_SYMBOL + "/" + SQUARED_HOUR_SYMBOL;
+	public static final String METER_PER_SQUARED_HOUR_SYMBOL = METER_SYMBOL + "/" + SQUARED_HOUR_SYMBOL;
+	public static final String DECIMETER_PER_SQUARED_HOUR_SYMBOL = DECIMETER_SYMBOL + "/" + SQUARED_HOUR_SYMBOL;
+	public static final String CENTIMETER_PER_SQUARED_HOUR_SYMBOL = CENTIMETER_SYMBOL + "/" + SQUARED_HOUR_SYMBOL;
+	public static final String MILLIMETER_PER_SQUARED_HOUR_SYMBOL = MILLIMETER_SYMBOL + "/" + SQUARED_HOUR_SYMBOL;
 
     private final String[] ACCELERATION_SYMBOLS = new String[]{
-        KILOMETER_PER_SQUARE_SECOND_SYMBOL,
-        HECTOMETER_PER_SQUARE_SECOND_SYMBOL,
-        DECAMETER_PER_SQUARE_SECOND_SYMBOL,
-        METER_PER_SQUARE_SECOND_SYMBOL,
-        DECIMETER_PER_SQUARE_SECOND_SYMBOL,
-        CENTIMETER_PER_SQUARE_SECOND_SYMBOL,
-        MILLIMETER_PER_SQUARE_SECOND_SYMBOL,
+        KILOMETER_PER_SQUARED_SECOND_SYMBOL,
+        HECTOMETER_PER_SQUARED_SECOND_SYMBOL,
+        DECAMETER_PER_SQUARED_SECOND_SYMBOL,
+        METER_PER_SQUARED_SECOND_SYMBOL,
+        DECIMETER_PER_SQUARED_SECOND_SYMBOL,
+        CENTIMETER_PER_SQUARED_SECOND_SYMBOL,
+        MILLIMETER_PER_SQUARED_SECOND_SYMBOL,
         
-        KILOMETER_PER_SQUARE_MINUTE_SYMBOL,
-        HECTOMETER_PER_SQUARE_MINUTE_SYMBOL,
-        DECAMETER_PER_SQUARE_MINUTE_SYMBOL,
-        METER_PER_SQUARE_MINUTE_SYMBOL,
-        DECIMETER_PER_SQUARE_MINUTE_SYMBOL,
-        CENTIMETER_PER_SQUARE_MINUTE_SYMBOL,
-        MILLIMETER_PER_SQUARE_MINUTE_SYMBOL,
+        KILOMETER_PER_SQUARED_MINUTE_SYMBOL,
+        HECTOMETER_PER_SQUARED_MINUTE_SYMBOL,
+        DECAMETER_PER_SQUARED_MINUTE_SYMBOL,
+        METER_PER_SQUARED_MINUTE_SYMBOL,
+        DECIMETER_PER_SQUARED_MINUTE_SYMBOL,
+        CENTIMETER_PER_SQUARED_MINUTE_SYMBOL,
+        MILLIMETER_PER_SQUARED_MINUTE_SYMBOL,
         
-        KILOMETER_PER_SQUARE_HOUR_SYMBOL,
-        HECTOMETER_PER_SQUARE_HOUR_SYMBOL,
-        DECAMETER_PER_SQUARE_HOUR_SYMBOL,
-        METER_PER_SQUARE_HOUR_SYMBOL,
-        DECIMETER_PER_SQUARE_HOUR_SYMBOL,
-        CENTIMETER_PER_SQUARE_HOUR_SYMBOL,
-        MILLIMETER_PER_SQUARE_HOUR_SYMBOL
+        KILOMETER_PER_SQUARED_HOUR_SYMBOL,
+        HECTOMETER_PER_SQUARED_HOUR_SYMBOL,
+        DECAMETER_PER_SQUARED_HOUR_SYMBOL,
+        METER_PER_SQUARED_HOUR_SYMBOL,
+        DECIMETER_PER_SQUARED_HOUR_SYMBOL,
+        CENTIMETER_PER_SQUARED_HOUR_SYMBOL,
+        MILLIMETER_PER_SQUARED_HOUR_SYMBOL
     };
     
 	public Acceleration() {
         super();
 		setMaxUnit(MAX_UNIT_SCALE);
-		setUnit(METER_PER_SQUARE_SECOND);
+		setUnit(METER_PER_SQUARED_SECOND);
 		value = value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Acceleration(double value) {
         super(value);
 		setMaxUnit(MAX_UNIT_SCALE);
-		setUnit(METER_PER_SQUARE_SECOND);
+		setUnit(METER_PER_SQUARED_SECOND);
 		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Acceleration(String value) {
         super(value);
 		setMaxUnit(MAX_UNIT_SCALE);
-		setUnit(METER_PER_SQUARE_SECOND);
+		setUnit(METER_PER_SQUARED_SECOND);
 		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Acceleration(long value) {
         super(value);
 		setMaxUnit(MAX_UNIT_SCALE);
-		setUnit(METER_PER_SQUARE_SECOND);
+		setUnit(METER_PER_SQUARED_SECOND);
 		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
     public Acceleration(BigDecimal value) {
         super(value);
 		setMaxUnit(MAX_UNIT_SCALE);
-		setUnit(METER_PER_SQUARE_SECOND);
+		setUnit(METER_PER_SQUARED_SECOND);
 		this.value = this.value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
@@ -199,212 +199,212 @@ public class Acceleration extends Unit implements IAcceleration {
     }
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toKilometerPerSquareSecond(double value, int unit) {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[KILOMETER_PER_SQUARE_SECOND - UNIT_SCALE]));
+	public static @NotNull Acceleration toKilometerPerSquaredSecond(double value, int unit) {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[KILOMETER_PER_SQUARED_SECOND - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toHectometerPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_SECOND- UNIT_SCALE]));
+	public static @NotNull Acceleration toHectometerPerSquaredSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[HECTOMETER_PER_SQUARED_SECOND- UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toDecameterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECAMETER_PER_SQUARE_SECOND - UNIT_SCALE]));
+	public static @NotNull Acceleration toDecameterPerSquaredSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECAMETER_PER_SQUARED_SECOND - UNIT_SCALE]));
     }
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toMeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[METER_PER_SQUARE_SECOND - UNIT_SCALE]));
+	public static @NotNull Acceleration toMeterPerSquaredSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[METER_PER_SQUARED_SECOND - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toDecimeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECIMETER_PER_SQUARE_SECOND - UNIT_SCALE]));
+	public static @NotNull Acceleration toDecimeterPerSquaredSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECIMETER_PER_SQUARED_SECOND - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toCentimeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_SECOND - UNIT_SCALE]));
+	public static @NotNull Acceleration toCentimeterPerSquaredSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[CENTIMETER_PER_SQUARED_SECOND - UNIT_SCALE]));
     }
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toMillimeterPerSquareSecond(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_SECOND- UNIT_SCALE]));
+	public static @NotNull Acceleration toMillimeterPerSquaredSecond(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[MILLIMETER_PER_SQUARED_SECOND- UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toKilometerPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[KILOMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
+	public static @NotNull Acceleration toKilometerPerSquaredMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[KILOMETER_PER_SQUARED_MINUTE - UNIT_SCALE]));
     }
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toHectometerPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
+	public static @NotNull Acceleration toHectometerPerSquaredMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[HECTOMETER_PER_SQUARED_MINUTE - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toDecameterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECAMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
+	public static @NotNull Acceleration toDecameterPerSquaredMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECAMETER_PER_SQUARED_MINUTE - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toMeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[METER_PER_SQUARE_MINUTE - UNIT_SCALE]));
+	public static @NotNull Acceleration toMeterPerSquaredMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[METER_PER_SQUARED_MINUTE - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toDecimeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECIMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
+	public static @NotNull Acceleration toDecimeterPerSquaredMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECIMETER_PER_SQUARED_MINUTE - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toCentimeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
+	public static @NotNull Acceleration toCentimeterPerSquaredMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[CENTIMETER_PER_SQUARED_MINUTE - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toMillimeterPerSquareMinute(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_MINUTE - UNIT_SCALE]));
+	public static @NotNull Acceleration toMillimeterPerSquaredMinute(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[MILLIMETER_PER_SQUARED_MINUTE - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toKilometerPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[KILOMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
+	public static @NotNull Acceleration toKilometerPerSquaredHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[KILOMETER_PER_SQUARED_HOUR - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toHectometerPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[HECTOMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
+	public static @NotNull Acceleration toHectometerPerSquaredHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[HECTOMETER_PER_SQUARED_HOUR - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toDecameterPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECAMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
+	public static @NotNull Acceleration toDecameterPerSquaredHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECAMETER_PER_SQUARED_HOUR - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toMeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[METER_PER_SQUARE_HOUR - UNIT_SCALE]));
+	public static @NotNull Acceleration toMeterPerSquaredHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[METER_PER_SQUARED_HOUR - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toDecimeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECIMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
+	public static @NotNull Acceleration toDecimeterPerSquaredHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[DECIMETER_PER_SQUARED_HOUR - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toCentimeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[CENTIMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
+	public static @NotNull Acceleration toCentimeterPerSquaredHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[CENTIMETER_PER_SQUARED_HOUR - UNIT_SCALE]));
 	}
 
 	@Contract("_, _ -> new")
-	public static @NotNull Acceleration toMillimeterPerSquareHour(double value, int unit) throws IllegalArgumentException {
-		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[MILLIMETER_PER_SQUARE_HOUR - UNIT_SCALE]));
+	public static @NotNull Acceleration toMillimeterPerSquaredHour(double value, int unit) throws IllegalArgumentException {
+		return new Acceleration(divide(multiply(value, ACCELERATION_SCALES[unit - UNIT_SCALE]), ACCELERATION_SCALES[MILLIMETER_PER_SQUARED_HOUR - UNIT_SCALE]));
 	}
 
     @Override
-    public Acceleration toKilometerPerSquareSecond() {
+    public Acceleration toKilometerPerSquaredSecond() {
         return null;
     }
 
     @Override
-    public Acceleration toHectometerPerSquareSecond() {
+    public Acceleration toHectometerPerSquaredSecond() {
         return null;
     }
 
     @Override
-    public Acceleration toDecameterPerSquareSecond() {
+    public Acceleration toDecameterPerSquaredSecond() {
         return null;
     }
 
     @Override
-    public Acceleration toMeterPerSquareSecond() {
+    public Acceleration toMeterPerSquaredSecond() {
         return null;
     }
 
     @Override
-    public Acceleration toDecimeterPerSquareSecond() {
+    public Acceleration toDecimeterPerSquaredSecond() {
         return null;
     }
 
     @Override
-    public Acceleration toCentimeterPerSquareSecond() {
+    public Acceleration toCentimeterPerSquaredSecond() {
         return null;
     }
 
     @Override
-    public Acceleration toMillimeterPerSquareSecond() {
+    public Acceleration toMillimeterPerSquaredSecond() {
         return null;
     }
 
     @Override
-    public Acceleration toKilometerPerSquareMinute() {
+    public Acceleration toKilometerPerSquaredMinute() {
         return null;
     }
 
     @Override
-    public Acceleration toHectometerPerSquareMinute() {
+    public Acceleration toHectometerPerSquaredMinute() {
         return null;
     }
 
     @Override
-    public Acceleration toDecameterPerSquareMinute() {
+    public Acceleration toDecameterPerSquaredMinute() {
         return null;
     }
 
     @Override
-    public Acceleration toMeterPerSquareMinute() {
+    public Acceleration toMeterPerSquaredMinute() {
         return null;
     }
 
     @Override
-    public Acceleration toDecimeterPerSquareMinute() {
+    public Acceleration toDecimeterPerSquaredMinute() {
         return null;
     }
 
     @Override
-    public Acceleration toCentimeterPerSquareMinute() {
+    public Acceleration toCentimeterPerSquaredMinute() {
         return null;
     }
 
     @Override
-    public Acceleration toMillimeterPerSquareMinute() {
+    public Acceleration toMillimeterPerSquaredMinute() {
         return null;
     }
 
     @Override
-    public Acceleration toKilometerPerSquareHour() {
+    public Acceleration toKilometerPerSquaredHour() {
         return null;
     }
 
     @Override
-    public Acceleration toHectometerPerSquareHour() {
+    public Acceleration toHectometerPerSquaredHour() {
         return null;
     }
 
     @Override
-    public Acceleration toDecameterPerSquareHour() {
+    public Acceleration toDecameterPerSquaredHour() {
         return null;
     }
 
     @Override
-    public Acceleration toMeterPerSquareHour() {
+    public Acceleration toMeterPerSquaredHour() {
         return null;
     }
 
     @Override
-    public Acceleration toDecimeterPerSquareHour() {
+    public Acceleration toDecimeterPerSquaredHour() {
         return null;
     }
 
     @Override
-    public Acceleration toCentimeterPerSquareHour() {
+    public Acceleration toCentimeterPerSquaredHour() {
         return null;
     }
 
     @Override
-    public Acceleration toMillimeterPerSquareHour() {
+    public Acceleration toMillimeterPerSquaredHour() {
         return null;
     }
 
@@ -415,7 +415,7 @@ public class Acceleration extends Unit implements IAcceleration {
 
 	@Override
 	public boolean isInInternationalSystem() {
-		return unit == (METER_PER_SQUARE_SECOND - UNIT_SCALE);
+		return unit == (METER_PER_SQUARED_SECOND - UNIT_SCALE);
 	}
 
     @Override

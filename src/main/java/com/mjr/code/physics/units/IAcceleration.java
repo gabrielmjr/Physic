@@ -1,27 +1,27 @@
 package com.mjr.code.physics.units;
 
 public interface IAcceleration {
-    Acceleration toKilometerPerSquareSecond ();
-	Acceleration toHectometerPerSquareSecond ();
-	Acceleration toDecameterPerSquareSecond ();
-	Acceleration toMeterPerSquareSecond ();
-	Acceleration toDecimeterPerSquareSecond ();
-	Acceleration toCentimeterPerSquareSecond ();
-	Acceleration toMillimeterPerSquareSecond ();
+    Acceleration toKilometerPerSquaredSecond();
+	Acceleration toHectometerPerSquaredSecond();
+	Acceleration toDecameterPerSquaredSecond();
+	Acceleration toMeterPerSquaredSecond();
+	Acceleration toDecimeterPerSquaredSecond();
+	Acceleration toCentimeterPerSquaredSecond();
+	Acceleration toMillimeterPerSquaredSecond();
 
-	Acceleration toKilometerPerSquareMinute ();
-	Acceleration toHectometerPerSquareMinute ();
-	Acceleration toDecameterPerSquareMinute ();
-	Acceleration toMeterPerSquareMinute ();
-	Acceleration toDecimeterPerSquareMinute ();
-	Acceleration toCentimeterPerSquareMinute ();
-	Acceleration toMillimeterPerSquareMinute ();
+	Acceleration toKilometerPerSquaredMinute();
+	Acceleration toHectometerPerSquaredMinute();
+	Acceleration toDecameterPerSquaredMinute();
+	Acceleration toMeterPerSquaredMinute();
+	Acceleration toDecimeterPerSquaredMinute();
+	Acceleration toCentimeterPerSquaredMinute();
+	Acceleration toMillimeterPerSquaredMinute();
 
-	Acceleration toKilometerPerSquareHour ();
-	Acceleration toHectometerPerSquareHour ();
-	Acceleration toDecameterPerSquareHour ();
-	Acceleration toMeterPerSquareHour ();
-	Acceleration toDecimeterPerSquareHour ();
-	Acceleration toCentimeterPerSquareHour ();
-	Acceleration toMillimeterPerSquareHour ();
+	Acceleration toKilometerPerSquaredHour();
+	Acceleration toHectometerPerSquaredHour();
+	Acceleration toDecameterPerSquaredHour();
+	Acceleration toMeterPerSquaredHour();
+	Acceleration toDecimeterPerSquaredHour();
+	Acceleration toCentimeterPerSquaredHour();
+	Acceleration toMillimeterPerSquaredHour();
 }

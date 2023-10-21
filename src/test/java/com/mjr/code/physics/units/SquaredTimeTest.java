@@ -12,263 +12,263 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SquaredTimeTest {
 	@Test
-	public void toSquareSecondTest() throws IllegalArgumentException {
-		double squareSecondValue = NumberRandomizer.getRandomDouble();
-		double squareMinuteValue = NumberRandomizer.getRandomDouble();
-		double squareHourValue = NumberRandomizer.getRandomDouble();
-		double squareDayValue = NumberRandomizer.getRandomDouble();
-		double squareWeekValue = NumberRandomizer.getRandomDouble();
-        SquaredTime squareSecondTestResult = new SquaredTime(BigDecimal.valueOf(squareSecondValue).multiply(SQUARED_TIME_SCALES[SQUARE_SECOND - 26]).divide(SQUARED_TIME_SCALES[SQUARE_SECOND - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_SECOND);
-        SquaredTime squareMinuteTestResult = new SquaredTime(BigDecimal.valueOf(squareMinuteValue).multiply(SQUARED_TIME_SCALES[SQUARE_SECOND - 26]).divide(SQUARED_TIME_SCALES[SQUARE_MINUTE - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_SECOND);
-        SquaredTime squareHourTestResult = new SquaredTime(BigDecimal.valueOf(squareHourValue).multiply(SQUARED_TIME_SCALES[SQUARE_SECOND - 26]).divide(SQUARED_TIME_SCALES[SQUARE_HOUR - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_SECOND);
-        SquaredTime squareDayTestResult = new SquaredTime(BigDecimal.valueOf(squareDayValue).multiply(SQUARED_TIME_SCALES[SQUARE_SECOND - 26]).divide(SQUARED_TIME_SCALES[SQUARE_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_SECOND);
-        SquaredTime squareWeekTestResult = new SquaredTime(BigDecimal.valueOf(squareWeekValue).multiply(SQUARED_TIME_SCALES[SQUARE_SECOND - 26]).divide(SQUARED_TIME_SCALES[SQUARE_WEEK - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_SECOND);
+	public void toSquaredSecondTest() throws IllegalArgumentException {
+		double squaredSecondValue = NumberRandomizer.getRandomDouble();
+		double squaredMinuteValue = NumberRandomizer.getRandomDouble();
+		double squaredHourValue = NumberRandomizer.getRandomDouble();
+		double squaredDayValue = NumberRandomizer.getRandomDouble();
+		double squaredWeekValue = NumberRandomizer.getRandomDouble();
+        SquaredTime squaredSecondTestResult = new SquaredTime(BigDecimal.valueOf(squaredSecondValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_SECOND - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_SECOND - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_SECOND);
+        SquaredTime squaredMinuteTestResult = new SquaredTime(BigDecimal.valueOf(squaredMinuteValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_SECOND - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_SECOND);
+        SquaredTime squaredHourTestResult = new SquaredTime(BigDecimal.valueOf(squaredHourValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_SECOND - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_HOUR - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_SECOND);
+        SquaredTime squaredDayTestResult = new SquaredTime(BigDecimal.valueOf(squaredDayValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_SECOND - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_SECOND);
+        SquaredTime squaredWeekTestResult = new SquaredTime(BigDecimal.valueOf(squaredWeekValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_SECOND - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_WEEK - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_SECOND);
 
-        SquaredTime squareSecondResult = toSquareSecond(squareSecondValue, SQUARE_SECOND);
-        SquaredTime squareMinuteResult = toSquareSecond(squareMinuteValue, SQUARE_MINUTE);
-        SquaredTime squareHourResult = toSquareSecond(squareHourValue, SQUARE_HOUR);
-        SquaredTime squareDayResult = toSquareSecond(squareDayValue, SQUARE_DAY);
-        SquaredTime squareWeekResult = toSquareSecond(squareWeekValue, SQUARE_WEEK);
+        SquaredTime squaredSecondResult = toSquaredSecond(squaredSecondValue, SQUARED_SECOND);
+        SquaredTime squaredMinuteResult = toSquaredSecond(squaredMinuteValue, SQUARED_MINUTE);
+        SquaredTime squaredHourResult = toSquaredSecond(squaredHourValue, SQUARED_HOUR);
+        SquaredTime squaredDayResult = toSquaredSecond(squaredDayValue, SQUARED_DAY);
+        SquaredTime squaredWeekResult = toSquaredSecond(squaredWeekValue, SQUARED_WEEK);
 
-        assertEquals(squareSecondTestResult, squareSecondResult);
-        assertEquals(squareMinuteTestResult, squareMinuteResult);
-        assertEquals(squareHourTestResult, squareHourResult);
-        assertEquals(squareDayTestResult, squareDayResult);
-        assertEquals(squareWeekTestResult, squareWeekResult);
+        assertEquals(squaredSecondTestResult, squaredSecondResult);
+        assertEquals(squaredMinuteTestResult, squaredMinuteResult);
+        assertEquals(squaredHourTestResult, squaredHourResult);
+        assertEquals(squaredDayTestResult, squaredDayResult);
+        assertEquals(squaredWeekTestResult, squaredWeekResult);
     }
 	
 	@Test
-	public void toSquareMinuteTest() throws IllegalArgumentException {
-		double squareSecondValue = NumberRandomizer.getRandomDouble();
-		double squareMinuteValue = NumberRandomizer.getRandomDouble();
-		double squareHourValue = NumberRandomizer.getRandomDouble();
-		double squareDayValue = NumberRandomizer.getRandomDouble();
-		double squareWeekValue = NumberRandomizer.getRandomDouble();
-        SquaredTime squareSecondTestResult = new SquaredTime(BigDecimal.valueOf(squareSecondValue).multiply(SQUARED_TIME_SCALES[SQUARE_MINUTE - 26]).divide(SQUARED_TIME_SCALES[SQUARE_SECOND - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MINUTE);
-        SquaredTime squareMinuteTestResult = new SquaredTime(BigDecimal.valueOf(squareMinuteValue).multiply(SQUARED_TIME_SCALES[SQUARE_MINUTE - 26]).divide(SQUARED_TIME_SCALES[SQUARE_MINUTE - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MINUTE);
-        SquaredTime squareHourTestResult = new SquaredTime(BigDecimal.valueOf(squareHourValue).multiply(SQUARED_TIME_SCALES[SQUARE_MINUTE - 26]).divide(SQUARED_TIME_SCALES[SQUARE_HOUR - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MINUTE);
-        SquaredTime squareDayTestResult = new SquaredTime(BigDecimal.valueOf(squareDayValue).multiply(SQUARED_TIME_SCALES[SQUARE_MINUTE - 26]).divide(SQUARED_TIME_SCALES[SQUARE_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MINUTE);
-        SquaredTime squareWeekTestResult = new SquaredTime(BigDecimal.valueOf(squareWeekValue).multiply(SQUARED_TIME_SCALES[SQUARE_MINUTE - 26]).divide(SQUARED_TIME_SCALES[SQUARE_WEEK - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_MINUTE);
+	public void toSquaredMinuteTest() throws IllegalArgumentException {
+		double squaredSecondValue = NumberRandomizer.getRandomDouble();
+		double squaredMinuteValue = NumberRandomizer.getRandomDouble();
+		double squaredHourValue = NumberRandomizer.getRandomDouble();
+		double squaredDayValue = NumberRandomizer.getRandomDouble();
+		double squaredWeekValue = NumberRandomizer.getRandomDouble();
+        SquaredTime squaredSecondTestResult = new SquaredTime(BigDecimal.valueOf(squaredSecondValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_SECOND - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_MINUTE);
+        SquaredTime squaredMinuteTestResult = new SquaredTime(BigDecimal.valueOf(squaredMinuteValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_MINUTE);
+        SquaredTime squaredHourTestResult = new SquaredTime(BigDecimal.valueOf(squaredHourValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_HOUR - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_MINUTE);
+        SquaredTime squaredDayTestResult = new SquaredTime(BigDecimal.valueOf(squaredDayValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_MINUTE);
+        SquaredTime squaredWeekTestResult = new SquaredTime(BigDecimal.valueOf(squaredWeekValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_WEEK - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_MINUTE);
 
-        SquaredTime squareSecondResult = toSquareMinute(squareSecondValue, SQUARE_SECOND);
-        SquaredTime squareMinuteResult = toSquareMinute(squareMinuteValue, SQUARE_MINUTE);
-        SquaredTime squareHourResult = toSquareMinute(squareHourValue, SQUARE_HOUR);
-        SquaredTime squareDayResult = toSquareMinute(squareDayValue, SQUARE_DAY);
-        SquaredTime squareWeekResult = toSquareMinute(squareWeekValue, SQUARE_WEEK);
+        SquaredTime squaredSecondResult = toSquaredMinute(squaredSecondValue, SQUARED_SECOND);
+        SquaredTime squaredMinuteResult = toSquaredMinute(squaredMinuteValue, SQUARED_MINUTE);
+        SquaredTime squaredHourResult = toSquaredMinute(squaredHourValue, SQUARED_HOUR);
+        SquaredTime squaredDayResult = toSquaredMinute(squaredDayValue, SQUARED_DAY);
+        SquaredTime squaredWeekResult = toSquaredMinute(squaredWeekValue, SQUARED_WEEK);
 
-        assertEquals(squareSecondTestResult, squareSecondResult);
-        assertEquals(squareMinuteTestResult, squareMinuteResult);
-        assertEquals(squareHourTestResult, squareHourResult);
-        assertEquals(squareDayTestResult, squareDayResult);
-        assertEquals(squareWeekTestResult, squareWeekResult);
+        assertEquals(squaredSecondTestResult, squaredSecondResult);
+        assertEquals(squaredMinuteTestResult, squaredMinuteResult);
+        assertEquals(squaredHourTestResult, squaredHourResult);
+        assertEquals(squaredDayTestResult, squaredDayResult);
+        assertEquals(squaredWeekTestResult, squaredWeekResult);
     }
 	
 	@Test
-	public void toSquareHourTest() throws IllegalArgumentException {
-		double squareSecondValue = NumberRandomizer.getRandomDouble();
-		double squareMinuteValue = NumberRandomizer.getRandomDouble();
-		double squareHourValue = NumberRandomizer.getRandomDouble();
-		double squareDayValue = NumberRandomizer.getRandomDouble();
-		double squareWeekValue = NumberRandomizer.getRandomDouble();
-        SquaredTime squareSecondTestResult = new SquaredTime(BigDecimal.valueOf(squareSecondValue).multiply(SQUARED_TIME_SCALES[SQUARE_HOUR - 26]).divide(SQUARED_TIME_SCALES[SQUARE_SECOND - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HOUR);
-        SquaredTime squareMinuteTestResult = new SquaredTime(BigDecimal.valueOf(squareMinuteValue).multiply(SQUARED_TIME_SCALES[SQUARE_HOUR - 26]).divide(SQUARED_TIME_SCALES[SQUARE_MINUTE - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HOUR);
-        SquaredTime squareHourTestResult = new SquaredTime(BigDecimal.valueOf(squareHourValue).multiply(SQUARED_TIME_SCALES[SQUARE_HOUR - 26]).divide(SQUARED_TIME_SCALES[SQUARE_HOUR - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HOUR);
-        SquaredTime squareDayTestResult = new SquaredTime(BigDecimal.valueOf(squareDayValue).multiply(SQUARED_TIME_SCALES[SQUARE_HOUR - 26]).divide(SQUARED_TIME_SCALES[SQUARE_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HOUR);
-        SquaredTime squareWeekTestResult = new SquaredTime(BigDecimal.valueOf(squareWeekValue).multiply(SQUARED_TIME_SCALES[SQUARE_HOUR - 26]).divide(SQUARED_TIME_SCALES[SQUARE_WEEK - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_HOUR);
+	public void toSquaredHourTest() throws IllegalArgumentException {
+		double squaredSecondValue = NumberRandomizer.getRandomDouble();
+		double squaredMinuteValue = NumberRandomizer.getRandomDouble();
+		double squaredHourValue = NumberRandomizer.getRandomDouble();
+		double squaredDayValue = NumberRandomizer.getRandomDouble();
+		double squaredWeekValue = NumberRandomizer.getRandomDouble();
+        SquaredTime squaredSecondTestResult = new SquaredTime(BigDecimal.valueOf(squaredSecondValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_HOUR - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_SECOND - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_HOUR);
+        SquaredTime squaredMinuteTestResult = new SquaredTime(BigDecimal.valueOf(squaredMinuteValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_HOUR - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_HOUR);
+        SquaredTime squaredHourTestResult = new SquaredTime(BigDecimal.valueOf(squaredHourValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_HOUR - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_HOUR - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_HOUR);
+        SquaredTime squaredDayTestResult = new SquaredTime(BigDecimal.valueOf(squaredDayValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_HOUR - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_HOUR);
+        SquaredTime squaredWeekTestResult = new SquaredTime(BigDecimal.valueOf(squaredWeekValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_HOUR - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_WEEK - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_HOUR);
 
-        SquaredTime squareSecondResult = toSquareHour(squareSecondValue, SQUARE_SECOND);
-        SquaredTime squareMinuteResult = toSquareHour(squareMinuteValue, SQUARE_MINUTE);
-        SquaredTime squareHourResult = toSquareHour(squareHourValue, SQUARE_HOUR);
-        SquaredTime squareDayResult = toSquareHour(squareDayValue, SQUARE_DAY);
-        SquaredTime squareWeekResult = toSquareHour(squareWeekValue, SQUARE_WEEK);
+        SquaredTime squaredSecondResult = toSquaredHour(squaredSecondValue, SQUARED_SECOND);
+        SquaredTime squaredMinuteResult = toSquaredHour(squaredMinuteValue, SQUARED_MINUTE);
+        SquaredTime squaredHourResult = toSquaredHour(squaredHourValue, SQUARED_HOUR);
+        SquaredTime squaredDayResult = toSquaredHour(squaredDayValue, SQUARED_DAY);
+        SquaredTime squaredWeekResult = toSquaredHour(squaredWeekValue, SQUARED_WEEK);
 
-        assertEquals(squareSecondTestResult, squareSecondResult);
-        assertEquals(squareMinuteTestResult, squareMinuteResult);
-        assertEquals(squareHourTestResult, squareHourResult);
-        assertEquals(squareDayTestResult, squareDayResult);
-        assertEquals(squareWeekTestResult, squareWeekResult);
+        assertEquals(squaredSecondTestResult, squaredSecondResult);
+        assertEquals(squaredMinuteTestResult, squaredMinuteResult);
+        assertEquals(squaredHourTestResult, squaredHourResult);
+        assertEquals(squaredDayTestResult, squaredDayResult);
+        assertEquals(squaredWeekTestResult, squaredWeekResult);
     }
 	
 	@Test
-	public void toSquareDayTest() throws IllegalArgumentException {
-		double squareSecondValue = NumberRandomizer.getRandomDouble();
-		double squareMinuteValue = NumberRandomizer.getRandomDouble();
-		double squareHourValue = NumberRandomizer.getRandomDouble();
-		double squareDayValue = NumberRandomizer.getRandomDouble();
-		double squareWeekValue = NumberRandomizer.getRandomDouble();
-        SquaredTime squareSecondTestResult = new SquaredTime(BigDecimal.valueOf(squareSecondValue).multiply(SQUARED_TIME_SCALES[SQUARE_DAY - 26]).divide(SQUARED_TIME_SCALES[SQUARE_SECOND - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DAY);
-        SquaredTime squareMinuteTestResult = new SquaredTime(BigDecimal.valueOf(squareMinuteValue).multiply(SQUARED_TIME_SCALES[SQUARE_DAY - 26]).divide(SQUARED_TIME_SCALES[SQUARE_MINUTE - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DAY);
-        SquaredTime squareHourTestResult = new SquaredTime(BigDecimal.valueOf(squareHourValue).multiply(SQUARED_TIME_SCALES[SQUARE_DAY - 26]).divide(SQUARED_TIME_SCALES[SQUARE_HOUR - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DAY);
-        SquaredTime squareDayTestResult = new SquaredTime(BigDecimal.valueOf(squareDayValue).multiply(SQUARED_TIME_SCALES[SQUARE_DAY - 26]).divide(SQUARED_TIME_SCALES[SQUARE_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DAY);
-        SquaredTime squareWeekTestResult = new SquaredTime(BigDecimal.valueOf(squareWeekValue).multiply(SQUARED_TIME_SCALES[SQUARE_DAY - 26]).divide(SQUARED_TIME_SCALES[SQUARE_WEEK - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_DAY);
+	public void toSquaredDayTest() throws IllegalArgumentException {
+		double squaredSecondValue = NumberRandomizer.getRandomDouble();
+		double squaredMinuteValue = NumberRandomizer.getRandomDouble();
+		double squaredHourValue = NumberRandomizer.getRandomDouble();
+		double squaredDayValue = NumberRandomizer.getRandomDouble();
+		double squaredWeekValue = NumberRandomizer.getRandomDouble();
+        SquaredTime squaredSecondTestResult = new SquaredTime(BigDecimal.valueOf(squaredSecondValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_DAY - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_SECOND - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_DAY);
+        SquaredTime squaredMinuteTestResult = new SquaredTime(BigDecimal.valueOf(squaredMinuteValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_DAY - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_DAY);
+        SquaredTime squaredHourTestResult = new SquaredTime(BigDecimal.valueOf(squaredHourValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_DAY - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_HOUR - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_DAY);
+        SquaredTime squaredDayTestResult = new SquaredTime(BigDecimal.valueOf(squaredDayValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_DAY - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_DAY);
+        SquaredTime squaredWeekTestResult = new SquaredTime(BigDecimal.valueOf(squaredWeekValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_DAY - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_WEEK - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_DAY);
 
-        SquaredTime squareSecondResult = toSquareDay(squareSecondValue, SQUARE_SECOND);
-        SquaredTime squareMinuteResult = toSquareDay(squareMinuteValue, SQUARE_MINUTE);
-        SquaredTime squareHourResult = toSquareDay(squareHourValue, SQUARE_HOUR);
-        SquaredTime squareDayResult = toSquareDay(squareDayValue, SQUARE_DAY);
-        SquaredTime squareWeekResult = toSquareDay(squareWeekValue, SQUARE_WEEK);
+        SquaredTime squaredSecondResult = toSquaredDay(squaredSecondValue, SQUARED_SECOND);
+        SquaredTime squaredMinuteResult = toSquaredDay(squaredMinuteValue, SQUARED_MINUTE);
+        SquaredTime squaredHourResult = toSquaredDay(squaredHourValue, SQUARED_HOUR);
+        SquaredTime squaredDayResult = toSquaredDay(squaredDayValue, SQUARED_DAY);
+        SquaredTime squaredWeekResult = toSquaredDay(squaredWeekValue, SQUARED_WEEK);
 
-        assertEquals(squareSecondTestResult, squareSecondResult);
-        assertEquals(squareMinuteTestResult, squareMinuteResult);
-        assertEquals(squareHourTestResult, squareHourResult);
-        assertEquals(squareDayTestResult, squareDayResult);
-        assertEquals(squareWeekTestResult, squareWeekResult);
+        assertEquals(squaredSecondTestResult, squaredSecondResult);
+        assertEquals(squaredMinuteTestResult, squaredMinuteResult);
+        assertEquals(squaredHourTestResult, squaredHourResult);
+        assertEquals(squaredDayTestResult, squaredDayResult);
+        assertEquals(squaredWeekTestResult, squaredWeekResult);
     }
 	
 	@Test
-	public void toSquareWeekTest() throws IllegalArgumentException {
-		double squareSecondValue = NumberRandomizer.getRandomDouble();
-		double squareMinuteValue = NumberRandomizer.getRandomDouble();
-		double squareHourValue = NumberRandomizer.getRandomDouble();
-		double squareDayValue = NumberRandomizer.getRandomDouble();
-		double squareWeekValue = NumberRandomizer.getRandomDouble();
-        SquaredTime squareSecondTestResult = new SquaredTime(BigDecimal.valueOf(squareSecondValue).multiply(SQUARED_TIME_SCALES[SQUARE_WEEK - 26]).divide(SQUARED_TIME_SCALES[SQUARE_SECOND - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_WEEK);
-        SquaredTime squareMinuteTestResult = new SquaredTime(BigDecimal.valueOf(squareMinuteValue).multiply(SQUARED_TIME_SCALES[SQUARE_WEEK - 26]).divide(SQUARED_TIME_SCALES[SQUARE_MINUTE - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_WEEK);
-        SquaredTime squareHourTestResult = new SquaredTime(BigDecimal.valueOf(squareHourValue).multiply(SQUARED_TIME_SCALES[SQUARE_WEEK - 26]).divide(SQUARED_TIME_SCALES[SQUARE_HOUR - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_WEEK);
-        SquaredTime squareDayTestResult = new SquaredTime(BigDecimal.valueOf(squareDayValue).multiply(SQUARED_TIME_SCALES[SQUARE_WEEK - 26]).divide(SQUARED_TIME_SCALES[SQUARE_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_WEEK);
-        SquaredTime squareWeekTestResult = new SquaredTime(BigDecimal.valueOf(squareWeekValue).multiply(SQUARED_TIME_SCALES[SQUARE_WEEK - 26]).divide(SQUARED_TIME_SCALES[SQUARE_WEEK - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARE_WEEK);
+	public void toSquaredWeekTest() throws IllegalArgumentException {
+		double squaredSecondValue = NumberRandomizer.getRandomDouble();
+		double squaredMinuteValue = NumberRandomizer.getRandomDouble();
+		double squaredHourValue = NumberRandomizer.getRandomDouble();
+		double squaredDayValue = NumberRandomizer.getRandomDouble();
+		double squaredWeekValue = NumberRandomizer.getRandomDouble();
+        SquaredTime squaredSecondTestResult = new SquaredTime(BigDecimal.valueOf(squaredSecondValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_WEEK - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_SECOND - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_WEEK);
+        SquaredTime squaredMinuteTestResult = new SquaredTime(BigDecimal.valueOf(squaredMinuteValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_WEEK - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_MINUTE - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_WEEK);
+        SquaredTime squaredHourTestResult = new SquaredTime(BigDecimal.valueOf(squaredHourValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_WEEK - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_HOUR - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_WEEK);
+        SquaredTime squaredDayTestResult = new SquaredTime(BigDecimal.valueOf(squaredDayValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_WEEK - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_DAY - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_WEEK);
+        SquaredTime squaredWeekTestResult = new SquaredTime(BigDecimal.valueOf(squaredWeekValue).multiply(SQUAREDD_TIME_SCALES[SQUARED_WEEK - 26]).divide(SQUAREDD_TIME_SCALES[SQUARED_WEEK - 26], ROUND_SCALE, RoundingMode.HALF_UP), SQUARED_WEEK);
 
-        SquaredTime squareSecondResult = toSquareWeek(squareSecondValue, SQUARE_SECOND);
-        SquaredTime squareMinuteResult = toSquareWeek(squareMinuteValue, SQUARE_MINUTE);
-        SquaredTime squareHourResult = toSquareWeek(squareHourValue, SQUARE_HOUR);
-        SquaredTime squareDayResult = toSquareWeek(squareDayValue, SQUARE_DAY);
-        SquaredTime squareWeekResult = toSquareWeek(squareWeekValue, SQUARE_WEEK);
+        SquaredTime squaredSecondResult = toSquaredWeek(squaredSecondValue, SQUARED_SECOND);
+        SquaredTime squaredMinuteResult = toSquaredWeek(squaredMinuteValue, SQUARED_MINUTE);
+        SquaredTime squaredHourResult = toSquaredWeek(squaredHourValue, SQUARED_HOUR);
+        SquaredTime squaredDayResult = toSquaredWeek(squaredDayValue, SQUARED_DAY);
+        SquaredTime squaredWeekResult = toSquaredWeek(squaredWeekValue, SQUARED_WEEK);
 
-        assertEquals(squareSecondTestResult, squareSecondResult);
-        assertEquals(squareMinuteTestResult, squareMinuteResult);
-        assertEquals(squareHourTestResult, squareHourResult);
-        assertEquals(squareDayTestResult, squareDayResult);
-        assertEquals(squareWeekTestResult, squareWeekResult);
+        assertEquals(squaredSecondTestResult, squaredSecondResult);
+        assertEquals(squaredMinuteTestResult, squaredMinuteResult);
+        assertEquals(squaredHourTestResult, squaredHourResult);
+        assertEquals(squaredDayTestResult, squaredDayResult);
+        assertEquals(squaredWeekTestResult, squaredWeekResult);
     }
 	
 	
 	@Test
-	public void toSquareSecondFixedResultTest() throws IllegalArgumentException {
-		int squareSecondValue = 1;
-		int squareMinuteValue = 1;
-		int squareHourValue = 1;
-		int squareDayValue = 1;
-		int squareWeekValue = 1;
-        SquaredTime squareSecondTestResult = new SquaredTime("1.00000000000000000000", SQUARE_SECOND);
-        SquaredTime squareMinuteTestResult = new SquaredTime("3600.00000000000000000000", SQUARE_SECOND);
-        SquaredTime squareHourTestResult = new SquaredTime("12960000.00000000000000000000", SQUARE_SECOND);
-        SquaredTime squareDayTestResult = new SquaredTime("7464960000.00000000000000000000", SQUARE_SECOND);
-        SquaredTime squareWeekTestResult = new SquaredTime("365783040000.00000000000000000000", SQUARE_SECOND);
+	public void toSquaredSecondFixedResultTest() throws IllegalArgumentException {
+		int squaredSecondValue = 1;
+		int squaredMinuteValue = 1;
+		int squaredHourValue = 1;
+		int squaredDayValue = 1;
+		int squaredWeekValue = 1;
+        SquaredTime squaredSecondTestResult = new SquaredTime("1.00000000000000000000", SQUARED_SECOND);
+        SquaredTime squaredMinuteTestResult = new SquaredTime("3600.00000000000000000000", SQUARED_SECOND);
+        SquaredTime squaredHourTestResult = new SquaredTime("12960000.00000000000000000000", SQUARED_SECOND);
+        SquaredTime squaredDayTestResult = new SquaredTime("7464960000.00000000000000000000", SQUARED_SECOND);
+        SquaredTime squaredWeekTestResult = new SquaredTime("365783040000.00000000000000000000", SQUARED_SECOND);
 
-        SquaredTime squareSecondResult = toSquareSecond(squareSecondValue, SQUARE_SECOND);
-        SquaredTime squareMinuteResult = toSquareSecond(squareMinuteValue, SQUARE_MINUTE);
-        SquaredTime squareHourResult = toSquareSecond(squareHourValue, SQUARE_HOUR);
-        SquaredTime squareDayResult = toSquareSecond(squareDayValue, SQUARE_DAY);
-        SquaredTime squareWeekResult = toSquareSecond(squareWeekValue, SQUARE_WEEK);
+        SquaredTime squaredSecondResult = toSquaredSecond(squaredSecondValue, SQUARED_SECOND);
+        SquaredTime squaredMinuteResult = toSquaredSecond(squaredMinuteValue, SQUARED_MINUTE);
+        SquaredTime squaredHourResult = toSquaredSecond(squaredHourValue, SQUARED_HOUR);
+        SquaredTime squaredDayResult = toSquaredSecond(squaredDayValue, SQUARED_DAY);
+        SquaredTime squaredWeekResult = toSquaredSecond(squaredWeekValue, SQUARED_WEEK);
 
-        assertEquals(squareSecondTestResult, squareSecondResult);
-        assertEquals(squareMinuteTestResult, squareMinuteResult);
-        assertEquals(squareHourTestResult, squareHourResult);
-        assertEquals(squareDayTestResult, squareDayResult);
-        assertEquals(squareWeekTestResult, squareWeekResult);
+        assertEquals(squaredSecondTestResult, squaredSecondResult);
+        assertEquals(squaredMinuteTestResult, squaredMinuteResult);
+        assertEquals(squaredHourTestResult, squaredHourResult);
+        assertEquals(squaredDayTestResult, squaredDayResult);
+        assertEquals(squaredWeekTestResult, squaredWeekResult);
     }
 	
 	@Test
-	public void toSquareMinuteFixedResultTest() throws IllegalArgumentException {
-		int squareSecondValue = 1;
-		int squareMinuteValue = 1;
-		int squareHourValue = 1;
-		int squareDayValue = 1;
-		int squareWeekValue = 1;
-        SquaredTime squareSecondTestResult = new SquaredTime("0.00027777777777777778", SQUARE_MINUTE);
-        SquaredTime squareMinuteTestResult = new SquaredTime("1.00000000000000000000", SQUARE_MINUTE);
-        SquaredTime squareHourTestResult = new SquaredTime("3600.00000000000000000000", SQUARE_MINUTE);
-        SquaredTime squareDayTestResult = new SquaredTime("2073600.00000000000000000000", SQUARE_MINUTE);
-        SquaredTime squareWeekTestResult = new SquaredTime("101606400.00000000000000000000", SQUARE_MINUTE);
+	public void toSquaredMinuteFixedResultTest() throws IllegalArgumentException {
+		int squaredSecondValue = 1;
+		int squaredMinuteValue = 1;
+		int squaredHourValue = 1;
+		int squaredDayValue = 1;
+		int squaredWeekValue = 1;
+        SquaredTime squaredSecondTestResult = new SquaredTime("0.00027777777777777778", SQUARED_MINUTE);
+        SquaredTime squaredMinuteTestResult = new SquaredTime("1.00000000000000000000", SQUARED_MINUTE);
+        SquaredTime squaredHourTestResult = new SquaredTime("3600.00000000000000000000", SQUARED_MINUTE);
+        SquaredTime squaredDayTestResult = new SquaredTime("2073600.00000000000000000000", SQUARED_MINUTE);
+        SquaredTime squaredWeekTestResult = new SquaredTime("101606400.00000000000000000000", SQUARED_MINUTE);
 
-        SquaredTime squareSecondResult = toSquareMinute(squareSecondValue, SQUARE_SECOND);
-        SquaredTime squareMinuteResult = toSquareMinute(squareMinuteValue, SQUARE_MINUTE);
-        SquaredTime squareHourResult = toSquareMinute(squareHourValue, SQUARE_HOUR);
-        SquaredTime squareDayResult = toSquareMinute(squareDayValue, SQUARE_DAY);
-        SquaredTime squareWeekResult = toSquareMinute(squareWeekValue, SQUARE_WEEK);
+        SquaredTime squaredSecondResult = toSquaredMinute(squaredSecondValue, SQUARED_SECOND);
+        SquaredTime squaredMinuteResult = toSquaredMinute(squaredMinuteValue, SQUARED_MINUTE);
+        SquaredTime squaredHourResult = toSquaredMinute(squaredHourValue, SQUARED_HOUR);
+        SquaredTime squaredDayResult = toSquaredMinute(squaredDayValue, SQUARED_DAY);
+        SquaredTime squaredWeekResult = toSquaredMinute(squaredWeekValue, SQUARED_WEEK);
 
-        assertEquals(squareSecondTestResult, squareSecondResult);
-        assertEquals(squareMinuteTestResult, squareMinuteResult);
-        assertEquals(squareHourTestResult, squareHourResult);
-        assertEquals(squareDayTestResult, squareDayResult);
-        assertEquals(squareWeekTestResult, squareWeekResult);
+        assertEquals(squaredSecondTestResult, squaredSecondResult);
+        assertEquals(squaredMinuteTestResult, squaredMinuteResult);
+        assertEquals(squaredHourTestResult, squaredHourResult);
+        assertEquals(squaredDayTestResult, squaredDayResult);
+        assertEquals(squaredWeekTestResult, squaredWeekResult);
     }
 	
 	@Test
-	public void toSquareHourFixedResultTest() throws IllegalArgumentException {
-		int squareSecondValue = 1;
-		int squareMinuteValue = 1;
-		int squareHourValue = 1;
-		int squareDayValue = 1;
-		int squareWeekValue = 1;
-        SquaredTime squareSecondTestResult = new SquaredTime("0.00000007716049382716", SQUARE_HOUR);
-        SquaredTime squareMinuteTestResult = new SquaredTime("0.00027777777777777778", SQUARE_HOUR);
-        SquaredTime squareHourTestResult = new SquaredTime("1.00000000000000000000", SQUARE_HOUR);
-        SquaredTime squareDayTestResult = new SquaredTime("576.00000000000000000000", SQUARE_HOUR);
-        SquaredTime squareWeekTestResult = new SquaredTime("28224.00000000000000000000", SQUARE_HOUR);
+	public void toSquaredHourFixedResultTest() throws IllegalArgumentException {
+		int squaredSecondValue = 1;
+		int squaredMinuteValue = 1;
+		int squaredHourValue = 1;
+		int squaredDayValue = 1;
+		int squaredWeekValue = 1;
+        SquaredTime squaredSecondTestResult = new SquaredTime("0.00000007716049382716", SQUARED_HOUR);
+        SquaredTime squaredMinuteTestResult = new SquaredTime("0.00027777777777777778", SQUARED_HOUR);
+        SquaredTime squaredHourTestResult = new SquaredTime("1.00000000000000000000", SQUARED_HOUR);
+        SquaredTime squaredDayTestResult = new SquaredTime("576.00000000000000000000", SQUARED_HOUR);
+        SquaredTime squaredWeekTestResult = new SquaredTime("28224.00000000000000000000", SQUARED_HOUR);
 
-        SquaredTime squareSecondResult = toSquareHour(squareSecondValue, SQUARE_SECOND);
-        SquaredTime squareMinuteResult = toSquareHour(squareMinuteValue, SQUARE_MINUTE);
-        SquaredTime squareHourResult = toSquareHour(squareHourValue, SQUARE_HOUR);
-        SquaredTime squareDayResult = toSquareHour(squareDayValue, SQUARE_DAY);
-        SquaredTime squareWeekResult = toSquareHour(squareWeekValue, SQUARE_WEEK);
+        SquaredTime squaredSecondResult = toSquaredHour(squaredSecondValue, SQUARED_SECOND);
+        SquaredTime squaredMinuteResult = toSquaredHour(squaredMinuteValue, SQUARED_MINUTE);
+        SquaredTime squaredHourResult = toSquaredHour(squaredHourValue, SQUARED_HOUR);
+        SquaredTime squaredDayResult = toSquaredHour(squaredDayValue, SQUARED_DAY);
+        SquaredTime squaredWeekResult = toSquaredHour(squaredWeekValue, SQUARED_WEEK);
 
-        assertEquals(squareSecondTestResult, squareSecondResult);
-        assertEquals(squareMinuteTestResult, squareMinuteResult);
-        assertEquals(squareHourTestResult, squareHourResult);
-        assertEquals(squareDayTestResult, squareDayResult);
-        assertEquals(squareWeekTestResult, squareWeekResult);
+        assertEquals(squaredSecondTestResult, squaredSecondResult);
+        assertEquals(squaredMinuteTestResult, squaredMinuteResult);
+        assertEquals(squaredHourTestResult, squaredHourResult);
+        assertEquals(squaredDayTestResult, squaredDayResult);
+        assertEquals(squaredWeekTestResult, squaredWeekResult);
     }
 	
 	@Test
-	public void toSquareDayFixedResultTest() throws IllegalArgumentException {
-		int squareSecondValue = 1;
-		int squareMinuteValue = 1;
-		int squareHourValue = 1;
-		int squareDayValue = 1;
-		int squareWeekValue = 1;
-        SquaredTime squareSecondTestResult = new SquaredTime("0.00000000013395919067", SQUARE_DAY);
-        SquaredTime squareMinuteTestResult = new SquaredTime("0.00000048225308641975", SQUARE_DAY);
-        SquaredTime squareHourTestResult = new SquaredTime("0.00173611111111111111", SQUARE_DAY);
-        SquaredTime squareDayTestResult = new SquaredTime("1.00000000000000000000", SQUARE_DAY);
-        SquaredTime squareWeekTestResult = new SquaredTime("49.00000000000000000000", SQUARE_DAY);
+	public void toSquaredDayFixedResultTest() throws IllegalArgumentException {
+		int squaredSecondValue = 1;
+		int squaredMinuteValue = 1;
+		int squaredHourValue = 1;
+		int squaredDayValue = 1;
+		int squaredWeekValue = 1;
+        SquaredTime squaredSecondTestResult = new SquaredTime("0.00000000013395919067", SQUARED_DAY);
+        SquaredTime squaredMinuteTestResult = new SquaredTime("0.00000048225308641975", SQUARED_DAY);
+        SquaredTime squaredHourTestResult = new SquaredTime("0.00173611111111111111", SQUARED_DAY);
+        SquaredTime squaredDayTestResult = new SquaredTime("1.00000000000000000000", SQUARED_DAY);
+        SquaredTime squaredWeekTestResult = new SquaredTime("49.00000000000000000000", SQUARED_DAY);
 
-        SquaredTime squareSecondResult = toSquareDay(squareSecondValue, SQUARE_SECOND);
-        SquaredTime squareMinuteResult = toSquareDay(squareMinuteValue, SQUARE_MINUTE);
-        SquaredTime squareHourResult = toSquareDay(squareHourValue, SQUARE_HOUR);
-        SquaredTime squareDayResult = toSquareDay(squareDayValue, SQUARE_DAY);
-        SquaredTime squareWeekResult = toSquareDay(squareWeekValue, SQUARE_WEEK);
+        SquaredTime squaredSecondResult = toSquaredDay(squaredSecondValue, SQUARED_SECOND);
+        SquaredTime squaredMinuteResult = toSquaredDay(squaredMinuteValue, SQUARED_MINUTE);
+        SquaredTime squaredHourResult = toSquaredDay(squaredHourValue, SQUARED_HOUR);
+        SquaredTime squaredDayResult = toSquaredDay(squaredDayValue, SQUARED_DAY);
+        SquaredTime squaredWeekResult = toSquaredDay(squaredWeekValue, SQUARED_WEEK);
 
-        assertEquals(squareSecondTestResult, squareSecondResult);
-        assertEquals(squareMinuteTestResult, squareMinuteResult);
-        assertEquals(squareHourTestResult, squareHourResult);
-        assertEquals(squareDayTestResult, squareDayResult);
-        assertEquals(squareWeekTestResult, squareWeekResult);
+        assertEquals(squaredSecondTestResult, squaredSecondResult);
+        assertEquals(squaredMinuteTestResult, squaredMinuteResult);
+        assertEquals(squaredHourTestResult, squaredHourResult);
+        assertEquals(squaredDayTestResult, squaredDayResult);
+        assertEquals(squaredWeekTestResult, squaredWeekResult);
     }
 	
 	@Test
-	public void toSquareWeekFixedResultTest() throws IllegalArgumentException {
-		int squareSecondValue = 1;
-		int squareMinuteValue = 1;
-		int squareHourValue = 1;
-		int squareDayValue = 1;
-		int squareWeekValue = 1;
-        SquaredTime squareSecondTestResult = new SquaredTime("0.00000000000273386103", SQUARE_WEEK);
-        SquaredTime squareMinuteTestResult = new SquaredTime("0.00000000984189972285", SQUARE_WEEK);
-        SquaredTime squareHourTestResult = new SquaredTime("0.00003543083900226757", SQUARE_WEEK);
-        SquaredTime squareDayTestResult = new SquaredTime("0.02040816326530612245", SQUARE_WEEK);
-        SquaredTime squareWeekTestResult = new SquaredTime("1.00000000000000000000", SQUARE_WEEK);
+	public void toSquaredWeekFixedResultTest() throws IllegalArgumentException {
+		int squaredSecondValue = 1;
+		int squaredMinuteValue = 1;
+		int squaredHourValue = 1;
+		int squaredDayValue = 1;
+		int squaredWeekValue = 1;
+        SquaredTime squaredSecondTestResult = new SquaredTime("0.00000000000273386103", SQUARED_WEEK);
+        SquaredTime squaredMinuteTestResult = new SquaredTime("0.00000000984189972285", SQUARED_WEEK);
+        SquaredTime squaredHourTestResult = new SquaredTime("0.00003543083900226757", SQUARED_WEEK);
+        SquaredTime squaredDayTestResult = new SquaredTime("0.02040816326530612245", SQUARED_WEEK);
+        SquaredTime squaredWeekTestResult = new SquaredTime("1.00000000000000000000", SQUARED_WEEK);
 
-        SquaredTime squareSecondResult = toSquareWeek(squareSecondValue, SQUARE_SECOND);
-        SquaredTime squareMinuteResult = toSquareWeek(squareMinuteValue, SQUARE_MINUTE);
-        SquaredTime squareHourResult = toSquareWeek(squareHourValue, SQUARE_HOUR);
-        SquaredTime squareDayResult = toSquareWeek(squareDayValue, SQUARE_DAY);
-        SquaredTime squareWeekResult = toSquareWeek(squareWeekValue, SQUARE_WEEK);
+        SquaredTime squaredSecondResult = toSquaredWeek(squaredSecondValue, SQUARED_SECOND);
+        SquaredTime squaredMinuteResult = toSquaredWeek(squaredMinuteValue, SQUARED_MINUTE);
+        SquaredTime squaredHourResult = toSquaredWeek(squaredHourValue, SQUARED_HOUR);
+        SquaredTime squaredDayResult = toSquaredWeek(squaredDayValue, SQUARED_DAY);
+        SquaredTime squaredWeekResult = toSquaredWeek(squaredWeekValue, SQUARED_WEEK);
 
-        assertEquals(squareSecondTestResult, squareSecondResult);
-        assertEquals(squareMinuteTestResult, squareMinuteResult);
-        assertEquals(squareHourTestResult, squareHourResult);
-        assertEquals(squareDayTestResult, squareDayResult);
-        assertEquals(squareWeekTestResult, squareWeekResult);
+        assertEquals(squaredSecondTestResult, squaredSecondResult);
+        assertEquals(squaredMinuteTestResult, squaredMinuteResult);
+        assertEquals(squaredHourTestResult, squaredHourResult);
+        assertEquals(squaredDayTestResult, squaredDayResult);
+        assertEquals(squaredWeekTestResult, squaredWeekResult);
     }
 }

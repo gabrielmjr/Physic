@@ -11,16 +11,16 @@ public class Volume extends Unit implements IVolume {
     @Deprecated
     private static Volume instance; 
 
-	public static final int CUBE_KILOMETER = Area.LAST_UNIT_CONS + 1;
-	public static final int CUBE_HECTOMETER = Area.LAST_UNIT_CONS + 2;
-	public static final int CUBE_DECAMETER = Area.LAST_UNIT_CONS + 3;
-	public static final int CUBE_METER = Area.LAST_UNIT_CONS + 4;
-	public static final int CUBE_DECIMETER = Area.LAST_UNIT_CONS + 5;
-	public static final int CUBE_CENTIMETER = Area.LAST_UNIT_CONS + 6;
-	public static final int CUBE_MILLIMETER = Area.LAST_UNIT_CONS + 7;
+	public static final int CUBED_KILOMETER = Area.LAST_UNIT_CONS + 1;
+	public static final int CUBED_HECTOMETER = Area.LAST_UNIT_CONS + 2;
+	public static final int CUBED_DECAMETER = Area.LAST_UNIT_CONS + 3;
+	public static final int CUBED_METER = Area.LAST_UNIT_CONS + 4;
+	public static final int CUBED_DECIMETER = Area.LAST_UNIT_CONS + 5;
+	public static final int CUBED_CENTIMETER = Area.LAST_UNIT_CONS + 6;
+	public static final int CUBED_MILLIMETER = Area.LAST_UNIT_CONS + 7;
 
-    protected static final int UNIT_SCALE = CUBE_KILOMETER;
-    protected static final int LAST_UNIT_CONS = CUBE_MILLIMETER;
+    protected static final int UNIT_SCALE = CUBED_KILOMETER;
+    protected static final int LAST_UNIT_CONS = CUBED_MILLIMETER;
     private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
 
     protected static final BigDecimal[] VOLUME_SCALES = new BigDecimal[]
@@ -34,52 +34,52 @@ public class Volume extends Unit implements IVolume {
 		LENGTH_SCALES[MILLIMETER].pow(3)
 	};
 
-	public static final String CUBE_KILOMETER_SYMBOL = KILOMETER_SYMBOL + "³";
-	public static final String CUBE_HECTOMETER_SYMBOL = HECTOMETER_SYMBOL + "³";
-	public static final String CUBE_DECAMETER_SYMBOL = DECAMETER_SYMBOL + "³";
-	public static final String CUBE_METER_SYMBOL = METER_SYMBOL + "³";
-	public static final String CUBE_DECIMETER_SYMBOL = DECIMETER_SYMBOL + "³";
-	public static final String CUBE_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "³";
-	public static final String CUBE_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "³";
+	public static final String CUBED_KILOMETER_SYMBOL = KILOMETER_SYMBOL + "³";
+	public static final String CUBED_HECTOMETER_SYMBOL = HECTOMETER_SYMBOL + "³";
+	public static final String CUBED_DECAMETER_SYMBOL = DECAMETER_SYMBOL + "³";
+	public static final String CUBED_METER_SYMBOL = METER_SYMBOL + "³";
+	public static final String CUBED_DECIMETER_SYMBOL = DECIMETER_SYMBOL + "³";
+	public static final String CUBED_CENTIMETER_SYMBOL = CENTIMETER_SYMBOL + "³";
+	public static final String CUBED_MILLIMETER_SYMBOL = MILLIMETER_SYMBOL + "³";
 
     protected final String[] VOLUME_SYMBOLS = new String[] {
-        CUBE_KILOMETER_SYMBOL,
-        CUBE_HECTOMETER_SYMBOL,
-        CUBE_DECAMETER_SYMBOL,
-        CUBE_METER_SYMBOL,
-        CUBE_DECIMETER_SYMBOL,
-        CUBE_CENTIMETER_SYMBOL,
-        CUBE_MILLIMETER_SYMBOL
+            CUBED_KILOMETER_SYMBOL,
+            CUBED_HECTOMETER_SYMBOL,
+            CUBED_DECAMETER_SYMBOL,
+            CUBED_METER_SYMBOL,
+            CUBED_DECIMETER_SYMBOL,
+            CUBED_CENTIMETER_SYMBOL,
+            CUBED_MILLIMETER_SYMBOL
     };
 
     public Volume() {
         super();
         setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(CUBE_METER - UNIT_SCALE);
+        setUnit(CUBED_METER - UNIT_SCALE);
     }
 
     public Volume(double value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(CUBE_METER - UNIT_SCALE);
+        setUnit(CUBED_METER - UNIT_SCALE);
     }
 
     public Volume(String value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(CUBE_METER - UNIT_SCALE);
+        setUnit(CUBED_METER - UNIT_SCALE);
     }
 
     public Volume(long value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(CUBE_METER - UNIT_SCALE);
+        setUnit(CUBED_METER - UNIT_SCALE);
     }
 
     public Volume(BigDecimal value) {
         super(value);
         setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(CUBE_METER - UNIT_SCALE);
+        setUnit(CUBED_METER - UNIT_SCALE);
     }
 
     public Volume(double value, int unit) {
@@ -107,72 +107,72 @@ public class Volume extends Unit implements IVolume {
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Volume toCubeKilometer(double value, int unit) {
-		return new Volume(divide(multiply(value, VOLUME_SCALES[CUBE_KILOMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBE_KILOMETER);
+    public static @NotNull Volume toCubedKilometer(double value, int unit) {
+		return new Volume(divide(multiply(value, VOLUME_SCALES[CUBED_KILOMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBED_KILOMETER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Volume toCubeHectometer(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBE_HECTOMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBE_HECTOMETER);
+    public static @NotNull Volume toCubedHectometer(double value, int unit) {
+        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBED_HECTOMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBED_HECTOMETER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Volume toCubeDecameter(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBE_DECAMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBE_DECAMETER);
+    public static @NotNull Volume toCubedDecameter(double value, int unit) {
+        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBED_DECAMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBED_DECAMETER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Volume toCubeMeter(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBE_METER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBE_METER);
+    public static @NotNull Volume toCubedMeter(double value, int unit) {
+        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBED_METER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBED_METER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Volume toCubeDecimeter(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBE_DECIMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBE_DECIMETER);
+    public static @NotNull Volume toCubedDecimeter(double value, int unit) {
+        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBED_DECIMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBED_DECIMETER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Volume toCubeCentimeter(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBE_CENTIMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBE_CENTIMETER);
+    public static @NotNull Volume toCubedCentimeter(double value, int unit) {
+        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBED_CENTIMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBED_CENTIMETER);
     }
 
 	@Contract("_, _ -> new")
-    public static @NotNull Volume toCubeMillimeter(double value, int unit) {
-        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBE_MILLIMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBE_MILLIMETER);
+    public static @NotNull Volume toCubedMillimeter(double value, int unit) {
+        return new Volume(divide(multiply(value, VOLUME_SCALES[CUBED_MILLIMETER - UNIT_SCALE]), VOLUME_SCALES[unit - UNIT_SCALE]), CUBED_MILLIMETER);
     }
     
     @Override
-    public Volume toCubeKilometer() {
+    public Volume toCubedKilometer() {
         return null;
     }
 
     @Override
-    public Volume toCubeHectometer() {
+    public Volume toCubedHectometer() {
         return null;
     }
 
     @Override
-    public Volume toCubeDecameter() {
+    public Volume toCubedDecameter() {
         return null;
     }
 
     @Override
-    public Volume toCubeMeter() {
+    public Volume toCubedMeter() {
         return null;
     }
 
     @Override
-    public Volume toCubeDecimeter() {
+    public Volume toCubedDecimeter() {
         return null;
     }
 
     @Override
-    public Volume toCubeCentimeter() {
+    public Volume toCubedCentimeter() {
         return null;
     }
 
     @Override
-    public Volume toCubeMillimeter() {
+    public Volume toCubedMillimeter() {
         return null;
     }
 
@@ -193,7 +193,7 @@ public class Volume extends Unit implements IVolume {
 
     @Override
     public boolean isInInternationalSystem() {
-        return unit == (CUBE_METER - UNIT_SCALE);
+        return unit == (CUBED_METER - UNIT_SCALE);
     }
 
     @Override
