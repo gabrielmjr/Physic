@@ -1,31 +1,54 @@
 package com.mjr.code.physics.units;
 
 import com.mjr.code.physics.NumberRandomizer;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.mjr.code.physics.units.Time.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TimeTest extends UnitTest {
+
+    private double secondValue;
+    private double minuteValue;
+    private double hourValue;
+    private double dayValue;
+    private double weekValue;
+
+    private Time secondTestResult;
+    private Time minuteTestResult;
+    private Time hourTestResult;
+    private Time dayTestResult;
+    private Time weekTestResult;
+
+    private Time secondResult;
+    private Time minuteResult;
+    private Time hourResult;
+    private Time dayResult;
+    private Time weekResult;
+
+    @BeforeEach
+    void setUp() {
+        secondValue = NumberRandomizer.getRandomDouble();
+        minuteValue = NumberRandomizer.getRandomDouble();
+        hourValue = NumberRandomizer.getRandomDouble();
+        dayValue = NumberRandomizer.getRandomDouble();
+        weekValue = NumberRandomizer.getRandomDouble();
+    }
+
 	@Test 
 	public void toSecondTest() {
-		double secondValue = NumberRandomizer.getRandomDouble();
-		double minuteValue = NumberRandomizer.getRandomDouble();
-		double hourValue = NumberRandomizer.getRandomDouble();
-		double dayValue = NumberRandomizer.getRandomDouble();
-		double weekValue = NumberRandomizer.getRandomDouble();
+        secondTestResult = convert(secondValue, SECOND, SECOND);
+        minuteTestResult = convert(minuteValue, MINUTE, SECOND);
+        hourTestResult = convert(hourValue, HOUR, SECOND);
+        dayTestResult = convert(dayValue, DAY, SECOND);
+        weekTestResult = convert(weekValue, WEEK, SECOND);
 
-        Time secondTestResult = convert(secondValue, SECOND, SECOND);
-        Time minuteTestResult = convert(minuteValue, MINUTE, SECOND);
-        Time hourTestResult = convert(hourValue, HOUR, SECOND);
-        Time dayTestResult = convert(dayValue, DAY, SECOND);
-        Time weekTestResult = convert(weekValue, WEEK, SECOND);
-
-        Time secondResult = toSecond(secondValue, SECOND);
-        Time minuteResult = toSecond(minuteValue, MINUTE);
-        Time hourResult = toSecond(hourValue, HOUR);
-        Time dayResult = toSecond(dayValue, DAY);
-        Time weekResult = toSecond(weekValue, WEEK);
+        secondResult = toSecond(secondValue, SECOND);
+        minuteResult = toSecond(minuteValue, MINUTE);
+        hourResult = toSecond(hourValue, HOUR);
+        dayResult = toSecond(dayValue, DAY);
+        weekResult = toSecond(weekValue, WEEK);
 
         assertEquals(secondTestResult, secondResult);
         assertEquals(minuteTestResult, minuteResult);
@@ -36,23 +59,17 @@ public class TimeTest extends UnitTest {
 
 	@Test 
 	public void toMinuteTest() {
-		double secondValue = NumberRandomizer.getRandomDouble();
-		double minuteValue = NumberRandomizer.getRandomDouble();
-		double hourValue = NumberRandomizer.getRandomDouble();
-		double dayValue = NumberRandomizer.getRandomDouble();
-		double weekValue = NumberRandomizer.getRandomDouble();
+        secondTestResult = convert(secondValue, SECOND, MINUTE);
+        minuteTestResult = convert(minuteValue, MINUTE, MINUTE);
+        hourTestResult = convert(hourValue, HOUR, MINUTE);
+        dayTestResult = convert(dayValue, DAY, MINUTE);
+        weekTestResult = convert(weekValue, WEEK, MINUTE);
 
-        Time secondTestResult = convert(secondValue, SECOND, MINUTE);
-        Time minuteTestResult = convert(minuteValue, MINUTE, MINUTE);
-        Time hourTestResult = convert(hourValue, HOUR, MINUTE);
-        Time dayTestResult = convert(dayValue, DAY, MINUTE);
-        Time weekTestResult = convert(weekValue, WEEK, MINUTE);
-
-        Time secondResult = toMinute(secondValue, SECOND);
-        Time minuteResult = toMinute(minuteValue, MINUTE);
-        Time hourResult = toMinute(hourValue, HOUR);
-        Time dayResult = toMinute(dayValue, DAY);
-        Time weekResult = toMinute(weekValue, WEEK);
+        secondResult = toMinute(secondValue, SECOND);
+        minuteResult = toMinute(minuteValue, MINUTE);
+        hourResult = toMinute(hourValue, HOUR);
+        dayResult = toMinute(dayValue, DAY);
+        weekResult = toMinute(weekValue, WEEK);
 
         assertEquals(secondTestResult, secondResult);
         assertEquals(minuteTestResult, minuteResult);
@@ -63,23 +80,17 @@ public class TimeTest extends UnitTest {
 
 	@Test 
 	public void toHourTest() {
-		double secondValue = NumberRandomizer.getRandomDouble();
-		double minuteValue = NumberRandomizer.getRandomDouble();
-		double hourValue = NumberRandomizer.getRandomDouble();
-		double dayValue = NumberRandomizer.getRandomDouble();
-		double weekValue = NumberRandomizer.getRandomDouble();
+        secondTestResult = convert(secondValue, SECOND, HOUR);
+        minuteTestResult = convert(minuteValue, MINUTE, HOUR);
+        hourTestResult = convert(hourValue, HOUR, HOUR);
+        dayTestResult = convert(dayValue, DAY, HOUR);
+        weekTestResult = convert(weekValue, WEEK, HOUR);
 
-        Time secondTestResult = convert(secondValue, SECOND, HOUR);
-        Time minuteTestResult = convert(minuteValue, MINUTE, HOUR);
-        Time hourTestResult = convert(hourValue, HOUR, HOUR);
-        Time dayTestResult = convert(dayValue, DAY, HOUR);
-        Time weekTestResult = convert(weekValue, WEEK, HOUR);
-
-        Time secondResult = toHour(secondValue, SECOND);
-        Time minuteResult = toHour(minuteValue, MINUTE);
-        Time hourResult = toHour(hourValue, HOUR);
-        Time dayResult = toHour(dayValue, DAY);
-        Time weekResult = toHour(weekValue, WEEK);
+        secondResult = toHour(secondValue, SECOND);
+        minuteResult = toHour(minuteValue, MINUTE);
+        hourResult = toHour(hourValue, HOUR);
+        dayResult = toHour(dayValue, DAY);
+        weekResult = toHour(weekValue, WEEK);
 
         assertEquals(secondTestResult, secondResult);
         assertEquals(minuteTestResult, minuteResult);
@@ -90,23 +101,17 @@ public class TimeTest extends UnitTest {
 
 	@Test 
 	public void toDayTest() {
-		double secondValue = NumberRandomizer.getRandomDouble();
-		double minuteValue = NumberRandomizer.getRandomDouble();
-		double hourValue = NumberRandomizer.getRandomDouble();
-		double dayValue = NumberRandomizer.getRandomDouble();
-		double weekValue = NumberRandomizer.getRandomDouble();
+        secondTestResult = convert(secondValue, SECOND, DAY);
+        minuteTestResult = convert(minuteValue, MINUTE, DAY);
+        hourTestResult = convert(hourValue,HOUR , DAY);
+        dayTestResult = convert(dayValue, DAY, DAY);
+        weekTestResult = convert(weekValue, WEEK, DAY);
 
-        Time secondTestResult = convert(secondValue, SECOND, DAY);
-        Time minuteTestResult = convert(minuteValue, MINUTE, DAY);
-        Time hourTestResult = convert(hourValue,HOUR , DAY);
-        Time dayTestResult = convert(dayValue, DAY, DAY);
-        Time weekTestResult = convert(weekValue, WEEK, DAY);
-
-        Time secondResult = toDay(secondValue, SECOND);
-        Time minuteResult = toDay(minuteValue, MINUTE);
-        Time hourResult = toDay(hourValue, HOUR);
-        Time dayResult = toDay(dayValue, DAY);
-        Time weekResult = toDay(weekValue, WEEK);
+        secondResult = toDay(secondValue, SECOND);
+        minuteResult = toDay(minuteValue, MINUTE);
+        hourResult = toDay(hourValue, HOUR);
+        dayResult = toDay(dayValue, DAY);
+        weekResult = toDay(weekValue, WEEK);
 
         assertEquals(secondTestResult, secondResult);
         assertEquals(minuteTestResult, minuteResult);
@@ -117,23 +122,17 @@ public class TimeTest extends UnitTest {
 
 	@Test 
 	public void toWeekTest() {
-		double secondValue = NumberRandomizer.getRandomDouble();
-		double minuteValue = NumberRandomizer.getRandomDouble();
-		double hourValue = NumberRandomizer.getRandomDouble();
-        double dayValue = NumberRandomizer.getRandomDouble();
-		double weekValue = NumberRandomizer.getRandomDouble();
+        secondTestResult = convert(secondValue, SECOND, WEEK);
+        minuteTestResult = convert(minuteValue, MINUTE, WEEK);
+        hourTestResult = convert(hourValue,HOUR , WEEK);
+        dayTestResult = convert(dayValue, DAY, WEEK);
+        weekTestResult = convert(weekValue, WEEK, WEEK);
 
-        Time secondTestResult = convert(secondValue, SECOND, WEEK);
-        Time minuteTestResult = convert(minuteValue, MINUTE, WEEK);
-        Time hourTestResult = convert(hourValue,HOUR , WEEK);
-        Time dayTestResult = convert(dayValue, DAY, WEEK);
-        Time weekTestResult = convert(weekValue, WEEK, WEEK);
-
-        Time secondResult = toWeek(secondValue, SECOND);
-        Time minuteResult = toWeek(minuteValue, MINUTE);
-        Time hourResult = toWeek(hourValue, HOUR);
-        Time dayResult = toWeek(dayValue, DAY);
-        Time weekResult = toWeek(weekValue, WEEK);
+        secondResult = toWeek(secondValue, SECOND);
+        minuteResult = toWeek(minuteValue, MINUTE);
+        hourResult = toWeek(hourValue, HOUR);
+        dayResult = toWeek(dayValue, DAY);
+        weekResult = toWeek(weekValue, WEEK);
 
         assertEquals(secondTestResult, secondResult);
         assertEquals(minuteTestResult, minuteResult);
@@ -144,22 +143,23 @@ public class TimeTest extends UnitTest {
 	
 	@Test
 	public void toSecondFixedResultTest() {
-		int secondValue = 1;
-		int minuteValue = 1;
-		int hourValue = 1;
-		int dayValue = 1;
-		int weekValue = 1;
-        Time secondTestResult = new Time("1.00000000000000000000", SECOND);
-        Time minuteTestResult = new Time("60.00000000000000000000", SECOND);
-        Time hourTestResult = new Time("3600.00000000000000000000", SECOND);
-        Time dayTestResult = new Time("86400.00000000000000000000", SECOND);
-        Time weekTestResult = new Time("604800.00000000000000000000", SECOND);
+		secondValue = 1;
+		minuteValue = 1;
+		hourValue = 1;
+		dayValue = 1;
+		weekValue = 1;
 
-        Time secondResult = toSecond(secondValue, SECOND);
-        Time minuteResult = toSecond(minuteValue, MINUTE);
-        Time hourResult = toSecond(hourValue, HOUR);
-        Time dayResult = toSecond(dayValue, DAY);
-        Time weekResult = toSecond(weekValue, WEEK);
+        secondTestResult = new Time("1.00000000000000000000", SECOND);
+        minuteTestResult = new Time("60.00000000000000000000", SECOND);
+        hourTestResult = new Time("3600.00000000000000000000", SECOND);
+        dayTestResult = new Time("86400.00000000000000000000", SECOND);
+        weekTestResult = new Time("604800.00000000000000000000", SECOND);
+
+        secondResult = toSecond(secondValue, SECOND);
+        minuteResult = toSecond(minuteValue, MINUTE);
+        hourResult = toSecond(hourValue, HOUR);
+        dayResult = toSecond(dayValue, DAY);
+        weekResult = toSecond(weekValue, WEEK);
 
         assertEquals(secondTestResult, secondResult);
         assertEquals(minuteTestResult, minuteResult);
@@ -170,22 +170,23 @@ public class TimeTest extends UnitTest {
 	
 	@Test
 	public void toMinuteFixedResultTest() {
-		int secondValue = 1;
-		int minuteValue = 1;
-		int hourValue = 1;
-		int dayValue = 1;
-		int weekValue = 1;
-        Time secondTestResult = new Time("0.01666666666666666667", MINUTE);
-        Time minuteTestResult = new Time("1.00000000000000000000", MINUTE);
-        Time hourTestResult = new Time("60.00000000000000000000", MINUTE);
-        Time dayTestResult = new Time("1440.00000000000000000000", MINUTE);
-        Time weekTestResult = new Time("10080.00000000000000000000", MINUTE);
+		secondValue = 1;
+		minuteValue = 1;
+		hourValue = 1;
+		dayValue = 1;
+		weekValue = 1;
 
-        Time secondResult = toMinute(secondValue, SECOND);
-        Time minuteResult = toMinute(minuteValue, MINUTE);
-        Time hourResult = toMinute(hourValue, HOUR);
-        Time dayResult = toMinute(dayValue, DAY);
-        Time weekResult = toMinute(weekValue, WEEK);
+        secondTestResult = new Time("0.01666666666666666667", MINUTE);
+        minuteTestResult = new Time("1.00000000000000000000", MINUTE);
+        hourTestResult = new Time("60.00000000000000000000", MINUTE);
+        dayTestResult = new Time("1440.00000000000000000000", MINUTE);
+        weekTestResult = new Time("10080.00000000000000000000", MINUTE);
+
+        secondResult = toMinute(secondValue, SECOND);
+        minuteResult = toMinute(minuteValue, MINUTE);
+        hourResult = toMinute(hourValue, HOUR);
+        dayResult = toMinute(dayValue, DAY);
+        weekResult = toMinute(weekValue, WEEK);
 
         assertEquals(secondTestResult, secondResult);
         assertEquals(minuteTestResult, minuteResult);
@@ -196,22 +197,23 @@ public class TimeTest extends UnitTest {
 	
 	@Test
 	public void toHourFixedResultTest() {
-		int secondValue = 1;
-		int minuteValue = 1;
-		int hourValue = 1;
-		int dayValue = 1;
-		int weekValue = 1;
-        Time secondTestResult = new Time("0.00027777777777777778",HOUR);
-        Time minuteTestResult = new Time("0.01666666666666666667", HOUR);
-        Time hourTestResult = new Time("1.00000000000000000000", HOUR);
-        Time dayTestResult = new Time("24.00000000000000000000", HOUR);
-        Time weekTestResult = new Time("168.00000000000000000000", HOUR);
+		secondValue = 1;
+		minuteValue = 1;
+		hourValue = 1;
+		dayValue = 1;
+		weekValue = 1;
 
-        Time secondResult = toHour(secondValue, SECOND);
-        Time minuteResult = toHour(minuteValue, MINUTE);
-        Time hourResult = toHour(hourValue, HOUR);
-        Time dayResult = toHour(dayValue, DAY);
-        Time weekResult = toHour(weekValue, WEEK);
+        secondTestResult = new Time("0.00027777777777777778",HOUR);
+        minuteTestResult = new Time("0.01666666666666666667", HOUR);
+        hourTestResult = new Time("1.00000000000000000000", HOUR);
+        dayTestResult = new Time("24.00000000000000000000", HOUR);
+        weekTestResult = new Time("168.00000000000000000000", HOUR);
+
+        secondResult = toHour(secondValue, SECOND);
+        minuteResult = toHour(minuteValue, MINUTE);
+        hourResult = toHour(hourValue, HOUR);
+        dayResult = toHour(dayValue, DAY);
+        weekResult = toHour(weekValue, WEEK);
 
         assertEquals(secondTestResult, secondResult);
         assertEquals(minuteTestResult, minuteResult);
@@ -222,22 +224,23 @@ public class TimeTest extends UnitTest {
 	
 	@Test
 	public void toDayFixedResultTest() {
-		int secondValue = 1;
-		int minuteValue = 1;
-		int hourValue = 1;
-		int dayValue = 1;
-		int weekValue = 1;
-        Time secondTestResult = new Time("0.00001157407407407407",DAY);
-        Time minuteTestResult = new Time("0.00069444444444444444", DAY);
-        Time hourTestResult = new Time("0.04166666666666666667", DAY);
-        Time dayTestResult = new Time("1.00000000000000000000", DAY);
-        Time weekTestResult = new Time("7.00000000000000000000", DAY);
+		secondValue = 1;
+		minuteValue = 1;
+		hourValue = 1;
+		dayValue = 1;
+		weekValue = 1;
 
-        Time secondResult = toDay(secondValue, SECOND);
-        Time minuteResult = toDay(minuteValue, MINUTE);
-        Time hourResult = toDay(hourValue, HOUR);
-        Time dayResult = toDay(dayValue, DAY);
-        Time weekResult = toDay(weekValue, WEEK);
+        secondTestResult = new Time("0.00001157407407407407",DAY);
+        minuteTestResult = new Time("0.00069444444444444444", DAY);
+        hourTestResult = new Time("0.04166666666666666667", DAY);
+        dayTestResult = new Time("1.00000000000000000000", DAY);
+        weekTestResult = new Time("7.00000000000000000000", DAY);
+
+        secondResult = toDay(secondValue, SECOND);
+        minuteResult = toDay(minuteValue, MINUTE);
+        hourResult = toDay(hourValue, HOUR);
+        dayResult = toDay(dayValue, DAY);
+        weekResult = toDay(weekValue, WEEK);
 
         assertEquals(secondTestResult, secondResult);
         assertEquals(minuteTestResult, minuteResult);
@@ -248,22 +251,23 @@ public class TimeTest extends UnitTest {
 	
 	@Test
 	public void toWeekFixedResultTest() {
-		int secondValue = 1;
-		int minuteValue = 1;
-		int hourValue = 1;
-		int dayValue = 1;
-		int weekValue = 1;
-        Time secondTestResult = new Time("0.00000165343915343915",WEEK);
-        Time minuteTestResult = new Time("0.00009920634920634921", WEEK);
-        Time hourTestResult = new Time("0.00595238095238095238", WEEK);
-        Time dayTestResult = new Time("0.14285714285714285714", WEEK);
-        Time weekTestResult = new Time("1.00000000000000000000", WEEK);
+		secondValue = 1;
+		minuteValue = 1;
+		hourValue = 1;
+		dayValue = 1;
+		weekValue = 1;
 
-        Time secondResult = toWeek(secondValue, SECOND);
-        Time minuteResult = toWeek(minuteValue, MINUTE);
-        Time hourResult = toWeek(hourValue, HOUR);
-        Time dayResult = toWeek(dayValue, DAY);
-        Time weekResult = toWeek(weekValue, WEEK);
+        secondTestResult = new Time("0.00000165343915343915",WEEK);
+        minuteTestResult = new Time("0.00009920634920634921", WEEK);
+        hourTestResult = new Time("0.00595238095238095238", WEEK);
+        dayTestResult = new Time("0.14285714285714285714", WEEK);
+        weekTestResult = new Time("1.00000000000000000000", WEEK);
+
+        secondResult = toWeek(secondValue, SECOND);
+        minuteResult = toWeek(minuteValue, MINUTE);
+        hourResult = toWeek(hourValue, HOUR);
+        dayResult = toWeek(dayValue, DAY);
+        weekResult = toWeek(weekValue, WEEK);
 
         assertEquals(secondTestResult, secondResult);
         assertEquals(minuteTestResult, minuteResult);

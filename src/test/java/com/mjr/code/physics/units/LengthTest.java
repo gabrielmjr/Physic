@@ -1,37 +1,66 @@
 package com.mjr.code.physics.units;
 
 import com.mjr.code.physics.NumberRandomizer;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.mjr.code.physics.units.Length.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LengthTest extends UnitTest{
+
+    private double kilometerValue;
+    private double hectometerValue;
+    private double decameterValue;
+    private double meterValue;
+    private double decimeterValue;
+    private double centimeterValue;
+    private double millimeterValue;
+
+    private Length kilometerTestResult;
+    private Length hectometerTestResult;
+    private Length decameterTestResult;
+    private Length meterTestResult;
+    private Length decimeterTestResult;
+    private Length centimeterTestResult;
+    private Length millimeterTestResult;
+
+    private Length kilometerResult;
+    private Length hectometerResult;
+    private Length decameterResult;
+    private Length meterResult;
+    private Length decimeterResult;
+    private Length centimeterResult;
+    private Length millimeterResult;
+
+    @BeforeEach
+    void run () {
+        kilometerValue = NumberRandomizer.getRandomDouble();
+        hectometerValue = NumberRandomizer.getRandomDouble();
+        decameterValue = NumberRandomizer.getRandomDouble();
+        meterValue = NumberRandomizer.getRandomDouble();
+        decimeterValue = NumberRandomizer.getRandomDouble();
+        centimeterValue = NumberRandomizer.getRandomDouble();
+        millimeterValue = NumberRandomizer.getRandomDouble();
+    }
+
 	@Test 
 	public void toKilometerTest() {
-		double kilometerValue = NumberRandomizer.getRandomDouble();
-		double hectometerValue = NumberRandomizer.getRandomDouble();
-		double decameterValue = NumberRandomizer.getRandomDouble();
-		double meterValue = NumberRandomizer.getRandomDouble();
-		double decimeterValue = NumberRandomizer.getRandomDouble();
-		double centimeterValue = NumberRandomizer.getRandomDouble();
-	    double millimeterValue = NumberRandomizer.getRandomDouble();
+        kilometerTestResult = convert(kilometerValue, KILOMETER, KILOMETER);
+        hectometerTestResult = convert(hectometerValue, HECTOMETER, KILOMETER);
+        decameterTestResult = convert(decameterValue, DECAMETER, KILOMETER);
+        meterTestResult = convert(meterValue, METER, KILOMETER);
+        decimeterTestResult = convert(decimeterValue, DECIMETER, KILOMETER);
+        centimeterTestResult = convert(centimeterValue, CENTIMETER, KILOMETER);
+        millimeterTestResult = convert(millimeterValue, MILLIMETER, KILOMETER);
 
-        Length kilometerTestResult = convert(kilometerValue, KILOMETER, KILOMETER);
-        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, KILOMETER);
-        Length decameterTestResult = convert(decameterValue, DECAMETER, KILOMETER);
-        Length meterTestResult = convert(meterValue, METER, KILOMETER);
-        Length decimeterTestResult = convert(decimeterValue, DECIMETER, KILOMETER);
-        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, KILOMETER);
-        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, KILOMETER);
-
-        Length kilometerResult = toKilometer(kilometerValue, KILOMETER);
-        Length hectometerResult = toKilometer(hectometerValue, HECTOMETER);
-        Length decameterResult = toKilometer(decameterValue, DECAMETER);
-        Length meterResult = toKilometer(meterValue, METER);
-        Length decimeterResult = toKilometer(decimeterValue, DECIMETER);
-        Length centimeterResult = toKilometer(centimeterValue, CENTIMETER);
-        Length millimeterResult = toKilometer(millimeterValue, MILLIMETER);
+        kilometerResult = toKilometer(kilometerValue, KILOMETER);
+        hectometerResult = toKilometer(hectometerValue, HECTOMETER);
+        decameterResult = toKilometer(decameterValue, DECAMETER);
+        meterResult = toKilometer(meterValue, METER);
+        decimeterResult = toKilometer(decimeterValue, DECIMETER);
+        centimeterResult = toKilometer(centimeterValue, CENTIMETER);
+        millimeterResult = toKilometer(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -44,29 +73,21 @@ public class LengthTest extends UnitTest{
 
 	@Test 
 	public void toHectometerTest() {
-		double kilometerValue = NumberRandomizer.getRandomDouble();
-		double hectometerValue = NumberRandomizer.getRandomDouble();
-		double decameterValue = NumberRandomizer.getRandomDouble();
-		double meterValue = NumberRandomizer.getRandomDouble();
-		double decimeterValue = NumberRandomizer.getRandomDouble();
-		double centimeterValue = NumberRandomizer.getRandomDouble();
-		double millimeterValue = NumberRandomizer.getRandomDouble();
+        kilometerTestResult = convert(kilometerValue, KILOMETER, HECTOMETER);
+        hectometerTestResult = convert(hectometerValue, HECTOMETER, HECTOMETER);
+        decameterTestResult = convert(decameterValue, DECAMETER, HECTOMETER);
+        meterTestResult = convert(meterValue, METER, HECTOMETER);
+        decimeterTestResult = convert(decimeterValue, DECIMETER, HECTOMETER);
+        centimeterTestResult = convert(centimeterValue, CENTIMETER, HECTOMETER);
+        millimeterTestResult = convert(millimeterValue, MILLIMETER, HECTOMETER);
 
-        Length kilometerTestResult = convert(kilometerValue, KILOMETER, HECTOMETER);
-        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, HECTOMETER);
-        Length decameterTestResult = convert(decameterValue, DECAMETER, HECTOMETER);
-        Length meterTestResult = convert(meterValue, METER, HECTOMETER);
-        Length decimeterTestResult = convert(decimeterValue, DECIMETER, HECTOMETER);
-        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, HECTOMETER);
-        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, HECTOMETER);
-
-        Length kilometerResult = toHectometer(kilometerValue, KILOMETER);
-        Length hectometerResult = toHectometer(hectometerValue, HECTOMETER);
-        Length decameterResult = toHectometer(decameterValue, DECAMETER);
-        Length meterResult = toHectometer(meterValue, METER);
-        Length decimeterResult = toHectometer(decimeterValue, DECIMETER);
-        Length centimeterResult = toHectometer(centimeterValue, CENTIMETER);
-        Length millimeterResult = toHectometer(millimeterValue, MILLIMETER);
+        kilometerResult = toHectometer(kilometerValue, KILOMETER);
+        hectometerResult = toHectometer(hectometerValue, HECTOMETER);
+        decameterResult = toHectometer(decameterValue, DECAMETER);
+        meterResult = toHectometer(meterValue, METER);
+        decimeterResult = toHectometer(decimeterValue, DECIMETER);
+        centimeterResult = toHectometer(centimeterValue, CENTIMETER);
+        millimeterResult = toHectometer(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -79,29 +100,21 @@ public class LengthTest extends UnitTest{
 
 	@Test 
 	public void toDecameterTest() {
-		double kilometerValue = NumberRandomizer.getRandomDouble();
-		double hectometerValue = NumberRandomizer.getRandomDouble();
-		double decameterValue = NumberRandomizer.getRandomDouble();
-		double meterValue = NumberRandomizer.getRandomDouble();
-		double decimeterValue = NumberRandomizer.getRandomDouble();
-		double centimeterValue = NumberRandomizer.getRandomDouble();
-		double millimeterValue = NumberRandomizer.getRandomDouble();
+        kilometerTestResult = convert(kilometerValue, KILOMETER, DECAMETER);
+        hectometerTestResult = convert(hectometerValue, HECTOMETER, DECAMETER);
+        decameterTestResult = convert(decameterValue, DECAMETER, DECAMETER);
+        meterTestResult = convert(meterValue, METER, DECAMETER);
+        decimeterTestResult = convert(decimeterValue, DECIMETER, DECAMETER);
+        centimeterTestResult = convert(centimeterValue, CENTIMETER, DECAMETER);
+        millimeterTestResult = convert(millimeterValue, MILLIMETER, DECAMETER);
 
-        Length kilometerTestResult = convert(kilometerValue, KILOMETER, DECAMETER);
-        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, DECAMETER);
-        Length decameterTestResult = convert(decameterValue, DECAMETER, DECAMETER);
-        Length meterTestResult = convert(meterValue, METER, DECAMETER);
-        Length decimeterTestResult = convert(decimeterValue, DECIMETER, DECAMETER);
-        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, DECAMETER);
-        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, DECAMETER);
-
-        Length kilometerResult = toDecameter(kilometerValue, KILOMETER);
-        Length hectometerResult = toDecameter(hectometerValue, HECTOMETER);
-        Length decameterResult = toDecameter(decameterValue, DECAMETER);
-        Length meterResult = toDecameter(meterValue, METER);
-        Length decimeterResult = toDecameter(decimeterValue, DECIMETER);
-        Length centimeterResult = toDecameter(centimeterValue, CENTIMETER);
-        Length millimeterResult = toDecameter(millimeterValue, MILLIMETER);
+        kilometerResult = toDecameter(kilometerValue, KILOMETER);
+        hectometerResult = toDecameter(hectometerValue, HECTOMETER);
+        decameterResult = toDecameter(decameterValue, DECAMETER);
+        meterResult = toDecameter(meterValue, METER);
+        decimeterResult = toDecameter(decimeterValue, DECIMETER);
+        centimeterResult = toDecameter(centimeterValue, CENTIMETER);
+        millimeterResult = toDecameter(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -114,29 +127,21 @@ public class LengthTest extends UnitTest{
 
 	@Test 
 	public void toMeterTest() {
-		double kilometerValue = NumberRandomizer.getRandomDouble();
-		double hectometerValue = NumberRandomizer.getRandomDouble();
-		double decameterValue = NumberRandomizer.getRandomDouble();
-		double meterValue = NumberRandomizer.getRandomDouble();
-		double decimeterValue = NumberRandomizer.getRandomDouble();
-		double centimeterValue = NumberRandomizer.getRandomDouble();
-		double millimeterValue = NumberRandomizer.getRandomDouble();
+        kilometerTestResult = convert(kilometerValue, KILOMETER, METER);
+        hectometerTestResult = convert(hectometerValue, HECTOMETER, METER);
+        decameterTestResult = convert(decameterValue, DECAMETER, METER);
+        meterTestResult = convert(meterValue, METER, METER);
+        decimeterTestResult = convert(decimeterValue, DECIMETER, METER);
+        centimeterTestResult = convert(centimeterValue, CENTIMETER, METER);
+        millimeterTestResult = convert(millimeterValue, MILLIMETER, METER);
 
-        Length kilometerTestResult = convert(kilometerValue, KILOMETER, METER);
-        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, METER);
-        Length decameterTestResult = convert(decameterValue, DECAMETER, METER);
-        Length meterTestResult = convert(meterValue, METER, METER);
-        Length decimeterTestResult = convert(decimeterValue, DECIMETER, METER);
-        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, METER);
-        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, METER);
-
-        Length kilometerResult = toMeter(kilometerValue, KILOMETER);
-        Length hectometerResult = toMeter(hectometerValue, HECTOMETER);
-        Length decameterResult = toMeter(decameterValue, DECAMETER);
-        Length meterResult = toMeter(meterValue, METER);
-        Length decimeterResult = toMeter(decimeterValue, DECIMETER);
-        Length centimeterResult = toMeter(centimeterValue, CENTIMETER);
-        Length millimeterResult = toMeter(millimeterValue, MILLIMETER);
+        kilometerResult = toMeter(kilometerValue, KILOMETER);
+        hectometerResult = toMeter(hectometerValue, HECTOMETER);
+        decameterResult = toMeter(decameterValue, DECAMETER);
+        meterResult = toMeter(meterValue, METER);
+        decimeterResult = toMeter(decimeterValue, DECIMETER);
+        centimeterResult = toMeter(centimeterValue, CENTIMETER);
+        millimeterResult = toMeter(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -149,29 +154,21 @@ public class LengthTest extends UnitTest{
 
 	@Test 
 	public void toDecimeterTest() {
-		double kilometerValue = NumberRandomizer.getRandomDouble();
-		double hectometerValue = NumberRandomizer.getRandomDouble();
-		double decameterValue = NumberRandomizer.getRandomDouble();
-		double meterValue = NumberRandomizer.getRandomDouble();
-		double decimeterValue = NumberRandomizer.getRandomDouble();
-		double centimeterValue = NumberRandomizer.getRandomDouble();
-		double millimeterValue = NumberRandomizer.getRandomDouble();
+        kilometerTestResult = convert(kilometerValue, KILOMETER, DECIMETER);
+        hectometerTestResult = convert(hectometerValue, HECTOMETER, DECIMETER);
+        decameterTestResult = convert(decameterValue, DECAMETER, DECIMETER);
+        meterTestResult = convert(meterValue, METER, DECIMETER);
+        decimeterTestResult = convert(decimeterValue, DECIMETER, DECIMETER);
+        centimeterTestResult = convert(centimeterValue, CENTIMETER, DECIMETER);
+        millimeterTestResult = convert(millimeterValue, MILLIMETER, DECIMETER);
 
-        Length kilometerTestResult = convert(kilometerValue, KILOMETER, DECIMETER);
-        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, DECIMETER);
-        Length decameterTestResult = convert(decameterValue, DECAMETER, DECIMETER);
-        Length meterTestResult = convert(meterValue, METER, DECIMETER);
-        Length decimeterTestResult = convert(decimeterValue, DECIMETER, DECIMETER);
-        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, DECIMETER);
-        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, DECIMETER);
-
-        Length kilometerResult = toDecimeter(kilometerValue, KILOMETER);
-        Length hectometerResult = toDecimeter(hectometerValue, HECTOMETER);
-        Length decameterResult = toDecimeter(decameterValue, DECAMETER);
-        Length meterResult = toDecimeter(meterValue, METER);
-        Length decimeterResult = toDecimeter(decimeterValue, DECIMETER);
-        Length centimeterResult = toDecimeter(centimeterValue, CENTIMETER);
-        Length millimeterResult = toDecimeter(millimeterValue, MILLIMETER);
+        kilometerResult = toDecimeter(kilometerValue, KILOMETER);
+        hectometerResult = toDecimeter(hectometerValue, HECTOMETER);
+        decameterResult = toDecimeter(decameterValue, DECAMETER);
+        meterResult = toDecimeter(meterValue, METER);
+        decimeterResult = toDecimeter(decimeterValue, DECIMETER);
+        centimeterResult = toDecimeter(centimeterValue, CENTIMETER);
+        millimeterResult = toDecimeter(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -184,29 +181,21 @@ public class LengthTest extends UnitTest{
 
 	@Test 
 	public void toCentimeterTest() {
-		double kilometerValue = NumberRandomizer.getRandomDouble();
-		double hectometerValue = NumberRandomizer.getRandomDouble();
-		double decameterValue = NumberRandomizer.getRandomDouble();
-		double meterValue = NumberRandomizer.getRandomDouble();
-		double decimeterValue = NumberRandomizer.getRandomDouble();
-		double centimeterValue = NumberRandomizer.getRandomDouble();
-		double millimeterValue = NumberRandomizer.getRandomDouble();
+        kilometerTestResult = convert(kilometerValue, KILOMETER, CENTIMETER);
+        hectometerTestResult = convert(hectometerValue, HECTOMETER, CENTIMETER);
+        decameterTestResult = convert(decameterValue, DECAMETER, CENTIMETER);
+        meterTestResult = convert(meterValue, METER, CENTIMETER);
+        decimeterTestResult = convert(decimeterValue, DECIMETER, CENTIMETER);
+        centimeterTestResult = convert(centimeterValue, CENTIMETER, CENTIMETER);
+        millimeterTestResult = convert(millimeterValue, MILLIMETER, CENTIMETER);
 
-        Length kilometerTestResult = convert(kilometerValue, KILOMETER, CENTIMETER);
-        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, CENTIMETER);
-        Length decameterTestResult = convert(decameterValue, DECAMETER, CENTIMETER);
-        Length meterTestResult = convert(meterValue, METER, CENTIMETER);
-        Length decimeterTestResult = convert(decimeterValue, DECIMETER, CENTIMETER);
-        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, CENTIMETER);
-        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, CENTIMETER);
-
-        Length kilometerResult = toCentimeter(kilometerValue, KILOMETER);
-        Length hectometerResult = toCentimeter(hectometerValue, HECTOMETER);
-        Length decameterResult = toCentimeter(decameterValue, DECAMETER);
-        Length meterResult = toCentimeter(meterValue, METER);
-        Length decimeterResult = toCentimeter(decimeterValue, DECIMETER);
-        Length centimeterResult = toCentimeter(centimeterValue, CENTIMETER);
-        Length millimeterResult = toCentimeter(millimeterValue, MILLIMETER);
+        kilometerResult = toCentimeter(kilometerValue, KILOMETER);
+        hectometerResult = toCentimeter(hectometerValue, HECTOMETER);
+        decameterResult = toCentimeter(decameterValue, DECAMETER);
+        meterResult = toCentimeter(meterValue, METER);
+        decimeterResult = toCentimeter(decimeterValue, DECIMETER);
+        centimeterResult = toCentimeter(centimeterValue, CENTIMETER);
+        millimeterResult = toCentimeter(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -219,29 +208,21 @@ public class LengthTest extends UnitTest{
 
 	@Test 
 	public void toMillimeterTest() {
-		double kilometerValue = NumberRandomizer.getRandomDouble();
-		double hectometerValue = NumberRandomizer.getRandomDouble();
-		double decameterValue = NumberRandomizer.getRandomDouble();
-		double meterValue = NumberRandomizer.getRandomDouble();
-		double decimeterValue = NumberRandomizer.getRandomDouble();
-		double centimeterValue = NumberRandomizer.getRandomDouble();
-		double millimeterValue = NumberRandomizer.getRandomDouble();
+        kilometerTestResult = convert(kilometerValue, KILOMETER, MILLIMETER);
+        hectometerTestResult = convert(hectometerValue, HECTOMETER, MILLIMETER);
+        decameterTestResult = convert(decameterValue, DECAMETER, MILLIMETER);
+        meterTestResult = convert(meterValue, METER, MILLIMETER);
+        decimeterTestResult = convert(decimeterValue, DECIMETER, MILLIMETER);
+        centimeterTestResult = convert(centimeterValue, CENTIMETER, MILLIMETER);
+        millimeterTestResult = convert(millimeterValue, MILLIMETER, MILLIMETER);
 
-        Length kilometerTestResult = convert(kilometerValue, KILOMETER, MILLIMETER);
-        Length hectometerTestResult = convert(hectometerValue, HECTOMETER, MILLIMETER);
-        Length decameterTestResult = convert(decameterValue, DECAMETER, MILLIMETER);
-        Length meterTestResult = convert(meterValue, METER, MILLIMETER);
-        Length decimeterTestResult = convert(decimeterValue, DECIMETER, MILLIMETER);
-        Length centimeterTestResult = convert(centimeterValue, CENTIMETER, MILLIMETER);
-        Length millimeterTestResult = convert(millimeterValue, MILLIMETER, MILLIMETER);
-
-        Length kilometerResult = toMillimeter(kilometerValue, KILOMETER);
-        Length hectometerResult = toMillimeter(hectometerValue, HECTOMETER);
-        Length decameterResult = toMillimeter(decameterValue, DECAMETER);
-        Length meterResult = toMillimeter(meterValue, METER);
-        Length decimeterResult = toMillimeter(decimeterValue, DECIMETER);
-        Length centimeterResult = toMillimeter(centimeterValue, CENTIMETER);
-        Length millimeterResult = toMillimeter(millimeterValue, MILLIMETER);
+        kilometerResult = toMillimeter(kilometerValue, KILOMETER);
+        hectometerResult = toMillimeter(hectometerValue, HECTOMETER);
+        decameterResult = toMillimeter(decameterValue, DECAMETER);
+        meterResult = toMillimeter(meterValue, METER);
+        decimeterResult = toMillimeter(decimeterValue, DECIMETER);
+        centimeterResult = toMillimeter(centimeterValue, CENTIMETER);
+        millimeterResult = toMillimeter(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -252,32 +233,31 @@ public class LengthTest extends UnitTest{
         assertEquals(millimeterTestResult, millimeterResult);
 	}
 
-
 	@Test
 	public void toKilometerFixedResultTest() {
-		int kilometerValue = 1;
-		int hectometerValue = 1;
-		int decameterValue = 1;
-		int meterValue = 1;
-		int decimeterValue = 1;
-		int centimeterValue = 1;
-		int millimeterValue = 1;
+		kilometerValue = 1;
+		hectometerValue = 1;
+		decameterValue = 1;
+		meterValue = 1;
+		decimeterValue = 1;
+		centimeterValue = 1;
+		millimeterValue = 1;
 
-        Length kilometerTestResult = new Length("1.00000000000000000000", KILOMETER);
-        Length hectometerTestResult= new Length("0.10000000000000000000", KILOMETER);
-        Length decameterTestResult = new Length("0.01000000000000000000", KILOMETER);
-        Length meterTestResult = new Length("0.00100000000000000000", KILOMETER);
-        Length decimeterTestResult = new Length("0.00010000000000000000", KILOMETER);
-        Length centimeterTestResult = new Length("0.00001000000000000000", KILOMETER);
-        Length millimeterTestResult = new Length("0.00000100000000000000", KILOMETER);
+        kilometerTestResult = new Length("1.00000000000000000000", KILOMETER);
+        hectometerTestResult= new Length("0.10000000000000000000", KILOMETER);
+        decameterTestResult = new Length("0.01000000000000000000", KILOMETER);
+        meterTestResult = new Length("0.00100000000000000000", KILOMETER);
+        decimeterTestResult = new Length("0.00010000000000000000", KILOMETER);
+        centimeterTestResult = new Length("0.00001000000000000000", KILOMETER);
+        millimeterTestResult = new Length("0.00000100000000000000", KILOMETER);
 
-        Length kilometerResult = toKilometer(kilometerValue, KILOMETER);
-        Length hectometerResult = toKilometer(hectometerValue, HECTOMETER);
-        Length decameterResult = toKilometer(decameterValue, DECAMETER);
-        Length meterResult = toKilometer(meterValue, METER);
-        Length decimeterResult = toKilometer(decimeterValue, DECIMETER);
-        Length centimeterResult = toKilometer(centimeterValue, CENTIMETER);
-        Length millimeterResult = toKilometer(millimeterValue, MILLIMETER);
+        kilometerResult = toKilometer(kilometerValue, KILOMETER);
+        hectometerResult = toKilometer(hectometerValue, HECTOMETER);
+        decameterResult = toKilometer(decameterValue, DECAMETER);
+        meterResult = toKilometer(meterValue, METER);
+        decimeterResult = toKilometer(decimeterValue, DECIMETER);
+        centimeterResult = toKilometer(centimeterValue, CENTIMETER);
+        millimeterResult = toKilometer(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -290,29 +270,29 @@ public class LengthTest extends UnitTest{
 
 	@Test
 	public void toHectometerFixedResultTest() {
-		int kilometerValue = 1;
-		int hectometerValue = 1;
-		int decameterValue = 1;
-		int meterValue = 1;
-		int decimeterValue = 1;
-		int centimeterValue = 1;
-		int millimeterValue = 1;
+		kilometerValue = 1;
+		hectometerValue = 1;
+		decameterValue = 1;
+		meterValue = 1;
+		decimeterValue = 1;
+		centimeterValue = 1;
+		millimeterValue = 1;
 
-        Length kilometerTestResult = new Length("10.00000000000000000000", HECTOMETER);
-        Length hectometerTestResult= new Length("1.00000000000000000000", HECTOMETER);
-        Length decameterTestResult = new Length("0.10000000000000000000", HECTOMETER);
-        Length meterTestResult = new Length("0.01000000000000000000", HECTOMETER);
-        Length decimeterTestResult = new Length("0.00100000000000000000", HECTOMETER);
-        Length centimeterTestResult = new Length("0.00010000000000000000", HECTOMETER);
-        Length millimeterTestResult = new Length("0.00001000000000000000", HECTOMETER);
+        kilometerTestResult = new Length("10.00000000000000000000", HECTOMETER);
+        hectometerTestResult= new Length("1.00000000000000000000", HECTOMETER);
+        decameterTestResult = new Length("0.10000000000000000000", HECTOMETER);
+        meterTestResult = new Length("0.01000000000000000000", HECTOMETER);
+        decimeterTestResult = new Length("0.00100000000000000000", HECTOMETER);
+        centimeterTestResult = new Length("0.00010000000000000000", HECTOMETER);
+        millimeterTestResult = new Length("0.00001000000000000000", HECTOMETER);
 
-        Length kilometerResult = toHectometer(kilometerValue, KILOMETER);
-        Length hectometerResult = toHectometer(hectometerValue, HECTOMETER);
-        Length decameterResult = toHectometer(decameterValue, DECAMETER);
-        Length meterResult = toHectometer(meterValue, METER);
-        Length decimeterResult = toHectometer(decimeterValue, DECIMETER);
-        Length centimeterResult = toHectometer(centimeterValue, CENTIMETER);
-        Length millimeterResult = toHectometer(millimeterValue, MILLIMETER);
+        kilometerResult = toHectometer(kilometerValue, KILOMETER);
+        hectometerResult = toHectometer(hectometerValue, HECTOMETER);
+        decameterResult = toHectometer(decameterValue, DECAMETER);
+        meterResult = toHectometer(meterValue, METER);
+        decimeterResult = toHectometer(decimeterValue, DECIMETER);
+        centimeterResult = toHectometer(centimeterValue, CENTIMETER);
+        millimeterResult = toHectometer(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -325,29 +305,29 @@ public class LengthTest extends UnitTest{
 
 	@Test
 	public void toDecameterFixedResultTest() {
-		int kilometerValue = 1;
-		int hectometerValue = 1;
-		int decameterValue = 1;
-		int meterValue = 1;
-		int decimeterValue = 1;
-		int centimeterValue = 1;
-		int millimeterValue = 1;
+        kilometerValue = 1;
+        hectometerValue = 1;
+        decameterValue = 1;
+        meterValue = 1;
+        decimeterValue = 1;
+        centimeterValue = 1;
+        millimeterValue = 1;
 
-        Length kilometerTestResult = new Length("100.00000000000000000000", DECAMETER);
-        Length hectometerTestResult= new Length("10.00000000000000000000", DECAMETER);
-        Length decameterTestResult = new Length("1.00000000000000000000", DECAMETER);
-        Length meterTestResult = new Length("0.10000000000000000000", DECAMETER);
-        Length decimeterTestResult = new Length("0.01000000000000000000", DECAMETER);
-        Length centimeterTestResult = new Length("0.00100000000000000000", DECAMETER);
-        Length millimeterTestResult = new Length("0.00010000000000000000", DECAMETER);
+        kilometerTestResult = new Length("100.00000000000000000000", DECAMETER);
+        hectometerTestResult= new Length("10.00000000000000000000", DECAMETER);
+        decameterTestResult = new Length("1.00000000000000000000", DECAMETER);
+        meterTestResult = new Length("0.10000000000000000000", DECAMETER);
+        decimeterTestResult = new Length("0.01000000000000000000", DECAMETER);
+        centimeterTestResult = new Length("0.00100000000000000000", DECAMETER);
+        millimeterTestResult = new Length("0.00010000000000000000", DECAMETER);
 
-        Length kilometerResult = toDecameter(kilometerValue, KILOMETER);
-        Length hectometerResult = toDecameter(hectometerValue, HECTOMETER);
-        Length decameterResult = toDecameter(decameterValue, DECAMETER);
-        Length meterResult = toDecameter(meterValue, METER);
-        Length decimeterResult = toDecameter(decimeterValue, DECIMETER);
-        Length centimeterResult = toDecameter(centimeterValue, CENTIMETER);
-        Length millimeterResult = toDecameter(millimeterValue, MILLIMETER);
+        kilometerResult = toDecameter(kilometerValue, KILOMETER);
+        hectometerResult = toDecameter(hectometerValue, HECTOMETER);
+        decameterResult = toDecameter(decameterValue, DECAMETER);
+        meterResult = toDecameter(meterValue, METER);
+        decimeterResult = toDecameter(decimeterValue, DECIMETER);
+        centimeterResult = toDecameter(centimeterValue, CENTIMETER);
+        millimeterResult = toDecameter(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -360,29 +340,29 @@ public class LengthTest extends UnitTest{
 
 	@Test
 	public void toMeterFixedResultTest() {
-		int kilometerValue = 1;
-		int hectometerValue = 1;
-		int decameterValue = 1;
-		int meterValue = 1;
-		int decimeterValue = 1;
-		int centimeterValue = 1;
-		int millimeterValue = 1;
+		kilometerValue = 1;
+		hectometerValue = 1;
+		decameterValue = 1;
+		meterValue = 1;
+		decimeterValue = 1;
+		centimeterValue = 1;
+		millimeterValue = 1;
 
-        Length kilometerTestResult = new Length("1000.00000000000000000000", METER);
-        Length hectometerTestResult= new Length("100.00000000000000000000", METER);
-        Length decameterTestResult = new Length("10.00000000000000000000", METER);
-        Length meterTestResult = new Length("1.00000000000000000000", METER);
-        Length decimeterTestResult = new Length("0.10000000000000000000", METER);
-        Length centimeterTestResult = new Length("0.01000000000000000000", METER);
-        Length millimeterTestResult = new Length("0.00100000000000000000", METER);
+        kilometerTestResult = new Length("1000.00000000000000000000", METER);
+        hectometerTestResult= new Length("100.00000000000000000000", METER);
+        decameterTestResult = new Length("10.00000000000000000000", METER);
+        meterTestResult = new Length("1.00000000000000000000", METER);
+        decimeterTestResult = new Length("0.10000000000000000000", METER);
+        centimeterTestResult = new Length("0.01000000000000000000", METER);
+        millimeterTestResult = new Length("0.00100000000000000000", METER);
 
-        Length kilometerResult = toMeter(kilometerValue, KILOMETER);
-        Length hectometerResult = toMeter(hectometerValue, HECTOMETER);
-        Length decameterResult = toMeter(decameterValue, DECAMETER);
-        Length meterResult = toMeter(meterValue, METER);
-        Length decimeterResult = toMeter(decimeterValue, DECIMETER);
-        Length centimeterResult = toMeter(centimeterValue, CENTIMETER);
-        Length millimeterResult = toMeter(millimeterValue, MILLIMETER);
+        kilometerResult = toMeter(kilometerValue, KILOMETER);
+        hectometerResult = toMeter(hectometerValue, HECTOMETER);
+        decameterResult = toMeter(decameterValue, DECAMETER);
+        meterResult = toMeter(meterValue, METER);
+        decimeterResult = toMeter(decimeterValue, DECIMETER);
+        centimeterResult = toMeter(centimeterValue, CENTIMETER);
+        millimeterResult = toMeter(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -395,29 +375,29 @@ public class LengthTest extends UnitTest{
 
 	@Test
 	public void toDecimeterFixedResultTest() {
-		int kilometerValue = 1;
-		int hectometerValue = 1;
-		int decameterValue = 1;
-		int meterValue = 1;
-		int decimeterValue = 1;
-		int centimeterValue = 1;
-		int millimeterValue = 1;
+		kilometerValue = 1;
+		hectometerValue = 1;
+		decameterValue = 1;
+		meterValue = 1;
+		decimeterValue = 1;
+		centimeterValue = 1;
+		millimeterValue = 1;
 
-        Length kilometerTestResult = new Length("10000.00000000000000000000", DECIMETER);
-        Length hectometerTestResult= new Length("1000.00000000000000000000", DECIMETER);
-        Length decameterTestResult = new Length("100.00000000000000000000", DECIMETER);
-        Length meterTestResult = new Length("10.00000000000000000000", DECIMETER);
-        Length decimeterTestResult = new Length("1.00000000000000000000", DECIMETER);
-        Length centimeterTestResult = new Length("0.10000000000000000000", DECIMETER);
-        Length millimeterTestResult = new Length("0.01000000000000000000", DECIMETER);
+        kilometerTestResult = new Length("10000.00000000000000000000", DECIMETER);
+        hectometerTestResult= new Length("1000.00000000000000000000", DECIMETER);
+        decameterTestResult = new Length("100.00000000000000000000", DECIMETER);
+        meterTestResult = new Length("10.00000000000000000000", DECIMETER);
+        decimeterTestResult = new Length("1.00000000000000000000", DECIMETER);
+        centimeterTestResult = new Length("0.10000000000000000000", DECIMETER);
+        millimeterTestResult = new Length("0.01000000000000000000", DECIMETER);
 
-        Length kilometerResult = toDecimeter(kilometerValue, KILOMETER);
-        Length hectometerResult = toDecimeter(hectometerValue, HECTOMETER);
-        Length decameterResult = toDecimeter(decameterValue, DECAMETER);
-        Length meterResult = toDecimeter(meterValue, METER);
-        Length decimeterResult = toDecimeter(decimeterValue, DECIMETER);
-        Length centimeterResult = toDecimeter(centimeterValue, CENTIMETER);
-        Length millimeterResult = toDecimeter(millimeterValue, MILLIMETER);
+        kilometerResult = toDecimeter(kilometerValue, KILOMETER);
+        hectometerResult = toDecimeter(hectometerValue, HECTOMETER);
+        decameterResult = toDecimeter(decameterValue, DECAMETER);
+        meterResult = toDecimeter(meterValue, METER);
+        decimeterResult = toDecimeter(decimeterValue, DECIMETER);
+        centimeterResult = toDecimeter(centimeterValue, CENTIMETER);
+        millimeterResult = toDecimeter(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -430,29 +410,29 @@ public class LengthTest extends UnitTest{
 
 	@Test
 	public void toCentimeterFixedResultTest() {
-		int kilometerValue = 1;
-		int hectometerValue = 1;
-		int decameterValue = 1;
-		int meterValue = 1;
-		int decimeterValue = 1;
-		int centimeterValue = 1;
-		int millimeterValue = 1;
+		kilometerValue = 1;
+		hectometerValue = 1;
+		decameterValue = 1;
+		meterValue = 1;
+		decimeterValue = 1;
+		centimeterValue = 1;
+		millimeterValue = 1;
 
-        Length kilometerTestResult = new Length("100000.00000000000000000000", CENTIMETER);
-        Length hectometerTestResult= new Length("10000.00000000000000000000", CENTIMETER);
-        Length decameterTestResult = new Length("1000.00000000000000000000", CENTIMETER);
-        Length meterTestResult = new Length("100.00000000000000000000", CENTIMETER);
-        Length decimeterTestResult = new Length("10.00000000000000000000", CENTIMETER);
-        Length centimeterTestResult = new Length("1.00000000000000000000", CENTIMETER);
-        Length millimeterTestResult = new Length("0.10000000000000000000", CENTIMETER);
+        kilometerTestResult = new Length("100000.00000000000000000000", CENTIMETER);
+        hectometerTestResult= new Length("10000.00000000000000000000", CENTIMETER);
+        decameterTestResult = new Length("1000.00000000000000000000", CENTIMETER);
+        meterTestResult = new Length("100.00000000000000000000", CENTIMETER);
+        decimeterTestResult = new Length("10.00000000000000000000", CENTIMETER);
+        centimeterTestResult = new Length("1.00000000000000000000", CENTIMETER);
+        millimeterTestResult = new Length("0.10000000000000000000", CENTIMETER);
 
-        Length kilometerResult = toCentimeter(kilometerValue, KILOMETER);
-        Length hectometerResult = toCentimeter(hectometerValue, HECTOMETER);
-        Length decameterResult = toCentimeter(decameterValue, DECAMETER);
-        Length meterResult = toCentimeter(meterValue, METER);
-        Length decimeterResult = toCentimeter(decimeterValue, DECIMETER);
-        Length centimeterResult = toCentimeter(centimeterValue, CENTIMETER);
-        Length millimeterResult = toCentimeter(millimeterValue, MILLIMETER);
+        kilometerResult = toCentimeter(kilometerValue, KILOMETER);
+        hectometerResult = toCentimeter(hectometerValue, HECTOMETER);
+        decameterResult = toCentimeter(decameterValue, DECAMETER);
+        meterResult = toCentimeter(meterValue, METER);
+        decimeterResult = toCentimeter(decimeterValue, DECIMETER);
+        centimeterResult = toCentimeter(centimeterValue, CENTIMETER);
+        millimeterResult = toCentimeter(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
@@ -465,29 +445,29 @@ public class LengthTest extends UnitTest{
 
 	@Test
 	public void toMillimeterFixedResultTest() {
-		int kilometerValue = 1;
-		int hectometerValue = 1;
-		int decameterValue = 1;
-		int meterValue = 1;
-		int decimeterValue = 1;
-		int centimeterValue = 1;
-		int millimeterValue = 1;
+		kilometerValue = 1;
+		hectometerValue = 1;
+		decameterValue = 1;
+		meterValue = 1;
+		decimeterValue = 1;
+		centimeterValue = 1;
+		millimeterValue = 1;
 
-        Length kilometerTestResult = new Length("1000000.00000000000000000000", MILLIMETER);
-        Length hectometerTestResult= new Length("100000.00000000000000000000", MILLIMETER);
-        Length decameterTestResult = new Length("10000.00000000000000000000", MILLIMETER);
-        Length meterTestResult = new Length("1000.00000000000000000000", MILLIMETER);
-        Length decimeterTestResult = new Length("100.00000000000000000000", MILLIMETER);
-        Length centimeterTestResult = new Length("10.00000000000000000000", MILLIMETER);
-        Length millimeterTestResult = new Length("1.00000000000000000000", MILLIMETER);
+        kilometerTestResult = new Length("1000000.00000000000000000000", MILLIMETER);
+        hectometerTestResult= new Length("100000.00000000000000000000", MILLIMETER);
+        decameterTestResult = new Length("10000.00000000000000000000", MILLIMETER);
+        meterTestResult = new Length("1000.00000000000000000000", MILLIMETER);
+        decimeterTestResult = new Length("100.00000000000000000000", MILLIMETER);
+        centimeterTestResult = new Length("10.00000000000000000000", MILLIMETER);
+        millimeterTestResult = new Length("1.00000000000000000000", MILLIMETER);
 
-        Length kilometerResult = toMillimeter(kilometerValue, KILOMETER);
-        Length hectometerResult = toMillimeter(hectometerValue, HECTOMETER);
-        Length decameterResult = toMillimeter(decameterValue, DECAMETER);
-        Length meterResult = toMillimeter(meterValue, METER);
-        Length decimeterResult = toMillimeter(decimeterValue, DECIMETER);
-        Length centimeterResult = toMillimeter(centimeterValue, CENTIMETER);
-        Length millimeterResult = toMillimeter(millimeterValue, MILLIMETER);
+        kilometerResult = toMillimeter(kilometerValue, KILOMETER);
+        hectometerResult = toMillimeter(hectometerValue, HECTOMETER);
+        decameterResult = toMillimeter(decameterValue, DECAMETER);
+        meterResult = toMillimeter(meterValue, METER);
+        decimeterResult = toMillimeter(decimeterValue, DECIMETER);
+        centimeterResult = toMillimeter(centimeterValue, CENTIMETER);
+        millimeterResult = toMillimeter(millimeterValue, MILLIMETER);
 
         assertEquals(kilometerTestResult, kilometerResult);
         assertEquals(hectometerTestResult, hectometerResult);
