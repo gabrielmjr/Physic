@@ -6,7 +6,7 @@ import com.mjrfusion.code.physics.units.Unit;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-public final class Acceleration3 extends Calculation {
+public class Acceleration3 extends Calculation {
     @Deprecated
 	private static Acceleration3 instance; 
     private double initialVelocity;

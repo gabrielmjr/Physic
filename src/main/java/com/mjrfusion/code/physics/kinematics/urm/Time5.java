@@ -3,7 +3,7 @@ package com.mjrfusion.code.physics.kinematics.urm;
 import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.units.Unit;
 
-public final class Time5 extends Calculation {
+public class Time5 extends Calculation {
 	private static Time5 instance;
     private double initialTime;
     private double deltaTime;

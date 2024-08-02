@@ -3,9 +3,7 @@ package com.mjrfusion.code.physics.kinematics.urm;
 import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.units.Unit;
 
-import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
-
-public final class Speed4 extends Calculation {
+public class Speed4 extends Calculation {
 	private static Speed4 instance; 
     private double deltaDisplacement;
     private double initialTime;

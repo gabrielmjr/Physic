@@ -3,7 +3,7 @@ package com.mjrfusion.code.physics.kinematics.vertical_launch.downward;
 // yi = y - [vi * ∆t + (g * t²)/2]
 import java.math.BigDecimal;
 
-public final class InitialHeight {
+public class InitialHeight {
     @Deprecated
     private static InitialHeight instance;
 	private double height;

@@ -3,7 +3,7 @@ package com.mjrfusion.code.physics.hydrodynamics.fluidflow;
 import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.units.Unit;
 
-public final class FlowRate2 extends Calculation {
+public class FlowRate2 extends Calculation {
     @Deprecated
     private static FlowRate2 instance;
 

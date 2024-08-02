@@ -3,7 +3,7 @@ package com.mjrfusion.code.physics.hydrodynamics.fluidflow;
 import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.units.Unit;
 
-public final class Time extends Calculation {
+public class Time extends Calculation {
     @Deprecated
     private static Time instance;
 

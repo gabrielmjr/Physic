@@ -3,7 +3,7 @@ package com.mjrfusion.code.physics.hydrodynamics.fluidflow;
 import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.units.Unit;
 
-public final class Area extends Calculation {
+public class Area extends Calculation {
     @Deprecated
     private static Area instance;
 

@@ -1,7 +1,7 @@
 package com.mjrfusion.code.physics.kinematics.vertical_launch.upward;
 
 // yi = y + [vi * ∆t + (g * t²)/2]
-public final class InitialHeight {
+public class InitialHeight {
     @Deprecated
     private static InitialHeight instance;
     private double height;

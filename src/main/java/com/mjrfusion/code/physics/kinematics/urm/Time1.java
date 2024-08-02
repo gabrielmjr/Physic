@@ -3,9 +3,7 @@ package com.mjrfusion.code.physics.kinematics.urm;
 import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.units.Unit;
 
-import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
-
-public final class Time1 extends Calculation {
+public class Time1 extends Calculation {
 	private static Time1 instance; 
     private double initialTime;
     private double finalTime;

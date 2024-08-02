@@ -5,7 +5,7 @@ import com.mjrfusion.code.physics.units.Unit;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-public final class Displacement3 extends Calculation {
+public class Displacement3 extends Calculation {
     @Deprecated
 	private static Displacement3 instance; 
 	private double initialTime;

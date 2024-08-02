@@ -3,7 +3,7 @@ package com.mjrfusion.code.physics.kinematics.uvm;
 import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.units.Unit;
 
-public final class Acceleration1 extends Calculation {
+public class Acceleration1 extends Calculation {
     @Deprecated
 	private static Acceleration1 instance; 
     private double deltaSpeed;

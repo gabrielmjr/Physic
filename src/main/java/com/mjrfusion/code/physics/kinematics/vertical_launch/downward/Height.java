@@ -1,9 +1,7 @@
 package com.mjrfusion.code.physics.kinematics.vertical_launch.downward;
 
-import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
-
 // y = yi + vi * ∆t + (g * ∆t²) / 2
-public final class Height {
+public class Height {
     @Deprecated
 	private static Height instance;
 	private double initialHeight;

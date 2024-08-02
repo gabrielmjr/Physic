@@ -4,7 +4,7 @@ import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.Physic;
 import com.mjrfusion.code.physics.units.Unit;
 
-public final class Speed3 extends Calculation {
+public class Speed3 extends Calculation {
     @Deprecated
 	private static Speed3 instance; 
     private double finalVelocity;

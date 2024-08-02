@@ -1,7 +1,7 @@
 package com.mjrfusion.code.physics.kinematics.vertical_launch.upward;
 
 // ∆t = ∆v / (-g)
-public final class DeltaTime1 {
+public class DeltaTime1 {
     @Deprecated
     private static DeltaTime1 instance;
     private double deltaSpeed;

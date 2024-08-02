@@ -1,7 +1,7 @@
 package com.mjrfusion.code.physics.kinematics.vertical_launch.upward;
 
 // v = vi - g * ∆t
-public final class Velocity {
+public class Velocity {
     @Deprecated
     private static Velocity instance;
     private double initialVelocity;

@@ -5,7 +5,7 @@ import com.mjrfusion.code.physics.units.Unit;
 
 import static com.mjr.code.tools.NumberAnalyst.putParenthesesIfNegative;
 
-public final class Displacement5 extends Calculation {
+public class Displacement5 extends Calculation {
 	private static Displacement5 instance; 
 	private double initialDisplacement;
 	private double deltaDisplacement;

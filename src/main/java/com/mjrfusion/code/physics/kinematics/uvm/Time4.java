@@ -4,7 +4,7 @@ import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.Physic;
 import com.mjrfusion.code.physics.units.Unit;
 
-public final class Time4 extends Calculation {
+public class Time4 extends Calculation {
     @Deprecated
 	private static Time4 instance; 
     private double initialTime;

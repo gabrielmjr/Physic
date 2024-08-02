@@ -3,7 +3,7 @@ package com.mjrfusion.code.physics.hydrodynamics.fluidflow;
 import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.units.Unit;
 
-public final class Volume extends Calculation {
+public class Volume extends Calculation {
     @Deprecated
     private static Volume instance;
 

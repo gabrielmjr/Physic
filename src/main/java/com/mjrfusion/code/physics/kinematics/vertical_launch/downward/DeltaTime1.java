@@ -3,7 +3,7 @@ package com.mjrfusion.code.physics.kinematics.vertical_launch.downward;
 import com.mjrfusion.code.physics.Calculation;
 import com.mjrfusion.code.physics.units.Unit;
 
-public final class DeltaTime1 extends Calculation {
+public class DeltaTime1 extends Calculation {
     @Deprecated
     private static DeltaTime1 instance;
     private double deltaSpeed;
