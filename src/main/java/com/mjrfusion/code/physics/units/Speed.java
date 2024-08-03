@@ -5,270 +5,238 @@ import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
 
-public class Speed extends Unit implements ISpeed { 
+public class Speed extends Unit implements ISpeed {
     @Deprecated
-	private static Speed instance; 
+    private static Speed instance;
+    private SpeedUnit unit;
 
-	public static final int KILOMETER_PER_SECOND = Time.LAST_UNIT_CONS + 1;
-	public static final int HECTOMETER_PER_SECOND = Time.LAST_UNIT_CONS + 2;
-	public static final int DECAMETER_PER_SECOND = Time.LAST_UNIT_CONS + 3;
-	public static final int METER_PER_SECOND = Time.LAST_UNIT_CONS + 4;
-	public static final int DECIMETER_PER_SECOND = Time.LAST_UNIT_CONS + 5;
-	public static final int CENTIMETER_PER_SECOND = Time.LAST_UNIT_CONS + 6;
-	public static final int MILLIMETER_PER_SECOND = Time.LAST_UNIT_CONS + 7;
+    protected static final BigDecimal[] SPEED_SCALES;
 
-	public static final int KILOMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 8;
-	public static final int HECTOMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 9;
-	public static final int DECAMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 10;
-	public static final int METER_PER_MINUTE = Time.LAST_UNIT_CONS + 11;
-	public static final int DECIMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 12;
-	public static final int CENTIMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 13;
-	public static final int MILLIMETER_PER_MINUTE = Time.LAST_UNIT_CONS + 14;
+    static {
+        SPEED_SCALES = new BigDecimal[]
+                {
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.KILOMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.SECOND.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.HECTOMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.SECOND.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.DECAMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.SECOND.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.METER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.SECOND.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.DECIMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.SECOND.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.CENTIMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.SECOND.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.MILLIMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.SECOND.ordinal()]),
 
-	public static final int KILOMETER_PER_HOUR = Time.LAST_UNIT_CONS + 15;
-	public static final int HECTOMETER_PER_HOUR = Time.LAST_UNIT_CONS + 16;
-	public static final int DECAMETER_PER_HOUR = Time.LAST_UNIT_CONS + 17;
-	public static final int METER_PER_HOUR = Time.LAST_UNIT_CONS + 18;
-	public static final int DECIMETER_PER_HOUR = Time.LAST_UNIT_CONS + 19;
-	public static final int CENTIMETER_PER_HOUR = Time.LAST_UNIT_CONS + 20;
-	public static final int MILLIMETER_PER_HOUR = Time.LAST_UNIT_CONS + 21;
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.KILOMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.MINUTE.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.HECTOMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.MINUTE.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.DECAMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.MINUTE.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.METER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.MINUTE.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.DECIMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.MINUTE.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.CENTIMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.MINUTE.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.MILLIMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.MINUTE.ordinal()]),
 
-    protected static final int UNIT_SCALE = KILOMETER_PER_SECOND;
-    protected static final int LAST_UNIT_CONS = MILLIMETER_PER_HOUR;
-    private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.KILOMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.HOUR.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.HECTOMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.HOUR.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.DECAMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.HOUR.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.METER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.HOUR.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.DECIMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.HOUR.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.CENTIMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.HOUR.ordinal()]),
+                        divide(Length.LENGTH_SCALES[Length.LengthUnit.MILLIMETER.ordinal()], Time.TIME_SCALES[Time.TimeUnit.HOUR.ordinal()]),
+                };
+    }
 
-	protected static final BigDecimal[] SPEED_SCALES = new BigDecimal[]
-	{
-		divide(Length.LENGTH_SCALES[Length.KILOMETER], Time.TIME_SCALES[Time.SECOND - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.HECTOMETER], Time.TIME_SCALES[Time.SECOND - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.DECAMETER], Time.TIME_SCALES[Time.SECOND - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.METER], Time.TIME_SCALES[Time.SECOND - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.DECIMETER], Time.TIME_SCALES[Time.SECOND - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.CENTIMETER], Time.TIME_SCALES[Time.SECOND - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.MILLIMETER], Time.TIME_SCALES[Time.SECOND - Time.UNIT_SCALE]),
+    public static final String KILOMETER_PER_SECOND_SYMBOL = Length.KILOMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
+    public static final String HECTOMETER_PER_SECOND_SYMBOL = Length.HECTOMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
+    public static final String DECAMETER_PER_SECOND_SYMBOL = Length.DECAMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
+    public static final String METER_PER_SECOND_SYMBOL = Length.METER_SYMBOL + "/" + Time.SECOND_SYMBOL;
+    public static final String DECIMETER_PER_SECOND_SYMBOL = Length.DECIMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
+    public static final String CENTIMETER_PER_SECOND_SYMBOL = Length.CENTIMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
+    public static final String MILLIMETER_PER_SECOND_SYMBOL = Length.MILLIMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
 
-		divide(Length.LENGTH_SCALES[Length.KILOMETER], Time.TIME_SCALES[Time.MINUTE - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.HECTOMETER], Time.TIME_SCALES[Time.MINUTE - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.DECAMETER], Time.TIME_SCALES[Time.MINUTE - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.METER], Time.TIME_SCALES[Time.MINUTE - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.DECIMETER], Time.TIME_SCALES[Time.MINUTE - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.CENTIMETER], Time.TIME_SCALES[Time.MINUTE - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.MILLIMETER], Time.TIME_SCALES[Time.MINUTE - Time.UNIT_SCALE]),
+    public static final String KILOMETER_PER_MINUTE_SYMBOL = Length.KILOMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
+    public static final String HECTOMETER_PER_MINUTE_SYMBOL = Length.HECTOMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
+    public static final String DECAMETER_PER_MINUTE_SYMBOL = Length.DECAMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
+    public static final String METER_PER_MINUTE_SYMBOL = Length.METER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
+    public static final String DECIMETER_PER_MINUTE_SYMBOL = Length.DECIMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
+    public static final String CENTIMETER_PER_MINUTE_SYMBOL = Length.CENTIMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
+    public static final String MILLIMETER_PER_MINUTE_SYMBOL = Length.MILLIMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
 
-		divide(Length.LENGTH_SCALES[Length.KILOMETER], Time.TIME_SCALES[Time.HOUR - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.HECTOMETER], Time.TIME_SCALES[Time.HOUR - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.DECAMETER], Time.TIME_SCALES[Time.HOUR - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.METER], Time.TIME_SCALES[Time.HOUR - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.DECIMETER], Time.TIME_SCALES[Time.HOUR - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.CENTIMETER], Time.TIME_SCALES[Time.HOUR - Time.UNIT_SCALE]),
-		divide(Length.LENGTH_SCALES[Length.MILLIMETER], Time.TIME_SCALES[Time.HOUR - Time.UNIT_SCALE]),
-	};
+    public static final String KILOMETER_PER_HOUR_SYMBOL = Length.KILOMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
+    public static final String HECTOMETER_PER_HOUR_SYMBOL = Length.HECTOMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
+    public static final String DECAMETER_PER_HOUR_SYMBOL = Length.DECAMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
+    public static final String METER_PER_HOUR_SYMBOL = Length.METER_SYMBOL + "/" + Time.HOUR_SYMBOL;
+    public static final String DECIMETER_PER_HOUR_SYMBOL = Length.DECIMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
+    public static final String CENTIMETER_PER_HOUR_SYMBOL = Length.CENTIMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
+    public static final String MILLIMETER_PER_HOUR_SYMBOL = Length.MILLIMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
 
-	public static final String KILOMETER_PER_SECOND_SYMBOL = Length.KILOMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
-	public static final String HECTOMETER_PER_SECOND_SYMBOL = Length.HECTOMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
-	public static final String DECAMETER_PER_SECOND_SYMBOL = Length.DECAMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
-	public static final String METER_PER_SECOND_SYMBOL = Length.METER_SYMBOL + "/" + Time.SECOND_SYMBOL;
-	public static final String DECIMETER_PER_SECOND_SYMBOL = Length.DECIMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
-	public static final String CENTIMETER_PER_SECOND_SYMBOL = Length.CENTIMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
-	public static final String MILLIMETER_PER_SECOND_SYMBOL = Length.MILLIMETER_SYMBOL + "/" + Time.SECOND_SYMBOL;
-
-	public static final String KILOMETER_PER_MINUTE_SYMBOL = Length.KILOMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
-	public static final String HECTOMETER_PER_MINUTE_SYMBOL = Length.HECTOMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
-	public static final String DECAMETER_PER_MINUTE_SYMBOL = Length.DECAMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
-	public static final String METER_PER_MINUTE_SYMBOL = Length.METER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
-	public static final String DECIMETER_PER_MINUTE_SYMBOL = Length.DECIMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
-	public static final String CENTIMETER_PER_MINUTE_SYMBOL = Length.CENTIMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
-	public static final String MILLIMETER_PER_MINUTE_SYMBOL = Length.MILLIMETER_SYMBOL + "/" + Time.MINUTE_SYMBOL;
-
-	public static final String KILOMETER_PER_HOUR_SYMBOL = Length.KILOMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
-	public static final String HECTOMETER_PER_HOUR_SYMBOL = Length.HECTOMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
-	public static final String DECAMETER_PER_HOUR_SYMBOL = Length.DECAMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
-	public static final String METER_PER_HOUR_SYMBOL = Length.METER_SYMBOL + "/" + Time.HOUR_SYMBOL;
-	public static final String DECIMETER_PER_HOUR_SYMBOL = Length.DECIMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
-	public static final String CENTIMETER_PER_HOUR_SYMBOL = Length.CENTIMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
-	public static final String MILLIMETER_PER_HOUR_SYMBOL = Length.MILLIMETER_SYMBOL + "/" + Time.HOUR_SYMBOL;
-
-    protected final String[] SPEED_SYMBOLS = new String[] {
-        KILOMETER_PER_SECOND_SYMBOL,
-        HECTOMETER_PER_SECOND_SYMBOL,
-        DECAMETER_PER_SECOND_SYMBOL,
-        METER_PER_SECOND_SYMBOL,
-        DECIMETER_PER_SECOND_SYMBOL,
-        CENTIMETER_PER_SECOND_SYMBOL,
-        MILLIMETER_PER_SECOND_SYMBOL,
-        KILOMETER_PER_MINUTE_SYMBOL,
-        HECTOMETER_PER_MINUTE_SYMBOL,
-        DECAMETER_PER_MINUTE_SYMBOL,
-        METER_PER_MINUTE_SYMBOL,
-        DECIMETER_PER_MINUTE_SYMBOL,
-        CENTIMETER_PER_MINUTE_SYMBOL,
-        MILLIMETER_PER_MINUTE_SYMBOL,
-        KILOMETER_PER_HOUR_SYMBOL,
-        HECTOMETER_PER_HOUR_SYMBOL,
-        DECAMETER_PER_HOUR_SYMBOL,
-        METER_PER_HOUR_SYMBOL,
-        DECIMETER_PER_HOUR_SYMBOL,
-        CENTIMETER_PER_HOUR_SYMBOL,
-        MILLIMETER_PER_HOUR_SYMBOL
+    protected final String[] SPEED_SYMBOLS = new String[]{
+            KILOMETER_PER_SECOND_SYMBOL,
+            HECTOMETER_PER_SECOND_SYMBOL,
+            DECAMETER_PER_SECOND_SYMBOL,
+            METER_PER_SECOND_SYMBOL,
+            DECIMETER_PER_SECOND_SYMBOL,
+            CENTIMETER_PER_SECOND_SYMBOL,
+            MILLIMETER_PER_SECOND_SYMBOL,
+            KILOMETER_PER_MINUTE_SYMBOL,
+            HECTOMETER_PER_MINUTE_SYMBOL,
+            DECAMETER_PER_MINUTE_SYMBOL,
+            METER_PER_MINUTE_SYMBOL,
+            DECIMETER_PER_MINUTE_SYMBOL,
+            CENTIMETER_PER_MINUTE_SYMBOL,
+            MILLIMETER_PER_MINUTE_SYMBOL,
+            KILOMETER_PER_HOUR_SYMBOL,
+            HECTOMETER_PER_HOUR_SYMBOL,
+            DECAMETER_PER_HOUR_SYMBOL,
+            METER_PER_HOUR_SYMBOL,
+            DECIMETER_PER_HOUR_SYMBOL,
+            CENTIMETER_PER_HOUR_SYMBOL,
+            MILLIMETER_PER_HOUR_SYMBOL
     };
 
-	public Speed() {
+    public Speed() {
         super();
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(METER_PER_SECOND - UNIT_SCALE);
+        unit = SpeedUnit.METER_PER_SECOND;
     }
 
     public Speed(double value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(METER_PER_SECOND - UNIT_SCALE);
+        unit = SpeedUnit.METER_PER_SECOND;
     }
 
     public Speed(String value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(METER_PER_SECOND - UNIT_SCALE);
+        unit = SpeedUnit.METER_PER_SECOND;
     }
 
     public Speed(long value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(METER_PER_SECOND - UNIT_SCALE);
+        unit = SpeedUnit.METER_PER_SECOND;
     }
 
     public Speed(BigDecimal value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(METER_PER_SECOND - UNIT_SCALE);
+        unit = SpeedUnit.METER_PER_SECOND;
     }
 
-    public Speed(double value, int unit) {
+    public Speed(double value, SpeedUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-    public Speed(String value, int unit) {
+    public Speed(String value, SpeedUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-    public Speed(long value, int unit) {
+    public Speed(long value, SpeedUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-    public Speed(BigDecimal value, int unit) {
+    public Speed(BigDecimal value, SpeedUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toKilometerPerSecond(double value, int unit) {
-        return new Speed(divide(multiply(value, SPEED_SCALES[KILOMETER_PER_SECOND - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), KILOMETER_PER_SECOND);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toKilometerPerSecond(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.KILOMETER_PER_SECOND.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.KILOMETER_PER_SECOND);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toHectometerPerSecond(double value, int unit) {
-	    return new Speed(divide(multiply(value, SPEED_SCALES[HECTOMETER_PER_SECOND - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), HECTOMETER_PER_SECOND);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toHectometerPerSecond(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.HECTOMETER_PER_SECOND.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.HECTOMETER_PER_SECOND);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toDecameterPerSecond(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[DECAMETER_PER_SECOND - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), DECAMETER_PER_SECOND);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toDecameterPerSecond(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.DECAMETER_PER_SECOND.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.DECAMETER_PER_SECOND);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toMeterPerSecond(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[METER_PER_SECOND - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), METER_PER_SECOND);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toMeterPerSecond(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.METER_PER_SECOND.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.METER_PER_SECOND);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toDecimeterPerSecond(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[DECIMETER_PER_SECOND - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), DECIMETER_PER_SECOND);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toDecimeterPerSecond(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.DECIMETER_PER_SECOND.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.DECIMETER_PER_SECOND);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toCentimeterPerSecond(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[CENTIMETER_PER_SECOND - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), CENTIMETER_PER_SECOND);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toCentimeterPerSecond(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.CENTIMETER_PER_SECOND.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.CENTIMETER_PER_SECOND);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toMillimeterPerSecond(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[MILLIMETER_PER_SECOND - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), MILLIMETER_PER_SECOND);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toMillimeterPerSecond(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.MILLIMETER_PER_SECOND.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.MILLIMETER_PER_SECOND);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toKilometerPerMinute(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[KILOMETER_PER_MINUTE - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), KILOMETER_PER_MINUTE);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toKilometerPerMinute(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.KILOMETER_PER_MINUTE.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.KILOMETER_PER_MINUTE);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toHectometerPerMinute(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[HECTOMETER_PER_MINUTE - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), HECTOMETER_PER_MINUTE);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toHectometerPerMinute(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.HECTOMETER_PER_MINUTE.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.HECTOMETER_PER_MINUTE);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toDecameterPerMinute(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[DECAMETER_PER_MINUTE - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), DECAMETER_PER_MINUTE);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toDecameterPerMinute(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.DECAMETER_PER_MINUTE.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.DECAMETER_PER_MINUTE);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toMeterPerMinute(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[METER_PER_MINUTE - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), METER_PER_MINUTE);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toMeterPerMinute(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.METER_PER_MINUTE.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.METER_PER_MINUTE);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toDecimeterPerMinute(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[DECIMETER_PER_MINUTE - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), DECIMETER_PER_MINUTE);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toDecimeterPerMinute(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.DECIMETER_PER_MINUTE.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.DECIMETER_PER_MINUTE);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toCentimeterPerMinute(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[CENTIMETER_PER_MINUTE - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), CENTIMETER_PER_MINUTE);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toCentimeterPerMinute(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.CENTIMETER_PER_MINUTE.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.CENTIMETER_PER_MINUTE);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toMillimeterPerMinute(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[MILLIMETER_PER_MINUTE - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), MILLIMETER_PER_MINUTE);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toMillimeterPerMinute(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.MILLIMETER_PER_MINUTE.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.MILLIMETER_PER_MINUTE);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toKilometerPerHour(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[KILOMETER_PER_HOUR - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), KILOMETER_PER_HOUR);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toKilometerPerHour(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.KILOMETER_PER_HOUR.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.KILOMETER_PER_HOUR);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toHectometerPerHour(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[HECTOMETER_PER_HOUR - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), HECTOMETER_PER_HOUR);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toHectometerPerHour(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.HECTOMETER_PER_HOUR.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.HECTOMETER_PER_HOUR);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toDecameterPerHour(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[DECAMETER_PER_HOUR - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), DECAMETER_PER_HOUR);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toDecameterPerHour(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.DECAMETER_PER_HOUR.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.DECAMETER_PER_HOUR);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toMeterPerHour(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[METER_PER_HOUR - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), METER_PER_HOUR);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toMeterPerHour(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.METER_PER_HOUR.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.METER_PER_HOUR);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toDecimeterPerHour(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[DECIMETER_PER_HOUR - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), DECIMETER_PER_HOUR);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toDecimeterPerHour(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.DECIMETER_PER_HOUR.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.DECIMETER_PER_HOUR);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toCentimeterPerHour(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[CENTIMETER_PER_HOUR - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), CENTIMETER_PER_HOUR);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toCentimeterPerHour(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.CENTIMETER_PER_HOUR.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.CENTIMETER_PER_HOUR);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Speed toMillimeterPerHour(double value, int unit) {
-		return new Speed(divide(multiply(value, SPEED_SCALES[MILLIMETER_PER_HOUR - UNIT_SCALE]), SPEED_SCALES[unit - UNIT_SCALE]), MILLIMETER_PER_HOUR);
+    @Contract("_, _ -> new")
+    public static @NotNull Speed toMillimeterPerHour(double value, @NotNull SpeedUnit unit) {
+        return new Speed(divide(multiply(value, SPEED_SCALES[SpeedUnit.MILLIMETER_PER_HOUR.ordinal()]), SPEED_SCALES[unit.ordinal()]), SpeedUnit.MILLIMETER_PER_HOUR);
     }
 
     @Override
@@ -378,7 +346,7 @@ public class Speed extends Unit implements ISpeed {
 
     @Override
     public String toString() {
-        return value + SPEED_SYMBOLS[unit];
+        return value + SPEED_SYMBOLS[unit.ordinal()];
     }
 
     @Override
@@ -393,18 +361,42 @@ public class Speed extends Unit implements ISpeed {
 
     @Override
     public boolean isInInternationalSystem() {
-        return unit == (METER_PER_SECOND - UNIT_SCALE);
+        return unit == SpeedUnit.METER_PER_SECOND;
     }
 
     @Override
     public String getUnitSymbol() {
-        return SPEED_SYMBOLS[unit];
+        return SPEED_SYMBOLS[unit.ordinal()];
     }
 
     @Deprecated
-	protected static Speed getInstance() {
-		if (!(instance instanceof Speed))
-		    instance = new Speed();
-		return instance;
-	}
+    protected static Speed getInstance() {
+        if (!(instance instanceof Speed))
+            instance = new Speed();
+        return instance;
+    }
+
+    public enum SpeedUnit {
+        KILOMETER_PER_SECOND,
+        HECTOMETER_PER_SECOND,
+        DECAMETER_PER_SECOND,
+        METER_PER_SECOND,
+        DECIMETER_PER_SECOND,
+        CENTIMETER_PER_SECOND,
+        MILLIMETER_PER_SECOND,
+        KILOMETER_PER_MINUTE,
+        HECTOMETER_PER_MINUTE,
+        DECAMETER_PER_MINUTE,
+        METER_PER_MINUTE,
+        DECIMETER_PER_MINUTE,
+        CENTIMETER_PER_MINUTE,
+        MILLIMETER_PER_MINUTE,
+        KILOMETER_PER_HOUR,
+        HECTOMETER_PER_HOUR,
+        DECAMETER_PER_HOUR,
+        METER_PER_HOUR,
+        DECIMETER_PER_HOUR,
+        CENTIMETER_PER_HOUR,
+        MILLIMETER_PER_HOUR,
+    }
 }

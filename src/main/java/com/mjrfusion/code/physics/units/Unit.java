@@ -9,15 +9,9 @@ import java.math.RoundingMode;
 
 import static com.mjrfusion.code.physics.Physic.ROUND_SCALE;
 
+@Getter
 public abstract class Unit {
-    protected final int MIN_UNIT = 0;
-    @Getter
     protected BigDecimal value;
-    @Getter
-    protected int unit;
-    @Deprecated(forRemoval = true)
-    protected int minUnit = 0;
-    protected int maxUnit;
     
     public Unit() { 
         setValue(BigDecimal.ZERO);
@@ -52,13 +46,9 @@ public abstract class Unit {
     protected static @NotNull BigDecimal multiply(@NotNull BigDecimal dividend, BigDecimal divider) {
         return dividend.multiply(divider);
     }
-    
-    protected boolean isUnitInRange(int unit) {
-        return (unit >= MIN_UNIT && unit <= maxUnit);
-    }
-    
+
     public boolean equalUnit(@NotNull Unit unit) {
-        return getUnitSymbol().equals(unit.getUnitSymbol()) && getUnit() == unit.getUnit();
+        return true;
     }
     
     public Unit setValue(double value) {
@@ -80,34 +70,7 @@ public abstract class Unit {
         this.value = value.setScale(ROUND_SCALE, RoundingMode.HALF_UP);
     }
 
-    public Unit setUnit(int unit) throws IllegalArgumentException {
-        if (isUnitInRange(unit)) {
-            this.unit = unit;
-            return this;
-        }
-        throw new IllegalArgumentException("The unit " + unit + " is not valid as " + getClass().getName() + " unit.");
-    }
-
     public abstract boolean isInInternationalSystem();
 
     public abstract String getUnitSymbol();
-
-    @Deprecated(forRemoval = true)
-    protected void setMinUnit(int minUnit) {
-        this.minUnit = minUnit;
-    }
-
-    @Deprecated(forRemoval = true)
-    protected int getMinUnit() {
-        return minUnit;
-    }
-
-    protected void setMaxUnit(int maxUnit) {
-        this.maxUnit = maxUnit;
-    }
-
-    @Deprecated(forRemoval = true)
-    protected int getMaxUnit() {
-        return maxUnit;
-    }
 }

@@ -7,39 +7,28 @@ import java.math.BigDecimal;
 
 public class Area extends Unit implements IArea {
     @Deprecated
-    private static Area instance; 
+    private static Area instance;
+    private AreaUnit unit;
 
-	public static final int SQUARED_KILOMETER = Length.LAST_UNIT_CONS + 1;
-	public static final int SQUARED_HECTOMETER = Length.LAST_UNIT_CONS + 2;
-	public static final int SQUARED_DECAMETER = Length.LAST_UNIT_CONS + 3;
-	public static final int SQUARED_METER = Length.LAST_UNIT_CONS + 4;
-	public static final int SQUARED_DECIMETER = Length.LAST_UNIT_CONS + 5;
-	public static final int SQUARED_CENTIMETER = Length.LAST_UNIT_CONS + 6;
-	public static final int SQUARED_MILLIMETER = Length.LAST_UNIT_CONS + 7;
+    protected static final BigDecimal[] AREA_SCALES = new BigDecimal[]{
+            Length.LENGTH_SCALES[Length.LengthUnit.KILOMETER.ordinal()].pow(2),
+            Length.LENGTH_SCALES[Length.LengthUnit.HECTOMETER.ordinal()].pow(2),
+            Length.LENGTH_SCALES[Length.LengthUnit.DECAMETER.ordinal()].pow(2),
+            Length.LENGTH_SCALES[Length.LengthUnit.METER.ordinal()].pow(2),
+            Length.LENGTH_SCALES[Length.LengthUnit.DECIMETER.ordinal()].pow(2),
+            Length.LENGTH_SCALES[Length.LengthUnit.CENTIMETER.ordinal()].pow(2),
+            Length.LENGTH_SCALES[Length.LengthUnit.MILLIMETER.ordinal()].pow(2)
+    };
 
-    protected static final int UNIT_SCALE = SQUARED_KILOMETER;
-    protected static final int LAST_UNIT_CONS = SQUARED_MILLIMETER;
-    private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
+    public static final String SQUARED_KILOMETER_SYMBOL = Length.KILOMETER_SYMBOL + "²";
+    public static final String SQUARED_HECTOMETER_SYMBOL = Length.HECTOMETER_SYMBOL + "²";
+    public static final String SQUARED_DECAMETER_SYMBOL = Length.DECAMETER_SYMBOL + "²";
+    public static final String SQUARED_METER_SYMBOL = Length.METER_SYMBOL + "²";
+    public static final String SQUARED_DECIMETER_SYMBOL = Length.DECIMETER_SYMBOL + "²";
+    public static final String SQUARED_CENTIMETER_SYMBOL = Length.CENTIMETER_SYMBOL + "²";
+    public static final String SQUARED_MILLIMETER_SYMBOL = Length.MILLIMETER_SYMBOL + "²";
 
-	protected static final BigDecimal[] AREA_SCALES = new BigDecimal[] {
-		Length.LENGTH_SCALES[Length.KILOMETER].pow(2),
-		Length.LENGTH_SCALES[Length.HECTOMETER].pow(2),
-		Length.LENGTH_SCALES[Length.DECAMETER].pow(2),
-		Length.LENGTH_SCALES[Length.METER].pow(2),
-		Length.LENGTH_SCALES[Length.DECIMETER].pow(2),
-		Length.LENGTH_SCALES[Length.CENTIMETER].pow(2),
-		Length.LENGTH_SCALES[Length.MILLIMETER].pow(2)
-	};
-
-	public static final String SQUARED_KILOMETER_SYMBOL = Length.KILOMETER_SYMBOL + "²";
-	public static final String SQUARED_HECTOMETER_SYMBOL = Length.HECTOMETER_SYMBOL + "²";
-	public static final String SQUARED_DECAMETER_SYMBOL = Length.DECAMETER_SYMBOL + "²";
-	public static final String SQUARED_METER_SYMBOL = Length.METER_SYMBOL + "²";
-	public static final String SQUARED_DECIMETER_SYMBOL = Length.DECIMETER_SYMBOL + "²";
-	public static final String SQUARED_CENTIMETER_SYMBOL = Length.CENTIMETER_SYMBOL + "²";
-	public static final String SQUARED_MILLIMETER_SYMBOL = Length.MILLIMETER_SYMBOL + "²";
-
-    protected final String[] AREA_SYMBOLS = new String[] {
+    protected final String[] AREA_SYMBOLS = new String[]{
             SQUARED_KILOMETER_SYMBOL,
             SQUARED_HECTOMETER_SYMBOL,
             SQUARED_DECAMETER_SYMBOL,
@@ -51,90 +40,82 @@ public class Area extends Unit implements IArea {
 
     public Area() {
         super();
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(SQUARED_METER - UNIT_SCALE);
+        unit = AreaUnit.SQUARED_METER;
     }
 
     public Area(double value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(SQUARED_METER - UNIT_SCALE);
+        unit = AreaUnit.SQUARED_METER;
     }
 
     public Area(String value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(SQUARED_METER - UNIT_SCALE);
+        unit = AreaUnit.SQUARED_METER;
     }
 
     public Area(long value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(SQUARED_METER - UNIT_SCALE);
+        unit = AreaUnit.SQUARED_METER;
     }
 
     public Area(BigDecimal value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(SQUARED_METER - UNIT_SCALE);
+        unit = AreaUnit.SQUARED_METER;
     }
 
-    public Area(double value, int unit) {
+    public Area(double value, AreaUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-    public Area(String value, int unit) {
+    public Area(String value, AreaUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-    public Area(long value, int unit) {
+    public Area(long value, AreaUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-    public Area(BigDecimal value, int unit) {
+    public Area(BigDecimal value, AreaUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Area toSquaredKilometer(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[SQUARED_KILOMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARED_KILOMETER);
+    @Contract("_, _ -> new")
+    public static @NotNull Area toSquaredKilometer(double value, @NotNull AreaUnit unit) {
+        return new Area(divide(multiply(value, AREA_SCALES[AreaUnit.SQUARED_KILOMETER.ordinal()]), AREA_SCALES[unit.ordinal()]), AreaUnit.SQUARED_KILOMETER);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Area toSquaredHectometer(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[SQUARED_HECTOMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARED_HECTOMETER);
+    @Contract("_, _ -> new")
+    public static @NotNull Area toSquaredHectometer(double value, @NotNull AreaUnit unit) {
+        return new Area(divide(multiply(value, AREA_SCALES[AreaUnit.SQUARED_HECTOMETER.ordinal()]), AREA_SCALES[unit.ordinal()]), AreaUnit.SQUARED_HECTOMETER);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Area toSquaredDecameter(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[SQUARED_DECAMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARED_DECAMETER);
+    @Contract("_, _ -> new")
+    public static @NotNull Area toSquaredDecameter(double value, @NotNull AreaUnit unit) {
+        return new Area(divide(multiply(value, AREA_SCALES[AreaUnit.SQUARED_DECAMETER.ordinal()]), AREA_SCALES[unit.ordinal()]), AreaUnit.SQUARED_DECAMETER);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Area toSquaredMeter(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[SQUARED_METER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARED_METER);
-    }
-	@Contract("_, _ -> new")
-    public static @NotNull Area toSquaredDecimeter(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[SQUARED_DECIMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARED_DECIMETER);
+    @Contract("_, _ -> new")
+    public static @NotNull Area toSquaredMeter(double value, @NotNull AreaUnit unit) {
+        return new Area(divide(multiply(value, AREA_SCALES[AreaUnit.SQUARED_METER.ordinal()]), AREA_SCALES[unit.ordinal()]), AreaUnit.SQUARED_METER);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Area toSquaredCentimeter(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[SQUARED_CENTIMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARED_CENTIMETER);
+    @Contract("_, _ -> new")
+    public static @NotNull Area toSquaredDecimeter(double value, @NotNull AreaUnit unit) {
+        return new Area(divide(multiply(value, AREA_SCALES[AreaUnit.SQUARED_DECIMETER.ordinal()]), AREA_SCALES[unit.ordinal()]), AreaUnit.SQUARED_DECIMETER);
     }
 
-	@Contract("_, _ -> new")
-    public static @NotNull Area toSquaredMillimeter(double value, int unit) {
-        return new Area(divide(multiply(value, AREA_SCALES[SQUARED_MILLIMETER - UNIT_SCALE]), AREA_SCALES[unit - UNIT_SCALE]), SQUARED_MILLIMETER);
+    @Contract("_, _ -> new")
+    public static @NotNull Area toSquaredCentimeter(double value, @NotNull AreaUnit unit) {
+        return new Area(divide(multiply(value, AREA_SCALES[AreaUnit.SQUARED_CENTIMETER.ordinal()]), AREA_SCALES[unit.ordinal()]), AreaUnit.SQUARED_CENTIMETER);
+    }
+
+    @Contract("_, _ -> new")
+    public static @NotNull Area toSquaredMillimeter(double value, @NotNull AreaUnit unit) {
+        return new Area(divide(multiply(value, AREA_SCALES[AreaUnit.SQUARED_MILLIMETER.ordinal()]), AREA_SCALES[unit.ordinal()]), AreaUnit.SQUARED_MILLIMETER);
     }
 
     @Override
@@ -174,7 +155,7 @@ public class Area extends Unit implements IArea {
 
     @Override
     public String toString() {
-        return value + AREA_SYMBOLS[unit];
+        return value + AREA_SYMBOLS[unit.ordinal()];
     }
 
     @Override
@@ -189,18 +170,28 @@ public class Area extends Unit implements IArea {
 
     @Override
     public boolean isInInternationalSystem() {
-        return unit == (SQUARED_METER - UNIT_SCALE);
+        return unit == AreaUnit.SQUARED_METER;
     }
 
     @Override
     public String getUnitSymbol() {
-        return AREA_SYMBOLS[unit];
+        return AREA_SYMBOLS[unit.ordinal()];
     }
 
     @Deprecated
     protected static Area getInstance() {
-		if (instance == null)
-			instance = new Area();
-		return instance;
+        if (instance == null)
+            instance = new Area();
+        return instance;
+    }
+
+    public enum AreaUnit {
+        SQUARED_KILOMETER,
+        SQUARED_HECTOMETER,
+        SQUARED_DECAMETER,
+        SQUARED_METER,
+        SQUARED_DECIMETER,
+        SQUARED_CENTIMETER,
+        SQUARED_MILLIMETER
     }
 }

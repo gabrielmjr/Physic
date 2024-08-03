@@ -49,7 +49,7 @@ public class Displacement1 extends Calculation {
 	private void calculateWithoutCustomUnits() {
         if (!initialDisplacement.equalUnit(finalDisplacement))
             throw new IllegalArgumentException("The initiaDisplacement and finalDisplacement are in diferrent unit, put them in the same unit or set the unit of the result");
-		step1 = new Length(finalDisplacement.getValue().subtract(initialDisplacement.getValue()), Length.METER);
+		step1 = new Length(finalDisplacement.getValue().subtract(initialDisplacement.getValue()), Length.LengthUnit.METER);
 	}
 
     @Override

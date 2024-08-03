@@ -6,24 +6,14 @@ import org.jetbrains.annotations.NotNull;
 import java.math.BigDecimal;
 
 public class SquaredTime extends Unit implements ISquaredTime {
+    private SquaredTimeUnit unit;
 
-    public static final int SQUARED_WEEK = Time.LAST_UNIT_CONS + 1;
-    public static final int SQUARED_DAY = Time.LAST_UNIT_CONS + 2;
-    public static final int SQUARED_HOUR = Time.LAST_UNIT_CONS + 3;
-    public static final int SQUARED_MINUTE = Time.LAST_UNIT_CONS + 4;
-    public static final int SQUARED_SECOND = Time.LAST_UNIT_CONS + 5;
-
-    protected static final int UNIT_SCALE = SQUARED_WEEK;
-    protected static final int LAST_UNIT_CONS = SQUARED_SECOND;
-    private final int MAX_UNIT_SCALE = LAST_UNIT_CONS - UNIT_SCALE;
-
-    protected static final BigDecimal[] SQUARED_TIME_SCALES = new BigDecimal[]
-            {
-                    Time.TIME_SCALES[SQUARED_WEEK - UNIT_SCALE].pow(2),
-                    Time.TIME_SCALES[SQUARED_DAY - UNIT_SCALE].pow(2),
-                    Time.TIME_SCALES[SQUARED_HOUR - UNIT_SCALE].pow(2),
-                    Time.TIME_SCALES[SQUARED_MINUTE - UNIT_SCALE].pow(2),
-                    Time.TIME_SCALES[SQUARED_SECOND - UNIT_SCALE].pow(2)
+    protected static final BigDecimal[] SQUARED_TIME_SCALES = new BigDecimal[] {
+                    Time.TIME_SCALES[Time.TimeUnit.WEEK.ordinal()].pow(2),
+                    Time.TIME_SCALES[Time.TimeUnit.DAY.ordinal()].pow(2),
+                    Time.TIME_SCALES[Time.TimeUnit.HOUR.ordinal()].pow(2),
+                    Time.TIME_SCALES[Time.TimeUnit.MINUTE.ordinal()].pow(2),
+                    Time.TIME_SCALES[Time.TimeUnit.SECOND.ordinal()].pow(2)
             };
 
     public static final String SQUARED_WEEK_SYMBOL = Time.WEEK_IN_YEAR_SYMBOL + "²";
@@ -32,7 +22,7 @@ public class SquaredTime extends Unit implements ISquaredTime {
     public static final String SQUARED_MINUTE_SYMBOL = Time.MINUTE_SYMBOL + "²";
     public static final String SQUARED_SECOND_SYMBOL = Time.SECOND_SYMBOL + "²";
 
-    protected static final String[] SQUAREDD_TIME_SYMBOLS = new String[] {
+    protected static final String[] SQUAREDD_TIME_SYMBOLS = new String[]{
             SQUARED_WEEK_SYMBOL,
             SQUARED_DAY_SYMBOL,
             SQUARED_HOUR_SYMBOL,
@@ -42,121 +32,112 @@ public class SquaredTime extends Unit implements ISquaredTime {
 
     public SquaredTime() {
         super();
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(SQUARED_SECOND - UNIT_SCALE);
+        unit = SquaredTimeUnit.SQUARED_SECOND;
     }
 
     public SquaredTime(double value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(SQUARED_SECOND - UNIT_SCALE);
+        unit = SquaredTimeUnit.SQUARED_SECOND;
     }
 
     public SquaredTime(String value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(SQUARED_SECOND - UNIT_SCALE);
+        unit = SquaredTimeUnit.SQUARED_SECOND;
     }
 
     public SquaredTime(long value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(SQUARED_SECOND - UNIT_SCALE);
+        unit = SquaredTimeUnit.SQUARED_SECOND;
     }
 
     public SquaredTime(BigDecimal value) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(SQUARED_SECOND - UNIT_SCALE);
+        unit = SquaredTimeUnit.SQUARED_SECOND;
     }
 
-    public SquaredTime(double value, int unit) {
+    public SquaredTime(double value, SquaredTimeUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-    public SquaredTime(String value, int unit) {
+    public SquaredTime(String value, SquaredTimeUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-    public SquaredTime(long value, int unit) {
+    public SquaredTime(long value, SquaredTimeUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
-    public SquaredTime(BigDecimal value, int unit) {
+    public SquaredTime(BigDecimal value, SquaredTimeUnit unit) {
         super(value);
-        setMaxUnit(MAX_UNIT_SCALE);
-        setUnit(unit - UNIT_SCALE);
+        this.unit = unit;
     }
 
     @Contract("_, _ -> new")
-    public static @NotNull SquaredTime toSquaredSecond(double value, int unit) {
-        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SQUARED_SECOND - UNIT_SCALE]), SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_SECOND);
+    public static @NotNull SquaredTime toSquaredSecond(double value, SquaredTimeUnit unit) {
+        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SquaredTimeUnit.SQUARED_SECOND.ordinal()]), SQUARED_TIME_SCALES[unit.ordinal()]), SquaredTimeUnit.SQUARED_SECOND);
     }
 
     @Contract("_, _ -> new")
-    public static @NotNull SquaredTime toSquaredMinute(double value, int unit) {
-        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SQUARED_MINUTE - UNIT_SCALE]), SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_MINUTE);
+    public static @NotNull SquaredTime toSquaredMinute(double value, SquaredTimeUnit unit) {
+        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SquaredTimeUnit.SQUARED_MINUTE.ordinal()]), SQUARED_TIME_SCALES[unit.ordinal()]), SquaredTimeUnit.SQUARED_MINUTE);
     }
 
     @Contract("_, _ -> new")
-    public static @NotNull SquaredTime toSquaredHour(double value, int unit) {
-        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SQUARED_HOUR - UNIT_SCALE]), SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_HOUR);
+    public static @NotNull SquaredTime toSquaredHour(double value, SquaredTimeUnit unit) {
+        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SquaredTimeUnit.SQUARED_HOUR.ordinal()]), SQUARED_TIME_SCALES[unit.ordinal()]), SquaredTimeUnit.SQUARED_HOUR);
     }
 
     @Contract("_, _ -> new")
-    public static @NotNull SquaredTime toSquaredDay(double value, int unit) {
-        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SQUARED_DAY - UNIT_SCALE]), SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_DAY);
+    public static @NotNull SquaredTime toSquaredDay(double value, SquaredTimeUnit unit) {
+        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SquaredTimeUnit.SQUARED_DAY.ordinal()]), SQUARED_TIME_SCALES[unit.ordinal()]), SquaredTimeUnit.SQUARED_DAY);
     }
 
     @Contract("_, _ -> new")
-    public static @NotNull SquaredTime toSquaredWeek(double value, int unit) {
-        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SQUARED_WEEK - UNIT_SCALE]), SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_WEEK);
+    public static @NotNull SquaredTime toSquaredWeek(double value, SquaredTimeUnit unit) {
+        return new SquaredTime(divide(multiply(value, SQUARED_TIME_SCALES[SquaredTimeUnit.SQUARED_WEEK.ordinal()]), SQUARED_TIME_SCALES[unit.ordinal()]), SquaredTimeUnit.SQUARED_WEEK);
     }
 
     @Override
     public SquaredTime toSquaredSecond() {
-        setUnit(SQUARED_SECOND - UNIT_SCALE);
-        value = divide(multiply(value, SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_TIME_SCALES[SQUARED_SECOND - UNIT_SCALE]);
+        unit = SquaredTimeUnit.SQUARED_SECOND;
+        value = divide(multiply(value, SQUARED_TIME_SCALES[unit.ordinal()]), SQUARED_TIME_SCALES[SquaredTimeUnit.SQUARED_SECOND.ordinal()]);
         return this;
     }
 
     @Override
     public SquaredTime toSquaredMinute() {
-        setUnit(SQUARED_MINUTE - UNIT_SCALE);
-        value = divide(multiply(value, SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_TIME_SCALES[SQUARED_MINUTE - UNIT_SCALE]);
+        unit = SquaredTimeUnit.SQUARED_MINUTE;
+        value = divide(multiply(value, SQUARED_TIME_SCALES[unit.ordinal()]), SQUARED_TIME_SCALES[SquaredTimeUnit.SQUARED_MINUTE.ordinal()]);
         return this;
     }
 
     @Override
     public SquaredTime toSquaredHour() {
-        setUnit(SQUARED_HOUR - UNIT_SCALE);
-        value = divide(multiply(value, SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_TIME_SCALES[SQUARED_HOUR - UNIT_SCALE]);
+        unit = SquaredTimeUnit.SQUARED_HOUR;
+        value = divide(multiply(value, SQUARED_TIME_SCALES[unit.ordinal()]), SQUARED_TIME_SCALES[SquaredTimeUnit.SQUARED_HOUR.ordinal()]);
         return this;
     }
 
     @Override
     public SquaredTime toSquaredDay() {
-        setUnit(SQUARED_DAY - UNIT_SCALE);
-        value = divide(multiply(value, SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_TIME_SCALES[SQUARED_DAY - UNIT_SCALE]);
+        unit = SquaredTimeUnit.SQUARED_DAY;
+        value = divide(multiply(value, SQUARED_TIME_SCALES[unit.ordinal()]), SQUARED_TIME_SCALES[SquaredTimeUnit.SQUARED_DAY.ordinal()]);
         return this;
     }
 
     @Override
     public SquaredTime toSquaredWeek() {
-        setUnit(SQUARED_WEEK - UNIT_SCALE);
-        value = divide(multiply(value, SQUARED_TIME_SCALES[unit - UNIT_SCALE]), SQUARED_TIME_SCALES[SQUARED_WEEK - UNIT_SCALE]);
+        unit = SquaredTimeUnit.SQUARED_WEEK;
+        value = divide(multiply(value, SQUARED_TIME_SCALES[unit.ordinal()]), SQUARED_TIME_SCALES[SquaredTimeUnit.SQUARED_WEEK.ordinal()]);
         return this;
     }
 
     @Override
     public String toString() {
-        return value + SQUAREDD_TIME_SYMBOLS[unit];
+        return value + SQUAREDD_TIME_SYMBOLS[unit.ordinal()];
     }
 
     @Override
@@ -171,11 +152,19 @@ public class SquaredTime extends Unit implements ISquaredTime {
 
     @Override
     public boolean isInInternationalSystem() {
-        return unit == SQUARED_SECOND - UNIT_SCALE;
+        return unit == SquaredTimeUnit.SQUARED_SECOND;
     }
 
     @Override
     public String getUnitSymbol() {
-        return SQUAREDD_TIME_SYMBOLS[unit];
+        return SQUAREDD_TIME_SYMBOLS[unit.ordinal()];
+    }
+
+    public enum SquaredTimeUnit {
+        SQUARED_WEEK,
+        SQUARED_DAY,
+        SQUARED_HOUR,
+        SQUARED_MINUTE,
+        SQUARED_SECOND
     }
 }
